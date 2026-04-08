@@ -742,119 +742,6 @@ nav .logo { font-size: 1.05rem !important; }
 .badge-selected { background: #d1fae5 !important; color: #065f46 !important; }
 .badge-not-selected { background: #f3f4f6 !important; color: #6b7280 !important; }
 
-
-/* ═══ ADDITIONAL MOBILE + POLISH FIXES ═══ */
-
-/* TAM waterfall boxes on mobile — stack vertically */
-@media (max-width: 768px) {
-  .fin-breakdown > div[style*="display:flex"] {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 6px !important;
-  }
-  .fin-breakdown > div[style*="display:flex"] > div[style*="min-width"] {
-    min-width: 100% !important;
-    flex-direction: row !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 10px 14px !important;
-  }
-  .fin-breakdown > div[style*="display:flex"] > div[style*="color:var(--text-dim)"] {
-    text-align: center !important;
-    font-size: 1rem !important;
-    padding: 2px 0 !important;
-  }
-  
-  /* Node detail panel — remove left overflow */
-  .node-detail { overflow: hidden !important; margin-left: 0 !important; margin-right: 0 !important; }
-  
-  /* TAM step flow on main section — stack on mobile */
-  #tam > .container > div > div[style*="display:flex"][style*="justify-content:center"] {
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
-  #tam > .container > div > div[style*="display:flex"][style*="justify-content:center"] > div[style*="min-width"] {
-    min-width: 100% !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-  }
-  #tam > .container > div > div[style*="display:flex"][style*="justify-content:center"] > div[style*="font-weight:700"] {
-    text-align: center !important;
-    font-size: 1.2rem !important;
-  }
-
-  /* Scoring matrix — ensure horizontal scroll container */
-  div:has(> table.matrix-table),
-  div:has(> table[style*="border-collapse"]) {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  
-  /* Hero label spacing */
-  .hero-label { font-size: 0.6rem !important; padding: 4px 12px !important; }
-  
-  /* Workflow segment padding */
-  .workflow-segment { padding: 18px 12px !important; }
-  
-  /* Macro card selected border */
-  .macro-card.selected { box-shadow: 0 0 0 2px rgba(13,148,136,0.3) !important; }
-}
-
-/* ═══ GENERAL LIGHT MODE POLISH ═══ */
-
-/* Better card backgrounds — slight warmth */
-.exec-card, .macro-card, .sector-panel, .method-step, .thesis-card {
-  background: #ffffff !important;
-}
-
-/* Workflow segment borders more visible */
-.workflow-segment { border: 1px solid #e2e8f0 !important; }
-
-/* Section alternating backgrounds */
-section:nth-child(even) { background: #f0f4f8 !important; }
-
-/* Hero — ensure text is fully dark and readable */
-.hero-sub { color: #4b5563 !important; font-size: 1.1rem !important; }
-
-/* Node cards hover — slightly more visible */
-.wf-node:hover { 
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important; 
-  border-color: #0d9488 !important;
-}
-
-/* Tab buttons — more contrast */
-.tab-btn { background: #f3f4f6 !important; color: #374151 !important; border: 1px solid #e5e7eb !important; }
-.tab-btn.active { background: #0d9488 !important; color: #ffffff !important; border-color: #0d9488 !important; }
-.tab-bar { background: #f9fafb !important; border: 1px solid #e5e7eb !important; }
-
-/* Summary strip — more visible */
-.strip-block { border: 1px solid rgba(0,0,0,0.06) !important; }
-
-/* Footer cleaner */
-footer { background: #f0f4f8 !important; border-top: 1px solid #e5e7eb !important; }
-
-/* Scroll progress — thicker */
-.scroll-progress { height: 3px !important; }
-
-/* Source tags — more readable */
-.source-tag { 
-  background: #f0fdfa !important; 
-  color: #0d9488 !important; 
-  border: 1px solid #99f6e4 !important;
-  font-size: 0.72rem !important;
-}
-.source-tag:hover { background: #ccfbf1 !important; }
-
-/* Phase timeline circles — slightly larger */
-div[style*="width:48px;height:48px;border-radius:50%"] {
-  width: 52px !important;
-  height: 52px !important;
-  font-size: 0.95rem !important;
-}
-
 </style>
 </head>
 <body>
@@ -1058,128 +945,27 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
       </div>
 
       <!-- Research Artifacts Summary -->
-      <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;margin-top:8px;">
-        <div style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;color:var(--text-secondary);margin-bottom:12px;">Complete Research Artifact Chain</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;">
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">India Manufacturing &mdash; AI Automation Thesis.docx</strong><br>Macro landscape + commercial viability analysis, 63 cited sources
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">Manufacturing_Role_Libraries_Expanded_Combined.xlsx</strong><br>255 roles across 3 sectors, 4 career streams, collar classification
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">Workflow_Role_Mapping.xlsx</strong><br>255 roles sequenced into end-to-end workflows, 28-32 steps per sector
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">Manufacturing_Workflow_Report.docx</strong><br>Narrative description of all 255 roles within the 4-pillar framework
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">3 &times; Workflow Visualizations</strong><br>Interactive HTML + PNG + SVG per sector (Auto, FMCG, ESDM)
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);padding:8px 12px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-subtle);line-height:1.4;">
-            <strong style="color:var(--text-primary);">AI_Automation_Opportunity_Analysis.xlsx</strong><br>57 nodes &times; 19 columns with TAM, scoring, products, financials
-          </div>
-        </div>
+      <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:12px;">
+        <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#1f2937;margin-bottom:14px;">Research Artifact Chain</div>
+        <ul style="list-style:none;">
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
+            <span style="position:absolute;left:0;color:#0d9488;font-weight:700;">1.</span>
+            <strong>Sector Landscape &amp; Role Library</strong> &mdash; Profiled 6 manufacturing sectors across 48 financial metrics (IBEF, PLFS, Mordor Intelligence), then catalogued 255 distinct job roles across 3 sectors using BLS, Mercer, Aon, and LinkedIn frameworks. Each role classified by career stream and collar type.
+          </li>
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
+            <span style="position:absolute;left:0;color:#7c3aed;font-weight:700;">2.</span>
+            <strong>Workflow Mapping &amp; Visualization</strong> &mdash; Sequenced all 255 roles into end-to-end value chain workflows (28-32 steps per sector) using clinical workflow methodology. Created interactive HTML diagrams, PNG and SVG exports for each sector showing the complete operational flow.
+          </li>
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;">
+            <span style="position:absolute;left:0;color:#d97706;font-weight:700;">3.</span>
+            <strong>AI Opportunity Analysis</strong> &mdash; Scored 6 sectors on 7 dimensions to select Auto &amp; FMCG, then analyzed 57 workflow nodes: problems, AI solutions, 45+ existing products, career-level headcount multipliers, and TAM derivation aligned to 19 published theses.
+          </li>
+        </ul>
       </div>
     </div>
 
-    <!-- 6 Sector Cards -->
-    <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:16px;">Six sectors evaluated, two selected</h3>
-    <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px; max-width:800px; line-height:1.7;">We profiled all six major manufacturing verticals across revenue, margins, workforce composition, growth trajectory, AI readiness, legal friction, and outsourcing propensity. <strong style="color:var(--text-primary);">Automobile and FMCG emerged as the optimal targets</strong> for AI white-collar automation based on a 7-dimension scoring matrix.</p>
 
-    <div class="macro-grid">
-      <!-- Auto -->
-      <div class="macro-card selected">
-        <span class="selection-badge badge-selected">SELECTED</span>
-        <div class="mc-name" style="color:#2563eb;">&#x1F697; Automobile & Components</div>
-        <div class="mc-rev" style="color:#2563eb;">$252B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">6.5%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">4.2M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">25%</span></div>
-        <div class="mc-row"><span class="mc-label">Knowledge Worker Payroll</span><span class="mc-val">$13.2B</span></div>
-        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">3.9%</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-teal);">Immediate</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM (50% WC)</span><span class="mc-val" style="color:var(--accent-teal);">$3.30B</span></div>
-        <div style="margin-top:8px;"><a href="https://www.ibef.org/industry/india-automobiles" target="_blank" class="source-tag">IBEF Auto</a> <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM Data</a></div>
-      </div>
-
-      <!-- FMCG -->
-      <div class="macro-card selected">
-        <span class="selection-badge badge-selected">SELECTED</span>
-        <div class="mc-name" style="color:#d97706;">&#x1F6D2; FMCG / CPG</div>
-        <div class="mc-rev" style="color:#d97706;">$288B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue &mdash; Largest by Revenue</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">17%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">3.0M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val" style="color:var(--accent-amber);">55% (highest)</span></div>
-        <div class="mc-row"><span class="mc-label">Knowledge Worker Payroll</span><span class="mc-val">$26.9B</span></div>
-        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">4.5% &rarr; $622B</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-amber);">Highly Ripe</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM (50% WC)</span><span class="mc-val" style="color:var(--accent-amber);">$6.73B</span></div>
-        <div style="margin-top:8px;"><a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a> <a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank" class="source-tag">Grand View</a></div>
-      </div>
-
-      <!-- Pharma -->
-      <div class="macro-card">
-        <span class="selection-badge badge-not-selected">SELECTIVE</span>
-        <div class="mc-name" style="color:#7c3aed;">&#x1F48A; Pharmaceuticals & Biotech</div>
-        <div class="mc-rev" style="color:#7c3aed;">$57B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">15.9%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">3.0M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">45%</span></div>
-        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">17.9%</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#7c3aed;">Selective / Targeted</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$1.43B</span></div>
-        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">Regulatory constraints (FDA/CDSCO) limit full automation. AI augments rather than replaces. R&D investment low (7-8% vs global 15-25%).</div>
-      </div>
-
-      <!-- ESDM -->
-      <div class="macro-card">
-        <span class="selection-badge badge-not-selected">CONSIDERED</span>
-        <div class="mc-name" style="color:#059669;">&#x1F4BB; ESDM (Electronics)</div>
-        <div class="mc-rev" style="color:#059669;">$220B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue &mdash; Most Aggressive Growth</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">7.0%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">2.5M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">35%</span></div>
-        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val" style="color:#059669;">17.9% &rarr; $500B</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#059669;">Immediate / Ripe</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$3.65B</span></div>
-        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">High AI readiness but workforce still nascent (10 semiconductor projects just approved). Analyzed in Phase 1 workflow mapping; deferred for deep-dive.</div>
-      </div>
-
-      <!-- Chemicals -->
-      <div class="macro-card">
-        <span class="selection-badge badge-not-selected">LONG-TERM</span>
-        <div class="mc-name" style="color:#ea580c;">&#x2697;&#xFE0F; Chemicals & Petrochemicals</div>
-        <div class="mc-rev" style="color:#ea580c;">$260B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">10.2%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">2.0M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">35%</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#ea580c;">Long-Term</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$3.54B</span></div>
-        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">PSU dominance, safety-critical operations, and heavy process industry focus limit rapid AI adoption. Lowest labor cost ratio (7.8%).</div>
-      </div>
-
-      <!-- Metals -->
-      <div class="macro-card">
-        <span class="selection-badge badge-not-selected">RESISTANT</span>
-        <div class="mc-name" style="color:#64748b;">&#x2692;&#xFE0F; Metals & Fabricated Metals</div>
-        <div class="mc-rev" style="color:#64748b;">$127B</div>
-        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
-        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">9.5%</span></div>
-        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">5.7M</span></div>
-        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val" style="color:var(--accent-rose);">20% (lowest)</span></div>
-        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-rose);">Resistant / Lagging</span></div>
-        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$1.31B</span></div>
-        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">80% blue-collar (most labor-intensive). Powerful trade unions, lowest attrition (8.6%), low digital maturity. Highest regulatory friction.</div>
-      </div>
-    </div>
-
-    <!-- 7-DIMENSION SCORING MATRIX -->
+        <!-- 7-DIMENSION SCORING MATRIX -->
     <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; margin-top:56px; margin-bottom:8px;">Sector Selection: 7-Dimension Scoring Matrix</h3>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:12px; line-height:1.7; max-width:900px;">Each sector was evaluated across seven categories. Each category is scored 1-5 per sector. The composite score determined which sectors to select for deep-dive AI opportunity analysis. <strong style="color:var(--text-primary);">Automobile and FMCG scored 1st and 2nd</strong> — driven by complementary strengths across different categories.</p>
 
@@ -1236,7 +1022,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
         </thead>
                 <tbody>
           <tr style="background:rgba(37,99,235,0.04);">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#2563eb;">&#x1F697; Automobile</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#2563eb;">&#x1F697; <a onclick="openSectorDetail('Automobile')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#2563eb;">Automobile</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.08);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.30B</span>
               <div class="cell-tip">
@@ -1297,7 +1083,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(13,148,136,0.12);color:var(--accent-teal);">SELECTED</span></td>
           </tr>
           <tr style="background:rgba(217,119,6,0.03);">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#d97706;">&#x1F6D2; FMCG</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#d97706;">&#x1F6D2; <a onclick="openSectorDetail('FMCG')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#d97706;">FMCG</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.1);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$6.73B</span>
               <div class="cell-tip">
@@ -1358,7 +1144,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(13,148,136,0.12);color:var(--accent-teal);">SELECTED</span></td>
           </tr>
           <tr style="background:transparent;">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#059669;">&#x1F4BB; ESDM</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#059669;">&#x1F4BB; <a onclick="openSectorDetail('ESDM')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#059669;">ESDM</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(217,119,6,0.08);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.65B</span>
               <div class="cell-tip">
@@ -1419,7 +1205,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">DEFERRED</span></td>
           </tr>
           <tr style="background:transparent;">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#7c3aed;">&#x1F48A; Pharma</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#7c3aed;">&#x1F48A; <a onclick="openSectorDetail('Pharma')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#7c3aed;">Pharma</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(225,29,72,0.08);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.43B</span>
               <div class="cell-tip">
@@ -1480,7 +1266,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">SELECTIVE</span></td>
           </tr>
           <tr style="background:transparent;">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#ea580c;">&#x2697;&#xFE0F; Chemicals</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#ea580c;">&#x2697;&#xFE0F; <a onclick="openSectorDetail('Chemicals')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#ea580c;">Chemicals</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(217,119,6,0.08);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.54B</span>
               <div class="cell-tip">
@@ -1541,7 +1327,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">LONG-TERM</span></td>
           </tr>
           <tr style="background:transparent;">
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#64748b;">&#x2692;&#xFE0F; Metals</td>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#64748b;">&#x2692;&#xFE0F; <a onclick="openSectorDetail('Metals')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#64748b;">Metals</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
               <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(225,29,72,0.08);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.31B</span>
               <div class="cell-tip">
@@ -1604,7 +1390,7 @@ div[style*="width:48px;height:48px;border-radius:50%"] {
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:8px;">Scores: 5 = strongest/most favorable, 1 = weakest/least favorable. For Legal Friction, 5 = lowest friction (most favorable). Composite = sum of all 7 categories (max 35).</p>
+    <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:8px;"><strong style="color:#0d9488;">Click any sector name</strong> for full details. Hover scores for explanation.<br>Scores: 5 = strongest/most favorable, 1 = weakest/least favorable. For Legal Friction, 5 = lowest friction (most favorable). Composite = sum of all 7 categories (max 35).</p>
     <div style="margin-bottom:8px;">
       <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM AI Adoption Index 2.0</a>
       <a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" class="source-tag">IBEF Manufacturing</a>
@@ -3219,6 +3005,48 @@ document.addEventListener('keydown', function(e) {
     }
   });
 })();
+
+
+// Sector detail data for click-to-expand
+const SECTOR_DETAILS = {
+  "Automobile": {emoji:"\u{1F697}",color:"#2563eb",revenue:"$252B",margin:"6.5%",employees:"4.2M",wcPct:"25%",wcPayroll:"$13.2B",fwdCagr:"3.9%",aiReadiness:"Immediate",tam:"$3.30B",selected:true,
+    highlights:["Highest AI readiness (NASSCOM AI Index) — OEMs deploying AI at scale","IATF 16949 creates structured data for immediate AI leverage","EV transition doubles engineering complexity — dual ICE+EV programs","12,250 SME supplier base creates massive SaaS distribution opportunity","PLI-Auto ($3.5B), FAME-III, Scrappage Policy create urgency"],
+    sources:[{t:"IBEF Auto",u:"https://www.ibef.org/industry/india-automobiles"},{t:"SIAM",u:"https://www.siam.in/statistics.aspx"}]},
+  "FMCG": {emoji:"\u{1F6D2}",color:"#d97706",revenue:"$288B",margin:"17%",employees:"3.0M",wcPct:"55%",wcPayroll:"$26.9B",fwdCagr:"4.5%",aiReadiness:"Highly Ripe",tam:"$6.73B",selected:true,
+    highlights:["Largest TAM ($6.73B) — 55% knowledge worker ratio","40-60% field force attrition = strongest AI demand pull","Highest outsourcing propensity — low resistance to AI delegation","Quick Commerce (70-80% CAGR) forcing AI-driven optimization","Highest margins (17%) = budget headroom for technology"],
+    sources:[{t:"IBEF FMCG",u:"https://www.ibef.org/industry/fmcg"}]},
+  "ESDM": {emoji:"\u{1F4BB}",color:"#059669",revenue:"$220B",margin:"7%",employees:"2.5M",wcPct:"35%",wcPayroll:"$3.65B",fwdCagr:"17.9%",aiReadiness:"Immediate",tam:"$1.83B",selected:false,
+    highlights:["Most aggressive growth (17.9% CAGR) but workforce still scaling","Highest AI readiness alongside Auto (NASSCOM)","10 semiconductor projects worth INR 1.6 lakh crore approved","Deferred: sector expanding too fast for stable workforce baseline"],
+    sources:[{t:"IBEF Electronics",u:"https://www.ibef.org/industry/electronics-system-design-manufacturing"}]},
+  "Pharma": {emoji:"\u{1F48A}",color:"#7c3aed",revenue:"$57B",margin:"15.9%",employees:"3.0M",wcPct:"45%",wcPayroll:"$1.43B",fwdCagr:"17.9%",aiReadiness:"Selective",tam:"$0.72B",selected:false,
+    highlights:["Heavily regulated (FDA/CDSCO) — automation requires extensive validation","AI augments rather than replaces: drug discovery, pharmacovigilance","Low R&D investment (7-8% vs global 15-25%) limits innovation-led AI","Best suited for selective, augmentation-first AI deployment"],
+    sources:[{t:"IBEF Pharma",u:"https://www.ibef.org/industry/pharmaceutical-india"}]},
+  "Chemicals": {emoji:"\u2697\uFE0F",color:"#ea580c",revenue:"$260B",margin:"10.2%",employees:"2.0M",wcPct:"35%",wcPayroll:"$3.54B",fwdCagr:"10%",aiReadiness:"Long-Term",tam:"$1.77B",selected:false,
+    highlights:["PSU dominance adds government procurement complexity","Safety-critical operations limit rapid AI deployment","Lowest labor cost ratio (7.8%) — less cost pressure for AI","Specialty chemicals 10%+ CAGR — future AI opportunity"],
+    sources:[{t:"IBEF Chemicals",u:"https://www.ibef.org/industry/chemical-industry-india"}]},
+  "Metals": {emoji:"\u2692\uFE0F",color:"#64748b",revenue:"$127B",margin:"9.5%",employees:"5.7M",wcPct:"20%",wcPayroll:"$1.31B",fwdCagr:"4.1%",aiReadiness:"Resistant",tam:"$0.66B",selected:false,
+    highlights:["80% blue-collar — very limited knowledge worker automation surface","Most powerful trade unions — highest regulatory friction","Lowest attrition (8.6%) and lowest digital maturity","INR 11 lakh crore infra push will grow sector long-term"],
+    sources:[{t:"IBEF Metals",u:"https://www.ibef.org/industry/metals-and-mining"}]}
+};
+
+function openSectorDetail(name) {
+  var s = SECTOR_DETAILS[name];
+  if (!s) return;
+  var body = '<h3 style="color:'+s.color+';">'+s.emoji+' '+name+'</h3>';
+  body += '<div class="modal-subtitle">'+(s.selected?'<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:700;">SELECTED FOR DEEP-DIVE</span>':'<span style="background:#f3f4f6;color:#6b7280;padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:700;">NOT SELECTED</span>')+'</div>';
+  body += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;">';
+  [["Revenue",s.revenue],["Margin",s.margin],["Employees",s.employees],["KW %",s.wcPct],["KW Payroll",s.wcPayroll],["CAGR",s.fwdCagr],["AI Readiness",s.aiReadiness],["AI TAM",s.tam]].forEach(function(m){
+    body+='<div style="display:flex;justify-content:space-between;padding:8px 12px;background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;font-size:0.85rem;"><span style="color:#6b7280;">'+m[0]+'</span><span style="font-family:var(--font-mono);font-weight:600;color:#1f2937;">'+m[1]+'</span></div>';
+  });
+  body += '</div>';
+  body += '<div style="margin-top:12px;"><div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:'+s.color+';margin-bottom:10px;">Key Insights</div><ul style="list-style:none;">';
+  s.highlights.forEach(function(h){body+='<li style="font-size:0.88rem;color:#374151;padding:6px 0 6px 16px;position:relative;line-height:1.55;border-bottom:1px solid #f3f4f6;"><span style="position:absolute;left:0;color:'+s.color+';">\u2022</span>'+h+'</li>';});
+  body += '</ul></div>';
+  if(s.sources){body+='<div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap;">';s.sources.forEach(function(src){body+='<a href="'+src.u+'" target="_blank" class="source-tag">'+src.t+'</a>';});body+='</div>';}
+  document.getElementById('tamModalBody').innerHTML=body;
+  document.getElementById('tamModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 </script>
 
 <!-- TAM DERIVATION MODAL -->
