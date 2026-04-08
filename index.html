@@ -676,40 +676,164 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
       </div>
     </div>
 
-    <!-- WHY AUTO + FMCG -->
-    <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-top:48px; margin-bottom:8px;">Why Automobile + FMCG? The 7-dimension selection rationale</h3>
-    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px; line-height:1.7;">Each sector was scored across seven dimensions. Auto and FMCG scored highest on the composite index, driven by complementary strengths: Auto leads on AI readiness and digital maturity; FMCG leads on TAM size, outsourcing propensity, and white-collar density.</p>
+    <!-- 7-DIMENSION SCORING MATRIX -->
+    <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; margin-top:56px; margin-bottom:8px;">Sector Selection: 7-Dimension Scoring Matrix</h3>
+    <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:12px; line-height:1.7; max-width:900px;">Each sector was evaluated across seven categories. Each category is scored 1-5 per sector. The composite score determined which sectors to select for deep-dive AI opportunity analysis. <strong style="color:var(--text-primary);">Automobile and FMCG scored 1st and 2nd</strong> — driven by complementary strengths across different categories.</p>
 
-    <div class="rationale-grid">
-      <div class="rationale-card" style="border-left:3px solid #60a5fa;">
-        <h4 style="color:#60a5fa;">Why Automobile</h4>
-        <ul>
-          <li><strong>Highest AI readiness</strong> (NASSCOM AI Index: "Very High") &mdash; OEMs like M&M, Tata Motors already deploying AI at scale</li>
-          <li><strong>Immediate ROI</strong> from quality automation: IATF 16949 compliance drives structured data, making AI adoption natural</li>
-          <li><strong>EV transition doubles engineering complexity</strong> &mdash; dual ICE+EV programs create unsustainable WC staffing needs</li>
-          <li><strong>Fragmented Tier-2/3 supplier base</strong> (12,250 SMEs) creates massive SaaS distribution opportunity</li>
-          <li><strong>Strong policy tailwinds</strong>: PLI-Auto scheme ($3.5B), FAME-III for EVs, Scrappage Policy creating new vehicle demand</li>
-        </ul>
-        <div style="margin-top:10px;">
-          <a href="https://www.ibef.org/industry/india-automobiles" target="_blank" class="source-tag">IBEF Auto</a>
-          <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM</a>
-          <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM AI Index</a>
+    <!-- Category Definitions -->
+    <div style="margin-bottom:28px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:10px;">
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid var(--accent-teal);">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em;">1. TAM for AI Automation</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">Total addressable market = 50% of white-collar payroll. Driven by WC headcount, salary levels, and WC ratio. Higher WC density = larger AI market.</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid var(--accent-amber);">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.08em;">2. Workforce Friction Index</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">Attrition rate as a proxy for workforce pain. High attrition = constant hiring = strong pull for AI. FMCG field force at 40-60% vs Metals at 8.6%.</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid var(--accent-violet);">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em;">3. Current Outsourcing Propensity</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">How much work is already delegated to third parties. High outsourcing = lower resistance to delegating work to AI. FMCG leads with extensive BPO usage.</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid var(--accent-blue);">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-blue); text-transform:uppercase; letter-spacing:0.08em;">4. AI & Digital Readiness</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">NASSCOM AI Adoption Index score. Measures data infrastructure, digital maturity, and executive AI awareness. ESDM and Auto lead; Metals lags.</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid var(--accent-rose);">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-rose); text-transform:uppercase; letter-spacing:0.08em;">5. Legal & Regulatory Friction</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">Union strength, labour law complexity, and regulatory barriers to workforce restructuring. Metals "Very High" friction (powerful unions); FMCG "Low-Moderate".</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid #fb923c;">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#fb923c; text-transform:uppercase; letter-spacing:0.08em;">6. Financial Health & Margins</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">Net margin and revenue growth as indicators of technology investment capacity. Higher margin = more budget for AI. FMCG at 16.6%; Auto at 6.5%.</p>
+        </div>
+        <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); border-left:3px solid #a3e635;">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#a3e635; text-transform:uppercase; letter-spacing:0.08em;">7. Overall AI Readiness Assessment</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px; line-height:1.45;">Composite judgement combining all six factors above, weighted by urgency. "Immediate" = deploy now; "Resistant" = multi-year transformation needed.</p>
         </div>
       </div>
-      <div class="rationale-card" style="border-left:3px solid #fbbf24;">
-        <h4 style="color:#fbbf24;">Why FMCG</h4>
-        <ul>
-          <li><strong>Largest TAM ($13.45B)</strong> &mdash; 55% white-collar ratio is the highest of any manufacturing sector, driven by massive sales/marketing/distribution workforce</li>
-          <li><strong>Highest outsourcing propensity</strong> ("Very High") &mdash; already comfortable delegating work to third parties, lowering AI adoption friction</li>
-          <li><strong>Extreme field force scale</strong>: 500K+ salespeople, 40-60% annual attrition = continuous recruitment treadmill</li>
-          <li><strong>Quick Commerce revolution</strong> (70-80% CAGR) is disrupting the traditional GT model, forcing AI-driven channel optimization</li>
-          <li><strong>Highest margins (16.6%)</strong> means budget headroom for technology investment, unlike margin-squeezed sectors</li>
-          <li><strong>Rural resurgence</strong> outpacing urban for 8 consecutive quarters &mdash; scaling distribution requires AI, not more salespeople</li>
-        </ul>
-        <div style="margin-top:10px;">
-          <a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>
-          <a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank" class="source-tag">Grand View</a>
-        </div>
+    </div>
+
+    <!-- SCORING HEATMAP TABLE -->
+    <div style="overflow-x:auto; margin-bottom:24px;">
+      <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:0.78rem; background:var(--bg-card); border-radius:12px; overflow:hidden; border:1px solid var(--border-subtle);">
+        <thead>
+          <tr>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:left; min-width:110px;">Sector</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-teal); padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">1. TAM<br>Size</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-amber); padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">2. Workforce<br>Friction</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-violet); padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">3. Outsourcing<br>Propensity</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-blue); padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">4. AI &<br>Digital</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-rose); padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">5. Legal<br>Friction</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:#fb923c; padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">6. Financial<br>Health</th>
+            <th style="font-family:var(--font-display); font-weight:600; font-size:0.55rem; text-transform:uppercase; letter-spacing:0.06em; color:#a3e635; padding:12px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">7. Overall<br>Readiness</th>
+            <th style="font-family:var(--font-display); font-weight:700; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-primary); padding:12px 10px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">COMPOSITE<br>SCORE</th>
+            <th style="font-family:var(--font-display); font-weight:700; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-teal); padding:12px 10px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">VERDICT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#60a5fa;">&#x1F697; Automobile</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$6.59B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">18-22%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">6.5%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-teal);">27/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(45,212,191,0.25);color:var(--accent-teal);">SELECTED</span></td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.06);">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#fbbf24;">&#x1F6D2; FMCG</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$13.45B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">40-60%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">16.6%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Highly Ripe</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-teal);">31/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(45,212,191,0.25);color:var(--accent-teal);">SELECTED</span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#34d399;">&#x1F4BB; ESDM</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.65B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">25-30%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">7.0%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-secondary);">25/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">DEFERRED</span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#a78bfa;">&#x1F48A; Pharma</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.43B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15-20%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">High (FDA)</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15.9%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Selective</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-dim);">19/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">SELECTIVE</span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#fb923c;">&#x2697;&#xFE0F; Chemicals</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.54B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">12-15%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">10.2%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Long-Term</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-dim);">17/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">LONG-TERM</span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#94a3b8;">&#x2692;&#xFE0F; Metals</td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.31B</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">8.6%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">9.5%</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Resistant</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-rose);">8/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--accent-rose);">RESISTANT</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:8px;">Scores: 5 = strongest/most favorable, 1 = weakest/least favorable. For Legal Friction, 5 = lowest friction (most favorable). Composite = sum of all 7 categories (max 35).</p>
+    <div style="margin-bottom:8px;">
+      <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM AI Adoption Index 2.0</a>
+      <a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" class="source-tag">IBEF Manufacturing</a>
+      <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF Future of Jobs 2025</a>
+      <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey India Manufacturing</a>
+    </div>
+
+    <!-- KEY INSIGHT: How categories drove selection -->
+    <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.2); border-radius:14px; padding:20px;">
+        <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#60a5fa; margin-bottom:12px;">&#x1F697; Auto: 27/35 &mdash; Won on Categories 4 &amp; 7</h4>
+        <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
+          <strong style="color:var(--text-primary);">Cat 4: AI & Digital Readiness (5/5)</strong> &mdash; Highest NASSCOM AI score. OEMs like M&M and Tata Motors already deploying AI. IATF 16949 creates structured data.<br><br>
+          <strong style="color:var(--text-primary);">Cat 7: Overall Readiness (5/5)</strong> &mdash; EV transition doubles engineering complexity, PLI-Auto ($3.5B), 12,250 SME supplier base creates massive distribution channel.<br><br>
+          <span style="color:var(--text-dim);">Weakness: Cat 2 (Workforce Friction) at 3/5 &mdash; lower attrition than FMCG means less immediate hiring pain.</span>
+        </p>
+      </div>
+      <div style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:14px; padding:20px;">
+        <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#fbbf24; margin-bottom:12px;">&#x1F6D2; FMCG: 31/35 &mdash; Won on Categories 1, 2, 3 &amp; 6</h4>
+        <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
+          <strong style="color:var(--text-primary);">Cat 1: TAM Size (5/5)</strong> &mdash; $13.45B, largest of all sectors. 55% white-collar ratio driven by massive sales/marketing/distribution workforce.<br><br>
+          <strong style="color:var(--text-primary);">Cat 2: Workforce Friction (5/5)</strong> &mdash; 40-60% field force attrition = continuous recruitment treadmill. Strongest pull for AI.<br><br>
+          <strong style="color:var(--text-primary);">Cat 3: Outsourcing (5/5)</strong> &mdash; Already delegates extensively to BPOs. Lowest resistance to AI delegation.<br><br>
+          <strong style="color:var(--text-primary);">Cat 6: Financial Health (5/5)</strong> &mdash; 16.6% net margin = highest of any manufacturing sector. Budget headroom for technology.<br><br>
+          <span style="color:var(--text-dim);">Weakness: Cat 4 (AI Readiness) at 3/5 &mdash; digital maturity lower than Auto/ESDM, but Quick Commerce (70-80% CAGR) is forcing rapid digitization.</span>
+        </p>
       </div>
     </div>
 
