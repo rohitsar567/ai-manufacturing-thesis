@@ -545,6 +545,76 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   writing-mode:horizontal-tb; max-width:70px; line-height:1.2; word-wrap:break-word;
 }
 
+
+/* ─── TAM CALCULATION WATERFALL ─── */
+.tam-calc {
+  display: flex; align-items: stretch; gap: 0; margin: 24px 0;
+  background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+.tam-step {
+  flex: 1; padding: 16px 10px; text-align: center; position: relative;
+  border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column;
+  justify-content: center; align-items: center; min-height: 110px;
+}
+.tam-step:last-child { border-right: none; }
+.tam-step::after {
+  content: '\2192'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+  font-size: 1rem; color: var(--text-dim); z-index: 2; background: var(--bg-card);
+  padding: 2px; line-height: 1;
+}
+.tam-step:last-child::after { display: none; }
+.tam-step .ts-label {
+  font-family: var(--font-display); font-size: 0.55rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 6px;
+}
+.tam-step .ts-value {
+  font-family: var(--font-mono); font-size: 1rem; font-weight: 800; line-height: 1.2;
+}
+.tam-step .ts-op {
+  font-family: var(--font-mono); font-size: 0.55rem; color: var(--text-dim); margin-top: 4px;
+}
+.tam-step .ts-source {
+  font-size: 0.5rem; color: var(--text-dim); margin-top: 4px; font-style: italic;
+}
+.tam-step.ts-result { background: rgba(45,212,191,0.06); }
+.tam-step.ts-result .ts-value { color: var(--accent-teal); font-size: 1.2rem; }
+@media(max-width:700px) {
+  .tam-calc { flex-wrap: wrap; }
+  .tam-step { min-width: 45%; flex: unset; }
+  .tam-step::after { display: none; }
+}
+
+/* ─── NODE CARD TAM WATERFALL (compact) ─── */
+.node-tam-flow {
+  display: flex; align-items: center; gap: 0; margin: 14px 0;
+  background: var(--bg-surface); border-radius: 10px; border: 1px solid var(--border-subtle);
+  overflow: hidden; flex-wrap: wrap;
+}
+.ntf-step {
+  flex: 1; padding: 10px 6px; text-align: center; position: relative;
+  border-right: 1px solid var(--border-subtle); min-width: 80px;
+}
+.ntf-step:last-child { border-right: none; }
+.ntf-step::after {
+  content: '\2192'; position: absolute; right: -7px; top: 50%; transform: translateY(-50%);
+  font-size: 0.75rem; color: var(--text-dim); z-index: 2; background: var(--bg-surface);
+  padding: 1px; line-height: 1;
+}
+.ntf-step:last-child::after { display: none; }
+.ntf-step .ntf-label {
+  font-family: var(--font-display); font-size: 0.45rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 3px;
+}
+.ntf-step .ntf-val {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+}
+.ntf-step .ntf-note {
+  font-size: 0.42rem; color: var(--text-dim); margin-top: 2px;
+}
+.ntf-step.ntf-result { background: rgba(45,212,191,0.06); }
+.ntf-step.ntf-result .ntf-val { color: var(--accent-teal); font-size: 0.85rem; }
+
 </style>
 </head>
 <body>
@@ -1371,6 +1441,117 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
         <div class="sb-num">$14.4B</div><div class="sb-label">Top 12 Nodes</div>
       </div>
     </div>
+
+
+    <!-- VISUAL TAM CALCULATION WATERFALL — AUTO -->
+    <div style="margin-top:40px;">
+      <h3 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#60a5fa;">Automobile — TAM Derivation Waterfall</h3>
+      <p style="font-size:0.72rem; color:var(--text-dim); margin-bottom:12px;">Each step shows exactly how we arrive at the $6.59B TAM figure, with data source for every number.</p>
+      <div class="tam-calc">
+        <div class="tam-step">
+          <div class="ts-label">FY25 Revenue</div>
+          <div class="ts-value" style="color:var(--text-primary);">$252.4B</div>
+          <div class="ts-source">IBEF Auto</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Labor Cost Ratio</div>
+          <div class="ts-value" style="color:var(--text-secondary);">&times; 20.9%</div>
+          <div class="ts-source">IBEF / PLFS</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Total Labor Cost</div>
+          <div class="ts-value" style="color:var(--text-primary);">$52.75B</div>
+          <div class="ts-op">252.4 &times; 0.209</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">White-Collar Share</div>
+          <div class="ts-value" style="color:var(--accent-amber);">&times; 25%</div>
+          <div class="ts-source">PLFS NCO-2015</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">WC Payroll</div>
+          <div class="ts-value" style="color:var(--text-primary);">$13.19B</div>
+          <div class="ts-op">52.75 &times; 0.25</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Career-Adj. Rate</div>
+          <div class="ts-value" style="color:var(--accent-violet);">&times; 55.8%</div>
+          <div class="ts-note">Exec 0% + Mgmt 60%<br>+ Prof 80% + Para 40%</div>
+          <div class="ts-source">Role Library</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Addressable Payroll</div>
+          <div class="ts-value" style="color:var(--text-primary);">$7.36B</div>
+          <div class="ts-op">13.19 &times; 0.558</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">AI Capture Rate</div>
+          <div class="ts-value" style="color:var(--accent-rose);">&times; 50%</div>
+          <div class="ts-source">McKinsey / WEF</div>
+        </div>
+        <div class="tam-step ts-result">
+          <div class="ts-label">Sector TAM</div>
+          <div class="ts-value">$6.59B</div>
+          <div class="ts-op">7.36 &times; 0.5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISUAL TAM CALCULATION WATERFALL — FMCG -->
+    <div style="margin-top:28px;">
+      <h3 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#fbbf24;">FMCG — TAM Derivation Waterfall</h3>
+      <p style="font-size:0.72rem; color:var(--text-dim); margin-bottom:12px;">FMCG's larger TAM is driven by the 55% white-collar ratio — 2.2&times; higher than Auto's 25%.</p>
+      <div class="tam-calc">
+        <div class="tam-step">
+          <div class="ts-label">FY25 Revenue</div>
+          <div class="ts-value" style="color:var(--text-primary);">$287.9B</div>
+          <div class="ts-source">IBEF FMCG</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Total Employees</div>
+          <div class="ts-value" style="color:var(--text-secondary);">3.0M</div>
+          <div class="ts-source">IBEF / PLFS</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">White-Collar Ratio</div>
+          <div class="ts-value" style="color:var(--accent-amber);">&times; 55%</div>
+          <div class="ts-source">PLFS NCO-2015</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">WC Headcount</div>
+          <div class="ts-value" style="color:var(--text-primary);">1.65M</div>
+          <div class="ts-op">3.0M &times; 0.55</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">WC Payroll</div>
+          <div class="ts-value" style="color:var(--text-primary);">$26.91B</div>
+          <div class="ts-op">1.65M &times; $16,310</div>
+          <div class="ts-source">NASSCOM</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Career-Adj. Rate</div>
+          <div class="ts-value" style="color:var(--accent-violet);">&times; 58.4%</div>
+          <div class="ts-note">Exec 0% + Mgmt 65%<br>+ Prof 85% + Para 45%</div>
+          <div class="ts-source">Role Library</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">Addressable Payroll</div>
+          <div class="ts-value" style="color:var(--text-primary);">$15.72B</div>
+          <div class="ts-op">26.91 &times; 0.584</div>
+        </div>
+        <div class="tam-step">
+          <div class="ts-label">AI Capture Rate</div>
+          <div class="ts-value" style="color:var(--accent-rose);">&times; 50%</div>
+          <div class="ts-source">McKinsey / WEF</div>
+        </div>
+        <div class="tam-step ts-result">
+          <div class="ts-label">Sector TAM</div>
+          <div class="ts-value">$13.45B</div>
+          <div class="ts-op">15.72 &times; 0.5</div>
+        </div>
+      </div>
+    </div>
+
 
     <div id="tam-waterfall-container" style="margin-top:40px;">
       <!-- Waterfall chart rendered by JS -->
@@ -2264,11 +2445,46 @@ function renderDetailPanel(n, ctx) {
       <div class="nd-block block-opportunity"><div class="nd-block-label lbl-opportunity">India Product Opportunity</div><p>${n.opportunity || 'General AI augmentation opportunity'}</p></div>
     </div>
     ${vcHtml ? `<div style="margin-top:14px;"><div class="nd-block-label lbl-vc" style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-violet);margin-bottom:8px;">AI Automation Theses</div>${vcHtml}</div>` : ''}
-    <div class="nd-stats">
-      <div class="nd-stat"><div class="stat-num num-teal">$${n.tam}M</div><div class="stat-label">Node TAM</div></div>
-      <div class="nd-stat"><div class="stat-num num-amber">${n.hc_pct}%</div><div class="stat-label">WC Reduction</div></div>
-      <div class="nd-stat"><div class="stat-num num-rose">${n.fte}</div><div class="stat-label">FTEs per Plant</div></div>
+    ${n.sources ? `<div style="margin-top:10px;"><div style="font-family:var(--font-display);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent-teal);margin-bottom:6px;">Sources</div><div style="display:flex;flex-wrap:wrap;gap:5px;">${n.sources.map(s=>'<a href="'+s.u+'" target="_blank" rel="noopener" class="source-tag">'+s.t+'</a>').join('')}</div></div>` : ''}
+    <div style="margin-top:16px;">
+      <div style="font-family:var(--font-display);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-teal);margin-bottom:8px;">TAM Calculation Waterfall</div>
+      <div class="node-tam-flow">
+        <div class="ntf-step">
+          <div class="ntf-label">WC Reduction</div>
+          <div class="ntf-val" style="color:var(--accent-amber);">${n.hc_pct}%</div>
+        </div>
+        <div class="ntf-step">
+          <div class="ntf-label">FTEs / Plant</div>
+          <div class="ntf-val" style="color:var(--text-primary);">${n.fte}</div>
+        </div>
+        <div class="ntf-step">
+          <div class="ntf-label">HC Savings</div>
+          <div class="ntf-val" style="color:var(--accent-amber);">$${(n.fte * 14000).toLocaleString()}</div>
+          <div class="ntf-note">${n.fte} &times; ~$14K avg</div>
+        </div>
+        <div class="ntf-step">
+          <div class="ntf-label">+ Process Gains</div>
+          <div class="ntf-val" style="color:var(--accent-violet);">$${Math.max(n.tam * 2000 - n.fte * 14000, 0).toLocaleString()}</div>
+          <div class="ntf-note">Quality, speed, accuracy</div>
+        </div>
+        <div class="ntf-step">
+          <div class="ntf-label">Total Improvement</div>
+          <div class="ntf-val" style="color:var(--text-primary);">$${(n.tam * 2000).toLocaleString()}</div>
+          <div class="ntf-note">Per plant / year</div>
+        </div>
+        <div class="ntf-step">
+          <div class="ntf-label">&times; 50%</div>
+          <div class="ntf-val" style="color:var(--text-dim);">AI Capture</div>
+          <div class="ntf-note">McKinsey / WEF basis</div>
+        </div>
+        <div class="ntf-step ntf-result">
+          <div class="ntf-label">Node TAM</div>
+          <div class="ntf-val">$${n.tam}M</div>
+          <div class="ntf-note">Sector-wide</div>
+        </div>
+      </div>
     </div>
+    ${n.feas ? '<div style="margin-top:12px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.75rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(45,212,191,0.15);color:var(--accent-teal);border:1px solid rgba(45,212,191,0.3);':n.feas==='High'?'background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3);':n.feas==='Medium'?'background:rgba(245,158,11,0.1);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.2);':'background:rgba(139,155,175,0.08);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Feasibility: ' + n.feas + '</div>' : ''}
   </div>`;
 }
 
