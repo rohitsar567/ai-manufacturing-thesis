@@ -472,16 +472,12 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 .score-cell { position: relative; cursor: pointer; transition: all 0.2s; }
 .score-cell:hover { background: rgba(45,212,191,0.08) !important; }
 .score-cell .cell-tip {
-  display: none; position: absolute; z-index: 50; bottom: calc(100% + 8px); left: 50%;
-  transform: translateX(-50%); width: 260px; padding: 14px; border-radius: 10px;
-  background: #1a2332; border: 1px solid rgba(45,212,191,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  font-size: 0.75rem; color: var(--text-secondary); line-height: 1.5;
+  display: none; position: fixed; z-index: 999; width: 280px; padding: 16px; border-radius: 12px;
+  background: #1a2332; border: 1px solid rgba(45,212,191,0.4); box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+  font-size: 0.78rem; color: var(--text-secondary); line-height: 1.55;
   font-family: var(--font-body); pointer-events: none;
 }
-.score-cell .cell-tip::after {
-  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  border: 6px solid transparent; border-top-color: rgba(45,212,191,0.3);
-}
+.score-cell .cell-tip::after { display: none; }
 .score-cell:hover .cell-tip { display: block; pointer-events: auto; }
 .cell-tip strong { color: var(--text-primary); font-family: var(--font-display); font-size: 0.7rem; }
 .cell-tip .tip-score { font-family: var(--font-mono); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px; }
@@ -2606,6 +2602,25 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeTAMModal();
 });
 
+
+// Position cell tooltips near the hovered cell
+document.addEventListener('mouseover', function(e) {
+  const cell = e.target.closest('.score-cell');
+  if (!cell) return;
+  const tip = cell.querySelector('.cell-tip');
+  if (!tip) return;
+  const rect = cell.getBoundingClientRect();
+  // Position above the cell, centered
+  let top = rect.top - tip.offsetHeight - 12;
+  let left = rect.left + rect.width/2 - 140;
+  // If too high, show below
+  if (top < 10) top = rect.bottom + 12;
+  // Keep on screen
+  if (left < 10) left = 10;
+  if (left + 280 > window.innerWidth) left = window.innerWidth - 290;
+  tip.style.top = top + 'px';
+  tip.style.left = left + 'px';
+});
 </script>
 
 <!-- TAM DERIVATION MODAL -->
