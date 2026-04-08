@@ -551,6 +551,197 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   writing-mode:horizontal-tb; max-width:70px; line-height:1.2; word-wrap:break-word;
 }
 
+
+/* ═══ READABILITY & CONTRAST FIXES ═══ */
+body { font-size: 16px; }
+
+/* Increase base text sizes */
+.section-desc { font-size: 1.1rem; color: #374151; }
+.section-title { font-size: clamp(2rem, 3.5vw, 2.8rem); color: #111827; }
+.section-label { font-size: 0.75rem; color: #0d9488; font-weight: 600; }
+
+/* Higher contrast text */
+.exec-card .card-detail { font-size: 0.9rem; color: #4b5563; line-height: 1.6; }
+.exec-card .card-label { font-size: 0.8rem; color: #6b7280; }
+.exec-card .card-num { font-size: 2.2rem; }
+
+/* Sector panel readability */
+.metric-label { font-size: 0.85rem !important; color: #4b5563 !important; }
+.metric-value { font-size: 0.9rem !important; }
+.metric-row { padding: 14px 0 !important; }
+
+/* Node cards — bigger, more readable */
+.wf-node { width: 185px !important; padding: 18px 14px !important; }
+.wf-node .n-title { font-size: 0.8rem !important; color: #1f2937 !important; }
+.wf-node .n-tam { font-size: 0.7rem !important; }
+.node-tier { font-size: 0.6rem !important; }
+
+/* Segment titles */
+.ws-title { font-size: 1.25rem !important; color: #111827 !important; }
+.ws-subtitle { font-size: 0.85rem !important; color: #6b7280 !important; }
+
+/* Node detail panels */
+.nd-block p, .nd-block li { font-size: 0.88rem !important; color: #374151 !important; line-height: 1.65 !important; }
+.nd-block-label { font-size: 0.72rem !important; }
+.nd-header h4 { font-size: 1.25rem !important; }
+
+/* Matrix table */
+.matrix-table { font-size: 0.85rem !important; }
+.matrix-table thead th { font-size: 0.7rem !important; padding: 14px 10px !important; }
+.matrix-table tbody td { padding: 12px 10px !important; }
+.matrix-table .node-name { font-size: 0.88rem !important; }
+
+/* Macro cards */
+.macro-card .mc-name { font-size: 0.95rem !important; }
+.macro-card .mc-row { font-size: 0.82rem !important; padding: 8px 0 !important; }
+.macro-card .mc-val { font-size: 0.88rem !important; color: #1f2937 !important; }
+.macro-card .mc-label { color: #6b7280 !important; }
+
+/* Scoring matrix readability */
+.score-cell { padding: 10px 8px !important; }
+
+/* Research methodology phases */
+.rationale-card li { font-size: 0.88rem !important; color: #374151 !important; }
+
+/* Source tags — bigger touch targets */
+.source-tag { font-size: 0.7rem !important; padding: 4px 10px !important; }
+
+/* Thesis cards */
+.thesis-card { padding: 24px !important; }
+.thesis-name { font-size: 1.05rem !important; }
+.thesis-desc { font-size: 0.9rem !important; color: #374151 !important; line-height: 1.65 !important; }
+.thesis-source { font-size: 0.78rem !important; }
+
+/* Method steps */
+.method-step h4 { font-size: 0.95rem !important; }
+.method-step p { font-size: 0.88rem !important; color: #374151 !important; }
+
+/* Tab buttons */
+.tab-btn { font-size: 0.85rem !important; padding: 12px 28px !important; }
+
+/* Footer */
+footer p { font-size: 0.82rem !important; color: #6b7280 !important; }
+footer .author { font-size: 0.95rem !important; color: #1f2937 !important; }
+
+/* Nav */
+nav a { font-size: 0.75rem !important; color: #4b5563 !important; }
+nav a:hover, nav a.active { color: #0d9488 !important; }
+nav .logo { font-size: 1.05rem !important; }
+
+/* ═══ MOBILE OPTIMIZATION ═══ */
+@media (max-width: 768px) {
+  .thesis-pillars { grid-template-columns: 1fr !important; }
+  .container { padding: 0 16px !important; }
+  section { padding: 60px 0 !important; }
+  
+  /* Hero */
+  .hero { padding: 80px 16px 48px !important; min-height: auto !important; }
+  .hero h1 { font-size: 2.2rem !important; }
+  .hero-sub { font-size: 1rem !important; }
+  .hero-stats { gap: 20px !important; }
+  .hero-stat .num { font-size: 2rem !important; }
+  .hero-stat .label { font-size: 0.65rem !important; }
+  
+  /* Exec cards stack */
+  .exec-grid { grid-template-columns: 1fr !important; }
+  
+  /* Thesis pillars — stack vertically */
+  .exec-grid + div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Sector split — stack */
+  .sector-split { grid-template-columns: 1fr !important; }
+  
+  /* Macro cards — 1 column */
+  .macro-grid { grid-template-columns: 1fr !important; }
+  
+  /* Scoring matrix — horizontal scroll */
+  .score-cell span[style*="font-size:0.8rem"] { font-size: 0.75rem !important; }
+  
+  /* Node grid — 2 per row */
+  .node-grid { gap: 8px !important; }
+  .wf-node { width: calc(50% - 20px) !important; min-width: 140px !important; }
+  .node-arrow { display: none !important; }
+  
+  /* Node detail grid — stack */
+  .nd-grid { grid-template-columns: 1fr !important; }
+  .nd-stats { flex-direction: column !important; }
+  
+  /* Fin breakdown — wrap */
+  .fin-breakdown > div:first-of-type { flex-wrap: wrap !important; }
+  .fin-breakdown > div:first-of-type > div { min-width: 70px !important; }
+  
+  /* TAM section */
+  .summary-strip { flex-wrap: wrap !important; }
+  .strip-block { min-width: calc(50% - 2px) !important; }
+  
+  /* TAM derivation — stack */
+  div[style*="grid-template-columns:1fr 1fr 1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
+  div[style*="grid-template-columns: 1fr 1fr;"][style*="gap:16px"] { grid-template-columns: 1fr !important; }
+  
+  /* Waterfall bars */
+  .waterfall-v2 { height: 280px !important; gap: 4px !important; }
+  .wf-bar-v2 .bar-name-bottom { font-size: 0.45rem !important; max-width: 50px !important; }
+  .wf-bar-v2 .bar-val-top { font-size: 0.55rem !important; }
+  
+  /* Thesis grid */
+  .thesis-grid { grid-template-columns: 1fr !important; }
+  
+  /* Method steps */
+  .method-steps { grid-template-columns: 1fr !important; }
+  
+  /* Research flow phases */
+  div[style*="grid-template-columns:56px 1fr"] { grid-template-columns: 40px 1fr !important; }
+  
+  /* Rationale grid */
+  .rationale-grid { grid-template-columns: 1fr !important; }
+  
+  /* Category definition cards */
+  div[style*="grid-template-columns:repeat(auto-fill, minmax(300px,1fr))"] { grid-template-columns: 1fr !important; }
+  
+  /* Research artifact chain */
+  div[style*="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))"] { grid-template-columns: 1fr !important; }
+  
+  /* TAM step flow — wrap */
+  div[style*="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:24px; justify-content:center;"] > div { min-width: calc(33% - 10px) !important; }
+  
+  /* Modal */
+  .tam-modal { padding: 20px !important; max-height: 90vh !important; }
+  .tam-modal .modal-cards { grid-template-columns: 1fr !important; }
+  
+  /* Sources table — scroll */
+  .sources-table { display: block; overflow-x: auto; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem !important; }
+  .wf-node { width: 100% !important; }
+  .strip-block { min-width: 100% !important; }
+  div[style*="grid-template-columns:1fr 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .tab-btn { padding: 10px 16px !important; font-size: 0.78rem !important; }
+}
+
+/* ═══ GENERAL POLISH ═══ */
+/* Smooth card shadows */
+.exec-card, .macro-card, .sector-panel, .rationale-card, .thesis-card, .method-step {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04) !important;
+}
+.exec-card:hover, .macro-card:hover, .thesis-card:hover, .method-step:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+
+/* Better card borders */
+.exec-card, .sector-panel, .macro-card { border-color: #e5e7eb !important; }
+
+/* Workflow segments */
+.workflow-segment { border-color: #e5e7eb !important; }
+
+/* Selection badges */
+.selection-badge { font-size: 0.6rem !important; }
+.badge-selected { background: #d1fae5 !important; color: #065f46 !important; }
+.badge-not-selected { background: #f3f4f6 !important; color: #6b7280 !important; }
+
 </style>
 </head>
 <body>
@@ -582,7 +773,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
     <div class="hero-stat"><div class="num">$10B</div><div class="label">Total TAM</div></div>
     <div class="hero-stat"><div class="num">57</div><div class="label">Workflow Nodes</div></div>
     <div class="hero-stat"><div class="num">2.7M</div><div class="label">Knowledge Workers</div></div>
-    <div class="hero-stat"><div class="num">57</div><div class="label">Problem Nodes Mapped</div></div>
+    
   </div>
 </div>
 
@@ -617,7 +808,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
     </div>
 
     <!-- Key thesis points -->
-    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px;">
+    <div class="thesis-pillars" style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px;">
       <div style="padding:20px; background:var(--bg-card); border-radius:12px; border:1px solid var(--border-subtle); border-left: 3px solid var(--accent-teal);">
         <div style="font-family:var(--font-display); font-size:0.75rem; font-weight:700; color:var(--accent-teal); margin-bottom:8px;">REGULATORY ENABLEMENT</div>
         <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">India's labour law framework permits AI augmentation of knowledge work without the regulatory barriers that apply to production roles &mdash; enabling faster deployment of AI tools for planning, compliance, and analytics functions.</p>
@@ -2430,7 +2621,7 @@ function renderWorkflow(nodes, containerId) {
     if (!groups[bp]) return;
     html += `<div class="workflow-segment ${BP_CLASSES[bp]}">
       <div class="ws-title" style="color:var(--${bp === 'supply' ? 'supply-color' : bp === 'mfg' ? 'mfg-color' : bp === 'demand' ? 'demand-color' : 'support-color'})">${BP_LABELS[bp]}</div>
-      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${groups[bp].filter(n=>n.tier==='T1').length} with AI solutions &bull; $\${(groups[bp].reduce((s,n)=>s+n.tam,0)/2000).toFixed(1)}B segment TAM</div>
+      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${groups[bp].filter(n=>n.tier==='T1').length} with AI solutions &bull; ${"$"+(groups[bp].reduce((s,n)=>s+n.tam,0)/2000).toFixed(1)+"B segment TAM"}</div>
       <div class="node-grid">`;
     groups[bp].forEach((n, i) => {
       if (i > 0) html += '<div class="node-arrow">→</div>';
