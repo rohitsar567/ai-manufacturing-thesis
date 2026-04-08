@@ -467,6 +467,25 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 .rf-step .rf-label { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; margin-top: 4px; }
 .rf-arrow { color: var(--text-dim); font-size: 1.2rem; }
 
+
+/* ─── CELL TOOLTIPS ─── */
+.score-cell { position: relative; cursor: pointer; transition: all 0.2s; }
+.score-cell:hover { background: rgba(45,212,191,0.08) !important; }
+.score-cell .cell-tip {
+  display: none; position: absolute; z-index: 50; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%); width: 260px; padding: 14px; border-radius: 10px;
+  background: #1a2332; border: 1px solid rgba(45,212,191,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  font-size: 0.75rem; color: var(--text-secondary); line-height: 1.5;
+  font-family: var(--font-body); pointer-events: none;
+}
+.score-cell .cell-tip::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: rgba(45,212,191,0.3);
+}
+.score-cell:hover .cell-tip { display: block; pointer-events: auto; }
+.cell-tip strong { color: var(--text-primary); font-family: var(--font-display); font-size: 0.7rem; }
+.cell-tip .tip-score { font-family: var(--font-mono); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px; }
+
 </style>
 </head>
 <body>
@@ -731,78 +750,372 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
             <th style="font-family:var(--font-display); font-weight:700; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-teal); padding:12px 10px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center;">VERDICT</th>
           </tr>
         </thead>
-        <tbody>
+                <tbody>
           <tr style="background:rgba(59,130,246,0.06);">
             <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#60a5fa;">&#x1F697; Automobile</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$6.59B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">18-22%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">6.5%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span></td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$6.59B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 4/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">2nd largest TAM. 1.05M white-collar workers but only 25% WC ratio limits the total. Strong enterprise base (250 companies) but 75% of workforce is blue-collar, reducing automation addressable market vs FMCG.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">18-22%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 3/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">Moderate attrition. Auto has more stable employment than FMCG due to stronger industrial relations and higher skill requirements. Less immediate hiring pain means weaker pull signal for AI, but EV talent shortage is creating new pressure.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 3/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">Auto OEMs have moderate outsourcing — mainly IT and some design services. Core manufacturing and quality functions are kept in-house. Less 'delegation muscle' than FMCG, meaning more cultural change needed for AI adoption.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 5/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">Highest NASSCOM AI Index score alongside ESDM. OEMs like M&M, Tata Motors, and Maruti already deploying AI for quality inspection and predictive maintenance. IATF 16949 compliance creates structured data that AI can immediately leverage.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 4/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">Lower friction than Metals/Chemicals. White-collar automation faces minimal union resistance (unions primarily protect blue-collar 'workmen'). Some regulatory complexity around ARAI/ICAT homologation but these don't block WC automation.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">6.5%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 3/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">Lowest net margin of the two selected sectors. Limits discretionary technology spend, but high capital intensity and PLI-Auto subsidies ($3.5B) offset this. Companies invest in automation to protect thin margins.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 5/5</div>
+                <strong>Automobile</strong>
+                <p style="margin-top:6px;">EV transition is forcing simultaneous ICE+EV engineering programs, doubling WC staffing needs. 12,250 SME suppliers need to digitize for OEM compliance. PLI-Auto, FAME-III, and Scrappage Policy create urgency.</p>
+              </div>
+            </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-teal);">27/35</span></td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(45,212,191,0.25);color:var(--accent-teal);">SELECTED</span></td>
           </tr>
           <tr style="background:rgba(245,158,11,0.06);">
             <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#fbbf24;">&#x1F6D2; FMCG</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$13.45B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">40-60%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">16.6%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Highly Ripe</span></td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$13.45B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 5/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">Largest TAM of any manufacturing sector. 55% white-collar ratio is driven by massive sales (500K+ field force), marketing, and distribution workforce. This is 2x the Auto TAM and 3.7x ESDM, making FMCG the single richest target for AI.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">40-60%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 5/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">Extreme attrition, especially in field sales. Companies like HUL, ITC, and Dabur run continuous recruitment cycles for territory sales executives. 40-60% annual field force turnover = $500M+ annual recruitment cost across the sector. Strongest demand pull for AI.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 5/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">FMCG companies are the heaviest users of outsourced services — BPO for customer service, outsourced field promotion teams, third-party logistics, contract manufacturing. This 'delegation culture' means AI adoption faces minimal resistance.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 3/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">Lower digital maturity than Auto/ESDM. Many FMCG operations still run on legacy DMS and manual distributor processes. However, Quick Commerce (70-80% CAGR) and e-commerce integration are forcing rapid digitization, especially in demand planning.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 4/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">FMCG has relatively weak unions compared to Metals/Chemicals. The Industrial Disputes Act primarily protects factory 'workmen' — sales, marketing, and finance staff (the bulk of FMCG's white-collar workforce) have minimal legal protection against automation.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">16.6%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 5/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">Highest net margin of any manufacturing sector. This gives FMCG companies the financial headroom to invest in AI without margin pressure. For comparison: Auto at 6.5% must justify every technology dollar; FMCG can experiment more freely.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Highly Ripe</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 4/5</div>
+                <strong>FMCG</strong>
+                <p style="margin-top:6px;">Not 'Immediate' like Auto because digital infrastructure is less mature, but 'Highly Ripe' because the economic case is overwhelming: largest TAM, highest attrition, highest margins, and Quick Commerce disruption forcing rapid transformation.</p>
+              </div>
+            </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-teal);">31/35</span></td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;background:rgba(45,212,191,0.25);color:var(--accent-teal);">SELECTED</span></td>
           </tr>
-          <tr>
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#34d399;">&#x1F4BB; ESDM</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.65B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">25-30%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">7.0%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-secondary);">25/35</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">DEFERRED</span></td>
+          <tr style="background:transparent;">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#34d399;">&#x1F4BB; ESDM</td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.65B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 3/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">Moderate TAM. Only 35% white-collar ratio and 2.5M employees limit the addressable market. However, this sector is growing at 17.9% CAGR — the fastest — so TAM will expand rapidly as the workforce scales.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">25-30%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 4/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">Higher attrition than Auto, driven by semiconductor talent wars and EMS industry growth. Engineers frequently move between companies for 20-40% salary jumps, creating constant replacement hiring.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 3/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">ESDM companies outsource assembly (EMS model) but keep design and quality in-house. Moderate outsourcing propensity means AI adoption requires some cultural shift.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 5/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">Tied with Auto for highest NASSCOM AI Index score. Semiconductor companies and EMS firms are inherently technology-forward. Strong data infrastructure from MES/ERP systems.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 3/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">Moderate regulatory friction. ISM 2.0 and ECMS schemes add compliance burden but don't directly block automation. No strong union presence in most ESDM companies.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">7.0%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 2/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">Low net margin constrains AI investment. ESDM companies operate on thin margins, especially in EMS/assembly. Semiconductor design firms have better margins but are a small share of the sector.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.2);color:var(--accent-teal);">5</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Immediate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 5/5</div>
+                <strong>ESDM</strong>
+                <p style="margin-top:6px;">10 semiconductor projects worth INR 1.6 lakh crore approved. India surpassed China as top smartphone exporter. Near self-reliance in mobile manufacturing (99.2%). But workforce is still scaling — deep-dive deferred to next phase.</p>
+              </div>
+            </td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-dim);">25/35</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">DEFERRED</span></td>
           </tr>
-          <tr>
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#a78bfa;">&#x1F48A; Pharma</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.43B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15-20%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">High (FDA)</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15.9%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Selective</span></td>
+          <tr style="background:transparent;">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#a78bfa;">&#x1F48A; Pharma</td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.43B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 1/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Smallest TAM. Despite 45% WC ratio, the sector's $57B revenue limits total addressable payroll. Pharma's value is in R&D and regulatory expertise — hard to automate. AI augments rather than replaces in this sector.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15-20%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 3/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Moderate attrition, concentrated in sales reps. R&D and regulatory staff have lower turnover due to specialized skills. The recruitment pain is real but narrower than FMCG.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 3/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Pharma outsources CRO (clinical research) and some manufacturing, but keeps regulatory and quality functions firmly in-house due to FDA/CDSCO requirements.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 3/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Pharma has moderate digital maturity. Lab informatics and ERP are widespread, but AI adoption for drug discovery is still nascent in India (R&D spend at 7-8% vs global 15-25%).</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">High (FDA)</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 2/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Heavily regulated by FDA, CDSCO, WHO-GMP. Any automation touching manufacturing or quality requires extensive validation (21 CFR Part 11). This slows AI deployment significantly compared to less regulated sectors.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(45,212,191,0.15);color:var(--accent-teal);">4</span><br><span style="font-size:0.6rem;color:var(--text-dim);">15.9%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 4/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">Strong margins provide technology budget. Pharma's high margins are driven by generics scale and IP, giving companies financial capacity to invest in AI — if regulatory barriers can be navigated.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Selective</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 3/5</div>
+                <strong>Pharma</strong>
+                <p style="margin-top:6px;">AI will transform pharma (drug discovery, clinical trials, pharmacovigilance) but in a targeted, augmentation-first way. Full WC automation is limited by regulatory requirements for human oversight.</p>
+              </div>
+            </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-dim);">19/35</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">SELECTIVE</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">SELECTIVE</span></td>
           </tr>
-          <tr>
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#fb923c;">&#x2697;&#xFE0F; Chemicals</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.54B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">12-15%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">10.2%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Long-Term</span></td>
+          <tr style="background:transparent;">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#fb923c;">&#x2697;&#xFE0F; Chemicals</td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$3.54B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 3/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Moderate TAM. 35% WC ratio but $260B revenue provides a reasonable base. $31B chemical trade deficit signals import substitution opportunity that will grow the WC workforce.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">12-15%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 2/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Low attrition. Chemical plants operate with stable, experienced workforces. Low turnover means less hiring pain and weaker pull signal for AI recruitment tools.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 2/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Chemical companies rarely outsource core functions. Safety-critical operations, PSU (public sector) culture, and process secrecy limit outsourcing propensity. AI adoption requires significant cultural change.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low-Mod</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 2/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Below average digital maturity. Many chemical plants still operate with manual logbooks. DCS/SCADA systems exist for process control but data analytics layer is thin. Long way to AI readiness.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Moderate</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 3/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">PSU presence (GAIL, IOC, BPCL) adds government-employer complexity. No extreme union friction but government-owned plants have slower technology adoption cycles and procurement bureaucracy.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(245,158,11,0.15);color:var(--accent-amber);">3</span><br><span style="font-size:0.6rem;color:var(--text-dim);">10.2%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 3/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Decent margins but not exceptional. Specialty chemicals growing at 10%+ CAGR with better margins; bulk/commodity chemicals are thinner. Mixed picture for technology investment capacity.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Long-Term</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 2/5</div>
+                <strong>Chemicals</strong>
+                <p style="margin-top:6px;">Three plug-and-play Chemical Parks proposed but still early stage. Specialty chemicals growth will eventually create AI demand, but the sector's safety culture and PSU dominance make this a 5-7 year horizon.</p>
+              </div>
+            </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--text-dim);">17/35</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--text-dim);">LONG-TERM</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--text-dim);">LONG-TERM</span></td>
           </tr>
-          <tr>
-            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:600; color:#94a3b8;">&#x2692;&#xFE0F; Metals</td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.31B</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">8.6%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">9.5%</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Resistant</span></td>
+          <tr style="background:transparent;">
+            <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#94a3b8;">&#x2692;&#xFE0F; Metals</td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$1.31B</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Smallest TAM alongside Pharma. 80% blue-collar workforce (5.7M total, only 1.14M WC) and $126.6B revenue means very limited WC payroll to address. Most value creation is in manual/physical labor, not white-collar processing.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">8.6%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-amber);">Workforce Friction: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Lowest attrition of any sector. Metal workers — both blue and white collar — stay for decades. Strong job security through union contracts means almost zero recruitment pain. No pull signal for AI hiring tools.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-violet);">Outsourcing Propensity: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Metals companies keep almost everything in-house. Heavy industry culture, union pressure against outsourcing, and vertically integrated operations mean minimal delegation to third parties. Highest resistance to AI-as-outsourcing.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Low</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-blue);">AI & Digital Readiness: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Lowest digital maturity of all sectors. Many plants still operate with paper-based systems for quality and maintenance. ERP adoption is partial. IIoT/Industry 4.0 is in earliest stages at best.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Very High</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:var(--accent-rose);">Legal Friction: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Most powerful trade unions of any manufacturing sector. Industrial Disputes Act protections are strongest here. Workforce restructuring requires extensive negotiation and often government approval. AI-driven headcount reduction would face severe union resistance.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(139,155,175,0.1);color:var(--text-dim);">2</span><br><span style="font-size:0.6rem;color:var(--text-dim);">9.5%</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#fb923c;">Financial Health: 2/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">Below-average margins and the highest average enterprise revenue ($320M) means these are large, capital-intensive companies with long investment cycles. Technology spend is directed at production capacity, not WC automation.</p>
+              </div>
+            </td>
+            <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(244,63,94,0.15);color:var(--accent-rose);">1</span><br><span style="font-size:0.6rem;color:var(--text-dim);">Resistant</span>
+              <div class="cell-tip">
+                <div class="tip-score" style="color:#a3e635;">Overall Readiness: 1/5</div>
+                <strong>Metals</strong>
+                <p style="margin-top:6px;">INR 11 lakh crore infrastructure push and 500 GW non-fossil target will grow the sector, but the combination of powerful unions, low attrition, low digital maturity, and 80% blue-collar composition makes this the most resistant sector to WC AI automation.</p>
+              </div>
+            </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-rose);">8/35</span></td>
-            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:600;font-size:0.65rem;color:var(--accent-rose);">RESISTANT</span></td>
+            <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-mono);font-weight:800;font-size:0.7rem;padding:4px 10px;border-radius:6px;color:var(--accent-rose);">RESISTANT</span></td>
           </tr>
         </tbody>
       </table>
