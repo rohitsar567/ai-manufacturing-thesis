@@ -742,6 +742,21 @@ nav .logo { font-size: 1.05rem !important; }
 .badge-selected { background: #d1fae5 !important; color: #065f46 !important; }
 .badge-not-selected { background: #f3f4f6 !important; color: #6b7280 !important; }
 
+
+/* ═══ FONT HARMONIZATION ═══ */
+/* Body text: 0.9rem minimum */
+p, li, td { font-size: max(0.9rem, inherit) !important; }
+/* Mono labels: 0.7rem minimum */  
+[style*="font-mono"] { font-size: max(0.7rem, inherit); }
+/* Section descriptions uniform */
+.section-desc { font-size: 1.05rem !important; line-height: 1.75 !important; color: #374151 !important; }
+/* Card content uniform */
+.exec-card .card-detail, .nd-block p, .nd-block li, .thesis-desc, .method-step p,
+.rationale-card li, .modal-derivation { font-size: 0.9rem !important; line-height: 1.6 !important; }
+/* Consistent spacing */
+section { padding: 80px 0 !important; }
+h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
+
 </style>
 </head>
 <body>
@@ -759,7 +774,6 @@ nav .logo { font-size: 1.05rem !important; }
     <li><a href="#auto-analysis">Automobile</a></li>
     <li><a href="#fmcg-analysis">FMCG</a></li>
     <li><a href="#tam">TAM</a></li>
-    <li><a href="#ai-theses">AI Theses</a></li>
     <li><a href="#methodology">Method</a></li>
   </ul>
 </nav>
@@ -1595,22 +1609,12 @@ nav .logo { font-size: 1.05rem !important; }
 </section>
 
 <!-- VC THESES -->
-<section id="ai-theses">
-  <div class="container fade-in">
-    <div class="section-label">07 &mdash; AI Automation Theses</div>
-    <div class="section-title">How VCs, consultants, and research institutions see the manufacturing AI opportunity</div>
-    <div class="section-desc">Our analysis maps directly to published investment theses and research from venture capital firms, global consulting firms, industry research bodies, and government institutions. These theses validate the market timing, opportunity structure, and readiness for AI automation at scale.</div>
 
-    <div class="thesis-grid" id="thesis-grid-container">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-</section>
 
 <!-- METHODOLOGY -->
 <section id="methodology">
   <div class="container fade-in">
-    <div class="section-label">08 &mdash; Methodology & Sources</div>
+    <div class="section-label">07 &mdash; Methodology & Sources</div>
     <div class="section-title">Methodology, sources, and calculation rationale</div>
     <div class="section-desc">A bottom-up approach: catalog every role, map it into a sequential workflow, identify AI-solvable problems per node, then calculate addressable market from actual payroll data.</div>
 
@@ -2436,7 +2440,7 @@ function renderDetailPanel(n, ctx) {
       </div>
       <div class="nd-stats">
         <div class="nd-stat"><div class="stat-num num-teal">$${Math.round(n.tam/2)}M</div><div class="stat-label">AI Market Size</div></div>
-        <div class="nd-stat"><div class="stat-num num-amber">${n.hc_pct}%</div><div class="stat-label">Efficiency Gain</div></div>
+        <div class="nd-stat"><div class="stat-num num-amber">${n.hc_pct}%</div><div class="stat-label">Jobs AI Can Do (%)</div></div>
       </div>
     </div>`;
   }
@@ -2458,46 +2462,31 @@ function renderDetailPanel(n, ctx) {
     ${n.sources ? `<div style="margin-top:12px;"><div style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-teal);margin-bottom:8px;">Sources & References</div><div style="display:flex;flex-wrap:wrap;gap:6px;">${n.sources.map(s=>'<a href="'+s.u+'" target="_blank" rel="noopener" class="source-tag">'+s.t+'</a>').join('')}</div></div>` : ''}
     <div class="fin-breakdown">
       <h5>AI Market Size Derivation</h5>
-      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
-        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">Efficiency Gain</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-amber);">${n.hc_pct}%</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:10px 14px;text-align:center;min-width:90px;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);">Jobs AI Can Do</div>
+          <div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:800;color:var(--accent-amber);">${n.fte} roles</div>
         </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">×</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">FTEs/Plant</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-rose);">${n.fte}</div>
+        <div style="color:var(--text-dim);font-size:1rem;">&times;</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:10px 14px;text-align:center;min-width:90px;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);">Avg Cost/Role</div>
+          <div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:800;color:var(--text-primary);">$13K/yr</div>
         </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">×</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">Avg Salary</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--text-primary);">$13K</div>
+        <div style="color:var(--text-dim);font-size:1rem;">=</div>
+        <div style="background:var(--bg-card);border:1px solid var(--accent-amber);border-radius:8px;padding:10px 14px;text-align:center;min-width:100px;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent-amber);">Jobs Value</div>
+          <div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:800;color:var(--accent-amber);">$${(n.fte*13000).toLocaleString()}</div>
         </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">=</div>
-        <div style="background:var(--bg-card);border:1px solid var(--accent-amber);border-radius:8px;padding:8px 12px;text-align:center;min-width:100px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--accent-amber);">HC Savings</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-amber);">$${(n.fte * 13000).toLocaleString()}</div>
-        </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">+</div>
-        <div style="background:var(--bg-card);border:1px solid var(--accent-violet);border-radius:8px;padding:8px 12px;text-align:center;min-width:100px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--accent-violet);">Process Gains</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-violet);">$${Math.max(n.tam * 2000 - n.fte * 13000, 0).toLocaleString()}</div>
-        </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">=</div>
-        <div style="background:var(--bg-card);border:1px solid var(--text-primary);border-radius:8px;padding:8px 12px;text-align:center;min-width:110px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-secondary);">Total Improvement</div>
-          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--text-primary);">$${(n.tam * 2000).toLocaleString()}</div>
-        </div>
-        <div style="color:var(--text-dim);font-size:0.9rem;">× 50%</div>
-        <div style="background:rgba(45,212,191,0.1);border:2px solid var(--accent-teal);border-radius:8px;padding:8px 14px;text-align:center;min-width:110px;">
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-secondary);">Gross Value</div>
-          <div style="font-family:var(--font-mono);font-size:1.2rem;font-weight:800;color:var(--text-primary);">$${n.tam}M</div>
+        <div style="color:var(--text-dim);font-size:1rem;">&times;50%</div>
+        <div style="color:var(--text-dim);font-size:1rem;">&times;50%</div>
+        <div style="background:rgba(13,148,136,0.08);border:2px solid var(--accent-teal);border-radius:8px;padding:10px 16px;text-align:center;min-width:100px;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent-teal);">AI Market Size</div>
+          <div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:800;color:var(--accent-teal);">$${Math.round(n.tam/2)}M</div>
         </div>
       </div>
-      <div style="font-size:0.72rem;color:var(--text-dim);line-height:1.5;">
-        <strong style="color:var(--text-secondary);">Headcount savings</strong> = ${n.fte} FTEs × ~$13,000 avg WC salary (PLFS). 
-        <strong style="color:var(--text-secondary);">Process gains</strong> = quality improvements, cycle time reduction, error elimination, compliance automation. 
-        <strong style="color:var(--text-secondary);">50% capture</strong> = share of total improvement addressable by AI solution providers (conservative per McKinsey/WEF benchmarks).
+      <div style="font-size:0.8rem;color:#6b7280;line-height:1.6;">
+        <strong style="color:#374151;">Jobs AI can do</strong> = roles per plant where AI can perform the core tasks today.
+        <strong style="color:#374151;">50% &times; 50%</strong> = capture rate &times; AI price discount (must be cheaper than incumbents).
       </div>
     </div>
     ${n.feas ? '<div style="margin-top:12px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.75rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(13,148,136,0.08);color:var(--accent-teal);border:1px solid rgba(45,212,191,0.3);':n.feas==='High'?'background:rgba(52,211,153,0.15);color:#059669;border:1px solid rgba(52,211,153,0.3);':n.feas==='Medium'?'background:rgba(245,158,11,0.1);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.2);':'background:rgba(0,0,0,0.03);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Feasibility: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
@@ -2511,7 +2500,7 @@ function renderMatrix(nodes, containerId) {
   let html = `<table class="matrix-table">
     <thead><tr>
       <th>Rank</th><th>Node</th><th>Segment</th><th>Tier</th><th>Score</th><th>TAM ($M)</th>
-      <th>Efficiency</th><th>Roles Impacted</th><th>Products</th>
+      <th>AI Scope (%)</th><th>Roles AI Serves</th><th>Products</th>
     </tr></thead><tbody>`;
 
   sorted.forEach((n, i) => {
@@ -2623,7 +2612,11 @@ function renderTAMWaterfall() {
 
   html += '</div>';
   html += '<div style="height:56px;"></div>'; // space for bottom labels
-  html += '<div class="waterfall-legend" style="margin-top:8px;"><span><div class="dot" style="background:rgba(37,99,235,0.8);"></div>Automobile</span><span><div class="dot" style="background:rgba(217,119,6,0.8);"></div>FMCG</span><span><div class="dot" style="background:transparent;border:2px solid var(--accent-teal);width:8px;height:8px;"></div>Top Quartile (8+)</span></div>';
+  html += '<div style="display:flex;gap:20px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;background:rgba(37,99,235,0.8);display:inline-block;"></span> Automobile</span>
+      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;background:rgba(217,119,6,0.8);display:inline-block;"></span> FMCG</span>
+      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;border:2px solid #0d9488;display:inline-block;"></span> Top Quartile (8+/10)</span>
+    </div>';
 
   container.innerHTML = html;
 }
@@ -2773,11 +2766,11 @@ function openTAMModal(nodeId, sector) {
   body += '<div class="modal-derivation">';
   body += '<div class="md-row"><span class="md-label">Total sector employees</span><span class="md-val">' + (totalEmp/1000000).toFixed(1) + 'M</span></div>';
   body += '<div class="md-row"><span class="md-label">White-collar ratio (PLFS/NCO-2015)</span><span class="md-val">' + (wcRatio*100) + '%</span></div>';
-  body += '<div class="md-row"><span class="md-label">White-collar headcount</span><span class="md-val">' + (wcCount/1000000).toFixed(2) + 'M</span></div>';
+  body += '<div class="md-row"><span class="md-label">White-collar headcount</span><span class="md-val">' + (wcCount/1000000).toFixed(1) + 'M</span></div>';
   body += '<div class="md-row"><span class="md-label">Avg WC salary (sector)</span><span class="md-val">$' + avgSalary.toLocaleString() + '/yr</span></div>';
   body += '<div class="md-row"><span class="md-label">Total WC payroll</span><span class="md-val">$' + wcPayroll + 'B</span></div>';
   body += '<div class="md-row"><span class="md-label">Effective automation rate (career-adj.)</span><span class="md-val" style="color:var(--accent-violet);">' + cs.effective_automation_pct + '%</span></div>';
-  body += '<div class="md-row"><span class="md-label">Addressable WC payroll</span><span class="md-val">$' + (wcPayroll * cs.effective_automation_pct / 100).toFixed(2) + 'B</span></div>';
+  body += '<div class="md-row"><span class="md-label">Addressable WC payroll</span><span class="md-val">$' + (wcPayroll * cs.effective_automation_pct / 100).toFixed(1) + 'B</span></div>';
   body += '<div class="md-row"><span class="md-label">TAM capture rate</span><span class="md-val">50%</span></div>';
   body += '<div class="md-row"><span class="md-label">= Gross addressable value</span><span class="md-val">$' + (wcPayroll * cs.effective_automation_pct / 100 * 0.5).toFixed(1) + 'B</span></div>';
   body += '<div class="md-row"><span class="md-label">&times; 50% AI price discount</span><span class="md-val" style="color:var(--accent-rose);">0.50</span></div>';
@@ -2790,11 +2783,13 @@ function openTAMModal(nodeId, sector) {
   body += '<h4 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:' + sectorColor + ';margin-bottom:12px;">THIS NODE: ' + n.name.toUpperCase() + '</h4>';
 
   body += '<div class="modal-derivation">';
-  body += '<div class="md-row"><span class="md-label">Node WC reduction rate</span><span class="md-val">' + n.hc_pct + '%</span></div>';
-  body += '<div class="md-row"><span class="md-label">FTEs reducible per plant</span><span class="md-val">' + n.fte + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Headcount savings (per plant/yr)</span><span class="md-val" style="color:var(--accent-amber);">$' + hcSavings.toLocaleString() + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Process/quality/efficiency gains</span><span class="md-val" style="color:var(--accent-violet);">$' + processSavings.toLocaleString() + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Total improvement per plant</span><span class="md-val">$' + totalImprovement.toLocaleString() + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">% of roles AI can serve</span><span class="md-val">' + n.hc_pct + '%</span></div>';
+  body += '<div class="md-row"><span class="md-label">Roles AI can do per plant</span><span class="md-val">' + n.fte + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Jobs-to-be-done value (per plant/yr)</span><span class="md-val" style="color:var(--accent-amber);">$' + hcSavings.toLocaleString() + '</span></div>';
+  // removed process gains line
+  // <span class="md-val" style="color:var(--accent-violet);">$' + processSavings.toLocaleString() + '</span></div>';
+  // removed total improvement line
+  // <span class="md-val">$' + totalImprovement.toLocaleString() + '</span></div>';
   body += '<div class="md-row"><span class="md-label">Gross node TAM (50% capture)</span><span class="md-val">$' + n.tam + 'M</span></div>';
   body += '<div class="md-row"><span class="md-label">&times; 50% AI price discount</span><span class="md-val" style="color:var(--accent-rose);">0.50</span></div>';
   body += '<div class="md-row md-total"><span class="md-label"><strong>Node TAM (post AI discount)</strong></span><span class="md-val">$' + Math.round(n.tam/2) + 'M</span></div>';
