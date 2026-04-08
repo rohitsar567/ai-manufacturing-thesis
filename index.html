@@ -377,6 +377,96 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   .nd-grid { grid-template-columns: 1fr; }
   .nd-stats { flex-direction: column; }
 }
+
+/* ─── SOURCE LINKS ─── */
+.src-link {
+  color: var(--accent-teal); text-decoration: none; font-size: 0.75rem;
+  font-family: var(--font-display); font-weight: 500; transition: color 0.2s;
+  border-bottom: 1px solid rgba(45,212,191,0.3);
+}
+.src-link:hover { color: #5eead4; border-bottom-color: #5eead4; }
+.source-tag {
+  display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-mono);
+  font-size: 0.6rem; padding: 2px 8px; border-radius: 6px; background: rgba(45,212,191,0.08);
+  color: var(--accent-teal); text-decoration: none; transition: all 0.2s; border: 1px solid rgba(45,212,191,0.15);
+}
+.source-tag:hover { background: rgba(45,212,191,0.15); border-color: rgba(45,212,191,0.3); }
+
+/* ─── MACRO SECTION ─── */
+.macro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 32px 0; }
+@media(max-width:800px) { .macro-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:500px) { .macro-grid { grid-template-columns: 1fr; } }
+.macro-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px;
+  padding: 20px; position: relative; overflow: hidden; transition: all 0.3s;
+}
+.macro-card:hover { border-color: var(--border-medium); transform: translateY(-2px); }
+.macro-card.selected { border-color: var(--accent-teal); box-shadow: 0 0 24px rgba(45,212,191,0.1); }
+.macro-card .mc-name { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
+.macro-card .mc-rev { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 800; }
+.macro-card .mc-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.75rem; }
+.macro-card .mc-row:last-child { border-bottom: none; }
+.macro-card .mc-label { color: var(--text-dim); }
+.macro-card .mc-val { font-family: var(--font-mono); font-weight: 600; color: var(--text-secondary); }
+.selection-badge {
+  position: absolute; top: 10px; right: 10px; font-family: var(--font-mono); font-size: 0.55rem;
+  padding: 2px 8px; border-radius: 8px; font-weight: 700;
+}
+.badge-selected { background: rgba(45,212,191,0.2); color: var(--accent-teal); }
+.badge-not-selected { background: rgba(139,155,175,0.1); color: var(--text-dim); }
+
+/* ─── SELECTION RATIONALE ─── */
+.rationale-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+@media(max-width:700px) { .rationale-grid { grid-template-columns: 1fr; } }
+.rationale-card {
+  background: var(--bg-card); border-radius: 14px; padding: 20px; border: 1px solid var(--border-subtle);
+}
+.rationale-card h4 { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; }
+.rationale-card ul { list-style: none; }
+.rationale-card li { font-size: 0.8rem; color: var(--text-secondary); padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
+.rationale-card li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-teal); }
+
+/* ─── FINANCIAL BREAKDOWN IN DETAIL PANELS ─── */
+.fin-breakdown { margin-top: 16px; background: var(--bg-surface); border-radius: 10px; padding: 16px; border: 1px solid var(--border-subtle); }
+.fin-breakdown h5 { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.fin-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.78rem; }
+.fin-row:last-child { border-bottom: none; }
+.fin-row .fin-label { color: var(--text-secondary); }
+.fin-row .fin-val { font-family: var(--font-mono); font-weight: 600; }
+.fin-row.fin-total { border-top: 2px solid var(--accent-teal); margin-top: 4px; padding-top: 8px; }
+.fin-row.fin-total .fin-val { color: var(--accent-teal); font-size: 0.9rem; }
+
+/* ─── SOURCES TABLE ─── */
+.sources-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.78rem; margin-top: 24px; }
+.sources-table th {
+  font-family: var(--font-display); font-weight: 600; font-size: 0.65rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-dim); padding: 10px 12px; text-align: left;
+  background: var(--bg-card); border-bottom: 1px solid var(--border-subtle);
+}
+.sources-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-secondary); }
+.sources-table a { color: var(--accent-teal); text-decoration: none; }
+.sources-table a:hover { text-decoration: underline; }
+.sources-cat { font-family: var(--font-mono); font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.cat-vc { background: rgba(139,92,246,0.15); color: var(--accent-violet); }
+.cat-report { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+.cat-product { background: rgba(45,212,191,0.15); color: var(--accent-teal); }
+.cat-govt { background: rgba(245,158,11,0.15); color: var(--accent-amber); }
+
+/* ─── GROWTH INDICATORS ─── */
+.growth-bar { height: 6px; border-radius: 3px; background: var(--border-subtle); margin-top: 4px; overflow: hidden; }
+.growth-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+
+/* ─── PROCESS FLOW DIAGRAM ─── */
+.research-flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 32px 0; }
+.rf-step {
+  background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 10px;
+  padding: 12px 16px; text-align: center; min-width: 130px; transition: all 0.3s;
+}
+.rf-step:hover { border-color: var(--accent-teal); transform: translateY(-2px); }
+.rf-step .rf-num { font-family: var(--font-mono); font-size: 0.55rem; color: var(--accent-teal); font-weight: 700; }
+.rf-step .rf-label { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; margin-top: 4px; }
+.rf-arrow { color: var(--text-dim); font-size: 1.2rem; }
+
 </style>
 </head>
 <body>
@@ -389,6 +479,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   <div class="logo">AI <span>x</span> Manufacturing</div>
   <ul>
     <li><a href="#summary">Summary</a></li>
+    <li><a href="#macro">Macro</a></li>
     <li><a href="#sectors">Sectors</a></li>
     <li><a href="#auto-analysis">Automobile</a></li>
     <li><a href="#fmcg-analysis">FMCG</a></li>
@@ -459,10 +550,234 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   </div>
 </section>
 
+
+<!-- MACRO MANUFACTURING CONTEXT -->
+<section id="macro" style="border-bottom: 1px solid var(--border-subtle);">
+  <div class="container fade-in">
+    <div class="section-label">02 &mdash; The Macro Picture</div>
+    <div class="section-title">India's $1.2 trillion manufacturing sector is in a structural growth phase</div>
+    <div class="section-desc">Before diving into AI opportunities, we establish the precondition: a healthy, growing manufacturing base. India's manufacturing sector is undergoing a <strong style="color:var(--text-primary)">foundational metamorphosis</strong> from assembly-reliant to design-led manufacturing, targeting $1 trillion in manufacturing GDP by FY26 and $1 trillion in merchandise exports by 2030, under the Viksit Bharat @ 2047 mandate. GDP growth sits at 6.5-6.9% &mdash; a "Goldilocks moment" for AI investment.
+      <span style="display:block;margin-top:8px;">
+        <a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" class="source-tag">IBEF Manufacturing</a>
+        <a href="https://www.niti.gov.in/sites/default/files/2023-03/Strategy_for_New_India_2022.pdf" target="_blank" class="source-tag">NITI Aayog</a>
+        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF Future of Jobs 2025</a>
+      </span>
+    </div>
+
+    <!-- Research Flow Diagram -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin-bottom:16px; color:var(--accent-teal);">Research Flow: How We Arrived at Auto + FMCG</h3>
+      <div class="research-flow">
+        <div class="rf-step"><div class="rf-num">STEP 1</div><div class="rf-label">Screen 6 sectors</div></div>
+        <div class="rf-arrow">&rarr;</div>
+        <div class="rf-step"><div class="rf-num">STEP 2</div><div class="rf-label">Score on 7 dimensions</div></div>
+        <div class="rf-arrow">&rarr;</div>
+        <div class="rf-step"><div class="rf-num">STEP 3</div><div class="rf-label">Map 255 roles</div></div>
+        <div class="rf-arrow">&rarr;</div>
+        <div class="rf-step"><div class="rf-num">STEP 4</div><div class="rf-label">Select top 2 sectors</div></div>
+        <div class="rf-arrow">&rarr;</div>
+        <div class="rf-step" style="border-color:var(--accent-teal);"><div class="rf-num">STEP 5</div><div class="rf-label">Deep-dive 57 nodes</div></div>
+      </div>
+    </div>
+
+    <!-- 6 Sector Cards -->
+    <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:16px;">Six sectors evaluated, two selected</h3>
+    <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px; max-width:800px; line-height:1.7;">We profiled all six major manufacturing verticals across revenue, margins, workforce composition, growth trajectory, AI readiness, legal friction, and outsourcing propensity. <strong style="color:var(--text-primary);">Automobile and FMCG emerged as the optimal targets</strong> for AI white-collar automation based on a 7-dimension scoring matrix.</p>
+
+    <div class="macro-grid">
+      <!-- Auto -->
+      <div class="macro-card selected">
+        <span class="selection-badge badge-selected">SELECTED</span>
+        <div class="mc-name" style="color:#60a5fa;">&#x1F697; Automobile & Components</div>
+        <div class="mc-rev" style="color:#60a5fa;">$252.4B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">6.5%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">4.2M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">25%</span></div>
+        <div class="mc-row"><span class="mc-label">WC Payroll</span><span class="mc-val">$13.19B</span></div>
+        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">3.9%</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-teal);">Immediate</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM (50% WC)</span><span class="mc-val" style="color:var(--accent-teal);">$6.59B</span></div>
+        <div style="margin-top:8px;"><a href="https://www.ibef.org/industry/india-automobiles" target="_blank" class="source-tag">IBEF Auto</a> <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM Data</a></div>
+      </div>
+
+      <!-- FMCG -->
+      <div class="macro-card selected">
+        <span class="selection-badge badge-selected">SELECTED</span>
+        <div class="mc-name" style="color:#fbbf24;">&#x1F6D2; FMCG / CPG</div>
+        <div class="mc-rev" style="color:#fbbf24;">$287.9B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue &mdash; Largest by Revenue</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">16.6%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">3.0M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val" style="color:var(--accent-amber);">55% (highest)</span></div>
+        <div class="mc-row"><span class="mc-label">WC Payroll</span><span class="mc-val">$26.91B</span></div>
+        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">4.5% &rarr; $621.6B</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-amber);">Highly Ripe</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM (50% WC)</span><span class="mc-val" style="color:var(--accent-amber);">$13.45B</span></div>
+        <div style="margin-top:8px;"><a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a> <a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank" class="source-tag">Grand View</a></div>
+      </div>
+
+      <!-- Pharma -->
+      <div class="macro-card">
+        <span class="selection-badge badge-not-selected">SELECTIVE</span>
+        <div class="mc-name" style="color:#a78bfa;">&#x1F48A; Pharmaceuticals & Biotech</div>
+        <div class="mc-rev" style="color:#a78bfa;">$57B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">15.9%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">3.0M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">45%</span></div>
+        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val">17.9%</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#a78bfa;">Selective / Targeted</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$1.43B</span></div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">Regulatory constraints (FDA/CDSCO) limit full automation. AI augments rather than replaces. R&D investment low (7-8% vs global 15-25%).</div>
+      </div>
+
+      <!-- ESDM -->
+      <div class="macro-card">
+        <span class="selection-badge badge-not-selected">CONSIDERED</span>
+        <div class="mc-name" style="color:#34d399;">&#x1F4BB; ESDM (Electronics)</div>
+        <div class="mc-rev" style="color:#34d399;">$220B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue &mdash; Most Aggressive Growth</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">7.0%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">2.5M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">35%</span></div>
+        <div class="mc-row"><span class="mc-label">Forward CAGR</span><span class="mc-val" style="color:#34d399;">17.9% &rarr; $500B</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#34d399;">Immediate / Ripe</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$3.65B</span></div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">High AI readiness but workforce still nascent (10 semiconductor projects just approved). Analyzed in Phase 1 workflow mapping; deferred for deep-dive.</div>
+      </div>
+
+      <!-- Chemicals -->
+      <div class="macro-card">
+        <span class="selection-badge badge-not-selected">LONG-TERM</span>
+        <div class="mc-name" style="color:#fb923c;">&#x2697;&#xFE0F; Chemicals & Petrochemicals</div>
+        <div class="mc-rev" style="color:#fb923c;">$260B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">10.2%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">2.0M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val">35%</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:#fb923c;">Long-Term</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$3.54B</span></div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">PSU dominance, safety-critical operations, and heavy process industry focus limit rapid AI adoption. Lowest labor cost ratio (7.8%).</div>
+      </div>
+
+      <!-- Metals -->
+      <div class="macro-card">
+        <span class="selection-badge badge-not-selected">RESISTANT</span>
+        <div class="mc-name" style="color:#94a3b8;">&#x2692;&#xFE0F; Metals & Fabricated Metals</div>
+        <div class="mc-rev" style="color:#94a3b8;">$126.6B</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-bottom:12px;">FY25 Revenue</div>
+        <div class="mc-row"><span class="mc-label">Net Margin</span><span class="mc-val">9.5%</span></div>
+        <div class="mc-row"><span class="mc-label">Employees</span><span class="mc-val">5.7M</span></div>
+        <div class="mc-row"><span class="mc-label">White-Collar %</span><span class="mc-val" style="color:var(--accent-rose);">20% (lowest)</span></div>
+        <div class="mc-row"><span class="mc-label">AI Readiness</span><span class="mc-val" style="color:var(--accent-rose);">Resistant / Lagging</span></div>
+        <div class="mc-row"><span class="mc-label">AI TAM</span><span class="mc-val">$1.31B</span></div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px; line-height:1.4;">80% blue-collar (most labor-intensive). Powerful trade unions, lowest attrition (8.6%), low digital maturity. Highest regulatory friction.</div>
+      </div>
+    </div>
+
+    <!-- WHY AUTO + FMCG -->
+    <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-top:48px; margin-bottom:8px;">Why Automobile + FMCG? The 7-dimension selection rationale</h3>
+    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px; line-height:1.7;">Each sector was scored across seven dimensions. Auto and FMCG scored highest on the composite index, driven by complementary strengths: Auto leads on AI readiness and digital maturity; FMCG leads on TAM size, outsourcing propensity, and white-collar density.</p>
+
+    <div class="rationale-grid">
+      <div class="rationale-card" style="border-left:3px solid #60a5fa;">
+        <h4 style="color:#60a5fa;">Why Automobile</h4>
+        <ul>
+          <li><strong>Highest AI readiness</strong> (NASSCOM AI Index: "Very High") &mdash; OEMs like M&M, Tata Motors already deploying AI at scale</li>
+          <li><strong>Immediate ROI</strong> from quality automation: IATF 16949 compliance drives structured data, making AI adoption natural</li>
+          <li><strong>EV transition doubles engineering complexity</strong> &mdash; dual ICE+EV programs create unsustainable WC staffing needs</li>
+          <li><strong>Fragmented Tier-2/3 supplier base</strong> (12,250 SMEs) creates massive SaaS distribution opportunity</li>
+          <li><strong>Strong policy tailwinds</strong>: PLI-Auto scheme ($3.5B), FAME-III for EVs, Scrappage Policy creating new vehicle demand</li>
+        </ul>
+        <div style="margin-top:10px;">
+          <a href="https://www.ibef.org/industry/india-automobiles" target="_blank" class="source-tag">IBEF Auto</a>
+          <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM</a>
+          <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-india-enterprises" target="_blank" class="source-tag">NASSCOM AI Index</a>
+        </div>
+      </div>
+      <div class="rationale-card" style="border-left:3px solid #fbbf24;">
+        <h4 style="color:#fbbf24;">Why FMCG</h4>
+        <ul>
+          <li><strong>Largest TAM ($13.45B)</strong> &mdash; 55% white-collar ratio is the highest of any manufacturing sector, driven by massive sales/marketing/distribution workforce</li>
+          <li><strong>Highest outsourcing propensity</strong> ("Very High") &mdash; already comfortable delegating work to third parties, lowering AI adoption friction</li>
+          <li><strong>Extreme field force scale</strong>: 500K+ salespeople, 40-60% annual attrition = continuous recruitment treadmill</li>
+          <li><strong>Quick Commerce revolution</strong> (70-80% CAGR) is disrupting the traditional GT model, forcing AI-driven channel optimization</li>
+          <li><strong>Highest margins (16.6%)</strong> means budget headroom for technology investment, unlike margin-squeezed sectors</li>
+          <li><strong>Rural resurgence</strong> outpacing urban for 8 consecutive quarters &mdash; scaling distribution requires AI, not more salespeople</li>
+        </ul>
+        <div style="margin-top:10px;">
+          <a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>
+          <a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank" class="source-tag">Grand View</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY HEALTHY MARKET MATTERS -->
+    <div style="margin-top:48px; background: linear-gradient(135deg, rgba(45,212,191,0.06), rgba(139,92,246,0.04)); border:1px solid var(--border-subtle); border-radius:16px; padding:32px;">
+      <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:16px;">
+        <span style="color:var(--accent-teal);">&#x2713;</span> Why market health is a precondition for AI automation at scale
+      </h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div>
+          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
+            AI automation requires <strong style="color:var(--text-primary);">healthy, growing markets</strong> to achieve scale. In declining or stagnant sectors, companies cut costs by layoffs &mdash; they don't invest in AI infrastructure. The $540B combined revenue of Auto + FMCG, growing at 4-5% CAGR, creates the essential preconditions:
+          </p>
+          <ul style="list-style:none;">
+            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
+              <span style="position:absolute;left:0;color:var(--accent-teal);">1.</span>
+              <strong style="color:var(--text-primary);">Growing revenue = growing headcount pressure.</strong> Companies hiring more WC staff are more receptive to AI solutions that bend the cost curve.
+            </li>
+            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
+              <span style="position:absolute;left:0;color:var(--accent-teal);">2.</span>
+              <strong style="color:var(--text-primary);">Positive margins = budget for technology.</strong> FMCG's 16.6% net margin means every $1 of AI spend can be justified against a healthy P&L. Metals at 9.5% margin and heavy capex has no room.
+            </li>
+            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
+              <span style="position:absolute;left:0;color:var(--accent-teal);">3.</span>
+              <strong style="color:var(--text-primary);">Policy tailwinds create urgency.</strong> PLI schemes, Make in India, and the 2025 Labour Codes simultaneously increase manufacturing scale and labor costs &mdash; the perfect storm for AI adoption.
+            </li>
+            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
+              <span style="position:absolute;left:0;color:var(--accent-teal);">4.</span>
+              <strong style="color:var(--text-primary);">Global competitive pressure.</strong> India's manufacturers compete with China (lower cost) and Germany/Japan (higher automation). AI is the lever that closes both gaps simultaneously.
+            </li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
+            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Revenue (Auto + FMCG)</div>
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-teal);">$540.3B</div>
+            <div class="growth-bar"><div class="growth-fill" style="width:78%;background:var(--accent-teal);"></div></div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">45% of India's total manufacturing output</div>
+          </div>
+          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
+            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Projected FY30 Revenue</div>
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-amber);">$928B</div>
+            <div class="growth-bar"><div class="growth-fill" style="width:92%;background:var(--accent-amber);"></div></div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">72% growth in 5 years &mdash; more WC staff needed, more AI opportunity</div>
+          </div>
+          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
+            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">India GDP Growth (FY25)</div>
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-violet);">6.5-6.9%</div>
+            <div class="growth-bar"><div class="growth-fill" style="width:69%;background:var(--accent-violet);"></div></div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">Fastest major economy &mdash; manufacturing share of GDP rising</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="https://www.mckinsey.com/capabilities/operations/our-insights/the-future-of-manufacturing" target="_blank" class="source-tag">McKinsey: Future of Manufacturing</a>
+        <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/manufacturing-in-india.html" target="_blank" class="source-tag">Deloitte India Manufacturing</a>
+        <a href="https://www.pwc.in/industries/industrial-manufacturing.html" target="_blank" class="source-tag">PwC India</a>
+        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF Jobs 2025</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- SECTOR COMPARISON -->
 <section id="sectors">
   <div class="container fade-in">
-    <div class="section-label">02 &mdash; Sector Overview</div>
+    <div class="section-label">03 &mdash; Sector Overview</div>
     <div class="section-title">Two sectors, one transformation thesis</div>
     <div class="section-desc">Automobile and FMCG represent India's largest manufacturing employers. Despite different value chains, both face the same AI inflection: rising white-collar costs, global competitive pressure, and a maturing AI product ecosystem.</div>
 
@@ -500,7 +815,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 <!-- AUTOMOBILE ANALYSIS -->
 <section id="auto-analysis">
   <div class="container fade-in">
-    <div class="section-label">03 &mdash; Automobile Sector</div>
+    <div class="section-label">04 &mdash; Automobile Sector</div>
     <div class="section-title">28 nodes. $6.59B in automation opportunity.</div>
     <div class="section-desc">From vehicle program inception through press-weld-paint-assembly shops to dealership sales and after-sales service. Click any node to explore the AI opportunity.</div>
 
@@ -521,7 +836,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 <!-- FMCG ANALYSIS -->
 <section id="fmcg-analysis">
   <div class="container fade-in">
-    <div class="section-label">04 &mdash; FMCG Sector</div>
+    <div class="section-label">05 &mdash; FMCG Sector</div>
     <div class="section-title">29 nodes. $13.45B in automation opportunity.</div>
     <div class="section-desc">From R&D formulation and demand planning through continuous processing, packaging, and multi-tier retail distribution. The highest white-collar ratio of any manufacturing sector.</div>
 
@@ -542,7 +857,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 <!-- TAM WATERFALL -->
 <section id="tam">
   <div class="container fade-in">
-    <div class="section-label">05 &mdash; TAM Analysis</div>
+    <div class="section-label">06 &mdash; TAM Analysis</div>
     <div class="section-title">$20.04B addressable, concentrated in 12 high-value nodes</div>
     <div class="section-desc">TAM is calculated as 50% of the dollar value of improvements (headcount savings + process loss reduction). The top 12 nodes account for 72% of total TAM.</div>
 
@@ -597,7 +912,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 <!-- VC THESES -->
 <section id="vc-theses">
   <div class="container fade-in">
-    <div class="section-label">06 &mdash; VC Thesis Alignment</div>
+    <div class="section-label">07 &mdash; VC Thesis Alignment</div>
     <div class="section-title">How top venture firms see the manufacturing AI opportunity</div>
     <div class="section-desc">Our analysis maps directly to published investment theses from global and India-focused venture capital firms. These theses validate the market timing and opportunity structure.</div>
 
@@ -610,8 +925,8 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 <!-- METHODOLOGY -->
 <section id="methodology">
   <div class="container fade-in">
-    <div class="section-label">07 &mdash; Methodology</div>
-    <div class="section-title">How we built this analysis</div>
+    <div class="section-label">08 &mdash; Methodology & Sources</div>
+    <div class="section-title">Methodology, sources, and calculation rationale</div>
     <div class="section-desc">A bottom-up approach: catalog every role, map it into a sequential workflow, identify AI-solvable problems per node, then calculate addressable market from actual payroll data.</div>
 
     <div class="method-steps">
@@ -656,6 +971,121 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
         NCO-2015 (National Classification of Occupations) &bull; BLS Occupational Handbooks &bull; Mercer &bull; Aon Job Architecture
       </p>
     </div>
+
+    <!-- COMPREHENSIVE SOURCES TABLE -->
+    <div style="margin-top:48px;">
+      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">Complete Source Registry</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Every data point, calculation, and insight in this analysis is traceable to the sources below. Click any link to access the original material.</p>
+
+      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-violet); margin:24px 0 12px;">VC Investment Theses</h4>
+      <table class="sources-table">
+        <thead><tr><th>Source</th><th>Thesis/Report</th><th>Relevance</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://a16z.com/ai-for-the-physical-world/" target="_blank">a16z</a></td><td>AI for the Physical World (2024)</td><td>Validates manufacturing as top AI vertical; portfolio includes Hadrian, Figure AI</td></tr>
+          <tr><td><a href="https://a16z.com/services-as-software/" target="_blank">a16z</a></td><td>Services as Software</td><td>AI replaces services workflows, not just tools &mdash; directly supports WC automation thesis</td></tr>
+          <tr><td><a href="https://a16z.com/big-ideas-in-tech-2025/" target="_blank">a16z</a></td><td>Big Ideas 2025: Physical AI</td><td>Industrial AI and robotics as top investment themes</td></tr>
+          <tr><td><a href="https://www.bvp.com/atlas/the-future-of-ai-is-vertical" target="_blank">Bessemer</a></td><td>The Future of AI is Vertical</td><td>Vertical AI market cap predicted 10x legacy SaaS; manufacturing QMS as key vertical</td></tr>
+          <tr><td><a href="https://www.bvp.com/cloud" target="_blank">Bessemer</a></td><td>State of the Cloud 2025</td><td>AI efficiency metrics; enterprise AI adoption benchmarks</td></tr>
+          <tr><td><a href="https://www.generalcatalyst.com/perspectives" target="_blank">General Catalyst</a></td><td>$1.5B AI Creation Strategy</td><td>Roll-up playbook: acquire + automate = double EBITDA margins</td></tr>
+          <tr><td><a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank">Menlo Ventures</a></td><td>State of GenAI in Enterprise 2024</td><td>Enterprise AI = $37B (3.2x YoY); 50+ products over $100M ARR</td></tr>
+          <tr><td><a href="https://www.sequoiacap.com/article/generative-ai-act-two/" target="_blank">Sequoia</a></td><td>Generative AI's Act Two</td><td>Vertical AI with domain data moats; manufacturing ideal for Act Two</td></tr>
+          <tr><td><a href="https://www.sequoiacap.com/article/ai-powered-companies/" target="_blank">Sequoia</a></td><td>AI-Powered Companies</td><td>$1T+ outsourced labor TAM; "displacing labor budget measured in trillions"</td></tr>
+          <tr><td><a href="https://www.accel.com/noteworthy" target="_blank">Accel India</a></td><td>$650M Fund VIII: Manufacturing</td><td>India advanced manufacturing = half-trillion-dollar opportunity; Zetwerk at $4B</td></tr>
+          <tr><td><a href="https://lsvp.com/stories/" target="_blank">Lightspeed India</a></td><td>Enterprise AI + India Stack</td><td>India smart factory: $7.7B &rarr; $17B by 2032; UPI/GST as AI data rails</td></tr>
+          <tr><td><a href="https://www.peakxv.com/" target="_blank">Peak XV Partners</a></td><td>$1.3B Fund (Feb 2026)</td><td>AI at center of screening; 80 AI portfolio companies; PLI-driven manufacturing AI</td></tr>
+          <tr><td><a href="https://blume.vc/blog" target="_blank">Blume Ventures</a></td><td>$1B Deep Tech Alliance</td><td>35-40% in deep-tech/manufacturing; sensor fusion, edge AI, digital twins</td></tr>
+          <tr><td><a href="https://www.kalaari.com/" target="_blank">Kalaari Capital</a></td><td>India AI: Voice-first Enterprise</td><td>WhatsApp-native, vernacular-first AI for India's 500M+ workforce</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-blue); margin:24px 0 12px;">Industry & Government Reports</h4>
+      <table class="sources-table">
+        <thead><tr><th>Source</th><th>Report</th><th>Data Used</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank">IBEF</a></td><td>Manufacturing Sector in India</td><td>Sector revenues, growth rates, company counts, policy frameworks</td></tr>
+          <tr><td><a href="https://www.ibef.org/industry/india-automobiles" target="_blank">IBEF</a></td><td>Automobile Industry in India</td><td>Auto revenue ($252.4B), 4.2M employees, 12,500 companies, EV transition data</td></tr>
+          <tr><td><a href="https://www.ibef.org/industry/fmcg" target="_blank">IBEF</a></td><td>FMCG Industry in India</td><td>FMCG revenue ($287.9B), 3M employees, quick commerce growth (70-80% CAGR)</td></tr>
+          <tr><td><a href="https://www.siam.in/statistics.aspx" target="_blank">SIAM</a></td><td>Indian Auto Industry Statistics</td><td>Production volumes, export data, dealership counts, EV penetration</td></tr>
+          <tr><td><a href="https://mospi.gov.in/publication/plfs-annual-report" target="_blank">MoSPI</a></td><td>PLFS 2024-25</td><td>Manufacturing employment, wage data, collar-type classification (NCO-2015)</td></tr>
+          <tr><td><a href="https://www.mckinsey.com/capabilities/operations/our-insights/the-future-of-manufacturing" target="_blank">McKinsey</a></td><td>Future of Manufacturing</td><td>Automation potential estimates, Industry 4.0 adoption benchmarks</td></tr>
+          <tr><td><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">McKinsey</a></td><td>State of AI 2024</td><td>AI adoption rates by function; 40-50% WC automation estimate by 2030</td></tr>
+          <tr><td><a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/manufacturing-in-india.html" target="_blank">Deloitte</a></td><td>India Manufacturing</td><td>Manufacturing competitiveness index, digital maturity benchmarks</td></tr>
+          <tr><td><a href="https://www.pwc.in/industries/industrial-manufacturing.html" target="_blank">PwC India</a></td><td>AI in Manufacturing</td><td>AI ROI benchmarks, implementation timelines, workforce impact estimates</td></tr>
+          <tr><td><a href="https://nasscom.in/knowledge-center/publications/ai-adoption-india-enterprises" target="_blank">NASSCOM</a></td><td>AI Adoption in India Enterprises</td><td>AI readiness scores by sector; ESDM "Very High", Metals "Low-Moderate"</td></tr>
+          <tr><td><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank">WEF</a></td><td>Future of Jobs Report 2025</td><td>AI automation of 40-50% Indian WC roles by 2030; reskilling estimates</td></tr>
+          <tr><td><a href="https://www.niti.gov.in/sites/default/files/2023-03/Strategy_for_New_India_2022.pdf" target="_blank">NITI Aayog</a></td><td>Strategy for New India</td><td>$1T manufacturing GDP target, Viksit Bharat 2047 mandate</td></tr>
+          <tr><td><a href="https://www.mordorintelligence.com/industry-reports/manufacturing-sector-in-india-industry" target="_blank">Mordor Intelligence</a></td><td>India Manufacturing Market</td><td>Market sizing, CAGR projections, segment breakdowns</td></tr>
+          <tr><td><a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank">Grand View Research</a></td><td>India FMCG Market</td><td>FMCG market sizing ($287.9B &rarr; $621.6B by FY30), segment analysis</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-teal); margin:24px 0 12px;">AI Product Companies Referenced</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
+        <a href="https://o9solutions.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">o9 Solutions (Demand AI)</a>
+        <a href="https://www.highradius.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Highradius (Finance AI)</a>
+        <a href="https://darwinbox.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Darwinbox (HR AI)</a>
+        <a href="https://bizom.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Bizom (Field Sales AI)</a>
+        <a href="https://fractal.ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Fractal Analytics</a>
+        <a href="https://yellow.ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Yellow.ai (CX AI)</a>
+        <a href="https://sightmachine.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Sight Machine (Mfg AI)</a>
+        <a href="https://landing.ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Landing AI (Vision)</a>
+        <a href="https://drishti.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Drishti (Assembly AI)</a>
+        <a href="https://tekion.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Tekion (Dealer AI)</a>
+        <a href="https://locus.sh/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Locus.sh (Logistics AI)</a>
+        <a href="https://www.getfareye.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">FarEye (Delivery AI)</a>
+        <a href="https://www.greyorange.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">GreyOrange (Robotics)</a>
+        <a href="https://www.resilinc.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Resilinc (Risk AI)</a>
+        <a href="https://www.celonis.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Celonis (Process Mining)</a>
+        <a href="https://www.augury.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Augury (Machine Health)</a>
+        <a href="https://www.instrumental.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Instrumental (Quality AI)</a>
+        <a href="https://www.coupa.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Coupa (Procurement AI)</a>
+        <a href="https://www.kinaxis.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Kinaxis (Planning AI)</a>
+        <a href="https://eightfold.ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Eightfold AI (Talent)</a>
+        <a href="https://traxretail.com/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Trax (Retail Vision)</a>
+        <a href="https://tractable.ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Tractable (Damage AI)</a>
+      </div>
+    </div>
+
+    <!-- CALCULATION METHODOLOGY -->
+    <div style="margin-top:48px;">
+      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">TAM Calculation Methodology</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.7;">All TAM figures follow a consistent bottom-up methodology. Here is the exact formula and data provenance for every number:</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
+          <h4 style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#60a5fa; margin-bottom:12px;">Automobile Sector Derivation</h4>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>FY25 Revenue</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$252.4B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Labor Cost Ratio <a href="https://www.ibef.org/industry/india-automobiles" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[IBEF]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">20.9%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Total Labor Cost</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$52.75B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>WC Share <a href="https://mospi.gov.in/publication/plfs-annual-report" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[PLFS]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">25%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>WC Payroll = $52.75B &times; 25%</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$13.19B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Automation addressable (50%)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$6.59B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #60a5fa;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">Auto Sector TAM</span><span style="font-family:var(--font-mono);color:#60a5fa;font-weight:800;font-size:1rem;">$6.59B</span></div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
+          <h4 style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#fbbf24; margin-bottom:12px;">FMCG Sector Derivation</h4>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>FY25 Revenue</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$287.9B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Total Employees <a href="https://www.ibef.org/industry/fmcg" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[IBEF]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">3.0M</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>WC Share <a href="https://mospi.gov.in/publication/plfs-annual-report" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[PLFS/NCO-2015]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">55%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>WC Headcount = 3M &times; 55%</span><span style="font-family:var(--font-mono);color:var(--text-primary);">1.65M</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>WC Payroll <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-india-enterprises" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[NASSCOM]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$26.91B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Automation addressable (50%)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$13.45B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Sector TAM</span><span style="font-family:var(--font-mono);color:#fbbf24;font-weight:800;font-size:1rem;">$13.45B</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; background:var(--bg-card); border-radius:10px; padding:16px; border:1px solid var(--border-subtle);">
+        <h4 style="font-family:var(--font-display); font-size:0.75rem; font-weight:700; margin-bottom:8px;">Why 50% of WC payroll as TAM?</h4>
+        <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
+          The 50% factor represents the share of white-collar payroll that AI can realistically address as a <em>total addressable market</em> for AI solution providers. This is conservative relative to <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" style="color:var(--accent-teal);">McKinsey's estimate</a> of 40-50% of all WC work being automatable and <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:var(--accent-teal);">WEF's projection</a> of AI automating 40-50% of Indian WC roles by 2030. The 50% captures both direct headcount reduction value (labor cost savings) and process improvement value (quality, speed, accuracy gains) that AI delivers.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
 
