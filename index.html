@@ -314,18 +314,18 @@ section:nth-child(even) { background: var(--bg-surface); }
 .waterfall-legend .dot { width: 10px; height: 10px; border-radius: 3px; }
 
 /* ─── VC THESIS ─── */
-.vc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 32px; }
-.vc-card {
+.thesis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 32px; }
+.thesis-card {
   background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px;
   padding: 24px; transition: all 0.3s;
 }
-.vc-card:hover { border-color: var(--border-medium); transform: translateY(-2px); }
-.vc-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-.vc-thesis-name { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-teal); margin-bottom: 12px; }
-.vc-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
-.vc-portfolio { font-family: var(--font-display); font-size: 0.7rem; color: var(--text-dim); }
-.vc-portfolio strong { color: var(--text-secondary); }
-.vc-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.55rem; padding: 2px 8px; border-radius: 6px; background: var(--accent-violet-dim); color: var(--accent-violet); margin-right: 4px; font-weight: 600; }
+.thesis-card:hover { border-color: var(--border-medium); transform: translateY(-2px); }
+.thesis-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.thesis-source { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-teal); margin-bottom: 12px; }
+.thesis-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+.thesis-portfolio { font-family: var(--font-display); font-size: 0.7rem; color: var(--text-dim); }
+.thesis-portfolio strong { color: var(--text-secondary); }
+.thesis-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.55rem; padding: 2px 8px; border-radius: 6px; background: var(--accent-violet-dim); color: var(--accent-violet); margin-right: 4px; font-weight: 600; }
 
 /* ─── METHODOLOGY ─── */
 .method-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
@@ -484,7 +484,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
     <li><a href="#auto-analysis">Automobile</a></li>
     <li><a href="#fmcg-analysis">FMCG</a></li>
     <li><a href="#tam">TAM</a></li>
-    <li><a href="#vc-theses">VC Theses</a></li>
+    <li><a href="#ai-theses">AI Theses</a></li>
     <li><a href="#methodology">Method</a></li>
   </ul>
 </nav>
@@ -910,13 +910,13 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 </section>
 
 <!-- VC THESES -->
-<section id="vc-theses">
+<section id="ai-theses">
   <div class="container fade-in">
-    <div class="section-label">07 &mdash; VC Thesis Alignment</div>
-    <div class="section-title">How top venture firms see the manufacturing AI opportunity</div>
-    <div class="section-desc">Our analysis maps directly to published investment theses from global and India-focused venture capital firms. These theses validate the market timing and opportunity structure.</div>
+    <div class="section-label">07 &mdash; AI Automation Theses</div>
+    <div class="section-title">How VCs, consultants, and research institutions see the manufacturing AI opportunity</div>
+    <div class="section-desc">Our analysis maps directly to published investment theses and research from venture capital firms, global consulting firms, industry research bodies, and government institutions. These theses validate the market timing, opportunity structure, and readiness for AI automation at scale.</div>
 
-    <div class="vc-grid" id="vc-grid-container">
+    <div class="thesis-grid" id="thesis-grid-container">
       <!-- Injected by JS -->
     </div>
   </div>
@@ -957,7 +957,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
       </div>
       <div class="method-step">
         <div class="method-num">06</div>
-        <h4>VC Thesis Alignment</h4>
+        <h4>AI Automation Theses</h4>
         <p>Cross-referenced findings with published investment theses from a16z, Bessemer, General Catalyst, Menlo, Sequoia, Accel India, Lightspeed, Peak XV, Blume, and Kalaari.</p>
       </div>
     </div>
@@ -977,7 +977,7 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
       <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">Complete Source Registry</h3>
       <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Every data point, calculation, and insight in this analysis is traceable to the sources below. Click any link to access the original material.</p>
 
-      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-violet); margin:24px 0 12px;">VC Investment Theses</h4>
+      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-violet); margin:24px 0 12px;">Investment & Research Theses</h4>
       <table class="sources-table">
         <thead><tr><th>Source</th><th>Thesis/Report</th><th>Relevance</th></tr></thead>
         <tbody>
@@ -1614,39 +1614,88 @@ const FMCG_NODES = [
 ];
 
 // VC THESIS DATA
-const VC_DATA = [
-  {name:"a16z",thesis:"AI Services & Industrial AI",tags:["AI Services","Industrial AI","Software Eating World"],
-   desc:"AI will transform services businesses the same way software transformed product businesses. In manufacturing, AI agents will replace entire white-collar workflows — procurement, quality, planning — not just augment individual tasks. The $4.6T global services market is the largest untapped AI opportunity.",
-   portfolio:"Sight Machine, Instrumental, Tulip, Verkada, Drishti Technologies",region:"Global"},
-  {name:"Bessemer Venture Partners",thesis:"AI Efficiency & Vertical SaaS",tags:["AI Efficiency","Vertical SaaS","State of Cloud"],
-   desc:"AI-first vertical SaaS companies will capture $100B+ by rebuilding industry-specific workflows from scratch. Manufacturing quality, compliance, and supply chain are the highest-value verticals. Key metric: AI should deliver 10x efficiency gains, not incremental 10% improvements.",
-   portfolio:"Toast, Procore, ServiceTitan, Highradius, Coupa",region:"Global"},
-  {name:"General Catalyst",thesis:"AI-Native Enterprise & Resilience",tags:["AI-native","Resilience","Enterprise AI"],
-   desc:"The 'Resilience' thesis: enterprises need AI infrastructure that works during disruption, not just optimization. Manufacturing supply chains proved this during COVID. AI-native enterprises will rebuild — not retrofit — their operating models around AI agents and autonomous workflows.",
-   portfolio:"Stripe, HubSpot, Snap, Liveoak Technologies",region:"Global"},
-  {name:"Menlo Ventures",thesis:"AI Application Layer",tags:["AI Application","Enterprise Adoption"],
-   desc:"The real value in AI is in the application layer — domain-specific AI products that embed into existing workflows. Enterprise AI adoption survey shows 72% of enterprises plan to deploy AI agents in 2026. Manufacturing and supply chain are top-3 deployment areas.",
-   portfolio:"Uber, Roku, Poshmark, Anthropic",region:"Global"},
-  {name:"Sequoia Capital",thesis:"Generative AI's Act Two",tags:["GenAI Act Two","AI Market Map"],
-   desc:"Act One was horizontal AI (ChatGPT, Copilot). Act Two is vertical AI products with deep domain data moats. Manufacturing is ideal for Act Two: proprietary process data, domain expertise requirements, and high switching costs create durable AI businesses.",
-   portfolio:"Apple, Google, Nvidia, Stripe, Vanta",region:"Global"},
-  {name:"Accel India",thesis:"India SaaS & Manufacturing Digitization",tags:["India SaaS","Manufacturing","SME"],
-   desc:"India's 63M+ SMEs are the largest untapped SaaS market globally. Manufacturing SMEs are moving from 'no software' to 'AI-first software' — leapfrogging traditional ERP. WhatsApp-native, mobile-first, vernacular-ready AI products will win.",
-   portfolio:"Freshworks, BrowserStack, Flipkart, Bizom, Zetwerk",region:"India"},
-  {name:"Lightspeed India",thesis:"Enterprise AI & SME Digitization",tags:["Enterprise AI","SME","India Stack"],
-   desc:"India's UPI/GST/ONDC stack creates unique data infrastructure for AI. Enterprise AI in India will be built on India Stack rails — GSTIN-linked supplier graphs, UPI transaction data, and e-invoice trails. Manufacturing is the largest beneficiary.",
-   portfolio:"Udaan, OYO, Byju's, ShareChat, Darwinbox",region:"India"},
-  {name:"Peak XV Partners",thesis:"India Manufacturing Stack",tags:["India Manufacturing","Deep Tech","PLI"],
-   desc:"PLI schemes are catalyzing a $100B+ manufacturing buildout. This creates massive demand for AI-powered quality, supply chain, and workforce management tools purpose-built for Indian manufacturing constraints — low automation, high labor variability, fragmented supply chains.",
-   portfolio:"Zetwerk, OfBusiness, ElasticRun, Moglix",region:"India"},
-  {name:"Blume Ventures",thesis:"Deep-Tech India",tags:["Deep Tech","Industrial AI","India"],
-   desc:"India's deep-tech moment: hardware+AI startups solving industrial problems with Indian R&D talent at 1/5th the cost. Focus areas: sensor fusion for manufacturing, edge AI for quality inspection, and digital twins for Indian factories.",
-   portfolio:"GreyOrange, Atomberg, Euler Motors, Pixxel",region:"India"},
-  {name:"Kalaari Capital",thesis:"India AI & Enterprise",tags:["India AI","Enterprise","Vernacular"],
-   desc:"India's AI opportunity is unique: massive workforce (500M+), rapid digital adoption (1B+ smartphones), and industry-specific AI needs. Enterprise AI will be delivered via WhatsApp, voice-first, and vernacular interfaces — not Western-style SaaS dashboards.",
-   portfolio:"Myntra, Cure.fit, Milkbasket, Dream11",region:"India"}
+const THESIS_DATA = [
+  // VENTURE CAPITAL
+  {name:"a16z",thesis:"AI for the Physical World & Services-Led Growth",tags:["Physical AI","Industrial AI","Services"],cat:"VC",
+   desc:"AI will transform the physical world and services businesses simultaneously. In manufacturing, AI agents will replace entire white-collar workflows — not just augment individual tasks. The $4.6T global services market is the largest untapped AI opportunity. Portfolio includes Hadrian (precision manufacturing), Figure AI (BMW robotics partnership).",
+   portfolio:"Hadrian, Figure AI, Sight Machine, Instrumental, Drishti",region:"Global",
+   url:"https://a16z.com/ai-for-the-physical-world/"},
+  {name:"Bessemer Venture Partners",thesis:"The Future of AI is Vertical",tags:["Vertical AI","AI Efficiency","State of AI"],cat:"VC",
+   desc:"Vertical AI market cap will be 10x legacy vertical SaaS. Manufacturing quality, compliance, and supply chain are highest-value verticals. Key insight: AI should deliver 10x efficiency gains, not incremental 10%. Axion Ray ($37M Series B) for manufacturing quality analytics. Enterprise AI spend crossed $37B in 2025.",
+   portfolio:"Axion Ray, Toast, Procore, Highradius, Coupa",region:"Global",
+   url:"https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical"},
+  {name:"General Catalyst",thesis:"$1.5B AI Creation Strategy",tags:["AI-native","Resilience","Enterprise AI"],cat:"VC",
+   desc:"The Fund XII strategy: acquire service providers, automate with AI, double EBITDA margins. $8B total deployment across AI, Defense, Climate, Healthcare. Manufacturing supply chains proved the 'Resilience' thesis during COVID — AI-native enterprises will rebuild operating models around autonomous workflows.",
+   portfolio:"Stripe, HubSpot, Crescendo, Titan MSP",region:"Global",
+   url:"https://www.generalcatalyst.com/stories/fundxii"},
+  {name:"Menlo Ventures",thesis:"State of GenAI in Enterprise",tags:["Enterprise AI","Application Layer","Market Data"],cat:"VC",
+   desc:"Most rigorous enterprise AI market data: $37B in 2025 (3.2x YoY). Finance/operations is 91% startup-dominated. 50+ AI products over $100M ARR. 72% of enterprises plan AI agent deployment in 2026. Manufacturing and supply chain are top-3 deployment areas.",
+   portfolio:"Anthropic, Uber, Roku, Poshmark",region:"Global",
+   url:"https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/"},
+  {name:"Sequoia Capital",thesis:"Services: The New Software",tags:["Services","GenAI Act Two","Labor TAM"],cat:"VC",
+   desc:"For every $1 spent on software, $6 is spent on services. AI's primary opportunity is displacing labor budgets ($16T services economy), not software budgets ($1T). Manufacturing is ideal: proprietary process data, domain expertise requirements, and high switching costs create durable AI businesses.",
+   portfolio:"Harvey, Glean, Cursor, Figure AI, Kognitos",region:"Global",
+   url:"https://sequoiacap.com/article/services-the-new-software/"},
+  // INDIA VCs
+  {name:"Accel India",thesis:"Advanced Manufacturing Report & Fund VIII",tags:["India SaaS","Manufacturing","SME"],cat:"VC",
+   desc:"$650M Fund VIII. India advanced manufacturing = half-trillion-dollar opportunity. 63M+ SMEs are the largest untapped SaaS market globally — leapfrogging from 'no software' to 'AI-first software'. WhatsApp-native, mobile-first, vernacular-ready AI products will win. Zetwerk at $4B valuation, IPO filed.",
+   portfolio:"Freshworks, BrowserStack, Bizom, Zetwerk",region:"India",
+   url:"https://events-in.accel.com/advanced-manufacturing-report"},
+  {name:"Lightspeed India",thesis:"Frontier Tech & Enterprise AI",tags:["Enterprise AI","SME","India Stack"],cat:"VC",
+   desc:"$1.9B invested across 92 frontier tech companies. India's UPI/GST/ONDC stack creates unique data infrastructure for AI. India smart factory market: $7.7B growing to $17B by 2032. Enterprise AI will be built on India Stack rails — GSTIN-linked supplier graphs and e-invoice trails.",
+   portfolio:"Udaan, Darwinbox, Sarvam AI, ShareChat",region:"India",
+   url:"https://lsvp.com/stories/lightspeed-india-sea-frontier-tech-market-map/"},
+  {name:"Peak XV Partners",thesis:"$1.3B Three New Funds (Feb 2026)",tags:["India Manufacturing","AI","Cross-border"],cat:"VC",
+   desc:"AI at center of every screening. 80 existing AI portfolio holdings. PLI schemes catalyzing $100B+ manufacturing buildout — creating massive demand for AI-powered quality, supply chain, and workforce management tools purpose-built for Indian constraints.",
+   portfolio:"Zetwerk, OfBusiness, ElasticRun, Moglix",region:"India",
+   url:"https://www.peakxv.com/article/three-new-funds-for-exceptional-founders-in-india-apac-and-beyond-%F0%9F%9A%80/"},
+  {name:"Blume Ventures",thesis:"$1B Deep Tech Alliance",tags:["Deep Tech","Industrial AI","Hardware+AI"],cat:"VC",
+   desc:"35-40% of fund allocated to deep-tech/manufacturing. India's deep-tech moment: hardware+AI startups solving industrial problems with Indian R&D talent at 1/5th cost. Focus: sensor fusion for manufacturing, edge AI for quality inspection, digital twins for Indian factories.",
+   portfolio:"GreyOrange, Atomberg, Euler Motors, Pixxel",region:"India",
+   url:"https://blume.vc/commentaries/blume-ventures-2024-looking-back-moving-forward"},
+  {name:"Kalaari Capital",thesis:"AI & Us: Voice-First Enterprise",tags:["India AI","Vernacular","Agentic AI"],cat:"VC",
+   desc:"India's AI will be delivered via WhatsApp, voice-first, and vernacular interfaces — not Western-style SaaS dashboards. Focus on Agentic AI, AI-native infrastructure, and vertical AI solutions for India's 500M+ workforce. Early-stage fund targeting AI + quantum computing.",
+   portfolio:"QpiAI, Myntra, Cure.fit, Dream11",region:"India",
+   url:"https://kalaari.com/ai-us/"},
+  // CONSULTING FIRMS
+  {name:"McKinsey Global Institute",thesis:"India's Manufacturing Promise & GenAI Future of Work",tags:["Manufacturing GDP","Automation","Workforce"],cat:"Consulting",
+   desc:"11 high-potential value chains could double India's manufacturing GDP. GenAI could boost labor productivity 0.5-0.9% annually through 2030 and drive 12M additional occupational shifts. India could grow manufacturing sixfold to $1T. 40-50% of white-collar activities are automatable with current AI technology.",
+   portfolio:"",region:"Global",
+   url:"https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"},
+  {name:"BCG + CII",thesis:"Powering Past Headwinds: Indian Manufacturing",tags:["Competitiveness","Supply Chain","Industry 4.0"],cat:"Consulting",
+   desc:"Joint report on Indian manufacturing performance in an era of global shocks. India's manufacturing cost competitiveness, Industry 4.0 readiness assessment, and leader priorities for digital transformation. Identifies quality and supply chain as top AI investment areas.",
+   portfolio:"",region:"India",
+   url:"https://www.bcg.com/powering-past-headwinds-indian-manufacturing-winning-in-an-era-of-shocks-swings-and-shortages"},
+  {name:"Deloitte India",thesis:"Industry 4.0: Smart Manufacturing Operations",tags:["Smart Factory","Industry 4.0","Digital Maturity"],cat:"Consulting",
+   desc:"India's smart manufacturing market grew 10x in the past decade ($10.5B to $103B). Framework for Industry 4.0 adoption in Indian context. Identifies key barriers: legacy infrastructure, skills gap, and fragmented supply chains — all addressable by AI-first solutions.",
+   portfolio:"",region:"India",
+   url:"https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html"},
+  {name:"PwC India + ORF",thesis:"Unlocking the AI Edge for Manufacturing MSMEs",tags:["MSME","AI Adoption","$135-150B Impact"],cat:"Consulting",
+   desc:"AI could contribute $135-150 billion to India's manufacturing MSMEs by 2035. Introduces the 3A2I framework for AI adoption. Key finding: India's 63M MSMEs represent the largest untapped market for lightweight, affordable AI tools — not enterprise-grade platforms.",
+   portfolio:"",region:"India",
+   url:"https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html"},
+  {name:"EY-Parthenon",thesis:"Green Manufacturing: India's Industrial Revolution",tags:["Green Mfg","Net Zero","$7T Economy"],cat:"Consulting",
+   desc:"India needs green manufacturing for its $7T economy target by 2030. Covers green steel, decarbonisation, and sustainable supply chains. AI-driven energy optimization and carbon tracking are key enablers identified across manufacturing verticals.",
+   portfolio:"",region:"India",
+   url:"https://www.ey.com/en_in/insights/energy-resources/india-s-green-manufacturing-revolution-and-the-journey-to-net-zero"},
+  // RESEARCH & GOVERNMENT
+  {name:"NASSCOM",thesis:"AI Adoption Index 2.0: India's Sectoral Progress",tags:["AI Readiness","Sector Scores","500 Companies"],cat:"Research",
+   desc:"500 companies surveyed across 7 sectors using 9-dimensional AI maturity framework. India overall AI maturity: 2.47/4 — 87% still in middle stages. ESDM and Auto scored highest on AI readiness. Manufacturing identified as the sector with the highest ROI potential for AI deployment.",
+   portfolio:"",region:"India",
+   url:"https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption"},
+  {name:"World Economic Forum",thesis:"Future of Jobs Report 2025",tags:["Job Displacement","Reskilling","78M Net New Jobs"],cat:"Research",
+   desc:"Survey of 1,000+ employers across 55 economies. 78M net new jobs by 2030, but 39% of core skills will change. AI and automation are the #1 driver of workforce transformation. Projects AI could automate 40-50% of Indian white-collar roles by 2030.",
+   portfolio:"",region:"Global",
+   url:"https://www.weforum.org/publications/the-future-of-jobs-report-2025/"},
+  {name:"NITI Aayog",thesis:"National Strategy for Artificial Intelligence",tags:["India AI Strategy","Viksit Bharat","Policy"],cat:"Government",
+   desc:"India's national AI strategy identifying priority sectors. Manufacturing is a key focus area alongside healthcare, agriculture, and education. Framework for AI adoption including data infrastructure, skills development, and regulatory environment. Viksit Bharat 2047 mandate drives manufacturing digitization.",
+   portfolio:"",region:"India",
+   url:"https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"},
+  {name:"Mordor Intelligence",thesis:"India Manufacturing Sector Market Report",tags:["Market Sizing","$2.47T by 2031","7.26% CAGR"],cat:"Research",
+   desc:"India manufacturing market: $1.63T (2025), projected $2.47T by 2031 at 7.26% CAGR. Automotive accounts for 23% of manufacturing demand. West India holds 33% market share. Comprehensive segment breakdown and growth driver analysis.",
+   portfolio:"",region:"India",
+   url:"https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market"}
 ];
-
 // ════════════════════════════════════════════════════════════════
 // RENDER FUNCTIONS
 // ════════════════════════════════════════════════════════════════
@@ -1705,7 +1754,7 @@ function renderDetailPanel(n, ctx) {
   }
 
   let productsHtml = n.products ? n.products.map(p => `<li><strong>${p.n}</strong> &mdash; ${p.d}</li>`).join('') : '';
-  let vcHtml = n.vc ? n.vc.map(v => `<span class="vc-tag">${v}</span>`).join(' ') : '';
+  let vcHtml = n.vc ? n.vc.map(v => `<span class="thesis-tag">${v}</span>`).join(' ') : '';
 
   return `<div class="node-detail" id="detail-${ctx}-${n.id}">
     <div class="nd-header"><h4>${n.icon} ${n.name} <span class="node-tier tier-${n.tier.toLowerCase()}" style="font-size:0.6rem;vertical-align:middle;margin-left:8px;">${n.tier}</span></h4>
@@ -1717,7 +1766,7 @@ function renderDetailPanel(n, ctx) {
       <div class="nd-block block-products"><div class="nd-block-label lbl-products">Existing Products</div><ul>${productsHtml}</ul></div>
       <div class="nd-block block-opportunity"><div class="nd-block-label lbl-opportunity">India Product Opportunity</div><p>${n.opportunity || 'General AI augmentation opportunity'}</p></div>
     </div>
-    ${vcHtml ? `<div style="margin-top:14px;"><div class="nd-block-label lbl-vc" style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-violet);margin-bottom:8px;">VC Thesis Alignment</div>${vcHtml}</div>` : ''}
+    ${vcHtml ? `<div style="margin-top:14px;"><div class="nd-block-label lbl-vc" style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-violet);margin-bottom:8px;">AI Automation Theses</div>${vcHtml}</div>` : ''}
     <div class="nd-stats">
       <div class="nd-stat"><div class="stat-num num-teal">$${n.tam}M</div><div class="stat-label">Node TAM</div></div>
       <div class="nd-stat"><div class="stat-num num-amber">${n.hc_pct}%</div><div class="stat-label">WC Reduction</div></div>
@@ -1775,13 +1824,13 @@ function renderMatrix(nodes, containerId) {
 }
 
 function renderVCGrid() {
-  const container = document.getElementById('vc-grid-container');
-  container.innerHTML = VC_DATA.map(vc => `<div class="vc-card">
-    <div class="vc-name">${vc.name}</div>
-    <div class="vc-thesis-name">${vc.thesis} ${vc.region === 'India' ? '<span style="color:var(--accent-amber);font-size:0.6rem;">🇮🇳 INDIA</span>' : ''}</div>
-    <div style="margin-bottom:10px;">${vc.tags.map(t => `<span class="vc-tag">${t}</span>`).join(' ')}</div>
-    <div class="vc-desc">${vc.desc}</div>
-    <div class="vc-portfolio"><strong>Key Portfolio:</strong> ${vc.portfolio}</div>
+  const container = document.getElementById('thesis-grid-container');
+  container.innerHTML = THESIS_DATA.map(vc => `<div class="thesis-card">
+    <div class="thesis-name">${vc.name}</div>
+    <div class="thesis-source">${vc.thesis} ${(vc.region === 'India') ? '<span style="color:var(--accent-amber);font-size:0.6rem;">🇮🇳 INDIA</span>' : ''}</div>
+    <div style="margin-bottom:10px;">${vc.tags.map(t => `<span class="thesis-tag">${t}</span>`).join(' ')}</div>
+    <div class="thesis-desc">${vc.desc}</div>
+    <div class="thesis-portfolio"><strong>Key Portfolio:</strong> ${vc.portfolio}</div>
   </div>`).join('');
 }
 
