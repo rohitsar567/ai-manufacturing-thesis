@@ -471,14 +471,20 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 /* ─── CELL TOOLTIPS ─── */
 .score-cell { position: relative; cursor: pointer; transition: all 0.2s; }
 .score-cell:hover { background: rgba(45,212,191,0.08) !important; }
-.score-cell .cell-tip {
-  display: none; position: fixed; z-index: 999; width: 280px; padding: 16px; border-radius: 12px;
-  background: #1a2332; border: 1px solid rgba(45,212,191,0.4); box-shadow: 0 12px 48px rgba(0,0,0,0.6);
-  font-size: 0.78rem; color: var(--text-secondary); line-height: 1.55;
-  font-family: var(--font-body); pointer-events: none;
+.score-cell { cursor: pointer; }
+.score-cell:hover { background: rgba(45,212,191,0.06) !important; }
+.cell-tip { display: none; }
+#floatingTip {
+  display: none; position: fixed; z-index: 9999; width: 300px; padding: 18px; border-radius: 12px;
+  background: #141e2e; border: 1px solid rgba(45,212,191,0.5); 
+  box-shadow: 0 16px 48px rgba(0,0,0,0.7), 0 0 20px rgba(45,212,191,0.08);
+  font-size: 0.78rem; color: #8b95a5; line-height: 1.6; font-family: 'Source Serif 4', Georgia, serif;
+  pointer-events: none;
 }
-.score-cell .cell-tip::after { display: none; }
-.score-cell:hover .cell-tip { display: block; pointer-events: auto; }
+#floatingTip.show { display: block; }
+#floatingTip .tip-score { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; }
+#floatingTip strong { color: #f0f2f5; font-family: 'Sora', sans-serif; font-size: 0.75rem; }
+#floatingTip p { margin-top: 8px; }
 .cell-tip strong { color: var(--text-primary); font-family: var(--font-display); font-size: 0.7rem; }
 .cell-tip .tip-score { font-family: var(--font-mono); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px; }
 
@@ -2731,24 +2737,52 @@ document.addEventListener('keydown', function(e) {
 });
 
 
-// Position cell tooltips near the hovered cell
-document.addEventListener('mouseover', function(e) {
-  const cell = e.target.closest('.score-cell');
-  if (!cell) return;
-  const tip = cell.querySelector('.cell-tip');
-  if (!tip) return;
-  const rect = cell.getBoundingClientRect();
-  // Position above the cell, centered
-  let top = rect.top - tip.offsetHeight - 12;
-  let left = rect.left + rect.width/2 - 140;
-  // If too high, show below
-  if (top < 10) top = rect.bottom + 12;
-  // Keep on screen
-  if (left < 10) left = 10;
-  if (left + 280 > window.innerWidth) left = window.innerWidth - 290;
-  tip.style.top = top + 'px';
-  tip.style.left = left + 'px';
-});
+// Floating tooltip for scoring matrix cells
+(function() {
+  // Create the floating tooltip element once
+  var ft = document.createElement('div');
+  ft.id = 'floatingTip';
+  document.body.appendChild(ft);
+
+  document.addEventListener('mouseover', function(e) {
+    var cell = e.target.closest('.score-cell');
+    if (!cell) { ft.classList.remove('show'); return; }
+    var tipEl = cell.querySelector('.cell-tip');
+    if (!tipEl) { ft.classList.remove('show'); return; }
+
+    // Copy content into floating tip
+    ft.innerHTML = tipEl.innerHTML;
+    ft.classList.add('show');
+
+    // Position after rendering (so we can measure)
+    requestAnimationFrame(function() {
+      var rect = cell.getBoundingClientRect();
+      var tipH = ft.offsetHeight;
+      var tipW = 300;
+      // Try above the cell
+      var top = rect.top - tipH - 14;
+      // If clipped at top, go below
+      if (top < 8) top = rect.bottom + 14;
+      // Horizontal: center on cell
+      var left = rect.left + rect.width / 2 - tipW / 2;
+      // Clamp to viewport
+      if (left < 8) left = 8;
+      if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
+      ft.style.top = top + 'px';
+      ft.style.left = left + 'px';
+    });
+  });
+
+  document.addEventListener('mouseout', function(e) {
+    var cell = e.target.closest('.score-cell');
+    if (cell) {
+      // Check if we moved to a child element — if so, don't hide
+      var related = e.relatedTarget;
+      if (related && cell.contains(related)) return;
+      ft.classList.remove('show');
+    }
+  });
+})();
 </script>
 
 <!-- TAM DERIVATION MODAL -->
