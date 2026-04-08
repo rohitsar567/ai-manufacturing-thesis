@@ -2619,9 +2619,11 @@ function renderWorkflow(nodes, containerId) {
   let html = '';
   ['supply','mfg','demand','support'].forEach(bp => {
     if (!groups[bp]) return;
+    const segTam = (groups[bp].reduce((s,n)=>s+n.tam,0)/2000).toFixed(1);
+    const segT1 = groups[bp].filter(n=>n.tier==='T1').length;
     html += `<div class="workflow-segment ${BP_CLASSES[bp]}">
       <div class="ws-title" style="color:var(--${bp === 'supply' ? 'supply-color' : bp === 'mfg' ? 'mfg-color' : bp === 'demand' ? 'demand-color' : 'support-color'})">${BP_LABELS[bp]}</div>
-      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${groups[bp].filter(n=>n.tier==='T1').length} with AI solutions &bull; ${"$"+(groups[bp].reduce((s,n)=>s+n.tam,0)/2000).toFixed(1)+"B segment TAM"}</div>
+      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${segT1} with AI solutions &bull; $${segTam}B segment TAM</div>
       <div class="node-grid">`;
     groups[bp].forEach((n, i) => {
       if (i > 0) html += '<div class="node-arrow">→</div>';
