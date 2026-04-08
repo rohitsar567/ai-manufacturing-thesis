@@ -545,76 +545,6 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
   writing-mode:horizontal-tb; max-width:70px; line-height:1.2; word-wrap:break-word;
 }
 
-
-/* ─── TAM CALCULATION WATERFALL ─── */
-.tam-calc {
-  display: flex; align-items: stretch; gap: 0; margin: 24px 0;
-  background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border-subtle);
-  overflow: hidden;
-}
-.tam-step {
-  flex: 1; padding: 16px 10px; text-align: center; position: relative;
-  border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column;
-  justify-content: center; align-items: center; min-height: 110px;
-}
-.tam-step:last-child { border-right: none; }
-.tam-step::after {
-  content: '\2192'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
-  font-size: 1rem; color: var(--text-dim); z-index: 2; background: var(--bg-card);
-  padding: 2px; line-height: 1;
-}
-.tam-step:last-child::after { display: none; }
-.tam-step .ts-label {
-  font-family: var(--font-display); font-size: 0.55rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 6px;
-}
-.tam-step .ts-value {
-  font-family: var(--font-mono); font-size: 1rem; font-weight: 800; line-height: 1.2;
-}
-.tam-step .ts-op {
-  font-family: var(--font-mono); font-size: 0.55rem; color: var(--text-dim); margin-top: 4px;
-}
-.tam-step .ts-source {
-  font-size: 0.5rem; color: var(--text-dim); margin-top: 4px; font-style: italic;
-}
-.tam-step.ts-result { background: rgba(45,212,191,0.06); }
-.tam-step.ts-result .ts-value { color: var(--accent-teal); font-size: 1.2rem; }
-@media(max-width:700px) {
-  .tam-calc { flex-wrap: wrap; }
-  .tam-step { min-width: 45%; flex: unset; }
-  .tam-step::after { display: none; }
-}
-
-/* ─── NODE CARD TAM WATERFALL (compact) ─── */
-.node-tam-flow {
-  display: flex; align-items: center; gap: 0; margin: 14px 0;
-  background: var(--bg-surface); border-radius: 10px; border: 1px solid var(--border-subtle);
-  overflow: hidden; flex-wrap: wrap;
-}
-.ntf-step {
-  flex: 1; padding: 10px 6px; text-align: center; position: relative;
-  border-right: 1px solid var(--border-subtle); min-width: 80px;
-}
-.ntf-step:last-child { border-right: none; }
-.ntf-step::after {
-  content: '\2192'; position: absolute; right: -7px; top: 50%; transform: translateY(-50%);
-  font-size: 0.75rem; color: var(--text-dim); z-index: 2; background: var(--bg-surface);
-  padding: 1px; line-height: 1;
-}
-.ntf-step:last-child::after { display: none; }
-.ntf-step .ntf-label {
-  font-family: var(--font-display); font-size: 0.45rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 3px;
-}
-.ntf-step .ntf-val {
-  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
-}
-.ntf-step .ntf-note {
-  font-size: 0.42rem; color: var(--text-dim); margin-top: 2px;
-}
-.ntf-step.ntf-result { background: rgba(45,212,191,0.06); }
-.ntf-step.ntf-result .ntf-val { color: var(--accent-teal); font-size: 0.85rem; }
-
 </style>
 </head>
 <body>
@@ -1442,116 +1372,92 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
       </div>
     </div>
 
-
-    <!-- VISUAL TAM CALCULATION WATERFALL — AUTO -->
-    <div style="margin-top:40px;">
-      <h3 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#60a5fa;">Automobile — TAM Derivation Waterfall</h3>
-      <p style="font-size:0.72rem; color:var(--text-dim); margin-bottom:12px;">Each step shows exactly how we arrive at the $6.59B TAM figure, with data source for every number.</p>
-      <div class="tam-calc">
-        <div class="tam-step">
-          <div class="ts-label">FY25 Revenue</div>
-          <div class="ts-value" style="color:var(--text-primary);">$252.4B</div>
-          <div class="ts-source">IBEF Auto</div>
+    <!-- STEP-BY-STEP TAM DERIVATION -->
+    <div style="margin-top:48px;">
+      <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:16px;">How we calculate TAM: Step-by-step derivation</h3>
+      
+      <!-- Visual waterfall flow -->
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:24px; justify-content:center;">
+        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:12px 16px; text-align:center; min-width:120px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 1</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Sector Revenue</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">$540.3B</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">Auto $252.4B + FMCG $287.9B</div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">Labor Cost Ratio</div>
-          <div class="ts-value" style="color:var(--text-secondary);">&times; 20.9%</div>
-          <div class="ts-source">IBEF / PLFS</div>
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:12px 16px; text-align:center; min-width:120px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 2</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Total Employees</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">7.2M</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">Auto 4.2M + FMCG 3.0M</div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">Total Labor Cost</div>
-          <div class="ts-value" style="color:var(--text-primary);">$52.75B</div>
-          <div class="ts-op">252.4 &times; 0.209</div>
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--accent-amber); border-radius:10px; padding:12px 16px; text-align:center; min-width:120px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.05em;">Step 3</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-amber); margin:4px 0;">White-Collar Filter</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--accent-amber);">2.7M</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">Auto 25% + FMCG 55%</div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">White-Collar Share</div>
-          <div class="ts-value" style="color:var(--accent-amber);">&times; 25%</div>
-          <div class="ts-source">PLFS NCO-2015</div>
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--accent-violet); border-radius:10px; padding:12px 16px; text-align:center; min-width:140px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.05em;">Step 4</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-violet); margin:4px 0;">Career-Level Multiplier</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--accent-violet);">~57%</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">Exclude CXO (0%), weight by stream</div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">WC Payroll</div>
-          <div class="ts-value" style="color:var(--text-primary);">$13.19B</div>
-          <div class="ts-op">52.75 &times; 0.25</div>
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--text-primary); border-radius:10px; padding:12px 16px; text-align:center; min-width:120px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 5</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">WC Payroll</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">$40.1B</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">Auto $13.19B + FMCG $26.91B</div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">Career-Adj. Rate</div>
-          <div class="ts-value" style="color:var(--accent-violet);">&times; 55.8%</div>
-          <div class="ts-note">Exec 0% + Mgmt 60%<br>+ Prof 80% + Para 40%</div>
-          <div class="ts-source">Role Library</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">Addressable Payroll</div>
-          <div class="ts-value" style="color:var(--text-primary);">$7.36B</div>
-          <div class="ts-op">13.19 &times; 0.558</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">AI Capture Rate</div>
-          <div class="ts-value" style="color:var(--accent-rose);">&times; 50%</div>
-          <div class="ts-source">McKinsey / WEF</div>
-        </div>
-        <div class="tam-step ts-result">
-          <div class="ts-label">Sector TAM</div>
-          <div class="ts-value">$6.59B</div>
-          <div class="ts-op">7.36 &times; 0.5</div>
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:rgba(45,212,191,0.08); border:2px solid var(--accent-teal); border-radius:10px; padding:12px 18px; text-align:center; min-width:130px;">
+          <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.05em;">Step 6</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-teal); margin:4px 0;">TAM = 50% Capture</div>
+          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--accent-teal);">$20.04B</div>
+          <div style="font-size:0.6rem; color:var(--text-dim);">AI provider addressable market</div>
         </div>
       </div>
-    </div>
 
-    <!-- VISUAL TAM CALCULATION WATERFALL — FMCG -->
-    <div style="margin-top:28px;">
-      <h3 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#fbbf24;">FMCG — TAM Derivation Waterfall</h3>
-      <p style="font-size:0.72rem; color:var(--text-dim); margin-bottom:12px;">FMCG's larger TAM is driven by the 55% white-collar ratio — 2.2&times; higher than Auto's 25%.</p>
-      <div class="tam-calc">
-        <div class="tam-step">
-          <div class="ts-label">FY25 Revenue</div>
-          <div class="ts-value" style="color:var(--text-primary);">$287.9B</div>
-          <div class="ts-source">IBEF FMCG</div>
+      <!-- Dual sector derivation side by side -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid rgba(59,130,246,0.2);">
+          <div style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#60a5fa; margin-bottom:12px;">Automobile Derivation</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.7;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Sector revenue</span><span style="font-family:var(--font-mono);font-weight:600;">$252.4B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× Labor cost ratio <span style="font-size:0.6rem;color:var(--accent-teal);">[IBEF]</span></span><span style="font-family:var(--font-mono);font-weight:600;">20.9%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= Total labor cost</span><span style="font-family:var(--font-mono);font-weight:600;">$52.75B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× WC share <span style="font-size:0.6rem;color:var(--accent-teal);">[PLFS NCO-2015]</span></span><span style="font-family:var(--font-mono);font-weight:600;color:var(--accent-amber);">25%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= WC payroll</span><span style="font-family:var(--font-mono);font-weight:600;">$13.19B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× Career-adj. rate <span style="font-size:0.6rem;color:var(--accent-violet);">[Job Matrix]</span></span><span style="font-family:var(--font-mono);font-weight:600;color:var(--accent-violet);">55.8%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= Addressable payroll</span><span style="font-family:var(--font-mono);font-weight:600;">$7.36B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× 50% capture rate</span><span style="font-family:var(--font-mono);font-weight:600;">0.50</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #60a5fa;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">Auto TAM</span><span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#60a5fa;">$6.59B</span></div>
+          </div>
         </div>
-        <div class="tam-step">
-          <div class="ts-label">Total Employees</div>
-          <div class="ts-value" style="color:var(--text-secondary);">3.0M</div>
-          <div class="ts-source">IBEF / PLFS</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">White-Collar Ratio</div>
-          <div class="ts-value" style="color:var(--accent-amber);">&times; 55%</div>
-          <div class="ts-source">PLFS NCO-2015</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">WC Headcount</div>
-          <div class="ts-value" style="color:var(--text-primary);">1.65M</div>
-          <div class="ts-op">3.0M &times; 0.55</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">WC Payroll</div>
-          <div class="ts-value" style="color:var(--text-primary);">$26.91B</div>
-          <div class="ts-op">1.65M &times; $16,310</div>
-          <div class="ts-source">NASSCOM</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">Career-Adj. Rate</div>
-          <div class="ts-value" style="color:var(--accent-violet);">&times; 58.4%</div>
-          <div class="ts-note">Exec 0% + Mgmt 65%<br>+ Prof 85% + Para 45%</div>
-          <div class="ts-source">Role Library</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">Addressable Payroll</div>
-          <div class="ts-value" style="color:var(--text-primary);">$15.72B</div>
-          <div class="ts-op">26.91 &times; 0.584</div>
-        </div>
-        <div class="tam-step">
-          <div class="ts-label">AI Capture Rate</div>
-          <div class="ts-value" style="color:var(--accent-rose);">&times; 50%</div>
-          <div class="ts-source">McKinsey / WEF</div>
-        </div>
-        <div class="tam-step ts-result">
-          <div class="ts-label">Sector TAM</div>
-          <div class="ts-value">$13.45B</div>
-          <div class="ts-op">15.72 &times; 0.5</div>
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid rgba(245,158,11,0.2);">
+          <div style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#fbbf24; margin-bottom:12px;">FMCG Derivation</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.7;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Total employees <span style="font-size:0.6rem;color:var(--accent-teal);">[IBEF]</span></span><span style="font-family:var(--font-mono);font-weight:600;">3.0M</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× WC share <span style="font-size:0.6rem;color:var(--accent-teal);">[PLFS NCO-2015]</span></span><span style="font-family:var(--font-mono);font-weight:600;color:var(--accent-amber);">55%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= WC headcount</span><span style="font-family:var(--font-mono);font-weight:600;">1.65M</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× Avg WC salary</span><span style="font-family:var(--font-mono);font-weight:600;">$16,310/yr</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= WC payroll</span><span style="font-family:var(--font-mono);font-weight:600;">$26.91B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× Career-adj. rate <span style="font-size:0.6rem;color:var(--accent-violet);">[Job Matrix]</span></span><span style="font-family:var(--font-mono);font-weight:600;color:var(--accent-violet);">58.4%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>= Addressable payroll</span><span style="font-family:var(--font-mono);font-weight:600;">$15.72B</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>× 50% capture rate</span><span style="font-family:var(--font-mono);font-weight:600;">0.50</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG TAM</span><span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#fbbf24;">$13.45B</span></div>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div style="background:var(--bg-card); border-radius:10px; padding:14px; border:1px solid var(--border-subtle); margin-bottom:8px;">
+        <div style="font-family:var(--font-display); font-size:0.75rem; font-weight:700; color:var(--accent-violet); margin-bottom:6px;">Career-Level Multiplier Explained</div>
+        <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.5;">Not all white-collar roles are equally automatable. From our role library (Manufacturing_Role_Libraries_Expanded_Combined.xlsx): <strong style="color:var(--text-primary);">Executive roles (10-12% of WC)</strong> — CXO/VP positions — will not be automated. <strong style="color:var(--text-primary);">Professional roles (31-42%)</strong> — data analysis, documentation, compliance — have the highest automation exposure (80-85%). <strong style="color:var(--text-primary);">Management roles (16-32%)</strong> — reporting, coordination — are partially automatable (60-65%). The weighted average gives an <strong style="color:var(--accent-violet);">effective automation rate of 55.8% (Auto) and 58.4% (FMCG)</strong> of white-collar work.</p>
+      </div>
+    </div>
 
     <div id="tam-waterfall-container" style="margin-top:40px;">
       <!-- Waterfall chart rendered by JS -->
@@ -2444,47 +2350,53 @@ function renderDetailPanel(n, ctx) {
       <div class="nd-block block-products"><div class="nd-block-label lbl-products">Existing Products</div><ul>${productsHtml}</ul></div>
       <div class="nd-block block-opportunity"><div class="nd-block-label lbl-opportunity">India Product Opportunity</div><p>${n.opportunity || 'General AI augmentation opportunity'}</p></div>
     </div>
-    ${vcHtml ? `<div style="margin-top:14px;"><div class="nd-block-label lbl-vc" style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-violet);margin-bottom:8px;">AI Automation Theses</div>${vcHtml}</div>` : ''}
-    ${n.sources ? `<div style="margin-top:10px;"><div style="font-family:var(--font-display);font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent-teal);margin-bottom:6px;">Sources</div><div style="display:flex;flex-wrap:wrap;gap:5px;">${n.sources.map(s=>'<a href="'+s.u+'" target="_blank" rel="noopener" class="source-tag">'+s.t+'</a>').join('')}</div></div>` : ''}
-    <div style="margin-top:16px;">
-      <div style="font-family:var(--font-display);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-teal);margin-bottom:8px;">TAM Calculation Waterfall</div>
-      <div class="node-tam-flow">
-        <div class="ntf-step">
-          <div class="ntf-label">WC Reduction</div>
-          <div class="ntf-val" style="color:var(--accent-amber);">${n.hc_pct}%</div>
+    ${vcHtml ? `<div style="margin-top:14px;"><div class="nd-block-label lbl-vc" style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-violet);margin-bottom:8px;">Thesis Alignment</div>${vcHtml}</div>` : ''}
+    ${n.sources ? `<div style="margin-top:12px;"><div style="font-family:var(--font-display);font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-teal);margin-bottom:8px;">Sources & References</div><div style="display:flex;flex-wrap:wrap;gap:6px;">${n.sources.map(s=>'<a href="'+s.u+'" target="_blank" rel="noopener" class="source-tag">'+s.t+'</a>').join('')}</div></div>` : ''}
+    <div class="fin-breakdown">
+      <h5>TAM Derivation Waterfall</h5>
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">WC Reduction</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-amber);">${n.hc_pct}%</div>
         </div>
-        <div class="ntf-step">
-          <div class="ntf-label">FTEs / Plant</div>
-          <div class="ntf-val" style="color:var(--text-primary);">${n.fte}</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">×</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">FTEs/Plant</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-rose);">${n.fte}</div>
         </div>
-        <div class="ntf-step">
-          <div class="ntf-label">HC Savings</div>
-          <div class="ntf-val" style="color:var(--accent-amber);">$${(n.fte * 14000).toLocaleString()}</div>
-          <div class="ntf-note">${n.fte} &times; ~$14K avg</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">×</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-medium);border-radius:8px;padding:8px 12px;text-align:center;min-width:80px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);">Avg Salary</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--text-primary);">$13K</div>
         </div>
-        <div class="ntf-step">
-          <div class="ntf-label">+ Process Gains</div>
-          <div class="ntf-val" style="color:var(--accent-violet);">$${Math.max(n.tam * 2000 - n.fte * 14000, 0).toLocaleString()}</div>
-          <div class="ntf-note">Quality, speed, accuracy</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">=</div>
+        <div style="background:var(--bg-card);border:1px solid var(--accent-amber);border-radius:8px;padding:8px 12px;text-align:center;min-width:100px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--accent-amber);">HC Savings</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-amber);">$${(n.fte * 13000).toLocaleString()}</div>
         </div>
-        <div class="ntf-step">
-          <div class="ntf-label">Total Improvement</div>
-          <div class="ntf-val" style="color:var(--text-primary);">$${(n.tam * 2000).toLocaleString()}</div>
-          <div class="ntf-note">Per plant / year</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">+</div>
+        <div style="background:var(--bg-card);border:1px solid var(--accent-violet);border-radius:8px;padding:8px 12px;text-align:center;min-width:100px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--accent-violet);">Process Gains</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--accent-violet);">$${Math.max(n.tam * 2000 - n.fte * 13000, 0).toLocaleString()}</div>
         </div>
-        <div class="ntf-step">
-          <div class="ntf-label">&times; 50%</div>
-          <div class="ntf-val" style="color:var(--text-dim);">AI Capture</div>
-          <div class="ntf-note">McKinsey / WEF basis</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">=</div>
+        <div style="background:var(--bg-card);border:1px solid var(--text-primary);border-radius:8px;padding:8px 12px;text-align:center;min-width:110px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-secondary);">Total Improvement</div>
+          <div style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--text-primary);">$${(n.tam * 2000).toLocaleString()}</div>
         </div>
-        <div class="ntf-step ntf-result">
-          <div class="ntf-label">Node TAM</div>
-          <div class="ntf-val">$${n.tam}M</div>
-          <div class="ntf-note">Sector-wide</div>
+        <div style="color:var(--text-dim);font-size:0.9rem;">× 50%</div>
+        <div style="background:rgba(45,212,191,0.1);border:2px solid var(--accent-teal);border-radius:8px;padding:8px 14px;text-align:center;min-width:110px;">
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--accent-teal);">NODE TAM</div>
+          <div style="font-family:var(--font-mono);font-size:1.2rem;font-weight:800;color:var(--accent-teal);">$${n.tam}M</div>
         </div>
       </div>
+      <div style="font-size:0.72rem;color:var(--text-dim);line-height:1.5;">
+        <strong style="color:var(--text-secondary);">Headcount savings</strong> = ${n.fte} FTEs × ~$13,000 avg WC salary (PLFS). 
+        <strong style="color:var(--text-secondary);">Process gains</strong> = quality improvements, cycle time reduction, error elimination, compliance automation. 
+        <strong style="color:var(--text-secondary);">50% capture</strong> = share of total improvement addressable by AI solution providers (conservative per McKinsey/WEF benchmarks).
+      </div>
     </div>
-    ${n.feas ? '<div style="margin-top:12px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.75rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(45,212,191,0.15);color:var(--accent-teal);border:1px solid rgba(45,212,191,0.3);':n.feas==='High'?'background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3);':n.feas==='Medium'?'background:rgba(245,158,11,0.1);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.2);':'background:rgba(139,155,175,0.08);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Feasibility: ' + n.feas + '</div>' : ''}
+    ${n.feas ? '<div style="margin-top:12px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.75rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(45,212,191,0.15);color:var(--accent-teal);border:1px solid rgba(45,212,191,0.3);':n.feas==='High'?'background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3);':n.feas==='Medium'?'background:rgba(245,158,11,0.1);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.2);':'background:rgba(139,155,175,0.08);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Feasibility: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
   </div>`;
 }
 
