@@ -2554,8 +2554,8 @@ function renderProductList(products) {
     h += '</div>';
   } else if (gl.length > 0) {
     h += '<div style="margin-top:16px;padding:12px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;">';
-    h += '<span style="font-size:0.85rem;font-weight:700;color:#ea580c;">India Market Opportunity:</span> ';
-    h += '<span style="font-size:0.85rem;color:#374151;">No dedicated India-focused AI company identified. Represents a greenfield opportunity for India-native startups.</span></div>';
+    h += '<span style="font-size:0.85rem;font-weight:700;color:#ea580c;">India:</span> ';
+    h += '<span style="font-size:0.85rem;color:#6b7280;">No India-focused startup identified — white space.</span></div>';
   }
 
   return h;
@@ -2667,7 +2667,7 @@ function renderDetailPanel(n, ctx) {
       </div>
       <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px;">
         ${productsHtml}
-        ${n.opportunity ? '<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e9d5ff;"><strong style="color:#7c3aed;font-size:0.8rem;">India-specific opportunity:</strong><p style="font-size:0.88rem;color:#374151;margin-top:4px;line-height:1.6;">'+n.opportunity+'</p></div>' : ''}
+        
       </div>
     </div>
 
