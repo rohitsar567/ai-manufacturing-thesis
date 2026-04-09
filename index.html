@@ -2748,6 +2748,7 @@ function renderMatrix(nodes, containerId) {
 
 function renderVCGrid() {
   const container = document.getElementById('thesis-grid-container');
+  if (!container) return;
   container.innerHTML = THESIS_DATA.map(vc => `<div class="thesis-card">
     <div class="thesis-name">${vc.name}</div>
     <div class="thesis-source">${vc.thesis} ${(vc.region === 'India') ? '<span style="color:var(--accent-amber);font-size:0.6rem;">🇮🇳 INDIA</span>' : ''}</div>
@@ -2893,7 +2894,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderMatrix(AUTO_NODES, 'auto-matrix');
   renderWorkflow(FMCG_NODES, 'fmcg-workflow');
   renderMatrix(FMCG_NODES, 'fmcg-matrix');
-  renderVCGrid();
   renderTAMWaterfall();
 
   // Trigger initial fade-ins
