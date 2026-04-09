@@ -1405,61 +1405,114 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div class="sp-stat"><strong>15-25%</strong> cost increase from 2025 Labour Codes</div>
     </div>
 
-    <!-- WHY HEALTHY MARKET MATTERS -->
-    <div style="margin-top:48px; background: linear-gradient(135deg, rgba(45,212,191,0.06), rgba(139,92,246,0.04)); border:1px solid var(--border-subtle); border-radius:16px; padding:32px;">
-      <h3 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:16px;">
-        <span style="color:var(--accent-teal);">&#x2713;</span> A growing industrial base with structural tailwinds
-      </h3>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-        <div>
-          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
-            AI automation requires <strong style="color:var(--text-primary);">healthy, growing markets</strong> to achieve scale. In declining or stagnant sectors, companies cut costs by layoffs &mdash; they don't invest in AI infrastructure. The $540B combined revenue of Auto + FMCG, growing at 4-5% CAGR, creates the essential preconditions:
-          </p>
-          <ul style="list-style:none;">
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
-              <span style="position:absolute;left:0;color:var(--accent-teal);">1.</span>
-              <strong style="color:var(--text-primary);">Growing revenue = growing knowledge work demand.</strong> Companies scaling operations are more receptive to AI solutions that multiply productivity.
-            </li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
-              <span style="position:absolute;left:0;color:var(--accent-teal);">2.</span>
-              <strong style="color:var(--text-primary);">Positive margins = budget for technology.</strong> FMCG's 17% net margin means every $1 of AI spend can be justified against a healthy P&L. Metals at 9.5% margin and heavy capex has no room.
-            </li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
-              <span style="position:absolute;left:0;color:var(--accent-teal);">3.</span>
-              <strong style="color:var(--text-primary);">Policy tailwinds create urgency.</strong> PLI schemes, Make in India, and the 2025 Labour Codes simultaneously increase manufacturing scale and labor costs &mdash; the perfect storm for AI adoption.
-            </li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
-              <span style="position:absolute;left:0;color:var(--accent-teal);">4.</span>
-              <strong style="color:var(--text-primary);">Global competitive pressure.</strong> India's manufacturers compete with China (lower cost) and Germany/Japan (higher automation). AI is the lever that closes both gaps simultaneously.
-            </li>
-          </ul>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
-            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Revenue (Auto + FMCG)</div>
-            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-teal);">$540B</div>
-            <div class="growth-bar"><div class="growth-fill" style="width:78%;background:var(--accent-teal);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">45% of India's total manufacturing output</div>
-          </div>
-          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
-            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Projected FY30 Revenue</div>
-            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-amber);">$928B</div>
-            <div class="growth-bar"><div class="growth-fill" style="width:92%;background:var(--accent-amber);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">72% growth in 5 years &mdash; more knowledge work demand, more AI opportunity</div>
-          </div>
-          <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
-            <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">India GDP Growth (FY25)</div>
-            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-violet);">6.5-6.9%</div>
-            <div class="growth-bar"><div class="growth-fill" style="width:69%;background:var(--accent-violet);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">Fastest major economy &mdash; manufacturing share of GDP rising</div>
-          </div>
-        </div>
+    <!-- SECTOR REVENUE TRAJECTORY: FY20 → FY25 → FY30 -->
+    <div style="margin-top:48px;">
+      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:6px;">Manufacturing Revenue Trajectory: Where We Were, Where We Are, Where We're Going</h3>
+      <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:24px; max-width:700px; line-height:1.6;">Six major manufacturing sectors have grown from <strong style="color:var(--text-primary);">$803B (FY20)</strong> to <strong style="color:var(--text-primary);">$1.2T (FY25)</strong> at 8.4% CAGR &mdash; and are projected to reach <strong style="color:var(--text-primary);">$1.9T by FY30</strong> at 9.2% CAGR. This is the industrial base that AI will transform.</p>
+
+      <!-- VISUAL BAR CHART — JS rendered -->
+      <div id="sectorTrajectoryChart" style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:24px; margin-bottom:24px;">
+        <!-- Rendered by JS below -->
       </div>
-      <div style="margin-top:16px;">
-        <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey: India Manufacturing Promise</a>
-        <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank" class="source-tag">Deloitte India Manufacturing</a>
-        <a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank" class="source-tag">PwC India</a>
-        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF Jobs 2025</a>
+
+      <!-- DATA TABLE -->
+      <div style="overflow-x:auto; margin-bottom:20px;">
+        <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:0.78rem; background:var(--bg-card); border-radius:12px; overflow:hidden; border:1px solid var(--border-subtle);">
+          <thead>
+            <tr>
+              <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:left;">Sector</th>
+              <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:right;">FY20</th>
+              <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:center;">Hist. CAGR</th>
+              <th style="font-family:var(--font-display); font-weight:700; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-teal); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:right;">FY25</th>
+              <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:center;">Fwd. CAGR</th>
+              <th style="font-family:var(--font-display); font-weight:700; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-amber); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:right;">FY30</th>
+              <th style="font-family:var(--font-display); font-weight:600; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); padding:12px 10px; background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); text-align:right;">Employees</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#2563eb;">&#x1F697; Automobile</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$172B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">8.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$252B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-amber);">3.9%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">$305B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">4.2M</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#d97706;">&#x1F6D2; FMCG</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$210B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">6.5%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$288B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-amber);">4.5%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">$359B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">3.0M</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(5,150,105,0.02);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#059669;">&#x1F4BB; ESDM</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$109B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-teal);">15.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$220B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-teal); font-weight:700;">17.9%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-teal);">$501B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">2.5M</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#ea580c;">&#x2697;&#xFE0F; Chemicals</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$177B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">8.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$260B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-amber);">10.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">$419B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">2.0M</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#64748b;">&#x2692;&#xFE0F; Metals</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$100B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">5.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$127B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">4.1%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">$155B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">5.7M</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px; font-family:var(--font-display); font-weight:700; color:#7c3aed;">&#x1F48A; Pharma</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">$35B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--text-dim);">10.0%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-primary);">$57B</td>
+              <td style="padding:10px; text-align:center; font-family:var(--font-mono); color:var(--accent-amber);">17.9%</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">$130B</td>
+              <td style="padding:10px; text-align:right; font-family:var(--font-mono); color:var(--text-dim);">3.0M</td>
+            </tr>
+            <tr style="background:rgba(13,148,136,0.04);">
+              <td style="padding:12px 10px; font-family:var(--font-display); font-weight:800; color:var(--text-primary);">TOTAL</td>
+              <td style="padding:12px 10px; text-align:right; font-family:var(--font-mono); font-weight:800; color:var(--text-secondary);">$803B</td>
+              <td style="padding:12px 10px; text-align:center; font-family:var(--font-mono); font-weight:700; color:var(--text-dim);">8.4%</td>
+              <td style="padding:12px 10px; text-align:right; font-family:var(--font-mono); font-weight:800; font-size:0.9rem; color:var(--accent-teal);">$1.2T</td>
+              <td style="padding:12px 10px; text-align:center; font-family:var(--font-mono); font-weight:700; color:var(--accent-amber);">9.2%</td>
+              <td style="padding:12px 10px; text-align:right; font-family:var(--font-mono); font-weight:800; font-size:0.9rem; color:var(--accent-amber);">$1.9T</td>
+              <td style="padding:12px 10px; text-align:right; font-family:var(--font-mono); font-weight:800; color:var(--text-primary);">20.4M</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SOURCES -->
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">
+        <a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" class="source-tag">IBEF Manufacturing</a>
+        <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" class="source-tag">Mordor Intelligence</a>
+        <a href="https://www.grandviewresearch.com/industry-analysis/india-fast-moving-consumer-goods-market" target="_blank" class="source-tag">Grand View FMCG</a>
+        <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM Statistics</a>
+        <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey India Mfg</a>
+      </div>
+
+      <!-- KEY TAKEAWAY -->
+      <div class="key-insight">
+        <div class="ki-label">Why This Matters for AI</div>
+        <p>Growing sectors invest in technology. The combined $1.2T revenue base, expanding at 9.2% CAGR with <strong>20.4 million employees</strong>, creates the scale and budget for AI adoption. Stagnant sectors cut costs via layoffs &mdash; growing sectors invest in AI to scale faster.</p>
+      </div>
+    </div>
+
       </div>
     </div>
 
@@ -3883,6 +3936,72 @@ document.addEventListener('mouseout', function(e) {
   });
 })();
 
+
+
+// ═══ SECTOR TRAJECTORY BAR CHART ═══
+(function() {
+  var container = document.getElementById('sectorTrajectoryChart');
+  if (!container) return;
+  
+  var sectors = [
+    {name:'Automobile', fy20:172, fy25:252, fy30:305, color:'#2563eb'},
+    {name:'FMCG', fy20:210, fy25:288, fy30:359, color:'#d97706'},
+    {name:'ESDM', fy20:109, fy25:220, fy30:501, color:'#059669'},
+    {name:'Chemicals', fy20:177, fy25:260, fy30:419, color:'#ea580c'},
+    {name:'Metals', fy20:100, fy25:127, fy30:155, color:'#64748b'},
+    {name:'Pharma', fy20:35, fy25:57, fy30:130, color:'#7c3aed'}
+  ];
+  
+  var maxVal = 501; // ESDM FY30
+  var barH = 260;
+  
+  var html = '<div style="display:flex; align-items:flex-end; gap:16px; height:' + barH + 'px; padding:0 8px;">';
+  
+  sectors.forEach(function(s) {
+    var h20 = Math.max(8, (s.fy20 / maxVal) * barH);
+    var h25 = Math.max(8, (s.fy25 / maxVal) * barH);
+    var h30 = Math.max(8, (s.fy30 / maxVal) * barH);
+    
+    html += '<div style="flex:1; display:flex; flex-direction:column; align-items:center;">';
+    html += '<div style="display:flex; align-items:flex-end; gap:2px; height:' + barH + 'px;">';
+    
+    // FY20 bar (lighter)
+    html += '<div style="width:16px; height:' + h20 + 'px; background:' + s.color + '; opacity:0.25; border-radius:3px 3px 0 0; position:relative;" title="FY20: $' + s.fy20 + 'B">';
+    html += '<div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:0.45rem; color:var(--text-dim); white-space:nowrap;">$' + s.fy20 + 'B</div></div>';
+    
+    // FY25 bar (medium)
+    html += '<div style="width:20px; height:' + h25 + 'px; background:' + s.color + '; opacity:0.6; border-radius:3px 3px 0 0; position:relative;" title="FY25: $' + s.fy25 + 'B">';
+    html += '<div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:0.5rem; font-weight:700; color:var(--text-primary); white-space:nowrap;">$' + s.fy25 + 'B</div></div>';
+    
+    // FY30 bar (full)
+    html += '<div style="width:16px; height:' + h30 + 'px; background:' + s.color + '; border-radius:3px 3px 0 0; position:relative;" title="FY30: $' + s.fy30 + 'B">';
+    html += '<div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:0.45rem; color:' + s.color + '; white-space:nowrap; font-weight:600;">$' + s.fy30 + 'B</div></div>';
+    
+    html += '</div>';
+    html += '<div style="font-family:var(--font-display); font-size:0.6rem; font-weight:600; color:' + s.color + '; margin-top:8px; text-align:center;">' + s.name + '</div>';
+    html += '</div>';
+  });
+  
+  html += '</div>';
+  
+  // Legend
+  html += '<div style="display:flex; justify-content:center; gap:20px; margin-top:16px;">';
+  html += '<span style="font-family:var(--font-display); font-size:0.65rem; color:var(--text-dim); display:flex; align-items:center; gap:4px;"><span style="width:12px; height:12px; background:#2563eb; opacity:0.25; border-radius:2px; display:inline-block;"></span>FY20</span>';
+  html += '<span style="font-family:var(--font-display); font-size:0.65rem; color:var(--text-dim); display:flex; align-items:center; gap:4px;"><span style="width:12px; height:12px; background:#2563eb; opacity:0.6; border-radius:2px; display:inline-block;"></span>FY25 (current)</span>';
+  html += '<span style="font-family:var(--font-display); font-size:0.65rem; color:var(--text-dim); display:flex; align-items:center; gap:4px;"><span style="width:12px; height:12px; background:#2563eb; border-radius:2px; display:inline-block;"></span>FY30 (projected)</span>';
+  html += '</div>';
+  
+  // Total trajectory
+  html += '<div style="display:flex; justify-content:center; gap:32px; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-subtle);">';
+  html += '<div style="text-align:center;"><div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-dim);">$803B</div><div style="font-family:var(--font-display); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase;">FY20</div></div>';
+  html += '<div style="font-family:var(--font-display); font-size:0.7rem; color:var(--text-dim); display:flex; align-items:center;">→ 8.4% CAGR →</div>';
+  html += '<div style="text-align:center;"><div style="font-family:var(--font-mono); font-size:1.3rem; font-weight:800; color:var(--accent-teal);">$1.2T</div><div style="font-family:var(--font-display); font-size:0.55rem; color:var(--accent-teal); text-transform:uppercase; font-weight:700;">FY25</div></div>';
+  html += '<div style="font-family:var(--font-display); font-size:0.7rem; color:var(--text-dim); display:flex; align-items:center;">→ 9.2% CAGR →</div>';
+  html += '<div style="text-align:center;"><div style="font-family:var(--font-mono); font-size:1.3rem; font-weight:800; color:var(--accent-amber);">$1.9T</div><div style="font-family:var(--font-display); font-size:0.55rem; color:var(--accent-amber); text-transform:uppercase; font-weight:700;">FY30</div></div>';
+  html += '</div>';
+  
+  container.innerHTML = html;
+})();
 
 // ═══ BACK TO TOP ═══
 (function() {
