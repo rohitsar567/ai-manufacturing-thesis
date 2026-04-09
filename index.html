@@ -4025,163 +4025,210 @@ document.addEventListener('mouseout', function(e) {
   var canvas = document.getElementById('revenueGraph');
   if (!canvas) return;
   var dpr = window.devicePixelRatio || 1;
-  canvas.width = 900 * dpr;
-  canvas.height = 380 * dpr;
+  canvas.width = 960 * dpr;
+  canvas.height = 400 * dpr;
   canvas.style.width = '100%';
   canvas.style.height = 'auto';
   var ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
-  var W = 900, H = 380;
-  var pad = {top:30, right:40, bottom:50, left:55};
+  var W = 960, H = 400;
+  var pad = {top:35, right:50, bottom:45, left:58};
   var cW = W - pad.left - pad.right;
   var cH = H - pad.top - pad.bottom;
   
-  // Realistic revenue data: COVID dip in 2020, V-shaped recovery, acceleration
-  var years =   [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
-  var revenue = [ 680,  750,  640,  720,  880, 1020, 1100, 1204, 1320, 1440, 1580, 1720, 1869];
+  // Realistic data with COVID dip
+  var data = [
+    {y:2018,v:680},{y:2019,v:750},{y:2020,v:640},{y:2021,v:720},
+    {y:2022,v:880},{y:2023,v:1020},{y:2024,v:1100},{y:2025,v:1204},
+    {y:2026,v:1320},{y:2027,v:1440},{y:2028,v:1580},{y:2029,v:1720},{y:2030,v:1869}
+  ];
   
-  var minY = 500, maxY = 2050;
+  var minY = 450, maxY = 2100;
+  function x(yr) { return pad.left + ((yr - 2018) / 12) * cW; }
+  function y(v) { return pad.top + cH - ((v - minY) / (maxY - minY)) * cH; }
   
-  function xPos(year) { return pad.left + ((year - 2018) / 12) * cW; }
-  function yPos(val) { return pad.top + cH - ((val - minY) / (maxY - minY)) * cH; }
+  // Smooth bezier through points
+  function drawSmooth(pts, close) {
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (var i = 0; i < pts.length - 1; i++) {
+      var xc = (pts[i].x + pts[i+1].x) / 2;
+      var yc = (pts[i].y + pts[i+1].y) / 2;
+      ctx.quadraticCurveTo(pts[i].x, pts[i].y, xc, yc);
+    }
+    ctx.lineTo(pts[pts.length-1].x, pts[pts.length-1].y);
+  }
   
   // Background
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#fafbfc';
   ctx.fillRect(0, 0, W, H);
   
-  // Grid lines
-  ctx.strokeStyle = '#f3f4f6';
+  // Subtle grid
+  ctx.strokeStyle = '#f0f1f3';
   ctx.lineWidth = 0.5;
   for (var g = 600; g <= 2000; g += 200) {
-    ctx.beginPath(); ctx.moveTo(pad.left, yPos(g)); ctx.lineTo(W - pad.right, yPos(g)); ctx.stroke();
-    ctx.fillStyle = '#9ca3af';
-    ctx.font = '9px Sora, sans-serif';
+    ctx.beginPath(); ctx.moveTo(pad.left, y(g)); ctx.lineTo(W - pad.right, y(g)); ctx.stroke();
+    ctx.fillStyle = '#b0b8c4';
+    ctx.font = '8px Sora, sans-serif';
     ctx.textAlign = 'right';
-    ctx.fillText(g >= 1000 ? '$' + (g/1000).toFixed(1) + 'T' : '$' + g + 'B', pad.left - 6, yPos(g) + 3);
+    ctx.fillText(g >= 1000 ? '$' + (g/1000).toFixed(1) + 'T' : '$' + g + 'B', pad.left - 8, y(g) + 3);
   }
   
-  // X-axis
-  ctx.fillStyle = '#9ca3af';
-  ctx.font = '9px Sora, sans-serif';
+  // X-axis years
   ctx.textAlign = 'center';
-  years.forEach(function(y) { ctx.fillText(y, xPos(y), H - pad.bottom + 16); });
-  
-  // Today line
-  ctx.strokeStyle = 'rgba(13,148,136,0.4)';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([3, 3]);
-  ctx.beginPath(); ctx.moveTo(xPos(2025), pad.top); ctx.lineTo(xPos(2025), H - pad.bottom); ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle = '#0d9488';
-  ctx.font = 'bold 8px Sora, sans-serif';
-  ctx.fillText('TODAY', xPos(2025), pad.top - 6);
-  
-  // Area — actual (2018-2025)
-  ctx.beginPath();
-  ctx.moveTo(xPos(2018), yPos(revenue[0]));
-  for (var i = 1; i <= 7; i++) ctx.lineTo(xPos(years[i]), yPos(revenue[i]));
-  ctx.lineTo(xPos(2025), H - pad.bottom);
-  ctx.lineTo(xPos(2018), H - pad.bottom);
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(13,148,136,0.06)';
-  ctx.fill();
-  
-  // Area — projected (2025-2030)
-  ctx.beginPath();
-  ctx.moveTo(xPos(2025), yPos(revenue[7]));
-  for (var i = 8; i < years.length; i++) ctx.lineTo(xPos(years[i]), yPos(revenue[i]));
-  ctx.lineTo(xPos(2030), H - pad.bottom);
-  ctx.lineTo(xPos(2025), H - pad.bottom);
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(217,119,6,0.04)';
-  ctx.fill();
-  
-  // Line — actual
-  ctx.strokeStyle = '#0d9488';
-  ctx.lineWidth = 2.5;
-  ctx.lineJoin = 'round';
-  ctx.beginPath();
-  ctx.moveTo(xPos(2018), yPos(revenue[0]));
-  for (var i = 1; i <= 7; i++) ctx.lineTo(xPos(years[i]), yPos(revenue[i]));
-  ctx.stroke();
-  
-  // Line — projected
-  ctx.strokeStyle = '#d97706';
-  ctx.lineWidth = 2.5;
-  ctx.setLineDash([6, 4]);
-  ctx.beginPath();
-  ctx.moveTo(xPos(2025), yPos(revenue[7]));
-  for (var i = 8; i < years.length; i++) ctx.lineTo(xPos(years[i]), yPos(revenue[i]));
-  ctx.stroke();
-  ctx.setLineDash([]);
-  
-  // Dots at key years only
-  [0, 2, 4, 7, 12].forEach(function(i) {
-    ctx.beginPath(); ctx.arc(xPos(years[i]), yPos(revenue[i]), 4, 0, Math.PI*2);
-    ctx.fillStyle = i <= 7 ? '#0d9488' : '#d97706';
-    ctx.fill();
-    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
+  data.forEach(function(d) {
+    ctx.fillStyle = d.y === 2025 ? '#0d9488' : '#b0b8c4';
+    ctx.font = d.y === 2025 ? 'bold 9px Sora, sans-serif' : '8px Sora, sans-serif';
+    ctx.fillText(d.y, x(d.y), H - pad.bottom + 16);
   });
   
-  // Key revenue labels
-  function revLabel(yr, val, color, dx, dy) {
-    ctx.fillStyle = color;
-    ctx.font = 'bold 11px JetBrains Mono, monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(val >= 1000 ? '$' + (val/1000).toFixed(1) + 'T' : '$' + val + 'B', xPos(yr) + dx, yPos(val) + dy);
+  // TODAY vertical
+  ctx.save();
+  ctx.strokeStyle = 'rgba(13,148,136,0.25)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(x(2025), pad.top - 5); ctx.lineTo(x(2025), H - pad.bottom); ctx.stroke();
+  ctx.restore();
+  
+  // Gradient area — actual
+  var actualPts = data.slice(0, 8).map(function(d) { return {x: x(d.y), y: y(d.v)}; });
+  var grad1 = ctx.createLinearGradient(0, pad.top, 0, H - pad.bottom);
+  grad1.addColorStop(0, 'rgba(13,148,136,0.12)');
+  grad1.addColorStop(1, 'rgba(13,148,136,0.01)');
+  ctx.beginPath();
+  drawSmooth(actualPts);
+  ctx.lineTo(x(2025), H - pad.bottom);
+  ctx.lineTo(x(2018), H - pad.bottom);
+  ctx.closePath();
+  ctx.fillStyle = grad1;
+  ctx.fill();
+  
+  // Gradient area — projected
+  var projPts = data.slice(7).map(function(d) { return {x: x(d.y), y: y(d.v)}; });
+  var grad2 = ctx.createLinearGradient(0, pad.top, 0, H - pad.bottom);
+  grad2.addColorStop(0, 'rgba(217,119,6,0.10)');
+  grad2.addColorStop(1, 'rgba(217,119,6,0.01)');
+  ctx.beginPath();
+  drawSmooth(projPts);
+  ctx.lineTo(x(2030), H - pad.bottom);
+  ctx.lineTo(x(2025), H - pad.bottom);
+  ctx.closePath();
+  ctx.fillStyle = grad2;
+  ctx.fill();
+  
+  // Line — actual (smooth, with shadow)
+  ctx.save();
+  ctx.shadowColor = 'rgba(13,148,136,0.2)';
+  ctx.shadowBlur = 8;
+  ctx.shadowOffsetY = 3;
+  ctx.strokeStyle = '#0d9488';
+  ctx.lineWidth = 3;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  drawSmooth(actualPts);
+  ctx.stroke();
+  ctx.restore();
+  
+  // Line — projected (dashed, with shadow)
+  ctx.save();
+  ctx.shadowColor = 'rgba(217,119,6,0.15)';
+  ctx.shadowBlur = 6;
+  ctx.shadowOffsetY = 2;
+  ctx.strokeStyle = '#d97706';
+  ctx.lineWidth = 2.5;
+  ctx.setLineDash([8, 5]);
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  drawSmooth(projPts);
+  ctx.stroke();
+  ctx.restore();
+  
+  // Dots — key points only
+  function dot(yr, val, color, size) {
+    var cx = x(yr), cy = y(val);
+    ctx.save();
+    ctx.shadowColor = color + '40';
+    ctx.shadowBlur = 6;
+    ctx.beginPath(); ctx.arc(cx, cy, size, 0, Math.PI*2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    ctx.restore();
   }
-  revLabel(2018, 680, '#9ca3af', -20, -10);
-  revLabel(2020, 640, '#e11d48', 0, 16);
-  revLabel(2022, 880, '#0d9488', 15, -10);
-  revLabel(2025, 1204, '#0d9488', 0, -12);
-  revLabel(2030, 1869, '#d97706', 0, -12);
+  dot(2018, 680, '#9ca3af', 4);
+  dot(2020, 640, '#e11d48', 5);
+  dot(2022, 880, '#0d9488', 4);
+  dot(2025, 1204, '#0d9488', 6);
+  dot(2030, 1869, '#d97706', 6);
   
-  // COVID dip callout
-  ctx.fillStyle = '#e11d48';
-  ctx.font = 'bold 8px Sora, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('COVID', xPos(2020), yPos(640) + 28);
-  ctx.font = '7px Sora, sans-serif';
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('-15% revenue drop', xPos(2020), yPos(640) + 38);
+  // Revenue labels — elegant pill style
+  function pill(yr, val, color, dx, dy) {
+    var cx = x(yr) + dx, cy = y(val) + dy;
+    var text = val >= 1000 ? '$' + (val/1000).toFixed(1) + 'T' : '$' + val + 'B';
+    ctx.font = 'bold 11px JetBrains Mono, monospace';
+    var tw = ctx.measureText(text).width;
+    // Pill background
+    ctx.fillStyle = color + '14';
+    ctx.strokeStyle = color + '30';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    var px = cx - tw/2 - 6, py = cy - 9, pw = tw + 12, ph = 18, pr = 9;
+    ctx.moveTo(px + pr, py);
+    ctx.lineTo(px + pw - pr, py);
+    ctx.quadraticCurveTo(px + pw, py, px + pw, py + pr);
+    ctx.lineTo(px + pw, py + ph - pr);
+    ctx.quadraticCurveTo(px + pw, py + ph, px + pw - pr, py + ph);
+    ctx.lineTo(px + pr, py + ph);
+    ctx.quadraticCurveTo(px, py + ph, px, py + ph - pr);
+    ctx.lineTo(px, py + pr);
+    ctx.quadraticCurveTo(px, py, px + pr, py);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    // Text
+    ctx.fillStyle = color;
+    ctx.textAlign = 'center';
+    ctx.fillText(text, cx, cy + 4);
+  }
+  pill(2020, 640, '#e11d48', 0, 22);
+  pill(2025, 1204, '#0d9488', 0, -18);
+  pill(2030, 1869, '#d97706', 0, -18);
   
-  // Recovery callout
-  ctx.fillStyle = '#0d9488';
-  ctx.font = 'bold 8px Sora, sans-serif';
-  ctx.fillText('V-SHAPED RECOVERY', xPos(2021.5), yPos(800) - 8);
-  ctx.font = '7px Sora, sans-serif';
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('PLI + China+1 + pent-up demand', xPos(2021.5), yPos(800) + 2);
+  // Callout annotations — minimal, elegant
+  function callout(yr, val, text, subtext, color, side, offy) {
+    var cx = x(yr), cy = y(val) + offy;
+    ctx.fillStyle = color;
+    ctx.font = 'bold 8px Sora, sans-serif';
+    ctx.textAlign = side;
+    ctx.fillText(text, cx + (side === 'left' ? 8 : -8), cy);
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '7px Sora, sans-serif';
+    ctx.fillText(subtext, cx + (side === 'left' ? 8 : -8), cy + 10);
+  }
   
-  // 2025 inflection
-  ctx.fillStyle = '#0d9488';
-  ctx.font = 'bold 8px Sora, sans-serif';
-  ctx.textAlign = 'left';
-  ctx.fillText('LABOUR CODES 2025', xPos(2025) + 6, yPos(1204) + 20);
-  ctx.font = '7px Sora, sans-serif';
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('Costs +15-25%', xPos(2025) + 6, yPos(1204) + 30);
+  callout(2020, 640, 'COVID-19', '-15% revenue shock', '#e11d48', 'left', 40);
+  callout(2022, 880, 'RECOVERY + PLI', 'China+1 accelerates', '#0d9488', 'left', -18);
+  callout(2025, 1204, 'LABOUR CODES', 'Cost +15-25%', '#0d9488', 'right', 8);
+  callout(2030, 1869, 'VIKSIT BHARAT', '$1T mfg GDP target', '#d97706', 'right', 8);
   
-  // 2030 target
-  ctx.fillStyle = '#d97706';
-  ctx.font = 'bold 8px Sora, sans-serif';
-  ctx.textAlign = 'right';
-  ctx.fillText('VIKSIT BHARAT TARGET', xPos(2030) - 2, yPos(1869) + 16);
-  ctx.font = '7px Sora, sans-serif';
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('$1T mfg GDP mandate', xPos(2030) - 2, yPos(1869) + 26);
-  
-  // Legend
+  // Legend bar
   ctx.font = '8px Sora, sans-serif';
   ctx.textAlign = 'left';
-  ctx.strokeStyle = '#0d9488'; ctx.lineWidth = 2; ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(pad.left, H - 12); ctx.lineTo(pad.left + 20, H - 12); ctx.stroke();
-  ctx.fillStyle = '#6b7280'; ctx.fillText('Actual', pad.left + 24, H - 9);
-  
-  ctx.strokeStyle = '#d97706'; ctx.setLineDash([4, 3]);
-  ctx.beginPath(); ctx.moveTo(pad.left + 80, H - 12); ctx.lineTo(pad.left + 100, H - 12); ctx.stroke();
+  ctx.fillStyle = '#0d9488';
+  ctx.fillRect(pad.left, H - 10, 16, 2);
+  ctx.fillStyle = '#9ca3af';
+  ctx.fillText('Actual (2018-2025)', pad.left + 20, H - 7);
+  ctx.fillStyle = '#d97706';
+  ctx.setLineDash([4, 3]);
+  ctx.strokeStyle = '#d97706';
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(pad.left + 145, H - 9); ctx.lineTo(pad.left + 161, H - 9); ctx.stroke();
   ctx.setLineDash([]);
-  ctx.fillText('Projected (9.2% CAGR)', pad.left + 104, H - 9);
+  ctx.fillStyle = '#9ca3af';
+  ctx.fillText('Projected (9.2% CAGR)', pad.left + 165, H - 7);
 })();
 
 // ═══ BACK TO TOP ═══
