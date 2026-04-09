@@ -1200,9 +1200,8 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:8px;">Research Methodology</h3>
       <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.7; max-width:900px;">This analysis is the output of a structured, multi-phase research process. Each phase built on the artifacts of the previous one &mdash; from raw data collection through to the quantified opportunity map you see on this page.</p>
 
-      <div class="collapsible-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span class="toggle-icon">&#9654;</span> Show 6-Phase Research Methodology</div>
-<div class="collapsible-content">
-<!-- PHASE 1 -->
+<!-- PHASE 1 -->'
+
       <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
         <div style="text-align:center;">
           <div style="width:48px;height:48px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-teal);margin:0 auto;">1</div>
@@ -1302,14 +1301,17 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         </div>
       </div>
 
-      </div>
 <!-- Research Artifacts Summary -->
-      <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:12px;">
+      <div class="collapsible-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        <span class="toggle-icon">&#9654;</span> Show Research Artifact Chain &mdash; 3 phases, 11 output files
+      </div>
+      <div class="collapsible-content">
+      <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:8px;">
         <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#1f2937;margin-bottom:14px;">Research Artifact Chain</div>
         <ul style="list-style:none;">
           <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
             <span style="position:absolute;left:0;color:#0d9488;font-weight:700;">1.</span>
-            <strong>Sector Landscape &amp; Role Library</strong> &mdash; Profiled 6 manufacturing sectors across 48 financial metrics (IBEF, PLFS, Mordor Intelligence), then catalogued 255 distinct job roles across 3 sectors using BLS, Mercer, Aon, and LinkedIn frameworks. Each role classified by career stream and collar type.
+            <strong>Sector Landscape &amp; Role Library</strong> &mdash; Profiled 6 manufacturing sectors across 48 financial metrics (<a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" style="color:var(--accent-teal);">IBEF</a>, <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" style="color:var(--accent-teal);">PLFS</a>, <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" style="color:var(--accent-teal);">Mordor Intelligence</a>), then catalogued 255 distinct job roles across 3 sectors using <a href="https://www.bls.gov/oes/" target="_blank" style="color:var(--accent-teal);">BLS</a>, <a href="https://www.mercer.com/" target="_blank" style="color:var(--accent-teal);">Mercer</a>, Aon, and LinkedIn frameworks. Each role classified by career stream and collar type.
           </li>
           <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
             <span style="position:absolute;left:0;color:#7c3aed;font-weight:700;">2.</span>
@@ -1317,10 +1319,11 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </li>
           <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;">
             <span style="position:absolute;left:0;color:#d97706;font-weight:700;">3.</span>
-            <strong>AI Opportunity Analysis</strong> &mdash; Scored 6 sectors on 7 dimensions to select Auto &amp; FMCG, then analyzed 57 workflow nodes: problems, AI solutions, 45+ existing products, role-based automation rates, and TAM derivation aligned to 19 published theses.
+            <strong>AI Opportunity Analysis</strong> &mdash; Scored 6 sectors on 7 dimensions to select Auto &amp; FMCG, then analyzed 57 workflow nodes: problems, AI solutions, 45+ existing products, role-based automation rates (from <a href="https://www.bls.gov/oes/" target="_blank" style="color:var(--accent-teal);">BLS</a>/<a href="https://www.mercer.com/" target="_blank" style="color:var(--accent-teal);">Mercer</a> frameworks), and TAM derivation aligned to 19 published theses.
           </li>
         </ul>
       </div>
+      </div><!-- end collapsible artifact chain -->
     </div>
 
 
