@@ -2690,7 +2690,7 @@ function renderDetailPanel(n, ctx) {
     </div>
 
     ${n.feas ? '<div style="margin-top:8px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.8rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(13,148,136,0.08);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.2);':n.feas==='High'?'background:rgba(5,150,105,0.08);color:#059669;border:1px solid rgba(5,150,105,0.2);':n.feas==='Medium'?'background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.15);':'background:rgba(0,0,0,0.03);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Solution Fit: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
-  </div>\`;
+  </div>`;
 }
 
 function renderMatrix(nodes, containerId) {
