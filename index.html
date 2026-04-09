@@ -2772,28 +2772,20 @@ function renderDetailPanel(n, ctx) {
         <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">How we calculated the addressable market for this node:</div>
         <div style="font-size:0.88rem;color:#374151;line-height:1.7;">
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Total ${sectorData.name} sector employees <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.wcSource}]</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.employees}</span>
+            <span>Roles AI can serve in this function (per company) <span style="font-size:0.7rem;color:#0d9488;">[Workflow Role Mapping]</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;color:#d97706;">${n.fte} roles</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Knowledge worker ratio <span style="font-size:0.7rem;color:#0d9488;">[PLFS NCO-2015]</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.wcPct}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>= Knowledge workers in sector</span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.wcCount}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Average salary per knowledge worker <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.salarySource}]</span></span>
+            <span>Average cost per knowledge worker <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.salarySource}]</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.avgSalary}/yr</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>% of roles in this node AI can serve</span>
-            <span style="font-family:var(--font-mono);font-weight:600;color:#d97706;">${n.hc_pct}%</span>
+            <span>= Value of jobs AI can do (per company)</span>
+            <span style="font-family:var(--font-mono);font-weight:600;">$${(n.fte * parseInt(sectorData.avgSalary.replace(/[^0-9]/g,''))).toLocaleString()}/yr</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Career-level adj. (excl. CXO) <span style="font-size:0.7rem;color:#0d9488;">[Role Library Excel]</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;color:#7c3aed;">${sectorData.careerAdj}</span>
+            <span>Number of companies in sector <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.companySource}]</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.companies}</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
             <span>&times; 50% capture rate (AI provider share)</span>
@@ -2807,11 +2799,7 @@ function renderDetailPanel(n, ctx) {
             <span style="font-weight:700;color:#1f2937;">AI Market Size for this node</span>
             <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${Math.round(n.tam/2)}M</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:4px 0;">
-            <span style="color:#6b7280;">Across ${sectorData.companies} companies <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.companySource}]</span></span>
-          </div>
-        </div>
-      </div>
+        </div></div>
     </div>
 
     ${n.feas ? '<div style="margin-top:8px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.8rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(13,148,136,0.08);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.2);':n.feas==='High'?'background:rgba(5,150,105,0.08);color:#059669;border:1px solid rgba(5,150,105,0.2);':n.feas==='Medium'?'background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.15);':'background:rgba(0,0,0,0.03);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Solution Fit: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
