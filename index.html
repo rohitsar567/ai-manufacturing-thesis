@@ -1561,17 +1561,12 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div class="section-title">28 operational problems. $2.0B in AI solution potential.</div>
     <div class="section-desc">From vehicle program inception through press-weld-paint-assembly shops to dealership sales and after-sales service. Click any node to explore the problem, AI solution, and market size.</div>
 
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('auto','workflow')">Workflow View</button>
-      <button class="tab-btn" onclick="switchTab('auto','matrix')">Opportunity Matrix</button>
-    </div>
+    
 
-    <div id="auto-workflow" class="tab-content active">
+    <div id="auto-workflow">
       <!-- Content injected by JS -->
     </div>
-    <div id="auto-matrix" class="tab-content">
-      <!-- Content injected by JS -->
-    </div>
+    
   </div>
 </section>
 
@@ -1582,17 +1577,12 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div class="section-title">29 operational problems. $2.8B in AI solution potential.</div>
     <div class="section-desc">From R&D formulation and demand planning through continuous processing, packaging, and multi-tier retail distribution. The largest concentration of solvable process inefficiencies in Indian manufacturing.</div>
 
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('fmcg','workflow')">Workflow View</button>
-      <button class="tab-btn" onclick="switchTab('fmcg','matrix')">Opportunity Matrix</button>
-    </div>
+    
 
-    <div id="fmcg-workflow" class="tab-content active">
+    <div id="fmcg-workflow">
       <!-- Content injected by JS -->
     </div>
-    <div id="fmcg-matrix" class="tab-content">
-      <!-- Content injected by JS -->
-    </div>
+    
   </div>
 </section>
 
@@ -2805,59 +2795,6 @@ function renderDetailPanel(n, ctx) {
   </div>`;
 }
 
-function renderMatrix(nodes, containerId) {
-  const container = document.getElementById(containerId);
-  const sorted = [...nodes].sort((a,b) => (b.score||0) - (a.score||0) || b.tam - a.tam);
-
-  let html = `<table class="matrix-table">
-    <thead><tr>
-      <th>Rank</th><th>Node</th><th>Segment</th><th>Tier</th><th>Score</th><th>TAM ($M)</th>
-      <th>AI Scope (%)</th><th>Roles AI Serves</th><th>Products</th>
-    </tr></thead><tbody>`;
-
-  sorted.forEach((n, i) => {
-    const tamClass = n.tam/2 >= 150 ? 'heat-high' : n.tam/2 >= 50 ? 'heat-med' : 'heat-low';
-    const hcClass = n.hc_pct >= 35 ? 'heat-high' : n.hc_pct >= 20 ? 'heat-med' : 'heat-low';
-    html += `<tr onclick="switchTab('${containerId.replace('-matrix','')}','workflow');setTimeout(()=>{toggleDetail('${containerId.replace('-matrix','-workflow')}',${n.id});document.getElementById('node-${containerId.replace('-matrix','-workflow')}-${n.id}').scrollIntoView({behavior:'smooth',block:'center'})},100)">
-      <td style="font-family:var(--font-mono);color:var(--text-dim);">${i+1}</td>
-      <td class="node-name">${n.icon} ${n.name}</td>
-      <td><span class="bp-tag ${BP_TAG_CLASSES[n.bp]}">${n.bp.toUpperCase()}</span></td>
-      <td><span class="node-tier tier-${n.tier.toLowerCase()}" style="position:static">${n.tier}</span></td>
-      <td><span style="font-family:var(--font-mono);font-weight:800;font-size:0.85rem;${n.score>=8?'color:var(--accent-teal);':'color:var(--text-dim);'}">${n.score || '—'}/10</span></td>
-      <td><span class="heat-cell ${tamClass}">$${Math.round(n.tam/2)}M</span></td>
-      <td><span class="heat-cell ${hcClass}">${n.hc_pct}%</span></td>
-      <td style="font-family:var(--font-mono);text-align:center;">${n.fte}</td>
-      <td style="font-size:0.7rem;color:var(--text-dim);">${n.products ? n.products.slice(0,2).map(p=>p.n).join(', ') : '—'}</td>
-    </tr>`;
-  });
-  html += '</tbody></table>';
-
-  // Summary bar
-  const totalTam = nodes.reduce((s,n) => s + n.tam, 0);
-  const totalFte = nodes.reduce((s,n) => s + n.fte, 0);
-  const t1Count = nodes.filter(n => n.tier === 'T1').length;
-  html = `<div style="display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;">
-    <div style="background:var(--accent-teal-dim);padding:12px 20px;border-radius:10px;font-family:var(--font-display);">
-      <span style="font-size:1.3rem;font-weight:800;color:var(--accent-teal);">$${(totalTam/2000).toFixed(1)}B</span>
-      <span style="font-size:0.7rem;color:var(--text-dim);margin-left:8px;">Total TAM</span>
-    </div>
-    <div style="background:var(--accent-amber-dim);padding:12px 20px;border-radius:10px;font-family:var(--font-display);">
-      <span style="font-size:1.3rem;font-weight:800;color:var(--accent-amber);">${totalFte}</span>
-      <span style="font-size:0.7rem;color:var(--text-dim);margin-left:8px;">FTEs Reducible / Plant</span>
-    </div>
-    <div style="background:var(--accent-violet-dim);padding:12px 20px;border-radius:10px;font-family:var(--font-display);">
-      <span style="font-size:1.3rem;font-weight:800;color:var(--accent-violet);">${t1Count}</span>
-      <span style="font-size:0.7rem;color:var(--text-dim);margin-left:8px;">Tier 1 Deep Dives</span>
-    </div>
-    <div style="background:rgba(45,212,191,0.1);padding:12px 20px;border-radius:10px;font-family:var(--font-display);border:1px solid rgba(45,212,191,0.2);">
-      <span style="font-size:1.3rem;font-weight:800;color:var(--accent-teal);">${nodes.filter(n=>n.score>=8).length}</span>
-      <span style="font-size:0.7rem;color:var(--text-dim);margin-left:8px;">Top Quartile (8+/10)</span>
-    </div>
-  </div>` + html;
-
-  container.innerHTML = html;
-}
-
 function renderVCGrid() {
   const container = document.getElementById('thesis-grid-container');
   if (!container) return;
@@ -2934,19 +2871,7 @@ function renderTAMWaterfall() {
 // INTERACTIONS
 // ════════════════════════════════════════════════════════════════
 
-function switchTab(sector, tab) {
-  const wf = document.getElementById(`${sector}-workflow`);
-  const mx = document.getElementById(`${sector}-matrix`);
-  const btns = wf.closest('section').querySelectorAll('.tab-btn');
 
-  if (tab === 'workflow') {
-    wf.classList.add('active'); mx.classList.remove('active');
-    btns[0].classList.add('active'); btns[1].classList.remove('active');
-  } else {
-    mx.classList.add('active'); wf.classList.remove('active');
-    btns[1].classList.add('active'); btns[0].classList.remove('active');
-  }
-}
 
 function toggleDetail(ctx, id) {
   const panel = document.getElementById(`detail-${ctx}-${id}`);
@@ -3003,9 +2928,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderWorkflow(AUTO_NODES, 'auto-workflow');
-  renderMatrix(AUTO_NODES, 'auto-matrix');
   renderWorkflow(FMCG_NODES, 'fmcg-workflow');
-  renderMatrix(FMCG_NODES, 'fmcg-matrix');
   renderTAMWaterfall();
 
   // Trigger initial fade-ins
