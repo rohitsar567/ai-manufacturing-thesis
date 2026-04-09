@@ -742,21 +742,6 @@ nav .logo { font-size: 1.05rem !important; }
 .badge-selected { background: #d1fae5 !important; color: #065f46 !important; }
 .badge-not-selected { background: #f3f4f6 !important; color: #6b7280 !important; }
 
-
-/* ═══ FONT HARMONIZATION ═══ */
-/* Body text: 0.9rem minimum */
-p, li, td { font-size: max(0.9rem, inherit) !important; }
-/* Mono labels: 0.7rem minimum */  
-[style*="font-mono"] { font-size: max(0.7rem, inherit); }
-/* Section descriptions uniform */
-.section-desc { font-size: 1.05rem !important; line-height: 1.75 !important; color: #374151 !important; }
-/* Card content uniform */
-.exec-card .card-detail, .nd-block p, .nd-block li, .thesis-desc, .method-step p,
-.rationale-card li, .modal-derivation { font-size: 0.9rem !important; line-height: 1.6 !important; }
-/* Consistent spacing */
-section { padding: 80px 0 !important; }
-h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
-
 </style>
 </head>
 <body>
@@ -836,6 +821,136 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
         <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">AI enables a new delivery model for services historically outsourced to BPOs ($5.7B+ market). Tasks like data processing, compliance monitoring, and report generation can be delivered at a fraction of the cost via AI agents.</p>
       </div>
     </div>
+  
+    <div style="margin-top:56px;border-top:1px solid #e5e7eb;padding-top:40px;">
+      <div class="section-label" style="margin-bottom:8px;">HOW WE BUILT THIS</div>
+<!-- Research Flow Diagram -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:8px;">Research Methodology</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.7; max-width:900px;">This analysis is the output of a structured, multi-phase research process. Each phase built on the artifacts of the previous one &mdash; from raw data collection through to the quantified opportunity map you see on this page.</p>
+
+      <!-- PHASE 1 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-teal);margin:0 auto;">1</div>
+          <div style="width:2px;height:100%;background:rgba(13,148,136,0.15);margin:8px auto 0;min-height:20px;"></div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-teal);margin-bottom:2px;">PHASE 1: Sector Landscape & Financial Profiling</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">6 sectors &bull; 48 financial metrics &bull; 25+ data sources</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Profiled all six major Indian manufacturing sectors &mdash; Automobile, FMCG, Pharmaceuticals, ESDM, Chemicals, Metals &mdash; across revenue, net margins, CAGR projections, employee counts, white-collar ratios, labor cost structures, and company counts. Data sourced from IBEF sector reports, PLFS 2024-25 employment surveys, Mordor Intelligence market sizing, Grand View Research, and SIAM industry statistics.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: India Manufacturing &mdash; AI Automation Thesis.docx (Part 1)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-violet);margin:0 auto;">2</div>
+          <div style="width:2px;height:100%;background:rgba(124,58,237,0.12);margin:8px auto 0;min-height:20px;"></div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-violet);margin-bottom:2px;">PHASE 2: Role Library Construction</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">255 roles &bull; 3 sectors &bull; 5 columns per role &bull; 4 source frameworks</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Built a comprehensive job catalogue for ESDM (94 roles), FMCG (80 roles), and Automobile (81 roles). Each role classified by job title, description, department/function, career stream (Executive/Management/Professional/Para-Professional), and collar type (White/Blue). Role definitions sourced from BLS Occupational Handbooks, Mercer and Aon job architecture frameworks, and India-specific LinkedIn job postings.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(124,58,237,0.06);color:var(--accent-violet);border:1px solid rgba(124,58,237,0.12);">Output: Manufacturing_Role_Libraries_Expanded_Combined.xlsx</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(217,119,6,0.1);border:2px solid var(--accent-amber);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-amber);margin:0 auto;">3</div>
+          <div style="width:2px;height:100%;background:rgba(217,119,6,0.12);margin:8px auto 0;min-height:20px;"></div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-amber);margin-bottom:2px;">PHASE 3: Sequential Workflow Mapping</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">255 roles &rarr; 4-pillar value chain &bull; 28-32 workflow steps per sector</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Mapped every role into a sequential end-to-end business workflow using a methodology adapted from clinical workflow diagrams in US healthcare. Each role placed into one of four value chain pillars (Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions) and assigned a workflow sequence number, business part, and workflow block. This transforms the flat role library into a process-oriented view showing exactly where each role sits in the value chain.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.12);">Output: Workflow_Role_Mapping.xlsx</span>
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.12);">Output: Manufacturing_Workflow_Report.docx (255 roles narrated)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(37,99,235,0.1);border:2px solid var(--accent-blue);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-blue);margin:0 auto;">4</div>
+          <div style="width:2px;height:100%;background:rgba(37,99,235,0.12);margin:8px auto 0;min-height:20px;"></div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-blue);margin-bottom:2px;">PHASE 4: Workflow Visualization</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">3 interactive HTML diagrams &bull; 3 PNG exports &bull; 3 SVG vector files</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Created visual workflow diagrams for each sector showing the complete value chain as a sequence of color-coded cards. Each card displays the workflow step, constituent roles, collar classification, and handoff relationships. Built as standalone interactive HTML pages with hover effects, then exported as PNG and SVG for document embedding.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: auto_workflow.html + .png + .svg</span>
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: fmcg_workflow.html + .png + .svg</span>
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: esdm_workflow.html + .png + .svg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-rose);margin:0 auto;">5</div>
+          <div style="width:2px;height:100%;background:rgba(225,29,72,0.1);margin:8px auto 0;min-height:20px;"></div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-rose);margin-bottom:2px;">PHASE 5: 7-Dimension Sector Selection</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">6 sectors &times; 7 categories = 42 scored cells &bull; composite ranking</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Evaluated all six sectors across TAM size, workforce friction (attrition), outsourcing propensity, AI &amp; digital readiness (NASSCOM AI Index), legal/regulatory friction, financial health, and overall readiness. Each dimension scored 1-5 with data-backed rationale. FMCG scored 31/35, Automobile 27/35 &mdash; selected as the two sectors with the strongest composite case for AI opportunity analysis.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(225,29,72,0.06);color:var(--accent-rose);border:1px solid rgba(225,29,72,0.1);">Output: India Manufacturing &mdash; AI Automation Thesis.docx (Part 2)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6 -->
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-teal);margin:0 auto;">6</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid rgba(13,148,136,0.2);border-radius:12px;padding:18px;">
+          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-teal);margin-bottom:2px;">PHASE 6: Node-Level AI Opportunity Analysis</div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">57 nodes &bull; 7 data dimensions each &bull; 19 thesis alignments &bull; 45+ AI products mapped</div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">For each of the 57 workflow nodes across Automobile (28) and FMCG (29): identified specific operational problems, mapped AI solutions, researched existing products from global and Indian markets, identified India-specific product opportunities, scored AI automation feasibility (1-10), calculated per-node TAM using career-level headcount multipliers from the role library, and aligned findings to 19 published theses from VCs, consulting firms, and research institutions.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: This website</span>
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: AI_Automation_Opportunity_Analysis.xlsx</span>
+            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: AI_Automation_Opportunity_Narrative.docx</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Artifacts Summary -->
+      <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:12px;">
+        <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#1f2937;margin-bottom:14px;">Research Artifact Chain</div>
+        <ul style="list-style:none;">
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
+            <span style="position:absolute;left:0;color:#0d9488;font-weight:700;">1.</span>
+            <strong>Sector Landscape &amp; Role Library</strong> &mdash; Profiled 6 manufacturing sectors across 48 financial metrics (IBEF, PLFS, Mordor Intelligence), then catalogued 255 distinct job roles across 3 sectors using BLS, Mercer, Aon, and LinkedIn frameworks. Each role classified by career stream and collar type.
+          </li>
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
+            <span style="position:absolute;left:0;color:#7c3aed;font-weight:700;">2.</span>
+            <strong>Workflow Mapping &amp; Visualization</strong> &mdash; Sequenced all 255 roles into end-to-end value chain workflows (28-32 steps per sector) using clinical workflow methodology. Created interactive HTML diagrams, PNG and SVG exports for each sector showing the complete operational flow.
+          </li>
+          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;">
+            <span style="position:absolute;left:0;color:#d97706;font-weight:700;">3.</span>
+            <strong>AI Opportunity Analysis</strong> &mdash; Scored 6 sectors on 7 dimensions to select Auto &amp; FMCG, then analyzed 57 workflow nodes: problems, AI solutions, 45+ existing products, career-level headcount multipliers, and TAM derivation aligned to 19 published theses.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+            </div>
   </div>
 </section>
 
@@ -845,15 +960,13 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
   <div class="container fade-in">
     <div class="section-label">02 &mdash; India Manufacturing Landscape</div>
     <div class="section-title">India's $1.2 trillion manufacturing sector: scale, growth, and structural tailwinds</div>
-    <div class="section-desc">India's manufacturing sector is undergoing a <strong style="color:var(--text-primary)">foundational metamorphosis</strong> from assembly-reliant to design-led manufacturing. The sector contributes 17% of GDP and employs over 27 million people directly. The government has set ambitious targets: $1 trillion in manufacturing GDP by FY26 and $1 trillion in merchandise exports by 2030 under the Viksit Bharat @ 2047 mandate. With GDP growth at 6.5-6.9%, PLI schemes worth $26B+ across 14 sectors, and FDI inflows of $165B in the last decade, India's industrial base is both scaling and modernizing simultaneously.
+    <div class="section-desc">Before diving into AI opportunities, we establish the precondition: a healthy, growing manufacturing base. India's manufacturing sector is undergoing a <strong style="color:var(--text-primary)">foundational metamorphosis</strong> from assembly-reliant to design-led manufacturing, targeting $1 trillion in manufacturing GDP by FY26 and $1 trillion in merchandise exports by 2030, under the Viksit Bharat @ 2047 mandate. GDP growth sits at 6.5-6.9% &mdash; a "Goldilocks moment" for AI investment.
       <span style="display:block;margin-top:8px;">
         <a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank" class="source-tag">IBEF Manufacturing</a>
         <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog</a>
         <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF Future of Jobs 2025</a>
       </span>
     </div>
-
-
 
     <!-- WHY HEALTHY MARKET MATTERS -->
     <div style="margin-top:48px; background: linear-gradient(135deg, rgba(45,212,191,0.06), rgba(139,92,246,0.04)); border:1px solid var(--border-subtle); border-radius:16px; padding:32px;">
@@ -863,24 +976,24 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
         <div>
           <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
-            India's manufacturing sector is not just growing &mdash; it is structurally transforming. The $540B combined revenue of the Automobile and FMCG sectors alone represents nearly half of organized manufacturing output, and both are on trajectories that will reshape their operational needs:
+            AI automation requires <strong style="color:var(--text-primary);">healthy, growing markets</strong> to achieve scale. In declining or stagnant sectors, companies cut costs by layoffs &mdash; they don't invest in AI infrastructure. The $540B combined revenue of Auto + FMCG, growing at 4-5% CAGR, creates the essential preconditions:
           </p>
           <ul style="list-style:none;">
             <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
               <span style="position:absolute;left:0;color:var(--accent-teal);">1.</span>
-              <strong style="color:var(--text-primary);">Revenue growth driving operational complexity.</strong> As companies scale from regional to national to global operations, the complexity of supply chains, compliance, and distribution multiplies faster than headcount can keep up.
+              <strong style="color:var(--text-primary);">Growing revenue = growing headcount pressure.</strong> Companies hiring more WC staff are more receptive to AI solutions that bend the cost curve.
             </li>
             <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
               <span style="position:absolute;left:0;color:var(--accent-teal);">2.</span>
-              <strong style="color:var(--text-primary);">Healthy margins supporting modernization investment.</strong> FMCG's 17% net margins and Auto's scale economics provide the financial capacity for technology adoption &mdash; unlike margin-constrained commodity sectors.
+              <strong style="color:var(--text-primary);">Positive margins = budget for technology.</strong> FMCG's 17% net margin means every $1 of AI spend can be justified against a healthy P&L. Metals at 9.5% margin and heavy capex has no room.
             </li>
             <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
               <span style="position:absolute;left:0;color:var(--accent-teal);">3.</span>
-              <strong style="color:var(--text-primary);">Policy tailwinds accelerating transformation.</strong> PLI schemes across 14 sectors ($26B+), Make in India 2.0, the National Logistics Policy, and PM Gati Shakti are simultaneously expanding manufacturing capacity and demanding operational modernization.
+              <strong style="color:var(--text-primary);">Policy tailwinds create urgency.</strong> PLI schemes, Make in India, and the 2025 Labour Codes simultaneously increase manufacturing scale and labor costs &mdash; the perfect storm for AI adoption.
             </li>
             <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 16px; position:relative; line-height:1.5;">
               <span style="position:absolute;left:0;color:var(--accent-teal);">4.</span>
-              <strong style="color:var(--text-primary);">Global competitive repositioning.</strong> India is emerging as a credible alternative to China for global manufacturing. The "China+1" supply chain diversification trend, combined with India's demographic dividend (median age 28), positions the sector for sustained growth through 2047.
+              <strong style="color:var(--text-primary);">Global competitive pressure.</strong> India's manufacturers compete with China (lower cost) and Germany/Japan (higher automation). AI is the lever that closes both gaps simultaneously.
             </li>
           </ul>
         </div>
@@ -889,19 +1002,19 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
             <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Revenue (Auto + FMCG)</div>
             <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-teal);">$540B</div>
             <div class="growth-bar"><div class="growth-fill" style="width:78%;background:var(--accent-teal);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">45% of organized manufacturing output</div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">45% of India's total manufacturing output</div>
           </div>
           <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
             <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Combined Projected FY30 Revenue</div>
             <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-amber);">$928B</div>
             <div class="growth-bar"><div class="growth-fill" style="width:92%;background:var(--accent-amber);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">72% projected growth in 5 years &mdash; scale demands operational transformation</div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">72% growth in 5 years &mdash; more WC staff needed, more AI opportunity</div>
           </div>
           <div style="background:var(--bg-card);border-radius:10px;padding:14px;border:1px solid var(--border-subtle);">
             <div style="font-family:var(--font-display);font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">India GDP Growth (FY25)</div>
             <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--accent-violet);">6.5-6.9%</div>
             <div class="growth-bar"><div class="growth-fill" style="width:69%;background:var(--accent-violet);"></div></div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">Fastest major economy &mdash; manufacturing share of GDP targeted at 25% by 2030</div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-top:4px;">Fastest major economy &mdash; manufacturing share of GDP rising</div>
           </div>
         </div>
       </div>
@@ -920,11 +1033,11 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
 <section id="sectors">
   <div class="container fade-in">
     <div class="section-label">03 &mdash; Sector Selection</div>
-    <div class="section-title">How we selected Automobile and FMCG from six manufacturing sectors</div>
-    <div class="section-desc">We evaluated all six major manufacturing sectors across seven dimensions &mdash; TAM size, workforce dynamics, outsourcing propensity, digital readiness, regulatory friction, financial health, and overall AI readiness. Automobile and FMCG scored highest on the composite index. Below is the full scoring matrix, followed by a side-by-side comparison of the two selected sectors.</div>
+    <div class="section-title">How we selected Automobile and FMCG from six sectors</div>
+    <div class="section-desc">Automobile and FMCG are India's largest manufacturing sectors by revenue. Both face systemic operational challenges &mdash; quality bottlenecks, demand forecasting errors, fragmented supply chains, and manual compliance processes &mdash; that AI can now solve at scale.</div>
 
-    <!-- SECTOR SELECTION MATRIX (moved from Macro) -->
-    <!-- 7-DIMENSION SCORING MATRIX -->
+    <!-- SECTOR SELECTION MATRIX -->
+<!-- 7-DIMENSION SCORING MATRIX -->
     <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; margin-top:56px; margin-bottom:8px;">Sector Selection: 7-Dimension Scoring Matrix</h3>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:12px; line-height:1.7; max-width:900px;">Each sector was evaluated across seven categories. Each category is scored 1-5 per sector. The composite score determined which sectors to select for deep-dive AI opportunity analysis. <strong style="color:var(--text-primary);">Automobile and FMCG scored 1st and 2nd</strong> — driven by complementary strengths across different categories.</p>
 
@@ -1379,7 +1492,7 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
       </div>
     </div>
 
-
+    
 
 
     <div class="sector-split">
@@ -1482,53 +1595,53 @@ h3 { margin-top: 32px !important; margin-bottom: 12px !important; }
       <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:16px;">How we calculate TAM: Step-by-step derivation</h3>
       
       <!-- Visual waterfall flow -->
-      <div style="display:flex; align-items:center; gap:6px; flex-wrap:nowrap; margin-bottom:24px; justify-content:center; overflow-x:auto;">
-        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:10px 12px; text-align:center; min-width:95px;">
+      <div style="display:flex; align-items:center; gap:5px; flex-wrap:nowrap; overflow-x:auto; margin-bottom:24px; justify-content:center;">
+        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:12px 16px; text-align:center; min-width:92px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 1</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Sector Revenue</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--text-primary);">$540B</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Sector Revenue</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">$540B</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Auto $252B + FMCG $288B</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">→</div>
-        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:10px 12px; text-align:center; min-width:95px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--border-medium); border-radius:10px; padding:12px 16px; text-align:center; min-width:92px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 2</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Total Employees</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--text-primary);">7.2M</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">Total Employees</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">7.2M</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Auto 4.2M + FMCG 3.0M</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">→</div>
-        <div style="background:var(--bg-card); border:1px solid var(--accent-amber); border-radius:10px; padding:10px 12px; text-align:center; min-width:95px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--accent-amber); border-radius:10px; padding:12px 16px; text-align:center; min-width:92px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.05em;">Step 3</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--accent-amber); margin:4px 0;">White-Collar Filter</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--accent-amber);">2.7M</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-amber); margin:4px 0;">White-Collar Filter</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--accent-amber);">2.7M</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Auto 25% + FMCG 55%</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">→</div>
-        <div style="background:var(--bg-card); border:1px solid var(--accent-violet); border-radius:10px; padding:10px 12px; text-align:center; min-width:105px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--accent-violet); border-radius:10px; padding:12px 16px; text-align:center; min-width:102px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.05em;">Step 4</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--accent-violet); margin:4px 0;">Career-Level Multiplier</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--accent-violet);">~57%</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-violet); margin:4px 0;">Career-Level Multiplier</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--accent-violet);">~57%</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Exclude CXO (0%), weight by stream</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">→</div>
-        <div style="background:var(--bg-card); border:1px solid var(--text-primary); border-radius:10px; padding:10px 12px; text-align:center; min-width:95px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:var(--bg-card); border:1px solid var(--text-primary); border-radius:10px; padding:12px 16px; text-align:center; min-width:92px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 5</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">WC Payroll</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--text-primary);">$40B</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">WC Payroll</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">$40B</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Auto $13.2B + FMCG $26.9B</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">→</div>
-        <div style="background:rgba(45,212,191,0.08); border:2px solid var(--accent-teal); border-radius:10px; padding:10px 14px; text-align:center; min-width:100px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">→</div>
+        <div style="background:rgba(45,212,191,0.08); border:2px solid var(--accent-teal); border-radius:10px; padding:12px 18px; text-align:center; min-width:98px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Step 6</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">50% Capture</div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:var(--text-primary);">$20B</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--text-secondary); margin:4px 0;">50% Capture</div>
+          <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-primary);">$20B</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">Gross addressable value</div>
         </div>
-        <div style="color:var(--text-dim); font-size:1rem; font-weight:700;">&rarr;</div>
-        <div style="background:rgba(45,212,191,0.08); border:2px solid var(--accent-teal); border-radius:10px; padding:10px 14px; text-align:center; min-width:105px;">
+        <div style="color:var(--text-dim); font-size:1.2rem; font-weight:700;">&rarr;</div>
+        <div style="background:rgba(45,212,191,0.08); border:2px solid var(--accent-teal); border-radius:10px; padding:12px 18px; text-align:center; min-width:102px;">
           <div style="font-family:var(--font-mono); font-size:0.55rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.05em;">Step 7</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--accent-teal); margin:4px 0;">&times; 50% AI Discount</div>
-          <div style="font-family:var(--font-mono); font-size:1.2rem; font-weight:800; color:var(--accent-teal);">$10B</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:600; color:var(--accent-teal); margin:4px 0;">&times; 50% AI Discount</div>
+          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--accent-teal);">$10B</div>
           <div style="font-size:0.6rem; color:var(--text-dim);">AI must be cheaper than human/agency</div>
         </div>
       </div>
@@ -2477,16 +2590,15 @@ function renderDetailPanel(n, ctx) {
           <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent-amber);">Jobs Value</div>
           <div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:800;color:var(--accent-amber);">$${(n.fte*13000).toLocaleString()}</div>
         </div>
-        <div style="color:var(--text-dim);font-size:1rem;">&times;50%</div>
-        <div style="color:var(--text-dim);font-size:1rem;">&times;50%</div>
+        <div style="color:var(--text-dim);font-size:0.85rem;">&times;50% &times;50%</div>
         <div style="background:rgba(13,148,136,0.08);border:2px solid var(--accent-teal);border-radius:8px;padding:10px 16px;text-align:center;min-width:100px;">
           <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent-teal);">AI Market Size</div>
           <div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:800;color:var(--accent-teal);">$${Math.round(n.tam/2)}M</div>
         </div>
       </div>
       <div style="font-size:0.8rem;color:#6b7280;line-height:1.6;">
-        <strong style="color:#374151;">Jobs AI can do</strong> = roles per plant where AI can perform the core tasks today.
-        <strong style="color:#374151;">50% &times; 50%</strong> = capture rate &times; AI price discount (must be cheaper than incumbents).
+        <strong style="color:#374151;">Jobs AI can do</strong> = roles where AI performs core tasks.
+        <strong style="color:#374151;">50% &times; 50%</strong> = capture rate &times; AI price discount.
       </div>
     </div>
     ${n.feas ? '<div style="margin-top:12px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.75rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(13,148,136,0.08);color:var(--accent-teal);border:1px solid rgba(45,212,191,0.3);':n.feas==='High'?'background:rgba(52,211,153,0.15);color:#059669;border:1px solid rgba(52,211,153,0.3);':n.feas==='Medium'?'background:rgba(245,158,11,0.1);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.2);':'background:rgba(0,0,0,0.03);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Feasibility: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
@@ -2612,11 +2724,7 @@ function renderTAMWaterfall() {
 
   html += '</div>';
   html += '<div style="height:56px;"></div>'; // space for bottom labels
-  html += '<div style="display:flex;gap:20px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;background:rgba(37,99,235,0.8);display:inline-block;"></span> Automobile</span>
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;background:rgba(217,119,6,0.8);display:inline-block;"></span> FMCG</span>
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:0.8rem;color:#4b5563;"><span style="width:14px;height:14px;border-radius:4px;border:2px solid #0d9488;display:inline-block;"></span> Top Quartile (8+/10)</span>
-    </div>';
+  html += '<div class="waterfall-legend" style="margin-top:8px;"><span><div class="dot" style="background:rgba(37,99,235,0.8);"></div>Automobile</span><span><div class="dot" style="background:rgba(217,119,6,0.8);"></div>FMCG</span><span><div class="dot" style="background:transparent;border:2px solid var(--accent-teal);width:8px;height:8px;"></div>Top Quartile (8+)</span></div>';
 
   container.innerHTML = html;
 }
@@ -2783,13 +2891,11 @@ function openTAMModal(nodeId, sector) {
   body += '<h4 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:' + sectorColor + ';margin-bottom:12px;">THIS NODE: ' + n.name.toUpperCase() + '</h4>';
 
   body += '<div class="modal-derivation">';
-  body += '<div class="md-row"><span class="md-label">% of roles AI can serve</span><span class="md-val">' + n.hc_pct + '%</span></div>';
-  body += '<div class="md-row"><span class="md-label">Roles AI can do per plant</span><span class="md-val">' + n.fte + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Jobs-to-be-done value (per plant/yr)</span><span class="md-val" style="color:var(--accent-amber);">$' + hcSavings.toLocaleString() + '</span></div>';
-  // removed process gains line
-  // <span class="md-val" style="color:var(--accent-violet);">$' + processSavings.toLocaleString() + '</span></div>';
-  // removed total improvement line
-  // <span class="md-val">$' + totalImprovement.toLocaleString() + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Node WC reduction rate</span><span class="md-val">' + n.hc_pct + '%</span></div>';
+  body += '<div class="md-row"><span class="md-label">FTEs reducible per plant</span><span class="md-val">' + n.fte + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Headcount savings (per plant/yr)</span><span class="md-val" style="color:var(--accent-amber);">$' + hcSavings.toLocaleString() + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Process/quality/efficiency gains</span><span class="md-val" style="color:var(--accent-violet);">$' + processSavings.toLocaleString() + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Total improvement per plant</span><span class="md-val">$' + totalImprovement.toLocaleString() + '</span></div>';
   body += '<div class="md-row"><span class="md-label">Gross node TAM (50% capture)</span><span class="md-val">$' + n.tam + 'M</span></div>';
   body += '<div class="md-row"><span class="md-label">&times; 50% AI price discount</span><span class="md-val" style="color:var(--accent-rose);">0.50</span></div>';
   body += '<div class="md-row md-total"><span class="md-label"><strong>Node TAM (post AI discount)</strong></span><span class="md-val">$' + Math.round(n.tam/2) + 'M</span></div>';
@@ -2933,135 +3039,4 @@ function openSectorDetail(name) {
 </div>
 
 </body>
-</html
-    <!-- RESEARCH METHODOLOGY (moved from Macro) -->
-    <div style="margin-top:56px; border-top:1px solid #e5e7eb; padding-top:40px;">
-      <div class="section-label" style="margin-bottom:8px;">HOW WE BUILT THIS</div>
-    <!-- Research Flow Diagram -->
-    <div style="margin-bottom:40px;">
-      <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:8px;">Research Methodology</h3>
-      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.7; max-width:900px;">This analysis is the output of a structured, multi-phase research process. Each phase built on the artifacts of the previous one &mdash; from raw data collection through to the quantified opportunity map you see on this page.</p>
-
-      <!-- PHASE 1 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-teal);margin:0 auto;">1</div>
-          <div style="width:2px;height:100%;background:rgba(13,148,136,0.15);margin:8px auto 0;min-height:20px;"></div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-teal);margin-bottom:2px;">PHASE 1: Sector Landscape & Financial Profiling</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">6 sectors &bull; 48 financial metrics &bull; 25+ data sources</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Profiled all six major Indian manufacturing sectors &mdash; Automobile, FMCG, Pharmaceuticals, ESDM, Chemicals, Metals &mdash; across revenue, net margins, CAGR projections, employee counts, white-collar ratios, labor cost structures, and company counts. Data sourced from IBEF sector reports, PLFS 2024-25 employment surveys, Mordor Intelligence market sizing, Grand View Research, and SIAM industry statistics.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: India Manufacturing &mdash; AI Automation Thesis.docx (Part 1)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 2 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-violet);margin:0 auto;">2</div>
-          <div style="width:2px;height:100%;background:rgba(124,58,237,0.12);margin:8px auto 0;min-height:20px;"></div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-violet);margin-bottom:2px;">PHASE 2: Role Library Construction</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">255 roles &bull; 3 sectors &bull; 5 columns per role &bull; 4 source frameworks</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Built a comprehensive job catalogue for ESDM (94 roles), FMCG (80 roles), and Automobile (81 roles). Each role classified by job title, description, department/function, career stream (Executive/Management/Professional/Para-Professional), and collar type (White/Blue). Role definitions sourced from BLS Occupational Handbooks, Mercer and Aon job architecture frameworks, and India-specific LinkedIn job postings.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(124,58,237,0.06);color:var(--accent-violet);border:1px solid rgba(124,58,237,0.12);">Output: Manufacturing_Role_Libraries_Expanded_Combined.xlsx</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 3 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(217,119,6,0.1);border:2px solid var(--accent-amber);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-amber);margin:0 auto;">3</div>
-          <div style="width:2px;height:100%;background:rgba(217,119,6,0.12);margin:8px auto 0;min-height:20px;"></div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-amber);margin-bottom:2px;">PHASE 3: Sequential Workflow Mapping</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">255 roles &rarr; 4-pillar value chain &bull; 28-32 workflow steps per sector</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Mapped every role into a sequential end-to-end business workflow using a methodology adapted from clinical workflow diagrams in US healthcare. Each role placed into one of four value chain pillars (Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions) and assigned a workflow sequence number, business part, and workflow block. This transforms the flat role library into a process-oriented view showing exactly where each role sits in the value chain.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.12);">Output: Workflow_Role_Mapping.xlsx</span>
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.12);">Output: Manufacturing_Workflow_Report.docx (255 roles narrated)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 4 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(37,99,235,0.1);border:2px solid var(--accent-blue);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-blue);margin:0 auto;">4</div>
-          <div style="width:2px;height:100%;background:rgba(37,99,235,0.12);margin:8px auto 0;min-height:20px;"></div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-blue);margin-bottom:2px;">PHASE 4: Workflow Visualization</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">3 interactive HTML diagrams &bull; 3 PNG exports &bull; 3 SVG vector files</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Created visual workflow diagrams for each sector showing the complete value chain as a sequence of color-coded cards. Each card displays the workflow step, constituent roles, collar classification, and handoff relationships. Built as standalone interactive HTML pages with hover effects, then exported as PNG and SVG for document embedding.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: auto_workflow.html + .png + .svg</span>
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: fmcg_workflow.html + .png + .svg</span>
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--accent-blue);border:1px solid rgba(37,99,235,0.12);">Output: esdm_workflow.html + .png + .svg</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 5 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-rose);margin:0 auto;">5</div>
-          <div style="width:2px;height:100%;background:rgba(225,29,72,0.1);margin:8px auto 0;min-height:20px;"></div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-rose);margin-bottom:2px;">PHASE 5: 7-Dimension Sector Selection</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">6 sectors &times; 7 categories = 42 scored cells &bull; composite ranking</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Evaluated all six sectors across TAM size, workforce friction (attrition), outsourcing propensity, AI &amp; digital readiness (NASSCOM AI Index), legal/regulatory friction, financial health, and overall readiness. Each dimension scored 1-5 with data-backed rationale. FMCG scored 31/35, Automobile 27/35 &mdash; selected as the two sectors with the strongest composite case for AI opportunity analysis.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(225,29,72,0.06);color:var(--accent-rose);border:1px solid rgba(225,29,72,0.1);">Output: India Manufacturing &mdash; AI Automation Thesis.docx (Part 2)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 6 -->
-      <div style="display:grid; grid-template-columns:56px 1fr; gap:16px; margin-bottom:20px;">
-        <div style="text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:var(--accent-teal);margin:0 auto;">6</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid rgba(13,148,136,0.2);border-radius:12px;padding:18px;">
-          <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--accent-teal);margin-bottom:2px;">PHASE 6: Node-Level AI Opportunity Analysis</div>
-          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim);margin-bottom:10px;">57 nodes &bull; 7 data dimensions each &bull; 19 thesis alignments &bull; 45+ AI products mapped</div>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">For each of the 57 workflow nodes across Automobile (28) and FMCG (29): identified specific operational problems, mapped AI solutions, researched existing products from global and Indian markets, identified India-specific product opportunities, scored AI automation feasibility (1-10), calculated per-node TAM using career-level headcount multipliers from the role library, and aligned findings to 19 published theses from VCs, consulting firms, and research institutions.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: This website</span>
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: AI_Automation_Opportunity_Analysis.xlsx</span>
-            <span style="font-family:var(--font-mono);font-size:0.58rem;padding:3px 8px;border-radius:6px;background:rgba(13,148,136,0.06);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.15);">Output: AI_Automation_Opportunity_Narrative.docx</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Research Artifacts Summary -->
-      <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:12px;">
-        <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#1f2937;margin-bottom:14px;">Research Artifact Chain</div>
-        <ul style="list-style:none;">
-          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
-            <span style="position:absolute;left:0;color:#0d9488;font-weight:700;">1.</span>
-            <strong>Sector Landscape &amp; Role Library</strong> &mdash; Profiled 6 manufacturing sectors across 48 financial metrics (IBEF, PLFS, Mordor Intelligence), then catalogued 255 distinct job roles across 3 sectors using BLS, Mercer, Aon, and LinkedIn frameworks. Each role classified by career stream and collar type.
-          </li>
-          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;border-bottom:1px solid #f3f4f6;">
-            <span style="position:absolute;left:0;color:#7c3aed;font-weight:700;">2.</span>
-            <strong>Workflow Mapping &amp; Visualization</strong> &mdash; Sequenced all 255 roles into end-to-end value chain workflows (28-32 steps per sector) using clinical workflow methodology. Created interactive HTML diagrams, PNG and SVG exports for each sector showing the complete operational flow.
-          </li>
-          <li style="font-size:0.9rem;color:#374151;padding:10px 0 10px 20px;position:relative;line-height:1.6;">
-            <span style="position:absolute;left:0;color:#d97706;font-weight:700;">3.</span>
-            <strong>AI Opportunity Analysis</strong> &mdash; Scored 6 sectors on 7 dimensions to select Auto &amp; FMCG, then analyzed 57 workflow nodes: problems, AI solutions, 45+ existing products, career-level headcount multipliers, and TAM derivation aligned to 19 published theses.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-
-        </div>
->
+</html>
