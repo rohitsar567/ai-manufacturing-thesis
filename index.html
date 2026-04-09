@@ -2510,35 +2510,40 @@ const ICON_BG = {supply:"rgba(129,140,248,0.15)",mfg:"rgba(52,211,153,0.15)",dem
 
 
 function renderProductList(products) {
-  if (!products || !products.length) return '<p style="color:#6b7280;font-size:0.85rem;">No products mapped for this node.</p>';
-  var global = products.filter(function(p){ return !p.india_focus; });
-  var india = products.filter(function(p){ return p.india_focus; });
-  var html = '';
-  global.forEach(function(p) {
-    html += '<div style="margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;">';
-    html += '<img src="'+(p.logo||'')+'" alt="" style="width:24px;height:24px;border-radius:4px;margin-top:3px;background:#f3f4f6;object-fit:contain;" onerror="this.style.display=\'none\'">';
-    html += '<div><a href="'+(p.u||'#')+'" target="_blank" style="color:#0d9488;font-weight:700;text-decoration:none;border-bottom:1px dotted #99f6e4;">'+p.n+'</a>';
-    html += ' <span style="font-size:0.72rem;color:#6b7280;">('+[p.y,p.f,p.inv].filter(Boolean).join(' | ')+')</span>';
-    html += '<br><span style="font-size:0.85rem;color:#374151;">'+p.d+'</span></div></div>';
-  });
-  if (india.length > 0) {
-    html += '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #fed7aa;">';
-    html += '<div style="font-size:0.75rem;font-weight:700;color:#ea580c;margin-bottom:8px;">INDIA-FOCUSED COMPANIES</div>';
-    india.forEach(function(p) {
-      html += '<div style="margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;">';
-      html += '<img src="'+(p.logo||'')+'" alt="" style="width:24px;height:24px;border-radius:4px;margin-top:3px;background:#fff7ed;object-fit:contain;" onerror="this.style.display=\'none\'">';
-      html += '<div><a href="'+(p.u||'#')+'" target="_blank" style="color:#ea580c;font-weight:700;text-decoration:none;border-bottom:1px dotted #fdba74;">'+p.n+'</a>';
-      html += ' <span style="font-size:0.72rem;color:#6b7280;">('+[p.y,p.f,p.inv].filter(Boolean).join(' | ')+')</span>';
-      html += '<br><span style="font-size:0.85rem;color:#374151;">'+p.d+'</span></div></div>';
-    });
-    html += '</div>';
-  } else {
-    html += '<div style="margin-top:14px;padding:10px 14px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;">';
-    html += '<span style="font-size:0.8rem;font-weight:700;color:#ea580c;">India Market Opportunity:</span> ';
-    html += '<span style="font-size:0.8rem;color:#374151;">No dedicated India-focused AI company identified for this node. Represents a greenfield opportunity.</span></div>';
+  if (!products || !products.length) return '<p style="color:#6b7280;font-size:0.85rem;">No products mapped.</p>';
+  var gl = products.filter(function(p){ return !p.india_focus; });
+  var ind = products.filter(function(p){ return p.india_focus; });
+  var h = "";
+
+  function renderCompany(p, color, bgColor) {
+    var s = '<div style="margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;">';
+    s += '<img src="'+(p.logo||"")+'" alt="" style="width:24px;height:24px;border-radius:4px;margin-top:3px;background:'+bgColor+';object-fit:contain;" onerror="this.style.display=String.fromCharCode(39)+String.fromCharCode(110,111,110,101)+String.fromCharCode(39)">';
+    s += '<div><a href="'+(p.u||"#")+'" target="_blank" style="color:'+color+';font-weight:700;text-decoration:none;border-bottom:1px dotted '+color+';">'+p.n+'</a>';
+    var meta = [p.y, p.f, p.inv].filter(Boolean).join(" | ");
+    if (meta) s += ' <span style="font-size:0.72rem;color:#6b7280;">('+meta+')</span>';
+    s += '<br><span style="font-size:0.85rem;color:#374151;">'+p.d+'</span></div></div>';
+    return s;
   }
-  return html;
+
+  if (gl.length > 0) {
+    h += '<div style="margin-bottom:16px;"><div style="font-size:0.75rem;font-weight:700;color:#7c3aed;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">Global Companies</div>';
+    for (var i=0; i<gl.length; i++) h += renderCompany(gl[i], "#0d9488", "#f3f4f6");
+    h += '</div>';
+  }
+
+  if (ind.length > 0) {
+    h += '<div style="padding-top:14px;border-top:2px solid #fed7aa;"><div style="font-size:0.75rem;font-weight:700;color:#ea580c;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">India-Focused Companies</div>';
+    for (var j=0; j<ind.length; j++) h += renderCompany(ind[j], "#ea580c", "#fff7ed");
+    h += '</div>';
+  } else if (gl.length > 0) {
+    h += '<div style="margin-top:14px;padding:10px 14px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;">';
+    h += '<span style="font-size:0.8rem;font-weight:700;color:#ea580c;">India Market Opportunity:</span> ';
+    h += '<span style="font-size:0.8rem;color:#374151;">No dedicated India-focused AI company identified. Greenfield opportunity for India-native startups.</span></div>';
+  }
+
+  return h;
 }
+
 
 function renderWorkflow(nodes, containerId) {
   const container = document.getElementById(containerId);
