@@ -2578,31 +2578,9 @@ function renderProductList(products) {
 
 
 
-function getExclusionReason(n) {
-  if (n.tier === 'T1') return '';
-  if (n.tier === 'T3') return n.name + ': Not selected. Blue-collar/production node — AI augments physical tasks but does not replace roles. Score: ' + (n.score||'-') + '/10.';
-  return n.name + ': Not selected. Semi-specialized node — current AI addresses partially but not enough for standalone market opportunity. Score: ' + (n.score||'-') + '/10.';
-}
-function showNodeTip(el, text) {
-  var ft = document.getElementById('floatingTip');
-  if (!ft) return;
-  ft.innerHTML = '<div style="font-size:0.85rem;color:#374151;line-height:1.5;">' + text + '</div>';
-  ft.classList.add('show');
-  requestAnimationFrame(function() {
-    var rect = el.getBoundingClientRect();
-    var top = rect.top - ft.offsetHeight - 12;
-    if (top < 8) top = rect.bottom + 12;
-    var left = rect.left + rect.width/2 - 150;
-    if (left < 8) left = 8;
-    if (left + 300 > window.innerWidth) left = window.innerWidth - 308;
-    ft.style.top = top + 'px';
-    ft.style.left = left + 'px';
-  });
-}
-function hideNodeTip() {
-  var ft = document.getElementById('floatingTip');
-  if (ft) ft.classList.remove('show');
-}
+
+
+
 
 function renderWorkflow(nodes, containerId) {
   const container = document.getElementById(containerId);
@@ -2620,21 +2598,15 @@ function renderWorkflow(nodes, containerId) {
       <div class="node-grid">`;
     groups[bp].forEach((n, i) => {
       if (i > 0) html += '<div class="node-arrow">&rarr;</div>';
-      var nodeStyle = (n.tier !== 'T1' ? 'opacity:0.35;cursor:default;' : '') + (n.score >= 8 && n.tier === 'T1' ? 'box-shadow:0 0 12px rgba(13,148,136,0.08);border-color:var(--accent-teal);' : '');
-      var nodeEvents = n.tier === 'T1' ? 'onclick="toggleDetail(\'' + containerId + '\',' + n.id + ')"' : 'onmouseenter="showNodeTip(this,\'' + getExclusionReason(n).replace(/'/g, "\\'") + '\')" onmouseleave="hideNodeTip()"';
-      html += '<div class="wf-node" ' + nodeEvents + ' id="node-' + containerId + '-' + n.id + '" style="' + nodeStyle + '">';
-      html += '<span class="node-step">#' + n.id + '</span>';
-      html += '<span class="node-tier tier-' + n.tier.toLowerCase() + '">' + n.tier + '</span>';
-      if (n.score >= 8 && n.tier === 'T1') html += '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>';
-      html += '<div class="node-icon-wrap" style="background:' + ICON_BG[n.bp] + '">' + n.icon + '</div>';
-      html += '<div class="n-title">' + n.name + '</div>';
-      if (n.tier === 'T1') {
-        html += '<div class="n-tam">$' + Math.round(n.tam/2) + 'M</div>';
-        if (n.score) html += '<div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:800;margin-top:3px;color:' + (n.score>=8?'var(--accent-teal)':n.score>=6?'var(--accent-amber)':'var(--text-dim)') + ';">' + n.score + '/10</div>';
-      } else {
-        html += '<div style="font-size:0.6rem;color:#9ca3af;margin-top:auto;">Not targeted</div>';
-      }
-      html += '</div>';
+      html += `<div class="wf-node ${n.tier !== 'T1' ? 'node-excluded' : ''}" ${n.tier === 'T1' ? 'onclick="toggleDetail(\'' + containerId + '\',' + n.id + ')"' : ''} id="node-${containerId}-${n.id}" style="${n.tier !== 'T1' ? 'opacity:0.35;cursor:default;' : ''}${n.score >= 8 && n.tier === 'T1' ? 'box-shadow:0 0 12px rgba(13,148,136,0.08);border-color:var(--accent-teal);' : ''}" ${n.tier !== 'T1' ? 'data-reason="' + n.name + ': Not selected. ' + (n.tier === 'T3' ? 'Blue-collar/production node.' : 'Semi-specialized node.') + ' Score: ' + (n.score||'-') + '/10."' : ''}>
+        <span class="node-step">#${n.id}</span>
+        <span class="node-tier tier-${n.tier.toLowerCase()}">${n.tier}</span>
+        ${n.score >= 8 && n.tier === 'T1' ? '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>' : ''}
+        <div class="node-icon-wrap" style="background:${ICON_BG[n.bp]}">${n.icon}</div>
+        <div class="n-title">${n.name}</div>
+        ${n.tier === 'T1' ? '<div class="n-tam">$' + Math.round(n.tam/2) + 'M</div>' : '<div style="font-size:0.6rem;color:#9ca3af;margin-top:auto;">Not targeted</div>'}
+        ${n.tier === 'T1' && n.score ? '<div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:800;margin-top:3px;color:' + (n.score>=8?'var(--accent-teal)':n.score>=6?'var(--accent-amber)':'var(--text-dim)') + ';">' + n.score + '/10</div>' : ''}
+      </div>`;
     });
     html += '</div>';
     // Detail panels
@@ -3256,6 +3228,37 @@ function openSectorDetail(name) {
   document.getElementById('tamModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+// T2/T3 node hover
+document.addEventListener('mouseover', function(e) {
+  var node = e.target.closest('.node-excluded');
+  if (!node) return;
+  var reason = node.getAttribute('data-reason');
+  if (!reason) return;
+  var ft = document.getElementById('floatingTip');
+  if (!ft) return;
+  ft.innerHTML = '<div style="font-size:0.85rem;color:#374151;line-height:1.5;">' + reason + '</div>';
+  ft.classList.add('show');
+  requestAnimationFrame(function() {
+    var rect = node.getBoundingClientRect();
+    var top = rect.top - ft.offsetHeight - 12;
+    if (top < 8) top = rect.bottom + 12;
+    var left = rect.left + rect.width/2 - 150;
+    if (left < 8) left = 8;
+    if (left + 300 > window.innerWidth) left = window.innerWidth - 308;
+    ft.style.top = top + 'px';
+    ft.style.left = left + 'px';
+  });
+});
+document.addEventListener('mouseout', function(e) {
+  var node = e.target.closest('.node-excluded');
+  if (node) {
+    var related = e.relatedTarget;
+    if (related && node.contains(related)) return;
+    var ft = document.getElementById('floatingTip');
+    if (ft) ft.classList.remove('show');
+  }
+});
 </script>
 
 <!-- TAM DERIVATION MODAL -->
