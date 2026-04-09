@@ -2559,7 +2559,7 @@ function renderWorkflow(nodes, containerId) {
       html += `<div class="wf-node" onclick="toggleDetail('${containerId}',${n.id})" id="node-${containerId}-${n.id}" style="${n.score && n.score < 7 ? 'opacity:0.5;' : ''}${n.score >= 8 ? 'box-shadow:0 0 12px rgba(45,212,191,0.15);border-color:var(--accent-teal);' : ''}">
         <span class="node-step">#${n.id}</span>
         <span class="node-tier tier-${n.tier.toLowerCase()}">${n.tier}</span>
-        ${n.score >= 8 ? '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>' : ''}
+        ${n.score >= 8 && n.tier === 'T1' ? '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>' : ''}
         <div class="node-icon-wrap" style="background:${ICON_BG[n.bp]}">${n.icon}</div>
         <div class="n-title">${n.name}</div>
         <div class="n-tam">$${Math.round(n.tam/2)}M</div>
@@ -2568,7 +2568,7 @@ function renderWorkflow(nodes, containerId) {
     html += '</div>';
     // Detail panels
     groups[bp].forEach(n => {
-      html += renderDetailPanel(n, containerId);
+      if (n.tier === 'T1') html += renderDetailPanel(n, containerId);
     });
     html += '</div>';
   });
