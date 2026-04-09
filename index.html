@@ -743,6 +743,18 @@ nav .logo { font-size: 1.05rem !important; }
 .badge-selected { background: #d1fae5 !important; color: #065f46 !important; }
 .badge-not-selected { background: #f3f4f6 !important; color: #6b7280 !important; }
 
+
+/* ═══ MOBILE: 5-category sources grid ═══ */
+@media (max-width: 768px) {
+  .node-detail div[style*="grid-template-columns:1fr 1fr"][style*="gap:14px"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* TAM derivation in node cards */
+  .node-detail div[style*="justify-content:space-between"] {
+    flex-wrap: wrap !important;
+  }
+}
+
 </style>
 </head>
 <body>
