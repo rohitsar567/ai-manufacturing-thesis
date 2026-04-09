@@ -4198,21 +4198,34 @@ document.addEventListener('mouseout', function(e) {
   pill(2030, 1869, '#d97706', 0, -18);
   
   // Callout annotations — minimal, elegant
-  function callout(yr, val, text, subtext, color, side, offy) {
-    var cx = x(yr), cy = y(val) + offy;
+
+  
+  // Callouts with connector lines — positioned in clear space
+  function calloutLine(yr, val, tx, ty, text, sub, color) {
+    var cx = x(yr), cy = y(val);
+    // Connector line
+    ctx.strokeStyle = color + '60';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty); ctx.stroke();
+    ctx.setLineDash([]);
+    // Small dot at connection
+    ctx.beginPath(); ctx.arc(tx, ty, 2, 0, Math.PI*2);
+    ctx.fillStyle = color; ctx.fill();
+    // Text
     ctx.fillStyle = color;
-    ctx.font = 'bold 8px Sora, sans-serif';
-    ctx.textAlign = side;
-    ctx.fillText(text, cx + (side === 'left' ? 8 : -8), cy);
+    ctx.font = 'bold 9px Sora, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(text, tx + 6, ty + 3);
     ctx.fillStyle = '#9ca3af';
-    ctx.font = '7px Sora, sans-serif';
-    ctx.fillText(subtext, cx + (side === 'left' ? 8 : -8), cy + 10);
+    ctx.font = '8px Sora, sans-serif';
+    ctx.fillText(sub, tx + 6, ty + 14);
   }
   
-  callout(2020, 640, 'COVID-19', '-15% revenue shock', '#e11d48', 'left', 40);
-  callout(2022, 880, 'RECOVERY + PLI', 'China+1 accelerates', '#0d9488', 'left', -18);
-  callout(2025, 1204, 'LABOUR CODES', 'Cost +15-25%', '#0d9488', 'right', 8);
-  callout(2030, 1869, 'VIKSIT BHARAT', '$1T mfg GDP target', '#d97706', 'right', 8);
+  calloutLine(2020, 640, x(2019.5), y(450), 'COVID-19', 'Revenue dropped 15%', '#e11d48');
+  calloutLine(2022, 880, x(2023.5), y(750), 'RECOVERY + PLI + CHINA+1', 'V-shaped rebound, supply chains shift', '#0d9488');
+  calloutLine(2025, 1204, x(2025.5), y(1380), 'LABOUR CODES 2025', 'Operational costs +15-25%', '#0d9488');
+  calloutLine(2030, 1869, x(2028), y(2000), 'VIKSIT BHARAT 2047', '$1T manufacturing GDP target', '#d97706');
   
   // Legend bar
   ctx.font = '8px Sora, sans-serif';
