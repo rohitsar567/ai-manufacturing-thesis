@@ -755,6 +755,19 @@ nav .logo { font-size: 1.05rem !important; }
   }
 }
 
+
+/* ═══ MOBILE: Scoring matrix table scroll ═══ */
+@media (max-width: 768px) {
+  div[style*="overflow-x:auto"] { -webkit-overflow-scrolling: touch !important; }
+  table[style*="border-collapse"] { min-width: 700px !important; }
+  section#macro div:has(> table), section#sectors div:has(> table) {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -16px !important;
+    padding: 0 16px !important;
+  }
+}
+
 </style>
 </head>
 <body>
