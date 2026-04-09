@@ -2772,33 +2772,48 @@ function renderDetailPanel(n, ctx) {
         <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">How we calculated the addressable market for this node:</div>
         <div style="font-size:0.88rem;color:#374151;line-height:1.7;">
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Roles AI can serve in this function (per company) <span style="font-size:0.7rem;color:#0d9488;">[Workflow Role Mapping]</span></span>
+            <span>Role types in this function <span style="font-size:0.65rem;color:#0d9488;">[Workflow_Role_Mapping.xlsx &rarr; Workflow Block]</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${n.hc_pct} types</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
+            <span>Estimated headcount per role type in a representative company <span style="font-size:0.65rem;color:#0d9488;">[Industry benchmarks, <a href="https://www.bls.gov/oes/" target="_blank" style="color:#0d9488;">BLS OES</a>]</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">&times; multiplier</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
+            <span>= Roles AI can serve per representative company</span>
             <span style="font-family:var(--font-mono);font-weight:600;color:#d97706;">${n.fte} roles</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Average cost per knowledge worker <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.salarySource}]</span></span>
+            <span>Average salary per knowledge worker <span style="font-size:0.65rem;color:#0d9488;">[<a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" style="color:#0d9488;">PLFS 2024</a>, NCO-2015 classification]</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.avgSalary}/yr</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>= Value of jobs AI can do (per company)</span>
+            <span>= Jobs-to-be-done value per company</span>
             <span style="font-family:var(--font-mono);font-weight:600;">$${(n.fte * parseInt(sectorData.avgSalary.replace(/[^0-9]/g,''))).toLocaleString()}/yr</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>Number of companies in sector <span style="font-size:0.7rem;color:#0d9488;">[${sectorData.companySource}]</span></span>
+            <span>Companies in ${sectorData.name} sector <span style="font-size:0.65rem;color:#0d9488;">[<a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" style="color:#0d9488;">IBEF ${sectorData.name}</a>${isAuto ? ', <a href=&quot;https://www.siam.in/statistics.aspx&quot; target=&quot;_blank&quot; style=&quot;color:#0d9488;&quot;>SIAM</a>' : ''}]</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${sectorData.companies}</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; 50% capture rate (AI provider share)</span>
+            <span>&times; 50% capture rate <span style="font-size:0.65rem;color:#6b7280;">(share addressable by AI provider)</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">0.50</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; 50% AI price discount (must beat incumbent cost)</span>
+            <span>&times; 50% AI price discount <span style="font-size:0.65rem;color:#6b7280;">(AI must beat incumbent cost)</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">0.50</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
             <span style="font-weight:700;color:#1f2937;">AI Market Size for this node</span>
             <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${Math.round(n.tam/2)}M</span>
           </div>
+        </div>
+        <div style="margin-top:10px;padding:10px 12px;background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;font-size:0.78rem;color:#6b7280;line-height:1.5;">
+          <strong style="color:#374151;">Data sources:</strong>
+          Role types from <em>Workflow_Role_Mapping.xlsx</em> (internal research file, 255 roles mapped).
+          Headcount multipliers from <a href="https://www.bls.gov/oes/" target="_blank" style="color:#0d9488;">BLS Occupational Employment Statistics</a> and <em>Manufacturing_Role_Libraries_Expanded_Combined.xlsx</em> (Mercer, Aon job architecture frameworks).
+          Salaries from <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" style="color:#0d9488;">PLFS Annual Report</a> (NCO-2015 occupation classification).
+          Company count from <a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" style="color:#0d9488;">IBEF ${sectorData.name} Report</a>.
         </div></div>
     </div>
 
