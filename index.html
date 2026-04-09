@@ -2619,10 +2619,22 @@ function renderWorkflow(nodes, containerId) {
       <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${segT1} with AI solutions &bull; $${segTam}B segment TAM</div>
       <div class="node-grid">`;
     groups[bp].forEach((n, i) => {
-      if (i > 0) html += '<div class="node-arrow">→</div>';
+      if (i > 0) html += '<div class="node-arrow">&rarr;</div>';
       var nodeStyle = (n.tier !== 'T1' ? 'opacity:0.35;cursor:default;' : '') + (n.score >= 8 && n.tier === 'T1' ? 'box-shadow:0 0 12px rgba(13,148,136,0.08);border-color:var(--accent-teal);' : '');
       var nodeEvents = n.tier === 'T1' ? 'onclick="toggleDetail(\'' + containerId + '\',' + n.id + ')"' : 'onmouseenter="showNodeTip(this,\'' + getExclusionReason(n).replace(/'/g, "\\'") + '\')" onmouseleave="hideNodeTip()"';
       html += '<div class="wf-node" ' + nodeEvents + ' id="node-' + containerId + '-' + n.id + '" style="' + nodeStyle + '">';
+      html += '<span class="node-step">#' + n.id + '</span>';
+      html += '<span class="node-tier tier-' + n.tier.toLowerCase() + '">' + n.tier + '</span>';
+      if (n.score >= 8 && n.tier === 'T1') html += '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>';
+      html += '<div class="node-icon-wrap" style="background:' + ICON_BG[n.bp] + '">' + n.icon + '</div>';
+      html += '<div class="n-title">' + n.name + '</div>';
+      if (n.tier === 'T1') {
+        html += '<div class="n-tam">$' + Math.round(n.tam/2) + 'M</div>';
+        if (n.score) html += '<div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:800;margin-top:3px;color:' + (n.score>=8?'var(--accent-teal)':n.score>=6?'var(--accent-amber)':'var(--text-dim)') + ';">' + n.score + '/10</div>';
+      } else {
+        html += '<div style="font-size:0.6rem;color:#9ca3af;margin-top:auto;">Not targeted</div>';
+      }
+      html += '</div>';
     });
     html += '</div>';
     // Detail panels
