@@ -4008,212 +4008,226 @@ document.addEventListener('mouseout', function(e) {
   canvas.style.height = 'auto';
   container.appendChild(canvas);
 
-  var dpr = window.devicePixelRatio || 1;
-  var W = 960, H = 520;
-  canvas.width = W * dpr;
-  canvas.height = H * dpr;
-  var ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = 960, H = 540;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
 
-  var sectors = [
-    {name:'Automobile', fy20:172, fy25:252, fy30:305, color:'#2563eb', cagr_h:'8.0%', cagr_f:'3.9%'},
-    {name:'FMCG',       fy20:210, fy25:288, fy30:359, color:'#d97706', cagr_h:'6.5%', cagr_f:'4.5%'},
-    {name:'ESDM',       fy20:109, fy25:220, fy30:501, color:'#059669', cagr_h:'15.0%', cagr_f:'17.9%'},
-    {name:'Chemicals',  fy20:177, fy25:260, fy30:419, color:'#ea580c', cagr_h:'8.0%', cagr_f:'10.0%'},
-    {name:'Metals',     fy20:100, fy25:127, fy30:155, color:'#64748b', cagr_h:'5.0%', cagr_f:'4.1%'},
-    {name:'Pharma',     fy20:35,  fy25:57,  fy30:130, color:'#7c3aed', cagr_h:'10.0%', cagr_f:'17.9%'}
-  ];
+    var font = 'Sora, -apple-system, BlinkMacSystemFont, sans-serif';
+    var monoFont = 'JetBrains Mono, SF Mono, Menlo, monospace';
 
-  var totals = [0, 0, 0];
-  sectors.forEach(function(s) { totals[0] += s.fy20; totals[1] += s.fy25; totals[2] += s.fy30; });
-  var maxVal = Math.max.apply(null, totals);
+    var sectors = [
+      {name:'Automobile', fy20:172, fy25:252, fy30:305, color:'#2563eb', cagr_h:'8.0%', cagr_f:'3.9%'},
+      {name:'FMCG',       fy20:210, fy25:288, fy30:359, color:'#d97706', cagr_h:'6.5%', cagr_f:'4.5%'},
+      {name:'ESDM',       fy20:109, fy25:220, fy30:501, color:'#059669', cagr_h:'15.0%', cagr_f:'17.9%'},
+      {name:'Chemicals',  fy20:177, fy25:260, fy30:419, color:'#ea580c', cagr_h:'8.0%', cagr_f:'10.0%'},
+      {name:'Metals',     fy20:100, fy25:127, fy30:155, color:'#64748b', cagr_h:'5.0%', cagr_f:'4.1%'},
+      {name:'Pharma',     fy20:35,  fy25:57,  fy30:130, color:'#7c3aed', cagr_h:'10.0%', cagr_f:'17.9%'}
+    ];
 
-  var barW = 140;
-  var barMaxH = 380;
-  var barBot = H - 70;
-  var barTop = 30;
-  var barArea = barBot - barTop;
-  var colX = [160, W/2, W - 160];
-  var labels = ['FY20', 'FY25 (current)', 'FY30 (projected)'];
-  var totalLabels = ['$803B', '$1.2T', '$1.9T'];
-  var totalColors = ['#6b7280', '#0d9488', '#d97706'];
-  var cagrBetween = ['8.4%', '9.2%'];
-  var years = ['fy20', 'fy25', 'fy30'];
-  var opacities = [0.55, 0.8, 1.0];
+    var totals = [0, 0, 0];
+    sectors.forEach(function(s) { totals[0] += s.fy20; totals[1] += s.fy25; totals[2] += s.fy30; });
+    var maxVal = Math.max.apply(null, totals);
 
-  // Background
-  ctx.fillStyle = '#fafbfc';
-  ctx.fillRect(0, 0, W, H);
+    var barW = 140;
+    var barBot = H - 80;
+    var barTop = 30;
+    var barArea = barBot - barTop;
+    var colX = [160, W/2, W - 160];
+    var labels = ['FY20', 'FY25 (current)', 'FY30 (projected)'];
+    var totalLabels = ['$803B', '$1.2T', '$1.9T'];
+    var totalColors = ['#6b7280', '#0d9488', '#d97706'];
+    var years = ['fy20', 'fy25', 'fy30'];
+    var opacities = [0.6, 0.85, 1.0];
 
-  // Build stacked positions for each bar
-  var stacks = [[], [], []];
-  for (var b = 0; b < 3; b++) {
-    var cumY = barBot;
-    for (var i = 0; i < sectors.length; i++) {
-      var val = sectors[i][years[b]];
-      var segH = Math.max(12, (val / maxVal) * barArea);
-      var top = cumY - segH;
-      stacks[b].push({top: top, bot: cumY, h: segH, val: val, midY: top + segH / 2});
-      cumY = top;
+    // Background
+    ctx.fillStyle = '#fafbfc';
+    ctx.fillRect(0, 0, W, H);
+
+    // Build stacked positions
+    var stacks = [[], [], []];
+    for (var b = 0; b < 3; b++) {
+      var cumY = barBot;
+      for (var i = 0; i < sectors.length; i++) {
+        var val = sectors[i][years[b]];
+        var segH = Math.max(14, (val / maxVal) * barArea);
+        var top = cumY - segH;
+        stacks[b].push({top: top, bot: cumY, h: segH, val: val, midY: top + segH / 2});
+        cumY = top;
+      }
     }
-  }
 
-  // Draw connecting lines between stacks (behind bars)
-  ctx.save();
-  for (var i = 0; i < sectors.length; i++) {
-    var c = sectors[i].color;
-    // FY20 → FY25
-    ctx.strokeStyle = c + '25';
-    ctx.fillStyle = c + '08';
-    ctx.lineWidth = 0;
-    ctx.beginPath();
-    ctx.moveTo(colX[0] + barW/2, stacks[0][i].top);
-    ctx.lineTo(colX[1] - barW/2, stacks[1][i].top);
-    ctx.lineTo(colX[1] - barW/2, stacks[1][i].bot);
-    ctx.lineTo(colX[0] + barW/2, stacks[0][i].bot);
-    ctx.closePath();
-    ctx.fill();
-    ctx.strokeStyle = c + '20';
-    ctx.lineWidth = 0.5;
-    ctx.stroke();
-
-    // FY25 → FY30
-    ctx.fillStyle = c + '08';
-    ctx.beginPath();
-    ctx.moveTo(colX[1] + barW/2, stacks[1][i].top);
-    ctx.lineTo(colX[2] - barW/2, stacks[2][i].top);
-    ctx.lineTo(colX[2] - barW/2, stacks[2][i].bot);
-    ctx.lineTo(colX[1] + barW/2, stacks[1][i].bot);
-    ctx.closePath();
-    ctx.fill();
-    ctx.strokeStyle = c + '20';
-    ctx.lineWidth = 0.5;
-    ctx.stroke();
-  }
-  ctx.restore();
-
-  // Draw stacked bars
-  for (var b = 0; b < 3; b++) {
+    // Draw connecting flows (behind bars)
     for (var i = 0; i < sectors.length; i++) {
-      var s = sectors[i];
-      var st = stacks[b][i];
-      var x0 = colX[b] - barW/2;
-
-      // Bar segment with rounded top on the topmost segment
-      ctx.save();
-      ctx.globalAlpha = opacities[b];
-      ctx.fillStyle = s.color;
-
-      if (i === sectors.length - 1) {
-        // Top segment — round top corners
-        var r = 6;
+      var c = sectors[i].color;
+      for (var g = 0; g < 2; g++) {
+        ctx.fillStyle = c + '0a';
+        ctx.strokeStyle = c + '18';
+        ctx.lineWidth = 0.5;
         ctx.beginPath();
-        ctx.moveTo(x0, st.bot);
-        ctx.lineTo(x0, st.top + r);
-        ctx.quadraticCurveTo(x0, st.top, x0 + r, st.top);
-        ctx.lineTo(x0 + barW - r, st.top);
-        ctx.quadraticCurveTo(x0 + barW, st.top, x0 + barW, st.top + r);
-        ctx.lineTo(x0 + barW, st.bot);
+        ctx.moveTo(colX[g] + barW/2, stacks[g][i].top);
+        ctx.lineTo(colX[g+1] - barW/2, stacks[g+1][i].top);
+        ctx.lineTo(colX[g+1] - barW/2, stacks[g+1][i].bot);
+        ctx.lineTo(colX[g] + barW/2, stacks[g][i].bot);
         ctx.closePath();
         ctx.fill();
-      } else {
-        ctx.fillRect(x0, st.top, barW, st.h);
-      }
-
-      // Subtle divider line between segments
-      if (i > 0) {
-        ctx.globalAlpha = 0.3;
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(x0, st.bot);
-        ctx.lineTo(x0 + barW, st.bot);
         ctx.stroke();
       }
-      ctx.restore();
+    }
 
-      // Value label inside segment
-      if (st.h >= 18) {
+    // Draw stacked bars
+    for (var b = 0; b < 3; b++) {
+      for (var i = 0; i < sectors.length; i++) {
+        var s = sectors[i];
+        var st = stacks[b][i];
+        var x0 = colX[b] - barW/2;
+
         ctx.save();
-        ctx.fillStyle = st.h > 30 ? '#fff' : s.color;
-        ctx.globalAlpha = st.h > 30 ? 0.95 : 0.7;
-        var fontSize = st.h > 40 ? 11 : st.h > 25 ? 9 : 7;
-        ctx.font = 'bold ' + fontSize + 'px JetBrains Mono, monospace';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('$' + st.val + 'B', colX[b], st.midY);
+        ctx.globalAlpha = opacities[b];
+        ctx.fillStyle = s.color;
+
+        if (i === sectors.length - 1) {
+          var r = 6;
+          ctx.beginPath();
+          ctx.moveTo(x0, st.bot);
+          ctx.lineTo(x0, st.top + r);
+          ctx.quadraticCurveTo(x0, st.top, x0 + r, st.top);
+          ctx.lineTo(x0 + barW - r, st.top);
+          ctx.quadraticCurveTo(x0 + barW, st.top, x0 + barW, st.top + r);
+          ctx.lineTo(x0 + barW, st.bot);
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          ctx.fillRect(x0, st.top, barW, st.h);
+        }
+
+        // Divider line
+        if (i > 0) {
+          ctx.globalAlpha = 0.35;
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(x0, st.bot);
+          ctx.lineTo(x0 + barW, st.bot);
+          ctx.stroke();
+        }
         ctx.restore();
+
+        // Value label inside segment
+        if (st.h >= 20) {
+          ctx.save();
+          var fontSize = st.h > 45 ? 12 : st.h > 30 ? 10 : 8;
+          ctx.font = 'bold ' + fontSize + 'px ' + monoFont;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = st.h > 28 ? '#fff' : s.color;
+          ctx.globalAlpha = st.h > 28 ? 0.95 : 0.65;
+          ctx.fillText('$' + st.val + 'B', colX[b], st.midY);
+          ctx.restore();
+        }
       }
     }
+
+    // Per-sector CAGR labels on connecting flows
+    for (var g = 0; g < 2; g++) {
+      var midX = (colX[g] + barW/2 + colX[g+1] - barW/2) / 2;
+      for (var i = 0; i < sectors.length; i++) {
+        var s = sectors[i];
+        var cagr = g === 0 ? s.cagr_h : s.cagr_f;
+        var midY = (stacks[g][i].midY + stacks[g+1][i].midY) / 2;
+        var segAvgH = (stacks[g][i].h + stacks[g+1][i].h) / 2;
+
+        // Only show if there's enough vertical space
+        if (segAvgH >= 28) {
+          ctx.save();
+          ctx.font = 'bold 8px ' + font;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = s.color;
+          ctx.globalAlpha = 0.75;
+          ctx.fillText(cagr, midX, midY);
+          ctx.restore();
+        }
+      }
+    }
+
+    // Overall CAGR pills between bars (top)
+    var cagrBetween = ['8.4% CAGR', '9.2% CAGR'];
+    var cagrColors = ['#0d9488', '#d97706'];
+    for (var g = 0; g < 2; g++) {
+      var mx = (colX[g] + colX[g+1]) / 2;
+      var my = barTop + 8;
+      ctx.save();
+      // Pill bg
+      var pw = 80, ph = 20, px = mx - pw/2, py = my - ph/2;
+      ctx.fillStyle = '#fff';
+      ctx.strokeStyle = '#e5e7eb';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(px, py, pw, ph, 10);
+      ctx.fill();
+      ctx.stroke();
+      // Text
+      ctx.fillStyle = cagrColors[g];
+      ctx.font = 'bold 8.5px ' + font;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(cagrBetween[g], mx, my);
+      // Dashed lines
+      ctx.strokeStyle = cagrColors[g] + '30';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath();
+      ctx.moveTo(colX[g] + barW/2 + 4, my);
+      ctx.lineTo(px - 2, my);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(px + pw + 2, my);
+      ctx.lineTo(colX[g+1] - barW/2 - 4, my);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+    }
+
+    // Column labels and totals
+    for (var b = 0; b < 3; b++) {
+      ctx.save();
+      ctx.fillStyle = totalColors[b];
+      ctx.font = 'bold 16px ' + font;
+      ctx.textAlign = 'center';
+      ctx.fillText(totalLabels[b], colX[b], barBot + 24);
+      ctx.font = '10px ' + font;
+      ctx.fillText(labels[b], colX[b], barBot + 40);
+      ctx.restore();
+    }
+
+    // Legend
+    var legY = H - 18;
+    var legX = 80;
+    var legGap = (W - 160) / sectors.length;
+    sectors.forEach(function(s, i) {
+      var lx = legX + i * legGap;
+      ctx.fillStyle = s.color;
+      ctx.beginPath();
+      ctx.roundRect(lx, legY - 5, 10, 10, 2);
+      ctx.fill();
+      ctx.fillStyle = '#6b7280';
+      ctx.font = '9px ' + font;
+      ctx.textAlign = 'left';
+      ctx.fillText(s.name, lx + 14, legY + 4);
+    });
   }
 
-  // CAGR labels between bars
-  for (var g = 0; g < 2; g++) {
-    var mx = (colX[g] + colX[g+1]) / 2;
-    var my = barTop + 10;
-    ctx.save();
-    ctx.fillStyle = '#fff';
-    ctx.strokeStyle = '#e5e7eb';
-    ctx.lineWidth = 1;
-    var tw = ctx.measureText(cagrBetween[g] + ' CAGR').width || 60;
-    // Pill background
-    var pw = 76, ph = 22, px = mx - pw/2, py = my - ph/2;
-    ctx.beginPath();
-    ctx.roundRect(px, py, pw, ph, 11);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = g === 0 ? '#0d9488' : '#d97706';
-    ctx.font = 'bold 9px Sora, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(cagrBetween[g] + ' CAGR', mx, my);
-    // Arrow line
-    ctx.strokeStyle = (g === 0 ? '#0d9488' : '#d97706') + '30';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 3]);
-    ctx.beginPath();
-    ctx.moveTo(colX[g] + barW/2 + 4, my);
-    ctx.lineTo(px - 2, my);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(px + pw + 2, my);
-    ctx.lineTo(colX[g+1] - barW/2 - 4, my);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.restore();
+  // Wait for fonts to load before drawing
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(draw);
+  } else {
+    setTimeout(draw, 300);
   }
-
-  // Column labels (FY20, FY25, FY30) and totals below bars
-  for (var b = 0; b < 3; b++) {
-    // Total value
-    ctx.save();
-    ctx.fillStyle = totalColors[b];
-    ctx.font = 'bold 16px Sora, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(totalLabels[b], colX[b], barBot + 22);
-    // Year label
-    ctx.font = '10px Sora, sans-serif';
-    ctx.fillStyle = totalColors[b];
-    ctx.fillText(labels[b], colX[b], barBot + 38);
-    ctx.restore();
-  }
-
-  // Legend — sector colors
-  var legY = H - 16;
-  var legX = 80;
-  var legGap = (W - 160) / sectors.length;
-  sectors.forEach(function(s, i) {
-    var lx = legX + i * legGap;
-    ctx.fillStyle = s.color;
-    ctx.fillRect(lx, legY - 5, 10, 10);
-    ctx.fillStyle = '#6b7280';
-    ctx.font = '9px Sora, sans-serif';
-    ctx.textAlign = 'left';
-    ctx.fillText(s.name, lx + 14, legY + 4);
-  });
-
 })();
-
 
 
 // ═══ REVENUE TRAJECTORY GRAPH ═══
