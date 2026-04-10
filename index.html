@@ -1657,12 +1657,370 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div style="margin-top:0;">
       <!-- TIMELINE: Manufacturing Evolution FY20 → FY30 -->
       <div style="margin-bottom:32px;">
-        <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:20px; line-height:1.6;">The graph and timeline below trace how demand, supply, and policy have evolved year by year. Revenue grows from <strong style="color:var(--text-primary);">$640B (2020) to $1.9T (2030)</strong> &mdash; a transformation that has reshaped India into one of the world&rsquo;s most dynamic manufacturing economies.</p>
+        <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:20px; line-height:1.6;">The graph and timeline below trace a five-act story. A <strong style="color:var(--text-primary);">demand shock</strong> (COVID 2020) provoked a <strong style="color:var(--text-primary);">policy response</strong> (Atmanirbhar Bharat + PLI expanded to $26B in 2021), which drove <strong style="color:var(--text-primary);">capital deployment</strong> ($130B+ capex by 2025), unlocked <strong style="color:var(--text-primary);">consumer adoption</strong> (FMCG $400B + Auto EVs by 2027), and ended in <strong style="color:var(--text-primary);">capacity milestones</strong> (FMCG $622B + ESDM $501B by 2030). Revenue grows from <strong style="color:var(--text-primary);">$640B (2020) to $1.9T (2030)</strong> &mdash; a transformation that has reshaped India into one of the world&rsquo;s most dynamic manufacturing economies.</p>
 
         <!-- REVENUE TRAJECTORY GRAPH + TIMELINE -->
         <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:24px; margin-bottom:24px;">
-          <canvas id="revenueGraph" width="900" height="420" style="width:100%; height:auto;"></canvas>
+<div id="revenueChartWrapper" style="position:relative;">
+            <canvas id="revenueGraph" width="900" height="420" style="width:100%; height:auto; display:block;"></canvas>
+            <div id="revenueMarkers" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:14px; white-space:nowrap; overflow-x:auto; font-family:var(--font-display, 'Sora', sans-serif); font-size:0.7rem; color:#94a3b8; line-height:1.5;">
+            <!-- Actual line marker -->
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="display:inline-block; width:18px; height:2.5px; background:#0d9488; border-radius:1px;"></span>
+              <span>Actual</span>
+            </div>
+            <!-- Projected dashed marker -->
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="display:inline-block; width:18px; height:0; border-top:2.5px dashed #d97706;"></span>
+              <span>Projected 9.2% CAGR</span>
+            </div>
+            <!-- Separator dot -->
+            <span style="color:#cbd5e1;">&middot;</span>
+            <!-- Numbered badges + click text -->
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; flex-shrink:0;">
+                <span style="width:15px; height:15px; border-radius:50%; background:#e11d48; color:#fff; font-size:0.56rem; font-weight:800; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,0.12); font-family:inherit;">1</span>
+                <span style="width:15px; height:15px; border-radius:50%; background:#0d9488; color:#fff; font-size:0.56rem; font-weight:800; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,0.12); font-family:inherit;">2</span>
+                <span style="width:15px; height:15px; border-radius:50%; background:#0d9488; color:#fff; font-size:0.56rem; font-weight:800; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,0.12); font-family:inherit;">3</span>
+                <span style="width:15px; height:15px; border-radius:50%; background:#d97706; color:#fff; font-size:0.56rem; font-weight:800; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,0.12); font-family:inherit;">4</span>
+                <span style="width:15px; height:15px; border-radius:50%; background:#d97706; color:#fff; font-size:0.56rem; font-weight:800; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,0.12); font-family:inherit;">5</span>
+              </div>
+              <span>Click each marker &mdash; key inflection points in India&rsquo;s manufacturing journey</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Chart Event Modal -->
+        <div id="chartEventModal" class="chart-modal-overlay" onclick="closeChartModal(event)">
+          <div class="chart-modal-body" onclick="event.stopPropagation()">
+            <button class="chart-modal-close" onclick="closeChartModal()" aria-label="Close">&times;</button>
+            <div id="chartModalContent"></div>
+          </div>
+        </div>
+
+        <style>
+          .chart-marker {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.88rem;
+            font-family: var(--font-display, 'Sora', sans-serif);
+            border: 2.5px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+            cursor: pointer;
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            padding: 0;
+            line-height: 1;
+          }
+          .chart-marker:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            z-index: 10;
+          }
+          .chart-marker-tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: #fff;
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s;
+            z-index: 20;
+          }
+          .chart-marker-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #1e293b;
+          }
+          .chart-marker:hover .chart-marker-tooltip {
+            opacity: 1;
+          }
+          .chart-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            animation: chartModalFadeIn 0.2s ease;
+          }
+          .chart-modal-overlay.visible {
+            display: flex;
+          }
+          @keyframes chartModalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          .chart-modal-body {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 540px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 32px;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+            animation: chartModalSlideIn 0.25s ease;
+          }
+          @keyframes chartModalSlideIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          .chart-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+          }
+          .chart-modal-close:hover { background: #e2e8f0; }
+          .chart-modal-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding-bottom: 16px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #e2e8f0;
+          }
+          .chart-modal-badge {
+            display: inline-flex;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.2rem;
+            font-family: var(--font-display, 'Sora', sans-serif);
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+          }
+          .chart-modal-year {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+          }
+          .chart-modal-title {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.3;
+          }
+          .chart-modal-section {
+            margin-top: 16px;
+          }
+          .chart-modal-section-label {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+          }
+          .chart-modal-section-text {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin: 0;
+          }
+          .chart-modal-section-text strong {
+            color: var(--text-primary);
+          }
+          @media (max-width: 520px) {
+            .chart-modal-body { padding: 24px; border-radius: 14px; }
+            .chart-modal-title { font-size: 1rem; }
+          }
+        </style>
+
+        <script>
+          (function() {
+            var CHART_EVENTS = [
+              {
+                num: '1', year: 2020, val: 640, color: '#e11d48',
+                tag: 'Demand', tagLabel: 'Demand-side factor',
+                yoyLabel: '\u221215% revenue vs 2019',
+                title: 'COVID-19 Lockdown',
+                desc: 'The nation-wide lockdown imposed in March 2020 collapsed manufacturing demand across every thesis sector. Automobile production lines were suspended, FMCG offtake contracted on restricted distribution, ESDM shipments halted amid global logistics disruption, and Chemicals and Metals declined on a synchronized global supply shock.',
+                sectors: 'All 6 \u2014 Automobile, FMCG, ESDM, Chemicals, Metals, Pharma',
+                impact: 'Total manufacturing revenue contracted from <strong>$750B in 2019 to $640B in 2020</strong>, a $110B decline equivalent to <strong>\u221215% year-over-year</strong>. This remains the only negative annual print on the 12-year curve \u2014 a singular demand-led contraction with no supply-side or regulatory counterpart of the same magnitude.'
+              },
+              {
+                num: '2', year: 2021, val: 720, color: '#0d9488',
+                tag: 'Regulatory', tagLabel: 'Regulatory-side factor',
+                yoyLabel: '+12.5% revenue vs 2020',
+                title: 'Atmanirbhar Stimulus Flows + PLI Expanded to $26B',
+                desc: 'The $265B Atmanirbhar Bharat stimulus package began reaching the real economy through MSME credit guarantees, working-capital support lines, and corporate tax relief. In parallel, the Production Linked Incentive (PLI) scheme was expanded from 3 sectors ($5.5B) to 14 sectors ($26B). Automobile PLI at $3.5B constituted the single largest tranche, with dedicated allocations also made to ESDM, Pharmaceuticals, Chemicals, Metals, and allied industries.',
+                sectors: '5 of 6 \u2014 Automobile (PLI largest at $3.5B), ESDM, Pharma, Chemicals, Metals',
+                impact: 'Total manufacturing revenue recovered to <strong>$720B</strong>, an $80B gain representing <strong>+12.5% year-over-year</strong>. The capital commitments made during 2021 underwrote the $160B expansion recorded in 2022 \u2014 the largest single-year move on the entire 12-year trajectory.'
+              },
+              {
+                num: '3', year: 2025, val: 1204, color: '#0d9488',
+                tag: 'Regulatory', tagLabel: 'Regulatory-side factor',
+                yoyLabel: '+9.5% revenue vs 2024',
+                title: 'PLI 1.0 Culminates \u2014 $130B+ Capex Deployed',
+                desc: 'Five years after the 2021 PLI expansion, committed incentives have translated into executed capital expenditure. Over $130B has been deployed across the PLI-receiving sectors, with Automobile, ESDM, Pharmaceuticals, Chemicals, and Metals each scaling domestic production capacity. 2025 marks the final disbursement year for most original PLI cohorts.',
+                sectors: '5 of 6 \u2014 Automobile, ESDM, Pharma, Chemicals, Metals',
+                impact: 'Total manufacturing revenue reaches <strong>$1.2T</strong>, a $104B gain over 2024 (<strong>+9.5% year-over-year</strong>). This print marks the boundary between actual historical data and the forward projection; the deployed capacity base determines the slope of every subsequent projected value.'
+              },
+              {
+                num: '4', year: 2027, val: 1440, color: '#d97706',
+                tag: 'Demand', tagLabel: 'Demand-side factor',
+                yoyLabel: '+9.1% revenue vs 2026',
+                title: 'FMCG Crosses $400B + Auto EVs Reach 15% of 2W Sales',
+                desc: 'Two of the three largest thesis sectors reach consumer-driven revenue milestones. FMCG revenue crosses $400B, supported by quick commerce GMV of $14B+, direct-to-consumer brand proliferation, and deepening rural penetration. In Automobile, electric vehicles reach 15% of the two-wheeler segment, marking the transition from an internal-combustion-majority market to an electric-majority one.',
+                sectors: '2 \u2014 FMCG (quick commerce + D2C + rural), Automobile (EV transition in 2W)',
+                impact: 'Total manufacturing revenue reaches <strong>$1.44T</strong>, a $120B gain over 2026 (<strong>+9.1% year-over-year</strong>). Consumer adoption milestones in the two largest thesis sectors confirm that newly deployed capacity is being absorbed by end-demand, substantiating the projected 9.2% CAGR through FY30.'
+              },
+              {
+                num: '5', year: 2030, val: 1869, color: '#d97706', yOffset: -34,
+                tag: 'Supply', tagLabel: 'Supply-side factor',
+                yoyLabel: '+8.7% revenue vs 2029',
+                title: 'FMCG $622B + ESDM $501B Sectoral Peaks',
+                desc: 'The two largest thesis sectors reach their FY30 run-rates. FMCG revenue stands at $622B and ESDM at $501B. Together these two sectors represent approximately 60% of the total manufacturing endpoint, reflecting a decade of capacity build-out and policy-driven investment converging on end-state revenue profiles.',
+                sectors: '2 \u2014 FMCG ($622B), ESDM ($501B); \u224860% of the $1.9T endpoint',
+                impact: 'Total manufacturing revenue reaches <strong>$1.87T</strong>, a $149B gain over 2029 (<strong>+8.7% year-over-year</strong>). This is the terminal value of the 12-year trajectory, anchored by sustained capacity utilization in the two largest thesis sectors.'
+              }
+            ];
+
+            function positionRevenueMarkers() {
+              var canvas = document.getElementById('revenueGraph');
+              var markerContainer = document.getElementById('revenueMarkers');
+              if (!canvas || !markerContainer) return;
+
+              var rect = canvas.getBoundingClientRect();
+              var W = rect.width, H = rect.height;
+              if (W === 0 || H === 0) return;
+
+              // Canvas logical dimensions (match the canvas JS)
+              var LW = 960, LH = 460;
+              var pad = { top:55, right:55, bottom:50, left:58 };
+              var minY = 400, maxY = 2200;
+              var scaleX = W / LW, scaleY = H / LH;
+              var cW = (LW - pad.left - pad.right) * scaleX;
+              var cH = (LH - pad.top - pad.bottom) * scaleY;
+              var padLeftS = pad.left * scaleX;
+              var padTopS = pad.top * scaleY;
+
+              function x(yr) { return padLeftS + ((yr - 2018) / 12) * cW; }
+              function y(v)  { return padTopS + (1 - (v - minY) / (maxY - minY)) * cH; }
+
+              markerContainer.innerHTML = '';
+              CHART_EVENTS.forEach(function(e) {
+                var cx = x(e.year);
+                var verticalOffset = e.yOffset !== undefined ? e.yOffset : -22;
+                var cy = y(e.val) + verticalOffset; // position badge ABOVE the dot
+                var btn = document.createElement('button');
+                btn.className = 'chart-marker';
+                btn.type = 'button';
+                btn.style.left = cx + 'px';
+                btn.style.top = cy + 'px';
+                btn.style.background = e.color;
+                btn.setAttribute('aria-label', e.year + ' ' + e.title);
+                btn.innerHTML = e.num + '<span class="chart-marker-tooltip">' + e.title + '</span>';
+                btn.addEventListener('click', function() { openChartEventModal(e); });
+                markerContainer.appendChild(btn);
+              });
+            }
+
+            window.openChartEventModal = function(e) {
+              var modal = document.getElementById('chartEventModal');
+              var content = document.getElementById('chartModalContent');
+              content.innerHTML =
+                '<div class="chart-modal-header" style="border-bottom-color:' + e.color + '33;">' +
+                  '<div class="chart-modal-badge" style="background:' + e.color + ';">' + e.num + '</div>' +
+                  '<div style="flex:1; min-width:0;">' +
+                    '<div class="chart-modal-year" style="color:' + e.color + ';">' + e.year + ' \u00b7 ' + e.tagLabel + ' \u00b7 ' + e.yoyLabel + '</div>' +
+                    '<h3 class="chart-modal-title">' + e.title + '</h3>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="chart-modal-section">' +
+                  '<div class="chart-modal-section-label">Description</div>' +
+                  '<p class="chart-modal-section-text">' + e.desc + '</p>' +
+                '</div>' +
+                '<div class="chart-modal-section">' +
+                  '<div class="chart-modal-section-label">Sectors impacted</div>' +
+                  '<p class="chart-modal-section-text">' + e.sectors + '</p>' +
+                '</div>' +
+                '<div class="chart-modal-section">' +
+                  '<div class="chart-modal-section-label">Impact on the curve</div>' +
+                  '<p class="chart-modal-section-text">' + e.impact + '</p>' +
+                '</div>';
+              modal.classList.add('visible');
+              document.body.style.overflow = 'hidden';
+            };
+
+            window.closeChartModal = function(evt) {
+              if (evt && evt.target && evt.currentTarget && evt.target !== evt.currentTarget && evt.type === 'click') {
+                return;
+              }
+              var modal = document.getElementById('chartEventModal');
+              if (modal) modal.classList.remove('visible');
+              document.body.style.overflow = '';
+            };
+
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') window.closeChartModal();
+            });
+
+            // Initial position + on resize + after fonts load
+            function tryPosition() { positionRevenueMarkers(); }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', tryPosition);
+            } else {
+              tryPosition();
+            }
+            window.addEventListener('load', tryPosition);
+            window.addEventListener('resize', tryPosition);
+            setTimeout(tryPosition, 200);
+            setTimeout(tryPosition, 800);
+            setTimeout(tryPosition, 1500);
+          })();
+        </script>
 
             <!-- DEMAND / SUPPLY / POLICY ENRICHED TIMELINE -->
       <div style="margin-bottom:24px;">
@@ -4689,26 +5047,7 @@ document.addEventListener('mouseout', function(e) {
     ctx.fillText(sub, tx + 6, ty + 13);
   }
   
-  calloutLine(2020, 640, x(2020.8), y(490), 'COVID-19', 'Manufacturing revenue dropped 15%', '#e11d48');
-  calloutLine(2022, 880, x(2023.5), y(620), 'RECOVERY + PLI + CHINA+1', 'V-shaped rebound, supply chains shift to India', '#0d9488');
-  calloutLine(2025, 1204, x(2025.5), y(1450), 'LABOUR CODES 2025', 'Operational costs rise 15-25%', '#0d9488');
-  calloutLine(2030, 1869, x(2027.8), y(2100), 'FY30 EXPORTS: $1T', 'Foreign Trade Policy 2023 target', '#d97706');
   
-  // Legend bar
-  ctx.font = '8px Sora, sans-serif';
-  ctx.textAlign = 'left';
-  ctx.fillStyle = '#0d9488';
-  ctx.fillRect(pad.left, H - 10, 16, 2);
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('Actual (2018-2025)', pad.left + 20, H - 7);
-  ctx.fillStyle = '#d97706';
-  ctx.setLineDash([4, 3]);
-  ctx.strokeStyle = '#d97706';
-  ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(pad.left + 145, H - 9); ctx.lineTo(pad.left + 161, H - 9); ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle = '#9ca3af';
-  ctx.fillText('Projected (9.2% CAGR)', pad.left + 165, H - 7);
 })();
 
 // ═══ BACK TO TOP ═══
