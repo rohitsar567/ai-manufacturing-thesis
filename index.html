@@ -1950,10 +1950,12 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
               function y(v)  { return padTopS + (1 - (v - minY) / (maxY - minY)) * cH; }
 
               markerContainer.innerHTML = '';
+              // Uniform marker row: all badges sit at same canvas y (converted to browser px)
+              var markerCanvasY = 75; // above curve peak, inside top padding
+              var markerBrowserY = markerCanvasY * (H / LH);
               CHART_EVENTS.forEach(function(e) {
                 var cx = x(e.year);
-                var verticalOffset = e.yOffset !== undefined ? e.yOffset : -22;
-                var cy = y(e.val) + verticalOffset; // position badge ABOVE the dot
+                var cy = markerBrowserY;
                 var btn = document.createElement('button');
                 btn.className = 'chart-marker';
                 btn.type = 'button';
@@ -4867,15 +4869,21 @@ document.addEventListener('mouseout', function(e) {
   function x(yr) { return pad.left + ((yr - 2018) / 12) * cW; }
   function y(v) { return pad.top + cH - ((v - minY) / (maxY - minY)) * cH; }
   
-  // Smooth bezier through points
+  // Catmull-Rom spline — passes exactly through every data point
   function drawSmooth(pts, close) {
+    if (pts.length < 2) return;
     ctx.moveTo(pts[0].x, pts[0].y);
     for (var i = 0; i < pts.length - 1; i++) {
-      var xc = (pts[i].x + pts[i+1].x) / 2;
-      var yc = (pts[i].y + pts[i+1].y) / 2;
-      ctx.quadraticCurveTo(pts[i].x, pts[i].y, xc, yc);
+      var p0 = i === 0 ? pts[i] : pts[i - 1];
+      var p1 = pts[i];
+      var p2 = pts[i + 1];
+      var p3 = i + 2 < pts.length ? pts[i + 2] : p2;
+      var cp1x = p1.x + (p2.x - p0.x) / 6;
+      var cp1y = p1.y + (p2.y - p0.y) / 6;
+      var cp2x = p2.x - (p3.x - p1.x) / 6;
+      var cp2y = p2.y - (p3.y - p1.y) / 6;
+      ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
     }
-    ctx.lineTo(pts[pts.length-1].x, pts[pts.length-1].y);
   }
   
   // Background
@@ -4978,6 +4986,23 @@ document.addEventListener('mouseout', function(e) {
     ctx.stroke();
     ctx.restore();
   }
+
+  // Leader lines: from each callout year's dot up to the uniform marker row
+  var calloutYears = [2020, 2021, 2025, 2027, 2030];
+  ctx.save();
+  ctx.strokeStyle = 'rgba(100,116,139,0.32)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([2, 3]);
+  calloutYears.forEach(function(yr) {
+    var d = data.find(function(d){ return d.y === yr; });
+    if (!d) return;
+    ctx.beginPath();
+    ctx.moveTo(x(yr), 90);
+    ctx.lineTo(x(yr), y(d.v) - 9);
+    ctx.stroke();
+  });
+  ctx.restore();
+
   dot(2018, 680, '#9ca3af', 3);
   dot(2019, 750, '#9ca3af', 3);
   dot(2020, 640, '#e11d48', 5);
@@ -5023,7 +5048,7 @@ document.addEventListener('mouseout', function(e) {
   }
   pill(2020, 640, '#e11d48', 0, 30);
   pill(2025, 1204, '#0d9488', 0, -24);
-  pill(2030, 1869, '#d97706', 40, 12);
+  pill(2030, 1869, '#d97706', 0, 28);
   
   // Callout annotations — minimal, elegant
 
