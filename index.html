@@ -153,16 +153,77 @@ section { border-top: 2px solid #cbd5e1; }
 .section-desc { font-size: 1.0rem; color: var(--text-secondary); max-width: none; line-height: 1.75; margin-bottom: 24px; }
 
 
-/* ─── SECTION PUNCHLINES ─── */
+/* ─── SECTION PUNCHLINES — editorial boxes with gradient numbers ─── */
 .section-punchline {
-  display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
 }
 .section-punchline .sp-stat {
-  font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary);
-  display: flex; align-items: center; gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--accent-teal);
+  border-radius: 8px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  line-height: 1.4;
+  font-weight: 600;
+  transition: all 0.2s;
 }
+.section-punchline .sp-stat:hover {
+  border-color: rgba(13,148,136,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13,148,136,0.08);
+}
+.section-punchline .sp-stat:nth-child(1) { border-top-color: #0d9488; }
+.section-punchline .sp-stat:nth-child(2) { border-top-color: #2563eb; }
+.section-punchline .sp-stat:nth-child(3) { border-top-color: #7c3aed; }
+.section-punchline .sp-stat:nth-child(4) { border-top-color: #d97706; }
 .section-punchline .sp-stat strong {
-  font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--accent-teal);
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 4px;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+/* Gradient text — each card matches its accent bar */
+.section-punchline .sp-stat:nth-child(1) strong {
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-punchline .sp-stat:nth-child(2) strong {
+  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-punchline .sp-stat:nth-child(3) strong {
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-punchline .sp-stat:nth-child(4) strong {
+  background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@media (max-width: 768px) {
+  .section-punchline { grid-template-columns: 1fr 1fr; }
 }
 
 /* ─── EXEC SUMMARY CARDS ─── */
