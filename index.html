@@ -1424,58 +1424,90 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <canvas id="revenueGraph" width="900" height="420" style="width:100%; height:auto;"></canvas>
         </div>
 
-            <!-- DEMAND / SUPPLY / POLICY TIMELINE TABLE -->
+            <!-- DEMAND / SUPPLY / POLICY ENRICHED TIMELINE -->
       <div style="margin-bottom:24px;">
         <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; overflow:hidden;">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0;">
-            <div style="padding:10px 14px; background:rgba(13,148,136,0.04); border-bottom:2px solid var(--accent-teal); border-right:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.06em;">2020&ndash;2023: What Happened</div>
-            </div>
-            <div style="padding:10px 14px; background:rgba(13,148,136,0.06); border-bottom:2px solid var(--accent-teal); border-right:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.06em;">2024&ndash;2025: What&rsquo;s Happening</div>
-            </div>
-            <div style="padding:10px 14px; background:rgba(217,119,6,0.04); border-bottom:2px solid var(--accent-amber);">
-              <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.06em;">2026&ndash;2030: What&rsquo;s Coming</div>
-            </div>
 
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); margin-bottom:4px;">DEMAND</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; COVID disrupted demand<br>&bull; E-commerce doubled<br>&bull; EV demand emerged</div>
-            </div>
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); margin-bottom:4px;">DEMAND</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; Quick Commerce 70-80% CAGR<br>&bull; D2C creating 10x SKU complexity<br>&bull; EV doubling OEM programs</div>
-            </div>
-            <div style="padding:10px 14px; border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-amber); margin-bottom:4px;">DEMAND</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; FMCG to <strong>$622B</strong><br>&bull; ESDM to <strong>$501B</strong><br>&bull; 1.4B consumer base</div>
-            </div>
+          <!-- SCROLLABLE TIMELINE TABLE -->
+          <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100vw;">
+            <table style="width:max-content; min-width:100%; border-collapse:separate; border-spacing:0; font-size:0.72rem;">
+              <thead>
+                <tr>
+                  <th style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; padding:12px 10px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:left; position:sticky; left:0; z-index:2; min-width:70px;">Dimension</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:#9ca3af; text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2014&ndash;2016</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:#9ca3af; text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2017&ndash;2019</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:#e11d48; text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2020</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2021</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2022</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2023</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:var(--bg-surface); border-bottom:2px solid var(--border-subtle); text-align:center; min-width:130px;">2024</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:rgba(13,148,136,0.06); border-bottom:2px solid var(--accent-teal); text-align:center; min-width:130px;">2025</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:rgba(217,119,6,0.04); border-bottom:2px solid var(--accent-amber); text-align:center; min-width:130px;">2026&ndash;27</th>
+                  <th style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.04em; padding:10px 8px; background:rgba(217,119,6,0.04); border-bottom:2px solid var(--accent-amber); text-align:center; min-width:130px;">2028&ndash;30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- REVENUE ROW -->
+                <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(13,148,136,0.02);">
+                  <td style="padding:10px 8px; font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; position:sticky; left:0; background:rgba(13,148,136,0.04); z-index:1; border-right:1px solid var(--border-subtle);">Revenue</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$680B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$750B</td>
+                  <td style="padding:8px 8px; color:#e11d48; line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:700;">$640B <span style="font-size:0.55rem;">&#9660;</span></td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$720B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$880B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$1.02T</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600;">$1.10T</td>
+                  <td style="padding:8px 8px; color:var(--accent-teal); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:700; background:rgba(13,148,136,0.04);">$1.2T</td>
+                  <td style="padding:8px 8px; color:var(--accent-amber); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:600; background:rgba(217,119,6,0.02);">$1.3&ndash;1.4T</td>
+                  <td style="padding:8px 8px; color:var(--accent-amber); line-height:1.5; text-align:center; font-family:var(--font-mono); font-weight:700; background:rgba(217,119,6,0.02);">$1.9T</td>
+                </tr>
 
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-violet); margin-bottom:4px;">SUPPLY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; China+1 strategy launched<br>&bull; Global OEMs set up India plants<br>&bull; Apple moved iPhone production</div>
-            </div>
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-violet); margin-bottom:4px;">SUPPLY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; 10 semiconductor fabs approved<br>&bull; $100B+ FDI commitments<br>&bull; 20.4M workforce, 3rd globally</div>
-            </div>
-            <div style="padding:10px 14px; border-bottom:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-amber); margin-bottom:4px;">SUPPLY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; Semiconductor fabs operational<br>&bull; Defence manufacturing scales<br>&bull; Workforce grows to <strong>25M+</strong></div>
-            </div>
+                <!-- DEMAND ROW -->
+                <tr style="border-bottom:1px solid var(--border-subtle);">
+                  <td style="padding:10px 8px; font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; position:sticky; left:0; background:#fff; z-index:1; border-right:1px solid var(--border-subtle);">Demand</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Make in India launched<br>&bull; Smartphone boom (80M &rarr; 110M shipped)<br>&bull; E-commerce at $6B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; GST unifies single market<br>&bull; 152M smartphones shipped<br>&bull; E-commerce hits $33B<br>&bull; EV sales: 156K units</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong style="color:#e11d48;">COVID lockdown</strong><br>&bull; E-commerce surges to $46B<br>&bull; Swiggy Instamart soft-launch</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; 169M smartphones (record)<br>&bull; Zepto launches<br>&bull; Quick commerce: $0.3B<br>&bull; Exports hit $422B record</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Quick commerce: $3B<br>&bull; D2C brands boom<br>&bull; EVs cross 1M registrations<br>&bull; Exports: $450B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Quick commerce: $5B<br>&bull; EV registrations: 1.55M<br>&bull; Defence exports cross $2B<br>&bull; Exports: $437B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Quick commerce: $8B<br>&bull; EVs: 1.9M registrations<br>&bull; 10-min delivery in 10 cities<br>&bull; D2C contract mfg boom</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(13,148,136,0.04);">&bull; QC: <strong>$10B+ GMV</strong><br>&bull; E-2W: 10&ndash;12% of sales<br>&bull; Defence exports: $3B+<br>&bull; Exports: ~$460B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; QC: $14B+, fashion/electronics<br>&bull; FMCG revenue: $400B+<br>&bull; EV: 15%+ of 2W sales</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; FMCG to <strong>$622B</strong><br>&bull; ESDM to <strong>$501B</strong><br>&bull; Exports target: <strong>$1T</strong><br>&bull; QC: $20B+<br>&bull; EV: 30% of new 2W</td>
+                </tr>
 
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-rose); margin-bottom:4px;">POLICY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; PLI schemes launched ($26B+)<br>&bull; Make in India 2.0<br>&bull; Corporate tax cut to 22%</div>
-            </div>
-            <div style="padding:10px 14px; border-right:1px solid var(--border-subtle);">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-rose); margin-bottom:4px;">POLICY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; <strong>2025 Labour Codes</strong> enacted<br>&bull; PLI disbursements accelerating<br>&bull; FAME-III for EV ecosystem</div>
-            </div>
-            <div style="padding:10px 14px;">
-              <div style="font-family:var(--font-display); font-size:0.55rem; font-weight:700; color:var(--accent-amber); margin-bottom:4px;">POLICY</div>
-              <div style="font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">&bull; Viksit Bharat: $1T mfg GDP<br>&bull; $1T merchandise exports<br>&bull; Labour cost +15-25%</div>
-            </div>
+                <!-- SUPPLY ROW -->
+                <tr style="border-bottom:1px solid var(--border-subtle);">
+                  <td style="padding:10px 8px; font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; position:sticky; left:0; background:#fff; z-index:1; border-right:1px solid var(--border-subtle);">Supply</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Foxconn explores India<br>&bull; Samsung expands Noida<br>&bull; Wistron starts iPhone SE assembly<br>&bull; FDI: $9.6B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Samsung: world&rsquo;s largest phone factory (Noida)<br>&bull; 268 phone factories since 2014<br>&bull; Foxconn starts iPhone XR<br>&bull; FDI: $11.7B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong style="color:#e11d48;">China+1 accelerates</strong><br>&bull; Pegatron sets up Tamil Nadu<br>&bull; Dixon becomes key ODM</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Tata acquires Wistron plant<br>&bull; iPhone exports: $2.4B<br>&bull; Foxconn, Pegatron at scale<br>&bull; FDI: $12.1B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; iPhone exports: <strong>$5B</strong><br>&bull; Foxconn: $700M Karnataka plant<br>&bull; Electronics prod: $87B<br>&bull; FDI: $16B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Apple India: <strong>$14B</strong> output<br>&bull; Tata assembles iPhone 15<br>&bull; Mobile prod: $44B total<br>&bull; 65&ndash;70M workforce</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Apple India: <strong>$19B</strong><br>&bull; iPhone 16 Pro made in India<br>&bull; Electronics: $115B<br>&bull; FDI: $16&ndash;17B</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(13,148,136,0.04);">&bull; Apple: $20&ndash;25B (25%+ global)<br>&bull; Micron ATMP operational<br>&bull; Tata Dholera 50% built<br>&bull; HAL Tejas: 18/yr</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; Tata fab: first 28nm chips<br>&bull; Apple: 30%+ of global iPhones<br>&bull; Green H&#8322; pilots<br>&bull; Defence mfg scales</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; 3+ fabs operational<br>&bull; Apple: $30&ndash;40B India output<br>&bull; Green H&#8322;: 5 MMTPA<br>&bull; Workforce: <strong>25M+</strong><br>&bull; 3rd largest economy</td>
+                </tr>
+
+                <!-- POLICY ROW -->
+                <tr>
+                  <td style="padding:10px 8px; font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--accent-rose); text-transform:uppercase; position:sticky; left:0; background:#fff; z-index:1; border-right:1px solid var(--border-subtle);">Policy</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong>Make in India</strong> (2014)<br>&bull; Skill India, Digital India (2015)<br>&bull; Smart Cities Mission<br>&bull; 100% FDI in defence/railways</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong>GST launched</strong> (2017)<br>&bull; <strong>Corp. tax cut to 22%</strong> (2019)<br>&bull; FAME II: $1.2B for EVs<br>&bull; Ease of Business: 142nd &rarr; 77th</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong>PLI Scheme</strong>: 3 sectors, $5.5B<br>&bull; <strong>Atmanirbhar Bharat</strong>: $265B<br>&bull; 4 Labour Codes passed<br>&bull; Pegatron approved under PLI</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong>PLI expanded to 14 sectors</strong><br>&bull; Total PLI: <strong>$26B</strong><br>&bull; Auto PLI: $3.5B (largest)<br>&bull; PM Gati Shakti launched<br>&bull; Scrappage policy</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; <strong>Semiconductor Mission</strong>: $10B<br>&bull; National Logistics Policy<br>&bull; Green H&#8322; Mission: $2.4B<br>&bull; Defence: 68% domestic<br>&bull; PLI disbursements begin</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; Tata fab: $11B Dholera<br>&bull; Micron ATMP: $2.75B<br>&bull; Defence exports: $2B<br>&bull; Capex: $120B (+33%)<br>&bull; 740+ PLI companies</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5;">&bull; PM E-Drive: $1.3B<br>&bull; PLI disbursed: ~$1.2B<br>&bull; Defence prod: <strong>$15.2B</strong> record<br>&bull; 32 electronics PLI cos.</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(13,148,136,0.04);">&bull; <strong>Labour Codes</strong> implementation<br>&bull; Capex: $130B+<br>&bull; PLI: final years for most sectors<br>&bull; Green H&#8322;: $2/kg target</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; PLI 2.0 evaluation<br>&bull; Semiconductor ecosystem matures<br>&bull; Labour costs +15&ndash;25%</td>
+                  <td style="padding:8px 8px; color:var(--text-secondary); line-height:1.5; background:rgba(217,119,6,0.02);">&bull; <strong>Viksit Bharat</strong>: $1T mfg GDP<br>&bull; $1T merchandise exports<br>&bull; 5&ndash;6 fabs/ATMP facilities<br>&bull; Top-5 defence exporter<br>&bull; Mfg: 20%+ of GDP</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
@@ -1483,6 +1515,10 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog</a>
           <a href="https://www.makeinindia.com/sector/manufacturing" target="_blank" class="source-tag">Make in India</a>
           <a href="https://labour.gov.in/CodeonWages" target="_blank" class="source-tag">Labour Codes 2025</a>
+          <a href="https://www.meity.gov.in/esdm/ISMC" target="_blank" class="source-tag">India Semiconductor Mission</a>
+          <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=1976606" target="_blank" class="source-tag">PLI Scheme</a>
+          <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM Statistics</a>
+          <a href="https://www.icea.org.in" target="_blank" class="source-tag">ICEA Electronics</a>
         </div>
       </div>
 
@@ -4026,13 +4062,13 @@ document.addEventListener('mouseout', function(e) {
   if (!canvas) return;
   var dpr = window.devicePixelRatio || 1;
   canvas.width = 960 * dpr;
-  canvas.height = 400 * dpr;
+  canvas.height = 460 * dpr;
   canvas.style.width = '100%';
   canvas.style.height = 'auto';
   var ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
-  var W = 960, H = 400;
-  var pad = {top:35, right:50, bottom:45, left:58};
+  var W = 960, H = 460;
+  var pad = {top:55, right:55, bottom:50, left:58};
   var cW = W - pad.left - pad.right;
   var cH = H - pad.top - pad.bottom;
   
@@ -4043,7 +4079,7 @@ document.addEventListener('mouseout', function(e) {
     {y:2026,v:1320},{y:2027,v:1440},{y:2028,v:1580},{y:2029,v:1720},{y:2030,v:1869}
   ];
   
-  var minY = 450, maxY = 2100;
+  var minY = 400, maxY = 2200;
   function x(yr) { return pad.left + ((yr - 2018) / 12) * cW; }
   function y(v) { return pad.top + cH - ((v - minY) / (maxY - minY)) * cH; }
   
@@ -4158,10 +4194,18 @@ document.addEventListener('mouseout', function(e) {
     ctx.stroke();
     ctx.restore();
   }
-  dot(2018, 680, '#9ca3af', 4);
+  dot(2018, 680, '#9ca3af', 3);
+  dot(2019, 750, '#9ca3af', 3);
   dot(2020, 640, '#e11d48', 5);
+  dot(2021, 720, '#0d9488', 3);
   dot(2022, 880, '#0d9488', 4);
+  dot(2023, 1020, '#0d9488', 3);
+  dot(2024, 1100, '#0d9488', 3);
   dot(2025, 1204, '#0d9488', 6);
+  dot(2026, 1320, '#d97706', 3);
+  dot(2027, 1440, '#d97706', 3);
+  dot(2028, 1580, '#d97706', 3);
+  dot(2029, 1720, '#d97706', 3);
   dot(2030, 1869, '#d97706', 6);
   
   // Revenue labels — elegant pill style
@@ -4193,9 +4237,9 @@ document.addEventListener('mouseout', function(e) {
     ctx.textAlign = 'center';
     ctx.fillText(text, cx, cy + 4);
   }
-  pill(2020, 640, '#e11d48', 0, 22);
-  pill(2025, 1204, '#0d9488', 0, -18);
-  pill(2030, 1869, '#d97706', 0, -18);
+  pill(2020, 640, '#e11d48', 0, 30);
+  pill(2025, 1204, '#0d9488', 0, -24);
+  pill(2030, 1869, '#d97706', 40, 12);
   
   // Callout annotations — minimal, elegant
 
@@ -4203,29 +4247,26 @@ document.addEventListener('mouseout', function(e) {
   // Callouts with connector lines — positioned in clear space
   function calloutLine(yr, val, tx, ty, text, sub, color) {
     var cx = x(yr), cy = y(val);
-    // Connector line
-    ctx.strokeStyle = color + '60';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([2,2]);
+    ctx.strokeStyle = color + '40';
+    ctx.lineWidth = 0.8;
+    ctx.setLineDash([3,3]);
     ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty); ctx.stroke();
     ctx.setLineDash([]);
-    // Small dot at connection
     ctx.beginPath(); ctx.arc(tx, ty, 2, 0, Math.PI*2);
     ctx.fillStyle = color; ctx.fill();
-    // Text
     ctx.fillStyle = color;
-    ctx.font = 'bold 9px Sora, sans-serif';
+    ctx.font = 'bold 8px Sora, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(text, tx + 6, ty + 3);
-    ctx.fillStyle = '#9ca3af';
-    ctx.font = '8px Sora, sans-serif';
-    ctx.fillText(sub, tx + 6, ty + 14);
+    ctx.fillText('\u25B8 ' + text, tx + 6, ty + 3);
+    ctx.fillStyle = '#6b7280';
+    ctx.font = '7px Sora, sans-serif';
+    ctx.fillText(sub, tx + 6, ty + 13);
   }
   
-  calloutLine(2020, 640, x(2019.5), y(450), 'COVID-19', 'Revenue dropped 15%', '#e11d48');
-  calloutLine(2022, 880, x(2023.5), y(750), 'RECOVERY + PLI + CHINA+1', 'V-shaped rebound, supply chains shift', '#0d9488');
-  calloutLine(2025, 1204, x(2025.5), y(1380), 'LABOUR CODES 2025', 'Operational costs +15-25%', '#0d9488');
-  calloutLine(2030, 1869, x(2028), y(2000), 'VIKSIT BHARAT 2047', '$1T manufacturing GDP target', '#d97706');
+  calloutLine(2020, 640, x(2020.8), y(490), 'COVID-19', 'Manufacturing revenue dropped 15%', '#e11d48');
+  calloutLine(2022, 880, x(2023.5), y(620), 'RECOVERY + PLI + CHINA+1', 'V-shaped rebound, supply chains shift to India', '#0d9488');
+  calloutLine(2025, 1204, x(2025.5), y(1450), 'LABOUR CODES 2025', 'Operational costs rise 15-25%', '#0d9488');
+  calloutLine(2030, 1869, x(2027.8), y(2100), 'VIKSIT BHARAT 2047', '$1T manufacturing GDP target', '#d97706');
   
   // Legend bar
   ctx.font = '8px Sora, sans-serif';
