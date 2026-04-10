@@ -1040,6 +1040,11 @@ nav .logo { font-size: 1.05rem !important; }
   .node-detail div[style*="justify-content:space-between"] {
     flex-wrap: wrap !important;
   }
+  /* Why Indian Manufacturing 4-card grid: 2x2 on tablet, 1-col on phone */
+  .why-india-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 520px) {
+  .why-india-grid { grid-template-columns: 1fr !important; }
 }
 
 
@@ -1110,30 +1115,46 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- SEGMENT 1: WHY MANUFACTURING -->
     <div style="margin-bottom:40px;">
-      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Why Indian Manufacturing</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
-        <div style="background:var(--bg-card); border-radius:12px; padding:20px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-teal);">
-          <div style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Scale &amp; People-Intensity</div>
+      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Why Indian Manufacturing &mdash; Demand, Supply, Policy &amp; Growth</div>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;" class="why-india-grid">
+        <!-- BOX 1: DEMAND -->
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-teal);">
+          <div style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Demand <span style="font-weight:500;color:var(--text-secondary);font-size:0.7rem;">&mdash; consumers are ready</span></div>
           <ul style="list-style:none; margin:0; padding:0;">
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span><strong style="color:var(--text-primary);">$1.2 trillion</strong> manufacturing GDP</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span><strong style="color:var(--text-primary);">7.2 million</strong> employees across Auto &amp; FMCG alone</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span><strong style="color:var(--text-primary);">2.7 million</strong> knowledge workers in planning, finance, sales, quality, compliance</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span>Smartphone base: <strong style="color:var(--text-primary);">80M &rarr; 700M+</strong> users (2014&ndash;2025)</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span>E-commerce scaled <strong style="color:var(--text-primary);">$6B &rarr; $80B+</strong>, reshaping FMCG distribution</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span>EV sales: <strong style="color:var(--text-primary);">156K &rarr; 2M+ units/yr</strong>, doubling auto engineering complexity</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-teal);">&bull;</span>Post-COVID digital inflection: <strong style="color:var(--text-primary);">Jio, quick-commerce, D2C</strong> rewiring consumption</li>
           </ul>
         </div>
-        <div style="background:var(--bg-card); border-radius:12px; padding:20px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-amber);">
-          <div style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Growth Trajectory</div>
+        <!-- BOX 2: SUPPLY -->
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-amber);">
+          <div style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Supply <span style="font-weight:500;color:var(--text-secondary);font-size:0.7rem;">&mdash; global capacity is moving here</span></div>
           <ul style="list-style:none; margin:0; padding:0;">
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span><strong style="color:var(--text-primary);">6.5-6.9% GDP growth</strong> &mdash; fastest major economy</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span><strong style="color:var(--text-primary);">$1.2T</strong> total manufacturing revenue across 6 sectors, growing 9.2% CAGR</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span>Target: <strong style="color:var(--text-primary);">$1 trillion</strong> manufacturing GDP by FY26</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span><strong style="color:var(--text-primary);">Apple India: $19B output</strong> (2024), targeting $30&ndash;40B by 2028 (~30% of global iPhones)</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span><strong style="color:var(--text-primary);">Foxconn, Samsung, Pegatron, Wistron, Tata</strong> all scaled Indian plants post-2018</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span><strong style="color:var(--text-primary);">268+ phone factories</strong> built since 2014; Samsung runs the world&rsquo;s largest site</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-amber);">&bull;</span>China+1 reshoring: Micron ATMP live, <strong style="color:var(--text-primary);">3+ semiconductor fabs</strong> operational by 2028</li>
           </ul>
         </div>
-        <div style="background:var(--bg-card); border-radius:12px; padding:20px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-violet);">
-          <div style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Policy &amp; Tailwinds</div>
+        <!-- BOX 3: POLICY -->
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-violet);">
+          <div style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Policy <span style="font-weight:500;color:var(--text-secondary);font-size:0.7rem;">&mdash; the state is forcing modernization</span></div>
           <ul style="list-style:none; margin:0; padding:0;">
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">PLI schemes</strong> ($26B+) across 14 sectors driving investment</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">2025 Labour Codes</strong> increase costs 15-25% &mdash; making AI payback faster</li>
-            <li style="font-size:0.82rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">Viksit Bharat @ 2047</strong> mandate driving modernization</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">PLI schemes: $26B+</strong> across 14 sectors, driving $130B+ in capex commitments</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">Semiconductor Mission: $10B</strong> committed; Tata fab producing first 28nm chips by 2027</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">2025 Labour Codes</strong> push operational costs up <strong style="color:var(--text-primary);">15&ndash;25%</strong> &mdash; AI payback accelerates</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-violet);">&bull;</span><strong style="color:var(--text-primary);">Viksit Bharat 2047</strong>: $1T manufacturing GDP &amp; $1T export mandate; mfg &ge;20% of GDP</li>
+          </ul>
+        </div>
+        <!-- BOX 4: REVENUE, GROWTH & PROJECTIONS -->
+        <div style="background:var(--bg-card); border-radius:12px; padding:18px; border:1px solid var(--border-subtle); border-top:3px solid var(--accent-blue);">
+          <div style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Revenue, Growth &amp; Projections <span style="font-weight:500;color:var(--text-secondary);font-size:0.7rem;">&mdash; the market is compounding</span></div>
+          <ul style="list-style:none; margin:0; padding:0;">
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-blue);">&bull;</span><strong style="color:var(--text-primary);">$1.2T</strong> total manufacturing revenue across 6 sectors today (FY25)</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-blue);">&bull;</span><strong style="color:var(--text-primary);">$640B &rarr; $1.2T</strong> in 5 years post-COVID &mdash; <strong style="color:var(--text-primary);">8.4% historical CAGR</strong></li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-blue);">&bull;</span><strong style="color:var(--text-primary);">$1.9T projected by 2030</strong> &mdash; forward <strong style="color:var(--text-primary);">9.2% CAGR</strong>, fastest major economy</li>
+            <li style="font-size:0.78rem; color:var(--text-secondary); padding:4px 0 4px 14px; position:relative; line-height:1.5;"><span style="position:absolute;left:0;color:var(--accent-blue);">&bull;</span>India becomes <strong style="color:var(--text-primary);">3rd largest economy by 2028</strong>; mfg share exceeds <strong style="color:var(--text-primary);">20% of GDP</strong></li>
           </ul>
         </div>
       </div>
