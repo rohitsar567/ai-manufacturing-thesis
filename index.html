@@ -1410,10 +1410,6 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:6px;">Manufacturing Revenue Trajectory</h3>
       <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:24px; max-width:680px; line-height:1.6;">Six major sectors have grown from <strong style="color:var(--text-primary);">$803B (FY20)</strong> to <strong style="color:var(--text-primary);">$1.2T (FY25)</strong> &mdash; and are projected to reach <strong style="color:var(--text-primary);">$1.9T</strong> by FY30.</p>
 
-      <!-- BAR CHART -->
-      <div id="sectorTrajectoryChart" style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:24px; margin-bottom:32px;">
-      </div>
-
       <!-- TIMELINE: Manufacturing Evolution FY20 → FY30 -->
       <div style="margin-bottom:32px;">
         <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:6px;">Why AI Adoption in Manufacturing Is Inevitable</h3>
@@ -1534,6 +1530,14 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=1976606" target="_blank" class="source-tag">PLI Scheme</a>
           <a href="https://www.siam.in/statistics.aspx" target="_blank" class="source-tag">SIAM Statistics</a>
           <a href="https://www.icea.org.in" target="_blank" class="source-tag">ICEA Electronics</a>
+        </div>
+      </div>
+
+      <!-- SECTOR COMPOSITION STACKED CHART -->
+      <div style="margin-top:32px; margin-bottom:32px;">
+        <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:6px;">How Each Sector Contributes to the $803B &rarr; $1.9T Growth</h3>
+        <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:16px; max-width:780px; line-height:1.6;">The stacked bars show each sector&rsquo;s share of total manufacturing revenue. The flows between bars reveal which sectors are growing fastest &mdash; ESDM and Pharma (both ~18% CAGR) are the breakout stories, while Automobile and FMCG provide the stable base.</p>
+        <div id="sectorTrajectoryChart" style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:24px;">
         </div>
       </div>
 
@@ -4060,20 +4064,33 @@ document.addEventListener('mouseout', function(e) {
       }
     }
 
-    // Draw connecting flows (behind bars)
+    // Draw Sankey-style curved connecting flows (behind bars)
     for (var i = 0; i < sectors.length; i++) {
       var c = sectors[i].color;
       for (var g = 0; g < 2; g++) {
-        ctx.fillStyle = c + '0a';
-        ctx.strokeStyle = c + '18';
-        ctx.lineWidth = 0.5;
+        var x0 = colX[g] + barW/2;
+        var x1 = colX[g+1] - barW/2;
+        var cpx0 = x0 + (x1 - x0) * 0.45;
+        var cpx1 = x0 + (x1 - x0) * 0.55;
+        var t0 = stacks[g][i].top, b0 = stacks[g][i].bot;
+        var t1 = stacks[g+1][i].top, b1 = stacks[g+1][i].bot;
+
+        // Gradient fill along flow
+        var grad = ctx.createLinearGradient(x0, 0, x1, 0);
+        grad.addColorStop(0, c + '12');
+        grad.addColorStop(0.5, c + '08');
+        grad.addColorStop(1, c + '12');
+
         ctx.beginPath();
-        ctx.moveTo(colX[g] + barW/2, stacks[g][i].top);
-        ctx.lineTo(colX[g+1] - barW/2, stacks[g+1][i].top);
-        ctx.lineTo(colX[g+1] - barW/2, stacks[g+1][i].bot);
-        ctx.lineTo(colX[g] + barW/2, stacks[g][i].bot);
+        ctx.moveTo(x0, t0);
+        ctx.bezierCurveTo(cpx0, t0, cpx1, t1, x1, t1);
+        ctx.lineTo(x1, b1);
+        ctx.bezierCurveTo(cpx1, b1, cpx0, b0, x0, b0);
         ctx.closePath();
+        ctx.fillStyle = grad;
         ctx.fill();
+        ctx.strokeStyle = c + '15';
+        ctx.lineWidth = 0.5;
         ctx.stroke();
       }
     }
