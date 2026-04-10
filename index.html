@@ -4221,12 +4221,18 @@ document.addEventListener('mouseout', function(e) {
     });
   }
 
-  // Wait for fonts to load before drawing
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(draw);
-  } else {
-    setTimeout(draw, 300);
+  // Wait for SPECIFIC fonts to load before drawing canvas
+  function waitForFonts(cb) {
+    if (document.fonts && document.fonts.load) {
+      Promise.all([
+        document.fonts.load('bold 12px "JetBrains Mono"'),
+        document.fonts.load('bold 12px "Sora"')
+      ]).then(cb).catch(function() { setTimeout(cb, 500); });
+    } else {
+      setTimeout(cb, 500);
+    }
   }
+  waitForFonts(draw);
 })();
 
 
