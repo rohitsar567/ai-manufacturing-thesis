@@ -4423,9 +4423,36 @@ function renderTAMWaterfall() {
     .sort((a,b) => a.ent - b.ent);
   const maxEnt = topNodes[topNodes.length - 1].ent;
 
+  // Compute summary stats for the top 15
+  const autoNodes = topNodes.filter(n => n.sector === 'Auto');
+  const fmcgNodes = topNodes.filter(n => n.sector === 'FMCG');
+  const autoSum = autoNodes.reduce((s, n) => s + n.ent, 0);
+  const fmcgSum = fmcgNodes.reduce((s, n) => s + n.ent, 0);
+  const totalSum = autoSum + fmcgSum;
+  // Round for display per decimal directive
+  const fmt = (m) => m >= 1000 ? '$' + (m/1000).toFixed(1).replace(/\.0$/,'') + 'B' : '$' + Math.round(m) + 'M';
+
   container.innerHTML =
     '<div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:8px;">Top 15 Problems by AI Solution Potential</div>' +
     '<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.55;">Top 15 highest-impact workflow nodes (score 7+/10), ranked by Knowledge Worker automation enterprise TAM. Ascending left&rarr;right, with maximum on the right. Hover any bar for details.</p>' +
+    // SUMMARY STRIP — combined TAM + Auto/FMCG split
+    '<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:20px;">' +
+    '<div style="background:rgba(13,148,136,0.08); border:1px solid rgba(13,148,136,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em;">Combined Top-15 TAM</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:var(--accent-teal); margin-top:6px; letter-spacing:-0.02em;">' + fmt(totalSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + topNodes.length + ' nodes &bull; ' + Math.round(totalSum / 1300 * 100) + '% of $1.3B total TAM</div>' +
+    '</div>' +
+    '<div style="background:rgba(37,99,235,0.06); border:1px solid rgba(37,99,235,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.08em;">Automobile share</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#2563eb; margin-top:6px; letter-spacing:-0.02em;">' + fmt(autoSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + autoNodes.length + ' nodes &bull; ' + Math.round(autoSum / totalSum * 100) + '% of top 15</div>' +
+    '</div>' +
+    '<div style="background:rgba(217,119,6,0.06); border:1px solid rgba(217,119,6,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#d97706; text-transform:uppercase; letter-spacing:0.08em;">FMCG share</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#d97706; margin-top:6px; letter-spacing:-0.02em;">' + fmt(fmcgSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + fmcgNodes.length + ' nodes &bull; ' + Math.round(fmcgSum / totalSum * 100) + '% of top 15</div>' +
+    '</div>' +
+    '</div>' +
     '<div id="topProblemsWrap" style="position:relative; width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:20px;">' +
     '<canvas id="topProblemsCanvas" style="width:100%; height:auto; display:block;"></canvas>' +
     '<div id="topProblemsTooltip" style="position:absolute; pointer-events:none; background:rgba(15,23,42,0.95); color:#fff; padding:8px 12px; border-radius:8px; font-family:var(--font-display); font-size:0.72rem; line-height:1.4; max-width:260px; opacity:0; transition:opacity 0.15s; z-index:10;"></div>' +
