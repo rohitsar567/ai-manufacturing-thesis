@@ -2918,13 +2918,13 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       </details>
     </div>
 
-    <div id="tam-waterfall-container" style="margin-top:40px;">
+    <div id="tam-waterfall-container" style="margin-top:40px; max-width:1216px; margin-left:auto; margin-right:auto;">
       <!-- Waterfall chart rendered by JS -->
     </div>
 
     
     <!-- OPPORTUNITY PRIORITY MAP — Canvas-based scatter -->
-    <div style="margin-top:48px; width:100%;">
+    <div style="margin-top:48px; max-width:1216px; margin-left:auto; margin-right:auto;">
       <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:8px;">Opportunity Priority Map: Knowledge Worker Automation TAM vs. AI Readiness</h3>
       <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.55;">Each dot is one of 57 workflow nodes. <strong style="color:var(--text-primary);">X-axis</strong> = Knowledge Worker automation enterprise TAM ($M). <strong style="color:var(--text-primary);">Y-axis</strong> = AI Readiness score (1&ndash;10). <strong style="color:var(--accent-teal);">Top-right quadrant</strong> = large markets with high AI readiness &mdash; the priority targets. Dot size scales with TAM. Hover any dot for details.</p>
       <div id="opportunityMapWrap" style="position:relative; width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:20px;">
@@ -4416,7 +4416,9 @@ function renderTAMWaterfall() {
   const wrap = document.getElementById('topProblemsWrap');
   const canvas = document.getElementById('topProblemsCanvas');
   const tooltip = document.getElementById('topProblemsTooltip');
-  const M = {top: 30, right: 20, bottom: 110, left: 66};
+  // Left margin must accommodate Y-axis labels + the leftmost rotated X-axis label
+  // which extends ~90px to the left of the leftmost bar center at 45° rotation.
+  const M = {top: 30, right: 30, bottom: 120, left: 110};
 
   function draw() {
     const dpr = window.devicePixelRatio || 1;
@@ -4504,14 +4506,14 @@ function renderTAMWaterfall() {
         ctx.fillText(node.score + '/10', barX + barW / 2, badgeY + 9);
       }
 
-      // Bottom rotated label
+      // Bottom rotated label — truncate to 18 chars max to prevent leftmost clipping
       ctx.save();
-      ctx.translate(barX + barW / 2, M.top + plotH + 8);
+      ctx.translate(barX + barW / 2, M.top + plotH + 10);
       ctx.rotate(-Math.PI / 4);
       ctx.font = '500 10px Sora, sans-serif';
       ctx.fillStyle = '#475569';
       ctx.textAlign = 'right';
-      const label = node.name.length > 24 ? node.name.substring(0, 22) + '…' : node.name;
+      const label = node.name.length > 18 ? node.name.substring(0, 16) + '…' : node.name;
       ctx.fillText(label, 0, 4);
       ctx.restore();
 
