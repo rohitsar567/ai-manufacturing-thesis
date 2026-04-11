@@ -4388,45 +4388,172 @@ const CAREER_STREAM = {
 function renderTAMWaterfall() {
   const container = document.getElementById('tam-waterfall-container');
   const allNodes = [...AUTO_NODES.map(n=>({...n,sector:'Auto'})), ...FMCG_NODES.map(n=>({...n,sector:'FMCG'}))];
-  // Compute per-node enterprise TAM using new BRSR-anchored factors:
-  //   Auto: salary-weighted Step A x B 35.8% x 50% AI discount = 17.9%
-  //   FMCG: 36.5% x 50% = 18.3%
-  // Applied to gross node TAM (which is sector Knowledge Worker payroll attributable to the node).
   function nodeTAM(n) {
     var f = n.sector === 'Auto' ? 0.179 : 0.1825;
     return Math.round(n.tam * f * (n.mult || 1));
   }
-  // Only show top 15 nodes by enterprise TAM (most impactful, fits in section width).
-  // Display order: ascending left→right (smallest at left, largest at right).
   const topNodes = allNodes
     .filter(n => n.score >= 7)
     .map(n => ({...n, ent: nodeTAM(n)}))
-    .sort((a,b) => b.ent - a.ent)  // first take top 15 by size
+    .sort((a,b) => b.ent - a.ent)
     .slice(0, 15)
-    .sort((a,b) => a.ent - b.ent); // then re-sort ascending for left→right display
+    .sort((a,b) => a.ent - b.ent);
   const maxEnt = topNodes[topNodes.length - 1].ent;
 
-  let html = '<div style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:6px;">Top 15 Problems by AI Solution Potential</div>';
-  html += '<p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:20px;line-height:1.5;">Top 15 highest-impact nodes (score 7+/10) ranked by enterprise TAM. Click any bar to explore the problem, solution, and market sizing.</p>';
-  html += '<div class="waterfall-v2">';
+  container.innerHTML =
+    '<div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:8px;">Top 15 Problems by AI Solution Potential</div>' +
+    '<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.55;">Top 15 highest-impact workflow nodes (score 7+/10), ranked by Knowledge Worker automation enterprise TAM. Ascending left&rarr;right, with maximum on the right. Hover any bar for details.</p>' +
+    '<div id="topProblemsWrap" style="position:relative; width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:20px;">' +
+    '<canvas id="topProblemsCanvas" style="width:100%; height:auto; display:block;"></canvas>' +
+    '<div id="topProblemsTooltip" style="position:absolute; pointer-events:none; background:rgba(15,23,42,0.95); color:#fff; padding:8px 12px; border-radius:8px; font-family:var(--font-display); font-size:0.72rem; line-height:1.4; max-width:260px; opacity:0; transition:opacity 0.15s; z-index:10;"></div>' +
+    '</div>' +
+    '<div style="display:flex; gap:24px; justify-content:center; margin-top:16px; flex-wrap:wrap;">' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(37,99,235,0.85);"></div>Automobile</span>' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(217,119,6,0.85);"></div>FMCG</span>' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:transparent; border:2px solid var(--accent-teal);"></div>Top Quartile (score 8+)</span>' +
+    '</div>';
 
-  topNodes.forEach(n => {
-    const h = Math.max((n.ent / maxEnt) * 280, 40);
-    const isAuto = n.sector === 'Auto';
-    const color = isAuto ? 'rgba(37,99,235,0.85)' : 'rgba(217,119,6,0.85)';
-    const borderColor = n.score >= 8 ? 'var(--accent-teal)' : 'transparent';
-    html += '<div class="wf-bar-v2" style="height:' + h + 'px;background:' + color + ';border:2px solid ' + borderColor + ';" onclick="openTAMModal(' + n.id + ',\'' + n.sector + '\')" title="' + n.name + ': $' + n.ent + 'M enterprise TAM (score ' + n.score + '/10)">';
-    html += '<div class="bar-val-top">$' + n.ent + 'M</div>';
-    if (n.score >= 8) html += '<div class="bar-score-badge">' + n.score + '/10</div>';
-    html += '<div class="bar-name-bottom">' + n.name + '<br><span style="font-size:0.62rem;font-weight:700;color:' + (isAuto ? '#1d4ed8' : '#b45309') + ';">' + n.sector + '</span></div>';
-    html += '</div>';
+  const wrap = document.getElementById('topProblemsWrap');
+  const canvas = document.getElementById('topProblemsCanvas');
+  const tooltip = document.getElementById('topProblemsTooltip');
+  const M = {top: 30, right: 20, bottom: 110, left: 66};
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const cssW = wrap.clientWidth - 40;
+    const cssH = Math.round(cssW * 0.52);
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, cssW, cssH);
+
+    const plotW = cssW - M.left - M.right;
+    const plotH = cssH - M.top - M.bottom;
+
+    ctx.fillStyle = '#fafbfc';
+    ctx.fillRect(M.left, M.top, plotW, plotH);
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(M.left, M.top, plotW, plotH);
+
+    const yMax = Math.ceil(maxEnt / 10) * 10;
+    const yTicks = 5;
+    ctx.font = '500 10px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= yTicks; i++) {
+      const v = (yMax / yTicks) * i;
+      const py = M.top + plotH - (v / yMax) * plotH;
+      ctx.beginPath();
+      ctx.moveTo(M.left, py);
+      ctx.lineTo(M.left + plotW, py);
+      ctx.strokeStyle = i === 0 ? '#cbd5e1' : '#f1f5f9';
+      ctx.stroke();
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('$' + Math.round(v) + 'M', M.left - 6, py + 3);
+    }
+    ctx.save();
+    ctx.translate(14, M.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.font = '600 11px Sora, sans-serif';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+    ctx.fillText('Enterprise TAM ($M)', 0, 0);
+    ctx.restore();
+
+    const n = topNodes.length;
+    const gap = 8;
+    const barW = (plotW - gap * (n + 1)) / n;
+    canvas._bars = [];
+
+    topNodes.forEach((node, i) => {
+      const barX = M.left + gap + i * (barW + gap);
+      const barH = (node.ent / yMax) * plotH;
+      const barY = M.top + plotH - barH;
+      const isAuto = node.sector === 'Auto';
+      const fillColor = isAuto ? 'rgba(37,99,235,0.85)' : 'rgba(217,119,6,0.85)';
+      const isTopQ = node.score >= 8;
+
+      ctx.fillStyle = fillColor;
+      ctx.fillRect(barX, barY, barW, barH);
+
+      if (isTopQ) {
+        ctx.strokeStyle = '#0d9488';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(barX, barY, barW, barH);
+      }
+
+      // Value label above bar
+      ctx.font = '700 10px JetBrains Mono, monospace';
+      ctx.fillStyle = '#1e293b';
+      ctx.textAlign = 'center';
+      ctx.fillText('$' + node.ent + 'M', barX + barW / 2, barY - 6);
+
+      // Score badge inside top of bar (for top quartile)
+      if (isTopQ && barH > 28) {
+        ctx.fillStyle = 'rgba(13,148,136,0.95)';
+        const badgeW = 30, badgeH = 13;
+        const badgeX = barX + barW / 2 - badgeW / 2;
+        const badgeY = barY + 5;
+        ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
+        ctx.fillStyle = '#fff';
+        ctx.font = '700 9px JetBrains Mono, monospace';
+        ctx.fillText(node.score + '/10', barX + barW / 2, badgeY + 9);
+      }
+
+      // Bottom rotated label
+      ctx.save();
+      ctx.translate(barX + barW / 2, M.top + plotH + 8);
+      ctx.rotate(-Math.PI / 4);
+      ctx.font = '500 10px Sora, sans-serif';
+      ctx.fillStyle = '#475569';
+      ctx.textAlign = 'right';
+      const label = node.name.length > 24 ? node.name.substring(0, 22) + '…' : node.name;
+      ctx.fillText(label, 0, 4);
+      ctx.restore();
+
+      canvas._bars.push({x: barX, y: barY, w: barW, h: barH, node});
+    });
+  }
+
+  function showTooltip(node, mx, my) {
+    tooltip.innerHTML =
+      '<div style="font-weight:700; margin-bottom:4px;">' + node.name + '</div>' +
+      '<div style="color:#cbd5e1;">' + node.sector + ' &bull; Score ' + node.score + '/10 &bull; $' + node.ent + 'M enterprise TAM</div>';
+    tooltip.style.left = (mx + 16) + 'px';
+    tooltip.style.top = (my + 16) + 'px';
+    tooltip.style.opacity = 1;
+  }
+
+  canvas.addEventListener('mousemove', function(e) {
+    if (!canvas._bars) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    let hit = null;
+    for (let i = 0; i < canvas._bars.length; i++) {
+      const b = canvas._bars[i];
+      if (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h) { hit = b; break; }
+    }
+    if (hit) {
+      canvas.style.cursor = 'pointer';
+      const wrapRect = wrap.getBoundingClientRect();
+      showTooltip(hit.node, e.clientX - wrapRect.left, e.clientY - wrapRect.top);
+    } else {
+      canvas.style.cursor = 'default';
+      tooltip.style.opacity = 0;
+    }
   });
+  canvas.addEventListener('mouseleave', function(){ tooltip.style.opacity = 0; });
 
-  html += '</div>';
-  html += '<div style="height:64px;"></div>'; // space for bottom labels
-  html += '<div class="waterfall-legend" style="margin-top:12px;font-size:0.85rem;"><span style="font-size:0.82rem;"><div class="dot" style="background:rgba(37,99,235,0.85);width:14px;height:14px;border-radius:4px;"></div>Automobile</span><span style="font-size:0.82rem;"><div class="dot" style="background:rgba(217,119,6,0.85);width:14px;height:14px;border-radius:4px;"></div>FMCG</span><span style="font-size:0.82rem;"><div class="dot" style="background:transparent;border:2px solid var(--accent-teal);width:12px;height:12px;border-radius:4px;"></div>Top Quartile (score 8+)</span></div>';
-
-  container.innerHTML = html;
+  draw();
+  let rzTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(rzTimer);
+    rzTimer = setTimeout(draw, 100);
+  });
 }
 
 // ════════════════════════════════════════════════════════════════
