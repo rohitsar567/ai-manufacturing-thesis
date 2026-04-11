@@ -4421,7 +4421,8 @@ function renderTAMWaterfall() {
   function draw() {
     const dpr = window.devicePixelRatio || 1;
     const cssW = wrap.clientWidth - 40;
-    const cssH = Math.round(cssW * 0.52);
+    // Aspect ratio 0.45 with 560px cap — ensures chart fits within one viewport
+    const cssH = Math.min(Math.round(cssW * 0.45), 560);
     canvas.style.width = cssW + 'px';
     canvas.style.height = cssH + 'px';
     canvas.width = cssW * dpr;
@@ -4973,7 +4974,8 @@ document.addEventListener('mouseout', function(e) {
   function draw() {
     var dpr = window.devicePixelRatio || 1;
     var cssW = wrap.clientWidth - 40; // padding 20 each side
-    var cssH = Math.round(cssW * 0.55); // 16:9-ish aspect
+    // Aspect ratio 0.42 with 560px cap — ensures chart fits within one viewport
+    var cssH = Math.min(Math.round(cssW * 0.42), 560);
     canvas.style.width = cssW + 'px';
     canvas.style.height = cssH + 'px';
     canvas.width = cssW * dpr;
