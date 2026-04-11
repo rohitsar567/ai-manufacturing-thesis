@@ -2777,7 +2777,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   <div class="container fade-in">
     <div class="section-label">04 &mdash; TAM Analysis</div>
     <div class="section-title">$1.3B in AI-solvable manufacturing problems</div>
-    <div class="section-desc">We quantify the operational improvement AI can deliver at each workflow node, then calculate the enterprise-addressable market. Starting from the <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms in Auto + FMCG), we derive the addressable Knowledge Worker payroll using primary BRSR filings from 17 listed brand owners and apply per-role task automation rates from WEF/McKinsey/Frey-Osborne research.</div>
+    <div class="section-desc">The enterprise-addressable market is derived from the <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms in Auto + FMCG), Knowledge Worker headcount and median pay from 17 directly parsed BRSR filings, and per-role task automation rates from WEF Future of Jobs 2025, McKinsey MGI, and Frey-Osborne.</div>
 
     <div class="summary-strip">
       <div class="strip-block" style="background:rgba(37,99,235,0.08); color:#2563eb;">
@@ -2796,52 +2796,67 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- STEP-BY-STEP TAM DERIVATION -->
     <div style="margin-top:48px;">
-      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">How we calculate TAM (BRSR-anchored)</h3>
-      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:28px; line-height:1.6;">We start with the <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms) and derive the addressable market in 6 steps. Every input is sourced from primary data: revenue from company annual reports + ACMA industry filings, knowledge-worker share and median pay from 17 directly parsed BRSR filings, and per-role task automation rates from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, and Frey-Osborne 2013.</p>
+      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">TAM derivation (BRSR-anchored)</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:28px; line-height:1.6;">The <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms) flows through eight steps to the enterprise-addressable market. Every input is primary-sourced: revenue from company annual reports and ACMA industry filings, Knowledge Worker share and median pay from 17 directly parsed BRSR filings, and per-role task automation rates from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, and Frey-Osborne 2013.</p>
 
-      <!-- VISUAL FLOW: 6 steps, brand-owner base -->
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; margin-bottom:4px; border-radius:14px 14px 0 0; overflow:hidden; border:1px solid var(--border-subtle); border-bottom:none;">
-        <div style="background:var(--bg-card); padding:18px 12px; text-align:center;">
+      <!-- VISUAL FLOW: 8 steps, brand-owner base. 4x2 grid. Lighter tiles for process, final TAM highlighted. -->
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; margin-bottom:4px; border-radius:14px 14px 0 0; overflow:hidden; border:1px solid var(--border-subtle); border-bottom:none;">
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center;">
           <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 1</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Brand-owner revenue base</div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--text-primary);">$310B</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">Auto $200B + FMCG $110B<br>~1,800 non-MSME firms</div>
-          <div style="margin-top:4px;"><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">ACMA FY24</a> &middot; <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">CRISIL FMCG</a></div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Brand-owner revenue base</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$310B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $200B + FMCG $110B<br>~1,800 non-MSME firms</div>
+          <div style="margin-top:4px;"><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">ACMA FY24</a> &middot; <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">CRISIL</a></div>
         </div>
-        <div style="background:var(--bg-card); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
           <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 2</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Knowledge Worker per $B ratio (BRSR)</div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--text-primary);">306K Knowledge Workers</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">Auto 814/$B &bull; FMCG 1,395/$B<br>17 BRSRs directly parsed</div>
-          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">BRSR Section A 20(a)</a></div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Knowledge Workers per $B revenue</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">306K</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto 814 &bull; FMCG 1,300<br>= total Knowledge Workers</div>
+          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">BRSR Section A 20(a)</a></div>
         </div>
-        <div style="background:rgba(217,119,6,0.04); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 3</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--accent-amber); margin-bottom:6px;">&times; Avg Knowledge Worker salary (BRSR median &times; 1.2)</div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--accent-amber);">$7.1B</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">Auto $27K &bull; FMCG $18.5K<br>= total Knowledge Worker payroll</div>
-          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">BRSR Section C P5 E3</a></div>
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 3</div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Avg Knowledge Worker salary</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$7.1B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $27K &bull; FMCG $18.5K<br>= total Knowledge Worker payroll</div>
+          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">BRSR Section C P5 E3</a></div>
+        </div>
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 4</div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Step A (role eligibility)</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$6.2B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">~87% payroll eligible<br>excl. CXO + hyper-tech R&amp;D</div>
+          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">McKinsey MGI + OECD</span></div>
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; margin-bottom:32px; border-radius:0 0 14px 14px; overflow:hidden; border:1px solid var(--border-subtle); border-top:none;">
-        <div style="background:rgba(124,58,237,0.04); padding:18px 12px; text-align:center;">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 4</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--accent-violet); margin-bottom:6px;">&times; Salary-weighted Step A &times; B</div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--accent-violet);">$2.5B</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">Auto 35.8% &bull; FMCG 36.5%<br>Role eligibility &times; task automation</div>
-          <div style="margin-top:4px;"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">WEF 2025</a> &middot; <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="font-size:0.52rem;color:var(--accent-teal);text-decoration:none;">McKinsey MGI</a></div>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; margin-bottom:32px; border-radius:0 0 14px 14px; overflow:hidden; border:1px solid var(--border-subtle); border-top:none;">
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center;">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 5</div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Step B (task automation)</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$2.5B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">~41% avg within eligible roles<br>Clerical 77%, Prof 37%, Sales 37%</div>
+          <div style="margin-top:4px;"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">WEF 2025</a> &middot; <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">McKinsey MGI</a></div>
         </div>
-        <div style="background:rgba(225,29,72,0.03); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-rose); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 5</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--accent-rose); margin-bottom:6px;">&times; 50% AI price discount</div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:var(--accent-rose);">$1.3B</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">AI priced below human labor<br>to drive adoption</div>
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 6</div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; 50% AI price discount</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$1.3B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">AI priced below human labor<br>to drive adoption</div>
+          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">Adoption convention</span></div>
         </div>
-        <div style="background:rgba(13,148,136,0.15); padding:18px 12px; text-align:center; border-left:3px solid var(--accent-teal);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 6</div>
-          <div style="font-family:var(--font-display); font-size:0.68rem; font-weight:600; color:var(--accent-teal); margin-bottom:6px;">Enterprise TAM</div>
-          <div style="font-family:var(--font-mono); font-size:2.2rem; font-weight:800; color:var(--accent-teal); text-shadow:0 2px 8px rgba(13,148,136,0.2);">$1.3B</div>
-          <div style="font-size:0.58rem; color:var(--text-dim); margin-top:4px;">Auto $0.8B &bull; FMCG $0.5B</div>
+        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 7</div>
+          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Auto + FMCG split</div>
+          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$0.8B + $0.5B</div>
+          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $0.8B (57.6% KW share)<br>FMCG $0.5B (48.6% KW share)</div>
+          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">Sector-level sum</span></div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(13,148,136,0.18),rgba(13,148,136,0.08)); padding:18px 12px; text-align:center; border-left:3px solid var(--accent-teal);">
+          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 8</div>
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); margin-bottom:6px;">Enterprise TAM</div>
+          <div style="font-family:var(--font-mono); font-size:2.2rem; font-weight:800; color:var(--accent-teal); text-shadow:0 2px 8px rgba(13,148,136,0.25);">$1.3B</div>
+          <div style="font-size:0.58rem; color:var(--accent-teal); margin-top:4px; line-height:1.4; font-weight:600;">Combined selected TAM<br>BRSR-anchored, primary-sourced</div>
         </div>
       </div>
 
@@ -2855,7 +2870,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         </summary>
         <div style="padding:0 22px 22px;">
         <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:14px 0 14px;">The enterprise-addressable market for AI SaaS in Indian manufacturing is the set of <strong style="color:var(--text-primary);">brand owners</strong> &mdash; companies that design, manufacture, market, and distribute products under their own brand. This includes listed brand owners, large unlisted Indian brand owners (Parle, Haldiram's, Patanjali, Wipro Consumer, DS Group), foreign MNC India subsidiaries (Mondelez, PepsiCo, Reckitt, Coca-Cola, Mars, P&amp;G), cooperatives (Amul, Mother Dairy, KMF), and large B2B suppliers (ACMA Tier-1 components, lubricants, coatings). MSMEs below &#8377;250 cr turnover are excluded &mdash; they can't afford or operationalize enterprise AI.</p>
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">We derived the universe revenue base <strong style="color:var(--text-primary);">bottom-up from primary sources</strong>: ACMA's FY24 official auto component industry turnover (Rs 6.14 lakh crore), SIAM OEM production data, CRISIL's 77-company FMCG tracking, MCA21 filings for unlisted MNC subs, and GCMMF/cooperative disclosures. Workforce composition (Knowledge Worker headcount and median pay) was extracted from <strong style="color:var(--text-primary);">17 directly parsed BRSR filings</strong> (Business Responsibility and Sustainability Reports) Section A 20(a) and Section C Principle 5.</p>
+        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">The universe revenue base is built <strong style="color:var(--text-primary);">bottom-up from primary sources</strong>: ACMA's FY24 official auto component industry turnover (&#8377;6.14 lakh crore), SIAM OEM production data, CRISIL's 77-company FMCG tracking, MCA21 filings for unlisted MNC subsidiaries, and GCMMF/cooperative disclosures. Workforce composition (Knowledge Worker headcount and median pay) is extracted from <strong style="color:var(--text-primary);">17 directly parsed BRSR filings</strong> (Business Responsibility and Sustainability Reports) Section A 20(a) and Section C Principle 5.</p>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
           <div style="background:var(--bg-card); border-radius:10px; padding:16px; border:1px solid rgba(59,130,246,0.15);">
             <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#2563eb; margin-bottom:10px;">AUTOMOBILE: ~1,100 brand owners</div>
@@ -2897,7 +2912,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.65; margin:0 0 14px;">Knowledge workers in this thesis are <strong style="color:var(--text-primary);">permanent on-payroll employees classified as "Employees" (not "Workers") in the company's BRSR Section A 20(a) disclosure</strong>. This is the SEBI-mandated definition that splits a listed company's permanent workforce into (a) Employees &mdash; managerial, professional, technical, clerical, sales, HQ, R&amp;D and (b) Workers &mdash; factory operators, machine tenders, direct production labour. We use the BRSR definition because it is filed under SEBI compliance, primary-sourced for each company, and directly measurable.</p>
 
         <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Why brand-owner on-payroll, not sector-wide</div>
-        <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin:0 0 14px;">The TAM denominator is <strong style="color:var(--text-primary);">permanent Knowledge Worker employees at non-MSME brand owners only</strong>, not the sector total. Three exclusions: (1) <strong>MSME workforce</strong> &mdash; smaller companies below &#8377;250 cr turnover can't afford enterprise AI SaaS; (2) <strong>Contract/gig workers</strong> &mdash; ~41% of factory labour in Indian manufacturing (ASI 2022-23) sits outside the brand owner's payroll, employed by staffing agencies; (3) <strong>Unorganized/informal sector</strong> &mdash; not addressable by enterprise software. The resulting universe is ~306K permanent Knowledge Worker across ~1,800 brand-owner firms in Auto + FMCG. This is 8&times; smaller than the old "2.7M sector Knowledge Worker" claim because that number included contract labour, MSME white-collar, and informal sector. Our number is the directly-sellable addressable universe.</p>
+        <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin:0 0 14px;">The TAM denominator is <strong style="color:var(--text-primary);">permanent Knowledge Worker employees at non-MSME brand owners only</strong>, not the sector total. Three exclusions: (1) <strong>MSME workforce</strong> &mdash; smaller companies below &#8377;250 cr turnover can't afford enterprise AI SaaS; (2) <strong>Contract/gig workers</strong> &mdash; ~41% of factory labour in Indian manufacturing (ASI 2022-23) sits outside the brand owner's payroll, employed by staffing agencies; (3) <strong>Unorganized/informal sector</strong> &mdash; not addressable by enterprise software. The resulting universe is <strong style="color:var(--text-primary);">~306K permanent Knowledge Workers across ~1,800 brand-owner firms</strong> in Auto + FMCG &mdash; the directly-sellable addressable population for enterprise AI SaaS.</p>
 
         <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">17 BRSRs directly parsed (FY24 / FY24-25)</div>
         <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.6; margin:0 0 10px;"><strong style="color:var(--text-secondary);">FMCG (8):</strong> <a href="https://www.hul.co.in/" target="_blank" style="color:var(--accent-teal);">HUL</a> 42.5% &middot; <a href="https://www.itcportal.com/" target="_blank" style="color:var(--accent-teal);">ITC</a> 50.7% &middot; <a href="https://www.nestle.in/" target="_blank" style="color:var(--accent-teal);">Nestle India</a> 42.8% &middot; <a href="https://www.britannia.co.in/" target="_blank" style="color:var(--accent-teal);">Britannia</a> 46.5% &middot; <a href="https://www.dabur.com/" target="_blank" style="color:var(--accent-teal);">Dabur</a> 75.0% &middot; <a href="https://marico.com/" target="_blank" style="color:var(--accent-teal);">Marico</a> 96.6% &middot; <a href="https://www.colgateinvestors.co.in/" target="_blank" style="color:var(--accent-teal);">Colgate</a> 37.1% &middot; <a href="https://www.tataconsumer.com/" target="_blank" style="color:var(--accent-teal);">Tata Consumer</a> 28.2%</p>
@@ -2952,7 +2967,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <!-- AUTO TAM OPPORTUNITY SUMMARY -->
     <div style="background:rgba(37,99,235,0.03); border:1px solid rgba(59,130,246,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
       <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">Automobile AI Opportunity: $0.8B across 28 workflow nodes</div>
-      <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. We identify AI solutions at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
+      <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. AI solutions are identified at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
       <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;">
         <div style="background:var(--bg-card); border-radius:10px; padding:14px; text-align:center; border-left:3px solid var(--supply-color);">
           <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; color:var(--supply-color); text-transform:uppercase; letter-spacing:0.06em;">Supply & Procurement</div>
@@ -3099,370 +3114,307 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   </div>
 </section>
 
-<section id="methodology">
+<section id="appendix">
   <div class="container fade-in">
     <div class="section-label">07 &mdash; Appendix</div>
     <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:0; margin-top:16px; overflow:hidden;">
-      <summary style="padding:22px 28px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+      <summary style="padding:24px 28px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
         <div>
-          <div style="font-family:var(--font-display); font-size:clamp(1.2rem, 2vw, 1.6rem); font-weight:700; color:var(--text-primary); line-height:1.2;">Methodology, sources, and calculation rationale</div>
-          <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px; line-height:1.5;">A bottom-up approach: catalog every role, map it into a sequential workflow, identify AI-solvable problems per node, then calculate addressable market from actual payroll data.</div>
+          <div style="font-family:var(--font-display); font-size:clamp(1.2rem, 2vw, 1.6rem); font-weight:700; color:var(--text-primary); line-height:1.2;">Appendix: Research Methods, Derivations, Calculations &amp; Sources</div>
+          <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:8px; line-height:1.5; max-width:900px;">Full audit trail behind the $1.3B TAM. Every number traces to primary data &mdash; BRSR filings, ACMA industry reports, CRISIL sector analyses, and peer-reviewed academic/consulting research. Organized in four parts: research methods, derivations, calculations, and sources.</div>
         </div>
         <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-teal); margin-left:20px; white-space:nowrap;">Click to expand &#9660;</span>
       </summary>
-      <div style="padding:0 28px 28px; border-top:1px solid var(--border-subtle);">
+      <div style="padding:0 28px 32px; border-top:1px solid var(--border-subtle);">
 
-    <div class="method-steps" style="margin-top:24px;">
-      <div class="method-step">
-        <div class="method-num">01</div>
-        <h4>Role Library</h4>
-        <p>Cataloged 258 distinct job titles across 3 sectors from BLS, Mercer, Aon frameworks, and India-specific LinkedIn postings. Each role tagged with department, career stream, and collar type.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">02</div>
-        <h4>Workflow Mapping</h4>
-        <p>Sequenced all roles into a 4-pillar value chain (Supply, Manufacturing, Demand, Support) using clinical workflow methodology borrowed from US healthcare.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">03</div>
-        <h4>Problem Identification</h4>
-        <p>For each workflow node: identified current pain points, inefficiencies, and cost centers through industry research, analyst reports, and domain expertise.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">04</div>
-        <h4>AI Solution Mapping</h4>
-        <p>Mapped each problem to specific AI capabilities (LLMs, computer vision, predictive analytics, agentic workflows) with real product examples from global markets.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">05</div>
-        <h4>TAM Calculation</h4>
-        <p>TAM = 50% of addressable knowledge-intensive work payroll + process improvement value. "Knowledge-intensive work" = NCO 1-5 (managers, professionals, technicians, clerks, service &amp; sales workers). Base data from IBEF, PLFS 2023-24, ASI FY23, Alphasense, Mordor Intelligence.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">06</div>
-        <h4>AI Automation Theses</h4>
-        <p>Cross-referenced findings with published investment theses from a16z, Bessemer, General Catalyst, Menlo, Sequoia, Accel India, Lightspeed, Peak XV, Blume, and Kalaari.</p>
-      </div>
-    </div>
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- PART 1 — RESEARCH METHODS                                           -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <div style="margin-top:32px;">
+          <div style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Part 1</div>
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text-primary); margin:0 0 10px;">Research Methods</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 24px;">The analysis is a bottom-up build from primary sources: company annual reports, industry association filings (ACMA, CRISIL, SIAM, IBEF, MoSPI), and 17 directly parsed BRSR disclosures. Per-role task automation rates come from WEF, McKinsey MGI, Frey-Osborne, and OECD research.</p>
 
-    <div style="margin-top:48px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:24px;">
-      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin-bottom:12px;">Data Sources</h4>
-      <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.7;">
-        IBEF (India Brand Equity Foundation) &bull; PLFS 2025 (Periodic Labour Force Survey) &bull; Alphasense &bull; Mordor Intelligence &bull;
-        McKinsey Global Institute &bull; Deloitte India Manufacturing Report &bull; NASSCOM AI Index &bull; NITI Aayog &bull;
-        World Economic Forum &bull; PwC India &bull; EY India &bull; Fisher Phillips &bull; Cyril Amarchand Mangaldas &bull;
-        NCO-2015 (National Classification of Occupations) &bull; BLS Occupational Handbooks &bull; Mercer &bull; Aon Job Architecture
-      </p>
-    </div>
+          <div class="method-steps" style="margin-top:16px;">
+            <div class="method-step">
+              <div class="method-num">01</div>
+              <h4>Role Library</h4>
+              <p>Cataloged 258 distinct job titles across 3 sectors from BLS, Mercer, Aon frameworks, and India-specific LinkedIn postings. Each role tagged with department, career stream, and collar type.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">02</div>
+              <h4>Workflow Mapping</h4>
+              <p>Sequenced all roles into a 4-pillar value chain (Supply, Manufacturing, Demand, Support) using clinical workflow methodology borrowed from US healthcare.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">03</div>
+              <h4>Problem Identification</h4>
+              <p>For each workflow node: identified current pain points, inefficiencies, and cost centers through industry research, analyst reports, and domain expertise.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">04</div>
+              <h4>AI Solution Mapping</h4>
+              <p>Mapped each problem to specific AI capabilities (LLMs, computer vision, predictive analytics, agentic workflows) with real product examples from global markets.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">05</div>
+              <h4>TAM Calculation</h4>
+              <p>TAM = brand-owner revenue base &times; Knowledge Worker per $B &times; avg Knowledge Worker salary &times; salary-weighted Step A&times;B &times; 50% AI price discount. Base data from ACMA FY24, CRISIL FMCG, 17 parsed BRSR filings, WEF Future of Jobs 2025, McKinsey MGI GenAI 2023.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">06</div>
+              <h4>AI Automation Theses</h4>
+              <p>Cross-referenced findings with published investment theses from a16z, Bessemer, General Catalyst, Menlo, Sequoia, Accel India, Lightspeed, Peak XV, Blume, and Kalaari.</p>
+            </div>
+          </div>
 
-    <!-- COMPREHENSIVE SOURCES TABLE -->
-    <div style="margin-top:48px;">
-      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">Complete Source Registry</h3>
-      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Every data point, calculation, and insight in this analysis is traceable to the sources below. Click any link to access the original material.</p>
-
-      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-violet); margin:24px 0 12px;">Investment & Research Theses</h4>
-      <table class="sources-table">
-        <thead><tr><th>Source</th><th>Thesis/Report</th><th>Relevance</th></tr></thead>
-        <tbody>
-          <tr><td><a href="https://a16z.com/ai-for-the-physical-world/" target="_blank">a16z</a></td><td>AI for the Physical World (2024)</td><td>Validates manufacturing as top AI vertical; portfolio includes Hadrian, Figure AI</td></tr>
-          <tr><td><a href="https://a16z.com/services-led-growth/" target="_blank">a16z</a></td><td>Services-Led Growth</td><td>AI replaces services workflows, not just tools &mdash; directly supports knowledge work automation thesis</td></tr>
-          <tr><td><a href="https://a16z.com/newsletter/big-ideas-2026-part-2/" target="_blank">a16z</a></td><td>Big Ideas 2026: Physical AI</td><td>Industrial AI and robotics as top investment themes</td></tr>
-          <tr><td><a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank">Bessemer</a></td><td>The Future of AI is Vertical</td><td>Vertical AI market cap predicted 10x legacy SaaS; manufacturing QMS as key vertical</td></tr>
-          <tr><td><a href="https://www.bvp.com/atlas/the-state-of-ai-2025" target="_blank">Bessemer</a></td><td>State of AI 2025</td><td>AI efficiency metrics; enterprise AI adoption benchmarks</td></tr>
-          <tr><td><a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank">General Catalyst</a></td><td>$1.5B AI Creation Strategy</td><td>Roll-up playbook: acquire + automate = double EBITDA margins</td></tr>
-          <tr><td><a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank">Menlo Ventures</a></td><td>State of GenAI in Enterprise 2024</td><td>Enterprise AI = $37B (3.2x YoY); 50+ products over $100M ARR</td></tr>
-          <tr><td><a href="https://sequoiacap.com/article/generative-ai-act-two/" target="_blank">Sequoia</a></td><td>Generative AI's Act Two</td><td>Vertical AI with domain data moats; manufacturing ideal for Act Two</td></tr>
-          <tr><td><a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank">Sequoia</a></td><td>AI-Powered Companies</td><td>$1T+ outsourced labor TAM; "displacing labor budget measured in trillions"</td></tr>
-          <tr><td><a href="https://events-in.accel.com/advanced-manufacturing-report" target="_blank">Accel India</a></td><td>$650M Fund VIII: Manufacturing</td><td>India advanced manufacturing = half-trillion-dollar opportunity; Zetwerk at $4B</td></tr>
-          <tr><td><a href="https://lsvp.com/stories/lightspeed-india-sea-frontier-tech-market-map/" target="_blank">Lightspeed India</a></td><td>Enterprise AI + India Stack</td><td>India smart factory: $7.7B &rarr; $17B by 2032; UPI/GST as AI data rails</td></tr>
-          <tr><td><a href="https://www.peakxv.com/article/three-new-funds-for-exceptional-founders-in-india-apac-and-beyond-%F0%9F%9A%80/" target="_blank">Peak XV Partners</a></td><td>$1.3B Fund (Feb 2026)</td><td>AI at center of screening; 80 AI portfolio companies; PLI-driven manufacturing AI</td></tr>
-          <tr><td><a href="https://blume.vc/commentaries/blume-ventures-2024-looking-back-moving-forward" target="_blank">Blume Ventures</a></td><td>$1B Deep Tech Alliance</td><td>35-40% in deep-tech/manufacturing; sensor fusion, edge AI, digital twins</td></tr>
-          
-        </tbody>
-      </table>
-
-      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-blue); margin:24px 0 12px;">Industry & Government Reports</h4>
-      <table class="sources-table">
-        <thead><tr><th>Source</th><th>Report</th><th>Data Used</th></tr></thead>
-        <tbody>
-          <tr><td><a href="https://www.ibef.org/industry/manufacturing-sector-india" target="_blank">IBEF</a></td><td>Manufacturing Sector in India</td><td>Sector revenues, growth rates, company counts, policy frameworks</td></tr>
-          <tr><td><a href="https://www.ibef.org/industry/india-automobiles" target="_blank">IBEF</a></td><td>Automobile Industry in India</td><td>Auto revenue ($240B), 4.2M direct employees (PIB), 800+ ACMA members, EV transition data</td></tr>
-          <tr><td><a href="https://www.ibef.org/industry/fmcg" target="_blank">IBEF</a></td><td>FMCG Industry in India</td><td>FMCG revenue ($245B), 3M employees, quick commerce growth (70-80% CAGR)</td></tr>
-          <tr><td><a href="https://www.siam.in/statistics.aspx" target="_blank">SIAM</a></td><td>Indian Auto Industry Statistics</td><td>Production volumes, export data, dealership counts, EV penetration</td></tr>
-          <tr><td><a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank">MoSPI</a></td><td>PLFS 2024-25</td><td>Manufacturing employment, wage data, collar-type classification (NCO-2015)</td></tr>
-          <tr><td><a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank">McKinsey</a></td><td>Future of Manufacturing</td><td>Automation potential estimates, Industry 4.0 adoption benchmarks</td></tr>
-          <tr><td><a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank">McKinsey</a></td><td>Future of Work in America</td><td>AI adoption rates by function; 40-50% knowledge work automation estimate by 2030</td></tr>
-          <tr><td><a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank">Deloitte</a></td><td>India Manufacturing</td><td>Manufacturing competitiveness index, digital maturity benchmarks</td></tr>
-          <tr><td><a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank">PwC India</a></td><td>AI in Manufacturing</td><td>AI ROI benchmarks, implementation timelines, workforce impact estimates</td></tr>
-          <tr><td><a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank">NASSCOM</a></td><td>AI Adoption in India Enterprises</td><td>AI readiness scores by sector; ESDM "Very High", Metals "Low-Moderate"</td></tr>
-          <tr><td><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank">WEF</a></td><td>Future of Jobs Report 2025</td><td>AI automation of 40-50% Indian knowledge work roles by 2030; reskilling estimates</td></tr>
-          <tr><td><a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank">NITI Aayog</a></td><td>National Strategy for AI (NITI Aayog, 2018)</td><td>AI strategy priority sectors; manufacturing digitization framework</td></tr>
-          <tr><td><a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank">Mordor Intelligence</a></td><td>India Manufacturing Market</td><td>Market sizing, CAGR projections, segment breakdowns</td></tr>
-          
-        </tbody>
-      </table>
-
-      <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-teal); margin:24px 0 12px;">AI Product Companies Referenced</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
-        <a href="https://pe-insights.com/kkr-backed-o9-solutions-raises-295m-in-a-general-atlantic-led-funding-round-valuation-crosses-2-7bn/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">o9 Solutions (Demand AI)</a>
-        <a href="https://www.highradius.com/about/news/highradius-raises-300m-series-c-at-over-3-billion-valuation/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Highradius (Finance AI)</a>
-        <a href="https://techcrunch.com/2022/01/24/darwinbox-hr-tech-gartner-tcv-unicorn/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Darwinbox (HR AI)</a>
-        <a href="https://www.crunchbase.com/organization/mobisy" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Bizom (Field Sales AI)</a>
-        <a href="https://en.wikipedia.org/wiki/Fractal_Analytics" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Fractal Analytics</a>
-        <a href="https://yellow.ai/blog/yellow-ai-series-c-funding-total-cx-automation/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Yellow.ai (CX AI)</a>
-        <a href="https://www.sightmachine.com/press/sight-machine-announces-industrial-ai-agents" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Sight Machine (Mfg AI)</a>
-        <a href="https://techcrunch.com/2021/11/08/landing-ai-machine-learning-operations-tools/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Landing AI (Vision)</a>
-        <a href="https://www.prnewswire.com/news-releases/drishti-raises-25m-in-series-b-financing-to-drive-ai-powered-production-and-empower-people-on-the-factory-floor-301077241.html" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Drishti (Assembly AI)</a>
-        <a href="https://www.businesswire.com/news/home/20240716921069/en/Automotive-Software-Platform-Tekion-Secures-200-Million-in-Growth-Capital-from-Dragoneer-Investment-Group" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Tekion (Dealer AI)</a>
-        <a href="https://techcrunch.com/2021/06/02/locus-raises-50-million-for-its-logistics-management-business/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Locus.sh (Logistics AI)</a>
-        <a href="https://techcrunch.com/2021/05/25/indian-logistics-saas-startup-fareye-raises-100-million/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">FarEye (Delivery AI)</a>
-        <a href="https://techcrunch.com/2022/05/17/warehouse-robotics-firm-greyorange-raises-110m-via-growth-financing/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">GreyOrange (Robotics)</a>
-        <a href="https://www.businesswire.com/news/home/20240408783591/en/o9-and-Resilinc-Partner-to-Provide-Joint-Clients-With-Greater-Visibility-Into-Their-Multi-Tier-Supply-Network" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Resilinc (Risk AI)</a>
-        <a href="https://techcrunch.com/2022/08/23/celonis-secures-another-1b-to-find-and-fix-process-problems-in-enterprise-systems/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Celonis (Process Mining)</a>
-        <a href="https://www.businesswire.com/news/home/20211026005700/en/Augury-Raises-%24180M-To-Become-One-of-the-First-Industry-4.0-Unicorns" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Augury (Machine Health)</a>
-        <a href="https://techcrunch.com/2022/02/16/with-a-50m-series-c-instrumental-looks-to-expand-data-driven-manufacturing-solution/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Instrumental (Quality AI)</a>
-        <a href="https://www.sec.gov/Archives/edgar/data/1385867/000119312522302272/d401161dex991.htm" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Coupa (Procurement AI)</a>
-        <a href="https://www.prnewswire.com/news-releases/cardinal-health-partners-with-kinaxis-to-optimize-digital-supply-chain-planning-301478207.html" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Kinaxis (Planning AI)</a>
-        <a href="https://techcrunch.com/2021/06/10/ai-startup-eightfold-valued-at-2-1b-in-softbank-led-220m-funding/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Eightfold AI (Talent)</a>
-        <a href="https://techcrunch.com/2021/04/07/singapore-based-retail-analytics-company-trax-raises-640m-series-e-led-by-softbank-vision-fund-2-and-blackrock/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Trax (Retail Vision)</a>
-        <a href="https://techcrunch.com/2023/07/18/tractable-snaps-up-65m-led-by-softbank-for-car-and-property-damage-appraisals-using-ai/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Tractable (Damage AI)</a>
-      </div>
-    </div>
-
-    <!-- CALCULATION METHODOLOGY -->
-    <div style="margin-top:48px;">
-      <div class="collapsible-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-        <span class="toggle-icon">&#9654;</span> Show Full TAM Calculation Methodology
-      </div>
-      <div class="collapsible-content">
-      <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">TAM Calculation Methodology &mdash; BRSR-anchored</h3>
-      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.7;">Every TAM input is sourced from primary data: company annual reports, ACMA/CRISIL industry filings, and directly parsed BRSR disclosures (17 companies). Here is the exact formula and provenance for every number:</p>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
-          <h4 style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#2563eb; margin-bottom:4px;">Automobile Sector Derivation</h4><div style="font-size:0.6rem; color:var(--text-dim); font-style:italic; margin-bottom:10px;">Top-down BRSR-anchored &mdash; primary method</div>
-          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.6rem;color:var(--accent-teal);">[ACMA FY24]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$200B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <a href="https://nsearchives.nseindia.com/corporate/MARUTIASHISH_05082025211028_STXintimation_BRSR_2025.pdf" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[9 BRSRs]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">814</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Sector permanent Knowledge Worker headcount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">162,800</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary (BRSR median &times; 1.2)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$27,000/yr</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 162,800 &times; $27K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$4.4B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Salary-wtd Step A&times;B (35.8%)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.6B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.8B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #60a5fa;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">Auto Enterprise TAM</span><span style="font-family:var(--font-mono);color:#2563eb;font-weight:800;font-size:1rem;">$0.8B</span></div>
+          <div style="margin-top:28px; background:var(--bg-surface); border-radius:12px; padding:20px 24px;">
+            <h4 style="font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--accent-teal); margin:0 0 10px;">Primary data inputs</h4>
+            <ul style="font-size:0.8rem; color:var(--text-secondary); line-height:1.65; padding-left:20px; margin:0;">
+              <li><strong style="color:var(--text-primary);">Sector revenue validation</strong> &mdash; SIAM/ACMA/CRISIL/IBEF primary-source triangulation of $200B Auto + $110B FMCG brand-owner revenue base</li>
+              <li><strong style="color:var(--text-primary);">Non-MSME enterprise universe</strong> &mdash; MSME Ministry Annual Report + MCA21 + Tofler bottom-up of ~1,800 brand-owner firms above &#8377;250 cr</li>
+              <li><strong style="color:var(--text-primary);">Brand-owner workforce composition</strong> &mdash; 17 BRSR Section A 20(a) disclosures directly parsed for Employees vs Workers split</li>
+              <li><strong style="color:var(--text-primary);">Blended Knowledge Worker salary</strong> &mdash; BRSR Section C Principle 5 E3 median pay (9 cos Auto, 5 cos FMCG ex-ITC), plus 1.20&times; Aon India median-to-mean factor</li>
+              <li><strong style="color:var(--text-primary);">Per-role task automation (Step B)</strong> &mdash; WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, Frey-Osborne 2013, OECD 2021</li>
+              <li><strong style="color:var(--text-primary);">Salary-weighted Step A &times; Step B</strong> &mdash; role-level salary distribution &times; per-role task automation, collapsed to 35.8% Auto / 36.5% FMCG</li>
+              <li><strong style="color:var(--text-primary);">Food-B2B supplementary scope</strong> &mdash; Cargill India food / Bunge / ADM / Olam / large unlisted flour/sugar/edible oil mills, adding $7.6B to FMCG base</li>
+              <li><strong style="color:var(--text-primary);">Auto B2B specialty layer</strong> &mdash; Castrol, Gulf Oil, Kansai Nerolac, 3M India, Henkel, machine tools, adding ~$3.8B auto-attributable</li>
+            </ul>
           </div>
         </div>
-        <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
-          <h4 style="font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#d97706; margin-bottom:4px;">FMCG Sector Derivation</h4><div style="font-size:0.6rem; color:var(--text-dim); font-style:italic; margin-bottom:10px;">Top-down BRSR-anchored &mdash; primary method</div>
-          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.6rem;color:var(--accent-teal);">[CRISIL+MCA]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$110B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <a href="https://www.hul.co.in/" target="_blank" style="color:var(--accent-teal);font-size:0.65rem;">[8 BRSRs]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">1,300</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Sector permanent Knowledge Worker headcount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">143,000</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary (BRSR median &times; 1.2)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$18,500/yr</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 143,000 &times; $18.5K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$2.7B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Salary-wtd Step A&times;B (36.5%)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.0B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.5B</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Enterprise TAM</span><span style="font-family:var(--font-mono);color:#d97706;font-weight:800;font-size:1rem;">$0.5B</span></div>
+
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- PART 2 — DERIVATIONS                                                -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Part 2</div>
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text-primary); margin:0 0 10px;">Derivations</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 24px;">The exact math chain for each sector. Every step is traceable to a primary source. The primary method is top-down BRSR-anchored; the bottom-up workflow-node sum is a sanity check.</p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
+              <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin:0 0 4px;">Automobile Sector Derivation</h4>
+              <div style="font-size:0.65rem; color:var(--text-dim); font-style:italic; margin-bottom:12px;">Top-down BRSR-anchored &mdash; primary method</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.6rem;color:var(--accent-teal);">[ACMA FY24]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$200B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <span style="color:var(--text-dim);font-size:0.65rem;">[9 BRSRs]</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">814</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Sector permanent Knowledge Worker headcount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">162,800</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary (BRSR median &times; 1.2)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$27,000/yr</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 162,800 &times; $27K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$4.4B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Step A (role eligibility, 83%) <span style="color:var(--text-dim);font-size:0.65rem;">excludes CXO + 20% hyper-tech</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$3.7B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Step B (task automation, 43%) <span style="color:var(--text-dim);font-size:0.65rem;">WEF/McKinsey per-role rates</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.6B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;">AI priced below human labor</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.8B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #60a5fa;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">Auto Enterprise TAM</span><span style="font-family:var(--font-mono);color:#2563eb;font-weight:800;font-size:1rem;">$0.8B</span></div>
+              </div>
+            </div>
+            <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
+              <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin:0 0 4px;">FMCG Sector Derivation</h4>
+              <div style="font-size:0.65rem; color:var(--text-dim); font-style:italic; margin-bottom:12px;">Top-down BRSR-anchored &mdash; primary method</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6;">
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.6rem;color:var(--accent-teal);">[CRISIL+MCA]</a></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$110B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <span style="color:var(--text-dim);font-size:0.65rem;">[8 BRSRs]</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">1,300</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Sector permanent Knowledge Worker headcount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">143,000</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary (BRSR median &times; 1.2)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$18,500/yr</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 143,000 &times; $18.5K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$2.7B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Salary-wtd Step A&times;B (36.5%)</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.0B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.5B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Enterprise TAM</span><span style="font-family:var(--font-mono);color:#d97706;font-weight:800;font-size:1rem;">$0.5B</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px; background:var(--bg-surface); border-radius:12px; padding:18px 22px;">
+            <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 8px;">Top-down vs bottom-up reconciliation</h4>
+            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0;">
+              <strong style="color:var(--text-primary);">Primary: top-down BRSR-anchored</strong> &mdash; brand-owner revenue base ($200B Auto + $110B FMCG from ACMA/CRISIL/MCA) &times; Knowledge Worker/revenue ratio (from 17 parsed BRSRs) &times; blended salary (BRSR Section C Principle 5 E3 median &times; 1.2 Aon India uplift) &times; salary-weighted Step A &times; B (WEF/McKinsey per-role rates) &times; 50% AI discount. Result: Auto $0.8B + FMCG $0.5B = $1.3B. <strong style="color:var(--text-primary);">Sanity check: bottom-up workflow-node sum</strong> converges at $1.3B (1.6% delta) &mdash; two independent methods arriving at the same answer.
+            </p>
           </div>
         </div>
-      </div>
 
-      <div style="margin-top:16px; background:var(--bg-card); border-radius:10px; padding:16px; border:1px solid var(--border-subtle);">
-        <h4 style="font-family:var(--font-display); font-size:0.75rem; font-weight:700; margin-bottom:8px;">Methodology: top-down vs bottom-up reconciliation</h4>
-        <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
-          <strong style="color:var(--text-primary);">The primary TAM calculation is top-down BRSR-anchored:</strong> starting from the brand-owner revenue base ($200B Auto + $110B FMCG, sourced from ACMA/CRISIL/MCA), we apply the Knowledge Worker/revenue ratio (from 17 directly parsed BRSRs), blended Knowledge Worker salary (from BRSR Section C Principle 5 median pay disclosures, with 1.2&times; median-to-mean uplift per Aon India), salary-weighted Step A &times; Step B (WEF Future of Jobs 2025 + McKinsey MGI GenAI 2023 per-role rates), and a 50% AI price discount (AI must be priced below human labor to drive adoption). Result: <strong style="color:var(--text-primary);">Auto $0.8B + FMCG $0.5B = $1.3B selected TAM</strong>. The bottom-up workflow-node sum (57 nodes across Auto + FMCG) converges at $1.3B, a 1.6% delta &mdash; two independent methods arriving at the same answer.
-        </p>
-      </div>
-    </div>
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- PART 3 — CALCULATIONS                                               -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Part 3</div>
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text-primary); margin:0 0 10px;">Calculations</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 24px;">Specific numerical inputs with full data tables: BRSR workforce sample (17 companies), BRSR median pay disclosures, per-role task automation rates, and the methodology changelog showing what changed from the prior model.</p>
 
-  </div>
-      </div><!-- end collapsible TAM methodology -->
-      </div><!-- end methodology details body -->
-    </details>
-  </div><!-- end .container fade-in -->
-</section>
-
-
-<!-- RESEARCH METHODOLOGY APPENDIX -->
-<section id="research-appendix" style="background:var(--bg-surface); padding:60px 0; border-top:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
-  <div class="container fade-in">
-    <div class="section-label">Appendix &mdash; Research Methodology</div>
-    <div class="section-title">How every number in this thesis was sourced</div>
-    <div class="section-desc">This appendix is the full audit trail behind the $1.3B TAM. Every input is traced to a primary source (BRSR filing, ACMA industry report, CRISIL sector analysis, or academic/consulting research). Click any section to expand.</div>
-
-    <!-- APPENDIX: 1. Research agents dispatched -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>1. Research agents dispatched (14 parallel research threads)</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:16px 0 10px;">This thesis rebuilt the TAM methodology from scratch across 14 parallel research passes, each focused on one uncertainty driver. The key threads:</p>
-        <ul style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; padding-left:20px;">
-          <li><strong style="color:var(--text-primary);">Sector revenue validation</strong> &mdash; SIAM/ACMA/CRISIL/IBEF primary-source triangulation of $200B Auto + $110B FMCG brand-owner revenue base</li>
-          <li><strong style="color:var(--text-primary);">Non-MSME enterprise universe</strong> &mdash; MSME Ministry Annual Report + MCA21 + Tofler bottom-up of ~1,800 brand-owner firms above &#8377;250 cr</li>
-          <li><strong style="color:var(--text-primary);">Brand-owner workforce composition</strong> &mdash; 17 BRSR Section A 20(a) disclosures directly parsed for Employees vs Workers split</li>
-          <li><strong style="color:var(--text-primary);">Blended Knowledge Worker salary</strong> &mdash; BRSR Section C Principle 5 E3 median pay (9 cos Auto, 5 cos FMCG ex-ITC), plus 1.20&times; Aon India median-to-mean factor</li>
-          <li><strong style="color:var(--text-primary);">Per-role task automation (Step B)</strong> &mdash; WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, Frey-Osborne 2013, OECD 2021</li>
-          <li><strong style="color:var(--text-primary);">Salary-weighted Step A &times; Step B</strong> &mdash; role-level salary distribution &times; per-role task automation, collapsed to 35.8% Auto / 36.5% FMCG</li>
-          <li><strong style="color:var(--text-primary);">Food-B2B supplementary scope</strong> &mdash; Cargill India food / Bunge / ADM / Olam / large unlisted flour/sugar/edible oil mills, adding $7.6B to FMCG base</li>
-          <li><strong style="color:var(--text-primary);">Auto B2B specialty layer</strong> &mdash; Castrol, Gulf Oil, Kansai Nerolac, 3M India, Henkel, machine tools, adding ~$3.8B auto-attributable</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- APPENDIX: 2. BRSR sample data -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>2. BRSR workforce sample (17 companies, direct parse from PDF)</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:16px 0 10px;">All numbers below are extracted directly from each company's BRSR Section A 20(a) (Employees and Workers) disclosure, filed with BSE/NSE under SEBI's mandatory BRSR framework.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px;">
-          <div>
-            <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#d97706; margin-bottom:8px;">FMCG BRAND OWNERS (8)</div>
-            <table style="width:100%; font-size:0.72rem; color:var(--text-secondary); border-collapse:collapse;">
-              <thead><tr style="font-size:0.65rem; color:var(--text-dim);"><th style="text-align:left; padding:4px 2px;">Company</th><th style="text-align:right;">Emp</th><th style="text-align:right;">Work</th><th style="text-align:right;">Knowledge Worker %</th></tr></thead>
-              <tbody>
-                <tr><td style="padding:3px 2px;">HUL FY24</td><td style="text-align:right; font-family:var(--font-mono);">8,245</td><td style="text-align:right; font-family:var(--font-mono);">11,182</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">42.5%</td></tr>
-                <tr><td style="padding:3px 2px;">ITC FY25</td><td style="text-align:right; font-family:var(--font-mono);">11,166</td><td style="text-align:right; font-family:var(--font-mono);">10,875</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">50.7%</td></tr>
-                <tr><td style="padding:3px 2px;">Nestle India FY24</td><td style="text-align:right; font-family:var(--font-mono);">3,980</td><td style="text-align:right; font-family:var(--font-mono);">4,756</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">45.6%</td></tr>
-                <tr><td style="padding:3px 2px;">Britannia FY24</td><td style="text-align:right; font-family:var(--font-mono);">2,483</td><td style="text-align:right; font-family:var(--font-mono);">2,854</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">46.5%</td></tr>
-                <tr><td style="padding:3px 2px;">Dabur FY24</td><td style="text-align:right; font-family:var(--font-mono);">4,025</td><td style="text-align:right; font-family:var(--font-mono);">1,342</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">75.0%</td></tr>
-                <tr><td style="padding:3px 2px;">Marico FY24</td><td style="text-align:right; font-family:var(--font-mono);">1,772</td><td style="text-align:right; font-family:var(--font-mono);">62</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">96.6%</td></tr>
-                <tr><td style="padding:3px 2px;">Colgate FY25</td><td style="text-align:right; font-family:var(--font-mono);">816</td><td style="text-align:right; font-family:var(--font-mono);">1,382</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">37.1%</td></tr>
-                <tr><td style="padding:3px 2px;">Tata Consumer FY25</td><td style="text-align:right; font-family:var(--font-mono);">2,985</td><td style="text-align:right; font-family:var(--font-mono);">7,610</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">28.2%</td></tr>
-                <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 2px; font-weight:700;">Pooled avg</td><td style="text-align:right;"></td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#d97706;">46.7%</td></tr>
-              </tbody>
-            </table>
+          <!-- BRSR workforce sample -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:24px 0 8px;">3a. BRSR workforce sample (17 companies, direct parse)</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">All numbers extracted directly from each company&rsquo;s BRSR Section A 20(a) (Employees and Workers) disclosure, filed with BSE/NSE under SEBI&rsquo;s mandatory BRSR framework.</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+            <div>
+              <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:#d97706; margin-bottom:8px;">FMCG BRAND OWNERS (8)</div>
+              <table style="width:100%; font-size:0.72rem; color:var(--text-secondary); border-collapse:collapse;">
+                <thead><tr style="font-size:0.65rem; color:var(--text-dim);"><th style="text-align:left; padding:4px 2px;">Company</th><th style="text-align:right;">Emp</th><th style="text-align:right;">Work</th><th style="text-align:right;">Knowledge Worker %</th></tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 2px;">HUL FY24</td><td style="text-align:right; font-family:var(--font-mono);">8,245</td><td style="text-align:right; font-family:var(--font-mono);">11,182</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">42.5%</td></tr>
+                  <tr><td style="padding:3px 2px;">ITC FY25</td><td style="text-align:right; font-family:var(--font-mono);">11,166</td><td style="text-align:right; font-family:var(--font-mono);">10,875</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">50.7%</td></tr>
+                  <tr><td style="padding:3px 2px;">Nestle India FY24</td><td style="text-align:right; font-family:var(--font-mono);">3,980</td><td style="text-align:right; font-family:var(--font-mono);">4,756</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">45.6%</td></tr>
+                  <tr><td style="padding:3px 2px;">Britannia FY24</td><td style="text-align:right; font-family:var(--font-mono);">2,483</td><td style="text-align:right; font-family:var(--font-mono);">2,854</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">46.5%</td></tr>
+                  <tr><td style="padding:3px 2px;">Dabur FY24</td><td style="text-align:right; font-family:var(--font-mono);">4,025</td><td style="text-align:right; font-family:var(--font-mono);">1,342</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">75.0%</td></tr>
+                  <tr><td style="padding:3px 2px;">Marico FY24</td><td style="text-align:right; font-family:var(--font-mono);">1,772</td><td style="text-align:right; font-family:var(--font-mono);">62</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">96.6%</td></tr>
+                  <tr><td style="padding:3px 2px;">Colgate FY25</td><td style="text-align:right; font-family:var(--font-mono);">816</td><td style="text-align:right; font-family:var(--font-mono);">1,382</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">37.1%</td></tr>
+                  <tr><td style="padding:3px 2px;">Tata Consumer FY25</td><td style="text-align:right; font-family:var(--font-mono);">2,985</td><td style="text-align:right; font-family:var(--font-mono);">7,610</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">28.2%</td></tr>
+                  <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 2px; font-weight:700;">Pooled avg</td><td style="text-align:right;"></td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#d97706;">46.7%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:#2563eb; margin-bottom:8px;">AUTO BRAND OWNERS (9)</div>
+              <table style="width:100%; font-size:0.72rem; color:var(--text-secondary); border-collapse:collapse;">
+                <thead><tr style="font-size:0.65rem; color:var(--text-dim);"><th style="text-align:left; padding:4px 2px;">Company</th><th style="text-align:right;">Emp</th><th style="text-align:right;">Work</th><th style="text-align:right;">Knowledge Worker %</th></tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 2px;">Maruti Suzuki FY25</td><td style="text-align:right; font-family:var(--font-mono);">14,280</td><td style="text-align:right; font-family:var(--font-mono);">5,686</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">71.5%</td></tr>
+                  <tr><td style="padding:3px 2px;">Tata Motors FY25</td><td style="text-align:right; font-family:var(--font-mono);">12,591</td><td style="text-align:right; font-family:var(--font-mono);">15,585</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">44.7%</td></tr>
+                  <tr><td style="padding:3px 2px;">M&amp;M FY25</td><td style="text-align:right; font-family:var(--font-mono);">14,755</td><td style="text-align:right; font-family:var(--font-mono);">10,467</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">58.5%</td></tr>
+                  <tr><td style="padding:3px 2px;">Bajaj Auto FY25</td><td style="text-align:right; font-family:var(--font-mono);">2,639</td><td style="text-align:right; font-family:var(--font-mono);">2,959</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">47.1%</td></tr>
+                  <tr><td style="padding:3px 2px;">Hero MotoCorp FY25</td><td style="text-align:right; font-family:var(--font-mono);">4,839</td><td style="text-align:right; font-family:var(--font-mono);">4,688</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">50.8%</td></tr>
+                  <tr><td style="padding:3px 2px;">TVS Motor FY25</td><td style="text-align:right; font-family:var(--font-mono);">4,719</td><td style="text-align:right; font-family:var(--font-mono);">1,803</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">72.4%</td></tr>
+                  <tr><td style="padding:3px 2px;">Eicher FY25</td><td style="text-align:right; font-family:var(--font-mono);">3,162</td><td style="text-align:right; font-family:var(--font-mono);">2,016</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">61.1%</td></tr>
+                  <tr><td style="padding:3px 2px;">Ashok Leyland FY25</td><td style="text-align:right; font-family:var(--font-mono);">5,278</td><td style="text-align:right; font-family:var(--font-mono);">4,417</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">54.4%</td></tr>
+                  <tr><td style="padding:3px 2px;">Bosch India FY25</td><td style="text-align:right; font-family:var(--font-mono);">3,185</td><td style="text-align:right; font-family:var(--font-mono);">2,557</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">55.5%</td></tr>
+                  <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 2px; font-weight:700;">Pooled avg</td><td style="text-align:right;"></td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#2563eb;">56.6%</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div>
-            <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#2563eb; margin-bottom:8px;">AUTO BRAND OWNERS (9)</div>
-            <table style="width:100%; font-size:0.72rem; color:var(--text-secondary); border-collapse:collapse;">
-              <thead><tr style="font-size:0.65rem; color:var(--text-dim);"><th style="text-align:left; padding:4px 2px;">Company</th><th style="text-align:right;">Emp</th><th style="text-align:right;">Work</th><th style="text-align:right;">Knowledge Worker %</th></tr></thead>
-              <tbody>
-                <tr><td style="padding:3px 2px;">Maruti Suzuki FY25</td><td style="text-align:right; font-family:var(--font-mono);">14,280</td><td style="text-align:right; font-family:var(--font-mono);">5,686</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">71.5%</td></tr>
-                <tr><td style="padding:3px 2px;">Tata Motors FY25</td><td style="text-align:right; font-family:var(--font-mono);">12,591</td><td style="text-align:right; font-family:var(--font-mono);">15,585</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">44.7%</td></tr>
-                <tr><td style="padding:3px 2px;">M&amp;M FY25</td><td style="text-align:right; font-family:var(--font-mono);">14,755</td><td style="text-align:right; font-family:var(--font-mono);">10,467</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">58.5%</td></tr>
-                <tr><td style="padding:3px 2px;">Bajaj Auto FY25</td><td style="text-align:right; font-family:var(--font-mono);">2,639</td><td style="text-align:right; font-family:var(--font-mono);">2,959</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">47.1%</td></tr>
-                <tr><td style="padding:3px 2px;">Hero MotoCorp FY25</td><td style="text-align:right; font-family:var(--font-mono);">4,839</td><td style="text-align:right; font-family:var(--font-mono);">4,688</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">50.8%</td></tr>
-                <tr><td style="padding:3px 2px;">TVS Motor FY25</td><td style="text-align:right; font-family:var(--font-mono);">4,719</td><td style="text-align:right; font-family:var(--font-mono);">1,803</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">72.4%</td></tr>
-                <tr><td style="padding:3px 2px;">Eicher FY25</td><td style="text-align:right; font-family:var(--font-mono);">3,162</td><td style="text-align:right; font-family:var(--font-mono);">2,016</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">61.1%</td></tr>
-                <tr><td style="padding:3px 2px;">Ashok Leyland FY25</td><td style="text-align:right; font-family:var(--font-mono);">5,278</td><td style="text-align:right; font-family:var(--font-mono);">4,417</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">54.4%</td></tr>
-                <tr><td style="padding:3px 2px;">Bosch India FY25</td><td style="text-align:right; font-family:var(--font-mono);">3,185</td><td style="text-align:right; font-family:var(--font-mono);">2,557</td><td style="text-align:right; font-family:var(--font-mono); font-weight:700;">55.5%</td></tr>
-                <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 2px; font-weight:700;">Pooled avg</td><td style="text-align:right;"></td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#2563eb;">56.6%</td></tr>
-              </tbody>
-            </table>
+
+          <!-- BRSR median pay -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3b. BRSR median pay (Section C Principle 5 E3)</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Median remuneration for &ldquo;Employees other than BoD and KMP&rdquo; (the Knowledge Worker population). Gender-weighted blended median; 1.20&times; mean factor applied per Aon India Total Remuneration Survey convention.</p>
+          <div style="background:var(--bg-surface); border-radius:10px; padding:16px 20px; font-size:0.8rem; color:var(--text-secondary); line-height:1.7;">
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">Auto:</strong> Tata Motors &#8377;17.05L &middot; Bajaj Auto &#8377;24.43L &middot; Bosch India &#8377;20.61L &middot; Hero MotoCorp &#8377;16.47L &middot; Maruti Suzuki &#8377;18.82L &rarr; <strong>revenue-weighted median &#8377;18.7L &rarr; mean &#8377;22.5L (~$27K)</strong></p>
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">FMCG:</strong> HUL &#8377;14.0L &middot; Nestle &#8377;14.9L (12-mo norm) &middot; Britannia &#8377;9.2L &middot; Dabur &#8377;7.4L &middot; Marico &#8377;13.5L &rarr; <strong>revenue-weighted median &#8377;12.8L &rarr; mean &#8377;15.4L (~$18.5K)</strong></p>
+            <p style="margin:0; font-size:0.72rem; color:var(--text-dim);">ITC excluded from FMCG aggregate because its BRSR spans the conglomerate (cigarettes + hotels + agri + FMCG), pulling the median down with agri worker compensation.</p>
+          </div>
+
+          <!-- Step A × Step B role table -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3c. Role-level task automation rates (Step A &times; Step B)</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Per-role task automation percentages primary-sourced from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, Frey-Osborne 2013, and OECD 2021. Step A (role eligibility) excludes Executives (CXO/VP, 0% eligible) and 20% of Professional roles (hyper-technical R&amp;D / principal scientists).</p>
+          <table style="width:100%; font-size:0.8rem; color:var(--text-secondary); border-collapse:collapse;">
+            <thead><tr style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em;"><th style="text-align:left; padding:6px 4px;">Role</th><th style="text-align:right;">Step A elig</th><th style="text-align:right;">Step B rate</th><th style="text-align:left; padding-left:12px;">Primary source</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:4px;">Executive (CXO/VP)</td><td style="text-align:right; font-family:var(--font-mono);">0%</td><td style="text-align:right; font-family:var(--font-mono);">7.5%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey + OECD &ldquo;managing people&rdquo;</td></tr>
+              <tr><td style="padding:4px;">Senior Management</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">20%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey &ldquo;managing expertise&rdquo;</td></tr>
+              <tr><td style="padding:4px;">Middle Management</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">42%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey + WEF mid-manager decline</td></tr>
+              <tr><td style="padding:4px;">Professional</td><td style="text-align:right; font-family:var(--font-mono);">80%</td><td style="text-align:right; font-family:var(--font-mono);">37%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey MGI +30pp GenAI shift</td></tr>
+              <tr><td style="padding:4px;">Technician</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">47%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey data processing 60-64%</td></tr>
+              <tr><td style="padding:4px;">Clerical / Admin</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">77%</td><td style="padding-left:12px; font-size:0.7rem;">Frey-Osborne 0.96 + WEF -26%</td></tr>
+              <tr><td style="padding:4px;">Sales / Field / MR</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">37%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey 30% of sales</td></tr>
+              <tr><td style="padding:4px;">Customer Service</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">62%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey CS -13% + chatbot shift</td></tr>
+              <tr><td style="padding:4px;">Merchandiser / Retail</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">42%</td><td style="padding-left:12px; font-size:0.7rem;">Frey-Osborne retail 0.92</td></tr>
+              <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 4px; font-weight:700;">Salary-weighted Step A &times; B</td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:var(--accent-teal);">35.8% / 36.5%</td><td style="padding-left:12px; font-size:0.7rem;">Auto / FMCG, weighted by role distribution &times; role salary</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Methodology summary -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3d. Methodology summary</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Five methodology principles underpin this TAM calculation:</p>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; No enterprise fraction multiplier</strong></p>
+            <p style="margin:0 0 12px; padding-left:16px;">The brand-owner revenue base is used directly as the TAM denominator. No extrapolation from top-20 listed companies and no arbitrary universe count &mdash; the ~1,800 brand-owner firms are enumerated bottom-up from ACMA, SIAM, CRISIL, and MCA21 filings.</p>
+            <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; Brand-owner on-payroll scope, not sector-wide</strong></p>
+            <p style="margin:0 0 12px; padding-left:16px;">Only permanent on-payroll Knowledge Workers at brand-owner enterprises are counted &mdash; 163K Auto + 143K FMCG, sourced directly from BRSR Section A 20(a). Contract labour (~41% of factory workers per ASI 2022-23), MSME white-collar, and unorganized sector are excluded because none are addressable by enterprise AI SaaS.</p>
+            <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; BRSR-anchored Knowledge Worker share and median pay</strong></p>
+            <p style="margin:0 0 12px; padding-left:16px;">17 BRSR filings provide the Employees-vs-Workers split and median pay. Pooled Knowledge Worker share is 56.6% for Auto and 46.7% for FMCG. Revenue-weighted median pay is &#8377;18.7L for Auto and &#8377;12.8L for FMCG, converted to mean compensation via the Aon India 1.20&times; median-to-mean factor ($27K Auto / $18.5K FMCG).</p>
+            <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; Salary-weighted Step A &times; Step B</strong></p>
+            <p style="margin:0 0 12px; padding-left:16px;">Per-role task automation (Step B) is weighted by the salary distribution of each role, not headcount. This correctly handles the fact that high-paid CXO/Sr Mgmt roles disproportionately affect payroll even at low headcount shares. The salary-weighted addressable fraction is 35.8% for Auto and 36.5% for FMCG.</p>
+            <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; Brand-owner universe bottom-up build</strong></p>
+            <p style="margin:0 0 0; padding-left:16px;">Non-MSME brand-owner universe is now built bottom-up from ACMA, SIAM, CRISIL, MCA21/Tofler, and primary-source research. Auto: ~1,100 firms (OEMs + Tier-1/2 components + dealerships + B2B specialty). FMCG: ~700 firms (listed + unlisted Indian + MNC India subs + cooperatives + food-B2B processors).</p>
           </div>
         </div>
-      </div>
-    </details>
 
-    <!-- APPENDIX: 3. Salary data from BRSR -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>3. BRSR median pay (Section C Principle 5 E3)</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:16px 0 10px;">Median remuneration/wages for "Employees other than BoD and KMP" (the Knowledge Worker population) from each company's BRSR Section C Principle 5 E3 disclosure. Gender-weighted blended median; 1.20&times; mean factor applied per Aon India Total Remuneration Survey convention.</p>
-        <div style="background:var(--bg-surface); border-radius:10px; padding:16px; font-size:0.78rem; color:var(--text-secondary); line-height:1.7;">
-          <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">Auto:</strong> Tata Motors &#8377;17.05L &middot; Bajaj Auto &#8377;24.43L &middot; Bosch India &#8377;20.61L &middot; Hero MotoCorp &#8377;16.47L &middot; Maruti Suzuki &#8377;18.82L &rarr; <strong>revenue-weighted median &#8377;18.71L &rarr; mean &#8377;22.5L (~$27K)</strong></p>
-          <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">FMCG:</strong> HUL &#8377;13.98L &middot; Nestle &#8377;14.86L (12-mo norm) &middot; Britannia &#8377;9.24L &middot; Dabur &#8377;7.44L &middot; Marico &#8377;13.48L &rarr; <strong>revenue-weighted median &#8377;12.81L &rarr; mean &#8377;15.4L (~$18.5K)</strong></p>
-          <p style="margin:0; font-size:0.72rem; color:var(--text-dim);">ITC excluded from FMCG aggregate because its BRSR spans the conglomerate (cigarettes + hotels + agri + FMCG), pulling the median down with agri worker compensation.</p>
-        </div>
-      </div>
-    </details>
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- PART 4 — SOURCES                                                    -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border-subtle);">
+          <div style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Part 4</div>
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text-primary); margin:0 0 10px;">Sources</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 24px;">Every data point, calculation, and insight in this analysis is traceable to the sources below. Organized by type: primary BRSR filings, industry association reports, investment theses, government statistics, academic research, and referenced AI products.</p>
 
-    <!-- APPENDIX: 4. Step A × Step B role table -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>4. Role-level task automation rates (Step B)</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:16px 0 10px;">Per-role task automation percentages are primary-sourced from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, Frey-Osborne 2013, and OECD 2021. Step A (role eligibility) excludes Executives (CXO/VP, 0% eligible) and 20% of Professional roles (hyper-technical R&amp;D / principal scientists).</p>
-        <table style="width:100%; font-size:0.78rem; color:var(--text-secondary); border-collapse:collapse; margin-top:10px;">
-          <thead><tr style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em;"><th style="text-align:left; padding:6px 4px;">Role</th><th style="text-align:right;">Step A elig</th><th style="text-align:right;">Step B rate</th><th style="text-align:left; padding-left:12px;">Primary source</th></tr></thead>
-          <tbody>
-            <tr><td style="padding:4px;">Executive (CXO/VP)</td><td style="text-align:right; font-family:var(--font-mono);">0%</td><td style="text-align:right; font-family:var(--font-mono);">7.5%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey + OECD "managing people"</td></tr>
-            <tr><td style="padding:4px;">Senior Management</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">20%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey "managing expertise"</td></tr>
-            <tr><td style="padding:4px;">Middle Management</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">42%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey + WEF mid-manager decline</td></tr>
-            <tr><td style="padding:4px;">Professional</td><td style="text-align:right; font-family:var(--font-mono);">80%</td><td style="text-align:right; font-family:var(--font-mono);">37%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey MGI +30pp GenAI shift</td></tr>
-            <tr><td style="padding:4px;">Technician</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">47%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey data processing 60-64%</td></tr>
-            <tr><td style="padding:4px;">Clerical / Admin</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">77%</td><td style="padding-left:12px; font-size:0.7rem;">Frey-Osborne 0.96 + WEF -26%</td></tr>
-            <tr><td style="padding:4px;">Sales / Field / MR</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">37%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey 30% of sales</td></tr>
-            <tr><td style="padding:4px;">Customer Service</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">62%</td><td style="padding-left:12px; font-size:0.7rem;">McKinsey CS -13% + chatbot shift</td></tr>
-            <tr><td style="padding:4px;">Merchandiser / Retail</td><td style="text-align:right; font-family:var(--font-mono);">100%</td><td style="text-align:right; font-family:var(--font-mono);">42%</td><td style="padding-left:12px; font-size:0.7rem;">Frey-Osborne retail 0.92</td></tr>
-            <tr style="border-top:2px solid var(--border-subtle);"><td style="padding:6px 4px; font-weight:700;">Salary-weighted Step A &times; B</td><td style="text-align:right;"></td><td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:var(--accent-teal);">35.8% / 36.5%</td><td style="padding-left:12px; font-size:0.7rem;">Auto / FMCG, weighted by role distribution &times; role salary</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
+          <!-- 4a. Primary BRSR filings -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4a. BRSR Filings (17 companies, directly parsed)</h4>
+          <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.8;">
+            <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">FMCG:</strong> <a href="https://www.hul.co.in/" target="_blank" style="color:var(--accent-teal);">HUL</a> &middot; <a href="https://www.itcportal.com/" target="_blank" style="color:var(--accent-teal);">ITC</a> &middot; <a href="https://www.nestle.in/" target="_blank" style="color:var(--accent-teal);">Nestle India</a> &middot; <a href="https://www.britannia.co.in/" target="_blank" style="color:var(--accent-teal);">Britannia</a> &middot; <a href="https://www.dabur.com/" target="_blank" style="color:var(--accent-teal);">Dabur</a> &middot; <a href="https://marico.com/" target="_blank" style="color:var(--accent-teal);">Marico</a> &middot; <a href="https://www.colgateinvestors.co.in/" target="_blank" style="color:var(--accent-teal);">Colgate</a> &middot; <a href="https://www.tataconsumer.com/" target="_blank" style="color:var(--accent-teal);">Tata Consumer</a></p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">Auto:</strong> <a href="https://www.marutisuzuki.com/" target="_blank" style="color:var(--accent-teal);">Maruti Suzuki</a> &middot; <a href="https://www.tatamotors.com/" target="_blank" style="color:var(--accent-teal);">Tata Motors</a> &middot; <a href="https://www.mahindra.com/" target="_blank" style="color:var(--accent-teal);">M&amp;M</a> &middot; <a href="https://www.bajajauto.com/" target="_blank" style="color:var(--accent-teal);">Bajaj Auto</a> &middot; <a href="https://www.heromotocorp.com/" target="_blank" style="color:var(--accent-teal);">Hero MotoCorp</a> &middot; <a href="https://www.tvsmotor.com/" target="_blank" style="color:var(--accent-teal);">TVS Motor</a> &middot; <a href="https://www.eicher.in/" target="_blank" style="color:var(--accent-teal);">Eicher</a> &middot; <a href="https://www.ashokleyland.com/" target="_blank" style="color:var(--accent-teal);">Ashok Leyland</a> &middot; <a href="https://www.boschindia.com/" target="_blank" style="color:var(--accent-teal);">Bosch India</a></p>
+          </div>
 
-    <!-- APPENDIX: 5. Key primary sources -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>5. Primary sources &mdash; complete list</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.8; margin-top:14px;">
-          <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">Revenue base:</strong></p>
-          <ul style="margin:0 0 14px 20px; padding:0;">
-            <li><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="color:var(--accent-teal);">ACMA FY24 Industry Presentation</a> &mdash; Auto component industry turnover &#8377;6.14 lakh crore ($74.1B)</li>
+          <!-- 4b. Industry associations and revenue base -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4b. Industry associations and revenue base</h4>
+          <ul style="font-size:0.8rem; color:var(--text-secondary); line-height:1.75; padding-left:20px; margin:0;">
+            <li><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="color:var(--accent-teal);">ACMA FY24 Industry Presentation</a> &mdash; Auto component industry turnover &#8377;6.14 lakh crore ($74B)</li>
             <li><a href="https://www.business-standard.com/industry/auto/auto-component-industry-turnover-up-10-at-rs-6-14-trn-in-fy24-acma-124072500923_1.html" target="_blank" style="color:var(--accent-teal);">Business Standard</a> &mdash; ACMA FY24 confirmation</li>
-            <li><a href="https://www.siam.in/statistics.aspx" target="_blank" style="color:var(--accent-teal);">SIAM statistics</a> &mdash; OEM production + value data</li>
+            <li><a href="https://www.siam.in/statistics.aspx" target="_blank" style="color:var(--accent-teal);">SIAM statistics</a> &mdash; OEM production and value data</li>
             <li><a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="color:var(--accent-teal);">CRISIL FMCG</a> &mdash; 77-company FMCG sector tracking, FY23 &#8377;5.6 lakh crore</li>
-            <li><a href="https://www.ibef.org/industry/fmcg" target="_blank" style="color:var(--accent-teal);">IBEF FMCG</a> &mdash; sector sizing, retail market</li>
-            <li><a href="https://www.business-standard.com/companies/news/amul-brand-operator-gcmmf-says-turnover-rises-8-to-rs-59-445-cr-in-fy24-124092800739_1.html" target="_blank" style="color:var(--accent-teal);">GCMMF/Amul FY24 revenue</a> &mdash; &#8377;59,445 cr standalone</li>
+            <li><a href="https://www.ibef.org/industry/fmcg" target="_blank" style="color:var(--accent-teal);">IBEF FMCG</a> &mdash; sector sizing</li>
+            <li><a href="https://www.business-standard.com/companies/news/amul-brand-operator-gcmmf-says-turnover-rises-8-to-rs-59-445-cr-in-fy24-124092800739_1.html" target="_blank" style="color:var(--accent-teal);">GCMMF/Amul FY24</a> &mdash; &#8377;59,445 cr standalone cooperative revenue</li>
           </ul>
-          <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">Workforce composition &mdash; 17 BRSR filings:</strong></p>
-          <ul style="margin:0 0 14px 20px; padding:0; font-size:0.75rem;">
-            <li><a href="https://www.hul.co.in/" target="_blank" style="color:var(--accent-teal);">HUL</a> &middot; <a href="https://www.itcportal.com/" target="_blank" style="color:var(--accent-teal);">ITC</a> &middot; <a href="https://www.nestle.in/" target="_blank" style="color:var(--accent-teal);">Nestle India</a> &middot; <a href="https://www.britannia.co.in/" target="_blank" style="color:var(--accent-teal);">Britannia</a> &middot; <a href="https://www.dabur.com/" target="_blank" style="color:var(--accent-teal);">Dabur</a> &middot; <a href="https://marico.com/" target="_blank" style="color:var(--accent-teal);">Marico</a> &middot; <a href="https://www.colgateinvestors.co.in/" target="_blank" style="color:var(--accent-teal);">Colgate</a> &middot; <a href="https://www.tataconsumer.com/" target="_blank" style="color:var(--accent-teal);">Tata Consumer</a></li>
-            <li><a href="https://www.marutisuzuki.com/" target="_blank" style="color:var(--accent-teal);">Maruti Suzuki</a> &middot; <a href="https://www.tatamotors.com/" target="_blank" style="color:var(--accent-teal);">Tata Motors</a> &middot; <a href="https://www.mahindra.com/" target="_blank" style="color:var(--accent-teal);">M&amp;M</a> &middot; <a href="https://www.bajajauto.com/" target="_blank" style="color:var(--accent-teal);">Bajaj Auto</a> &middot; <a href="https://www.heromotocorp.com/" target="_blank" style="color:var(--accent-teal);">Hero MotoCorp</a> &middot; <a href="https://www.tvsmotor.com/" target="_blank" style="color:var(--accent-teal);">TVS Motor</a> &middot; <a href="https://www.eicher.in/" target="_blank" style="color:var(--accent-teal);">Eicher</a> &middot; <a href="https://www.ashokleyland.com/" target="_blank" style="color:var(--accent-teal);">Ashok Leyland</a> &middot; <a href="https://www.boschindia.com/" target="_blank" style="color:var(--accent-teal);">Bosch India</a></li>
-          </ul>
-          <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">Per-role automation rates:</strong></p>
-          <ul style="margin:0 0 14px 20px; padding:0;">
-            <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:var(--accent-teal);">WEF Future of Jobs Report 2025</a></li>
-            <li><a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI &mdash; Generative AI and the Future of Work</a></li>
-            <li><a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:var(--accent-teal);">Frey &amp; Osborne 2013 &mdash; The Future of Employment</a></li>
-            <li><a href="https://www.oecd.org/future-of-work/reports-and-data/" target="_blank" style="color:var(--accent-teal);">OECD Employment Outlook 2021</a></li>
-          </ul>
-          <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">Compensation &amp; salary context:</strong></p>
-          <ul style="margin:0; padding-left:20px;">
+
+          <!-- 4c. Government statistics -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4c. Government statistics</h4>
+          <ul style="font-size:0.8rem; color:var(--text-secondary); line-height:1.75; padding-left:20px; margin:0;">
             <li><a href="https://mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf" target="_blank" style="color:var(--accent-teal);">MoSPI PLFS 2023-24 Annual Report</a> &mdash; urban salaried baseline &#8377;2.93 lakh/yr</li>
-            <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2060292" target="_blank" style="color:var(--accent-teal);">MoSPI ASI 2022-23</a> &mdash; 21% non-worker share + 41% contract worker ratio</li>
+            <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2060292" target="_blank" style="color:var(--accent-teal);">MoSPI ASI 2022-23</a> &mdash; 21% non-worker share + 41% contract worker ratio in organized manufacturing</li>
             <li><a href="https://www.ibef.org/industry/msme" target="_blank" style="color:var(--accent-teal);">IBEF MSME</a> &mdash; MSME vs Large enterprise split of manufacturing GVA</li>
+            <li><a href="https://www.investindia.gov.in/sector/automobile" target="_blank" style="color:var(--accent-teal);">Invest India &mdash; Automobile Sector</a> &mdash; $240B sector total</li>
+            <li><a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" style="color:var(--accent-teal);">NITI Aayog</a> &mdash; National Strategy for AI, priority sectors</li>
           </ul>
+
+          <!-- 4d. Academic research (per-role automation) -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4d. Academic and consulting research</h4>
+          <ul style="font-size:0.8rem; color:var(--text-secondary); line-height:1.75; padding-left:20px; margin:0;">
+            <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:var(--accent-teal);">WEF Future of Jobs Report 2025</a> &mdash; per-role task automation benchmarks</li>
+            <li><a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI &mdash; Generative AI and the Future of Work</a> &mdash; 40-50% knowledge work automation</li>
+            <li><a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:var(--accent-teal);">Frey &amp; Osborne 2013 &mdash; The Future of Employment</a> &mdash; foundational per-role probabilities</li>
+            <li><a href="https://www.oecd.org/future-of-work/reports-and-data/" target="_blank" style="color:var(--accent-teal);">OECD Employment Outlook 2021</a> &mdash; international benchmarks</li>
+            <li><a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" style="color:var(--accent-teal);">NASSCOM AI Adoption Index</a> &mdash; India sectoral readiness</li>
+          </ul>
+
+          <!-- 4e. Investment theses -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4e. Investment and research theses</h4>
+          <table class="sources-table">
+            <thead><tr><th>Source</th><th>Thesis</th><th>Relevance</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://a16z.com/ai-for-the-physical-world/" target="_blank">a16z</a></td><td>AI for the Physical World (2024)</td><td>Manufacturing as top AI vertical</td></tr>
+              <tr><td><a href="https://a16z.com/services-led-growth/" target="_blank">a16z</a></td><td>Services-Led Growth</td><td>AI replaces services workflows, not just tools</td></tr>
+              <tr><td><a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank">Bessemer</a></td><td>The Future of AI is Vertical</td><td>Vertical AI market cap 10&times; legacy SaaS</td></tr>
+              <tr><td><a href="https://www.bvp.com/atlas/the-state-of-ai-2025" target="_blank">Bessemer</a></td><td>State of AI 2025</td><td>AI efficiency metrics; enterprise adoption benchmarks</td></tr>
+              <tr><td><a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank">General Catalyst</a></td><td>$1.5B AI Creation Strategy</td><td>Roll-up playbook: acquire + automate</td></tr>
+              <tr><td><a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank">Menlo Ventures</a></td><td>State of GenAI in Enterprise 2024</td><td>Enterprise AI = $37B (3.2&times; YoY)</td></tr>
+              <tr><td><a href="https://sequoiacap.com/article/generative-ai-act-two/" target="_blank">Sequoia</a></td><td>Generative AI&rsquo;s Act Two</td><td>Vertical AI with domain data moats</td></tr>
+              <tr><td><a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank">Sequoia</a></td><td>AI-Powered Companies</td><td>$1T+ outsourced labor TAM</td></tr>
+              <tr><td><a href="https://events-in.accel.com/advanced-manufacturing-report" target="_blank">Accel India</a></td><td>$650M Fund VIII: Manufacturing</td><td>Half-trillion-dollar India manufacturing opportunity</td></tr>
+              <tr><td><a href="https://lsvp.com/stories/lightspeed-india-sea-frontier-tech-market-map/" target="_blank">Lightspeed India</a></td><td>Enterprise AI + India Stack</td><td>India smart factory: $7.7B &rarr; $17B by 2032</td></tr>
+              <tr><td><a href="https://www.peakxv.com/article/three-new-funds-for-exceptional-founders-in-india-apac-and-beyond-%F0%9F%9A%80/" target="_blank">Peak XV Partners</a></td><td>$1.3B Fund (Feb 2026)</td><td>80 AI portfolio companies; PLI-driven AI</td></tr>
+              <tr><td><a href="https://blume.vc/commentaries/blume-ventures-2024-looking-back-moving-forward" target="_blank">Blume Ventures</a></td><td>$1B Deep Tech Alliance</td><td>35-40% deep-tech/manufacturing allocation</td></tr>
+            </tbody>
+          </table>
+
+          <!-- 4f. AI product companies -->
+          <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--accent-teal); margin:24px 0 10px;">4f. AI product companies referenced</h4>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
+            <a href="https://pe-insights.com/kkr-backed-o9-solutions-raises-295m-in-a-general-atlantic-led-funding-round-valuation-crosses-2-7bn/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">o9 Solutions (Demand AI)</a>
+            <a href="https://www.highradius.com/about/news/highradius-raises-300m-series-c-at-over-3-billion-valuation/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Highradius (Finance AI)</a>
+            <a href="https://techcrunch.com/2022/01/24/darwinbox-hr-tech-gartner-tcv-unicorn/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Darwinbox (HR AI)</a>
+            <a href="https://www.crunchbase.com/organization/mobisy" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Bizom (Field Sales AI)</a>
+            <a href="https://en.wikipedia.org/wiki/Fractal_Analytics" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Fractal Analytics</a>
+            <a href="https://yellow.ai/blog/yellow-ai-series-c-funding-total-cx-automation/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Yellow.ai (CX AI)</a>
+            <a href="https://www.sightmachine.com/press/sight-machine-announces-industrial-ai-agents" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Sight Machine (Mfg AI)</a>
+            <a href="https://techcrunch.com/2021/11/08/landing-ai-machine-learning-operations-tools/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Landing AI (Vision)</a>
+            <a href="https://www.prnewswire.com/news-releases/drishti-raises-25m-in-series-b-financing-to-drive-ai-powered-production-and-empower-people-on-the-factory-floor-301077241.html" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Drishti (Assembly AI)</a>
+            <a href="https://www.businesswire.com/news/home/20240716921069/en/Automotive-Software-Platform-Tekion-Secures-200-Million-in-Growth-Capital-from-Dragoneer-Investment-Group" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Tekion (Dealer AI)</a>
+            <a href="https://techcrunch.com/2021/06/02/locus-raises-50-million-for-its-logistics-management-business/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Locus.sh (Logistics AI)</a>
+            <a href="https://techcrunch.com/2021/05/25/indian-logistics-saas-startup-fareye-raises-100-million/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">FarEye (Delivery AI)</a>
+            <a href="https://techcrunch.com/2022/08/23/celonis-secures-another-1b-to-find-and-fix-process-problems-in-enterprise-systems/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Celonis (Process Mining)</a>
+            <a href="https://www.sec.gov/Archives/edgar/data/1385867/000119312522302272/d401161dex991.htm" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Coupa (Procurement AI)</a>
+            <a href="https://techcrunch.com/2021/06/10/ai-startup-eightfold-valued-at-2-1b-in-softbank-led-220m-funding/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Eightfold AI (Talent)</a>
+            <a href="https://techcrunch.com/2021/04/07/singapore-based-retail-analytics-company-trax-raises-640m-series-e-led-by-softbank-vision-fund-2-and-blackrock/" target="_blank" class="source-tag" style="justify-content:center;padding:6px 12px;">Trax (Retail Vision)</a>
+          </div>
         </div>
+
       </div>
     </details>
-
-    <!-- APPENDIX: 6. Methodology changelog -->
-    <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:0; margin-bottom:14px; overflow:hidden;">
-      <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-        <span>6. Methodology changelog (what changed from the old model)</span>
-        <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-      </summary>
-      <div style="padding:0 24px 20px; border-top:1px solid var(--border-subtle);">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:16px 0 10px;">The TAM methodology was completely rebuilt in this research pass. Key changes from the previous version:</p>
-        <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
-          <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#10060; Removed: Enterprise fraction multiplier</strong></p>
-          <p style="margin:0 0 12px; padding-left:16px;">The old model computed a "17% Auto / 14.9% FMCG enterprise fraction" by extrapolating top-20 listed company averages to the full 250/400 enterprise count. This had three flaws: (1) linear extrapolation overstated listed universe revenue, (2) the numerator used listed-co Knowledge Worker share while the denominator used sector-blended, (3) the universe count was arbitrary. The new model uses the brand-owner revenue base directly &mdash; no separate enterprise fraction needed.</p>
-          <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#10060; Removed: NCO 1-5 sector-wide Knowledge Worker crosswalk</strong></p>
-          <p style="margin:0 0 12px; padding-left:16px;">The old model used sector-level employee counts (4.2M Auto, 3.0M FMCG) &times; NCO 1-5 ratios (25% / 55%) to derive "1.05M / 1.65M knowledge workers." This included MSME white-collar, contract labour, and informal sector &mdash; none of which are addressable by enterprise AI SaaS. The new model counts only permanent on-payroll Knowledge Worker at brand-owner enterprises (163K Auto + 143K FMCG) sourced directly from BRSR Section A 20(a).</p>
-          <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9989; Added: BRSR-anchored Knowledge Worker share and median pay</strong></p>
-          <p style="margin:0 0 12px; padding-left:16px;">17 BRSR filings parsed directly for Employees vs Workers split and median pay. Pooled Knowledge Worker share: 56.6% Auto / 46.7% FMCG. Revenue-weighted median pay: &#8377;18.71L Auto / &#8377;12.81L FMCG. Applied &times; 1.20 Aon India mean/median factor to get blended mean salary ($27K Auto / $18.5K FMCG).</p>
-          <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9989; Added: Salary-weighted Step A &times; Step B</strong></p>
-          <p style="margin:0 0 12px; padding-left:16px;">Per-role task automation (Step B) is now weighted by the salary distribution of each role, not the headcount distribution. This correctly handles the fact that high-paid CXO/Sr Mgmt roles disproportionately affect payroll even at low headcount shares. The salary-weighted addressable fraction is 35.8% Auto / 36.5% FMCG.</p>
-          <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9989; Added: Brand-owner universe bottom-up build</strong></p>
-          <p style="margin:0 0 12px; padding-left:16px;">Non-MSME brand-owner universe is now built bottom-up from ACMA, SIAM, CRISIL, MCA21/Tofler, and 14 research agent outputs. Auto: ~1,100 firms (OEMs + Tier-1/2 components + dealerships + B2B specialty). FMCG: ~700 firms (listed + unlisted Indian + MNC India subs + cooperatives + food-B2B processors).</p>
-        </div>
-      </div>
-    </details>
-
   </div>
 </section>
 
@@ -3480,7 +3432,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       </div>
       <div class="key-insight">
         <div class="ki-label">Finding 2</div>
-        <p>FMCG has <strong>1.6&times; the Knowledge Worker/revenue density</strong> of Auto (1,300 vs 814 Knowledge Worker per $B). Brand owners in both sectors run 47-57% on-payroll Knowledge Worker share because listed companies outsource most factory labour to contractors, leaving a Knowledge Worker-heavy on-payroll base.</p>
+        <p>FMCG has <strong>1.6&times; the Knowledge Worker density per $B of revenue</strong> vs Auto (1,300 vs 814 Knowledge Workers per $B). Brand owners in both sectors run 47-57% on-payroll Knowledge Worker share because listed companies outsource most factory labour to contractors, leaving a Knowledge Worker-heavy on-payroll base.</p>
       </div>
       <div class="key-insight">
         <div class="ki-label">Finding 3</div>
@@ -4861,7 +4813,7 @@ const SECTOR_DETAILS = {
     highlights:["Largest enterprise TAM ($0.8B) — BRSR-anchored methodology","9 BRSRs directly parsed (Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)","Pooled Knowledge Worker share 56.6% — listed OEMs outsource factory labor, leaving Knowledge Worker-heavy on-payroll","163K permanent on-payroll Knowledge Workers, $27k/yr avg salary (BRSR median × 1.2)","ACMA FY24 $74B components base + SIAM OEM production drives universe"],
     sources:[{t:"ACMA FY24",u:"https://acma.in/pdf/Ind%20Presentation%20FY24.pdf"},{t:"SIAM",u:"https://www.siam.in/statistics.aspx"}]},
   "FMCG": {emoji:"\u{1F6D2}",color:"#d97706",revenue:"$110B brand-owner",margin:"17%",employees:"~700 firms",wcPct:"48.6% pooled",kwPayroll:"$2.7B",fwdCagr:"6.5%",aiReadiness:"Highly Ripe",tam:"$0.5B",selected:true,
-    highlights:["$0.5B enterprise TAM — BRSR-anchored methodology","8 BRSRs directly parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)","Highest Knowledge Worker/revenue density (1,300 Knowledge Worker per $B) — on-payroll base is sales/brand/marketing","143K permanent on-payroll Knowledge Workers, $18.5k/yr avg salary (BRSR median × 1.2)","Brand-owner universe includes listed + MNC India subs + Amul + cooperatives + unlisted large Indian brand owners"],
+    highlights:["$0.5B enterprise TAM — BRSR-anchored methodology","8 BRSRs directly parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)","Highest Knowledge Worker density per revenue (1,300 Knowledge Workers per $B) — on-payroll base is sales/brand/marketing","143K permanent on-payroll Knowledge Workers, $18.5k/yr avg salary (BRSR median × 1.2)","Brand-owner universe includes listed + MNC India subs + Amul + cooperatives + unlisted large Indian brand owners"],
     sources:[{t:"CRISIL FMCG",u:"https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html"},{t:"IBEF FMCG",u:"https://www.ibef.org/industry/fmcg"}]},
   "ESDM": {emoji:"\u{1F4BB}",color:"#059669",revenue:"$133B",margin:"7%",employees:"2.5M",wcPct:"35%",kwPayroll:"$3.7B",fwdCagr:"18.7%",aiReadiness:"Immediate",tam:"$140M",selected:false,
     highlights:["Most aggressive growth (18.7% CAGR) but workforce still scaling","Highest AI readiness alongside Auto (NASSCOM)","10 semiconductor projects worth INR 1.6 lakh crore approved","Deferred: sector expanding too fast for stable workforce baseline"],
