@@ -4416,15 +4416,15 @@ function renderTAMWaterfall() {
   const wrap = document.getElementById('topProblemsWrap');
   const canvas = document.getElementById('topProblemsCanvas');
   const tooltip = document.getElementById('topProblemsTooltip');
-  // Left margin must accommodate Y-axis labels + the leftmost rotated X-axis label
-  // which extends ~90px to the left of the leftmost bar center at 45° rotation.
-  const M = {top: 30, right: 30, bottom: 120, left: 110};
+  // 90° vertical X-axis labels need ~150px bottom margin (full label height)
+  // but only ~12px horizontal per bar, so labels never clip into Y-axis area.
+  const M = {top: 36, right: 24, bottom: 170, left: 68};
 
   function draw() {
     const dpr = window.devicePixelRatio || 1;
     const cssW = wrap.clientWidth - 40;
-    // Aspect ratio 0.45 with 560px cap — ensures chart fits within one viewport
-    const cssH = Math.min(Math.round(cssW * 0.45), 560);
+    // Aspect ratio 0.50 with 600px cap — enough vertical for 90° labels + plot
+    const cssH = Math.min(Math.round(cssW * 0.50), 600);
     canvas.style.width = cssW + 'px';
     canvas.style.height = cssH + 'px';
     canvas.width = cssW * dpr;
@@ -4494,27 +4494,28 @@ function renderTAMWaterfall() {
       ctx.textAlign = 'center';
       ctx.fillText('$' + node.ent + 'M', barX + barW / 2, barY - 6);
 
-      // Score badge inside top of bar (for top quartile)
-      if (isTopQ && barH > 28) {
-        ctx.fillStyle = 'rgba(13,148,136,0.95)';
+      // Score badge INSIDE top of EVERY bar (always, not just top quartile)
+      if (barH > 26) {
+        const badgeColor = isTopQ ? 'rgba(13,148,136,0.95)' : 'rgba(71,85,105,0.88)';
+        ctx.fillStyle = badgeColor;
         const badgeW = 30, badgeH = 13;
         const badgeX = barX + barW / 2 - badgeW / 2;
         const badgeY = barY + 5;
         ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
         ctx.fillStyle = '#fff';
         ctx.font = '700 9px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
         ctx.fillText(node.score + '/10', barX + barW / 2, badgeY + 9);
       }
 
-      // Bottom rotated label — truncate to 18 chars max to prevent leftmost clipping
+      // Bottom vertical label (90° rotation) — no truncation, fits any length
       ctx.save();
       ctx.translate(barX + barW / 2, M.top + plotH + 10);
-      ctx.rotate(-Math.PI / 4);
-      ctx.font = '500 10px Sora, sans-serif';
-      ctx.fillStyle = '#475569';
+      ctx.rotate(-Math.PI / 2);
+      ctx.font = '500 11px Sora, sans-serif';
+      ctx.fillStyle = '#334155';
       ctx.textAlign = 'right';
-      const label = node.name.length > 18 ? node.name.substring(0, 16) + '…' : node.name;
-      ctx.fillText(label, 0, 4);
+      ctx.fillText(node.name, 0, 4);
       ctx.restore();
 
       canvas._bars.push({x: barX, y: barY, w: barW, h: barH, node});
@@ -4971,13 +4972,15 @@ document.addEventListener('mouseout', function(e) {
   var maxEnt = Math.max.apply(null, allNodes.map(function(n){return n.ent;}));
 
   // Margin convention: m = {top, right, bottom, left}
-  var M = {top: 36, right: 30, bottom: 56, left: 70};
+  var M = {top: 40, right: 30, bottom: 64, left: 78};
+  // Data safe-area inset: dots never render past the plot edge by more than half their radius
+  var SAFE = 22; // max dot radius + small buffer
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
     var cssW = wrap.clientWidth - 40; // padding 20 each side
-    // Aspect ratio 0.42 with 560px cap — ensures chart fits within one viewport
-    var cssH = Math.min(Math.round(cssW * 0.42), 560);
+    // Aspect ratio 0.45 with 560px cap — ensures chart fits within one viewport
+    var cssH = Math.min(Math.round(cssW * 0.45), 560);
     canvas.style.width = cssW + 'px';
     canvas.style.height = cssH + 'px';
     canvas.width = cssW * dpr;
@@ -4996,15 +4999,17 @@ document.addEventListener('mouseout', function(e) {
     ctx.lineWidth = 1;
     ctx.strokeRect(M.left, M.top, plotW, plotH);
 
-    // Quadrant grid lines (midpoints)
+    // Quadrant grid lines (at mid-score=5.5 and mid-TAM = xMax/2 in safe-area coords)
     ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
+    var midX = (M.left + SAFE) + 0.5 * (plotW - 2 * SAFE);
+    var midY = (M.top + SAFE) + 0.5 * (plotH - 2 * SAFE);
     ctx.beginPath();
-    ctx.moveTo(M.left + plotW / 2, M.top);
-    ctx.lineTo(M.left + plotW / 2, M.top + plotH);
-    ctx.moveTo(M.left, M.top + plotH / 2);
-    ctx.lineTo(M.left + plotW, M.top + plotH / 2);
+    ctx.moveTo(midX, M.top);
+    ctx.lineTo(midX, M.top + plotH);
+    ctx.moveTo(M.left, midY);
+    ctx.lineTo(M.left + plotW, midY);
     ctx.stroke();
     ctx.setLineDash([]);
 
@@ -5024,16 +5029,18 @@ document.addEventListener('mouseout', function(e) {
     ctx.textAlign = 'right';
     ctx.fillText('Large Market, Low Readiness', M.left + plotW - 8, M.top + plotH - 8);
 
-    // X-axis ticks (TAM)
+    // X-axis ticks (TAM) — align with dot safe-area
     ctx.strokeStyle = '#cbd5e1';
     ctx.fillStyle = '#64748b';
     ctx.font = '500 10px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
     var xTicks = 5;
     var xMax = Math.ceil(maxEnt / 50) * 50;
+    var plotSafeW_ax = plotW - 2 * SAFE;
+    var plotSafeL_ax = M.left + SAFE;
     for (var i = 0; i <= xTicks; i++) {
       var v = (xMax / xTicks) * i;
-      var px = M.left + (v / xMax) * plotW;
+      var px = plotSafeL_ax + (v / xMax) * plotSafeW_ax;
       ctx.beginPath();
       ctx.moveTo(px, M.top + plotH);
       ctx.lineTo(px, M.top + plotH + 4);
@@ -5045,12 +5052,14 @@ document.addEventListener('mouseout', function(e) {
     ctx.fillStyle = '#475569';
     ctx.fillText('Knowledge Worker Automation Enterprise TAM ($M)', M.left + plotW / 2, M.top + plotH + 40);
 
-    // Y-axis ticks (score)
+    // Y-axis ticks (score) — align with dot safe-area
     ctx.font = '500 10px JetBrains Mono, monospace';
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'right';
+    var plotSafeH_ax = plotH - 2 * SAFE;
+    var plotSafeT_ax = M.top + SAFE;
     for (var s = 1; s <= 10; s++) {
-      var py = M.top + plotH - ((s - 1) / 9) * plotH;
+      var py = plotSafeT_ax + (1 - (s - 1) / 9) * plotSafeH_ax;
       ctx.beginPath();
       ctx.moveTo(M.left, py);
       ctx.lineTo(M.left - 4, py);
@@ -5068,15 +5077,35 @@ document.addEventListener('mouseout', function(e) {
     ctx.restore();
 
     // Plot dots — collect for hover hit-testing
+    // Use inset "safe area" so dots never render outside the plot box.
+    var plotSafeW = plotW - 2 * SAFE;
+    var plotSafeH = plotH - 2 * SAFE;
+    var plotSafeL = M.left + SAFE;
+    var plotSafeT = M.top + SAFE;
+
     canvas._dots = [];
     // Sort dots so smaller ones render on top of larger
     var sorted = allNodes.slice().sort(function(a, b){ return b.ent - a.ent; });
+
+    // Track occupied positions to apply deterministic jitter on collisions
+    var occupied = {};
     sorted.forEach(function(n) {
-      var px = M.left + (n.ent / xMax) * plotW;
-      var py = M.top + plotH - ((n.score - 1) / 9) * plotH;
-      var r = Math.max(6, Math.min(20, 6 + Math.sqrt(n.ent / maxEnt) * 18));
-      var color = n.sector === 'Auto' ? 'rgba(37,99,235,0.78)' : 'rgba(217,119,6,0.78)';
-      var stroke = n.score >= 8 ? '#0d9488' : 'rgba(255,255,255,0.85)';
+      var px = plotSafeL + (n.ent / xMax) * plotSafeW;
+      var py = plotSafeT + (1 - (n.score - 1) / 9) * plotSafeH;
+      // Apply deterministic jitter if this pixel position is occupied
+      var key = Math.round(px / 6) + '_' + Math.round(py / 6);
+      var jitter = occupied[key] || 0;
+      if (jitter > 0) {
+        var angle = (jitter * 2.39996) % (Math.PI * 2); // golden angle spiral
+        var dist = 6 + jitter * 2.5;
+        px += Math.cos(angle) * dist;
+        py += Math.sin(angle) * dist;
+      }
+      occupied[key] = jitter + 1;
+
+      var r = Math.max(6, Math.min(18, 6 + Math.sqrt(n.ent / maxEnt) * 15));
+      var color = n.sector === 'Auto' ? 'rgba(37,99,235,0.80)' : 'rgba(217,119,6,0.80)';
+      var stroke = n.score >= 8 ? '#0d9488' : 'rgba(255,255,255,0.90)';
       var strokeW = n.score >= 8 ? 2.5 : 1.2;
       ctx.beginPath();
       ctx.arc(px, py, r, 0, Math.PI * 2);
