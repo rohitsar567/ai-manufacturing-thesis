@@ -4265,66 +4265,10 @@ function renderDetailPanel(n, ctx) {
       </div>
     </div>
 
-    <!-- STEP 4: SOURCES & RESEARCH BACKING (5 categories) -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#2563eb;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(37,99,235,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#2563eb;">4</span>
-        SOURCES & RESEARCH BACKING (5 CATEGORIES)
-      </div>
-      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#7c3aed;margin-bottom:6px;">1. VC & Investment Theses</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://a16z.com/ai-for-the-physical-world/" target="_blank" class="source-tag">a16z: Physical AI</a>
-              <a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank" class="source-tag">Bessemer: Vertical AI</a>
-              <a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank" class="source-tag">Sequoia: Services</a>
-              <a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank" class="source-tag">Menlo: GenAI Enterprise</a>
-              <a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank" class="source-tag">GC: Fund XII</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#2563eb;margin-bottom:6px;">2. Industry & Market Data</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" class="source-tag">IBEF ${sectorData.name}</a>
-              <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" class="source-tag">Mordor Intelligence</a>
-              ${isAuto ? '<a href="https://www.siam.in/pressrelease-details.aspx?mpgid=48&pgidtrail=50&pid=579" target="_blank" class="source-tag">SIAM Statistics</a>' : '<a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>'}
-              <a href="https://www.ibef.org/industry/manufactur-presentation" target="_blank" class="source-tag">IBEF Manufacturing</a>
-              <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" class="source-tag">PLFS Labour Survey</a>
-              <a href="https://www.screener.in/company/compare/00000005/" target="_blank" class="source-tag">Screener.in Auto P&L</a>
-              <a href="https://www.screener.in/company/compare/00000027/" target="_blank" class="source-tag">Screener.in FMCG P&L</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#0d9488;margin-bottom:6px;">3. Consulting & Research</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey: India Mfg</a>
-              <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" class="source-tag">McKinsey: AI & Work</a>
-              <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank" class="source-tag">Deloitte: Industry 4.0</a>
-              <a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank" class="source-tag">PwC: AI for MSMEs</a>
-              <a href="https://www.bcg.com/powering-past-headwinds-indian-manufacturing-winning-in-an-era-of-shocks-swings-and-shortages" target="_blank" class="source-tag">BCG: Indian Mfg</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#d97706;margin-bottom:6px;">4. Government & Policy</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog: AI Strategy</a>
-              <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM: AI Index</a>
-              <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF: Jobs 2025</a>
-              <a href="https://www.makeinindia.com/schemes-electronics-manufacturing-india" target="_blank" class="source-tag">Make in India</a>
-              <a href="https://labour.gov.in/CodeonWages" target="_blank" class="source-tag">Labour Codes 2025</a>
-            </div>
-          </div>
-        </div>
-        ${n.sources ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #bfdbfe;"><div style="font-size:0.72rem;font-weight:700;color:#ea580c;margin-bottom:6px;">5. Product & Startup Evidence</div><div style="display:flex;flex-wrap:wrap;gap:4px;">' + n.sources.map(function(s){return '<a href="'+s.u+'" target="_blank" class="source-tag">'+s.t+'</a>';}).join('') + '</div></div>' : ''}
-        ${vcHtml ? '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">' + vcHtml + '</div>' : ''}
-      </div>
-    </div>
-
-    <!-- STEP 5: MARKET SIZE DERIVATION -->
+    <!-- STEP 4: MARKET SIZE DERIVATION -->
     <div style="margin-bottom:16px;">
       <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#d97706;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(217,119,6,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#d97706;">5</span>
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(217,119,6,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#d97706;">4</span>
         MARKET SIZE DERIVATION
       </div>
       <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;">
@@ -4375,6 +4319,62 @@ function renderDetailPanel(n, ctx) {
             <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${n.tam}M</span>
           </div>
         </div></div>
+    </div>
+
+    <!-- STEP 5: SOURCES & RESEARCH BACKING (5 categories) -->
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#2563eb;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(37,99,235,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#2563eb;">5</span>
+        SOURCES & RESEARCH BACKING (5 CATEGORIES)
+      </div>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#7c3aed;margin-bottom:6px;">1. VC & Investment Theses</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://a16z.com/ai-for-the-physical-world/" target="_blank" class="source-tag">a16z: Physical AI</a>
+              <a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank" class="source-tag">Bessemer: Vertical AI</a>
+              <a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank" class="source-tag">Sequoia: Services</a>
+              <a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank" class="source-tag">Menlo: GenAI Enterprise</a>
+              <a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank" class="source-tag">GC: Fund XII</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#2563eb;margin-bottom:6px;">2. Industry & Market Data</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" class="source-tag">IBEF ${sectorData.name}</a>
+              <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" class="source-tag">Mordor Intelligence</a>
+              ${isAuto ? '<a href="https://www.siam.in/pressrelease-details.aspx?mpgid=48&pgidtrail=50&pid=579" target="_blank" class="source-tag">SIAM Statistics</a>' : '<a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>'}
+              <a href="https://www.ibef.org/industry/manufactur-presentation" target="_blank" class="source-tag">IBEF Manufacturing</a>
+              <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" class="source-tag">PLFS Labour Survey</a>
+              <a href="https://www.screener.in/company/compare/00000005/" target="_blank" class="source-tag">Screener.in Auto P&L</a>
+              <a href="https://www.screener.in/company/compare/00000027/" target="_blank" class="source-tag">Screener.in FMCG P&L</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#0d9488;margin-bottom:6px;">3. Consulting & Research</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey: India Mfg</a>
+              <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" class="source-tag">McKinsey: AI & Work</a>
+              <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank" class="source-tag">Deloitte: Industry 4.0</a>
+              <a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank" class="source-tag">PwC: AI for MSMEs</a>
+              <a href="https://www.bcg.com/powering-past-headwinds-indian-manufacturing-winning-in-an-era-of-shocks-swings-and-shortages" target="_blank" class="source-tag">BCG: Indian Mfg</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#d97706;margin-bottom:6px;">4. Government & Policy</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog: AI Strategy</a>
+              <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM: AI Index</a>
+              <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF: Jobs 2025</a>
+              <a href="https://www.makeinindia.com/schemes-electronics-manufacturing-india" target="_blank" class="source-tag">Make in India</a>
+              <a href="https://labour.gov.in/CodeonWages" target="_blank" class="source-tag">Labour Codes 2025</a>
+            </div>
+          </div>
+        </div>
+        ${n.sources ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #bfdbfe;"><div style="font-size:0.72rem;font-weight:700;color:#ea580c;margin-bottom:6px;">5. Product & Startup Evidence</div><div style="display:flex;flex-wrap:wrap;gap:4px;">' + n.sources.map(function(s){return '<a href="'+s.u+'" target="_blank" class="source-tag">'+s.t+'</a>';}).join('') + '</div></div>' : ''}
+        ${vcHtml ? '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">' + vcHtml + '</div>' : ''}
+      </div>
     </div>
   </div>`;
 }
