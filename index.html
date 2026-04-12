@@ -826,10 +826,10 @@ footer .author { color: var(--text-secondary); font-weight: 600; }
 .score-cell:hover { background: rgba(45,212,191,0.06) !important; }
 .cell-tip { display: none; }
 #floatingTip {
-  display: none; position: fixed; z-index: 9999; width: 300px; padding: 18px; border-radius: 12px;
-  background: #ffffff; border: 1px solid rgba(13,148,136,0.3); 
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-  font-size: 0.78rem; color: #4a5568; line-height: 1.6; font-family: 'Sora', sans-serif;
+  display: none; position: fixed; z-index: 9999; width: 520px; max-width: calc(100vw - 40px); padding: 22px 24px; border-radius: 14px;
+  background: #ffffff; border: 1px solid rgba(13,148,136,0.3);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+  font-size: 0.85rem; color: #4a5568; line-height: 1.65; font-family: 'Sora', sans-serif;
   pointer-events: none;
 }
 #floatingTip.show { display: block; }
@@ -2877,21 +2877,20 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       </details>
 
       <!-- METHODOLOGY DISCLOSURE BOX — BRSR-anchored definition (collapsible) -->
-      <details style="background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(13,148,136,0.04)); border:1px solid rgba(124,58,237,0.35); border-radius:12px; padding:0; margin:14px 0; overflow:hidden;">
-        <summary style="padding:18px 24px; cursor:pointer; display:flex; align-items:center; gap:10px; list-style:none;">
-          <div style="font-family:var(--font-mono); font-size:0.55rem; font-weight:700; color:#fff; background:var(--accent-violet); padding:3px 10px; border-radius:6px; letter-spacing:0.06em;">METHODOLOGY NOTE</div>
-          <div style="font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--text-primary);">How "knowledge work" is defined and measured</div>
-          <span style="margin-left:auto; color:var(--accent-violet); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
+      <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin:14px 0; overflow:hidden;">
+        <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--accent-teal); display:flex; justify-content:space-between; align-items:center; list-style:none;">
+          <span>How "knowledge work" is defined and measured &mdash; BRSR-anchored definition</span>
+          <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
         </summary>
         <div style="padding:0 24px 22px;">
 
-        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Definition</div>
+        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Definition</div>
         <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.65; margin:0 0 14px;">Knowledge workers in this thesis are <strong style="color:var(--text-primary);">permanent on-payroll employees classified as "Employees" (not "Workers") in the company's BRSR Section A 20(a) disclosure</strong>. This is the SEBI-mandated definition that splits a listed company's permanent workforce into (a) Employees &mdash; managerial, professional, technical, clerical, sales, HQ, R&amp;D and (b) Workers &mdash; factory operators, machine tenders, direct production labour. We use the BRSR definition because it is filed under SEBI compliance, primary-sourced for each company, and directly measurable.</p>
 
-        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Why brand-owner on-payroll, not sector-wide</div>
+        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Why brand-owner on-payroll, not sector-wide</div>
         <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin:0 0 14px;">The TAM denominator is <strong style="color:var(--text-primary);">permanent Knowledge Worker employees at non-MSME brand owners only</strong>, not the sector total. Three exclusions: (1) <strong>MSME workforce</strong> &mdash; smaller companies below &#8377;250 cr turnover can't afford enterprise AI SaaS; (2) <strong>Contract/gig workers</strong> &mdash; ~41% of factory labour in Indian manufacturing (ASI 2022-23) sits outside the brand owner's payroll, employed by staffing agencies; (3) <strong>Unorganized/informal sector</strong> &mdash; not addressable by enterprise software. The resulting universe is <strong style="color:var(--text-primary);">~306K permanent Knowledge Workers across ~1,800 brand-owner firms</strong> in Auto + FMCG &mdash; the directly-sellable addressable population for enterprise AI SaaS.</p>
 
-        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-violet); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">17 BRSRs directly parsed (FY24 / FY24-25)</div>
+        <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">17 BRSRs directly parsed (FY24 / FY24-25)</div>
         <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.6; margin:0 0 10px;"><strong style="color:var(--text-secondary);">FMCG (8):</strong> <a href="https://www.hul.co.in/" target="_blank" style="color:var(--accent-teal);">HUL</a> 42.5% &middot; <a href="https://www.itcportal.com/" target="_blank" style="color:var(--accent-teal);">ITC</a> 50.7% &middot; <a href="https://www.nestle.in/" target="_blank" style="color:var(--accent-teal);">Nestle India</a> 42.8% &middot; <a href="https://www.britannia.co.in/" target="_blank" style="color:var(--accent-teal);">Britannia</a> 46.5% &middot; <a href="https://www.dabur.com/" target="_blank" style="color:var(--accent-teal);">Dabur</a> 75.0% &middot; <a href="https://marico.com/" target="_blank" style="color:var(--accent-teal);">Marico</a> 96.6% &middot; <a href="https://www.colgateinvestors.co.in/" target="_blank" style="color:var(--accent-teal);">Colgate</a> 37.1% &middot; <a href="https://www.tataconsumer.com/" target="_blank" style="color:var(--accent-teal);">Tata Consumer</a> 28.2%</p>
         <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.6; margin:0 0 10px;"><strong style="color:var(--text-secondary);">Auto (9):</strong> <a href="https://www.marutisuzuki.com/" target="_blank" style="color:var(--accent-teal);">Maruti Suzuki</a> 71.5% &middot; <a href="https://www.tatamotors.com/" target="_blank" style="color:var(--accent-teal);">Tata Motors</a> 44.7% &middot; <a href="https://www.mahindra.com/" target="_blank" style="color:var(--accent-teal);">M&amp;M</a> 58.5% &middot; <a href="https://www.bajajauto.com/" target="_blank" style="color:var(--accent-teal);">Bajaj Auto</a> 47.1% &middot; <a href="https://www.heromotocorp.com/" target="_blank" style="color:var(--accent-teal);">Hero MotoCorp</a> 50.8% &middot; <a href="https://www.tvsmotor.com/" target="_blank" style="color:var(--accent-teal);">TVS Motor</a> 72.4% &middot; <a href="https://www.eicher.in/" target="_blank" style="color:var(--accent-teal);">Eicher</a> 61.1% &middot; <a href="https://www.ashokleyland.com/" target="_blank" style="color:var(--accent-teal);">Ashok Leyland</a> 54.4% &middot; <a href="https://www.boschindia.com/" target="_blank" style="color:var(--accent-teal);">Bosch India</a> 55.5%</p>
         <p style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin:0;">Pooled Knowledge Worker share (sum of Knowledge Worker / sum of permanent): <strong style="color:var(--text-secondary);">Auto 56.6% &middot; FMCG 46.7%</strong>. Revenue-weighted: <strong style="color:var(--text-secondary);">Auto 57.6% &middot; FMCG 48.6%</strong>. Median employee pay (BRSR Section C Principle 5 E3): <strong style="color:var(--text-secondary);">Auto &#8377;18.4 lakh &middot; FMCG &#8377;12.5 lakh</strong>. Applied &times; 1.20 Aon India mean/median factor to get blended mean compensation.</p>
@@ -2899,10 +2898,10 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       </details>
 
       <!-- ROLE-BASED AUTOMATION RATES — Step A × Step B (collapsible) -->
-      <details style="background:var(--bg-card); border-radius:10px; padding:0; border:1px solid var(--border-subtle); margin-bottom:8px; overflow:hidden;">
-        <summary style="padding:14px 18px; cursor:pointer; font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent-violet); display:flex; justify-content:space-between; align-items:center; list-style:none;">
+      <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin-bottom:14px; overflow:hidden;">
+        <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--accent-teal); display:flex; justify-content:space-between; align-items:center; list-style:none;">
           <span>Role-based automation rates (Step A &times; Step B)</span>
-          <span style="color:var(--accent-violet); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
+          <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
         </summary>
         <div style="padding:0 18px 16px;">
         <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.5; margin-top:4px;">The addressable fraction of Knowledge Worker payroll is split into two steps: <strong style="color:var(--text-primary);">Step A (role eligibility)</strong> &mdash; which Knowledge Worker roles are automatable at all &mdash; and <strong style="color:var(--text-primary);">Step B (task automation %)</strong> &mdash; what fraction of work within each eligible role AI can actually do. <strong>Step A</strong>: Executives (CXO/VP, ~0.3% of payroll) are 0% eligible. 20% of Professional-level R&amp;D (principal scientists, lead architects) are carved out as "hyper-technical". All other roles are eligible. <strong>Step B</strong>: per-role rates from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, and Frey-Osborne 2013 &mdash; Clerical 77%, Customer Service 62%, Technician 47%, Middle Mgmt 42%, Professional 37%, Sales Field 37%, Senior Mgmt 20%. Combined salary-weighted Step A &times; B is 35.8% for Auto and 36.5% for FMCG.</p>
@@ -3398,19 +3397,19 @@ const AUTO_NODES = [
   // SUPPLY & PROCUREMENT
   {id:1,name:"Vehicle Program Leadership",bp:"supply",tier:"T1",icon:"🎯",collar:"Executive",
    roles:"Exec Dir Vehicle Programs, CTO/R&D Head, Program Mgr",
-   tam:51,feas:"Medium",score:6,hc_pct:30,mult:0.24,fte:8,
+   tam:45,feas:"Medium",score:6,hc_pct:30,mult:0.24,fte:8,
    problems:["Program timelines managed via spreadsheets and email; 40% of vehicle programs exceed timeline by 3+ months","Cross-functional dependency tracking across 200+ suppliers is manual","Portfolio ROI analysis lacks real-time market signal integration"],
    solutions:["AI-powered program management with automated dependency graphs and critical-path optimization","LLM agents for cross-functional status aggregation and risk flagging","Predictive market analytics for portfolio prioritization using real-time demand signals"],
-   products:[{n:"Celonis",d:"Process mining & AI execution management",u:"https://www.celonis.com",y:2011,f:"$1.4B",inv:"Arena Holdings, Durable Capital",logo:"https://www.google.com/s2/favicons?domain=www.celonis.com&sz=64",india_focus:false},{n:"Aha!",d:"AI-enhanced product roadmap & program management",u:"https://www.aha.io",y:2013,f:"Bootstrapped, profitable",inv:"Founder-owned",logo:"https://www.google.com/s2/favicons?domain=www.aha.io&sz=64",india_focus:false},{n:"Planview",d:"Portfolio & program management with AI features",u:"https://www.planview.com",y:1989,f:"$1.6B (PE)",inv:"TPG, TA Associates",logo:"https://www.google.com/s2/favicons?domain=www.planview.com&sz=64",india_focus:false},{n:"Scoutbee",d:"AI-powered supplier discovery",u:"https://scoutbee.com",y:2015,f:"$76M",inv:"Atomico, Lakestar",logo:"https://www.google.com/s2/favicons?domain=scoutbee.com&sz=64",india_focus:false}],
+   products:[{n:"Celonis",d:"Process mining & AI execution management",u:"https://www.celonis.com/process-mining",y:2011,f:"$1.4B",inv:"Arena Holdings, Durable Capital",logo:"https://www.google.com/s2/favicons?domain=www.celonis.com&sz=64",india_focus:false},{n:"Aha!",d:"AI-enhanced product roadmap & program management",u:"https://www.aha.io/roadmaps/overview",y:2013,f:"Bootstrapped, profitable",inv:"Founder-owned",logo:"https://www.google.com/s2/favicons?domain=www.aha.io&sz=64",india_focus:false},{n:"Planview",d:"Portfolio & program management with AI features",u:"https://www.planview.com/products-solutions/products/portfolios",y:1989,f:"$1.6B (PE)",inv:"TPG, TA Associates",logo:"https://www.google.com/s2/favicons?domain=www.planview.com&sz=64",india_focus:false},{n:"Scoutbee",d:"AI-powered supplier discovery",u:"https://scoutbee.com",y:2015,f:"$76M",inv:"Atomico, Lakestar",logo:"https://www.google.com/s2/favicons?domain=scoutbee.com&sz=64",india_focus:false}],
    opportunity:"India-specific vehicle program AI that integrates with SIAM data, homologation timelines, and PLI scheme milestones",
    vc:["a16z: AI Services","Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS"],sources:[{"t": "Aha! product roadmaps", "u": "https://www.aha.io/"},{"t": "Celonis: process mining", "u": "https://www.celonis.com/"},{"t": "SIAM PLI scheme tracker", "u": "https://www.siam.in/"}]},
 
-  {id:2,name:"Product Design & CAD",bp:"supply",tier:"T1",icon:"✏️",collar:"Professional",
+  {id:2,name:"Product Design & CAD",bp:"supply",tier:"T2",icon:"✏️",collar:"Professional",
    roles:"Design/CAD Eng, BIW Design Eng, Vehicle Integration Eng",
-   tam:43,feas:"Low",score:4,hc_pct:25,mult:0.295,fte:15,
+   tam:0,feas:"Low",score:4,hc_pct:25,mult:0.295,fte:15,
    problems:["Design iteration cycles average 12-18 months for new platforms","Manual DFMEA creation takes weeks per subsystem","BIW optimization for crash/weight requires 100s of simulation runs"],
    solutions:["Generative design AI that creates optimized BIW structures within crash/NVH/weight constraints","LLM-assisted DFMEA generation from historical failure databases","AI copilots for CAD that suggest topology-optimized geometries in real-time"],
-   products:[{n:"nTopology",d:"AI generative design for manufacturing",u:"https://www.ntop.com",y:2015,f:"$65M",inv:"Insight Partners, Meritech",logo:"https://www.google.com/s2/favicons?domain=www.ntop.com&sz=64",india_focus:false},{n:"Autodesk Fusion",d:"Cloud CAD/CAM with generative design features",u:"https://www.autodesk.com/products/fusion-360",y:1982,f:"Public (NASDAQ: ADSK, Mkt Cap ~$55B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.autodesk.com&sz=64",india_focus:false},{n:"Physna",d:"AI 3D model search & analysis",u:"https://physna.com",y:2015,f:"$29M",inv:"Drive Capital, Sequoia",logo:"https://www.google.com/s2/favicons?domain=physna.com&sz=64",india_focus:false},{n:"Dassault SOLIDWORKS",d:"3D CAD with AI-assisted design features",u:"https://www.solidworks.com",y:1993,f:"Part of Dassault Systemes (EPA: DSY, Mkt Cap ~$50B)",inv:"Dassault Systemes",logo:"https://www.google.com/s2/favicons?domain=www.solidworks.com&sz=64",india_focus:false}],
+   products:[{n:"nTopology",d:"AI generative design for manufacturing",u:"https://www.ntop.com/software",y:2015,f:"$65M",inv:"Insight Partners, Meritech",logo:"https://www.google.com/s2/favicons?domain=www.ntop.com&sz=64",india_focus:false},{n:"Autodesk Fusion",d:"Cloud CAD/CAM with generative design features",u:"https://www.autodesk.com/products/fusion-360/overview",y:1982,f:"Public (NASDAQ: ADSK, Mkt Cap ~$55B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.autodesk.com&sz=64",india_focus:false},{n:"Physna",d:"AI 3D model search & analysis",u:"https://physna.com",y:2015,f:"$29M",inv:"Drive Capital, Sequoia",logo:"https://www.google.com/s2/favicons?domain=physna.com&sz=64",india_focus:false},{n:"Dassault SOLIDWORKS",d:"3D CAD with AI-assisted design features",u:"https://www.solidworks.com",y:1993,f:"Part of Dassault Systemes (EPA: DSY, Mkt Cap ~$50B)",inv:"Dassault Systemes",logo:"https://www.google.com/s2/favicons?domain=www.solidworks.com&sz=64",india_focus:false}],
    opportunity:"Generative design tool trained on Indian OEM BIW/chassis libraries with ARAI/ICAT homologation constraints built in",
    vc:["a16z: Industrial AI","Menlo: AI Application Layer","Lightspeed India: Enterprise AI"],sources:[{"t": "nTopology: generative design", "u": "https://www.ntop.com/"},{"t": "Autodesk Fusion", "u": "https://www.autodesk.com/products/fusion-360"}]},
 
@@ -3423,27 +3422,27 @@ const AUTO_NODES = [
    opportunity:"Cloud-native AI simulation service for Tier-2/3 suppliers who can't afford HPC infrastructure",
    vc:["a16z: Industrial AI"]},
 
-  {id:4,name:"EV & Powertrain Engineering",bp:"supply",tier:"T1",icon:"⚡",collar:"Professional",
+  {id:4,name:"EV & Powertrain Engineering",bp:"supply",tier:"T2",icon:"⚡",collar:"Professional",
    roles:"Powertrain Calibration Eng, EV Battery Pack Eng, BMS Eng",
-   tam:85,feas:"Low",score:3,hc_pct:20,mult:0.236,fte:10,
+   tam:0,feas:"Low",score:3,hc_pct:20,mult:0.236,fte:10,
    problems:["Battery pack thermal simulation requires weeks of testing","BMS calibration across temperature/SOC/load profiles is combinatorially explosive","Dual-track ICE+EV programs double engineering resource needs"],
    solutions:["AI-driven battery digital twins that predict degradation and thermal behavior","Reinforcement learning for BMS charge/discharge optimization","Automated calibration using ML models trained on dynamometer data"],
    products:[{n:"Monolith AI",d:"AI for engineering test data analysis",u:"https://www.monolithai.com",y:2016,f:"$17M",inv:"Houghton Street, In-Q-Tel",logo:"https://www.google.com/s2/favicons?domain=www.monolithai.com&sz=64",india_focus:false},{n:"Ansys",d:"Multiphysics simulation with AI surrogate models",u:"https://www.ansys.com",y:1970,f:"Public (NASDAQ: ANSS, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.ansys.com&sz=64",india_focus:false},{n:"About:Energy",d:"AI battery digital twin modeling",u:"https://www.aboutenergy.io",y:2020,f:"$13M",inv:"Speedinvest, Clean Energy Ventures",logo:"https://www.google.com/s2/favicons?domain=www.aboutenergy.io&sz=64",india_focus:false},{n:"Ionworks",d:"AI-native battery testing & optimization",u:"https://www.ionworks.com",y:2021,f:"$36M",inv:"Obvious Ventures, DCVC",logo:"https://www.google.com/s2/favicons?domain=www.ionworks.com&sz=64",india_focus:false},{n:"Log9 Materials",d:"AI-enhanced battery tech for India EVs",u:"https://www.log9materials.com",y:2015,f:"$50M raised",inv:"Amara Raja, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.log9materials.com&sz=64",india_focus:true}],
    opportunity:"India-focused EV battery analytics platform — integrating with local cell manufacturers (Ola, Exide) and India's extreme heat/humidity conditions",
    vc:["General Catalyst: Resilience","Blume: Deep-tech India","a16z: Industrial AI"],sources:[{"t": "NITI Aayog: EV roadmap", "u": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"},{"t": "Monolith AI", "u": "https://www.monolithai.com/"},{"t": "SIAM EV statistics", "u": "https://www.siam.in/statistics.aspx"}]},
 
-  {id:5,name:"Testing & Validation",bp:"supply",tier:"T2",icon:"🧪",collar:"Professional",
+  {id:5,name:"Testing & Validation",bp:"supply",tier:"T1",icon:"🧪",collar:"Professional",
    roles:"Testing/Validation Eng, Homologation/Regulatory Eng",
-   tam:0,feas:"Medium",score:6,hc_pct:25,fte:8,mult:0.295,
+   tam:37,feas:"Medium",score:6,hc_pct:25,fte:8,mult:0.295,
    problems:["DV/PV test planning is manual with redundant test coverage","Compliance tracking across CMVR/AIS/BS-VI/CAFE norms is error-prone"],
    solutions:["AI test optimization that eliminates redundant DV/PV runs using coverage analysis","NLP-based regulatory change tracking and impact assessment"],
    products:[{n:"Tricentis",d:"Test automation with AI features"},{n:"Compliance.ai",d:"Regulatory intelligence"},{n:"Hexagon Virtual Testing",d:"Simulation-based test reduction"}],
    opportunity:"ARAI/ICAT regulatory intelligence tool — auto-tracks CMVR amendments and maps to vehicle test requirements",
    vc:["Bessemer: Vertical SaaS"]},
 
-  {id:6,name:"APQP / PPAP Gate",bp:"supply",tier:"T2",icon:"📋",collar:"Professional",
+  {id:6,name:"APQP / PPAP Gate",bp:"supply",tier:"T1",icon:"📋",collar:"Professional",
    roles:"APQP/PPAP Eng, New Product Launch Eng",
-   tam:0,feas:"High",score:8,hc_pct:30,fte:5,mult:0.291,
+   tam:31,feas:"High",score:8,hc_pct:30,fte:5,mult:0.291,
    problems:["PPAP document packages take 4-8 weeks to compile manually","PFMEA updates across engineering changes are inconsistent"],
    solutions:["LLM agents that auto-generate PPAP documentation from engineering data","AI-driven PFMEA that learns from warranty/field failure data to suggest new failure modes"],
    products:[{n:"Qualio",d:"AI quality management"},{n:"ETQ Reliance",d:"AI-powered FMEA"},{n:"Arena Solutions",d:"Product lifecycle PPAP"}],
@@ -3452,35 +3451,35 @@ const AUTO_NODES = [
 
   {id:7,name:"Supply Chain & Sourcing",bp:"supply",tier:"T1",icon:"🔗",collar:"Management",
    roles:"Head of Supply Chain, Procurement/Logistics Mgr, Buyer/Purchase Eng, Supplier Dev Eng",
-   tam:115,feas:"High",score:8,hc_pct:40,mult:0.267,fte:20,
+   tam:100,feas:"High",score:8,hc_pct:40,mult:0.267,fte:20,
    problems:["RFQ processes take 6-12 weeks with manual supplier evaluation","JIT disruption risk poorly modeled — single-source dependencies hidden","Should-cost models maintained in spreadsheets, rarely updated"],
    solutions:["AI procurement agents that auto-source, evaluate, and negotiate with suppliers","Supply chain digital twins with real-time disruption risk scoring","Generative AI for should-cost modeling using material price feeds and process parameters"],
-   products:[{n:"Coupa",d:"Spend management & procurement with AI features",u:"https://www.coupa.com",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Fictiv",d:"AI-powered manufacturing network",u:"https://www.fictiv.com",y:2013,f:"$192M",inv:"Accel, Bill Gates",logo:"https://www.google.com/s2/favicons?domain=www.fictiv.com&sz=64",india_focus:false},{n:"Jaggaer",d:"AI procurement & sourcing",u:"https://www.jaggaer.com",y:1995,f:"$530M",inv:"Cinven, Accel-KKR",logo:"https://www.google.com/s2/favicons?domain=www.jaggaer.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement for Indian manufacturing",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
+   products:[{n:"Coupa",d:"Spend management & procurement with AI features",u:"https://www.coupa.com/products/ai-spend-management",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Fictiv",d:"AI-powered manufacturing network",u:"https://www.fictiv.com",y:2013,f:"$192M",inv:"Accel, Bill Gates",logo:"https://www.google.com/s2/favicons?domain=www.fictiv.com&sz=64",india_focus:false},{n:"Jaggaer",d:"AI procurement & sourcing",u:"https://www.jaggaer.com/solutions/sourcing",y:1995,f:"$530M",inv:"Cinven, Accel-KKR",logo:"https://www.google.com/s2/favicons?domain=www.jaggaer.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement for Indian manufacturing",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
    opportunity:"India supply chain AI that maps the Tier-1 to Tier-4 supplier network (unique to India's fragmented auto component ecosystem) with GST/customs integration",
    vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Accel India: India SaaS"],sources:[{"t": "Coupa: AI Procurement", "u": "https://www.coupa.com/products/procurement"}, {"t": "Resilinc: Supply Chain Risk", "u": "https://www.resilinc.com/"}, {"t": "McKinsey: Supply Chain AI", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}]},
 
   {id:8,name:"Supplier Quality & Planning",bp:"supply",tier:"T1",icon:"✅",collar:"Professional",
    roles:"Supplier/Customer Quality Eng, Production/Material Planner, Production Control Exec",
-   tam:131,feas:"High",score:8,hc_pct:35,mult:0.29,fte:12,
+   tam:114,feas:"High",score:8,hc_pct:35,mult:0.29,fte:12,
    problems:["Supplier PPAP audit findings tracked in Excel — no predictive insight","MRP/production scheduling is manual with poor demand signal integration","8D root-cause analysis relies on tribal knowledge, not data"],
    solutions:["AI supplier scorecards with predictive quality risk models","ML-optimized production scheduling integrating real-time demand and supplier lead times","LLM-powered 8D report generation with automatic root-cause suggestion from historical data"],
-   products:[{n:"o9 Solutions",d:"AI-native planning & demand sensing",u:"https://o9solutions.com",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"Kinaxis",d:"Supply chain orchestration with AI features",u:"https://www.kinaxis.com",y:1984,f:"Public (TSX: KXS, Mkt Cap ~$4B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.kinaxis.com&sz=64",india_focus:false},{n:"Inspectorio",d:"AI quality & compliance for supply chains",u:"https://www.inspectorio.com",y:2016,f:"$47M",inv:"Openspace, Mubadala",logo:"https://www.google.com/s2/favicons?domain=www.inspectorio.com&sz=64",india_focus:false},{n:"Zetwerk",d:"B2B contract manufacturing marketplace with supplier quality intelligence (India)",u:"https://www.zetwerk.com",y:2018,f:"$493M raised, valued at $2.7B",inv:"Greenoaks, Lightspeed India, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.zetwerk.com&sz=64",india_focus:true}],
+   products:[{n:"o9 Solutions",d:"AI-native planning & demand sensing",u:"https://o9solutions.com/platform",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"Kinaxis",d:"Supply chain orchestration with AI features",u:"https://www.kinaxis.com",y:1984,f:"Public (TSX: KXS, Mkt Cap ~$4B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.kinaxis.com&sz=64",india_focus:false},{n:"Inspectorio",d:"AI quality & compliance for supply chains",u:"https://www.inspectorio.com/quality",y:2016,f:"$47M",inv:"Openspace, Mubadala",logo:"https://www.google.com/s2/favicons?domain=www.inspectorio.com&sz=64",india_focus:false},{n:"Zetwerk",d:"B2B contract manufacturing marketplace with supplier quality intelligence (India)",u:"https://www.zetwerk.com",y:2018,f:"$493M raised, valued at $2.7B",inv:"Greenoaks, Lightspeed India, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.zetwerk.com&sz=64",india_focus:true}],
    opportunity:"Supplier quality AI for India's 12,000+ auto component SMEs — lightweight, WhatsApp-integrated, vernacular-ready",
    vc:["Bessemer: Vertical SaaS","Lightspeed India: SME Digitization"],sources:[{"t": "IATF 16949 standard", "u": "https://www.iatfglobaloversight.org/iatf-169492016/about/"},{"t": "McKinsey: Supplier risk", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"},{"t": "o9 Solutions", "u": "https://o9solutions.com/"}]},
 
   // MANUFACTURING & OPERATIONS
-  {id:9,name:"Operations Leadership",bp:"mfg",tier:"T2",icon:"🏭",collar:"Executive",
+  {id:9,name:"Operations Leadership",bp:"mfg",tier:"T1",icon:"🏭",collar:"Executive",
    roles:"COO/Mfg Head, Plant Head, Production Mgr",
-   tam:0,feas:"Medium",score:5,hc_pct:15,fte:3,mult:0.268,
+   tam:84,feas:"Medium",score:5,hc_pct:15,fte:3,mult:0.268,
    problems:["Plant performance dashboards are fragmented across siloed systems","Real-time OEE visibility requires manual data collection"],
    solutions:["AI executive dashboards that auto-correlate plant KPIs","Predictive OEE models that forecast bottlenecks before they occur"],
    products:[{n:"Sight Machine",d:"Manufacturing visibility platform"},{n:"Tulip",d:"Frontline operations platform"},{n:"PTC ThingWorx",d:"IIoT analytics"}],
    opportunity:"Unified plant intelligence platform for Indian auto plants — integrating local MES/ERP systems",
    vc:["General Catalyst: AI-native Enterprise"]},
 
-  {id:10,name:"Mfg & Process Engineering",bp:"mfg",tier:"T2",icon:"⚙️",collar:"Professional",
+  {id:10,name:"Mfg & Process Engineering",bp:"mfg",tier:"T1",icon:"⚙️",collar:"Professional",
    roles:"Head of Mfg Eng, Mfg/Process Eng, Industrial/Lean Eng",
-   tam:0,feas:"Medium",score:6,hc_pct:25,fte:10,mult:0.15,
+   tam:19,feas:"Medium",score:6,hc_pct:25,fte:10,mult:0.15,
    problems:["Line balancing done manually with time studies — takes weeks per model change","Takt time optimization across mixed-model lines is computationally hard"],
    solutions:["AI line balancing that optimizes work allocation across mixed-model assembly","Computer vision for automatic time-and-motion studies"],
    products:[{n:"Drishti Technologies",d:"AI-powered production line analytics"},{n:"Instrumental",d:"Manufacturing AI for process control"},{n:"Eigen Innovations",d:"AI process optimization"}],
@@ -3538,7 +3537,7 @@ const AUTO_NODES = [
 
   {id:17,name:"Quality & Metrology",bp:"mfg",tier:"T1",icon:"📐",collar:"Mixed",
    roles:"Head of Quality (IATF), Quality Eng, Paint Quality Eng, Metrology/CMM Eng, QC/CMM Op, Process Audit Eng",
-   tam:21,feas:"High",score:8,hc_pct:35,mult:0.3,fte:18,
+   tam:19,feas:"High",score:8,hc_pct:35,mult:0.3,fte:18,
    problems:["CMM measurement cycles take 15-45 min per part — bottleneck for inline quality","NCR tracking and CAPA management done in spreadsheets across most Tier-2 suppliers","Root-cause analysis depends on veteran engineers' tribal knowledge — not scalable"],
    solutions:["AI-powered inline dimensional inspection replacing CMM bottleneck — 10x throughput","LLM-driven 8D/CAPA report generation from defect data with automatic root-cause suggestion","Predictive SPC that detects process drift before parts go out of spec"],
    products:[{n:"Landing AI",d:"AI visual inspection platform",u:"https://landing.ai",y:2017,f:"$159M",inv:"McRock Capital, Intel Capital",logo:"https://www.google.com/s2/favicons?domain=landing.ai&sz=64",india_focus:false},{n:"Instrumental",d:"AI manufacturing quality analytics",u:"https://www.instrumental.com",y:2015,f:"$56M",inv:"Canaan, Eclipse, Venrock",logo:"https://www.google.com/s2/favicons?domain=www.instrumental.com&sz=64",india_focus:false},{n:"Eigen Innovations",d:"AI process optimization",u:"https://eigen.io",y:2012,f:"$20M",inv:"BDC Capital",logo:"https://www.google.com/s2/favicons?domain=eigen.io&sz=64",india_focus:false},{n:"Detect Technologies",d:"AI inspection for heavy industry (India)",u:"https://www.detecttechnologies.com",y:2016,f:"$28M raised",inv:"Accel, Elevation Capital, Shell Ventures",logo:"https://www.google.com/s2/favicons?domain=www.detecttechnologies.com&sz=64",india_focus:true},{n:"Qualitas Technologies",d:"AI visual inspection for Indian mfg",u:"https://www.qualitastech.com",y:2016,f:"$5M raised",inv:"Kalaari Capital",logo:"https://www.google.com/s2/favicons?domain=www.qualitastech.com&sz=64",india_focus:true}],
@@ -3566,16 +3565,16 @@ const AUTO_NODES = [
 
   {id:20,name:"Dealership Management",bp:"demand",tier:"T1",icon:"🏢",collar:"Management",
    roles:"Dealer Dev Mgr, Dealership GM, Service Mgr",
-   tam:60,feas:"High",score:8,hc_pct:30,mult:0.42,fte:12,
+   tam:53,feas:"High",score:8,hc_pct:30,mult:0.42,fte:12,
    problems:["Dealer performance evaluation across 2,000-4,000 dealerships per OEM is manual and lagging","Inventory allocation across dealer network based on gut feel, not demand signals","Dealer P&L optimization lacks AI-driven margin analysis"],
    solutions:["AI dealer scorecards with real-time performance prediction and intervention triggers","Demand-sensing AI for optimal inventory allocation across dealer network","LLM agents for automated dealer communication, training, and compliance monitoring"],
-   products:[{n:"Tekion",d:"AI-native cloud dealer management",u:"https://tekion.com",y:2016,f:"$360M",inv:"Alkeon, Advent, Index Ventures",logo:"https://www.google.com/s2/favicons?domain=tekion.com&sz=64",india_focus:false},{n:"Impel",d:"AI-native automotive customer engagement",u:"https://www.impel.io",y:2015,f:"$114M",inv:"Silversmith Capital",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+STwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"AutoFi",d:"AI-native auto financing & digital retail",u:"https://www.autofi.com",y:2015,f:"$85M",inv:"Crosslink Capital, Ford Credit",logo:"https://www.google.com/s2/favicons?domain=www.autofi.com&sz=64",india_focus:false},{n:"Droom",d:"AI auto marketplace (India)",u:"https://droom.in",y:2014,f:"$125M raised",inv:"Lightbox, Toyota Tsusho",logo:"https://www.google.com/s2/favicons?domain=droom.in&sz=64",india_focus:true}],
+   products:[{n:"Tekion",d:"AI-native cloud dealer management",u:"https://tekion.com/products/automotive-retail-cloud",y:2016,f:"$360M",inv:"Alkeon, Advent, Index Ventures",logo:"https://www.google.com/s2/favicons?domain=tekion.com&sz=64",india_focus:false},{n:"Impel",d:"AI-native automotive customer engagement",u:"https://www.impel.io",y:2015,f:"$114M",inv:"Silversmith Capital",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+STwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"AutoFi",d:"AI-native auto financing & digital retail",u:"https://www.autofi.com",y:2015,f:"$85M",inv:"Crosslink Capital, Ford Credit",logo:"https://www.google.com/s2/favicons?domain=www.autofi.com&sz=64",india_focus:false},{n:"Droom",d:"AI auto marketplace (India)",u:"https://droom.in",y:2014,f:"$125M raised",inv:"Lightbox, Toyota Tsusho",logo:"https://www.google.com/s2/favicons?domain=droom.in&sz=64",india_focus:true}],
    opportunity:"India dealer management AI — integrating OEM DMS, Vahan registration data, and regional demand patterns (monsoon, festival, harvest cycles)",
    vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Peak XV: India Manufacturing"],sources:[{"t": "Tekion: AI Dealer Platform", "u": "https://tekion.com/"}, {"t": "SIAM: Industry Data", "u": "https://www.siam.in/statistics.aspx"}]},
 
   {id:21,name:"Showroom Sales",bp:"demand",tier:"T1",icon:"🤵",collar:"Mixed",
    roles:"Sales Consultant, Showroom Host/Telecaller",
-   tam:53,feas:"High",score:8,hc_pct:35,mult:0.37,fte:15,
+   tam:46,feas:"High",score:8,hc_pct:35,mult:0.37,fte:15,
    problems:["Lead qualification is manual — sales consultants spend 60% of time on unqualified walk-ins","Customer configuration and financing options explained inconsistently","Test drive scheduling, follow-up, and CRM updates are fragmented"],
    solutions:["AI lead scoring from digital + walk-in signals","AI sales copilot that provides real-time configuration, financing comparison, and objection handling","Automated CRM updates and follow-up sequencing via conversational AI"],
    products:[{n:"Tekion",d:"Dealer CRM AI"},{n:"Salesforce Automotive Cloud",d:"AI CRM"},{n:"Conversica",d:"AI sales assistant"},{n:"Drift/Salesloft",d:"AI sales engagement"}],
@@ -3584,14 +3583,14 @@ const AUTO_NODES = [
 
   {id:22,name:"After-Sales Service",bp:"demand",tier:"T1",icon:"🔧",collar:"Mixed",
    roles:"After-Sales Area Mgr, Service Advisor, Diagnostic Tech, EV Service Tech",
-   tam:57,feas:"High",score:8,hc_pct:30,mult:0.395,fte:14,
+   tam:49,feas:"High",score:8,hc_pct:30,mult:0.395,fte:14,
    problems:["Service advisors manually create job cards — average 15 min per vehicle","Diagnostic accuracy depends on individual technician skill — inconsistent across network","Parts prediction and pre-staging for appointments is largely manual"],
    solutions:["AI-powered service reception: auto-generate job cards from customer complaint + vehicle history","AI diagnostic assistant using DTC codes + symptom-to-fault ML models","Predictive parts demand based on vehicle age, mileage, season, and regional patterns"],
    products:[{n:"UVeye",d:"AI vehicle inspection systems",u:"https://www.uveye.com",y:2016,f:"$200M",inv:"CarMax, GM Ventures, Volvo",logo:"https://www.google.com/s2/favicons?domain=www.uveye.com&sz=64",india_focus:false},{n:"Ravin AI",d:"AI vehicle inspection via smartphone",u:"https://www.ravin.ai",y:2018,f:"$20M",inv:"Maniv Mobility",logo:"https://www.google.com/s2/favicons?domain=www.ravin.ai&sz=64",india_focus:false},{n:"Anyline",d:"AI mobile scanning & data capture",u:"https://anyline.com",y:2013,f:"$30M",inv:"Project A, Glade Brook",logo:"https://www.google.com/s2/favicons?domain=anyline.com&sz=64",india_focus:false},{n:"GoMechanic",d:"AI auto service marketplace (India)",u:"https://www.gomechanic.in",y:2016,f:"$62M raised",inv:"Chiratae, Sequoia India, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gomechanic.in&sz=64",india_focus:true}],
    opportunity:"India after-sales AI integrating with OBD-II data, multi-brand service chains (MyTVS, GoMechanic), and India's unique two-wheeler service market",
    vc:["a16z: AI Services","Accel India: India SaaS","Kalaari: India AI"],sources:[{"t": "Ravin AI: Vehicle Inspection", "u": "https://www.ravin.ai/"}, {"t": "UVeye: Automated Inspection", "u": "https://www.uveye.com/"}]},
 
-  {id:23,name:"Body Shop & Repair",bp:"demand",tier:"T3",icon:"🎨",collar:"Mixed",
+  {id:23,name:"Body Shop & Repair",bp:"demand",tier:"T2",icon:"🎨",collar:"Mixed",
    roles:"Body Shop Advisor, Auto Service Tech, Repair Painter",
    tam:0,feas:"Medium",score:5,hc_pct:10,fte:2,mult:0.37,
    problems:["Damage assessment and repair cost estimation is subjective — varies 30%+ across estimators"],
@@ -3601,10 +3600,10 @@ const AUTO_NODES = [
 
   {id:24,name:"Warranty & Parts",bp:"demand",tier:"T1",icon:"📄",collar:"Management",
    roles:"Warranty Mgr, Spare Parts Mgr, Warranty Claims Exec, Parts Admin",
-   tam:119,feas:"High",score:8,hc_pct:40,mult:0.553,fte:10,
+   tam:104,feas:"High",score:8,hc_pct:40,mult:0.553,fte:10,
    problems:["Warranty claims processing is manual — 30% of claims require rework due to documentation errors","Fraudulent warranty claims cost OEMs 3-5% of warranty budget","Spare parts demand forecasting based on historical averages, not predictive models"],
    solutions:["AI warranty claims automation — auto-validate, approve/flag, and process claims","ML-based warranty fraud detection using pattern analysis across dealer network","Predictive parts demand using vehicle population, age distribution, and failure mode analysis"],
-   products:[{n:"Syncron",d:"Aftermarket & parts optimization with AI features",u:"https://www.syncron.com",y:1999,f:"$180M",inv:"Summit Partners, Nordic Capital",logo:"https://www.google.com/s2/favicons?domain=www.syncron.com&sz=64",india_focus:false},{n:"Tractable",d:"AI damage assessment from photos",u:"https://tractable.ai",y:2014,f:"$250M+ (Series E 2024)",inv:"Insight Partners, Georgian",logo:"https://www.google.com/s2/favicons?domain=tractable.ai&sz=64",india_focus:false},{n:"Tavant",d:"Warranty management platform with AI features (services + product)",u:"https://www.tavant.com",y:2000,f:"$80M+",inv:"Private",logo:"https://www.google.com/s2/favicons?domain=www.tavant.com&sz=64",india_focus:false},{n:"Servify",d:"AI device aftermarket & warranty platform (India)",u:"https://servify.com",y:2015,f:"$83M raised",inv:"Singularity Growth, BEENEXT",logo:"https://www.google.com/s2/favicons?domain=servify.com&sz=64",india_focus:true}],
+   products:[{n:"Syncron",d:"Aftermarket & parts optimization with AI features",u:"https://www.syncron.com",y:1999,f:"$180M",inv:"Summit Partners, Nordic Capital",logo:"https://www.google.com/s2/favicons?domain=www.syncron.com&sz=64",india_focus:false},{n:"Tractable",d:"AI damage assessment from photos",u:"https://tractable.ai",y:2014,f:"$250M+ (Series E 2024)",inv:"Insight Partners, Georgian",logo:"https://www.google.com/s2/favicons?domain=tractable.ai&sz=64",india_focus:false},{n:"Tavant",d:"Warranty management platform with AI features (services + product)",u:"https://www.tavant.com/warranty-management",y:2000,f:"$80M+",inv:"Private",logo:"https://www.google.com/s2/favicons?domain=www.tavant.com&sz=64",india_focus:false},{n:"Servify",d:"AI device aftermarket & warranty platform (India)",u:"https://servify.com",y:2015,f:"$83M raised",inv:"Singularity Growth, BEENEXT",logo:"https://www.google.com/s2/favicons?domain=servify.com&sz=64",india_focus:true}],
    opportunity:"Warranty and parts AI for India — integrating GSTIN-based dealer reconciliation and India-specific failure patterns (dust, heat, pothole damage)",
    vc:["Bessemer: AI Efficiency","Lightspeed India: Enterprise AI"],sources:[{"t": "Tavant: Warranty AI", "u": "https://www.tavant.com/warranty"}, {"t": "Syncron: Parts Planning", "u": "https://www.syncron.com/"}]},
 
@@ -3619,16 +3618,16 @@ const AUTO_NODES = [
 
   {id:26,name:"Finance & HR",bp:"support",tier:"T1",icon:"💰",collar:"Management",
    roles:"CFO, Plant Controller, Cost Accountant, CHRO, HR/IR Mgr",
-   tam:43,feas:"Very High",score:10,hc_pct:45,mult:0.197,fte:22,
+   tam:37,feas:"Very High",score:10,hc_pct:45,mult:0.197,fte:22,
    problems:["Accounts payable/receivable processing is 70% manual across most Indian manufacturers","Payroll processing for 1,000-5,000 employees involves manual statutory compliance (PF, ESIC, PT)","Recruitment screening: 500+ applications per role, manual shortlisting","Should-cost engineering done in Excel, rarely updated with commodity price changes"],
    solutions:["AI agents for end-to-end AP/AR automation — invoice matching, 3-way PO matching, payment scheduling","AI payroll with automatic statutory compliance updates for Indian labor laws","AI screening and assessment for manufacturing recruitment across all levels","Real-time should-cost models using commodity feeds and manufacturing process parameters"],
    products:[{n:"Highradius",d:"AI fintech for AR/AP (India-origin)",u:"https://www.highradius.com",y:2006,f:"$475M raised, valued at $3.1B (2022)",inv:"Susquehanna, Tiger Global, Citi",logo:"https://www.google.com/s2/favicons?domain=www.highradius.com&sz=64",india_focus:true},{n:"Darwinbox",d:"AI-native HR platform (India-origin)",u:"https://darwinbox.com",y:2015,f:"$110M",inv:"TCV, Salesforce Ventures, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=darwinbox.com&sz=64",india_focus:true},{n:"Eightfold AI",d:"AI-native talent intelligence",u:"https://eightfold.ai",y:2016,f:"$396M",inv:"SoftBank, General Catalyst",logo:"https://www.google.com/s2/favicons?domain=eightfold.ai&sz=64",india_focus:false},{n:"Ramp",d:"AI-native corporate spend management",u:"https://ramp.com",y:2019,f:"$620M",inv:"Founders Fund, Thrive Capital",logo:"https://www.google.com/s2/favicons?domain=ramp.com&sz=64",india_focus:false},{n:"Zaggle",d:"AI spend management (India)",u:"https://www.zaggle.in",y:2011,f:"Public (NSE: ZAGGLE, Mkt Cap ~INR 4,500 Cr)",inv:"Public (IPO 2023)",logo:"https://www.google.com/s2/favicons?domain=www.zaggle.in&sz=64",india_focus:true}],
    opportunity:"Unified finance-HR AI platform for Indian manufacturing — handling GST, TDS, PF, ESIC, Shops & Establishments Act compliance natively",
    vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],sources:[{"t": "Highradius: AI Finance", "u": "https://www.highradius.com/"}, {"t": "Darwinbox: AI HR", "u": "https://darwinbox.com/"}, {"t": "PwC: AI for MSMEs", "u": "https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html"}, {"t": "Bessemer: AI Efficiency", "u": "https://www.bvp.com/atlas/the-state-of-ai-2025"}]},
 
-  {id:27,name:"Maintenance",bp:"support",tier:"T2",icon:"🔩",collar:"Mixed",
+  {id:27,name:"Maintenance",bp:"support",tier:"T1",icon:"🔩",collar:"Mixed",
    roles:"Maintenance Mgr, Maintenance Planner, Maintenance Tech",
-   tam:0,feas:"Medium",score:5,hc_pct:20,fte:6,mult:0.36,
+   tam:45,feas:"Medium",score:5,hc_pct:20,fte:6,mult:0.36,
    problems:["Preventive maintenance schedules are time-based, not condition-based — leading to over-maintenance or failures","Spare parts inventory for maintenance is either overstocked (20-30% dead stock) or stockout"],
    solutions:["Predictive maintenance using vibration, temperature, and current sensors with ML models","AI-optimized spare parts inventory based on failure prediction and lead time modeling"],
    products:[{n:"Augury",d:"Machine health AI"},{n:"Uptake",d:"Industrial AI"},{n:"Fiix (Rockwell)",d:"AI-powered CMMS"},{n:"UpKeep",d:"Mobile-first maintenance AI"}],
@@ -3637,7 +3636,7 @@ const AUTO_NODES = [
 
   {id:28,name:"Digital & IIoT",bp:"support",tier:"T1",icon:"📡",collar:"Professional",
    roles:"IIoT/Predictive Maintenance Eng, Digital Manufacturing Eng",
-   tam:21,feas:"Medium",score:5,hc_pct:20,mult:0.3,fte:5,
+   tam:19,feas:"Medium",score:5,hc_pct:20,mult:0.3,fte:5,
    problems:["IIoT sensor data collected but underutilized — most plants have <5% analytics coverage","Industry 4.0 initiatives are pilot-stuck — 80% don't scale beyond one line","IT/OT convergence creates cybersecurity gaps in connected factories"],
    solutions:["AI-powered manufacturing data platform that auto-discovers insights from sensor data","Scalable IIoT deployment framework with pre-built ML models for common use cases","AI-driven OT security monitoring for connected factory environments"],
    products:[{n:"Sight Machine",d:"Manufacturing data platform",u:"https://sightmachine.com",y:2011,f:"$73M",inv:"Felicis, BMW i Ventures",logo:"https://www.google.com/s2/favicons?domain=sightmachine.com&sz=64",india_focus:false},{n:"Augury",d:"Machine health AI",u:"https://www.augury.com",y:2011,f:"$175M",inv:"Insight Partners, Eclipse",logo:"https://www.google.com/s2/favicons?domain=www.augury.com&sz=64",india_focus:false},{n:"Tulip",d:"AI-native frontline operations",u:"https://tulip.co",y:2014,f:"$107M",inv:"NEA, DMG Mori",logo:"https://www.google.com/s2/favicons?domain=tulip.co&sz=64",india_focus:false},{n:"Altizon",d:"IIoT platform for Indian manufacturing",u:"https://altizon.com",y:2013,f:"$10M raised",inv:"Wipro Ventures, Lumis Partners",logo:"https://www.google.com/s2/favicons?domain=altizon.com&sz=64",india_focus:true}],
@@ -3650,9 +3649,9 @@ const AUTO_NODES = [
 // ════════════════════════════════════════════════════════════════
 const FMCG_NODES = [
   // SUPPLY & PROCUREMENT
-  {id:1,name:"R&D / Formulation",bp:"supply",tier:"T1",icon:"🔬",collar:"Professional",
+  {id:1,name:"R&D / Formulation",bp:"supply",tier:"T2",icon:"🔬",collar:"Professional",
    roles:"Head of R&D, Product Dev Scientist, Food Technologist, Sensory Scientist",
-   tam:29,feas:"Low",score:4,hc_pct:25,mult:0.237,fte:8,
+   tam:0,feas:"Low",score:4,hc_pct:25,mult:0.237,fte:8,
    problems:["Formulation iteration cycles average 6-12 months from concept to pilot","Ingredient interaction prediction relies on trial-and-error — 70%+ bench trials fail","Consumer sensory testing is expensive and slow — 8-12 weeks per concept"],
    solutions:["AI formulation engines that predict ingredient interactions and optimize recipes computationally","Generative AI for new product concept creation based on consumer trend data","AI-powered virtual sensory panels using digital taste/texture models"],
    products:[{n:"Tastewise",d:"AI food trend intelligence",u:"https://www.tastewise.io",y:2016,f:"$65M",inv:"PeakBridge, Pereg",logo:"https://www.google.com/s2/favicons?domain=www.tastewise.io&sz=64",india_focus:false},{n:"NotCo",d:"AI plant-based food formulation",u:"https://notco.com",y:2015,f:"$433M",inv:"Tiger Global, Bezos Expeditions",logo:"https://www.google.com/s2/favicons?domain=notco.com&sz=64",india_focus:false},{n:"Ginkgo Bioworks (acq. Zymergen 2022)",d:"AI bio-foundry & R&D platform; absorbed Zymergen",u:"https://www.ginkgo.bio",y:2008,f:"Public (NYSE: DNA)",inv:"Public (acquired Zymergen Oct 2022)",logo:"https://www.google.com/s2/favicons?domain=www.ginkgo.bio&sz=64",india_focus:false},{n:"Foodhak",d:"AI-native health food formulation",u:"https://www.foodhak.com",y:2020,f:"$5M",inv:"Global Founders Capital",logo:"https://www.google.com/s2/favicons?domain=www.foodhak.com&sz=64",india_focus:false}],
@@ -3670,16 +3669,16 @@ const FMCG_NODES = [
 
   {id:3,name:"S&OP / Demand Planning",bp:"supply",tier:"T1",icon:"📊",collar:"Management",
    roles:"S&OP/Demand Planning Mgr, Demand/Supply Planner, Demand Planning Exec",
-   tam:62,feas:"Very High",score:10,hc_pct:40,mult:0.364,fte:18,
+   tam:60,feas:"Very High",score:10,hc_pct:40,mult:0.364,fte:18,
    problems:["Demand forecast accuracy averages 55-65% at SKU level — drives $2B+ in inventory waste annually across India FMCG","Promotional uplift modeling is manual and inaccurate — 40% of promotions destroy value","New product demand forecasting has no statistical basis — relies on category manager intuition","S&OP meeting prep takes 3-5 days of manual data consolidation per cycle"],
    solutions:["ML demand sensing using POS data, weather, festivals, and macroeconomic signals — improving accuracy to 80%+","AI promotional effectiveness engine that simulates ROI before committing trade spend","Automated S&OP scenario generation with AI — comparing demand/supply scenarios in minutes, not days"],
-   products:[{n:"o9 Solutions",d:"AI-native demand planning & S&OP",u:"https://o9solutions.com",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"RELEX Solutions",d:"AI retail & supply chain planning",u:"https://www.relexsolutions.com",y:2005,f:"$500M+",inv:"TCV, Summit, Veritas",logo:"https://www.google.com/s2/favicons?domain=www.relexsolutions.com&sz=64",india_focus:false},{n:"Crisp",d:"AI-native supply chain data sharing",u:"https://www.gocrisp.com",y:2016,f:"$73M",inv:"Next47, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gocrisp.com&sz=64",india_focus:false},{n:"Blue Yonder",d:"Supply chain planning with AI features",u:"https://blueyonder.com",y:1985,f:"Acquired by Panasonic ($8.5B, 2021)",inv:"Panasonic",logo:"https://www.google.com/s2/favicons?domain=blueyonder.com&sz=64",india_focus:false},{n:"Increff",d:"AI inventory optimization (India)",u:"https://www.increff.com",y:2016,f:"$20M raised",inv:"Binny Bansal, Ventureast",logo:"https://www.google.com/s2/favicons?domain=www.increff.com&sz=64",india_focus:true}],
+   products:[{n:"o9 Solutions",d:"AI-native demand planning & S&OP",u:"https://o9solutions.com/platform",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"RELEX Solutions",d:"AI retail & supply chain planning",u:"https://www.relexsolutions.com/solutions",y:2005,f:"$500M+",inv:"TCV, Summit, Veritas",logo:"https://www.google.com/s2/favicons?domain=www.relexsolutions.com&sz=64",india_focus:false},{n:"Crisp",d:"AI-native supply chain data sharing",u:"https://www.gocrisp.com",y:2016,f:"$73M",inv:"Next47, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gocrisp.com&sz=64",india_focus:false},{n:"Blue Yonder",d:"Supply chain planning with AI features",u:"https://blueyonder.com/solutions/supply-chain-planning",y:1985,f:"Acquired by Panasonic ($8.5B, 2021)",inv:"Panasonic",logo:"https://www.google.com/s2/favicons?domain=blueyonder.com&sz=64",india_focus:false},{n:"Increff",d:"AI inventory optimization (India)",u:"https://www.increff.com",y:2016,f:"$20M raised",inv:"Binny Bansal, Ventureast",logo:"https://www.google.com/s2/favicons?domain=www.increff.com&sz=64",india_focus:true}],
    opportunity:"India FMCG demand AI that integrates kirana/GT distributor signals, quick commerce velocity data, monsoon patterns, and festival calendars — most global tools miss India's GT-dominant distribution",
    vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "o9 Solutions: Demand AI", "u": "https://o9solutions.com/"}, {"t": "Blue Yonder: Supply Chain", "u": "https://blueyonder.com/"}, {"t": "McKinsey: India Mfg", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}]},
 
   {id:4,name:"Supply Planning",bp:"supply",tier:"T1",icon:"📋",collar:"Management",
    roles:"Supply Planning Exec, Chief Supply Chain Officer",
-   tam:29,feas:"High",score:8,hc_pct:35,fte:10,mult:0.363,
+   tam:28,feas:"High",score:8,hc_pct:35,fte:10,mult:0.363,
    problems:["Multi-plant production allocation decisions are suboptimal — based on proximity, not total cost","Raw material inventory typically 15-25% above optimal due to safety stock over-provisioning","Supplier lead time variability causes frequent production schedule changes"],
    solutions:["AI-optimized multi-plant allocation using total cost modeling (raw material, freight, energy, labor)","ML-based dynamic safety stock that adjusts to real-time demand volatility and supplier reliability","AI supplier lead time prediction and automatic schedule adjustment"],
    products:[{n:"Kinaxis",d:"AI supply planning"},{n:"o9 Solutions",d:"Supply chain AI"},{n:"Coupa Supply Chain",d:"Supply chain visibility AI"}],
@@ -3688,14 +3687,14 @@ const FMCG_NODES = [
 
   {id:5,name:"Procurement",bp:"supply",tier:"T1",icon:"🤝",collar:"Professional",
    roles:"Head of Procurement, Procurement Mgr, Procurement Officer, Buyer/Sourcing Specialist",
-   tam:31,feas:"High",score:8,hc_pct:40,mult:0.253,fte:16,
+   tam:30,feas:"High",score:8,hc_pct:40,mult:0.253,fte:16,
    problems:["Commodity price volatility (palm oil, sugar, wheat) creates $50-200M annual hedging losses for large FMCG","Tail-spend management (60% of POs, 5% of spend) is unmanaged and unoptimized","Contract compliance monitoring across 500-2,000 suppliers is manual"],
    solutions:["AI commodity price forecasting using satellite, weather, trade flow, and futures data","AI-powered tail-spend consolidation and maverick spend detection","LLM-based contract analysis and compliance monitoring"],
-   products:[{n:"Coupa",d:"AI spend intelligence",u:"https://www.coupa.com",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Zip",d:"AI-native procurement orchestration",u:"https://ziphq.com",y:2020,f:"$100M+",inv:"Y Combinator, CRV, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=ziphq.com&sz=64",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement (India)",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
+   products:[{n:"Coupa",d:"AI spend intelligence",u:"https://www.coupa.com/products/ai-spend-management",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Zip",d:"AI-native procurement orchestration",u:"https://ziphq.com",y:2020,f:"$100M+",inv:"Y Combinator, CRV, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=ziphq.com&sz=64",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement (India)",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
    opportunity:"India procurement AI integrating APMC mandi prices, AGMARKNET data, and India-specific commodity chains (sugar, edible oil, spices)",
    vc:["Bessemer: AI Efficiency","Accel India: India SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "Coupa: Spend Intelligence", "u": "https://www.coupa.com/"}, {"t": "Gro Intelligence: Commodity AI", "u": "https://www.gro-intelligence.com/"}]},
 
-  {id:6,name:"Raw Material Stores",bp:"supply",tier:"T3",icon:"🏪",collar:"Mixed",
+  {id:6,name:"Raw Material Stores",bp:"supply",tier:"T2",icon:"🏪",collar:"Mixed",
    roles:"Store Exec, Warehouse Associate",
    tam:0,feas:"N/A",score:5,hc_pct:10,fte:2,mult:0.47,
    problems:["FIFO compliance for perishable raw materials is manually tracked — spoilage rate 2-5%"],
@@ -3713,16 +3712,16 @@ const FMCG_NODES = [
    opportunity:"Multi-plant FMCG operations AI — integrating contract manufacturers and co-packers into a unified visibility layer",
    vc:["General Catalyst: AI-native Enterprise"]},
 
-  {id:8,name:"Process Engineering",bp:"mfg",tier:"T2",icon:"⚙️",collar:"Professional",
+  {id:8,name:"Process Engineering",bp:"mfg",tier:"T1",icon:"⚙️",collar:"Professional",
    roles:"Process/Industrial/Lean Eng, Automation Eng",
-   tam:0,feas:"Medium",score:5,hc_pct:20,fte:5,mult:0.295,
+   tam:18,feas:"Medium",score:5,hc_pct:20,fte:5,mult:0.295,
    problems:["OEE in Indian FMCG plants averages 55-65% vs global best practice of 80%+","Changeover time between SKUs is 2-4x longer than benchmark"],
    solutions:["AI-driven OEE optimization identifying micro-stoppages and speed losses from sensor data","ML-optimized changeover sequencing reducing SMED times by 30-40%"],
    products:[{n:"Sight Machine",d:"OEE analytics"},{n:"Tulip",d:"Frontline operations platform"},{n:"Drishti",d:"Production analytics"}],
    opportunity:"FMCG-specific OEE AI for Indian plants — handling high-SKU environments with 50+ changeovers per shift",
    vc:["a16z: Industrial AI"]},
 
-  {id:9,name:"Shift Execution",bp:"mfg",tier:"T3",icon:"👷",collar:"Supervisory",
+  {id:9,name:"Shift Execution",bp:"mfg",tier:"T2",icon:"👷",collar:"Supervisory",
    roles:"Shift In-Charge, Line Leader",
    tam:0,feas:"Low",score:3,hc_pct:10,fte:1,mult:0.291,
    problems:["Shift handover information loss causes 10-15% productivity dip in first hour"],
@@ -3730,7 +3729,7 @@ const FMCG_NODES = [
    products:[{n:"Tulip",d:"Digital shift management"}],
    opportunity:"",vc:[]},
 
-  {id:10,name:"Mixing / Blending",bp:"mfg",tier:"T3",icon:"🥣",collar:"Blue Collar",
+  {id:10,name:"Mixing / Blending",bp:"mfg",tier:"T2",icon:"🥣",collar:"Blue Collar",
    roles:"Machine Op, Blending Op, Food Handler",
    tam:0,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
    problems:["Batch-to-batch consistency varies 5-8% due to raw material variability"],
@@ -3738,7 +3737,7 @@ const FMCG_NODES = [
    products:[{n:"Rockwell FactoryTalk AI",d:"Process control"},{n:"AspenTech",d:"Process optimization"}],
    opportunity:"",vc:[]},
 
-  {id:11,name:"Filling / Batching",bp:"mfg",tier:"T3",icon:"🧃",collar:"Blue Collar",
+  {id:11,name:"Filling / Batching",bp:"mfg",tier:"T2",icon:"🧃",collar:"Blue Collar",
    roles:"Filling/Batching Op",
    tam:0,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
    problems:["Overfilling costs 1-3% of product value; underfilling creates regulatory risk"],
@@ -3756,23 +3755,23 @@ const FMCG_NODES = [
 
   {id:13,name:"Quality Control & Lab",bp:"mfg",tier:"T1",icon:"🔬",collar:"Professional",
    roles:"QC/Lab Mgr, QA Exec, Microbiologist, Lab Chemist, Pkg Quality Exec",
-   tam:50,feas:"High",score:8,hc_pct:35,mult:0.32,fte:14,
+   tam:48,feas:"High",score:8,hc_pct:35,mult:0.32,fte:14,
    problems:["Lab testing turnaround: 24-72 hours for microbiology — production holds inventory waiting for release","Manual COA generation and batch release documentation takes 2-4 hours per batch","Trend analysis across batches is retrospective, not predictive — catches problems after they occur"],
    solutions:["Rapid AI-assisted microbiology using spectroscopic methods with ML classification — results in hours, not days","LLM-powered automatic COA generation and batch release documentation","Predictive quality analytics that flags batches likely to fail based on process parameters"],
-   products:[{n:"Benchling",d:"Cloud R&D & lab management",u:"https://www.benchling.com",y:2012,f:"$400M",inv:"Sequoia, a16z, Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.benchling.com&sz=64",india_focus:false},{n:"Veeva Systems",d:"Quality & regulatory management",u:"https://www.veeva.com",y:2007,f:"Public (NYSE: VEEV, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.veeva.com&sz=64",india_focus:false},{n:"Uncountable",d:"AI-native R&D data platform",u:"https://www.uncountable.com",y:2015,f:"$16M",inv:"Lux Capital, Bowery Capital",logo:"https://www.google.com/s2/favicons?domain=www.uncountable.com&sz=64",india_focus:false},{n:"Quantiphi",d:"AI analytics for quality (India-origin)",u:"https://www.quantiphi.com",y:2013,f:"$70M raised",inv:"Multiples PE",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwZDk0ODgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UTwvdGV4dD48L3N2Zz4=",india_focus:true}],
+   products:[{n:"Benchling",d:"Cloud R&D & lab management",u:"https://www.benchling.com/insights",y:2012,f:"$400M",inv:"Sequoia, a16z, Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.benchling.com&sz=64",india_focus:false},{n:"Veeva Systems",d:"Quality & regulatory management",u:"https://www.veeva.com/products/veeva-qms/",y:2007,f:"Public (NYSE: VEEV, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.veeva.com&sz=64",india_focus:false},{n:"Uncountable",d:"AI-native R&D data platform",u:"https://www.uncountable.com",y:2015,f:"$16M",inv:"Lux Capital, Bowery Capital",logo:"https://www.google.com/s2/favicons?domain=www.uncountable.com&sz=64",india_focus:false},{n:"Quantiphi",d:"AI analytics for quality (India-origin)",u:"https://www.quantiphi.com",y:2013,f:"$70M raised",inv:"Multiples PE",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwZDk0ODgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UTwvdGV4dD48L3N2Zz4=",india_focus:true}],
    opportunity:"India FMCG quality AI — handles FSSAI lab testing requirements, integrates with Indian commercial labs (Arbro, NABL), supports BIS/ISI certification workflows",
    vc:["Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Benchling: lab informatics", "u": "https://www.benchling.com/"},{"t": "Veeva: quality management", "u": "https://www.veeva.com/"}]},
 
   {id:14,name:"Food Safety & QA",bp:"mfg",tier:"T1",icon:"🛡️",collar:"Management",
    roles:"Head of Quality, QA Mgr, Food Safety Supervisor (FoSTaC), Process Validation Exec",
-   tam:63,feas:"High",score:8,hc_pct:30,mult:0.347,fte:10,
+   tam:62,feas:"High",score:8,hc_pct:30,mult:0.347,fte:10,
    problems:["HACCP/FSMS audit preparation takes 2-4 weeks per facility — largely manual document compilation","Allergen control and traceability across complex multi-ingredient products is error-prone","Supplier food safety audits across 200+ suppliers are resource-constrained — only 20% audited annually"],
    solutions:["AI-powered audit preparation — auto-compiles HACCP documentation from production records","AI allergen traceability engine mapping every ingredient to every finished product","ML-based supplier risk scoring enabling risk-based audit prioritization"],
-   products:[{n:"TraceGains",d:"AI supplier compliance & food safety",u:"https://www.tracegains.com",y:2008,f:"$40M",inv:"Wavecrest Growth",logo:"https://www.google.com/s2/favicons?domain=www.tracegains.com&sz=64",india_focus:false},{n:"FoodLogiQ",d:"Food traceability (acquired by Aptean)",u:"https://www.foodlogiq.com",y:2006,f:"Acquired by Aptean (2022)",inv:"Aptean",logo:"https://www.google.com/s2/favicons?domain=www.foodlogiq.com&sz=64",india_focus:false},{n:"Trustwell (FoodLogiQ+ESHA)",d:"AI food safety & compliance",u:"https://www.trustwell.com",y:2022,f:"$30M+",inv:"Mainsail Partners",logo:"https://www.google.com/s2/favicons?domain=www.trustwell.com&sz=64",india_focus:false},{n:"SafetyChain",d:"Food safety & quality management with AI risk scoring",u:"https://safetychain.com",y:2010,f:"$50M+",inv:"PE-backed",logo:"https://www.google.com/s2/favicons?domain=safetychain.com&sz=64",india_focus:false}],
+   products:[{n:"TraceGains",d:"AI supplier compliance & food safety",u:"https://www.tracegains.com",y:2008,f:"$40M",inv:"Wavecrest Growth",logo:"https://www.google.com/s2/favicons?domain=www.tracegains.com&sz=64",india_focus:false},{n:"FoodLogiQ",d:"Food traceability (acquired by Aptean)",u:"https://www.foodlogiq.com/solutions",y:2006,f:"Acquired by Aptean (2022)",inv:"Aptean",logo:"https://www.google.com/s2/favicons?domain=www.foodlogiq.com&sz=64",india_focus:false},{n:"Trustwell (FoodLogiQ+ESHA)",d:"AI food safety & compliance",u:"https://www.trustwell.com/products",y:2022,f:"$30M+",inv:"Mainsail Partners",logo:"https://www.google.com/s2/favicons?domain=www.trustwell.com&sz=64",india_focus:false},{n:"SafetyChain",d:"Food safety & quality management with AI risk scoring",u:"https://safetychain.com/products",y:2010,f:"$50M+",inv:"PE-backed",logo:"https://www.google.com/s2/favicons?domain=safetychain.com&sz=64",india_focus:false}],
    opportunity:"India food safety AI — integrates FSSAI licensing, FoSTaC training records, and state food safety authority requirements",
    vc:["Bessemer: Vertical SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "FSSAI Food Safety Compliance System", "u": "https://www.fssai.gov.in/"},{"t": "TraceGains", "u": "https://www.tracegains.com/"},{"t": "SafetyChain", "u": "https://safetychain.com/"}]},
 
-  {id:15,name:"Sanitation & CIP",bp:"mfg",tier:"T3",icon:"🧹",collar:"Mixed",
+  {id:15,name:"Sanitation & CIP",bp:"mfg",tier:"T2",icon:"🧹",collar:"Mixed",
    roles:"Sanitation Supervisor, ETP/STP Operator",
    tam:0,feas:"N/A",score:5,hc_pct:10,fte:1,mult:0.77,
    problems:["CIP chemical usage and water consumption are not optimized — 15-20% waste"],
@@ -3780,7 +3779,7 @@ const FMCG_NODES = [
    products:[{n:"Ecolab SMARTPOWER",d:"AI cleaning optimization"}],
    opportunity:"",vc:[]},
 
-  {id:16,name:"Maintenance & Utilities",bp:"mfg",tier:"T3",icon:"🔩",collar:"Mixed",
+  {id:16,name:"Maintenance & Utilities",bp:"mfg",tier:"T2",icon:"🔩",collar:"Mixed",
    roles:"Maintenance/Utilities Mgr, Multi Skill Tech, Utilities Eng",
    tam:0,feas:"Medium",score:5,hc_pct:15,fte:2,mult:0.36,
    problems:["Boiler/refrigeration energy costs are 8-15% of production cost — poorly optimized"],
@@ -3791,7 +3790,7 @@ const FMCG_NODES = [
   // DEMAND, SALES & DISTRIBUTION
   {id:17,name:"Marketing Leadership",bp:"demand",tier:"T1",icon:"📢",collar:"Executive",
    roles:"CMO, Brand/Category Mgr, Category Dev Mgr, Shopper Mktg Mgr",
-   tam:36,feas:"High",score:8,hc_pct:30,mult:0.329,fte:12,
+   tam:34,feas:"High",score:8,hc_pct:30,mult:0.329,fte:12,
    problems:["Media mix optimization across 15+ channels is based on historical attribution, not predictive modeling","Brand health tracking takes 4-6 weeks per survey wave — too slow for real-time course correction","New product launch success rate is 10-15% — most failures due to poor concept testing"],
    solutions:["AI media mix modeling with real-time optimization across digital, TV, print, and trade channels","AI brand health tracking using social listening, search trends, and e-commerce signals — daily updates","AI-powered virtual concept testing at 10% the cost and 90% faster than traditional methods"],
    products:[{n:"Kantar Marketplace",d:"AI brand health & concept testing",u:"https://www.kantar.com/marketplace",y:2019,f:"Part of Kantar (Bain Capital, ~$4B revenue)",inv:"Bain Capital",logo:"https://www.google.com/s2/favicons?domain=www.kantar.com&sz=64",india_focus:false},{n:"Zappi",d:"AI-native consumer insights",u:"https://www.zappi.io",y:2013,f:"$100M+",inv:"FTV Capital",logo:"https://www.google.com/s2/favicons?domain=www.zappi.io&sz=64",india_focus:false},{n:"CreativeX",d:"AI-native creative quality scoring",u:"https://creativex.com",y:2015,f:"$25M",inv:"EQT Ventures",logo:"https://www.google.com/s2/favicons?domain=creativex.com&sz=64",india_focus:false},{n:"Pencil",d:"AI-native ad creative generation",u:"https://www.trypencil.com",y:2018,f:"$15M",inv:"Sequoia India",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiM3YzNhZWQiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"Lifesight",d:"AI marketing measurement (India-origin)",u:"https://www.lifesight.io",y:2015,f:"$17M raised",inv:"Jungle Ventures, M&S Partners",logo:"https://www.google.com/s2/favicons?domain=www.lifesight.io&sz=64",india_focus:true}],
@@ -3800,16 +3799,16 @@ const FMCG_NODES = [
 
   {id:18,name:"Trade & Digital Marketing",bp:"demand",tier:"T1",icon:"📱",collar:"Professional",
    roles:"Trade/Digital Mktg Mgr, Customer Mktg Exec",
-   tam:26,feas:"High",score:8,hc_pct:35,mult:0.328,fte:14,
+   tam:25,feas:"High",score:8,hc_pct:35,mult:0.328,fte:14,
    problems:["Trade promotion ROI is negative for 40% of promotions — $500M+ wasted annually across India FMCG","Digital ad creative production bottleneck — 200-500 assets per campaign across formats","POSM allocation across 500K+ retail outlets is guesswork"],
    solutions:["AI trade promotion optimization — simulate ROI before committing trade spend","Generative AI for creative production — auto-generate localized ad variants at scale","AI-driven POSM allocation using outlet-level sell-through data"],
-   products:[{n:"Trax",d:"AI retail shelf intelligence",u:"https://traxretail.com",y:2010,f:"$640M",inv:"SoftBank Vision Fund",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"Pricefx",d:"AI pricing & trade promotion optimization",u:"https://www.pricefx.com",y:2011,f:"$184M",inv:"Apax Partners, Bain Capital Ventures",logo:"https://www.google.com/s2/favicons?domain=www.pricefx.com&sz=64",india_focus:false},{n:"Aforza",d:"AI-native CPG trade execution",u:"https://www.aforza.com",y:2019,f:"$30M",inv:"Salesforce Ventures, Insight",logo:"https://www.google.com/s2/favicons?domain=www.aforza.com&sz=64",india_focus:false},{n:"ParallelDots",d:"AI shelf image recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true}],
+   products:[{n:"Trax",d:"AI retail shelf intelligence",u:"https://traxretail.com",y:2010,f:"$640M",inv:"SoftBank Vision Fund",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"Pricefx",d:"AI pricing & trade promotion optimization",u:"https://www.pricefx.com/software/pricingai",y:2011,f:"$184M",inv:"Apax Partners, Bain Capital Ventures",logo:"https://www.google.com/s2/favicons?domain=www.pricefx.com&sz=64",india_focus:false},{n:"Aforza",d:"AI-native CPG trade execution",u:"https://www.aforza.com",y:2019,f:"$30M",inv:"Salesforce Ventures, Insight",logo:"https://www.google.com/s2/favicons?domain=www.aforza.com&sz=64",india_focus:false},{n:"ParallelDots",d:"AI shelf image recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true}],
    opportunity:"India trade marketing AI that integrates distributor DMS data, kirana outlet intelligence, and quick-commerce promotional calendars",
    vc:["a16z: AI Services","Accel India: India SaaS"],sources:[{"t": "Pricefx: Pricing AI", "u": "https://www.pricefx.com/"}, {"t": "Trax: Retail Execution", "u": "https://traxretail.com/"}]},
 
   {id:19,name:"Sales Leadership",bp:"demand",tier:"T1",icon:"🎯",collar:"Management",
    roles:"CSO, National/Regional Sales Mgr, Head of E-commerce/MT, Sales Capability Mgr",
-   tam:35,feas:"High",score:8,hc_pct:30,mult:0.296,fte:12,
+   tam:34,feas:"High",score:8,hc_pct:30,mult:0.296,fte:12,
    problems:["Territory design and salesperson deployment based on geography, not potential — 20-30% misallocation","Sales target setting is top-down arithmetic — doesn't reflect outlet-level potential","Route-to-market decisions (direct vs distributor vs super-stockist) lack data-driven optimization"],
    solutions:["AI territory optimization using outlet census, potential mapping, and salesperson capacity modeling","ML-based target setting from outlet potential, competitive presence, and macro signals","AI route-to-market optimizer that recommends optimal channel structure per geography"],
    products:[{n:"Fractal Analytics",d:"AI decision intelligence (India)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"Xactly",d:"AI sales performance management",u:"https://xactlycorp.com",y:2005,f:"Acquired by Vista Equity ($1.3B, 2017)",inv:"Vista Equity Partners",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNkOTc3MDYiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+WDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"People.ai",d:"AI-native revenue intelligence",u:"https://people.ai",y:2016,f:"$100M",inv:"Lightspeed, a16z, ICONIQ",logo:"https://www.google.com/s2/favicons?domain=people.ai&sz=64",india_focus:false},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true}],
@@ -3818,14 +3817,14 @@ const FMCG_NODES = [
 
   {id:20,name:"Key Accounts & Channels",bp:"demand",tier:"T1",icon:"🏬",collar:"Professional",
    roles:"Key Account Mgr (MT/E-com), Channel Sales Mgr, Distributor Dev Mgr",
-   tam:29,feas:"High",score:8,hc_pct:30,mult:0.299,fte:12,
+   tam:28,feas:"High",score:8,hc_pct:30,mult:0.299,fte:12,
    problems:["Joint business plans (JBPs) with modern trade partners are manually created — 4-6 weeks per retailer","E-commerce channel profitability is opaque — true cost-to-serve per platform is unknown","Distributor performance benchmarking across 2,000+ distributors is lagging and manual"],
    solutions:["AI JBP generator that analyzes shopper data, category trends, and retailer strategy to auto-create plans","AI channel profitability engine mapping true cost-to-serve across Blinkit, Zepto, BigBasket, Amazon, Flipkart","AI distributor scorecards with predictive intervention triggers"],
    products:[{n:"CommerceIQ",d:"AI-native e-commerce management",u:"https://commerceiq.ai",y:2012,f:"$175M",inv:"SoftBank, Insight Partners",logo:"https://www.google.com/s2/favicons?domain=commerceiq.ai&sz=64",india_focus:false},{n:"Bizom",d:"AI retail intelligence for FMCG (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"Botree DMS",d:"Distributor management (India)",u:"https://www.botreesoftware.com",y:2009,f:"Acquired by SugarCRM (2023)",inv:"SugarCRM",logo:"https://www.google.com/s2/favicons?domain=www.botreesoftware.com&sz=64",india_focus:true},{n:"RetailNext",d:"AI in-store analytics",u:"https://retailnext.net",y:2007,f:"$190M",inv:"Norwest, EDBI",logo:"https://www.google.com/s2/favicons?domain=retailnext.net&sz=64",india_focus:false}],
    opportunity:"India-specific channel AI that handles GT/MT/e-commerce/quick-commerce channel complexity — integrating Udaan, JioMart, and 1,000+ regional distributors",
    vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"]},
 
-  {id:21,name:"Warehousing & Logistics",bp:"demand",tier:"T2",icon:"🚛",collar:"Mixed",
+  {id:21,name:"Warehousing & Logistics",bp:"demand",tier:"T3",icon:"🚛",collar:"Mixed",
    roles:"Warehouse/Logistics Mgr, Depot/CFA Mgr, Cold Chain Tech, Dispatch Exec",
    tam:0,feas:"Medium",score:6,hc_pct:25,fte:8,mult:0,
    problems:["Warehouse-to-distributor allocation is suboptimal — 15% excess freight costs","Cold chain monitoring for perishables is manual and reactive — 5-8% cold chain losses"],
@@ -3836,16 +3835,16 @@ const FMCG_NODES = [
 
   {id:22,name:"Field Sales",bp:"demand",tier:"T1",icon:"🚶",collar:"Mixed",
    roles:"ASM, Territory Sales Exec, Van Sales Rep",
-   tam:23,feas:"Very High",score:10,hc_pct:30,mult:0.37,fte:25,
+   tam:22,feas:"Very High",score:10,hc_pct:30,mult:0.37,fte:25,
    problems:["India's FMCG field sales force of 500K+ people spends 40% of time on non-selling activities (reporting, travel planning, order processing)","Outlet coverage compliance averages 60-70% — salespeople skip low-value outlets","Order suggestions at each outlet are based on last order, not predicted demand"],
    solutions:["AI sales assistant that auto-generates visit reports, optimizes routes, and pre-fills orders from predicted demand","AI outlet prioritization scoring — maximizing coverage ROI per salesperson per day","ML-based order recommendation at outlet level using sell-through velocity, stock level, and local events"],
    products:[{n:"Bizom",d:"AI retail intelligence (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"FieldAssist",d:"AI sales force automation (India)",u:"https://www.fieldassist.com",y:2014,f:"$10M raised",inv:"Mirae Asset, Sistema Asia Fund",logo:"https://www.google.com/s2/favicons?domain=www.fieldassist.com&sz=64",india_focus:true},{n:"BeatRoute",d:"AI route intelligence (India)",u:"https://beatroute.io",y:2015,f:"$6M raised",inv:"Chiratae Ventures, IvyCap",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNlMTFkNDgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"ParallelDots",d:"AI shelf recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true},{n:"RetailPulse",d:"AI retail analytics (India)",u:"https://retailpulse.ai",y:2020,f:"$4M raised",inv:"Arali Ventures, Pentathlon",logo:"https://www.google.com/s2/favicons?domain=retailpulse.ai&sz=64",india_focus:true}],
    opportunity:"India FMCG field sales AI — voice-first (for low-literacy sales reps), WhatsApp-native, works offline in rural areas, integrates DMS and retailer wallet",
    vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing","Kalaari: India AI"],sources:[{"t": "Bizom: Field Sales AI", "u": "https://bizom.com/"}, {"t": "FieldAssist: Sales Force AI", "u": "https://www.fieldassist.com/"}, {"t": "BeatRoute: Route Intelligence", "u": "https://beatroute.io/"}, {"t": "a16z: AI Services", "u": "https://a16z.com/ai-for-the-physical-world/"}]},
 
-  {id:23,name:"Retail Execution",bp:"demand",tier:"T2",icon:"🛒",collar:"Mixed",
+  {id:23,name:"Retail Execution",bp:"demand",tier:"T1",icon:"🛒",collar:"Mixed",
    roles:"Sales Promoter, Visual Merchandiser, Retail Sales Associate",
-   tam:0,feas:"High",score:7,hc_pct:20,fte:6,mult:0.42,
+   tam:13,feas:"High",score:7,hc_pct:20,fte:6,mult:0.42,
    problems:["Shelf compliance monitoring across 500K+ outlets is impossible manually","Planogram compliance in modern trade averages 40-60%"],
    solutions:["AI image recognition for shelf share, planogram compliance, and out-of-stock detection","Computer vision for competitive shelf analytics at scale"],
    products:[{n:"Trax",d:"AI retail execution"},{n:"ParallelDots ShelfWatch",d:"AI shelf monitoring (India-origin)"},{n:"Snap2Insight",d:"Shelf image analytics"}],
@@ -3872,7 +3871,7 @@ const FMCG_NODES = [
 
   {id:26,name:"Finance",bp:"support",tier:"T1",icon:"💰",collar:"Management",
    roles:"CFO, Accounts/Payroll/Admin Exec",
-   tam:24,feas:"Very High",score:10,hc_pct:45,mult:0.385,fte:18,
+   tam:23,feas:"Very High",score:10,hc_pct:45,mult:0.385,fte:18,
    problems:["Trade spend reconciliation across 2,000+ distributors is a month-end nightmare — 15% error rate","GST return filing across 15-20 state GSTINs with input tax credit reconciliation is manual","Revenue recognition for complex trade schemes (BOGO, volume rebates, display incentives) requires manual calculation"],
    solutions:["AI-powered trade spend reconciliation with automatic distributor claims matching","AI GST compliance engine with auto-reconciliation of GSTR-1/2B/3B across all GSTINs","AI revenue management automating scheme calculations and accrual accounting"],
    products:[{n:"Highradius",d:"AI AR/AP & treasury (India-origin)",u:"https://www.highradius.com",y:2006,f:"$475M raised, valued at $3.1B (2022)",inv:"Susquehanna, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.highradius.com&sz=64",india_focus:true},{n:"ClearTax",d:"AI GST compliance (India)",u:"https://cleartax.in",y:2011,f:"$140M",inv:"Composite Capital, Y Combinator",logo:"https://www.google.com/s2/favicons?domain=cleartax.in&sz=64",india_focus:true},{n:"Ramp",d:"AI-native spend management",u:"https://ramp.com",y:2019,f:"$620M",inv:"Founders Fund, Thrive Capital",logo:"https://www.google.com/s2/favicons?domain=ramp.com&sz=64",india_focus:false},{n:"Zaggle",d:"AI spend management (India, public)",u:"https://www.zaggle.in",y:2011,f:"Public (NSE: ZAGGLE, Mkt Cap ~INR 4,500 Cr)",inv:"Public (IPO 2023)",logo:"https://www.google.com/s2/favicons?domain=www.zaggle.in&sz=64",india_focus:true}],
@@ -3888,9 +3887,9 @@ const FMCG_NODES = [
    opportunity:"India FMCG HR AI — handling the unique challenge of 40%+ field force attrition with AI-driven retention prediction and proactive intervention",
    vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Darwinbox: HR AI", "u": "https://darwinbox.com/"}, {"t": "BetterPlace: Blue-collar HR", "u": "https://www.betterplace.co.in/"}, {"t": "Eightfold: Talent AI", "u": "https://eightfold.ai/"}]},
 
-  {id:28,name:"Regulatory & Compliance",bp:"support",tier:"T2",icon:"📜",collar:"Professional",
+  {id:28,name:"Regulatory & Compliance",bp:"support",tier:"T1",icon:"📜",collar:"Professional",
    roles:"Regulatory Affairs Mgr, Internal Auditor (FSMS)",
-   tam:0,feas:"Medium",score:6,hc_pct:25,fte:4,mult:0.42,
+   tam:13,feas:"Medium",score:6,hc_pct:25,fte:4,mult:0.42,
    problems:["FSSAI license renewal and label compliance across 500+ SKUs is manually tracked","Regulatory change tracking across FSSAI, BIS, Legal Metrology, and state-specific rules is fragmented"],
    solutions:["AI regulatory intelligence that auto-tracks FSSAI/BIS/Legal Metrology changes and maps impact to product portfolio","AI label compliance checker that validates nutrition facts, claims, and allergen declarations against FSSAI rules"],
    products:[{n:"Compliance.ai",d:"Regulatory intelligence"},{n:"FoodChain ID",d:"Regulatory compliance"},{n:"SGS Digicomply",d:"AI food regulatory intelligence"}],
@@ -3899,7 +3898,7 @@ const FMCG_NODES = [
 
   {id:29,name:"Analytics & Revenue Mgmt",bp:"support",tier:"T1",icon:"📈",collar:"Professional",
    roles:"RGM Manager, RGM/Data/MIS Analyst",
-   tam:31,feas:"High",score:8,hc_pct:35,mult:0.337,fte:10,
+   tam:30,feas:"High",score:8,hc_pct:35,mult:0.337,fte:10,
    problems:["Revenue growth management requires synthesizing data from 10+ sources (Nielsen, internal, retailer) — 80% of analyst time is data wrangling","Price-pack architecture decisions across 200+ SKUs lack optimization — cannibalization effects not modeled","Promotional ROI measurement is retrospective and approximate"],
    solutions:["AI data integration and automated insight generation from multi-source FMCG data","AI price-pack optimizer modeling demand elasticity, cannibalization, and competitive response","Real-time promotional ROI engine with causal inference methodology"],
    products:[{n:"Fractal Analytics",d:"AI decision science (India-origin)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true},{n:"Sigmoid",d:"AI data engineering for CPG (India)",u:"https://www.sigmoid.com",y:2013,f:"$12M raised",inv:"Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.sigmoid.com&sz=64",india_focus:true},{n:"Course5i",d:"AI analytics for FMCG (India)",u:"https://www.course5i.com",y:2000,f:"$50M raised",inv:"Avataar Ventures",logo:"https://www.google.com/s2/favicons?domain=www.course5i.com&sz=64",india_focus:true}],
@@ -4049,648 +4048,6 @@ function renderProductList(products) {
 function nodeEntTAM(n, sector) {
   return n.tam;
 }
-
-
-function renderWorkflow(nodes, containerId) {
-  const container = document.getElementById(containerId);
-  const sector = containerId.includes('auto') ? 'Auto' : 'FMCG';
-  const groups = {};
-  nodes.forEach(n => { if (!groups[n.bp]) groups[n.bp] = []; groups[n.bp].push(n); });
-
-  let html = '';
-  ['supply','mfg','demand','support'].forEach(bp => {
-    if (!groups[bp]) return;
-    // Segment subtotal = sum of T1 enterprise TAMs (only T1 nodes are targeted)
-    const segEntM = groups[bp].filter(n=>n.tier==='T1').reduce((s,n)=>s+nodeEntTAM(n,sector),0);
-    const segTam = (segEntM/1000).toFixed(1);
-    const segT1 = groups[bp].filter(n=>n.tier==='T1').length;
-    html += `<div class="workflow-segment ${BP_CLASSES[bp]}">
-      <div class="ws-title" style="color:var(--${bp === 'supply' ? 'supply-color' : bp === 'mfg' ? 'mfg-color' : bp === 'demand' ? 'demand-color' : 'support-color'})">${BP_LABELS[bp]}</div>
-      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${segT1} with AI solutions &bull; $${segTam}B segment TAM</div>
-      <div class="node-grid">`;
-    groups[bp].forEach((n, i) => {
-      if (i > 0) html += '<div class="node-arrow">&rarr;</div>';
-      html += `<div class="wf-node ${n.tier !== 'T1' ? 'node-excluded' : ''}" ${n.tier === 'T1' ? 'onclick="toggleDetail(\'' + containerId + '\',' + n.id + ')"' : ''} id="node-${containerId}-${n.id}" style="${n.tier !== 'T1' ? 'opacity:0.35;cursor:default;' : ''}${n.score >= 8 && n.tier === 'T1' ? 'box-shadow:0 0 12px rgba(13,148,136,0.08);border-color:var(--accent-teal);' : ''}" ${n.tier !== 'T1' ? 'data-reason="' + n.name + ': Not selected. ' + (n.tier === 'T3' ? 'Blue-collar/production node.' : 'Semi-specialized node.') + ' Score: ' + (n.score||'-') + '/10."' : ''}>
-        <span class="node-step">#${n.id}</span>
-        <span class="node-tier tier-${n.tier.toLowerCase()}">${n.tier}</span>
-        ${n.score >= 8 && n.tier === 'T1' ? '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>' : ''}
-        <div class="node-icon-wrap" style="background:${ICON_BG[n.bp]}">${n.icon}</div>
-        <div class="n-title">${n.name}</div>
-        ${n.tier === 'T1' ? '<div class="n-tam">$' + nodeEntTAM(n, sector) + 'M</div>' : '<div style="font-size:0.6rem;color:#9ca3af;margin-top:auto;">Not targeted</div>'}
-        ${n.tier === 'T1' && n.score ? '<div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:800;margin-top:3px;color:' + (n.score>=8?'var(--accent-teal)':n.score>=6?'var(--accent-amber)':'var(--text-dim)') + ';">' + n.score + '/10</div>' : ''}
-      </div>`;
-    });
-    html += '</div>';
-    // Detail panels
-    groups[bp].forEach(n => {
-      if (n.tier === 'T1') html += renderDetailPanel(n, containerId);
-    });
-    html += '</div>';
-  });
-  container.innerHTML = html;
-}
-
-function renderDetailPanel(n, ctx) {
-  const sector = ctx.includes('auto') ? 'Auto' : 'FMCG';
-  if (n.tier === 'T3') {
-    return `<div class="node-detail" id="detail-${ctx}-${n.id}">
-      <div class="nd-header"><h4>${n.icon} ${n.name} <span class="node-tier tier-t3" style="font-size:0.6rem;vertical-align:middle;margin-left:8px;">T3</span></h4>
-      <button class="nd-close" onclick="closeDetail('${ctx}',${n.id})">&times;</button></div>
-      <div class="nd-grid">
-        <div class="nd-block block-problems"><div class="nd-block-label lbl-problems">Key Challenge</div><ul>${n.problems.map(p=>`<li>${p}</li>`).join('')}</ul></div>
-        <div class="nd-block block-solutions"><div class="nd-block-label lbl-solutions">AI Solution</div><ul>${n.solutions.map(s=>`<li>${s}</li>`).join('')}</ul></div>
-      </div>
-      <div class="nd-stats">
-        <div class="nd-stat"><div class="stat-num num-teal">$${nodeEntTAM(n, sector)}M</div><div class="stat-label">AI Market Size</div></div>
-        <div class="nd-stat"><div class="stat-num num-amber">${n.score}/10</div><div class="stat-label">AI Readiness Score</div></div>
-      </div>
-    </div>`;
-  }
-
-  let productsHtml = renderProductList(n.products);
-  let vcHtml = n.vc ? n.vc.map(v => `<span class="thesis-tag">${v}</span>`).join(' ') : '';
-
-  // Sector-level data for TAM derivation
-  const isAuto = ctx.includes('auto');
-  const sectorData = isAuto ? {
-    name:'Automobile', revenue:'$200B brand-owner', employees:'~1,100 firms', kwPct:'56.6%', kwCount:'163K',
-    avgSalary:'$27,000', kwPayroll:'$4.4B', enterprises:'~1,100', careerAdj:'35.8%',
-    salarySource:'BRSR Section C Principle 5 median pay (9 cos directly parsed) + 1.2x Aon mean factor', kwSource:'BRSR Section A 20(a) — Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch',
-    companySource:'ACMA FY24 presentation + SIAM OEM data + Agent #48 bottom-up universe build'
-  } : {
-    name:'FMCG', revenue:'$110B brand-owner', employees:'~700 firms', kwPct:'48.6%', kwCount:'143K',
-    avgSalary:'$18,500', kwPayroll:'$2.7B', enterprises:'~700', careerAdj:'36.5%',
-    salarySource:'BRSR Section C Principle 5 median pay (5 cos parsed, ex-ITC conglomerate distortion) + 1.2x Aon mean factor', kwSource:'BRSR Section A 20(a) — HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer',
-    companySource:'CRISIL + MCA21 (MNC India subs) + Amul/cooperatives + Agent #47 bottom-up universe build'
-  };
-
-  return `<div class="node-detail" id="detail-${ctx}-${n.id}">
-    <div class="nd-header">
-      <h4>${n.icon} ${n.name} <span class="node-tier tier-${n.tier.toLowerCase()}" style="font-size:0.6rem;vertical-align:middle;margin-left:8px;">${n.tier}</span> ${n.score ? '<span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:800;margin-left:8px;padding:2px 8px;border-radius:6px;vertical-align:middle;' + (n.score>=8?'background:rgba(13,148,136,0.1);color:var(--accent-teal);':'background:rgba(0,0,0,0.04);color:var(--text-dim);') + '">' + n.score + '/10</span>' : ''}</h4>
-      <button class="nd-close" onclick="closeDetail('${ctx}',${n.id})">&times;</button>
-    </div>
-    <p style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;">${n.roles} &bull; ${n.collar} &bull; ${sectorData.name} Sector</p>
-
-    <!-- STEP 1: THE PROBLEM -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#e11d48;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(225,29,72,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#e11d48;">1</span>
-        THE PROBLEM
-      </div>
-      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px;">
-        <ul style="list-style:none;">${n.problems.map(p=>'<li style="font-size:0.9rem;color:#374151;padding:5px 0 5px 14px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#e11d48;">&bull;</span>'+p+'</li>').join('')}</ul>
-      </div>
-    </div>
-
-    <!-- STEP 2: AI SOLUTION -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#0d9488;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(13,148,136,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#0d9488;">2</span>
-        AI SOLUTION
-      </div>
-      <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:16px;">
-        <ul style="list-style:none;">${n.solutions.map(s=>'<li style="font-size:0.9rem;color:#374151;padding:5px 0 5px 14px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#0d9488;">&bull;</span>'+s+'</li>').join('')}</ul>
-      </div>
-    </div>
-
-    <!-- STEP 3: EVIDENCE — Products that already exist -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#7c3aed;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(124,58,237,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#7c3aed;">3</span>
-        EVIDENCE &mdash; PRODUCTS ALREADY SOLVING THIS
-      </div>
-      <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px;">
-        ${productsHtml}
-        
-      </div>
-    </div>
-
-    <!-- STEP 4: SOURCES & RESEARCH BACKING (5 categories) -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#2563eb;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(37,99,235,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#2563eb;">4</span>
-        SOURCES & RESEARCH BACKING (5 CATEGORIES)
-      </div>
-      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#7c3aed;margin-bottom:6px;">1. VC & Investment Theses</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://a16z.com/ai-for-the-physical-world/" target="_blank" class="source-tag">a16z: Physical AI</a>
-              <a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank" class="source-tag">Bessemer: Vertical AI</a>
-              <a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank" class="source-tag">Sequoia: Services</a>
-              <a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank" class="source-tag">Menlo: GenAI Enterprise</a>
-              <a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank" class="source-tag">GC: Fund XII</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#2563eb;margin-bottom:6px;">2. Industry & Market Data</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" class="source-tag">IBEF ${sectorData.name}</a>
-              <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" class="source-tag">Mordor Intelligence</a>
-              ${isAuto ? '<a href="https://www.siam.in/pressrelease-details.aspx?mpgid=48&pgidtrail=50&pid=579" target="_blank" class="source-tag">SIAM Statistics</a>' : '<a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>'}
-              <a href="https://www.ibef.org/industry/manufactur-presentation" target="_blank" class="source-tag">IBEF Manufacturing</a>
-              <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" class="source-tag">PLFS Labour Survey</a>
-              <a href="https://www.screener.in/company/compare/00000005/" target="_blank" class="source-tag">Screener.in Auto P&L</a>
-              <a href="https://www.screener.in/company/compare/00000027/" target="_blank" class="source-tag">Screener.in FMCG P&L</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#0d9488;margin-bottom:6px;">3. Consulting & Research</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey: India Mfg</a>
-              <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" class="source-tag">McKinsey: AI & Work</a>
-              <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank" class="source-tag">Deloitte: Industry 4.0</a>
-              <a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank" class="source-tag">PwC: AI for MSMEs</a>
-              <a href="https://www.bcg.com/powering-past-headwinds-indian-manufacturing-winning-in-an-era-of-shocks-swings-and-shortages" target="_blank" class="source-tag">BCG: Indian Mfg</a>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:0.72rem;font-weight:700;color:#d97706;margin-bottom:6px;">4. Government & Policy</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">
-              <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog: AI Strategy</a>
-              <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM: AI Index</a>
-              <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF: Jobs 2025</a>
-              <a href="https://www.makeinindia.com/schemes-electronics-manufacturing-india" target="_blank" class="source-tag">Make in India</a>
-              <a href="https://labour.gov.in/CodeonWages" target="_blank" class="source-tag">Labour Codes 2025</a>
-            </div>
-          </div>
-        </div>
-        ${n.sources ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #bfdbfe;"><div style="font-size:0.72rem;font-weight:700;color:#ea580c;margin-bottom:6px;">5. Product & Startup Evidence</div><div style="display:flex;flex-wrap:wrap;gap:4px;">' + n.sources.map(function(s){return '<a href="'+s.u+'" target="_blank" class="source-tag">'+s.t+'</a>';}).join('') + '</div></div>' : ''}
-        ${vcHtml ? '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">' + vcHtml + '</div>' : ''}
-      </div>
-    </div>
-
-    <!-- STEP 5: MARKET SIZE DERIVATION -->
-    <div style="margin-bottom:16px;">
-      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#d97706;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-        <span style="width:22px;height:22px;border-radius:50%;background:rgba(217,119,6,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#d97706;">5</span>
-        MARKET SIZE DERIVATION
-      </div>
-      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;">
-        <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">How the enterprise-addressable market for this node is derived (BRSR-anchored, role-mapped):</div>
-        <div style="font-size:0.82rem;color:#374151;line-height:1.55;">
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Brand-owner revenue base <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$200B' : '$110B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Knowledge Worker per $B revenue <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '9 BRSRs parsed (Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)' : '8 BRSRs parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '814' : '1,300'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Permanent Knowledge Worker headcount <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '$200B &times; 814/$B' : '$110B &times; 1,300/$B'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '162,800' : '143,000'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Avg Knowledge Worker salary <span style="color:#9ca3af;font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$27,000/yr' : '$18,500/yr'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Knowledge Worker payroll <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '162,800 &times; $27K' : '143,000 &times; $18.5K'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$4.4B' : '$2.7B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; Step A &mdash; role eligibility (${isAuto ? '83%' : '85%'}) <span style="color:#9ca3af;font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical)${isAuto ? '' : '; FMCG has slightly fewer Executive seats than Auto'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$3.7B' : '$2.3B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; Step B &mdash; task automation (43%) <span style="color:#9ca3af;font-size:0.65rem;display:block;">salary-weighted per-role rates from WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$1.6B' : '$1.0B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; 50% AI price discount <span style="color:#9ca3af;font-size:0.65rem;display:block;">AI vendor priced below incumbent human labour cost</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$0.8B' : '$0.5B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:8px 0 4px;border-top:2px solid ${isAuto ? '#60a5fa' : '#fbbf24'};margin-top:6px;">
-            <span style="font-weight:700;color:var(--text-primary);">${sector} sector enterprise TAM</span>
-            <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};font-size:1rem;">${isAuto ? '$0.8B' : '$0.5B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;margin-top:6px;">
-            <span>&times; Node share of sector addressable role-units <span style="color:#9ca3af;font-size:0.65rem;display:block;">from 03_Workflow_Role_Mapping_Sequential.xlsx (this node's white-collar role units &divide; sector total)</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${(n.tam / (isAuto ? 800 : 500) * 100).toFixed(1)}%</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
-            <span style="font-weight:700;color:#1f2937;">Node Enterprise TAM</span>
-            <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${n.tam}M</span>
-          </div>
-        </div>
-        <div style="margin-top:10px;padding:10px 12px;background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;font-size:0.78rem;color:#6b7280;line-height:1.5;">
-          <strong style="color:#374151;">Data sources:</strong>
-          Role-to-node mapping from <em>03_Workflow_Role_Mapping_Sequential.xlsx</em> (85 Auto + 84 FMCG roles → 57 workflow blocks).
-          Per-stream Step A &times; B (Executive 0%, Management 31%, Professional 29.6%, Para-Professional 53%) from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#0d9488;">WEF Future of Jobs 2025</a>, <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:#0d9488;">McKinsey MGI</a>, and Frey-Osborne 2013 (full per-role table in appendix 3c).
-          Sector top-down anchor from 17 directly parsed BRSR filings (Section A 20(a) headcount, Section C Principle 5 median pay).
-          Brand-owner universe enumerated from <a href="${isAuto ? 'https://acma.in/pdf/Ind%20Presentation%20FY24.pdf' : 'https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html'}" target="_blank" style="color:#0d9488;">${isAuto ? 'ACMA FY24' : 'CRISIL FMCG'}</a>.
-        </div></div>
-    </div>
-
-    ${n.feas ? '<div style="margin-top:8px;padding:8px 14px;border-radius:8px;font-family:var(--font-display);font-size:0.8rem;font-weight:600;display:inline-block;' + (n.feas==='Very High'?'background:rgba(13,148,136,0.08);color:var(--accent-teal);border:1px solid rgba(13,148,136,0.2);':n.feas==='High'?'background:rgba(5,150,105,0.08);color:#059669;border:1px solid rgba(5,150,105,0.2);':n.feas==='Medium'?'background:rgba(217,119,6,0.06);color:var(--accent-amber);border:1px solid rgba(217,119,6,0.15);':'background:rgba(0,0,0,0.03);color:var(--text-dim);border:1px solid var(--border-subtle);') + '">AI Solution Fit: ' + n.feas + (n.score ? ' &bull; Score: ' + n.score + '/10' : '') + '</div>' : ''}
-  </div>`;
-}
-
-function renderVCGrid() {
-  const container = document.getElementById('thesis-grid-container');
-  if (!container) return;
-  container.innerHTML = THESIS_DATA.map(vc => `<div class="thesis-card">
-    <div class="thesis-name">${vc.name}</div>
-    <div class="thesis-source">${vc.thesis} ${(vc.region === 'India') ? '<span style="color:var(--accent-amber);font-size:0.6rem;">🇮🇳 INDIA</span>' : ''}</div>
-    <div style="margin-bottom:10px;">${vc.tags.map(t => `<span class="thesis-tag">${t}</span>`).join(' ')}</div>
-    <div class="thesis-desc">${vc.desc}</div>
-    <div class="thesis-portfolio"><strong>Key Portfolio:</strong> ${vc.portfolio}</div>
-  </div>`).join('');
-}
-
-
-// CAREER_STREAM removed — superseded by BRSR-anchored derivation. The
-// nodeEntTAM helper at the top of this script is now the single source
-// of truth for node enterprise TAM math.
-
-function renderTAMWaterfall() {
-  const container = document.getElementById('tam-waterfall-container');
-  const allNodes = [...AUTO_NODES.map(n=>({...n,sector:'Auto'})), ...FMCG_NODES.map(n=>({...n,sector:'FMCG'}))];
-  const topNodes = allNodes
-    .filter(n => n.score >= 7)
-    .map(n => ({...n, ent: nodeEntTAM(n, n.sector)}))
-    .sort((a,b) => b.ent - a.ent)
-    .slice(0, 15)
-    .sort((a,b) => a.ent - b.ent);
-  const maxEnt = topNodes[topNodes.length - 1].ent;
-
-  // Compute summary stats for the top 15
-  const autoNodes = topNodes.filter(n => n.sector === 'Auto');
-  const fmcgNodes = topNodes.filter(n => n.sector === 'FMCG');
-  const autoSum = autoNodes.reduce((s, n) => s + n.ent, 0);
-  const fmcgSum = fmcgNodes.reduce((s, n) => s + n.ent, 0);
-  const totalSum = autoSum + fmcgSum;
-  // Round for display per decimal directive
-  const fmt = (m) => m >= 1000 ? '$' + (m/1000).toFixed(1).replace(/\.0$/,'') + 'B' : '$' + Math.round(m) + 'M';
-
-  container.innerHTML =
-    '<div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:8px;">Top 15 Problems by AI Solution Potential</div>' +
-    '<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.55;">Top 15 highest-impact workflow nodes (score 7+/10), ranked by Knowledge Worker automation enterprise TAM. Ascending left&rarr;right, with maximum on the right. Hover any bar for details.</p>' +
-    // SUMMARY STRIP — combined TAM + Auto/FMCG split
-    '<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:20px;">' +
-    '<div style="background:rgba(13,148,136,0.08); border:1px solid rgba(13,148,136,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
-      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em;">Combined Top-15 TAM</div>' +
-      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:var(--accent-teal); margin-top:6px; letter-spacing:-0.02em;">' + fmt(totalSum) + '</div>' +
-      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + topNodes.length + ' nodes &bull; ' + Math.round(totalSum / 1300 * 100) + '% of $1.3B total TAM</div>' +
-    '</div>' +
-    '<div style="background:rgba(37,99,235,0.06); border:1px solid rgba(37,99,235,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
-      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.08em;">Automobile share</div>' +
-      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#2563eb; margin-top:6px; letter-spacing:-0.02em;">' + fmt(autoSum) + '</div>' +
-      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + autoNodes.length + ' nodes &bull; ' + Math.round(autoSum / totalSum * 100) + '% of top 15</div>' +
-    '</div>' +
-    '<div style="background:rgba(217,119,6,0.06); border:1px solid rgba(217,119,6,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
-      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#d97706; text-transform:uppercase; letter-spacing:0.08em;">FMCG share</div>' +
-      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#d97706; margin-top:6px; letter-spacing:-0.02em;">' + fmt(fmcgSum) + '</div>' +
-      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + fmcgNodes.length + ' nodes &bull; ' + Math.round(fmcgSum / totalSum * 100) + '% of top 15</div>' +
-    '</div>' +
-    '</div>' +
-    '<div id="topProblemsWrap" style="position:relative; width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:20px;">' +
-    '<canvas id="topProblemsCanvas" style="width:100%; height:auto; display:block;"></canvas>' +
-    '<div id="topProblemsTooltip" style="position:absolute; pointer-events:none; background:rgba(15,23,42,0.95); color:#fff; padding:8px 12px; border-radius:8px; font-family:var(--font-display); font-size:0.72rem; line-height:1.4; max-width:260px; opacity:0; transition:opacity 0.15s; z-index:10;"></div>' +
-    '</div>' +
-    '<div style="display:flex; gap:24px; justify-content:center; margin-top:16px; flex-wrap:wrap;">' +
-    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(37,99,235,0.85);"></div>Automobile</span>' +
-    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(217,119,6,0.85);"></div>FMCG</span>' +
-    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:transparent; border:2px solid var(--accent-teal);"></div>Top Quartile (score 8+)</span>' +
-    '</div>';
-
-  const wrap = document.getElementById('topProblemsWrap');
-  const canvas = document.getElementById('topProblemsCanvas');
-  const tooltip = document.getElementById('topProblemsTooltip');
-  // 90° vertical X-axis labels need ~150px bottom margin (full label height)
-  // but only ~12px horizontal per bar, so labels never clip into Y-axis area.
-  const M = {top: 36, right: 24, bottom: 170, left: 68};
-
-  function draw() {
-    const dpr = window.devicePixelRatio || 1;
-    const cssW = wrap.clientWidth - 40;
-    // Aspect ratio 0.50 with 600px cap — enough vertical for 90° labels + plot
-    const cssH = Math.min(Math.round(cssW * 0.50), 600);
-    canvas.style.width = cssW + 'px';
-    canvas.style.height = cssH + 'px';
-    canvas.width = cssW * dpr;
-    canvas.height = cssH * dpr;
-    const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, cssW, cssH);
-
-    const plotW = cssW - M.left - M.right;
-    const plotH = cssH - M.top - M.bottom;
-
-    ctx.fillStyle = '#fafbfc';
-    ctx.fillRect(M.left, M.top, plotW, plotH);
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(M.left, M.top, plotW, plotH);
-
-    const yMax = Math.ceil(maxEnt / 10) * 10;
-    const yTicks = 5;
-    ctx.font = '500 10px JetBrains Mono, monospace';
-    ctx.textAlign = 'right';
-    for (let i = 0; i <= yTicks; i++) {
-      const v = (yMax / yTicks) * i;
-      const py = M.top + plotH - (v / yMax) * plotH;
-      ctx.beginPath();
-      ctx.moveTo(M.left, py);
-      ctx.lineTo(M.left + plotW, py);
-      ctx.strokeStyle = i === 0 ? '#cbd5e1' : '#f1f5f9';
-      ctx.stroke();
-      ctx.fillStyle = '#64748b';
-      ctx.fillText('$' + Math.round(v) + 'M', M.left - 6, py + 3);
-    }
-    ctx.save();
-    ctx.translate(14, M.top + plotH / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.font = '600 11px Sora, sans-serif';
-    ctx.fillStyle = '#475569';
-    ctx.textAlign = 'center';
-    ctx.fillText('Enterprise TAM ($M)', 0, 0);
-    ctx.restore();
-
-    const n = topNodes.length;
-    const gap = 8;
-    const barW = (plotW - gap * (n + 1)) / n;
-    canvas._bars = [];
-
-    topNodes.forEach((node, i) => {
-      const barX = M.left + gap + i * (barW + gap);
-      const barH = (node.ent / yMax) * plotH;
-      const barY = M.top + plotH - barH;
-      const isAuto = node.sector === 'Auto';
-      const fillColor = isAuto ? 'rgba(37,99,235,0.85)' : 'rgba(217,119,6,0.85)';
-      const isTopQ = node.score >= 8;
-
-      ctx.fillStyle = fillColor;
-      ctx.fillRect(barX, barY, barW, barH);
-
-      if (isTopQ) {
-        ctx.strokeStyle = '#0d9488';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(barX, barY, barW, barH);
-      }
-
-      // Value label above bar
-      ctx.font = '700 10px JetBrains Mono, monospace';
-      ctx.fillStyle = '#1e293b';
-      ctx.textAlign = 'center';
-      ctx.fillText('$' + node.ent + 'M', barX + barW / 2, barY - 6);
-
-      // Score badge INSIDE top of EVERY bar (always, not just top quartile)
-      if (barH > 26) {
-        const badgeColor = isTopQ ? 'rgba(13,148,136,0.95)' : 'rgba(71,85,105,0.88)';
-        ctx.fillStyle = badgeColor;
-        const badgeW = 30, badgeH = 13;
-        const badgeX = barX + barW / 2 - badgeW / 2;
-        const badgeY = barY + 5;
-        ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
-        ctx.fillStyle = '#fff';
-        ctx.font = '700 9px JetBrains Mono, monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText(node.score + '/10', barX + barW / 2, badgeY + 9);
-      }
-
-      // Bottom vertical label (90° rotation) — no truncation, fits any length
-      ctx.save();
-      ctx.translate(barX + barW / 2, M.top + plotH + 10);
-      ctx.rotate(-Math.PI / 2);
-      ctx.font = '500 11px Sora, sans-serif';
-      ctx.fillStyle = '#334155';
-      ctx.textAlign = 'right';
-      ctx.fillText(node.name, 0, 4);
-      ctx.restore();
-
-      canvas._bars.push({x: barX, y: barY, w: barW, h: barH, node});
-    });
-  }
-
-  function showTooltip(node, mx, my) {
-    tooltip.innerHTML =
-      '<div style="font-weight:700; margin-bottom:4px;">' + node.name + '</div>' +
-      '<div style="color:#cbd5e1;">' + node.sector + ' &bull; Score ' + node.score + '/10 &bull; $' + node.ent + 'M enterprise TAM</div>';
-    tooltip.style.left = (mx + 16) + 'px';
-    tooltip.style.top = (my + 16) + 'px';
-    tooltip.style.opacity = 1;
-  }
-
-  canvas.addEventListener('mousemove', function(e) {
-    if (!canvas._bars) return;
-    const rect = canvas.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
-    let hit = null;
-    for (let i = 0; i < canvas._bars.length; i++) {
-      const b = canvas._bars[i];
-      if (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h) { hit = b; break; }
-    }
-    if (hit) {
-      canvas.style.cursor = 'pointer';
-      const wrapRect = wrap.getBoundingClientRect();
-      showTooltip(hit.node, e.clientX - wrapRect.left, e.clientY - wrapRect.top);
-    } else {
-      canvas.style.cursor = 'default';
-      tooltip.style.opacity = 0;
-    }
-  });
-  canvas.addEventListener('mouseleave', function(){ tooltip.style.opacity = 0; });
-
-  draw();
-  let rzTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(rzTimer);
-    rzTimer = setTimeout(draw, 100);
-  });
-}
-
-// ════════════════════════════════════════════════════════════════
-// INTERACTIONS
-// ════════════════════════════════════════════════════════════════
-
-
-
-function toggleDetail(ctx, id) {
-  const panel = document.getElementById(`detail-${ctx}-${id}`);
-  const node = document.getElementById(`node-${ctx}-${id}`);
-  // Close all others in this context
-  document.querySelectorAll(`[id^="detail-${ctx}-"]`).forEach(p => {
-    if (p !== panel) { p.classList.remove('open'); }
-  });
-  document.querySelectorAll(`[id^="node-${ctx}-"]`).forEach(n => n.classList.remove('expanded'));
-
-  if (panel.classList.contains('open')) {
-    panel.classList.remove('open');
-    if (node) node.classList.remove('expanded');
-  } else {
-    panel.classList.add('open');
-    if (node) node.classList.add('expanded');
-    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
-  }
-}
-
-function closeDetail(ctx, id) {
-  document.getElementById(`detail-${ctx}-${id}`).classList.remove('open');
-  const node = document.getElementById(`node-${ctx}-${id}`);
-  if (node) node.classList.remove('expanded');
-}
-
-// ════════════════════════════════════════════════════════════════
-// SCROLL & ANIMATION
-// ════════════════════════════════════════════════════════════════
-
-window.addEventListener('scroll', () => {
-  const winH = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY / winH;
-  document.getElementById('scrollProgress').style.width = (scrolled * 100) + '%';
-
-  // Fade-in observer
-  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.85) el.classList.add('visible');
-  });
-
-  // Active nav link
-  const sections = document.querySelectorAll('section[id]');
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-  document.querySelectorAll('nav a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
-});
-
-// ════════════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════════════
-
-document.addEventListener('DOMContentLoaded', () => {
-  renderWorkflow(AUTO_NODES, 'auto-workflow');
-  renderWorkflow(FMCG_NODES, 'fmcg-workflow');
-  renderTAMWaterfall();
-
-  // Trigger initial fade-ins
-  setTimeout(() => window.dispatchEvent(new Event('scroll')), 100);
-});
-
-
-function openTAMModal(nodeId, sector) {
-  const nodes = sector === 'Auto' ? AUTO_NODES : FMCG_NODES;
-  const n = nodes.find(x => x.id === nodeId);
-  if (!n) return;
-
-  const sectorColor = sector === 'Auto' ? '#60a5fa' : '#fbbf24';
-  const sectorPayroll = sector === 'Auto' ? 4.4 : 2.7;
-  const sectorEntTAM = sector === 'Auto' ? 0.8 : 0.5;
-  const stepAB = sector === 'Auto' ? '35.8%' : '36.5%';
-  const sectorTargetM = sector === 'Auto' ? 800 : 500;
-  const nodeShare = n.tam / sectorTargetM;
-
-  let body = '<h3 style="color:' + sectorColor + ';">' + n.icon + ' ' + n.name + '</h3>';
-  body += '<div class="modal-subtitle">' + sector + ' Sector &bull; ' + n.tier + ' &bull; Score: ' + (n.score || '—') + '/10 &bull; AI Feasibility: ' + (n.feas || '—') + '</div>';
-
-  // SECTION: Node Enterprise TAM derivation (BRSR-anchored, role-mapped) — full chain
-  var isAutoSec = sector === 'Auto';
-  body += '<div style="background:var(--bg-surface);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);margin-bottom:16px;">';
-  body += '<h4 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:' + sectorColor + ';margin-bottom:12px;">NODE ENTERPRISE TAM DERIVATION</h4>';
-  body += '<p style="font-size:0.72rem;color:var(--text-dim);margin-bottom:12px;line-height:1.5;">Each node\'s enterprise TAM is the BRSR-anchored sector total distributed across T1 nodes proportional to addressable role-units (from 03_Workflow_Role_Mapping_Sequential.xlsx). Full chain below.</p>';
-  body += '<div class="modal-derivation">';
-  body += '<div class="md-row"><span class="md-label">Brand-owner revenue base <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives') + '</span></span><span class="md-val">' + (isAutoSec ? '$200B' : '$110B') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Knowledge Worker per $B revenue <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? '9 BRSRs parsed (Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)' : '8 BRSRs parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)') + '</span></span><span class="md-val">' + (isAutoSec ? '814' : '1,300') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Permanent Knowledge Worker headcount <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? '$200B × 814/$B' : '$110B × 1,300/$B') + '</span></span><span class="md-val">' + (isAutoSec ? '162,800' : '143,000') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Avg Knowledge Worker salary <span style="color:var(--text-dim);font-size:0.65rem;">BRSR Section C P5 median pay × 1.2 (Aon mean uplift)</span></span><span class="md-val">' + (isAutoSec ? '$27,000/yr' : '$18,500/yr') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">Knowledge Worker payroll <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? '162,800 × $27K' : '143,000 × $18.5K') + '</span></span><span class="md-val">$' + sectorPayroll + 'B</span></div>';
-  body += '<div class="md-row"><span class="md-label">× Step A — role eligibility (' + (isAutoSec ? '83%' : '85%') + ') <span style="color:var(--text-dim);font-size:0.65rem;">excludes CXO/VP and 20% of Professional R&D (hyper-technical)' + (isAutoSec ? '' : '; FMCG has slightly fewer Executive seats than Auto') + '</span></span><span class="md-val">' + (isAutoSec ? '$3.7B' : '$2.3B') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">× Step B — task automation (43%) <span style="color:var(--text-dim);font-size:0.65rem;">salary-weighted per-role rates from WEF/McKinsey/Frey-Osborne</span></span><span class="md-val">' + (isAutoSec ? '$1.6B' : '$1.0B') + '</span></div>';
-  body += '<div class="md-row"><span class="md-label">× 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;">AI vendor priced below incumbent human labour cost</span></span><span class="md-val">$' + sectorEntTAM + 'B</span></div>';
-  body += '<div class="md-row" style="border-top:2px solid ' + sectorColor + ';margin-top:6px;padding-top:8px;"><span class="md-label" style="font-weight:700;">' + sector + ' sector enterprise TAM</span><span class="md-val" style="font-weight:800;color:' + sectorColor + ';">$' + sectorEntTAM + 'B</span></div>';
-  body += '<div class="md-row" style="margin-top:6px;"><span class="md-label">× Node share of sector addressable role-units <span style="color:var(--text-dim);font-size:0.65rem;">from xlsx role mapping (this node\'s white-collar role-units ÷ sector total)</span></span><span class="md-val">' + (nodeShare*100).toFixed(1) + '%</span></div>';
-  body += '<div class="md-row md-total"><span class="md-label"><strong>Node Enterprise TAM</strong></span><span class="md-val" style="color:var(--accent-teal);">$' + n.tam + 'M</span></div>';
-  body += '</div></div>';
-
-  // SECTION 4: Problems + Solutions + Products
-  if (n.problems) {
-    body += '<div class="modal-cards">';
-    body += '<div class="modal-sector-card" style="border-left:3px solid var(--accent-rose);"><h4 style="color:var(--accent-rose);">Problems</h4><ul style="list-style:none;font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.problems.map(p => '<li style="padding:3px 0;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--accent-rose);">•</span>' + p + '</li>').join('') + '</ul></div>';
-    body += '<div class="modal-sector-card" style="border-left:3px solid var(--accent-teal);"><h4 style="color:var(--accent-teal);">AI Solutions</h4><ul style="list-style:none;font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.solutions.map(s => '<li style="padding:3px 0;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--accent-teal);">•</span>' + s + '</li>').join('') + '</ul></div>';
-    body += '</div>';
-  }
-
-  if (n.products) {
-    body += '<div style="margin-top:12px;"><div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:var(--accent-violet);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Existing Products</div><div class="modal-products">' + n.products.map(p => '<span style="font-size:0.72rem;padding:4px 10px;background:var(--accent-violet-dim);border-radius:6px;color:var(--accent-violet);font-family:var(--font-display);font-weight:600;">' + p.n + '</span>').join('') + '</div></div>';
-  }
-
-  if (n.opportunity) {
-    body += '<div style="margin-top:12px;padding:12px;background:rgba(217,119,6,0.03);border:1px solid rgba(245,158,11,0.15);border-radius:10px;"><div style="font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:var(--accent-amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">India Product Opportunity</div><p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.opportunity + '</p></div>';
-  }
-
-  if (n.sources) {
-    body += '<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;">' + n.sources.map(s => '<a href="' + s.u + '" target="_blank" rel="noopener" class="source-tag">' + s.t + '</a>').join('') + '</div>';
-  }
-
-  document.getElementById('tamModalBody').innerHTML = body;
-  document.getElementById('tamModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeTAMModal() {
-  document.getElementById('tamModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Close modal on overlay click
-document.addEventListener('click', function(e) {
-  if (e.target.id === 'tamModal') closeTAMModal();
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeTAMModal();
-});
-
-
-// Floating tooltip for scoring matrix cells
-(function() {
-  // Create the floating tooltip element once
-  var ft = document.createElement('div');
-  ft.id = 'floatingTip';
-  document.body.appendChild(ft);
-
-  document.addEventListener('mouseover', function(e) {
-    var cell = e.target.closest('.score-cell');
-    if (!cell) { ft.classList.remove('show'); return; }
-    var tipEl = cell.querySelector('.cell-tip');
-    if (!tipEl) { ft.classList.remove('show'); return; }
-
-    // Copy content into floating tip
-    ft.innerHTML = tipEl.innerHTML;
-    ft.classList.add('show');
-
-    // Position after rendering (so we can measure)
-    requestAnimationFrame(function() {
-      var rect = cell.getBoundingClientRect();
-      var tipH = ft.offsetHeight;
-      var tipW = 300;
-      // Try above the cell
-      var top = rect.top - tipH - 14;
-      // If clipped at top, go below
-      if (top < 8) top = rect.bottom + 14;
-      // Horizontal: center on cell
-      var left = rect.left + rect.width / 2 - tipW / 2;
-      // Clamp to viewport
-      if (left < 8) left = 8;
-      if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
-      ft.style.top = top + 'px';
-      ft.style.left = left + 'px';
-    });
-  });
-
-  document.addEventListener('mouseout', function(e) {
-    var cell = e.target.closest('.score-cell');
-    if (cell) {
-      // Check if we moved to a child element — if so, don't hide
-      var related = e.relatedTarget;
-      if (related && cell.contains(related)) return;
-      ft.classList.remove('show');
-    }
-  });
-})();
 
 
 
