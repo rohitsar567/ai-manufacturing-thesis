@@ -2992,24 +2992,16 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. AI solutions are identified at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
     </div>
 
-    <!-- HOW TO READ THE WORKFLOW (per-card legend) -->
-    <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:18px 22px; margin-bottom:22px;">
-      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">How to read the workflow below</div>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;">Each card represents one workflow node. The cards are grouped left-to-right into <strong>4 business pillars</strong> &mdash; Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions &mdash; following the actual sequential value chain in an Indian automobile brand-owner enterprise.</p>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;"><strong>Each clickable card shows three numbers:</strong></p>
-      <ul style="font-size:0.82rem; color:#374151; line-height:1.65; margin:0 0 10px 22px; padding:0;">
-        <li><strong>$XXM</strong> &mdash; the node&rsquo;s <em>Enterprise TAM in $M</em>, derived from the BRSR-anchored sector total ($0.8B Auto) distributed proportional to the node&rsquo;s share of sector addressable role-units (computed from the role library xlsx via per-stream Step A &times; Step B rates). Click any card to see the full role-by-role breakdown that produced this number.</li>
-        <li><strong>X/10</strong> &mdash; the node&rsquo;s <em>AI Readiness Score</em>, the average of three research-derived dimensions:
-          <ul style="font-size:0.78rem; margin:4px 0 4px 14px; padding:0; list-style:disc;">
-            <li><strong>AI Tech Maturity</strong> &mdash; how many commercial vendors ship production-grade products for this workflow (10 = 5+ vendors at scale, 6 = 1&ndash;2 vendors mostly pilots, 2 = research stage)</li>
-            <li><strong>Knowledge Work Density</strong> &mdash; what share of roles in this node are desk/digital vs. physical (&ge;50% = 10, 20&ndash;34% = 6, &lt;10% = 2)</li>
-            <li><strong>India Deployment Evidence</strong> &mdash; whether Indian brand-owners have publicly deployed AI in this workflow (multiple Indian deployments = 10, global only = 4, PoC everywhere = 2)</li>
-          </ul>
-          Click any card to see the full 3-dimension breakdown with bracket explanations and India-specific evidence notes.
-        </li>
-        <li><strong>TOP QUARTILE</strong> highlight (teal pill at top of card) &mdash; appears when the AI Readiness Score &ge; 8/10. Marks the highest-priority opportunities within the deep-dive set.</li>
-      </ul>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0;"><strong>Greyed-out cards labelled "Not targeted"</strong> nodes where the AI Tech Maturity score is below 5/10 (semi-specialized) or where the work is entirely physical/blue-collar (outside the knowledge-worker AI scope). Hover any greyed card for the full why-excluded explanation. Excluded nodes do not contribute to the sector TAM; the BRSR-anchored $0.8B is distributed across the 15 selected nodes only.</p>
+    <!-- HOW TO READ THE WORKFLOW -->
+    <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:14px 20px; margin-bottom:22px;">
+      <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">How to read this workflow</div>
+      <p style="font-size:0.82rem; color:#374151; line-height:1.6; margin:0 0 8px;">Cards flow left-to-right across 4 value chain pillars. Click any card to see the problem, AI solution, products, and full TAM derivation. Each card shows:</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem; color:#374151; line-height:1.5; margin-bottom:8px;">
+        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $0.8B sector TAM, based on role-level automation rates)</div>
+        <div><strong style="color:var(--accent-teal);">X/10</strong> &mdash; AI Readiness Score (average of AI Tech Maturity + Knowledge Work Density + India Deployment Evidence)</div>
+        <div><strong style="color:var(--accent-teal);">TOP QUARTILE</strong> &mdash; score &ge; 8/10, highest-priority opportunity</div>
+      </div>
+      <p style="font-size:0.75rem; color:#6b7280; margin:0;">Greyed-out cards are excluded from the deep-dive (AI maturity too low or blue-collar work). Hover for details.</p>
     </div>
 
     <div id="auto-workflow">
@@ -3045,22 +3037,14 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- HOW TO READ THE WORKFLOW (per-card legend) -->
     <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:18px 22px; margin-bottom:22px;">
-      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">How to read the workflow below</div>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;">Each card represents one workflow node. The cards are grouped left-to-right into <strong>4 business pillars</strong> &mdash; Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions &mdash; following the actual sequential value chain in an Indian FMCG brand-owner enterprise.</p>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;"><strong>Each clickable card shows three numbers:</strong></p>
-      <ul style="font-size:0.82rem; color:#374151; line-height:1.65; margin:0 0 10px 22px; padding:0;">
-        <li><strong>$XXM</strong> &mdash; the node&rsquo;s <em>Enterprise TAM in $M</em>, derived from the BRSR-anchored sector total ($0.5B FMCG) distributed proportional to the node&rsquo;s share of sector addressable role-units (computed from the role library xlsx via per-stream Step A &times; Step B rates). Click any card to see the full role-by-role breakdown that produced this number.</li>
-        <li><strong>X/10</strong> &mdash; the node&rsquo;s <em>AI Readiness Score</em>, the average of three research-derived dimensions:
-          <ul style="font-size:0.78rem; margin:4px 0 4px 14px; padding:0; list-style:disc;">
-            <li><strong>AI Tech Maturity</strong> &mdash; how many commercial vendors ship production-grade products for this workflow (10 = 5+ vendors at scale, 6 = 1&ndash;2 vendors mostly pilots, 2 = research stage)</li>
-            <li><strong>Knowledge Work Density</strong> &mdash; what share of roles in this node are desk/digital vs. physical (&ge;50% = 10, 20&ndash;34% = 6, &lt;10% = 2)</li>
-            <li><strong>India Deployment Evidence</strong> &mdash; whether Indian brand-owners have publicly deployed AI in this workflow (multiple Indian deployments = 10, global only = 4, PoC everywhere = 2)</li>
-          </ul>
-          Click any card to see the full 3-dimension breakdown with bracket explanations and India-specific evidence notes.
-        </li>
-        <li><strong>TOP QUARTILE</strong> highlight (teal pill at top of card) &mdash; appears when the AI Readiness Score &ge; 8/10. Marks the highest-priority opportunities within the deep-dive set.</li>
-      </ul>
-      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0;"><strong>Greyed-out cards labelled "Not targeted"</strong> nodes where the AI Tech Maturity score is below 5/10 (semi-specialized) or where the work is entirely physical/blue-collar (outside the knowledge-worker AI scope). Hover any greyed card for the full why-excluded explanation. Excluded nodes do not contribute to the sector TAM; the BRSR-anchored $0.5B is distributed across the 17 selected nodes only.</p>
+      <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">How to read this workflow</div>
+      <p style="font-size:0.82rem; color:#374151; line-height:1.6; margin:0 0 8px;">Cards flow left-to-right across 4 value chain pillars. Click any card to see the problem, AI solution, products, and full TAM derivation. Each card shows:</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem; color:#374151; line-height:1.5; margin-bottom:8px;">
+        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $0.5B sector TAM, based on role-level automation rates)</div>
+        <div><strong style="color:var(--accent-teal);">X/10</strong> &mdash; AI Readiness Score (average of AI Tech Maturity + Knowledge Work Density + India Deployment Evidence)</div>
+        <div><strong style="color:var(--accent-teal);">TOP QUARTILE</strong> &mdash; score &ge; 8/10, highest-priority opportunity</div>
+      </div>
+      <p style="font-size:0.75rem; color:#6b7280; margin:0;">Greyed-out cards are excluded from the deep-dive (AI maturity too low or blue-collar work). Hover for details.</p>
     </div>
 
     <div id="fmcg-workflow">
@@ -3357,28 +3341,43 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
             <p style="margin:0;"><strong style="color:var(--text-primary);">Final ranking:</strong> FMCG 8.6/10 (SELECTED), Auto 8.0/10 (SELECTED), ESDM 6.9/10 (DEFERRED), Pharma 5.7/10 (SELECTIVE), Chemicals 4.9/10 (LONG-TERM), Metals 2.3/10 (RESISTANT). The two SELECTED sectors get the BRSR-anchored deep-dive; the other four use pooled-estimate methodology with explicit lower-confidence labelling.</p>
           </div>
 
-          <!-- 3g. NODE TAM DERIVATION PIPELINE -->
-          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. Node TAM derivation &mdash; role-mapped pipeline</h4>
-          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Per-node enterprise TAM is computed by a Python pipeline that distributes the BRSR-anchored sector top-down ($0.8B Auto / $0.5B FMCG) across selected nodes proportional to each node&rsquo;s share of <em>addressable role-units</em>. Steps:</p>
-          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 1.</strong> Read the 169 white-collar role assignments from the role library (85 Auto + 84 FMCG roles &rarr; 28 Auto + 29 FMCG workflow blocks).</p>
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 2.</strong> For each role, classify into one of <strong>9 buckets</strong> using a keyword classifier on title + department + career stream: Executive, Senior Mgmt, Middle Mgmt, Professional, Technician, Clerical/Admin, Sales/Field, Customer Service, Merchandiser/Retail.</p>
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 3.</strong> Apply the per-bucket Step A &times; Step B rate (sourced from appendix 3c, WEF Future of Jobs 2025 + McKinsey MGI 2023 + Frey-Osborne 2013):</p>
-            <ul style="font-size:0.75rem; margin:6px 0 10px 28px; padding:0;">
-              <li>Executive (CXO/VP): <strong>0%</strong> (0% eligibility &times; any rate)</li>
-              <li>Senior Management: <strong>20%</strong> (100% &times; 20%)</li>
-              <li>Middle Management: <strong>42%</strong> (100% &times; 42%)</li>
-              <li>Professional: <strong>29.6%</strong> (80% &times; 37%)</li>
-              <li>Technician: <strong>47%</strong> (100% &times; 47%)</li>
-              <li>Clerical/Admin: <strong>77%</strong> (100% &times; 77%)</li>
-              <li>Sales/Field/MR: <strong>37%</strong> (100% &times; 37%)</li>
-              <li>Customer Service: <strong>62%</strong> (100% &times; 62%)</li>
-              <li>Merchandiser/Retail: <strong>42%</strong> (100% &times; 42%)</li>
-            </ul>
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 4.</strong> Compute <em>addressable role-units</em> per node = sum of (per-role rate) over its white-collar roles. Excluded nodes (semi-specialized and blue-collar) are removed from the denominator.</p>
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 5.</strong> Distribute sector top-down proportionally: <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:0.7rem;">node_TAM = (node_addressable_role_units / sector_T1_total) &times; sector_top_down_TAM</code></p>
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Sub-split nodes</strong> (4 FMCG nodes: Mixing/Blending, Filling/Batching, Shift Execution, Packaging Development) inherit a proportional share of their parent xlsx block&rsquo;s role-units, weighted by relative TAM in the 57-node opportunity analysis.</p>
-            <p style="margin:0;"><strong style="color:var(--text-primary);">Reconciliation:</strong> by construction, the bottom-up selected-node sum equals the top-down BRSR-anchored sector total. Auto selected sum = $802M (target $800M, +0.3%). FMCG selected sum = $500M (target $500M, exact). Combined = $1,302M.</p>
+          <!-- 3g. NODE TAM DERIVATION -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. How each node gets its dollar TAM</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">The sector-level TAM ($0.8B for Automobile, $0.5B for FMCG) is a single number for each sector. To make it actionable, each sector&rsquo;s total is split across its 32 selected workflow nodes. The split is proportional to <strong>how much AI-automatable work sits inside each node</strong>. Here is how that proportion is calculated:</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:18px 20px; border:1px solid var(--border-subtle); font-size:0.8rem; color:var(--text-secondary); line-height:1.7;">
+
+            <p style="margin:0 0 14px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">The core idea</strong></p>
+            <p style="margin:0 0 14px;">Every node has a curated list of white-collar job roles that work inside it (e.g., the &ldquo;Supply Chain &amp; Sourcing&rdquo; node contains roles like Head of Supply Chain, Procurement Manager, Buyer, and Supplier Development Engineer). For each role, published research tells us what percentage of that job&rsquo;s tasks AI can credibly automate today. A node where most roles are highly automatable (like Clerical/Admin at 77%) gets a larger share of the sector TAM than a node where roles are less automatable (like Executives at 0%).</p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">Step by step</strong></p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">1. Start with the role library.</strong> 169 white-collar roles (85 Auto + 84 FMCG) are assigned to workflow nodes based on where they sit in the value chain. Click any node card to see its specific roles.</p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">2. Look up each role&rsquo;s AI automation rate.</strong> Each role falls into a job category (e.g., Middle Management, Professional, Clerical). Published research from the <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb; text-decoration:underline;">World Economic Forum</a>, <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb; text-decoration:underline;">McKinsey Global Institute</a>, and <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb; text-decoration:underline;">Frey &amp; Osborne (Oxford)</a> provides an estimate of what fraction of that category&rsquo;s tasks AI can do today:</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0 14px; font-size:0.75rem;">
+              <div style="background:#f8fafc; border-radius:6px; padding:8px 10px;">
+                <div style="color:var(--text-dim); font-size:0.65rem; font-weight:600; margin-bottom:4px;">HIGHER AUTOMATION</div>
+                <div>Clerical/Admin: <strong>77%</strong></div>
+                <div>Customer Service: <strong>62%</strong></div>
+                <div>Technician: <strong>47%</strong></div>
+                <div>Middle Management: <strong>42%</strong></div>
+              </div>
+              <div style="background:#f8fafc; border-radius:6px; padding:8px 10px;">
+                <div style="color:var(--text-dim); font-size:0.65rem; font-weight:600; margin-bottom:4px;">LOWER AUTOMATION</div>
+                <div>Sales/Field: <strong>37%</strong></div>
+                <div>Professional/Engineer: <strong>30%</strong></div>
+                <div>Senior Management: <strong>20%</strong></div>
+                <div>Executive (CXO): <strong>0%</strong></div>
+              </div>
+            </div>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">3. Add up the AI rates for all roles in the node.</strong> For example, if a node has 6 roles with rates of 0%, 42%, 42%, 30%, 30%, and 30%, the total is 1.74. This number represents how many &ldquo;full role-equivalents&rdquo; of AI-automatable work exist in the node.</p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">4. Calculate the node&rsquo;s share of the sector.</strong> Divide the node&rsquo;s total by the sum across all 32 selected nodes in the sector. If a node&rsquo;s total is 1.74 and the sector total is 16.6, the node gets 1.74 &divide; 16.6 = <strong>10.5%</strong> of the sector TAM.</p>
+
+            <p style="margin:0 0 14px;"><strong style="color:var(--text-primary);">5. Multiply by the sector TAM.</strong> 10.5% of $500M FMCG = <strong>$52M</strong> for that node. This is the dollar TAM shown on the workflow card.</p>
+
+            <p style="margin:0; padding:10px 14px; background:rgba(13,148,136,0.05); border-radius:8px; border-left:3px solid var(--accent-teal);"><strong style="color:var(--text-primary);">Reconciliation:</strong> by construction, all node TAMs sum exactly to the sector total. Automobile: $802M (target $800M). FMCG: $500M (target $500M). Combined: $1.3B.</p>
           </div>
 
           <!-- 3h. AI READINESS SCORE FORMULA -->
@@ -4463,7 +4462,7 @@ function renderDetailPanel(n, ctx) {
             <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};font-size:1rem;">${isAuto ? '$0.8B' : '$0.5B'}</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;margin-top:6px;">
-            <span>&times; Node share of sector addressable role-units <span style="color:#9ca3af;font-size:0.65rem;display:block;">computed below from the role library</span></span>
+            <span>&times; This node&rsquo;s share of AI-automatable work in the sector <span style="color:#9ca3af;font-size:0.65rem;display:block;">based on its roles and their AI automation rates (see breakdown below)</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${n.role_breakdown ? n.role_breakdown.share_pct.toFixed(2) : (n.tam / (isAuto ? 800 : 500) * 100).toFixed(2)}%</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
@@ -4474,8 +4473,8 @@ function renderDetailPanel(n, ctx) {
         ${n.role_breakdown ? `
         <!-- PER-NODE ROLE BREAKDOWN SUB-CALCULATION -->
         <div style="margin-top:18px;padding-top:16px;border-top:1px dashed #fde68a;">
-          <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">How this node earns its ${n.role_breakdown.share_pct.toFixed(2)}% slice of the sector pie</div>
-          <p style="font-size:0.82rem;color:#374151;line-height:1.65;margin:0 0 10px;">The ${isAuto ? '$0.8B Auto' : '$0.5B FMCG'} sector total is shared across the ${isAuto ? '15' : '17'} ${sector} workflow nodes that we&rsquo;re actually targeting. Each node gets a slice proportional to <strong>how much AI-automatable work sits inside it</strong>. To measure that, we take every desk-job role that exists in this node (from a curated list of ~${isAuto ? '85' : '84'} job titles across ${sector}&rsquo;s value chain) and look up <strong>what fraction of that role&rsquo;s tasks AI can credibly do today</strong> &mdash; using published research from the World Economic Forum, McKinsey, and Frey-Osborne. We add those fractions up; that&rsquo;s the node&rsquo;s "AI-automatable role-load". Divide by the same sum across all targeted nodes in the sector and you get this node&rsquo;s share. Multiply by the sector total and you get the dollar figure.</p>
+          <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Why this node gets ${n.role_breakdown.share_pct.toFixed(1)}% of the ${isAuto ? '$0.8B' : '$0.5B'} sector TAM</div>
+          <p style="font-size:0.82rem;color:#374151;line-height:1.65;margin:0 0 10px;">The table below shows every white-collar role in this node and the percentage of that role&rsquo;s work that AI can credibly automate today (sourced from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb;text-decoration:underline;">WEF</a>, <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">Frey-Osborne</a>). Adding those percentages up and dividing by the sector-wide total gives this node its share of the TAM.</p>
           ${n.role_breakdown.is_subsplit ? '<p style="font-size:0.78rem;color:#92400e;background:rgba(217,119,6,0.06);border-left:3px solid #f59e0b;padding:10px 14px;margin:0 0 10px;border-radius:4px;"><strong>Note &mdash; this is a sub-split node:</strong> in the source role library, the ' + n.role_breakdown.parent + ' block lumps several distinct sub-workflows together. We split it into separate cards for clarity. This node gets ' + (n.role_breakdown.split_share*100).toFixed(0) + '% of the parent block&rsquo;s total role load (the split weighting reflects the relative size of each sub-workflow). The role list below shows the parent block&rsquo;s full roster &mdash; this card represents the indicated share of those roles.</p>' : ''}
           <table style="width:100%;border-collapse:collapse;font-size:0.78rem;color:#374151;">
             <thead>
@@ -4488,16 +4487,16 @@ function renderDetailPanel(n, ctx) {
             <tbody>
               ${n.role_breakdown.roles.map(r => '<tr style="border-bottom:1px solid #fef3c7;"><td style="padding:5px 8px;">' + r.title + '</td><td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;">' + r.bucket + '</td><td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);font-weight:600;">' + (r.rate*100).toFixed(1) + '%</td></tr>').join('')}
               <tr style="background:rgba(217,119,6,0.04);border-top:2px solid #fbbf24;">
-                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">Sum across all roles in this node${n.role_breakdown.is_subsplit ? ' (after the ' + (n.role_breakdown.split_share*100).toFixed(0) + '% sub-split share)' : ''}</td>
-                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#92400e;">${n.role_breakdown.addr_sum.toFixed(3)}</td>
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">Total AI-automatable work in this node${n.role_breakdown.is_subsplit ? ' (after ' + (n.role_breakdown.split_share*100).toFixed(0) + '% sub-split)' : ''}</td>
+                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#92400e;">${n.role_breakdown.addr_sum.toFixed(2)}</td>
               </tr>
               <tr>
-                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&divide; Sum of the same number across all ${isAuto ? '15' : '17'} targeted ${sector} nodes</td>
-                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${n.role_breakdown.t1_total.toFixed(3)}</td>
+                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&divide; Same total across all ${isAuto ? '15' : '17'} selected ${sector} nodes</td>
+                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${n.role_breakdown.t1_total.toFixed(2)}</td>
               </tr>
               <tr style="border-top:2px solid #d97706;">
-                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= This node&rsquo;s share of the sector pie</td>
-                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:0.95rem;">${n.role_breakdown.share_pct.toFixed(2)}%</td>
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= This node&rsquo;s share of the ${isAuto ? '$0.8B' : '$0.5B'} ${sector} TAM</td>
+                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:0.95rem;">${n.role_breakdown.share_pct.toFixed(1)}%</td>
               </tr>
               <tr>
                 <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&times; ${sector} sector total (BRSR-anchored)</td>
