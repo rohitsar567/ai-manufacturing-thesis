@@ -3652,7 +3652,7 @@ const FMCG_NODES = [
   // SUPPLY & PROCUREMENT
   {id:1,name:"R&D / Formulation",bp:"supply",tier:"T1",icon:"🔬",collar:"Professional",
    roles:"Head of R&D, Product Dev Scientist, Food Technologist, Sensory Scientist",
-   tam:27,feas:"Low",score:4,hc_pct:25,mult:0.237,fte:8,
+   tam:29,feas:"Low",score:4,hc_pct:25,mult:0.237,fte:8,
    problems:["Formulation iteration cycles average 6-12 months from concept to pilot","Ingredient interaction prediction relies on trial-and-error — 70%+ bench trials fail","Consumer sensory testing is expensive and slow — 8-12 weeks per concept"],
    solutions:["AI formulation engines that predict ingredient interactions and optimize recipes computationally","Generative AI for new product concept creation based on consumer trend data","AI-powered virtual sensory panels using digital taste/texture models"],
    products:[{n:"Tastewise",d:"AI food trend intelligence",u:"https://www.tastewise.io",y:2016,f:"$65M",inv:"PeakBridge, Pereg",logo:"https://www.google.com/s2/favicons?domain=www.tastewise.io&sz=64",india_focus:false},{n:"NotCo",d:"AI plant-based food formulation",u:"https://notco.com",y:2015,f:"$433M",inv:"Tiger Global, Bezos Expeditions",logo:"https://www.google.com/s2/favicons?domain=notco.com&sz=64",india_focus:false},{n:"Ginkgo Bioworks (acq. Zymergen 2022)",d:"AI bio-foundry & R&D platform; absorbed Zymergen",u:"https://www.ginkgo.bio",y:2008,f:"Public (NYSE: DNA)",inv:"Public (acquired Zymergen Oct 2022)",logo:"https://www.google.com/s2/favicons?domain=www.ginkgo.bio&sz=64",india_focus:false},{n:"Foodhak",d:"AI-native health food formulation",u:"https://www.foodhak.com",y:2020,f:"$5M",inv:"Global Founders Capital",logo:"https://www.google.com/s2/favicons?domain=www.foodhak.com&sz=64",india_focus:false}],
@@ -3661,7 +3661,7 @@ const FMCG_NODES = [
 
   {id:2,name:"Packaging Development",bp:"supply",tier:"T2",icon:"📦",collar:"Professional",
    roles:"Packaging Dev Technologist",
-   tam:7,feas:"Medium",score:5,hc_pct:20,fte:3,mult:0.24,
+   tam:0,feas:"Medium",score:5,hc_pct:20,fte:3,mult:0.24,
    problems:["Packaging sustainability mandates (EPR compliance) require rapid material substitution","Shelf-life testing takes 3-6 months per formulation-packaging combination"],
    solutions:["AI shelf-life prediction from accelerated testing data using ML models","Generative design for sustainable packaging within cost/performance constraints"],
    products:[{n:"Amcor AI Design",d:"Sustainable packaging optimization"},{n:"Victoria AI (PackIOT)",d:"Smart packaging analytics"}],
@@ -3670,7 +3670,7 @@ const FMCG_NODES = [
 
   {id:3,name:"S&OP / Demand Planning",bp:"supply",tier:"T1",icon:"📊",collar:"Management",
    roles:"S&OP/Demand Planning Mgr, Demand/Supply Planner, Demand Planning Exec",
-   tam:57,feas:"Very High",score:10,hc_pct:40,mult:0.364,fte:18,
+   tam:62,feas:"Very High",score:10,hc_pct:40,mult:0.364,fte:18,
    problems:["Demand forecast accuracy averages 55-65% at SKU level — drives $2B+ in inventory waste annually across India FMCG","Promotional uplift modeling is manual and inaccurate — 40% of promotions destroy value","New product demand forecasting has no statistical basis — relies on category manager intuition","S&OP meeting prep takes 3-5 days of manual data consolidation per cycle"],
    solutions:["ML demand sensing using POS data, weather, festivals, and macroeconomic signals — improving accuracy to 80%+","AI promotional effectiveness engine that simulates ROI before committing trade spend","Automated S&OP scenario generation with AI — comparing demand/supply scenarios in minutes, not days"],
    products:[{n:"o9 Solutions",d:"AI-native demand planning & S&OP",u:"https://o9solutions.com",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"RELEX Solutions",d:"AI retail & supply chain planning",u:"https://www.relexsolutions.com",y:2005,f:"$500M+",inv:"TCV, Summit, Veritas",logo:"https://www.google.com/s2/favicons?domain=www.relexsolutions.com&sz=64",india_focus:false},{n:"Crisp",d:"AI-native supply chain data sharing",u:"https://www.gocrisp.com",y:2016,f:"$73M",inv:"Next47, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gocrisp.com&sz=64",india_focus:false},{n:"Blue Yonder",d:"Supply chain planning with AI features",u:"https://blueyonder.com",y:1985,f:"Acquired by Panasonic ($8.5B, 2021)",inv:"Panasonic",logo:"https://www.google.com/s2/favicons?domain=blueyonder.com&sz=64",india_focus:false},{n:"Increff",d:"AI inventory optimization (India)",u:"https://www.increff.com",y:2016,f:"$20M raised",inv:"Binny Bansal, Ventureast",logo:"https://www.google.com/s2/favicons?domain=www.increff.com&sz=64",india_focus:true}],
@@ -3679,7 +3679,7 @@ const FMCG_NODES = [
 
   {id:4,name:"Supply Planning",bp:"supply",tier:"T1",icon:"📋",collar:"Management",
    roles:"Supply Planning Exec, Chief Supply Chain Officer",
-   tam:27,feas:"High",score:8,hc_pct:35,fte:10,mult:0.363,
+   tam:29,feas:"High",score:8,hc_pct:35,fte:10,mult:0.363,
    problems:["Multi-plant production allocation decisions are suboptimal — based on proximity, not total cost","Raw material inventory typically 15-25% above optimal due to safety stock over-provisioning","Supplier lead time variability causes frequent production schedule changes"],
    solutions:["AI-optimized multi-plant allocation using total cost modeling (raw material, freight, energy, labor)","ML-based dynamic safety stock that adjusts to real-time demand volatility and supplier reliability","AI supplier lead time prediction and automatic schedule adjustment"],
    products:[{n:"Kinaxis",d:"AI supply planning"},{n:"o9 Solutions",d:"Supply chain AI"},{n:"Coupa Supply Chain",d:"Supply chain visibility AI"}],
@@ -3688,7 +3688,7 @@ const FMCG_NODES = [
 
   {id:5,name:"Procurement",bp:"supply",tier:"T1",icon:"🤝",collar:"Professional",
    roles:"Head of Procurement, Procurement Mgr, Procurement Officer, Buyer/Sourcing Specialist",
-   tam:29,feas:"High",score:8,hc_pct:40,mult:0.253,fte:16,
+   tam:31,feas:"High",score:8,hc_pct:40,mult:0.253,fte:16,
    problems:["Commodity price volatility (palm oil, sugar, wheat) creates $50-200M annual hedging losses for large FMCG","Tail-spend management (60% of POs, 5% of spend) is unmanaged and unoptimized","Contract compliance monitoring across 500-2,000 suppliers is manual"],
    solutions:["AI commodity price forecasting using satellite, weather, trade flow, and futures data","AI-powered tail-spend consolidation and maverick spend detection","LLM-based contract analysis and compliance monitoring"],
    products:[{n:"Coupa",d:"AI spend intelligence",u:"https://www.coupa.com",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Zip",d:"AI-native procurement orchestration",u:"https://ziphq.com",y:2020,f:"$100M+",inv:"Y Combinator, CRV, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=ziphq.com&sz=64",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement (India)",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
@@ -3724,7 +3724,7 @@ const FMCG_NODES = [
 
   {id:9,name:"Shift Execution",bp:"mfg",tier:"T3",icon:"👷",collar:"Supervisory",
    roles:"Shift In-Charge, Line Leader",
-   tam:9,feas:"Low",score:3,hc_pct:10,fte:1,mult:0.291,
+   tam:0,feas:"Low",score:3,hc_pct:10,fte:1,mult:0.291,
    problems:["Shift handover information loss causes 10-15% productivity dip in first hour"],
    solutions:["AI shift handover assistant — auto-generates handover reports from production data and flags critical issues"],
    products:[{n:"Tulip",d:"Digital shift management"}],
@@ -3732,7 +3732,7 @@ const FMCG_NODES = [
 
   {id:10,name:"Mixing / Blending",bp:"mfg",tier:"T3",icon:"🥣",collar:"Blue Collar",
    roles:"Machine Op, Blending Op, Food Handler",
-   tam:12,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
+   tam:0,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
    problems:["Batch-to-batch consistency varies 5-8% due to raw material variability"],
    solutions:["AI process control that auto-adjusts mixing parameters based on incoming raw material properties — 60% consistency improvement"],
    products:[{n:"Rockwell FactoryTalk AI",d:"Process control"},{n:"AspenTech",d:"Process optimization"}],
@@ -3740,7 +3740,7 @@ const FMCG_NODES = [
 
   {id:11,name:"Filling / Batching",bp:"mfg",tier:"T3",icon:"🧃",collar:"Blue Collar",
    roles:"Filling/Batching Op",
-   tam:10,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
+   tam:0,feas:"N/A",score:5,hc_pct:5,fte:1,mult:0.29,
    problems:["Overfilling costs 1-3% of product value; underfilling creates regulatory risk"],
    solutions:["AI-controlled filling with real-time weight/volume feedback — reduces giveaway by 50%+"],
    products:[{n:"Mettler Toledo AI",d:"Checkweighing with ML"},{n:"Krones AI",d:"Filling line optimization"}],
@@ -3756,7 +3756,7 @@ const FMCG_NODES = [
 
   {id:13,name:"Quality Control & Lab",bp:"mfg",tier:"T1",icon:"🔬",collar:"Professional",
    roles:"QC/Lab Mgr, QA Exec, Microbiologist, Lab Chemist, Pkg Quality Exec",
-   tam:46,feas:"High",score:8,hc_pct:35,mult:0.32,fte:14,
+   tam:50,feas:"High",score:8,hc_pct:35,mult:0.32,fte:14,
    problems:["Lab testing turnaround: 24-72 hours for microbiology — production holds inventory waiting for release","Manual COA generation and batch release documentation takes 2-4 hours per batch","Trend analysis across batches is retrospective, not predictive — catches problems after they occur"],
    solutions:["Rapid AI-assisted microbiology using spectroscopic methods with ML classification — results in hours, not days","LLM-powered automatic COA generation and batch release documentation","Predictive quality analytics that flags batches likely to fail based on process parameters"],
    products:[{n:"Benchling",d:"Cloud R&D & lab management",u:"https://www.benchling.com",y:2012,f:"$400M",inv:"Sequoia, a16z, Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.benchling.com&sz=64",india_focus:false},{n:"Veeva Systems",d:"Quality & regulatory management",u:"https://www.veeva.com",y:2007,f:"Public (NYSE: VEEV, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.veeva.com&sz=64",india_focus:false},{n:"Uncountable",d:"AI-native R&D data platform",u:"https://www.uncountable.com",y:2015,f:"$16M",inv:"Lux Capital, Bowery Capital",logo:"https://www.google.com/s2/favicons?domain=www.uncountable.com&sz=64",india_focus:false},{n:"Quantiphi",d:"AI analytics for quality (India-origin)",u:"https://www.quantiphi.com",y:2013,f:"$70M raised",inv:"Multiples PE",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwZDk0ODgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UTwvdGV4dD48L3N2Zz4=",india_focus:true}],
@@ -3765,7 +3765,7 @@ const FMCG_NODES = [
 
   {id:14,name:"Food Safety & QA",bp:"mfg",tier:"T1",icon:"🛡️",collar:"Management",
    roles:"Head of Quality, QA Mgr, Food Safety Supervisor (FoSTaC), Process Validation Exec",
-   tam:59,feas:"High",score:8,hc_pct:30,mult:0.347,fte:10,
+   tam:63,feas:"High",score:8,hc_pct:30,mult:0.347,fte:10,
    problems:["HACCP/FSMS audit preparation takes 2-4 weeks per facility — largely manual document compilation","Allergen control and traceability across complex multi-ingredient products is error-prone","Supplier food safety audits across 200+ suppliers are resource-constrained — only 20% audited annually"],
    solutions:["AI-powered audit preparation — auto-compiles HACCP documentation from production records","AI allergen traceability engine mapping every ingredient to every finished product","ML-based supplier risk scoring enabling risk-based audit prioritization"],
    products:[{n:"TraceGains",d:"AI supplier compliance & food safety",u:"https://www.tracegains.com",y:2008,f:"$40M",inv:"Wavecrest Growth",logo:"https://www.google.com/s2/favicons?domain=www.tracegains.com&sz=64",india_focus:false},{n:"FoodLogiQ",d:"Food traceability (acquired by Aptean)",u:"https://www.foodlogiq.com",y:2006,f:"Acquired by Aptean (2022)",inv:"Aptean",logo:"https://www.google.com/s2/favicons?domain=www.foodlogiq.com&sz=64",india_focus:false},{n:"Trustwell (FoodLogiQ+ESHA)",d:"AI food safety & compliance",u:"https://www.trustwell.com",y:2022,f:"$30M+",inv:"Mainsail Partners",logo:"https://www.google.com/s2/favicons?domain=www.trustwell.com&sz=64",india_focus:false},{n:"SafetyChain",d:"Food safety & quality management with AI risk scoring",u:"https://safetychain.com",y:2010,f:"$50M+",inv:"PE-backed",logo:"https://www.google.com/s2/favicons?domain=safetychain.com&sz=64",india_focus:false}],
@@ -3791,7 +3791,7 @@ const FMCG_NODES = [
   // DEMAND, SALES & DISTRIBUTION
   {id:17,name:"Marketing Leadership",bp:"demand",tier:"T1",icon:"📢",collar:"Executive",
    roles:"CMO, Brand/Category Mgr, Category Dev Mgr, Shopper Mktg Mgr",
-   tam:33,feas:"High",score:8,hc_pct:30,mult:0.329,fte:12,
+   tam:36,feas:"High",score:8,hc_pct:30,mult:0.329,fte:12,
    problems:["Media mix optimization across 15+ channels is based on historical attribution, not predictive modeling","Brand health tracking takes 4-6 weeks per survey wave — too slow for real-time course correction","New product launch success rate is 10-15% — most failures due to poor concept testing"],
    solutions:["AI media mix modeling with real-time optimization across digital, TV, print, and trade channels","AI brand health tracking using social listening, search trends, and e-commerce signals — daily updates","AI-powered virtual concept testing at 10% the cost and 90% faster than traditional methods"],
    products:[{n:"Kantar Marketplace",d:"AI brand health & concept testing",u:"https://www.kantar.com/marketplace",y:2019,f:"Part of Kantar (Bain Capital, ~$4B revenue)",inv:"Bain Capital",logo:"https://www.google.com/s2/favicons?domain=www.kantar.com&sz=64",india_focus:false},{n:"Zappi",d:"AI-native consumer insights",u:"https://www.zappi.io",y:2013,f:"$100M+",inv:"FTV Capital",logo:"https://www.google.com/s2/favicons?domain=www.zappi.io&sz=64",india_focus:false},{n:"CreativeX",d:"AI-native creative quality scoring",u:"https://creativex.com",y:2015,f:"$25M",inv:"EQT Ventures",logo:"https://www.google.com/s2/favicons?domain=creativex.com&sz=64",india_focus:false},{n:"Pencil",d:"AI-native ad creative generation",u:"https://www.trypencil.com",y:2018,f:"$15M",inv:"Sequoia India",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiM3YzNhZWQiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"Lifesight",d:"AI marketing measurement (India-origin)",u:"https://www.lifesight.io",y:2015,f:"$17M raised",inv:"Jungle Ventures, M&S Partners",logo:"https://www.google.com/s2/favicons?domain=www.lifesight.io&sz=64",india_focus:true}],
@@ -3800,7 +3800,7 @@ const FMCG_NODES = [
 
   {id:18,name:"Trade & Digital Marketing",bp:"demand",tier:"T1",icon:"📱",collar:"Professional",
    roles:"Trade/Digital Mktg Mgr, Customer Mktg Exec",
-   tam:24,feas:"High",score:8,hc_pct:35,mult:0.328,fte:14,
+   tam:26,feas:"High",score:8,hc_pct:35,mult:0.328,fte:14,
    problems:["Trade promotion ROI is negative for 40% of promotions — $500M+ wasted annually across India FMCG","Digital ad creative production bottleneck — 200-500 assets per campaign across formats","POSM allocation across 500K+ retail outlets is guesswork"],
    solutions:["AI trade promotion optimization — simulate ROI before committing trade spend","Generative AI for creative production — auto-generate localized ad variants at scale","AI-driven POSM allocation using outlet-level sell-through data"],
    products:[{n:"Trax",d:"AI retail shelf intelligence",u:"https://traxretail.com",y:2010,f:"$640M",inv:"SoftBank Vision Fund",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"Pricefx",d:"AI pricing & trade promotion optimization",u:"https://www.pricefx.com",y:2011,f:"$184M",inv:"Apax Partners, Bain Capital Ventures",logo:"https://www.google.com/s2/favicons?domain=www.pricefx.com&sz=64",india_focus:false},{n:"Aforza",d:"AI-native CPG trade execution",u:"https://www.aforza.com",y:2019,f:"$30M",inv:"Salesforce Ventures, Insight",logo:"https://www.google.com/s2/favicons?domain=www.aforza.com&sz=64",india_focus:false},{n:"ParallelDots",d:"AI shelf image recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true}],
@@ -3809,7 +3809,7 @@ const FMCG_NODES = [
 
   {id:19,name:"Sales Leadership",bp:"demand",tier:"T1",icon:"🎯",collar:"Management",
    roles:"CSO, National/Regional Sales Mgr, Head of E-commerce/MT, Sales Capability Mgr",
-   tam:32,feas:"High",score:8,hc_pct:30,mult:0.296,fte:12,
+   tam:35,feas:"High",score:8,hc_pct:30,mult:0.296,fte:12,
    problems:["Territory design and salesperson deployment based on geography, not potential — 20-30% misallocation","Sales target setting is top-down arithmetic — doesn't reflect outlet-level potential","Route-to-market decisions (direct vs distributor vs super-stockist) lack data-driven optimization"],
    solutions:["AI territory optimization using outlet census, potential mapping, and salesperson capacity modeling","ML-based target setting from outlet potential, competitive presence, and macro signals","AI route-to-market optimizer that recommends optimal channel structure per geography"],
    products:[{n:"Fractal Analytics",d:"AI decision intelligence (India)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"Xactly",d:"AI sales performance management",u:"https://xactlycorp.com",y:2005,f:"Acquired by Vista Equity ($1.3B, 2017)",inv:"Vista Equity Partners",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNkOTc3MDYiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+WDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"People.ai",d:"AI-native revenue intelligence",u:"https://people.ai",y:2016,f:"$100M",inv:"Lightspeed, a16z, ICONIQ",logo:"https://www.google.com/s2/favicons?domain=people.ai&sz=64",india_focus:false},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true}],
@@ -3818,7 +3818,7 @@ const FMCG_NODES = [
 
   {id:20,name:"Key Accounts & Channels",bp:"demand",tier:"T1",icon:"🏬",collar:"Professional",
    roles:"Key Account Mgr (MT/E-com), Channel Sales Mgr, Distributor Dev Mgr",
-   tam:27,feas:"High",score:8,hc_pct:30,mult:0.299,fte:12,
+   tam:29,feas:"High",score:8,hc_pct:30,mult:0.299,fte:12,
    problems:["Joint business plans (JBPs) with modern trade partners are manually created — 4-6 weeks per retailer","E-commerce channel profitability is opaque — true cost-to-serve per platform is unknown","Distributor performance benchmarking across 2,000+ distributors is lagging and manual"],
    solutions:["AI JBP generator that analyzes shopper data, category trends, and retailer strategy to auto-create plans","AI channel profitability engine mapping true cost-to-serve across Blinkit, Zepto, BigBasket, Amazon, Flipkart","AI distributor scorecards with predictive intervention triggers"],
    products:[{n:"CommerceIQ",d:"AI-native e-commerce management",u:"https://commerceiq.ai",y:2012,f:"$175M",inv:"SoftBank, Insight Partners",logo:"https://www.google.com/s2/favicons?domain=commerceiq.ai&sz=64",india_focus:false},{n:"Bizom",d:"AI retail intelligence for FMCG (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"Botree DMS",d:"Distributor management (India)",u:"https://www.botreesoftware.com",y:2009,f:"Acquired by SugarCRM (2023)",inv:"SugarCRM",logo:"https://www.google.com/s2/favicons?domain=www.botreesoftware.com&sz=64",india_focus:true},{n:"RetailNext",d:"AI in-store analytics",u:"https://retailnext.net",y:2007,f:"$190M",inv:"Norwest, EDBI",logo:"https://www.google.com/s2/favicons?domain=retailnext.net&sz=64",india_focus:false}],
@@ -3836,7 +3836,7 @@ const FMCG_NODES = [
 
   {id:22,name:"Field Sales",bp:"demand",tier:"T1",icon:"🚶",collar:"Mixed",
    roles:"ASM, Territory Sales Exec, Van Sales Rep",
-   tam:21,feas:"Very High",score:10,hc_pct:30,mult:0.37,fte:25,
+   tam:23,feas:"Very High",score:10,hc_pct:30,mult:0.37,fte:25,
    problems:["India's FMCG field sales force of 500K+ people spends 40% of time on non-selling activities (reporting, travel planning, order processing)","Outlet coverage compliance averages 60-70% — salespeople skip low-value outlets","Order suggestions at each outlet are based on last order, not predicted demand"],
    solutions:["AI sales assistant that auto-generates visit reports, optimizes routes, and pre-fills orders from predicted demand","AI outlet prioritization scoring — maximizing coverage ROI per salesperson per day","ML-based order recommendation at outlet level using sell-through velocity, stock level, and local events"],
    products:[{n:"Bizom",d:"AI retail intelligence (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"FieldAssist",d:"AI sales force automation (India)",u:"https://www.fieldassist.com",y:2014,f:"$10M raised",inv:"Mirae Asset, Sistema Asia Fund",logo:"https://www.google.com/s2/favicons?domain=www.fieldassist.com&sz=64",india_focus:true},{n:"BeatRoute",d:"AI route intelligence (India)",u:"https://beatroute.io",y:2015,f:"$6M raised",inv:"Chiratae Ventures, IvyCap",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNlMTFkNDgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"ParallelDots",d:"AI shelf recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true},{n:"RetailPulse",d:"AI retail analytics (India)",u:"https://retailpulse.ai",y:2020,f:"$4M raised",inv:"Arali Ventures, Pentathlon",logo:"https://www.google.com/s2/favicons?domain=retailpulse.ai&sz=64",india_focus:true}],
@@ -3854,7 +3854,7 @@ const FMCG_NODES = [
 
   {id:24,name:"Customer Service",bp:"demand",tier:"T1",icon:"📞",collar:"Professional",
    roles:"Customer Service Exec, DMS/Sales Ops Exec",
-   tam:18,feas:"Very High",score:10,hc_pct:45,mult:0.62,fte:12,
+   tam:19,feas:"Very High",score:10,hc_pct:45,mult:0.62,fte:12,
    problems:["Customer complaint handling averages 48-72 hours resolution — consumers expect <4 hours","Order processing and distributor queries consume 70% of customer service team bandwidth","Consumer insight extraction from complaints is manual and underutilized"],
    solutions:["AI chatbots and voice agents for L1 customer service — handling 80% of queries without human intervention","AI-automated order management — auto-process routine orders, flag exceptions","NLP-based consumer insight mining from complaints, social media, and call transcripts"],
    products:[{n:"Yellow.ai",d:"Enterprise AI chatbot (India-origin)",u:"https://yellow.ai",y:2016,f:"$102M",inv:"Sapphire, Salesforce Ventures",logo:"https://www.google.com/s2/favicons?domain=yellow.ai&sz=64",india_focus:true},{n:"Freshworks",d:"AI customer service (India-origin)",u:"https://www.freshworks.com",y:2010,f:"Public (NASDAQ: FRSH, Mkt Cap ~$5B)",inv:"Sequoia, Tiger Global, Accel (IPO 2021)",logo:"https://www.google.com/s2/favicons?domain=www.freshworks.com&sz=64",india_focus:true},{n:"Haptik",d:"Conversational AI (Jio)",u:"https://www.haptik.ai",y:2013,f:"Acquired by Reliance Jio ($100M, 2019)",inv:"Reliance Jio",logo:"https://www.google.com/s2/favicons?domain=www.haptik.ai&sz=64",india_focus:true},{n:"Verloop.io",d:"AI-native CX automation (India)",u:"https://verloop.io",y:2016,f:"$7M raised",inv:"IDFC Parampara, Kalaari Capital",logo:"https://www.google.com/s2/favicons?domain=verloop.io&sz=64",india_focus:true}],
@@ -3872,7 +3872,7 @@ const FMCG_NODES = [
 
   {id:26,name:"Finance",bp:"support",tier:"T1",icon:"💰",collar:"Management",
    roles:"CFO, Accounts/Payroll/Admin Exec",
-   tam:22,feas:"Very High",score:10,hc_pct:45,mult:0.385,fte:18,
+   tam:24,feas:"Very High",score:10,hc_pct:45,mult:0.385,fte:18,
    problems:["Trade spend reconciliation across 2,000+ distributors is a month-end nightmare — 15% error rate","GST return filing across 15-20 state GSTINs with input tax credit reconciliation is manual","Revenue recognition for complex trade schemes (BOGO, volume rebates, display incentives) requires manual calculation"],
    solutions:["AI-powered trade spend reconciliation with automatic distributor claims matching","AI GST compliance engine with auto-reconciliation of GSTR-1/2B/3B across all GSTINs","AI revenue management automating scheme calculations and accrual accounting"],
    products:[{n:"Highradius",d:"AI AR/AP & treasury (India-origin)",u:"https://www.highradius.com",y:2006,f:"$475M raised, valued at $3.1B (2022)",inv:"Susquehanna, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.highradius.com&sz=64",india_focus:true},{n:"ClearTax",d:"AI GST compliance (India)",u:"https://cleartax.in",y:2011,f:"$140M",inv:"Composite Capital, Y Combinator",logo:"https://www.google.com/s2/favicons?domain=cleartax.in&sz=64",india_focus:true},{n:"Ramp",d:"AI-native spend management",u:"https://ramp.com",y:2019,f:"$620M",inv:"Founders Fund, Thrive Capital",logo:"https://www.google.com/s2/favicons?domain=ramp.com&sz=64",india_focus:false},{n:"Zaggle",d:"AI spend management (India, public)",u:"https://www.zaggle.in",y:2011,f:"Public (NSE: ZAGGLE, Mkt Cap ~INR 4,500 Cr)",inv:"Public (IPO 2023)",logo:"https://www.google.com/s2/favicons?domain=www.zaggle.in&sz=64",india_focus:true}],
@@ -3881,7 +3881,7 @@ const FMCG_NODES = [
 
   {id:27,name:"Human Resources",bp:"support",tier:"T1",icon:"👥",collar:"Management",
    roles:"Head of HR/IR, Factory HR & IR Mgr",
-   tam:12,feas:"Very High",score:10,hc_pct:40,mult:0.21,fte:10,
+   tam:13,feas:"Very High",score:10,hc_pct:40,mult:0.21,fte:10,
    problems:["FMCG field force attrition averages 40-60% annually — recruitment is a continuous treadmill","Statutory compliance across Factories Act, Shops & Establishments, CLRA (contract labor) is state-specific and manual","Performance management for 5,000-50,000 employee organizations is paper-based at many Indian companies"],
    solutions:["AI-powered high-volume recruitment with auto-screening, assessment, and onboarding","AI statutory compliance engine auto-tracking state-wise labor law changes and generating compliance checklists","AI performance management with continuous feedback, skill-gap identification, and career path recommendation"],
    products:[{n:"Darwinbox",d:"AI-native HRMS (India-origin)",u:"https://darwinbox.com",y:2015,f:"$110M",inv:"TCV, Salesforce Ventures, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=darwinbox.com&sz=64",india_focus:true},{n:"BetterPlace",d:"AI blue-collar workforce (India)",u:"https://www.betterplace.co.in",y:2015,f:"$40M raised",inv:"Unitus, 3one4 Capital, CX Partners",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwNTk2NjkiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"Eightfold AI",d:"AI-native talent intelligence",u:"https://eightfold.ai",y:2016,f:"$396M",inv:"SoftBank, General Catalyst",logo:"https://www.google.com/s2/favicons?domain=eightfold.ai&sz=64",india_focus:false},{n:"Phenom",d:"AI-native talent experience",u:"https://www.phenom.com",y:2010,f:"$161M",inv:"B Capital, Dragoneer",logo:"https://www.google.com/s2/favicons?domain=www.phenom.com&sz=64",india_focus:false}],
@@ -3899,7 +3899,7 @@ const FMCG_NODES = [
 
   {id:29,name:"Analytics & Revenue Mgmt",bp:"support",tier:"T1",icon:"📈",collar:"Professional",
    roles:"RGM Manager, RGM/Data/MIS Analyst",
-   tam:29,feas:"High",score:8,hc_pct:35,mult:0.337,fte:10,
+   tam:31,feas:"High",score:8,hc_pct:35,mult:0.337,fte:10,
    problems:["Revenue growth management requires synthesizing data from 10+ sources (Nielsen, internal, retailer) — 80% of analyst time is data wrangling","Price-pack architecture decisions across 200+ SKUs lack optimization — cannibalization effects not modeled","Promotional ROI measurement is retrospective and approximate"],
    solutions:["AI data integration and automated insight generation from multi-source FMCG data","AI price-pack optimizer modeling demand elasticity, cannibalization, and competitive response","Real-time promotional ROI engine with causal inference methodology"],
    products:[{n:"Fractal Analytics",d:"AI decision science (India-origin)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true},{n:"Sigmoid",d:"AI data engineering for CPG (India)",u:"https://www.sigmoid.com",y:2013,f:"$12M raised",inv:"Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.sigmoid.com&sz=64",india_focus:true},{n:"Course5i",d:"AI analytics for FMCG (India)",u:"https://www.course5i.com",y:2000,f:"$50M raised",inv:"Avataar Ventures",logo:"https://www.google.com/s2/favicons?domain=www.course5i.com&sz=64",india_focus:true}],
