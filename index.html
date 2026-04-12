@@ -3256,6 +3256,81 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
             <p style="margin:10px 0 6px;"><strong style="color:var(--text-primary);">&#9679; Brand-owner universe bottom-up build</strong></p>
             <p style="margin:0 0 0; padding-left:16px;">Non-MSME brand-owner universe is now built bottom-up from ACMA, SIAM, CRISIL, MCA21/Tofler, and primary-source research. Auto: ~1,100 firms (OEMs + Tier-1/2 components + dealerships + B2B specialty). FMCG: ~700 firms (listed + unlisted Indian + MNC India subs + cooperatives + food-B2B processors).</p>
           </div>
+
+          <!-- 3e. SECTOR SELECTION METHODOLOGY -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3e. Sector selection &mdash; 7-dimension scoring matrix</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Six manufacturing sectors evaluated across seven dimensions, each scored 1&ndash;5. Scores are anchored to verifiable data where possible (TAM size, attrition %, net margin, NASSCOM AI Index). Composite = sum of all 7 scores, max 35.</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 1 &mdash; TAM Size</strong> (5 = largest): Anchored to BRSR-derived enterprise TAM. Auto $0.8B = 5, FMCG $0.5B = 4, ESDM $140M = 3, Chemicals $110M = 3, Pharma $70M = 2, Metals $30M = 1. Monotonic.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 2 &mdash; Workforce Friction</strong> (5 = highest attrition = strongest AI demand): FMCG 40-60% = 5, ESDM 25-30% = 4, Auto 18-22% = 3, Pharma 15-20% = 3, Chemicals 12-15% = 2, Metals 8.6% = 1. Monotonic.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 3 &mdash; Outsourcing Propensity</strong> (5 = most outsourcing-friendly): Qualitative ranking based on extent of third-party delegation. FMCG (Very High) = 5, Auto/ESDM/Pharma (Moderate) = 3, Chemicals (Low) = 2, Metals (Low) = 1.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 4 &mdash; AI &amp; Digital Readiness</strong> (5 = most digitally mature): NASSCOM AI Adoption Index. Auto/ESDM (Very High) = 5, FMCG/Pharma (Moderate) = 3, Chemicals (Low-Mod) = 2, Metals (Low) = 1.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 5 &mdash; Legal Friction</strong> (5 = lowest friction): Inverse of union strength + labour law complexity + regulatory barriers. Auto/FMCG (Low-Mod) = 4, ESDM/Chemicals (Moderate) = 3, Pharma (High FDA) = 2, Metals (Very High) = 1.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 6 &mdash; Financial Capacity for AI</strong> (5 = highest tech-investment capacity): Net margin <em>plus</em> capital subsidies (PLI, ISM 2.0), capex burden, and discretionary tech-spend headroom. Pure margin ranks FMCG 17% &gt; Pharma 15.9% &gt; Chemicals 10.2% &gt; Metals 9.5% &gt; ESDM 7% &gt; Auto 6.5%, but Auto&rsquo;s &#8377;25,938 cr PLI-Auto subsidy and capex intensity offset its low margin; ESDM&rsquo;s thin EMS margins drag it below Auto despite higher headline margin.</p>
+            <p style="margin:0 0 12px;"><strong style="color:var(--text-primary);">Dimension 7 &mdash; Overall AI Readiness Verdict</strong> (5 = "Immediate, deploy now"): Composite judgement combining all six factors. Auto Immediate = 5, FMCG Highly Ripe = 4, ESDM Strong-but-Scaling = 4 (deferred for stable workforce baseline), Pharma Selective = 3, Chemicals Long-Term = 2, Metals Resistant = 1.</p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">Final ranking:</strong> FMCG 30/35 (SELECTED), Auto 28/35 (SELECTED), ESDM 24/35 (DEFERRED), Pharma 20/35 (SELECTIVE), Chemicals 17/35 (LONG-TERM), Metals 8/35 (RESISTANT). The two SELECTED sectors get the BRSR-anchored deep-dive; the other four use pooled-estimate methodology with explicit lower-confidence labelling.</p>
+          </div>
+
+          <!-- 3f. NODE SELECTION RULE (T1/T2/T3) -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3f. Node selection &mdash; formal T1/T2/T3 classification rule</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Each of the 57 workflow nodes is classified into one of three tiers <strong>by a coded rule</strong> (not author judgment). Only T1 nodes count toward the sector enterprise TAM; T2 and T3 nodes appear in the workflow visualization as "Not targeted" with $0 derived TAM.</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">T1 &mdash; selected for deep-dive</strong>: white-collar role count &ge; 1 in <em>03_Workflow_Role_Mapping_Sequential.xlsx</em> AND (AI feasibility &isin; {Very High, High} OR feasibility = Medium with &ge;3 commercially-available products). Auto: 15 nodes. FMCG: 17 nodes. Total: <strong style="color:var(--text-primary);">32 T1 nodes</strong>.</p>
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">T2 &mdash; semi-specialized</strong>: white-collar role count &ge; 1 but does not meet T1 criteria (low feasibility OR &lt;3 mature AI products). Auto: 8 nodes. FMCG: 10 nodes.</p>
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">T3 &mdash; pure blue-collar production</strong>: white-collar role count = 0 in the role library. AI for these workflows is robotics + computer vision (separate market). Auto: 5 nodes. FMCG: 2 nodes.</p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">Why coded vs author:</strong> earlier versions of the thesis used author judgment to flag T1 nodes. The coded rule eliminates that judgment, makes the classification reproducible, and ensures any new node added to the role library will be classified consistently. The full pipeline lives in <em>derive_node_tams_9bucket.py</em>.</p>
+          </div>
+
+          <!-- 3g. NODE TAM DERIVATION PIPELINE -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. Node TAM derivation &mdash; role-mapped pipeline</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Per-node enterprise TAM is computed by a Python pipeline that distributes the BRSR-anchored sector top-down ($0.8B Auto / $0.5B FMCG) across T1 nodes proportional to each node&rsquo;s share of <em>addressable role-units</em>. Steps:</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 1.</strong> Read the 169 white-collar role assignments from <em>03_Workflow_Role_Mapping_Sequential.xlsx</em> (85 Auto + 84 FMCG roles &rarr; 28 Auto + 26 FMCG workflow blocks).</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 2.</strong> For each role, classify into one of <strong>9 buckets</strong> using a keyword classifier on title + department + career stream: Executive, Senior Mgmt, Middle Mgmt, Professional, Technician, Clerical/Admin, Sales/Field, Customer Service, Merchandiser/Retail.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 3.</strong> Apply the per-bucket Step A &times; Step B rate (sourced from appendix 3c, WEF Future of Jobs 2025 + McKinsey MGI 2023 + Frey-Osborne 2013):</p>
+            <ul style="font-size:0.75rem; margin:6px 0 10px 28px; padding:0;">
+              <li>Executive (CXO/VP): <strong>0%</strong> (0% eligibility &times; any rate)</li>
+              <li>Senior Management: <strong>20%</strong> (100% &times; 20%)</li>
+              <li>Middle Management: <strong>42%</strong> (100% &times; 42%)</li>
+              <li>Professional: <strong>29.6%</strong> (80% &times; 37%)</li>
+              <li>Technician: <strong>47%</strong> (100% &times; 47%)</li>
+              <li>Clerical/Admin: <strong>77%</strong> (100% &times; 77%)</li>
+              <li>Sales/Field/MR: <strong>37%</strong> (100% &times; 37%)</li>
+              <li>Customer Service: <strong>62%</strong> (100% &times; 62%)</li>
+              <li>Merchandiser/Retail: <strong>42%</strong> (100% &times; 42%)</li>
+            </ul>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 4.</strong> Compute <em>addressable role-units</em> per node = sum of (per-role rate) over its white-collar roles. T2/T3 nodes are excluded from the denominator.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Step 5.</strong> Distribute sector top-down proportionally: <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:0.7rem;">node_TAM = (node_addressable_role_units / sector_T1_total) &times; sector_top_down_TAM</code></p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Sub-split nodes</strong> (4 FMCG nodes: Mixing/Blending, Filling/Batching, Shift Execution, Packaging Development) inherit a proportional share of their parent xlsx block&rsquo;s role-units, weighted by relative TAM in the legacy <em>06_AI_Opportunity_Analysis_57_Nodes.xlsx</em>.</p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">Reconciliation:</strong> by construction, the bottom-up T1 node sum equals the top-down BRSR-anchored sector total. Auto T1 sum = $802M (target $800M, +0.3%). FMCG T1 sum = $500M (target $500M, exact). Combined = $1,302M.</p>
+          </div>
+
+          <!-- 3h. AI READINESS SCORE FORMULA -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3h. AI Readiness Score &mdash; per-node 1&ndash;10 formula</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Each node carries an AI Readiness Score on the 1&ndash;10 scale displayed on its card and on the Y-axis of the Opportunity Priority Map scatter. The score is <strong>formula-derived</strong> from two inputs (no author override).</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:0 0 10px;"><strong style="color:var(--text-primary);">Formula:</strong> <code style="background:#f3f4f6;padding:2px 8px;border-radius:4px;font-size:0.78rem;">score = round(feas_base + (hc_pct &minus; 25) / 10)</code>, clamped to [1, 10]</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">feas_base</strong> &mdash; from the AI Feasibility rank in <em>06_AI_Opportunity_Analysis_57_Nodes.xlsx</em>:</p>
+            <ul style="font-size:0.75rem; margin:4px 0 10px 28px; padding:0;">
+              <li>Very High &rarr; 9</li>
+              <li>High &rarr; 7</li>
+              <li>Medium &rarr; 5</li>
+              <li>Low &rarr; 3</li>
+            </ul>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">hc_pct</strong> &mdash; the node&rsquo;s Knowledge Work Automation %, also from 06_xlsx. Anchor at 25% (the typical sector-mean): nodes with higher knowledge work density get a positive shift, lower density get a negative shift.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Worked example.</strong> S&amp;OP / Demand Planning: feas = "Very High" (base 9), hc_pct = 40%. Score = round(9 + (40&minus;25)/10) = round(10.5) = clamped to <strong>10/10</strong>.</p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">Why formula vs author:</strong> earlier versions of the thesis had author-assigned 1&ndash;10 scores that clumped at 8 and 10 (81.5% of T1 nodes carried the "TOP QUARTILE" label). The formula spreads the distribution across the full 1&ndash;10 range using sourced inputs, making the score a meaningful discriminator within the deep-dive set.</p>
+          </div>
+
+          <!-- 3i. NODE RANKING (HOW TO READ THE CARDS) -->
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3i. Node ranking &mdash; how to read the per-node cards</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Each T1 node card includes an Executive Summary block with three pieces of information:</p>
+          <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Why this node was selected:</strong> the three T1 selection criteria from rule 3f, applied to this specific node. Each card states which feasibility rank the node has and how many commercially-available AI products serve the category.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Score breakdown:</strong> the formula 3h applied to this node&rsquo;s feas + hc_pct, showing the base + adjustment + final clamp.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Ranking among T1 nodes in the same sector:</strong> rank by enterprise TAM (#X of N) AND rank by AI Readiness Score (#Y of N). Position label: top-3 / top quartile / top half / lower half.</p>
+            <p style="margin:0;"><strong style="color:var(--text-primary);">The Opportunity Priority Map</strong> (cross-sector scatter) plots all 32 T1 nodes on TAM ($M, x-axis) &times; AI Readiness Score (1&ndash;10, y-axis). Top-right quadrant = high TAM + high readiness = highest-priority opportunities for the next 24-36 months.</p>
+          </div>
         </div>
 
         <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -4048,6 +4123,667 @@ function renderProductList(products) {
 function nodeEntTAM(n, sector) {
   return n.tam;
 }
+
+
+function renderWorkflow(nodes, containerId) {
+  const container = document.getElementById(containerId);
+  const sector = containerId.includes('auto') ? 'Auto' : 'FMCG';
+  const groups = {};
+  nodes.forEach(n => { if (!groups[n.bp]) groups[n.bp] = []; groups[n.bp].push(n); });
+
+  let html = '';
+  ['supply','mfg','demand','support'].forEach(bp => {
+    if (!groups[bp]) return;
+    // Segment subtotal = sum of T1 enterprise TAMs (only T1 nodes are targeted)
+    const segEntM = groups[bp].filter(n=>n.tier==='T1').reduce((s,n)=>s+nodeEntTAM(n,sector),0);
+    const segTam = (segEntM/1000).toFixed(1);
+    const segT1 = groups[bp].filter(n=>n.tier==='T1').length;
+    html += `<div class="workflow-segment ${BP_CLASSES[bp]}">
+      <div class="ws-title" style="color:var(--${bp === 'supply' ? 'supply-color' : bp === 'mfg' ? 'mfg-color' : bp === 'demand' ? 'demand-color' : 'support-color'})">${BP_LABELS[bp]}</div>
+      <div class="ws-subtitle">${groups[bp].length} nodes &bull; ${segT1} with AI solutions &bull; $${segTam}B segment TAM</div>
+      <div class="node-grid">`;
+    groups[bp].forEach((n, i) => {
+      if (i > 0) html += '<div class="node-arrow">&rarr;</div>';
+      html += `<div class="wf-node ${n.tier !== 'T1' ? 'node-excluded' : ''}" ${n.tier === 'T1' ? 'onclick="toggleDetail(\'' + containerId + '\',' + n.id + ')"' : ''} id="node-${containerId}-${n.id}" style="${n.tier !== 'T1' ? 'opacity:0.35;cursor:default;' : ''}${n.score >= 8 && n.tier === 'T1' ? 'box-shadow:0 0 12px rgba(13,148,136,0.08);border-color:var(--accent-teal);' : ''}" ${n.tier !== 'T1' ? 'data-reason="<strong>' + n.name + '</strong> &mdash; not selected for the deep-dive.<br><br>' + (n.tier === 'T3' ? '<strong>Why excluded:</strong> This is a blue-collar production / shop-floor workflow. The roles here (operators, technicians, line workers) are <em>physical labour</em>, not knowledge work &mdash; outside the scope of B2B AI SaaS for knowledge worker automation. Examples of roles in this node: ' + (n.roles || 'press operators, welders, assemblers') + '.<br><br><strong>Why this matters for the thesis:</strong> India\'s manufacturing AI opportunity is in the white-collar tier (planning, quality, supply chain, sales, R&amp;D), not the production line. AI for blue-collar workflows is robotics + computer vision, which is a separate (CapEx-heavy) market with different buyer dynamics &mdash; covered by industrial automation vendors (FANUC, ABB, Siemens), not by knowledge-worker AI SaaS.' : '<strong>Why excluded:</strong> Semi-specialized workflow. The roles here are mixed white/blue-collar with low Knowledge Worker share or low AI feasibility at present. Either the work is too physical (specialized engineering with hands-on prototyping), too regulated (homologation, validation), or the AI tooling is not yet mature for this domain. Examples of roles in this node: ' + (n.roles || 'mixed engineering / specialist') + '.<br><br><strong>Why this matters for the thesis:</strong> The deep-dive focuses on T1 nodes where the AI feasibility is High or Very High AND the Knowledge Worker density is meaningful. Semi-specialized nodes will become T1 candidates as AI tooling matures, but are not the immediate-deployment opportunity for the next 24-36 months.') + '<br><br><strong>AI Readiness Score:</strong> ' + (n.score||'-') + '/10 ' + (n.feas ? '&middot; <strong>AI Feasibility:</strong> ' + n.feas : '') + '"' : ''}>
+        <span class="node-step">#${n.id}</span>
+        ${n.score >= 8 && n.tier === 'T1' ? '<span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.45rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(13,148,136,0.12);color:var(--accent-teal);white-space:nowrap;">TOP QUARTILE</span>' : ''}
+        <div class="node-icon-wrap" style="background:${ICON_BG[n.bp]}">${n.icon}</div>
+        <div class="n-title">${n.name}</div>
+        ${n.tier === 'T1' ? '<div class="n-tam">$' + nodeEntTAM(n, sector) + 'M</div>' : '<div style="font-size:0.6rem;color:#9ca3af;margin-top:auto;">Not targeted</div>'}
+        ${n.tier === 'T1' && n.score ? '<div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:800;margin-top:3px;color:' + (n.score>=8?'var(--accent-teal)':n.score>=6?'var(--accent-amber)':'var(--text-dim)') + ';">' + n.score + '/10</div>' : ''}
+      </div>`;
+    });
+    html += '</div>';
+    // Detail panels
+    groups[bp].forEach(n => {
+      if (n.tier === 'T1') html += renderDetailPanel(n, containerId);
+    });
+    html += '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderDetailPanel(n, ctx) {
+  const sector = ctx.includes('auto') ? 'Auto' : 'FMCG';
+  if (n.tier === 'T3') {
+    return `<div class="node-detail" id="detail-${ctx}-${n.id}">
+      <div class="nd-header"><h4>${n.icon} ${n.name}</h4>
+      <button class="nd-close" onclick="closeDetail('${ctx}',${n.id})">&times;</button></div>
+      <div class="nd-grid">
+        <div class="nd-block block-problems"><div class="nd-block-label lbl-problems">Key Challenge</div><ul>${n.problems.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+        <div class="nd-block block-solutions"><div class="nd-block-label lbl-solutions">AI Solution</div><ul>${n.solutions.map(s=>`<li>${s}</li>`).join('')}</ul></div>
+      </div>
+      <div class="nd-stats">
+        <div class="nd-stat"><div class="stat-num num-teal">$${nodeEntTAM(n, sector)}M</div><div class="stat-label">AI Market Size</div></div>
+        <div class="nd-stat"><div class="stat-num num-amber">${n.score}/10</div><div class="stat-label">AI Readiness Score</div></div>
+      </div>
+    </div>`;
+  }
+
+  let productsHtml = renderProductList(n.products);
+  let vcHtml = n.vc ? n.vc.map(v => `<span class="thesis-tag">${v}</span>`).join(' ') : '';
+
+  // Sector-level data for TAM derivation
+  const isAuto = ctx.includes('auto');
+  const sectorData = isAuto ? {
+    name:'Automobile', revenue:'$200B brand-owner', employees:'~1,100 firms', kwPct:'56.6%', kwCount:'163K',
+    avgSalary:'$27,000', kwPayroll:'$4.4B', enterprises:'~1,100', careerAdj:'35.8%',
+    salarySource:'BRSR Section C Principle 5 median pay (9 cos directly parsed) + 1.2x Aon mean factor', kwSource:'BRSR Section A 20(a) — Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch',
+    companySource:'ACMA FY24 presentation + SIAM OEM data + Agent #48 bottom-up universe build'
+  } : {
+    name:'FMCG', revenue:'$110B brand-owner', employees:'~700 firms', kwPct:'48.6%', kwCount:'143K',
+    avgSalary:'$18,500', kwPayroll:'$2.7B', enterprises:'~700', careerAdj:'36.5%',
+    salarySource:'BRSR Section C Principle 5 median pay (5 cos parsed, ex-ITC conglomerate distortion) + 1.2x Aon mean factor', kwSource:'BRSR Section A 20(a) — HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer',
+    companySource:'CRISIL + MCA21 (MNC India subs) + Amul/cooperatives + Agent #47 bottom-up universe build'
+  };
+
+  // Compute exec summary stats: rank by TAM and by score within sector T1 set
+  const sectorNodes = (isAuto ? AUTO_NODES : FMCG_NODES).filter(x => x.tier === 'T1');
+  const byTam = [...sectorNodes].sort((a,b) => b.tam - a.tam);
+  const byScore = [...sectorNodes].sort((a,b) => b.score - a.score);
+  const tamRank = byTam.findIndex(x => x.id === n.id) + 1;
+  const scoreRank = byScore.findIndex(x => x.id === n.id) + 1;
+  const totalT1 = sectorNodes.length;
+  const sectorTopdown = isAuto ? 800 : 500;
+  const sectorShare = ((n.tam / sectorTopdown) * 100).toFixed(1);
+  const feasBase = {'Very High':9, 'High':7, 'Medium':5, 'Low':3}[n.feas] || 5;
+  const tamPosition = tamRank <= 3 ? 'top-3' : tamRank <= Math.ceil(totalT1/4) ? 'top quartile' :
+                       tamRank <= Math.ceil(totalT1/2) ? 'top half' : 'lower half';
+
+  return `<div class="node-detail" id="detail-${ctx}-${n.id}">
+    <div class="nd-header">
+      <h4>${n.icon} ${n.name} ${n.score ? '<span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:800;margin-left:8px;padding:2px 8px;border-radius:6px;vertical-align:middle;' + (n.score>=8?'background:rgba(13,148,136,0.1);color:var(--accent-teal);':'background:rgba(0,0,0,0.04);color:var(--text-dim);') + '">' + n.score + '/10</span>' : ''}</h4>
+      <button class="nd-close" onclick="closeDetail('${ctx}',${n.id})">&times;</button>
+    </div>
+    <p style="font-size:0.85rem;color:#6b7280;margin-bottom:14px;">${n.roles} &bull; ${n.collar} &bull; ${sectorData.name} Sector</p>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:16px 18px; margin-bottom:20px;">
+      <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Executive Summary</div>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.6; margin:0 0 10px;">
+        <strong>Why this node was selected:</strong> ${n.name} qualifies for the deep-dive (T1) because it satisfies all three selection criteria &mdash; (1) it has white-collar Knowledge Worker roles in the BRSR-anchored role library, (2) AI feasibility for this workflow is rated <strong>${n.feas}</strong>, and (3) ${n.products && n.products.length} commercially-available AI products already serve this category.
+      </p>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.6; margin:0 0 10px;">
+        <strong>Score breakdown:</strong> AI Readiness Score = <strong>${n.score}/10</strong> = base ${feasBase} (from "${n.feas}" feasibility) ${(n.hc_pct - 25) >= 0 ? '+ ' + ((n.hc_pct - 25)/10).toFixed(1) : '&minus; ' + Math.abs((n.hc_pct - 25)/10).toFixed(1)} (from ${n.hc_pct}% knowledge work automation, anchor 25%), clamped to 1&ndash;10.
+      </p>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.6; margin:0;">
+        <strong>Ranking among ${sectorData.name} T1 nodes:</strong> <strong>#${tamRank} of ${totalT1}</strong> by enterprise TAM ($${n.tam}M, ${sectorShare}% of the $${(sectorTopdown/1000).toFixed(1)}B sector total &mdash; <em>${tamPosition}</em>), <strong>#${scoreRank} of ${totalT1}</strong> by AI Readiness Score.
+      </p>
+    </div>
+
+    <!-- STEP 1: THE PROBLEM -->
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#e11d48;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(225,29,72,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#e11d48;">1</span>
+        THE PROBLEM
+      </div>
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px;">
+        <ul style="list-style:none;">${n.problems.map(p=>'<li style="font-size:0.9rem;color:#374151;padding:5px 0 5px 14px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#e11d48;">&bull;</span>'+p+'</li>').join('')}</ul>
+      </div>
+    </div>
+
+    <!-- STEP 2: AI SOLUTION -->
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#0d9488;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(13,148,136,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#0d9488;">2</span>
+        AI SOLUTION
+      </div>
+      <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:16px;">
+        <ul style="list-style:none;">${n.solutions.map(s=>'<li style="font-size:0.9rem;color:#374151;padding:5px 0 5px 14px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#0d9488;">&bull;</span>'+s+'</li>').join('')}</ul>
+      </div>
+    </div>
+
+    <!-- STEP 3: EVIDENCE — Products that already exist -->
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#7c3aed;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(124,58,237,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#7c3aed;">3</span>
+        EVIDENCE &mdash; PRODUCTS ALREADY SOLVING THIS
+      </div>
+      <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px;">
+        ${productsHtml}
+        
+      </div>
+    </div>
+
+    <!-- STEP 4: SOURCES & RESEARCH BACKING (5 categories) -->
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#2563eb;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(37,99,235,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#2563eb;">4</span>
+        SOURCES & RESEARCH BACKING (5 CATEGORIES)
+      </div>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#7c3aed;margin-bottom:6px;">1. VC & Investment Theses</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://a16z.com/ai-for-the-physical-world/" target="_blank" class="source-tag">a16z: Physical AI</a>
+              <a href="https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical" target="_blank" class="source-tag">Bessemer: Vertical AI</a>
+              <a href="https://sequoiacap.com/article/services-the-new-software/" target="_blank" class="source-tag">Sequoia: Services</a>
+              <a href="https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/" target="_blank" class="source-tag">Menlo: GenAI Enterprise</a>
+              <a href="https://www.generalcatalyst.com/stories/fundxii" target="_blank" class="source-tag">GC: Fund XII</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#2563eb;margin-bottom:6px;">2. Industry & Market Data</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="${isAuto ? 'https://www.ibef.org/industry/india-automobiles' : 'https://www.ibef.org/industry/fmcg'}" target="_blank" class="source-tag">IBEF ${sectorData.name}</a>
+              <a href="https://www.mordorintelligence.com/industry-reports/india-manufacturing-sector-market" target="_blank" class="source-tag">Mordor Intelligence</a>
+              ${isAuto ? '<a href="https://www.siam.in/pressrelease-details.aspx?mpgid=48&pgidtrail=50&pid=579" target="_blank" class="source-tag">SIAM Statistics</a>' : '<a href="https://www.ibef.org/industry/fmcg" target="_blank" class="source-tag">IBEF FMCG</a>'}
+              <a href="https://www.ibef.org/industry/manufactur-presentation" target="_blank" class="source-tag">IBEF Manufacturing</a>
+              <a href="https://www.mospi.gov.in/publication/plfs-annual-report" target="_blank" class="source-tag">PLFS Labour Survey</a>
+              <a href="https://www.screener.in/company/compare/00000005/" target="_blank" class="source-tag">Screener.in Auto P&L</a>
+              <a href="https://www.screener.in/company/compare/00000027/" target="_blank" class="source-tag">Screener.in FMCG P&L</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#0d9488;margin-bottom:6px;">3. Consulting & Research</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector" target="_blank" class="source-tag">McKinsey: India Mfg</a>
+              <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" class="source-tag">McKinsey: AI & Work</a>
+              <a href="https://www2.deloitte.com/in/en/pages/manufacturing/articles/in-manufacturing-smart-operations.html" target="_blank" class="source-tag">Deloitte: Industry 4.0</a>
+              <a href="https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html" target="_blank" class="source-tag">PwC: AI for MSMEs</a>
+              <a href="https://www.bcg.com/powering-past-headwinds-indian-manufacturing-winning-in-an-era-of-shocks-swings-and-shortages" target="_blank" class="source-tag">BCG: Indian Mfg</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;color:#d97706;margin-bottom:6px;">4. Government & Policy</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <a href="https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf" target="_blank" class="source-tag">NITI Aayog: AI Strategy</a>
+              <a href="https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption" target="_blank" class="source-tag">NASSCOM: AI Index</a>
+              <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" class="source-tag">WEF: Jobs 2025</a>
+              <a href="https://www.makeinindia.com/schemes-electronics-manufacturing-india" target="_blank" class="source-tag">Make in India</a>
+              <a href="https://labour.gov.in/CodeonWages" target="_blank" class="source-tag">Labour Codes 2025</a>
+            </div>
+          </div>
+        </div>
+        ${n.sources ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #bfdbfe;"><div style="font-size:0.72rem;font-weight:700;color:#ea580c;margin-bottom:6px;">5. Product & Startup Evidence</div><div style="display:flex;flex-wrap:wrap;gap:4px;">' + n.sources.map(function(s){return '<a href="'+s.u+'" target="_blank" class="source-tag">'+s.t+'</a>';}).join('') + '</div></div>' : ''}
+        ${vcHtml ? '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;">' + vcHtml + '</div>' : ''}
+      </div>
+    </div>
+
+    <!-- STEP 5: MARKET SIZE DERIVATION -->
+    <div style="margin-bottom:16px;">
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:#d97706;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(217,119,6,0.1);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#d97706;">5</span>
+        MARKET SIZE DERIVATION
+      </div>
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;">
+        <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">How the enterprise-addressable market for this node is derived (BRSR-anchored, role-mapped):</div>
+        <div style="font-size:0.82rem;color:#374151;line-height:1.55;">
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>Brand-owner revenue base <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives'}</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$200B' : '$110B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>Knowledge Worker per $B revenue <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '9 BRSRs parsed (Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)' : '8 BRSRs parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)'}</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '814' : '1,300'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>Permanent Knowledge Worker headcount <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '$200B &times; 814/$B' : '$110B &times; 1,300/$B'}</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '162,800' : '143,000'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>Avg Knowledge Worker salary <span style="color:#9ca3af;font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$27,000/yr' : '$18,500/yr'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>Knowledge Worker payroll <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '162,800 &times; $27K' : '143,000 &times; $18.5K'}</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$4.4B' : '$2.7B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>&times; Step A &mdash; role eligibility (${isAuto ? '83%' : '85%'}) <span style="color:#9ca3af;font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical)</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$3.7B' : '$2.3B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>&times; Step B &mdash; task automation (43%) <span style="color:#9ca3af;font-size:0.65rem;display:block;">salary-weighted per-role rates from WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$1.6B' : '$1.0B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>&times; 50% AI price discount <span style="color:#9ca3af;font-size:0.65rem;display:block;">AI vendor priced below incumbent human labour cost</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$0.8B' : '$0.5B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0 4px;border-top:2px solid ${isAuto ? '#60a5fa' : '#fbbf24'};margin-top:6px;">
+            <span style="font-weight:700;color:var(--text-primary);">${sector} sector enterprise TAM</span>
+            <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};font-size:1rem;">${isAuto ? '$0.8B' : '$0.5B'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;margin-top:6px;">
+            <span>&times; Node share of sector addressable role-units <span style="color:#9ca3af;font-size:0.65rem;display:block;">from 03_Workflow_Role_Mapping_Sequential.xlsx</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${(n.tam / (isAuto ? 800 : 500) * 100).toFixed(1)}%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
+            <span style="font-weight:700;color:#1f2937;">Node Enterprise TAM</span>
+            <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${n.tam}M</span>
+          </div>
+        </div></div>
+    </div>
+  </div>`;
+}
+
+function renderVCGrid() {
+  const container = document.getElementById('thesis-grid-container');
+  if (!container) return;
+  container.innerHTML = THESIS_DATA.map(vc => `<div class="thesis-card">
+    <div class="thesis-name">${vc.name}</div>
+    <div class="thesis-source">${vc.thesis} ${(vc.region === 'India') ? '<span style="color:var(--accent-amber);font-size:0.6rem;">🇮🇳 INDIA</span>' : ''}</div>
+    <div style="margin-bottom:10px;">${vc.tags.map(t => `<span class="thesis-tag">${t}</span>`).join(' ')}</div>
+    <div class="thesis-desc">${vc.desc}</div>
+    <div class="thesis-portfolio"><strong>Key Portfolio:</strong> ${vc.portfolio}</div>
+  </div>`).join('');
+}
+
+
+// CAREER_STREAM removed — superseded by BRSR-anchored derivation. The
+// nodeEntTAM helper at the top of this script is now the single source
+// of truth for node enterprise TAM math.
+
+function renderTAMWaterfall() {
+  const container = document.getElementById('tam-waterfall-container');
+  const allNodes = [...AUTO_NODES.map(n=>({...n,sector:'Auto'})), ...FMCG_NODES.map(n=>({...n,sector:'FMCG'}))];
+  const topNodes = allNodes
+    .filter(n => n.score >= 7)
+    .map(n => ({...n, ent: nodeEntTAM(n, n.sector)}))
+    .sort((a,b) => b.ent - a.ent)
+    .slice(0, 15)
+    .sort((a,b) => a.ent - b.ent);
+  const maxEnt = topNodes[topNodes.length - 1].ent;
+
+  // Compute summary stats for the top 15
+  const autoNodes = topNodes.filter(n => n.sector === 'Auto');
+  const fmcgNodes = topNodes.filter(n => n.sector === 'FMCG');
+  const autoSum = autoNodes.reduce((s, n) => s + n.ent, 0);
+  const fmcgSum = fmcgNodes.reduce((s, n) => s + n.ent, 0);
+  const totalSum = autoSum + fmcgSum;
+  // Round for display per decimal directive
+  const fmt = (m) => m >= 1000 ? '$' + (m/1000).toFixed(1).replace(/\.0$/,'') + 'B' : '$' + Math.round(m) + 'M';
+
+  container.innerHTML =
+    '<div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:8px;">Top 15 Problems by AI Solution Potential</div>' +
+    '<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.55;">Top 15 highest-impact workflow nodes (score 7+/10), ranked by Knowledge Worker automation enterprise TAM. Ascending left&rarr;right, with maximum on the right. Hover any bar for details.</p>' +
+    // SUMMARY STRIP — combined TAM + Auto/FMCG split
+    '<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:20px;">' +
+    '<div style="background:rgba(13,148,136,0.08); border:1px solid rgba(13,148,136,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em;">Combined Top-15 TAM</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:var(--accent-teal); margin-top:6px; letter-spacing:-0.02em;">' + fmt(totalSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + topNodes.length + ' nodes &bull; ' + Math.round(totalSum / 1300 * 100) + '% of $1.3B total TAM</div>' +
+    '</div>' +
+    '<div style="background:rgba(37,99,235,0.06); border:1px solid rgba(37,99,235,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:0.08em;">Automobile share</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#2563eb; margin-top:6px; letter-spacing:-0.02em;">' + fmt(autoSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + autoNodes.length + ' nodes &bull; ' + Math.round(autoSum / totalSum * 100) + '% of top 15</div>' +
+    '</div>' +
+    '<div style="background:rgba(217,119,6,0.06); border:1px solid rgba(217,119,6,0.25); border-radius:12px; padding:18px 20px; text-align:center;">' +
+      '<div style="font-family:var(--font-display); font-size:0.62rem; font-weight:700; color:#d97706; text-transform:uppercase; letter-spacing:0.08em;">FMCG share</div>' +
+      '<div style="font-family:var(--font-display); font-size:1.75rem; font-weight:800; color:#d97706; margin-top:6px; letter-spacing:-0.02em;">' + fmt(fmcgSum) + '</div>' +
+      '<div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">' + fmcgNodes.length + ' nodes &bull; ' + Math.round(fmcgSum / totalSum * 100) + '% of top 15</div>' +
+    '</div>' +
+    '</div>' +
+    '<div id="topProblemsWrap" style="position:relative; width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:20px;">' +
+    '<canvas id="topProblemsCanvas" style="width:100%; height:auto; display:block;"></canvas>' +
+    '<div id="topProblemsTooltip" style="position:absolute; pointer-events:none; background:rgba(15,23,42,0.95); color:#fff; padding:8px 12px; border-radius:8px; font-family:var(--font-display); font-size:0.72rem; line-height:1.4; max-width:260px; opacity:0; transition:opacity 0.15s; z-index:10;"></div>' +
+    '</div>' +
+    '<div style="display:flex; gap:24px; justify-content:center; margin-top:16px; flex-wrap:wrap;">' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(37,99,235,0.85);"></div>Automobile</span>' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(217,119,6,0.85);"></div>FMCG</span>' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:transparent; border:2px solid var(--accent-teal);"></div>Top Quartile (score 8+)</span>' +
+    '</div>';
+
+  const wrap = document.getElementById('topProblemsWrap');
+  const canvas = document.getElementById('topProblemsCanvas');
+  const tooltip = document.getElementById('topProblemsTooltip');
+  // 90° vertical X-axis labels need ~150px bottom margin (full label height)
+  // but only ~12px horizontal per bar, so labels never clip into Y-axis area.
+  const M = {top: 36, right: 24, bottom: 170, left: 68};
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const cssW = wrap.clientWidth - 40;
+    // Aspect ratio 0.50 with 600px cap — enough vertical for 90° labels + plot
+    const cssH = Math.min(Math.round(cssW * 0.50), 600);
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, cssW, cssH);
+
+    const plotW = cssW - M.left - M.right;
+    const plotH = cssH - M.top - M.bottom;
+
+    ctx.fillStyle = '#fafbfc';
+    ctx.fillRect(M.left, M.top, plotW, plotH);
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(M.left, M.top, plotW, plotH);
+
+    const yMax = Math.ceil(maxEnt / 10) * 10;
+    const yTicks = 5;
+    ctx.font = '500 10px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= yTicks; i++) {
+      const v = (yMax / yTicks) * i;
+      const py = M.top + plotH - (v / yMax) * plotH;
+      ctx.beginPath();
+      ctx.moveTo(M.left, py);
+      ctx.lineTo(M.left + plotW, py);
+      ctx.strokeStyle = i === 0 ? '#cbd5e1' : '#f1f5f9';
+      ctx.stroke();
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('$' + Math.round(v) + 'M', M.left - 6, py + 3);
+    }
+    ctx.save();
+    ctx.translate(14, M.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.font = '600 11px Sora, sans-serif';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+    ctx.fillText('Enterprise TAM ($M)', 0, 0);
+    ctx.restore();
+
+    const n = topNodes.length;
+    const gap = 8;
+    const barW = (plotW - gap * (n + 1)) / n;
+    canvas._bars = [];
+
+    topNodes.forEach((node, i) => {
+      const barX = M.left + gap + i * (barW + gap);
+      const barH = (node.ent / yMax) * plotH;
+      const barY = M.top + plotH - barH;
+      const isAuto = node.sector === 'Auto';
+      const fillColor = isAuto ? 'rgba(37,99,235,0.85)' : 'rgba(217,119,6,0.85)';
+      const isTopQ = node.score >= 8;
+
+      ctx.fillStyle = fillColor;
+      ctx.fillRect(barX, barY, barW, barH);
+
+      if (isTopQ) {
+        ctx.strokeStyle = '#0d9488';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(barX, barY, barW, barH);
+      }
+
+      // Value label above bar
+      ctx.font = '700 10px JetBrains Mono, monospace';
+      ctx.fillStyle = '#1e293b';
+      ctx.textAlign = 'center';
+      ctx.fillText('$' + node.ent + 'M', barX + barW / 2, barY - 6);
+
+      // Score badge INSIDE top of EVERY bar (always, not just top quartile)
+      if (barH > 26) {
+        const badgeColor = isTopQ ? 'rgba(13,148,136,0.95)' : 'rgba(71,85,105,0.88)';
+        ctx.fillStyle = badgeColor;
+        const badgeW = 30, badgeH = 13;
+        const badgeX = barX + barW / 2 - badgeW / 2;
+        const badgeY = barY + 5;
+        ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
+        ctx.fillStyle = '#fff';
+        ctx.font = '700 9px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(node.score + '/10', barX + barW / 2, badgeY + 9);
+      }
+
+      // Bottom vertical label (90° rotation) — no truncation, fits any length
+      ctx.save();
+      ctx.translate(barX + barW / 2, M.top + plotH + 10);
+      ctx.rotate(-Math.PI / 2);
+      ctx.font = '500 11px Sora, sans-serif';
+      ctx.fillStyle = '#334155';
+      ctx.textAlign = 'right';
+      ctx.fillText(node.name, 0, 4);
+      ctx.restore();
+
+      canvas._bars.push({x: barX, y: barY, w: barW, h: barH, node});
+    });
+  }
+
+  function showTooltip(node, mx, my) {
+    tooltip.innerHTML =
+      '<div style="font-weight:700; margin-bottom:4px;">' + node.name + '</div>' +
+      '<div style="color:#cbd5e1;">' + node.sector + ' &bull; Score ' + node.score + '/10 &bull; $' + node.ent + 'M enterprise TAM</div>';
+    tooltip.style.left = (mx + 16) + 'px';
+    tooltip.style.top = (my + 16) + 'px';
+    tooltip.style.opacity = 1;
+  }
+
+  canvas.addEventListener('mousemove', function(e) {
+    if (!canvas._bars) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    let hit = null;
+    for (let i = 0; i < canvas._bars.length; i++) {
+      const b = canvas._bars[i];
+      if (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h) { hit = b; break; }
+    }
+    if (hit) {
+      canvas.style.cursor = 'pointer';
+      const wrapRect = wrap.getBoundingClientRect();
+      showTooltip(hit.node, e.clientX - wrapRect.left, e.clientY - wrapRect.top);
+    } else {
+      canvas.style.cursor = 'default';
+      tooltip.style.opacity = 0;
+    }
+  });
+  canvas.addEventListener('mouseleave', function(){ tooltip.style.opacity = 0; });
+
+  draw();
+  let rzTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(rzTimer);
+    rzTimer = setTimeout(draw, 100);
+  });
+}
+
+// ════════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ════════════════════════════════════════════════════════════════
+
+
+
+function toggleDetail(ctx, id) {
+  const panel = document.getElementById(`detail-${ctx}-${id}`);
+  const node = document.getElementById(`node-${ctx}-${id}`);
+  // Close all others in this context
+  document.querySelectorAll(`[id^="detail-${ctx}-"]`).forEach(p => {
+    if (p !== panel) { p.classList.remove('open'); }
+  });
+  document.querySelectorAll(`[id^="node-${ctx}-"]`).forEach(n => n.classList.remove('expanded'));
+
+  if (panel.classList.contains('open')) {
+    panel.classList.remove('open');
+    if (node) node.classList.remove('expanded');
+  } else {
+    panel.classList.add('open');
+    if (node) node.classList.add('expanded');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  }
+}
+
+function closeDetail(ctx, id) {
+  document.getElementById(`detail-${ctx}-${id}`).classList.remove('open');
+  const node = document.getElementById(`node-${ctx}-${id}`);
+  if (node) node.classList.remove('expanded');
+}
+
+// ════════════════════════════════════════════════════════════════
+// SCROLL & ANIMATION
+// ════════════════════════════════════════════════════════════════
+
+window.addEventListener('scroll', () => {
+  const winH = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY / winH;
+  document.getElementById('scrollProgress').style.width = (scrolled * 100) + '%';
+
+  // Fade-in observer
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) el.classList.add('visible');
+  });
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// ════════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderWorkflow(AUTO_NODES, 'auto-workflow');
+  renderWorkflow(FMCG_NODES, 'fmcg-workflow');
+  renderTAMWaterfall();
+
+  // Trigger initial fade-ins
+  setTimeout(() => window.dispatchEvent(new Event('scroll')), 100);
+});
+
+
+function openTAMModal(nodeId, sector) {
+  const nodes = sector === 'Auto' ? AUTO_NODES : FMCG_NODES;
+  const n = nodes.find(x => x.id === nodeId);
+  if (!n) return;
+
+  const sectorColor = sector === 'Auto' ? '#60a5fa' : '#fbbf24';
+  const sectorPayroll = sector === 'Auto' ? 4.4 : 2.7;
+  const sectorEntTAM = sector === 'Auto' ? 0.8 : 0.5;
+  const stepAB = sector === 'Auto' ? '35.8%' : '36.5%';
+  const sectorTargetM = sector === 'Auto' ? 800 : 500;
+  const nodeShare = n.tam / sectorTargetM;
+
+  let body = '<h3 style="color:' + sectorColor + ';">' + n.icon + ' ' + n.name + '</h3>';
+  body += '<div class="modal-subtitle">' + sector + ' Sector &bull; ' + n.tier + ' &bull; Score: ' + (n.score || '—') + '/10 &bull; AI Feasibility: ' + (n.feas || '—') + '</div>';
+
+  // SECTION: Node Enterprise TAM derivation (BRSR-anchored, role-mapped) — full chain
+  var isAutoSec = sector === 'Auto';
+  body += '<div style="background:var(--bg-surface);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);margin-bottom:16px;">';
+  body += '<h4 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:' + sectorColor + ';margin-bottom:12px;">NODE ENTERPRISE TAM DERIVATION</h4>';
+  body += '<p style="font-size:0.72rem;color:var(--text-dim);margin-bottom:12px;line-height:1.5;">Each node\'s enterprise TAM is the BRSR-anchored sector total distributed across T1 nodes proportional to addressable role-units (from 03_Workflow_Role_Mapping_Sequential.xlsx). Full chain below.</p>';
+  body += '<div class="modal-derivation">';
+  body += '<div class="md-row"><span class="md-label">Brand-owner revenue base <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives') + '</span></span><span class="md-val">' + (isAutoSec ? '$200B' : '$110B') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Knowledge Worker per $B revenue</span><span class="md-val">' + (isAutoSec ? '814' : '1,300') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Permanent Knowledge Worker headcount</span><span class="md-val">' + (isAutoSec ? '162,800' : '143,000') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Avg Knowledge Worker salary <span style="color:var(--text-dim);font-size:0.65rem;">BRSR P5 median &times; 1.2</span></span><span class="md-val">' + (isAutoSec ? '$27,000/yr' : '$18,500/yr') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">Knowledge Worker payroll</span><span class="md-val">$' + sectorPayroll + 'B</span></div>';
+  body += '<div class="md-row"><span class="md-label">&times; Step A &mdash; role eligibility (' + (isAutoSec ? '83%' : '85%') + ')</span><span class="md-val">' + (isAutoSec ? '$3.7B' : '$2.3B') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">&times; Step B &mdash; task automation (43%)</span><span class="md-val">' + (isAutoSec ? '$1.6B' : '$1.0B') + '</span></div>';
+  body += '<div class="md-row"><span class="md-label">&times; 50% AI price discount</span><span class="md-val">$' + sectorEntTAM + 'B</span></div>';
+  body += '<div class="md-row" style="border-top:2px solid ' + sectorColor + ';margin-top:6px;padding-top:8px;"><span class="md-label" style="font-weight:700;">' + sector + ' sector enterprise TAM</span><span class="md-val" style="font-weight:800;color:' + sectorColor + ';">$' + sectorEntTAM + 'B</span></div>';
+  body += '<div class="md-row" style="margin-top:6px;"><span class="md-label">&times; Node share of sector addressable role-units</span><span class="md-val">' + (nodeShare*100).toFixed(1) + '%</span></div>';
+  body += '<div class="md-row md-total"><span class="md-label"><strong>Node Enterprise TAM</strong></span><span class="md-val" style="color:var(--accent-teal);">$' + n.tam + 'M</span></div>';
+  body += '</div></div>';
+
+  // SECTION 4: Problems + Solutions + Products
+  if (n.problems) {
+    body += '<div class="modal-cards">';
+    body += '<div class="modal-sector-card" style="border-left:3px solid var(--accent-rose);"><h4 style="color:var(--accent-rose);">Problems</h4><ul style="list-style:none;font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.problems.map(p => '<li style="padding:3px 0;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--accent-rose);">•</span>' + p + '</li>').join('') + '</ul></div>';
+    body += '<div class="modal-sector-card" style="border-left:3px solid var(--accent-teal);"><h4 style="color:var(--accent-teal);">AI Solutions</h4><ul style="list-style:none;font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.solutions.map(s => '<li style="padding:3px 0;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--accent-teal);">•</span>' + s + '</li>').join('') + '</ul></div>';
+    body += '</div>';
+  }
+
+  if (n.products) {
+    body += '<div style="margin-top:12px;"><div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:var(--accent-violet);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Existing Products</div><div class="modal-products">' + n.products.map(p => '<span style="font-size:0.72rem;padding:4px 10px;background:var(--accent-violet-dim);border-radius:6px;color:var(--accent-violet);font-family:var(--font-display);font-weight:600;">' + p.n + '</span>').join('') + '</div></div>';
+  }
+
+  if (n.opportunity) {
+    body += '<div style="margin-top:12px;padding:12px;background:rgba(217,119,6,0.03);border:1px solid rgba(245,158,11,0.15);border-radius:10px;"><div style="font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:var(--accent-amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">India Product Opportunity</div><p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">' + n.opportunity + '</p></div>';
+  }
+
+  if (n.sources) {
+    body += '<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;">' + n.sources.map(s => '<a href="' + s.u + '" target="_blank" rel="noopener" class="source-tag">' + s.t + '</a>').join('') + '</div>';
+  }
+
+  document.getElementById('tamModalBody').innerHTML = body;
+  document.getElementById('tamModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTAMModal() {
+  document.getElementById('tamModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close modal on overlay click
+document.addEventListener('click', function(e) {
+  if (e.target.id === 'tamModal') closeTAMModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeTAMModal();
+});
+
+
+// Floating tooltip for scoring matrix cells
+(function() {
+  // Create the floating tooltip element once
+  var ft = document.createElement('div');
+  ft.id = 'floatingTip';
+  document.body.appendChild(ft);
+
+  document.addEventListener('mouseover', function(e) {
+    var cell = e.target.closest('.score-cell');
+    if (!cell) { ft.classList.remove('show'); return; }
+    var tipEl = cell.querySelector('.cell-tip');
+    if (!tipEl) { ft.classList.remove('show'); return; }
+
+    // Copy content into floating tip
+    ft.innerHTML = tipEl.innerHTML;
+    ft.classList.add('show');
+
+    // Position after rendering (so we can measure)
+    requestAnimationFrame(function() {
+      var rect = cell.getBoundingClientRect();
+      var tipH = ft.offsetHeight;
+      var tipW = ft.offsetWidth;
+      // Try above the cell
+      var top = rect.top - tipH - 14;
+      // If clipped at top, go below
+      if (top < 8) top = rect.bottom + 14;
+      // Horizontal: center on cell
+      var left = rect.left + rect.width / 2 - tipW / 2;
+      // Clamp to viewport
+      if (left < 8) left = 8;
+      if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
+      ft.style.top = top + 'px';
+      ft.style.left = left + 'px';
+    });
+  });
+
+  document.addEventListener('mouseout', function(e) {
+    var cell = e.target.closest('.score-cell');
+    if (cell) {
+      // Check if we moved to a child element — if so, don't hide
+      var related = e.relatedTarget;
+      if (related && cell.contains(related)) return;
+      ft.classList.remove('show');
+    }
+  });
+})();
+
+
 
 
 
