@@ -2946,6 +2946,19 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. AI solutions are identified at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
     </div>
 
+    <!-- HOW TO READ THE WORKFLOW (per-card legend) -->
+    <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:18px 22px; margin-bottom:22px;">
+      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">How to read the workflow below</div>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;">Each card represents one workflow node. The cards are grouped left-to-right into <strong>4 business pillars</strong> &mdash; Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions &mdash; following the actual sequential value chain in an Indian automobile brand-owner enterprise.</p>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;"><strong>Each clickable card shows three numbers:</strong></p>
+      <ul style="font-size:0.82rem; color:#374151; line-height:1.65; margin:0 0 10px 22px; padding:0;">
+        <li><strong>$XXM</strong> &mdash; the node&rsquo;s <em>Enterprise TAM in $M</em>, derived from the BRSR-anchored sector total ($0.8B Auto) distributed proportional to the node&rsquo;s share of sector addressable role-units (computed from the role library xlsx via per-stream Step A &times; Step B rates). Click any card to see the full role-by-role breakdown that produced this number.</li>
+        <li><strong>X/10</strong> &mdash; the node&rsquo;s <em>AI Readiness Score</em>, formula-derived from two inputs: (1) the AI Feasibility rating for this workflow ("Very High" / "High" / "Medium" / "Low"), and (2) the % of the node&rsquo;s knowledge work that AI can currently automate. Formula: <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:0.78rem;">round(feas_base + (kw_automation_pct &minus; 25) / 10)</code>, clamped to 1&ndash;10. Higher = more deploy-ready today.</li>
+        <li><strong>TOP QUARTILE</strong> highlight (teal pill at top of card) &mdash; appears when the AI Readiness Score &ge; 8/10. Marks the highest-priority opportunities within the deep-dive set.</li>
+      </ul>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0;"><strong>Greyed-out cards labelled "Not targeted"</strong> are T2 (semi-specialized, AI tooling immature) or T3 (pure blue-collar production &mdash; outside the knowledge-worker AI scope). Hover any greyed card for the full why-excluded explanation. T2/T3 nodes do not contribute to the sector TAM; the BRSR-anchored $0.8B is distributed across the 15 T1 nodes only.</p>
+    </div>
+
     <div id="auto-workflow">
       <!-- Content injected by JS -->
     </div>
@@ -2975,6 +2988,19 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div style="background:rgba(217,119,6,0.03); border:1px solid rgba(245,158,11,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
       <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin-bottom:12px;">FMCG AI Opportunity: $0.5B across 29 workflow nodes</div>
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">FMCG&rsquo;s value chain spans R&amp;D formulation through continuous processing, multi-tier distribution, and field sales execution. The largest AI opportunities are in demand planning (S&amp;OP), field sales automation, marketing optimization, and customer service &mdash; driven by the sector&rsquo;s 55% knowledge work ratio and 40-60% field force attrition.</p>
+    </div>
+
+    <!-- HOW TO READ THE WORKFLOW (per-card legend) -->
+    <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:18px 22px; margin-bottom:22px;">
+      <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">How to read the workflow below</div>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;">Each card represents one workflow node. The cards are grouped left-to-right into <strong>4 business pillars</strong> &mdash; Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions &mdash; following the actual sequential value chain in an Indian FMCG brand-owner enterprise.</p>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0 0 10px;"><strong>Each clickable card shows three numbers:</strong></p>
+      <ul style="font-size:0.82rem; color:#374151; line-height:1.65; margin:0 0 10px 22px; padding:0;">
+        <li><strong>$XXM</strong> &mdash; the node&rsquo;s <em>Enterprise TAM in $M</em>, derived from the BRSR-anchored sector total ($0.5B FMCG) distributed proportional to the node&rsquo;s share of sector addressable role-units (computed from the role library xlsx via per-stream Step A &times; Step B rates). Click any card to see the full role-by-role breakdown that produced this number.</li>
+        <li><strong>X/10</strong> &mdash; the node&rsquo;s <em>AI Readiness Score</em>, formula-derived from two inputs: (1) the AI Feasibility rating for this workflow ("Very High" / "High" / "Medium" / "Low"), and (2) the % of the node&rsquo;s knowledge work that AI can currently automate. Formula: <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:0.78rem;">round(feas_base + (kw_automation_pct &minus; 25) / 10)</code>, clamped to 1&ndash;10. Higher = more deploy-ready today.</li>
+        <li><strong>TOP QUARTILE</strong> highlight (teal pill at top of card) &mdash; appears when the AI Readiness Score &ge; 8/10. Marks the highest-priority opportunities within the deep-dive set.</li>
+      </ul>
+      <p style="font-size:0.85rem; color:#374151; line-height:1.65; margin:0;"><strong>Greyed-out cards labelled "Not targeted"</strong> are T2 (semi-specialized, AI tooling immature) or T3 (pure blue-collar production &mdash; outside the knowledge-worker AI scope). Hover any greyed card for the full why-excluded explanation. T2/T3 nodes do not contribute to the sector TAM; the BRSR-anchored $0.5B is distributed across the 17 T1 nodes only.</p>
     </div>
 
     <div id="fmcg-workflow">
@@ -3477,7 +3503,7 @@ const AUTO_NODES = [
    solutions:["AI-powered program management with automated dependency graphs and critical-path optimization","LLM agents for cross-functional status aggregation and risk flagging","Predictive market analytics for portfolio prioritization using real-time demand signals"],
    products:[{n:"Celonis",d:"Process mining & AI execution management",u:"https://www.celonis.com/process-mining",y:2011,f:"$1.4B",inv:"Arena Holdings, Durable Capital",logo:"https://www.google.com/s2/favicons?domain=www.celonis.com&sz=64",india_focus:false},{n:"Aha!",d:"AI-enhanced product roadmap & program management",u:"https://www.aha.io/roadmaps/overview",y:2013,f:"Bootstrapped, profitable",inv:"Founder-owned",logo:"https://www.google.com/s2/favicons?domain=www.aha.io&sz=64",india_focus:false},{n:"Planview",d:"Portfolio & program management with AI features",u:"https://www.planview.com/products-solutions/products/portfolios",y:1989,f:"$1.6B (PE)",inv:"TPG, TA Associates",logo:"https://www.google.com/s2/favicons?domain=www.planview.com&sz=64",india_focus:false},{n:"Scoutbee",d:"AI-powered supplier discovery",u:"https://scoutbee.com",y:2015,f:"$76M",inv:"Atomico, Lakestar",logo:"https://www.google.com/s2/favicons?domain=scoutbee.com&sz=64",india_focus:false}],
    opportunity:"India-specific vehicle program AI that integrates with SIAM data, homologation timelines, and PLI scheme milestones",
-   vc:["a16z: AI Services","Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS"],sources:[{"t": "Aha! product roadmaps", "u": "https://www.aha.io/"},{"t": "Celonis: process mining", "u": "https://www.celonis.com/"},{"t": "SIAM PLI scheme tracker", "u": "https://www.siam.in/"}]},
+   vc:["a16z: AI Services","Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS"],sources:[{"t": "Aha! product roadmaps", "u": "https://www.aha.io/"},{"t": "Celonis: process mining", "u": "https://www.celonis.com/"},{"t": "SIAM PLI scheme tracker", "u": "https://www.siam.in/"}],role_breakdown:{addr_sum:0.716,t1_total:12.794,share_pct:5.6,roles:[{title:"Executive Director - Vehicle Programs / Operations",bucket:"Executive",rate:0.0},{title:"Program Manager (Vehicle)",bucket:"Middle Mgmt",rate:0.42},{title:"New Product Launch Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:2,name:"Product Design & CAD",bp:"supply",tier:"T2",icon:"✏️",collar:"Professional",
    roles:"Design/CAD Eng, BIW Design Eng, Vehicle Integration Eng",
@@ -3486,7 +3512,7 @@ const AUTO_NODES = [
    solutions:["Generative design AI that creates optimized BIW structures within crash/NVH/weight constraints","LLM-assisted DFMEA generation from historical failure databases","AI copilots for CAD that suggest topology-optimized geometries in real-time"],
    products:[{n:"nTopology",d:"AI generative design for manufacturing",u:"https://www.ntop.com/software",y:2015,f:"$65M",inv:"Insight Partners, Meritech",logo:"https://www.google.com/s2/favicons?domain=www.ntop.com&sz=64",india_focus:false},{n:"Autodesk Fusion",d:"Cloud CAD/CAM with generative design features",u:"https://www.autodesk.com/products/fusion-360/overview",y:1982,f:"Public (NASDAQ: ADSK, Mkt Cap ~$55B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.autodesk.com&sz=64",india_focus:false},{n:"Physna",d:"AI 3D model search & analysis",u:"https://physna.com",y:2015,f:"$29M",inv:"Drive Capital, Sequoia",logo:"https://www.google.com/s2/favicons?domain=physna.com&sz=64",india_focus:false},{n:"Dassault SOLIDWORKS",d:"3D CAD with AI-assisted design features",u:"https://www.solidworks.com",y:1993,f:"Part of Dassault Systemes (EPA: DSY, Mkt Cap ~$50B)",inv:"Dassault Systemes",logo:"https://www.google.com/s2/favicons?domain=www.solidworks.com&sz=64",india_focus:false}],
    opportunity:"Generative design tool trained on Indian OEM BIW/chassis libraries with ARAI/ICAT homologation constraints built in",
-   vc:["a16z: Industrial AI","Menlo: AI Application Layer","Lightspeed India: Enterprise AI"],sources:[{"t": "nTopology: generative design", "u": "https://www.ntop.com/"},{"t": "Autodesk Fusion", "u": "https://www.autodesk.com/products/fusion-360"}]},
+   vc:["a16z: Industrial AI","Menlo: AI Application Layer","Lightspeed India: Enterprise AI"],sources:[{"t": "nTopology: generative design", "u": "https://www.ntop.com/"},{"t": "Autodesk Fusion", "u": "https://www.autodesk.com/products/fusion-360"}],role_breakdown:{addr_sum:0.592,t1_total:12.794,share_pct:4.63,roles:[{title:"BIW Design Engineer",bucket:"Professional",rate:0.296},{title:"Design / CAD Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:3,name:"CAE & Simulation",bp:"supply",tier:"T2",icon:"🖥️",collar:"Professional",
    roles:"CAE/Simulation Eng, NVH Eng",
@@ -3495,7 +3521,7 @@ const AUTO_NODES = [
    solutions:["AI surrogate models that predict crash outcomes in seconds instead of hours","ML-based NVH optimization using transfer learning from prior platforms"],
    products:[{n:"Altair PhysicsAI",d:"AI-accelerated simulation"},{n:"Neural Concept",d:"Deep learning for CAE"},{n:"Ansys SimAI",d:"AI simulation prediction"}],
    opportunity:"Cloud-native AI simulation service for Tier-2/3 suppliers who can't afford HPC infrastructure",
-   vc:["a16z: Industrial AI"]},
+   vc:["a16z: Industrial AI"],role_breakdown:{addr_sum:0.592,t1_total:12.794,share_pct:4.63,roles:[{title:"NVH Engineer",bucket:"Professional",rate:0.296},{title:"CAE / Simulation Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:4,name:"EV & Powertrain Engineering",bp:"supply",tier:"T2",icon:"⚡",collar:"Professional",
    roles:"Powertrain Calibration Eng, EV Battery Pack Eng, BMS Eng",
@@ -3504,7 +3530,7 @@ const AUTO_NODES = [
    solutions:["AI-driven battery digital twins that predict degradation and thermal behavior","Reinforcement learning for BMS charge/discharge optimization","Automated calibration using ML models trained on dynamometer data"],
    products:[{n:"Monolith AI",d:"AI for engineering test data analysis",u:"https://www.monolithai.com",y:2016,f:"$17M",inv:"Houghton Street, In-Q-Tel",logo:"https://www.google.com/s2/favicons?domain=www.monolithai.com&sz=64",india_focus:false},{n:"Ansys",d:"Multiphysics simulation with AI surrogate models",u:"https://www.ansys.com",y:1970,f:"Public (NASDAQ: ANSS, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.ansys.com&sz=64",india_focus:false},{n:"About:Energy",d:"AI battery digital twin modeling",u:"https://www.aboutenergy.io",y:2020,f:"$13M",inv:"Speedinvest, Clean Energy Ventures",logo:"https://www.google.com/s2/favicons?domain=www.aboutenergy.io&sz=64",india_focus:false},{n:"Ionworks",d:"AI-native battery testing & optimization",u:"https://www.ionworks.com",y:2021,f:"$36M",inv:"Obvious Ventures, DCVC",logo:"https://www.google.com/s2/favicons?domain=www.ionworks.com&sz=64",india_focus:false},{n:"Log9 Materials",d:"AI-enhanced battery tech for India EVs",u:"https://www.log9materials.com",y:2015,f:"$50M raised",inv:"Amara Raja, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.log9materials.com&sz=64",india_focus:true}],
    opportunity:"India-focused EV battery analytics platform — integrating with local cell manufacturers (Ola, Exide) and India's extreme heat/humidity conditions",
-   vc:["General Catalyst: Resilience","Blume: Deep-tech India","a16z: Industrial AI"],sources:[{"t": "NITI Aayog: EV roadmap", "u": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"},{"t": "Monolith AI", "u": "https://www.monolithai.com/"},{"t": "SIAM EV statistics", "u": "https://www.siam.in/statistics.aspx"}]},
+   vc:["General Catalyst: Resilience","Blume: Deep-tech India","a16z: Industrial AI"],sources:[{"t": "NITI Aayog: EV roadmap", "u": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"},{"t": "Monolith AI", "u": "https://www.monolithai.com/"},{"t": "SIAM EV statistics", "u": "https://www.siam.in/statistics.aspx"}],role_breakdown:{addr_sum:1.184,t1_total:12.794,share_pct:9.25,roles:[{title:"Chief Technology Officer / R&D Head",bucket:"Executive",rate:0.0},{title:"Vehicle Integration Engineer",bucket:"Professional",rate:0.296},{title:"Powertrain Calibration Engineer",bucket:"Professional",rate:0.296},{title:"EV Battery Pack Engineer",bucket:"Professional",rate:0.296},{title:"Battery Management System (BMS) Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:5,name:"Testing & Validation",bp:"supply",tier:"T1",icon:"🧪",collar:"Professional",
    roles:"Testing/Validation Eng, Homologation/Regulatory Eng",
@@ -3513,7 +3539,7 @@ const AUTO_NODES = [
    solutions:["AI test optimization that eliminates redundant DV/PV runs using coverage analysis","NLP-based regulatory change tracking and impact assessment"],
    products:[{n:"Tricentis",d:"Test automation with AI features"},{n:"Compliance.ai",d:"Regulatory intelligence"},{n:"Hexagon Virtual Testing",d:"Simulation-based test reduction"}],
    opportunity:"ARAI/ICAT regulatory intelligence tool — auto-tracks CMVR amendments and maps to vehicle test requirements",
-   vc:["Bessemer: Vertical SaaS"]},
+   vc:["Bessemer: Vertical SaaS"],role_breakdown:{addr_sum:0.592,t1_total:12.794,share_pct:4.63,roles:[{title:"Testing / Validation Engineer",bucket:"Professional",rate:0.296},{title:"Homologation / Regulatory Eng.",bucket:"Professional",rate:0.296}]}},
 
   {id:6,name:"APQP / PPAP Gate",bp:"supply",tier:"T1",icon:"📋",collar:"Professional",
    roles:"APQP/PPAP Eng, New Product Launch Eng",
@@ -3522,7 +3548,7 @@ const AUTO_NODES = [
    solutions:["LLM agents that auto-generate PPAP documentation from engineering data","AI-driven PFMEA that learns from warranty/field failure data to suggest new failure modes"],
    products:[{n:"Qualio",d:"AI quality management"},{n:"ETQ Reliance",d:"AI-powered FMEA"},{n:"Arena Solutions",d:"Product lifecycle PPAP"}],
    opportunity:"IATF 16949-native AI quality platform for Indian auto component suppliers — most current tools are Western-centric",
-   vc:["Bessemer: Vertical SaaS","Peak XV: India Manufacturing"]},
+   vc:["Bessemer: Vertical SaaS","Peak XV: India Manufacturing"],role_breakdown:{addr_sum:0.499,t1_total:12.794,share_pct:3.9,split_share:0.215,roles:[{title:"Head of Quality (IATF)",bucket:"Executive",rate:0.0},{title:"Warranty Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Quality / Supplier Quality Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Paint Quality Engineer",bucket:"Professional",rate:0.296},{title:"Process Audit / QMS Engineer",bucket:"Professional",rate:0.296},{title:"APQP / PPAP Engineer",bucket:"Professional",rate:0.296},{title:"Quality Engineer (Process)",bucket:"Professional",rate:0.296},{title:"Supplier / Customer Quality Eng.",bucket:"Professional",rate:0.296}]}},
 
   {id:7,name:"Supply Chain & Sourcing",bp:"supply",tier:"T1",icon:"🔗",collar:"Management",
    roles:"Head of Supply Chain, Procurement/Logistics Mgr, Buyer/Purchase Eng, Supplier Dev Eng",
@@ -3531,7 +3557,7 @@ const AUTO_NODES = [
    solutions:["AI procurement agents that auto-source, evaluate, and negotiate with suppliers","Supply chain digital twins with real-time disruption risk scoring","Generative AI for should-cost modeling using material price feeds and process parameters"],
    products:[{n:"Coupa",d:"Spend management & procurement with AI features",u:"https://www.coupa.com/products/ai-spend-management",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Fictiv",d:"AI-powered manufacturing network",u:"https://www.fictiv.com",y:2013,f:"$192M",inv:"Accel, Bill Gates",logo:"https://www.google.com/s2/favicons?domain=www.fictiv.com&sz=64",india_focus:false},{n:"Jaggaer",d:"AI procurement & sourcing",u:"https://www.jaggaer.com/solutions/sourcing",y:1995,f:"$530M",inv:"Cinven, Accel-KKR",logo:"https://www.google.com/s2/favicons?domain=www.jaggaer.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement for Indian manufacturing",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
    opportunity:"India supply chain AI that maps the Tier-1 to Tier-4 supplier network (unique to India's fragmented auto component ecosystem) with GST/customs integration",
-   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Accel India: India SaaS"],sources:[{"t": "Coupa: AI Procurement", "u": "https://www.coupa.com/products/procurement"}, {"t": "Resilinc: Supply Chain Risk", "u": "https://www.resilinc.com/"}, {"t": "McKinsey: Supply Chain AI", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}]},
+   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Accel India: India SaaS"],sources:[{"t": "Coupa: AI Procurement", "u": "https://www.coupa.com/products/procurement"}, {"t": "Resilinc: Supply Chain Risk", "u": "https://www.resilinc.com/"}, {"t": "McKinsey: Supply Chain AI", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}],role_breakdown:{addr_sum:1.604,t1_total:12.794,share_pct:12.54,roles:[{title:"Head of Supply Chain",bucket:"Executive",rate:0.0},{title:"Procurement / Logistics Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Supplier Development Engineer",bucket:"Professional",rate:0.296},{title:"Production Control Executive",bucket:"Professional",rate:0.296},{title:"Production / Material Planner",bucket:"Professional",rate:0.296},{title:"Buyer / Purchase Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:8,name:"Supplier Quality & Planning",bp:"supply",tier:"T1",icon:"✅",collar:"Professional",
    roles:"Supplier/Customer Quality Eng, Production/Material Planner, Production Control Exec",
@@ -3540,7 +3566,7 @@ const AUTO_NODES = [
    solutions:["AI supplier scorecards with predictive quality risk models","ML-optimized production scheduling integrating real-time demand and supplier lead times","LLM-powered 8D report generation with automatic root-cause suggestion from historical data"],
    products:[{n:"o9 Solutions",d:"AI-native planning & demand sensing",u:"https://o9solutions.com/platform",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"Kinaxis",d:"Supply chain orchestration with AI features",u:"https://www.kinaxis.com",y:1984,f:"Public (TSX: KXS, Mkt Cap ~$4B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.kinaxis.com&sz=64",india_focus:false},{n:"Inspectorio",d:"AI quality & compliance for supply chains",u:"https://www.inspectorio.com/quality",y:2016,f:"$47M",inv:"Openspace, Mubadala",logo:"https://www.google.com/s2/favicons?domain=www.inspectorio.com&sz=64",india_focus:false},{n:"Zetwerk",d:"B2B contract manufacturing marketplace with supplier quality intelligence (India)",u:"https://www.zetwerk.com",y:2018,f:"$493M raised, valued at $2.7B",inv:"Greenoaks, Lightspeed India, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.zetwerk.com&sz=64",india_focus:true}],
    opportunity:"Supplier quality AI for India's 12,000+ auto component SMEs — lightweight, WhatsApp-integrated, vernacular-ready",
-   vc:["Bessemer: Vertical SaaS","Lightspeed India: SME Digitization"],sources:[{"t": "IATF 16949 standard", "u": "https://www.iatfglobaloversight.org/iatf-169492016/about/"},{"t": "McKinsey: Supplier risk", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"},{"t": "o9 Solutions", "u": "https://o9solutions.com/"}]},
+   vc:["Bessemer: Vertical SaaS","Lightspeed India: SME Digitization"],sources:[{"t": "IATF 16949 standard", "u": "https://www.iatfglobaloversight.org/iatf-169492016/about/"},{"t": "McKinsey: Supplier risk", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"},{"t": "o9 Solutions", "u": "https://o9solutions.com/"}],role_breakdown:{addr_sum:1.821,t1_total:12.794,share_pct:14.23,is_subsplit:true,parent:"APQP / PPAP Gate",split_share:0.785,roles:[{title:"Head of Quality (IATF)",bucket:"Executive",rate:0.0},{title:"Warranty Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Quality / Supplier Quality Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Paint Quality Engineer",bucket:"Professional",rate:0.296},{title:"Process Audit / QMS Engineer",bucket:"Professional",rate:0.296},{title:"APQP / PPAP Engineer",bucket:"Professional",rate:0.296},{title:"Quality Engineer (Process)",bucket:"Professional",rate:0.296},{title:"Supplier / Customer Quality Eng.",bucket:"Professional",rate:0.296}]}},
 
   // MANUFACTURING & OPERATIONS
   {id:9,name:"Operations Leadership",bp:"mfg",tier:"T1",icon:"🏭",collar:"Executive",
@@ -3550,7 +3576,7 @@ const AUTO_NODES = [
    solutions:["AI executive dashboards that auto-correlate plant KPIs","Predictive OEE models that forecast bottlenecks before they occur"],
    products:[{n:"Sight Machine",d:"Manufacturing visibility platform"},{n:"Tulip",d:"Frontline operations platform"},{n:"PTC ThingWorx",d:"IIoT analytics"}],
    opportunity:"Unified plant intelligence platform for Indian auto plants — integrating local MES/ERP systems",
-   vc:["General Catalyst: AI-native Enterprise"]},
+   vc:["General Catalyst: AI-native Enterprise"],role_breakdown:{addr_sum:1.336,t1_total:12.794,share_pct:10.44,roles:[{title:"Chief Operating Officer / Mfg Head",bucket:"Executive",rate:0.0},{title:"Plant Head / Factory Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Production Manager (Press/Weld/Assembly)",bucket:"Middle Mgmt",rate:0.42},{title:"Shift Supervisor",bucket:"Middle Mgmt",rate:0.42},{title:"Industrial / Lean Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:10,name:"Mfg & Process Engineering",bp:"mfg",tier:"T1",icon:"⚙️",collar:"Professional",
    roles:"Head of Mfg Eng, Mfg/Process Eng, Industrial/Lean Eng",
@@ -3559,7 +3585,7 @@ const AUTO_NODES = [
    solutions:["AI line balancing that optimizes work allocation across mixed-model assembly","Computer vision for automatic time-and-motion studies"],
    products:[{n:"Drishti Technologies",d:"AI-powered production line analytics"},{n:"Instrumental",d:"Manufacturing AI for process control"},{n:"Eigen Innovations",d:"AI process optimization"}],
    opportunity:"Plug-and-play AI process optimization for brownfield Indian auto plants — works with legacy PLCs",
-   vc:["a16z: Industrial AI","Blume: Deep-tech India"]},
+   vc:["a16z: Industrial AI","Blume: Deep-tech India"],role_breakdown:{addr_sum:0.296,t1_total:12.794,share_pct:2.31,roles:[{title:"Head of Manufacturing Engineering",bucket:"Executive",rate:0.0},{title:"Manufacturing / Process Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:11,name:"Automation & Tooling",bp:"mfg",tier:"T2",icon:"🤖",collar:"Mixed",
    roles:"Automation/Robotics Eng, Die Design Eng, Tool Design Eng, Tool Maker",
@@ -3568,7 +3594,7 @@ const AUTO_NODES = [
    solutions:["AI-based offline robot programming with automatic path optimization","Generative design for die/tool geometries optimizing for tool life and material flow"],
    products:[{n:"Realtime Robotics",d:"AI motion planning for industrial robots"},{n:"Intrinsic (Alphabet)",d:"AI software for industrial robots"},{n:"Vention",d:"AI-assisted automation design"}],
    opportunity:"Robot-as-a-Service with AI programming — lowering automation barrier for India's 12,000+ auto component SMEs",
-   vc:["a16z: Industrial AI","Kalaari: India AI"]},
+   vc:["a16z: Industrial AI","Kalaari: India AI"],role_breakdown:{addr_sum:0.888,t1_total:12.794,share_pct:6.94,roles:[{title:"Die Design Engineer",bucket:"Professional",rate:0.296},{title:"Tool Design Engineer",bucket:"Professional",rate:0.296},{title:"Automation / Robotics Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:12,name:"Press / Stamping Shop",bp:"mfg",tier:"T3",icon:"🔨",collar:"Blue Collar",
    roles:"Stamping Press Op, Press Tool Setter, Laser Cutting Op",
@@ -3576,7 +3602,7 @@ const AUTO_NODES = [
    problems:["Die wear causes gradual part dimension drift undetected until QC rejects"],
    solutions:["AI vibration/acoustic monitoring for real-time die wear prediction — 15-20% scrap reduction"],
    products:[{n:"Augury",d:"Machine health AI"},{n:"Uptake",d:"Industrial AI analytics"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:12.794,share_pct:0.0,roles:[]}},
 
   {id:13,name:"Body / Weld Shop",bp:"mfg",tier:"T3",icon:"🔥",collar:"Blue Collar",
    roles:"Welding/Robot Op, Spot Welding Tech",
@@ -3584,7 +3610,7 @@ const AUTO_NODES = [
    problems:["Weld quality inspection is destructive or sampling-based — misses intermittent defects"],
    solutions:["AI ultrasonic/vision-based inline weld quality inspection — detect 95%+ of defects in real-time"],
    products:[{n:"Keyence AI Vision",d:"Inline inspection"},{n:"Cognex ViDi",d:"Deep learning vision inspection"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:12.794,share_pct:0.0,roles:[]}},
 
   {id:14,name:"Paint Shop",bp:"mfg",tier:"T3",icon:"🎨",collar:"Blue Collar",
    roles:"Paint Shop Op",
@@ -3592,7 +3618,7 @@ const AUTO_NODES = [
    problems:["Paint defects (orange peel, runs, fish-eye) detected post-cure — rework costs $200-500/vehicle"],
    solutions:["Computer vision with AI classification for real-time paint defect detection — 30% rework reduction"],
    products:[{n:"ISRA Vision",d:"Surface inspection AI"},{n:"Landing AI",d:"Visual inspection platform"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:12.794,share_pct:0.0,roles:[]}},
 
   {id:15,name:"Machining & Heat Treatment",bp:"mfg",tier:"T3",icon:"🔩",collar:"Blue Collar",
    roles:"CNC Setter, CNC Op, Heat Treatment Tech, Foundry/Casting Op",
@@ -3600,7 +3626,7 @@ const AUTO_NODES = [
    problems:["Tool wear on CNC machines causes unplanned downtime and dimensional drift"],
    solutions:["AI tool wear prediction from spindle load/vibration data — 25% reduction in unplanned downtime"],
    products:[{n:"MachineMetrics",d:"CNC analytics"},{n:"Praemo (Rockwell)",d:"AI for machining optimization"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:12.794,share_pct:0.0,roles:[]}},
 
   {id:16,name:"General Assembly",bp:"mfg",tier:"T3",icon:"🚘",collar:"Blue Collar",
    roles:"TCF Op, Engine Assembly Op, Auto/EV Assembly Op, Fitter",
@@ -3608,7 +3634,7 @@ const AUTO_NODES = [
    problems:["Torque verification and fastener sequence errors cause warranty claims"],
    solutions:["AI vision-guided assembly verification — ensures correct part/torque/sequence at each station"],
    products:[{n:"Drishti",d:"Assembly line AI"},{n:"Tulip",d:"Digital work instructions with AI"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:12.794,share_pct:0.0,roles:[]}},
 
   {id:17,name:"Quality & Metrology",bp:"mfg",tier:"T1",icon:"📐",collar:"Mixed",
    roles:"Head of Quality (IATF), Quality Eng, Paint Quality Eng, Metrology/CMM Eng, QC/CMM Op, Process Audit Eng",
@@ -3617,7 +3643,7 @@ const AUTO_NODES = [
    solutions:["AI-powered inline dimensional inspection replacing CMM bottleneck — 10x throughput","LLM-driven 8D/CAPA report generation from defect data with automatic root-cause suggestion","Predictive SPC that detects process drift before parts go out of spec"],
    products:[{n:"Landing AI",d:"AI visual inspection platform",u:"https://landing.ai",y:2017,f:"$159M",inv:"McRock Capital, Intel Capital",logo:"https://www.google.com/s2/favicons?domain=landing.ai&sz=64",india_focus:false},{n:"Instrumental",d:"AI manufacturing quality analytics",u:"https://www.instrumental.com",y:2015,f:"$56M",inv:"Canaan, Eclipse, Venrock",logo:"https://www.google.com/s2/favicons?domain=www.instrumental.com&sz=64",india_focus:false},{n:"Eigen Innovations",d:"AI process optimization",u:"https://eigen.io",y:2012,f:"$20M",inv:"BDC Capital",logo:"https://www.google.com/s2/favicons?domain=eigen.io&sz=64",india_focus:false},{n:"Detect Technologies",d:"AI inspection for heavy industry (India)",u:"https://www.detecttechnologies.com",y:2016,f:"$28M raised",inv:"Accel, Elevation Capital, Shell Ventures",logo:"https://www.google.com/s2/favicons?domain=www.detecttechnologies.com&sz=64",india_focus:true},{n:"Qualitas Technologies",d:"AI visual inspection for Indian mfg",u:"https://www.qualitastech.com",y:2016,f:"$5M raised",inv:"Kalaari Capital",logo:"https://www.google.com/s2/favicons?domain=www.qualitastech.com&sz=64",india_focus:true}],
    opportunity:"Vernacular-first AI QMS for India's 12,000+ Tier-2/3 auto suppliers — IATF 16949 aligned, mobile-first, works with WhatsApp",
-   vc:["a16z: Industrial AI","Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Landing AI: Visual Inspection", "u": "https://landing.ai/"}, {"t": "Bessemer: Vertical AI", "u": "https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical"}, {"t": "NASSCOM AI Index", "u": "https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption"}]},
+   vc:["a16z: Industrial AI","Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Landing AI: Visual Inspection", "u": "https://landing.ai/"}, {"t": "Bessemer: Vertical AI", "u": "https://www.bvp.com/atlas/part-i-the-future-of-ai-is-vertical"}, {"t": "NASSCOM AI Index", "u": "https://nasscom.in/knowledge-center/publications/ai-adoption-index-20-tracking-indias-sectoral-progress-ai-adoption"}],role_breakdown:{addr_sum:0.296,t1_total:12.794,share_pct:2.31,roles:[{title:"Metrology / CMM Engineer",bucket:"Professional",rate:0.296}]}},
 
   {id:18,name:"EHS",bp:"mfg",tier:"T2",icon:"🛡️",collar:"Management",
    roles:"EHS Manager",
@@ -3626,7 +3652,7 @@ const AUTO_NODES = [
    solutions:["Computer vision for real-time PPE compliance and unsafe behavior detection","AI-driven incident prediction from near-miss pattern analysis"],
    products:[{n:"Intenseye",d:"AI workplace safety"},{n:"Protex AI",d:"PPE and safety compliance AI"}],
    opportunity:"EHS AI for Indian factories — integrates with Factories Act compliance requirements and state-level safety boards",
-   vc:["Bessemer: Vertical SaaS"]},
+   vc:["Bessemer: Vertical SaaS"],role_breakdown:{addr_sum:0.42,t1_total:12.794,share_pct:3.28,roles:[{title:"EHS Manager",bucket:"Middle Mgmt",rate:0.42}]}},
 
   // DEMAND, SALES & DISTRIBUTION
   {id:19,name:"Outbound Logistics",bp:"demand",tier:"T2",icon:"🚚",collar:"Blue Collar",
@@ -3636,7 +3662,7 @@ const AUTO_NODES = [
    solutions:["AI route and load optimization for vehicle dispatch — 15% improvement in truck utilization","Predictive demand for stockyard replenishment"],
    products:[{n:"FarEye",d:"Last-mile logistics AI (India)"},{n:"Locus.sh",d:"AI route optimization (India)"}],
    opportunity:"Auto-specific logistics AI integrating with Indian Railways, coastal shipping, and multi-modal transport",
-   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI"]},
+   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI"],role_breakdown:{addr_sum:0.77,t1_total:12.794,share_pct:6.02,roles:[{title:"Stores Executive / Line Logistics Coordinator",bucket:"Clerical",rate:0.77}]}},
 
   {id:20,name:"Dealership Management",bp:"demand",tier:"T1",icon:"🏢",collar:"Management",
    roles:"Dealer Dev Mgr, Dealership GM, Service Mgr",
@@ -3645,7 +3671,7 @@ const AUTO_NODES = [
    solutions:["AI dealer scorecards with real-time performance prediction and intervention triggers","Demand-sensing AI for optimal inventory allocation across dealer network","LLM agents for automated dealer communication, training, and compliance monitoring"],
    products:[{n:"Tekion",d:"AI-native cloud dealer management",u:"https://tekion.com/products/automotive-retail-cloud",y:2016,f:"$360M",inv:"Alkeon, Advent, Index Ventures",logo:"https://www.google.com/s2/favicons?domain=tekion.com&sz=64",india_focus:false},{n:"Impel",d:"AI-native automotive customer engagement",u:"https://www.impel.io",y:2015,f:"$114M",inv:"Silversmith Capital",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+STwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"AutoFi",d:"AI-native auto financing & digital retail",u:"https://www.autofi.com",y:2015,f:"$85M",inv:"Crosslink Capital, Ford Credit",logo:"https://www.google.com/s2/favicons?domain=www.autofi.com&sz=64",india_focus:false},{n:"Droom",d:"AI auto marketplace (India)",u:"https://droom.in",y:2014,f:"$125M raised",inv:"Lightbox, Toyota Tsusho",logo:"https://www.google.com/s2/favicons?domain=droom.in&sz=64",india_focus:true}],
    opportunity:"India dealer management AI — integrating OEM DMS, Vahan registration data, and regional demand patterns (monsoon, festival, harvest cycles)",
-   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Peak XV: India Manufacturing"],sources:[{"t": "Tekion: AI Dealer Platform", "u": "https://tekion.com/"}, {"t": "SIAM: Industry Data", "u": "https://www.siam.in/statistics.aspx"}]},
+   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Peak XV: India Manufacturing"],sources:[{"t": "Tekion: AI Dealer Platform", "u": "https://tekion.com/"}, {"t": "SIAM: Industry Data", "u": "https://www.siam.in/statistics.aspx"}],role_breakdown:{addr_sum:0.84,t1_total:12.794,share_pct:6.57,roles:[{title:"Dealer Development Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Dealership General / Service Manager",bucket:"Middle Mgmt",rate:0.42}]}},
 
   {id:21,name:"Showroom Sales",bp:"demand",tier:"T1",icon:"🤵",collar:"Mixed",
    roles:"Sales Consultant, Showroom Host/Telecaller",
@@ -3654,7 +3680,7 @@ const AUTO_NODES = [
    solutions:["AI lead scoring from digital + walk-in signals","AI sales copilot that provides real-time configuration, financing comparison, and objection handling","Automated CRM updates and follow-up sequencing via conversational AI"],
    products:[{n:"Tekion",d:"Dealer CRM AI"},{n:"Salesforce Automotive Cloud",d:"AI CRM"},{n:"Conversica",d:"AI sales assistant"},{n:"Drift/Salesloft",d:"AI sales engagement"}],
    opportunity:"Multilingual AI sales assistant for Indian auto dealerships — handles Hindi/regional languages, integrates with Vahan, RTO, and financing aggregators",
-   vc:["a16z: AI Services","Menlo: AI Application Layer"],sources:[{"t": "Tekion: AI dealership OS", "u": "https://tekion.com/"},{"t": "SIAM dealer network data", "u": "https://www.siam.in/statistics.aspx"}]},
+   vc:["a16z: AI Services","Menlo: AI Application Layer"],sources:[{"t": "Tekion: AI dealership OS", "u": "https://tekion.com/"},{"t": "SIAM dealer network data", "u": "https://www.siam.in/statistics.aspx"}],role_breakdown:{addr_sum:0.74,t1_total:12.794,share_pct:5.78,roles:[{title:"Showroom Host / Telecaller",bucket:"Sales",rate:0.37},{title:"Automotive Sales Consultant",bucket:"Sales",rate:0.37}]}},
 
   {id:22,name:"After-Sales Service",bp:"demand",tier:"T1",icon:"🔧",collar:"Mixed",
    roles:"After-Sales Area Mgr, Service Advisor, Diagnostic Tech, EV Service Tech",
@@ -3663,7 +3689,7 @@ const AUTO_NODES = [
    solutions:["AI-powered service reception: auto-generate job cards from customer complaint + vehicle history","AI diagnostic assistant using DTC codes + symptom-to-fault ML models","Predictive parts demand based on vehicle age, mileage, season, and regional patterns"],
    products:[{n:"UVeye",d:"AI vehicle inspection systems",u:"https://www.uveye.com",y:2016,f:"$200M",inv:"CarMax, GM Ventures, Volvo",logo:"https://www.google.com/s2/favicons?domain=www.uveye.com&sz=64",india_focus:false},{n:"Ravin AI",d:"AI vehicle inspection via smartphone",u:"https://www.ravin.ai",y:2018,f:"$20M",inv:"Maniv Mobility",logo:"https://www.google.com/s2/favicons?domain=www.ravin.ai&sz=64",india_focus:false},{n:"Anyline",d:"AI mobile scanning & data capture",u:"https://anyline.com",y:2013,f:"$30M",inv:"Project A, Glade Brook",logo:"https://www.google.com/s2/favicons?domain=anyline.com&sz=64",india_focus:false},{n:"GoMechanic",d:"AI auto service marketplace (India)",u:"https://www.gomechanic.in",y:2016,f:"$62M raised",inv:"Chiratae, Sequoia India, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gomechanic.in&sz=64",india_focus:true}],
    opportunity:"India after-sales AI integrating with OBD-II data, multi-brand service chains (MyTVS, GoMechanic), and India's unique two-wheeler service market",
-   vc:["a16z: AI Services","Accel India: India SaaS","Kalaari: India AI"],sources:[{"t": "Ravin AI: Vehicle Inspection", "u": "https://www.ravin.ai/"}, {"t": "UVeye: Automated Inspection", "u": "https://www.uveye.com/"}]},
+   vc:["a16z: AI Services","Accel India: India SaaS","Kalaari: India AI"],sources:[{"t": "Ravin AI: Vehicle Inspection", "u": "https://www.ravin.ai/"}, {"t": "UVeye: Automated Inspection", "u": "https://www.uveye.com/"}],role_breakdown:{addr_sum:0.79,t1_total:12.794,share_pct:6.17,roles:[{title:"After-Sales Area Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Service Advisor",bucket:"Sales",rate:0.37}]}},
 
   {id:23,name:"Body Shop & Repair",bp:"demand",tier:"T2",icon:"🎨",collar:"Mixed",
    roles:"Body Shop Advisor, Auto Service Tech, Repair Painter",
@@ -3671,7 +3697,7 @@ const AUTO_NODES = [
    problems:["Damage assessment and repair cost estimation is subjective — varies 30%+ across estimators"],
    solutions:["AI photo-based damage assessment and repair cost estimation — 90% accuracy, instant quotes"],
    products:[{n:"Tractable",d:"AI damage assessment"},{n:"Ravin AI",d:"Vehicle damage detection"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.37,t1_total:12.794,share_pct:2.89,roles:[{title:"Body Shop Advisor",bucket:"Sales",rate:0.37}]}},
 
   {id:24,name:"Warranty & Parts",bp:"demand",tier:"T1",icon:"📄",collar:"Management",
    roles:"Warranty Mgr, Spare Parts Mgr, Warranty Claims Exec, Parts Admin",
@@ -3680,7 +3706,7 @@ const AUTO_NODES = [
    solutions:["AI warranty claims automation — auto-validate, approve/flag, and process claims","ML-based warranty fraud detection using pattern analysis across dealer network","Predictive parts demand using vehicle population, age distribution, and failure mode analysis"],
    products:[{n:"Syncron",d:"Aftermarket & parts optimization with AI features",u:"https://www.syncron.com",y:1999,f:"$180M",inv:"Summit Partners, Nordic Capital",logo:"https://www.google.com/s2/favicons?domain=www.syncron.com&sz=64",india_focus:false},{n:"Tractable",d:"AI damage assessment from photos",u:"https://tractable.ai",y:2014,f:"$250M+ (Series E 2024)",inv:"Insight Partners, Georgian",logo:"https://www.google.com/s2/favicons?domain=tractable.ai&sz=64",india_focus:false},{n:"Tavant",d:"Warranty management platform with AI features (services + product)",u:"https://www.tavant.com/warranty-management",y:2000,f:"$80M+",inv:"Private",logo:"https://www.google.com/s2/favicons?domain=www.tavant.com&sz=64",india_focus:false},{n:"Servify",d:"AI device aftermarket & warranty platform (India)",u:"https://servify.com",y:2015,f:"$83M raised",inv:"Singularity Growth, BEENEXT",logo:"https://www.google.com/s2/favicons?domain=servify.com&sz=64",india_focus:true}],
    opportunity:"Warranty and parts AI for India — integrating GSTIN-based dealer reconciliation and India-specific failure patterns (dust, heat, pothole damage)",
-   vc:["Bessemer: AI Efficiency","Lightspeed India: Enterprise AI"],sources:[{"t": "Tavant: Warranty AI", "u": "https://www.tavant.com/warranty"}, {"t": "Syncron: Parts Planning", "u": "https://www.syncron.com/"}]},
+   vc:["Bessemer: AI Efficiency","Lightspeed India: Enterprise AI"],sources:[{"t": "Tavant: Warranty AI", "u": "https://www.tavant.com/warranty"}, {"t": "Syncron: Parts Planning", "u": "https://www.syncron.com/"}],role_breakdown:{addr_sum:1.66,t1_total:12.794,share_pct:12.97,roles:[{title:"Spare Parts Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Warranty Claims Executive",bucket:"Technician",rate:0.47},{title:"Parts / Warranty / Service Admin",bucket:"Clerical",rate:0.77}]}},
 
   // SUPPORT FUNCTIONS
   {id:25,name:"Executive Leadership",bp:"support",tier:"T2",icon:"👔",collar:"Executive",
@@ -3689,7 +3715,7 @@ const AUTO_NODES = [
    problems:["Strategic decision-making relies on lagging monthly reports; real-time intelligence is fragmented"],
    solutions:["AI executive intelligence platform — real-time market, operational, and financial signal aggregation with scenario modeling"],
    products:[{n:"Palantir Foundry",d:"Enterprise decision intelligence"},{n:"C3.ai",d:"Enterprise AI platform"}],
-   opportunity:"",vc:["General Catalyst: AI-native Enterprise"]},
+   opportunity:"",vc:["General Catalyst: AI-native Enterprise"],role_breakdown:{addr_sum:0.0,t1_total:12.794,share_pct:0.0,roles:[{title:"Chief Executive Officer / MD",bucket:"Executive",rate:0.0}]}},
 
   {id:26,name:"Finance & HR",bp:"support",tier:"T1",icon:"💰",collar:"Management",
    roles:"CFO, Plant Controller, Cost Accountant, CHRO, HR/IR Mgr",
@@ -3698,7 +3724,7 @@ const AUTO_NODES = [
    solutions:["AI agents for end-to-end AP/AR automation — invoice matching, 3-way PO matching, payment scheduling","AI payroll with automatic statutory compliance updates for Indian labor laws","AI screening and assessment for manufacturing recruitment across all levels","Real-time should-cost models using commodity feeds and manufacturing process parameters"],
    products:[{n:"Highradius",d:"AI fintech for AR/AP (India-origin)",u:"https://www.highradius.com",y:2006,f:"$475M raised, valued at $3.1B (2022)",inv:"Susquehanna, Tiger Global, Citi",logo:"https://www.google.com/s2/favicons?domain=www.highradius.com&sz=64",india_focus:true},{n:"Darwinbox",d:"AI-native HR platform (India-origin)",u:"https://darwinbox.com",y:2015,f:"$110M",inv:"TCV, Salesforce Ventures, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=darwinbox.com&sz=64",india_focus:true},{n:"Eightfold AI",d:"AI-native talent intelligence",u:"https://eightfold.ai",y:2016,f:"$396M",inv:"SoftBank, General Catalyst",logo:"https://www.google.com/s2/favicons?domain=eightfold.ai&sz=64",india_focus:false},{n:"Ramp",d:"AI-native corporate spend management",u:"https://ramp.com",y:2019,f:"$620M",inv:"Founders Fund, Thrive Capital",logo:"https://www.google.com/s2/favicons?domain=ramp.com&sz=64",india_focus:false},{n:"Zaggle",d:"AI spend management (India)",u:"https://www.zaggle.in",y:2011,f:"Public (NSE: ZAGGLE, Mkt Cap ~INR 4,500 Cr)",inv:"Public (IPO 2023)",logo:"https://www.google.com/s2/favicons?domain=www.zaggle.in&sz=64",india_focus:true}],
    opportunity:"Unified finance-HR AI platform for Indian manufacturing — handling GST, TDS, PF, ESIC, Shops & Establishments Act compliance natively",
-   vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],sources:[{"t": "Highradius: AI Finance", "u": "https://www.highradius.com/"}, {"t": "Darwinbox: AI HR", "u": "https://darwinbox.com/"}, {"t": "PwC: AI for MSMEs", "u": "https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html"}, {"t": "Bessemer: AI Efficiency", "u": "https://www.bvp.com/atlas/the-state-of-ai-2025"}]},
+   vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],sources:[{"t": "Highradius: AI Finance", "u": "https://www.highradius.com/"}, {"t": "Darwinbox: AI HR", "u": "https://darwinbox.com/"}, {"t": "PwC: AI for MSMEs", "u": "https://www.pwc.in/unlocking-the-ai-edge-for-msmes.html"}, {"t": "Bessemer: AI Efficiency", "u": "https://www.bvp.com/atlas/the-state-of-ai-2025"}],role_breakdown:{addr_sum:0.592,t1_total:12.794,share_pct:4.63,roles:[{title:"Chief Financial / HR Officer",bucket:"Executive",rate:0.0},{title:"Costing / Should-Cost Engineer",bucket:"Professional",rate:0.296},{title:"Plant Controller / Cost Accountant",bucket:"Professional",rate:0.296}]}},
 
   {id:27,name:"Maintenance",bp:"support",tier:"T1",icon:"🔩",collar:"Mixed",
    roles:"Maintenance Mgr, Maintenance Planner, Maintenance Tech",
@@ -3707,7 +3733,7 @@ const AUTO_NODES = [
    solutions:["Predictive maintenance using vibration, temperature, and current sensors with ML models","AI-optimized spare parts inventory based on failure prediction and lead time modeling"],
    products:[{n:"Augury",d:"Machine health AI"},{n:"Uptake",d:"Industrial AI"},{n:"Fiix (Rockwell)",d:"AI-powered CMMS"},{n:"UpKeep",d:"Mobile-first maintenance AI"}],
    opportunity:"Predictive maintenance AI for Indian auto plants — works with legacy machines (no IoT retrofit needed) using acoustic/vibration bolt-on sensors",
-   vc:["a16z: Industrial AI","Blume: Deep-tech India"]},
+   vc:["a16z: Industrial AI","Blume: Deep-tech India"],role_breakdown:{addr_sum:0.716,t1_total:12.794,share_pct:5.6,roles:[{title:"Maintenance Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Maintenance Planner",bucket:"Professional",rate:0.296}]}},
 
   {id:28,name:"Digital & IIoT",bp:"support",tier:"T1",icon:"📡",collar:"Professional",
    roles:"IIoT/Predictive Maintenance Eng, Digital Manufacturing Eng",
@@ -3716,7 +3742,7 @@ const AUTO_NODES = [
    solutions:["AI-powered manufacturing data platform that auto-discovers insights from sensor data","Scalable IIoT deployment framework with pre-built ML models for common use cases","AI-driven OT security monitoring for connected factory environments"],
    products:[{n:"Sight Machine",d:"Manufacturing data platform",u:"https://sightmachine.com",y:2011,f:"$73M",inv:"Felicis, BMW i Ventures",logo:"https://www.google.com/s2/favicons?domain=sightmachine.com&sz=64",india_focus:false},{n:"Augury",d:"Machine health AI",u:"https://www.augury.com",y:2011,f:"$175M",inv:"Insight Partners, Eclipse",logo:"https://www.google.com/s2/favicons?domain=www.augury.com&sz=64",india_focus:false},{n:"Tulip",d:"AI-native frontline operations",u:"https://tulip.co",y:2014,f:"$107M",inv:"NEA, DMG Mori",logo:"https://www.google.com/s2/favicons?domain=tulip.co&sz=64",india_focus:false},{n:"Altizon",d:"IIoT platform for Indian manufacturing",u:"https://altizon.com",y:2013,f:"$10M raised",inv:"Wipro Ventures, Lumis Partners",logo:"https://www.google.com/s2/favicons?domain=altizon.com&sz=64",india_focus:true}],
    opportunity:"India-specific IIoT platform for brownfield factories — supports legacy PLC protocols (Modbus, Profibus) common in Indian plants, with built-in energy monitoring for BEE compliance",
-   vc:["a16z: Industrial AI","General Catalyst: Resilience","Blume: Deep-tech India","Kalaari: India AI"]}
+   vc:["a16z: Industrial AI","General Catalyst: Resilience","Blume: Deep-tech India","Kalaari: India AI"],role_breakdown:{addr_sum:0.296,t1_total:12.794,share_pct:2.31,roles:[{title:"IIoT / Predictive Maintenance Eng.",bucket:"Professional",rate:0.296}]}}
 ];
 
 // ════════════════════════════════════════════════════════════════
@@ -3731,7 +3757,7 @@ const FMCG_NODES = [
    solutions:["AI formulation engines that predict ingredient interactions and optimize recipes computationally","Generative AI for new product concept creation based on consumer trend data","AI-powered virtual sensory panels using digital taste/texture models"],
    products:[{n:"Tastewise",d:"AI food trend intelligence",u:"https://www.tastewise.io",y:2016,f:"$65M",inv:"PeakBridge, Pereg",logo:"https://www.google.com/s2/favicons?domain=www.tastewise.io&sz=64",india_focus:false},{n:"NotCo",d:"AI plant-based food formulation",u:"https://notco.com",y:2015,f:"$433M",inv:"Tiger Global, Bezos Expeditions",logo:"https://www.google.com/s2/favicons?domain=notco.com&sz=64",india_focus:false},{n:"Ginkgo Bioworks (acq. Zymergen 2022)",d:"AI bio-foundry & R&D platform; absorbed Zymergen",u:"https://www.ginkgo.bio",y:2008,f:"Public (NYSE: DNA)",inv:"Public (acquired Zymergen Oct 2022)",logo:"https://www.google.com/s2/favicons?domain=www.ginkgo.bio&sz=64",india_focus:false},{n:"Foodhak",d:"AI-native health food formulation",u:"https://www.foodhak.com",y:2020,f:"$5M",inv:"Global Founders Capital",logo:"https://www.google.com/s2/favicons?domain=www.foodhak.com&sz=64",india_focus:false}],
    opportunity:"India-specific formulation AI trained on Ayurvedic/traditional ingredients, regional taste preferences, and FSSAI regulatory constraints",
-   vc:["a16z: AI Services","Menlo: AI Application Layer","Blume: Deep-tech India"]},
+   vc:["a16z: AI Services","Menlo: AI Application Layer","Blume: Deep-tech India"],role_breakdown:{addr_sum:0.947,t1_total:16.662,share_pct:5.68,split_share:0.8,roles:[{title:"Head of R&D / Product Dev",bucket:"Executive",rate:0.0},{title:"Packaging Development Technologist",bucket:"Professional",rate:0.296},{title:"Food Technologist",bucket:"Professional",rate:0.296},{title:"Sensory Scientist / Analyst",bucket:"Professional",rate:0.296},{title:"Product Dev / Formulation Scientist",bucket:"Professional",rate:0.296}]}},
 
   {id:2,name:"Packaging Development",bp:"supply",tier:"T2",icon:"📦",collar:"Professional",
    roles:"Packaging Dev Technologist",
@@ -3740,7 +3766,7 @@ const FMCG_NODES = [
    solutions:["AI shelf-life prediction from accelerated testing data using ML models","Generative design for sustainable packaging within cost/performance constraints"],
    products:[{n:"Amcor AI Design",d:"Sustainable packaging optimization"},{n:"Victoria AI (PackIOT)",d:"Smart packaging analytics"}],
    opportunity:"AI packaging tool for India — integrates EPR compliance, BIS packaging standards, and India's sachet/small-format economics",
-   vc:["Bessemer: Vertical SaaS"]},
+   vc:["Bessemer: Vertical SaaS"],role_breakdown:{addr_sum:0.237,t1_total:16.662,share_pct:1.42,is_subsplit:true,parent:"R&D / Formulation",split_share:0.2,roles:[{title:"Head of R&D / Product Dev",bucket:"Executive",rate:0.0},{title:"Packaging Development Technologist",bucket:"Professional",rate:0.296},{title:"Food Technologist",bucket:"Professional",rate:0.296},{title:"Sensory Scientist / Analyst",bucket:"Professional",rate:0.296},{title:"Product Dev / Formulation Scientist",bucket:"Professional",rate:0.296}]}},
 
   {id:3,name:"S&OP / Demand Planning",bp:"supply",tier:"T1",icon:"📊",collar:"Management",
    roles:"S&OP/Demand Planning Mgr, Demand/Supply Planner, Demand Planning Exec",
@@ -3749,7 +3775,7 @@ const FMCG_NODES = [
    solutions:["ML demand sensing using POS data, weather, festivals, and macroeconomic signals — improving accuracy to 80%+","AI promotional effectiveness engine that simulates ROI before committing trade spend","Automated S&OP scenario generation with AI — comparing demand/supply scenarios in minutes, not days"],
    products:[{n:"o9 Solutions",d:"AI-native demand planning & S&OP",u:"https://o9solutions.com/platform",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"RELEX Solutions",d:"AI retail & supply chain planning",u:"https://www.relexsolutions.com/solutions",y:2005,f:"$500M+",inv:"TCV, Summit, Veritas",logo:"https://www.google.com/s2/favicons?domain=www.relexsolutions.com&sz=64",india_focus:false},{n:"Crisp",d:"AI-native supply chain data sharing",u:"https://www.gocrisp.com",y:2016,f:"$73M",inv:"Next47, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gocrisp.com&sz=64",india_focus:false},{n:"Blue Yonder",d:"Supply chain planning with AI features",u:"https://blueyonder.com/solutions/supply-chain-planning",y:1985,f:"Acquired by Panasonic ($8.5B, 2021)",inv:"Panasonic",logo:"https://www.google.com/s2/favicons?domain=blueyonder.com&sz=64",india_focus:false},{n:"Increff",d:"AI inventory optimization (India)",u:"https://www.increff.com",y:2016,f:"$20M raised",inv:"Binny Bansal, Ventureast",logo:"https://www.google.com/s2/favicons?domain=www.increff.com&sz=64",india_focus:true}],
    opportunity:"India FMCG demand AI that integrates kirana/GT distributor signals, quick commerce velocity data, monsoon patterns, and festival calendars — most global tools miss India's GT-dominant distribution",
-   vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "o9 Solutions: Demand AI", "u": "https://o9solutions.com/"}, {"t": "Blue Yonder: Supply Chain", "u": "https://blueyonder.com/"}, {"t": "McKinsey: India Mfg", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}]},
+   vc:["a16z: AI Services","Bessemer: AI Efficiency","General Catalyst: AI-native Enterprise","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "o9 Solutions: Demand AI", "u": "https://o9solutions.com/"}, {"t": "Blue Yonder: Supply Chain", "u": "https://blueyonder.com/"}, {"t": "McKinsey: India Mfg", "u": "https://www.mckinsey.com/capabilities/operations/our-insights/fulfilling-the-promise-of-indias-manufacturing-sector"}],role_breakdown:{addr_sum:1.984,t1_total:16.662,share_pct:11.91,split_share:0.68,roles:[{title:"Chief Supply Chain Officer",bucket:"Executive",rate:0.0},{title:"Depot / CFA Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Warehouse / Logistics Manager",bucket:"Middle Mgmt",rate:0.42},{title:"S&OP / Demand Planning Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Dispatch Executive",bucket:"Clerical",rate:0.77},{title:"Demand Planning Executive",bucket:"Professional",rate:0.296},{title:"Supply Planning Executive",bucket:"Professional",rate:0.296},{title:"Demand / Supply Planner",bucket:"Professional",rate:0.296}]}},
 
   {id:4,name:"Supply Planning",bp:"supply",tier:"T1",icon:"📋",collar:"Management",
    roles:"Supply Planning Exec, Chief Supply Chain Officer",
@@ -3758,7 +3784,7 @@ const FMCG_NODES = [
    solutions:["AI-optimized multi-plant allocation using total cost modeling (raw material, freight, energy, labor)","ML-based dynamic safety stock that adjusts to real-time demand volatility and supplier reliability","AI supplier lead time prediction and automatic schedule adjustment"],
    products:[{n:"Kinaxis",d:"AI supply planning"},{n:"o9 Solutions",d:"Supply chain AI"},{n:"Coupa Supply Chain",d:"Supply chain visibility AI"}],
    opportunity:"India supply planning AI handling multi-depot CFA networks, state-wise GST optimization, and India's complex 3PL logistics landscape",
-   vc:["General Catalyst: AI-native Enterprise","Lightspeed India: Enterprise AI"]},
+   vc:["General Catalyst: AI-native Enterprise","Lightspeed India: Enterprise AI"],role_breakdown:{addr_sum:0.934,t1_total:16.662,share_pct:5.6,is_subsplit:true,parent:"S&OP / Demand Planning",split_share:0.32,roles:[{title:"Chief Supply Chain Officer",bucket:"Executive",rate:0.0},{title:"Depot / CFA Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Warehouse / Logistics Manager",bucket:"Middle Mgmt",rate:0.42},{title:"S&OP / Demand Planning Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Dispatch Executive",bucket:"Clerical",rate:0.77},{title:"Demand Planning Executive",bucket:"Professional",rate:0.296},{title:"Supply Planning Executive",bucket:"Professional",rate:0.296},{title:"Demand / Supply Planner",bucket:"Professional",rate:0.296}]}},
 
   {id:5,name:"Procurement",bp:"supply",tier:"T1",icon:"🤝",collar:"Professional",
    roles:"Head of Procurement, Procurement Mgr, Procurement Officer, Buyer/Sourcing Specialist",
@@ -3767,7 +3793,7 @@ const FMCG_NODES = [
    solutions:["AI commodity price forecasting using satellite, weather, trade flow, and futures data","AI-powered tail-spend consolidation and maverick spend detection","LLM-based contract analysis and compliance monitoring"],
    products:[{n:"Coupa",d:"AI spend intelligence",u:"https://www.coupa.com/products/ai-spend-management",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Zip",d:"AI-native procurement orchestration",u:"https://ziphq.com",y:2020,f:"$100M+",inv:"Y Combinator, CRV, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=ziphq.com&sz=64",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement (India)",u:"https://www.moglix.com",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
    opportunity:"India procurement AI integrating APMC mandi prices, AGMARKNET data, and India-specific commodity chains (sugar, edible oil, spices)",
-   vc:["Bessemer: AI Efficiency","Accel India: India SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "Coupa: Spend Intelligence", "u": "https://www.coupa.com/"}, {"t": "Gro Intelligence: Commodity AI", "u": "https://www.gro-intelligence.com/"}]},
+   vc:["Bessemer: AI Efficiency","Accel India: India SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "Coupa: Spend Intelligence", "u": "https://www.coupa.com/"}, {"t": "Gro Intelligence: Commodity AI", "u": "https://www.gro-intelligence.com/"}],role_breakdown:{addr_sum:1.012,t1_total:16.662,share_pct:6.07,roles:[{title:"Head of Procurement / Sourcing",bucket:"Executive",rate:0.0},{title:"Procurement Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Procurement Officer",bucket:"Professional",rate:0.296},{title:"Buyer / Sourcing Specialist",bucket:"Professional",rate:0.296}]}},
 
   {id:6,name:"Raw Material Stores",bp:"supply",tier:"T2",icon:"🏪",collar:"Mixed",
    roles:"Store Exec, Warehouse Associate",
@@ -3775,7 +3801,7 @@ const FMCG_NODES = [
    problems:["FIFO compliance for perishable raw materials is manually tracked — spoilage rate 2-5%"],
    solutions:["IoT+AI automated FIFO enforcement and expiry prediction — 40% reduction in spoilage"],
    products:[{n:"Locus.sh",d:"Warehouse optimization"},{n:"GreyOrange",d:"AI warehouse robotics (India-origin)"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.47,t1_total:16.662,share_pct:2.82,roles:[{title:"Raw & Packaging Material Store Executive",bucket:"Technician",rate:0.47}]}},
 
   // MANUFACTURING & OPERATIONS
   {id:7,name:"Operations Leadership",bp:"mfg",tier:"T2",icon:"🏭",collar:"Executive",
@@ -3785,7 +3811,7 @@ const FMCG_NODES = [
    solutions:["AI-powered multi-plant command center with standardized KPI benchmarking","Predictive production scheduling integrating demand forecasts and maintenance windows"],
    products:[{n:"Sight Machine",d:"Manufacturing visibility"},{n:"Fictiv",d:"AI manufacturing platform"}],
    opportunity:"Multi-plant FMCG operations AI — integrating contract manufacturers and co-packers into a unified visibility layer",
-   vc:["General Catalyst: AI-native Enterprise"]},
+   vc:["General Catalyst: AI-native Enterprise"],role_breakdown:{addr_sum:0.666,t1_total:16.662,share_pct:4.0,split_share:0.379,roles:[{title:"Chief Operating Officer (COO)",bucket:"Executive",rate:0.0},{title:"Plant Head / Factory Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Production Manager (FMCG)",bucket:"Middle Mgmt",rate:0.42},{title:"Packaging Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shift In-Charge / Line Leader",bucket:"Middle Mgmt",rate:0.42},{title:"Production / Manufacturing Officer",bucket:"Professional",rate:0.296}]}},
 
   {id:8,name:"Process Engineering",bp:"mfg",tier:"T1",icon:"⚙️",collar:"Professional",
    roles:"Process/Industrial/Lean Eng, Automation Eng",
@@ -3794,7 +3820,7 @@ const FMCG_NODES = [
    solutions:["AI-driven OEE optimization identifying micro-stoppages and speed losses from sensor data","ML-optimized changeover sequencing reducing SMED times by 30-40%"],
    products:[{n:"Sight Machine",d:"OEE analytics"},{n:"Tulip",d:"Frontline operations platform"},{n:"Drishti",d:"Production analytics"}],
    opportunity:"FMCG-specific OEE AI for Indian plants — handling high-SKU environments with 50+ changeovers per shift",
-   vc:["a16z: Industrial AI"]},
+   vc:["a16z: Industrial AI"],role_breakdown:{addr_sum:0.592,t1_total:16.662,share_pct:3.55,roles:[{title:"Process / Industrial / Lean Engineer",bucket:"Professional",rate:0.296},{title:"Automation / Packaging Dev Eng.",bucket:"Professional",rate:0.296}]}},
 
   {id:9,name:"Shift Execution",bp:"mfg",tier:"T2",icon:"👷",collar:"Supervisory",
    roles:"Shift In-Charge, Line Leader",
@@ -3802,7 +3828,7 @@ const FMCG_NODES = [
    problems:["Shift handover information loss causes 10-15% productivity dip in first hour"],
    solutions:["AI shift handover assistant — auto-generates handover reports from production data and flags critical issues"],
    products:[{n:"Tulip",d:"Digital shift management"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.303,t1_total:16.662,share_pct:1.82,is_subsplit:true,parent:"Operations Leadership",split_share:0.172,roles:[{title:"Chief Operating Officer (COO)",bucket:"Executive",rate:0.0},{title:"Plant Head / Factory Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Production Manager (FMCG)",bucket:"Middle Mgmt",rate:0.42},{title:"Packaging Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shift In-Charge / Line Leader",bucket:"Middle Mgmt",rate:0.42},{title:"Production / Manufacturing Officer",bucket:"Professional",rate:0.296}]}},
 
   {id:10,name:"Mixing / Blending",bp:"mfg",tier:"T2",icon:"🥣",collar:"Blue Collar",
    roles:"Machine Op, Blending Op, Food Handler",
@@ -3810,7 +3836,7 @@ const FMCG_NODES = [
    problems:["Batch-to-batch consistency varies 5-8% due to raw material variability"],
    solutions:["AI process control that auto-adjusts mixing parameters based on incoming raw material properties — 60% consistency improvement"],
    products:[{n:"Rockwell FactoryTalk AI",d:"Process control"},{n:"AspenTech",d:"Process optimization"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.424,t1_total:16.662,share_pct:2.54,is_subsplit:true,parent:"Operations Leadership",split_share:0.241,roles:[{title:"Chief Operating Officer (COO)",bucket:"Executive",rate:0.0},{title:"Plant Head / Factory Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Production Manager (FMCG)",bucket:"Middle Mgmt",rate:0.42},{title:"Packaging Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shift In-Charge / Line Leader",bucket:"Middle Mgmt",rate:0.42},{title:"Production / Manufacturing Officer",bucket:"Professional",rate:0.296}]}},
 
   {id:11,name:"Filling / Batching",bp:"mfg",tier:"T2",icon:"🧃",collar:"Blue Collar",
    roles:"Filling/Batching Op",
@@ -3818,7 +3844,7 @@ const FMCG_NODES = [
    problems:["Overfilling costs 1-3% of product value; underfilling creates regulatory risk"],
    solutions:["AI-controlled filling with real-time weight/volume feedback — reduces giveaway by 50%+"],
    products:[{n:"Mettler Toledo AI",d:"Checkweighing with ML"},{n:"Krones AI",d:"Filling line optimization"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.363,t1_total:16.662,share_pct:2.18,is_subsplit:true,parent:"Operations Leadership",split_share:0.207,roles:[{title:"Chief Operating Officer (COO)",bucket:"Executive",rate:0.0},{title:"Plant Head / Factory Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Production Manager (FMCG)",bucket:"Middle Mgmt",rate:0.42},{title:"Packaging Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shift In-Charge / Line Leader",bucket:"Middle Mgmt",rate:0.42},{title:"Production / Manufacturing Officer",bucket:"Professional",rate:0.296}]}},
 
   {id:12,name:"Packaging Lines",bp:"mfg",tier:"T3",icon:"📦",collar:"Mixed",
    roles:"Packaging Mgr, Packing Machine Op, Labeling/Cartoning Op",
@@ -3826,7 +3852,7 @@ const FMCG_NODES = [
    problems:["Packaging defects (misaligned labels, seal failures) caught late in the line"],
    solutions:["Computer vision for inline packaging quality inspection — 95% defect catch rate"],
    products:[{n:"Cognex",d:"Vision inspection"},{n:"SICK AI",d:"Packaging inspection sensors"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0,t1_total:16.662,share_pct:0.0,roles:[]}},
 
   {id:13,name:"Quality Control & Lab",bp:"mfg",tier:"T1",icon:"🔬",collar:"Professional",
    roles:"QC/Lab Mgr, QA Exec, Microbiologist, Lab Chemist, Pkg Quality Exec",
@@ -3835,7 +3861,7 @@ const FMCG_NODES = [
    solutions:["Rapid AI-assisted microbiology using spectroscopic methods with ML classification — results in hours, not days","LLM-powered automatic COA generation and batch release documentation","Predictive quality analytics that flags batches likely to fail based on process parameters"],
    products:[{n:"Benchling",d:"Cloud R&D & lab management",u:"https://www.benchling.com/insights",y:2012,f:"$400M",inv:"Sequoia, a16z, Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.benchling.com&sz=64",india_focus:false},{n:"Veeva Systems",d:"Quality & regulatory management",u:"https://www.veeva.com/products/veeva-qms/",y:2007,f:"Public (NYSE: VEEV, Mkt Cap ~$30B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.veeva.com&sz=64",india_focus:false},{n:"Uncountable",d:"AI-native R&D data platform",u:"https://www.uncountable.com",y:2015,f:"$16M",inv:"Lux Capital, Bowery Capital",logo:"https://www.google.com/s2/favicons?domain=www.uncountable.com&sz=64",india_focus:false},{n:"Quantiphi",d:"AI analytics for quality (India-origin)",u:"https://www.quantiphi.com",y:2013,f:"$70M raised",inv:"Multiples PE",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwZDk0ODgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UTwvdGV4dD48L3N2Zz4=",india_focus:true}],
    opportunity:"India FMCG quality AI — handles FSSAI lab testing requirements, integrates with Indian commercial labs (Arbro, NABL), supports BIS/ISI certification workflows",
-   vc:["Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Benchling: lab informatics", "u": "https://www.benchling.com/"},{"t": "Veeva: quality management", "u": "https://www.veeva.com/"}]},
+   vc:["Bessemer: Vertical SaaS","Accel India: Manufacturing SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Benchling: lab informatics", "u": "https://www.benchling.com/"},{"t": "Veeva: quality management", "u": "https://www.veeva.com/"}],role_breakdown:{addr_sum:1.604,t1_total:16.662,share_pct:9.63,roles:[{title:"QC / Lab Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Packaging Quality Executive",bucket:"Professional",rate:0.296},{title:"Laboratory Chemist",bucket:"Professional",rate:0.296},{title:"QA Executive / QC Analyst",bucket:"Professional",rate:0.296},{title:"Microbiologist / Lab Specialist",bucket:"Professional",rate:0.296}]}},
 
   {id:14,name:"Food Safety & QA",bp:"mfg",tier:"T1",icon:"🛡️",collar:"Management",
    roles:"Head of Quality, QA Mgr, Food Safety Supervisor (FoSTaC), Process Validation Exec",
@@ -3844,7 +3870,7 @@ const FMCG_NODES = [
    solutions:["AI-powered audit preparation — auto-compiles HACCP documentation from production records","AI allergen traceability engine mapping every ingredient to every finished product","ML-based supplier risk scoring enabling risk-based audit prioritization"],
    products:[{n:"TraceGains",d:"AI supplier compliance & food safety",u:"https://www.tracegains.com",y:2008,f:"$40M",inv:"Wavecrest Growth",logo:"https://www.google.com/s2/favicons?domain=www.tracegains.com&sz=64",india_focus:false},{n:"FoodLogiQ",d:"Food traceability (acquired by Aptean)",u:"https://www.foodlogiq.com/solutions",y:2006,f:"Acquired by Aptean (2022)",inv:"Aptean",logo:"https://www.google.com/s2/favicons?domain=www.foodlogiq.com&sz=64",india_focus:false},{n:"Trustwell (FoodLogiQ+ESHA)",d:"AI food safety & compliance",u:"https://www.trustwell.com/products",y:2022,f:"$30M+",inv:"Mainsail Partners",logo:"https://www.google.com/s2/favicons?domain=www.trustwell.com&sz=64",india_focus:false},{n:"SafetyChain",d:"Food safety & quality management with AI risk scoring",u:"https://safetychain.com/products",y:2010,f:"$50M+",inv:"PE-backed",logo:"https://www.google.com/s2/favicons?domain=safetychain.com&sz=64",india_focus:false}],
    opportunity:"India food safety AI — integrates FSSAI licensing, FoSTaC training records, and state food safety authority requirements",
-   vc:["Bessemer: Vertical SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "FSSAI Food Safety Compliance System", "u": "https://www.fssai.gov.in/"},{"t": "TraceGains", "u": "https://www.tracegains.com/"},{"t": "SafetyChain", "u": "https://safetychain.com/"}]},
+   vc:["Bessemer: Vertical SaaS","Lightspeed India: Enterprise AI"],sources:[{"t": "FSSAI Food Safety Compliance System", "u": "https://www.fssai.gov.in/"},{"t": "TraceGains", "u": "https://www.tracegains.com/"},{"t": "SafetyChain", "u": "https://safetychain.com/"}],role_breakdown:{addr_sum:2.078,t1_total:16.662,share_pct:12.47,roles:[{title:"Food Safety Supervisor (FoSTaC)",bucket:"Professional",rate:0.296},{title:"Head of Quality / Compliance",bucket:"Executive",rate:0.0},{title:"Internal Auditor (Quality/FSMS)",bucket:"Professional",rate:0.296},{title:"Quality Assurance Manager",bucket:"Middle Mgmt",rate:0.42},{title:"QA Documentation Executive",bucket:"Clerical",rate:0.77},{title:"Process Validation Executive",bucket:"Professional",rate:0.296}]}},
 
   {id:15,name:"Sanitation & CIP",bp:"mfg",tier:"T2",icon:"🧹",collar:"Mixed",
    roles:"Sanitation Supervisor, ETP/STP Operator",
@@ -3852,7 +3878,7 @@ const FMCG_NODES = [
    problems:["CIP chemical usage and water consumption are not optimized — 15-20% waste"],
    solutions:["AI-optimized CIP cycles that adjust chemical concentration and rinse duration based on soil load — 20% water/chemical savings"],
    products:[{n:"Ecolab SMARTPOWER",d:"AI cleaning optimization"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.77,t1_total:16.662,share_pct:4.62,roles:[{title:"Sanitation Supervisor / Assistant",bucket:"Clerical",rate:0.77}]}},
 
   {id:16,name:"Maintenance & Utilities",bp:"mfg",tier:"T2",icon:"🔩",collar:"Mixed",
    roles:"Maintenance/Utilities Mgr, Multi Skill Tech, Utilities Eng",
@@ -3860,7 +3886,7 @@ const FMCG_NODES = [
    problems:["Boiler/refrigeration energy costs are 8-15% of production cost — poorly optimized"],
    solutions:["AI energy optimization for boiler/refrigeration/HVAC — 10-20% energy cost reduction"],
    products:[{n:"Phaidra (DeepMind spin-off)",d:"AI for industrial energy optimization"},{n:"Augury",d:"Machine health AI"}],
-   opportunity:"",vc:[]},
+   opportunity:"",vc:[],role_breakdown:{addr_sum:0.716,t1_total:16.662,share_pct:4.3,roles:[{title:"Maintenance / Utilities Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Utilities Engineer (Boiler / Refrigeration)",bucket:"Professional",rate:0.296}]}},
 
   // DEMAND, SALES & DISTRIBUTION
   {id:17,name:"Marketing Leadership",bp:"demand",tier:"T1",icon:"📢",collar:"Executive",
@@ -3870,7 +3896,7 @@ const FMCG_NODES = [
    solutions:["AI media mix modeling with real-time optimization across digital, TV, print, and trade channels","AI brand health tracking using social listening, search trends, and e-commerce signals — daily updates","AI-powered virtual concept testing at 10% the cost and 90% faster than traditional methods"],
    products:[{n:"Kantar Marketplace",d:"AI brand health & concept testing",u:"https://www.kantar.com/marketplace",y:2019,f:"Part of Kantar (Bain Capital, ~$4B revenue)",inv:"Bain Capital",logo:"https://www.google.com/s2/favicons?domain=www.kantar.com&sz=64",india_focus:false},{n:"Zappi",d:"AI-native consumer insights",u:"https://www.zappi.io",y:2013,f:"$100M+",inv:"FTV Capital",logo:"https://www.google.com/s2/favicons?domain=www.zappi.io&sz=64",india_focus:false},{n:"CreativeX",d:"AI-native creative quality scoring",u:"https://creativex.com",y:2015,f:"$25M",inv:"EQT Ventures",logo:"https://www.google.com/s2/favicons?domain=creativex.com&sz=64",india_focus:false},{n:"Pencil",d:"AI-native ad creative generation",u:"https://www.trypencil.com",y:2018,f:"$15M",inv:"Sequoia India",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiM3YzNhZWQiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+UDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"Lifesight",d:"AI marketing measurement (India-origin)",u:"https://www.lifesight.io",y:2015,f:"$17M raised",inv:"Jungle Ventures, M&S Partners",logo:"https://www.google.com/s2/favicons?domain=www.lifesight.io&sz=64",india_focus:true}],
    opportunity:"India FMCG marketing AI that understands GT/MT/e-commerce/quick-commerce channel dynamics and India's 22-language content landscape",
-   vc:["a16z: AI Services","Menlo: AI Application Layer","Peak XV: India Manufacturing"],sources:[{"t": "Lifesight: Marketing AI", "u": "https://www.lifesight.io/"}, {"t": "Zappi: Consumer Research AI", "u": "https://www.zappi.io/"}, {"t": "Kantar Marketplace", "u": "https://www.kantar.com/marketplace"}]},
+   vc:["a16z: AI Services","Menlo: AI Application Layer","Peak XV: India Manufacturing"],sources:[{"t": "Lifesight: Marketing AI", "u": "https://www.lifesight.io/"}, {"t": "Zappi: Consumer Research AI", "u": "https://www.zappi.io/"}, {"t": "Kantar Marketplace", "u": "https://www.kantar.com/marketplace"}],role_breakdown:{addr_sum:1.142,t1_total:16.662,share_pct:6.85,split_share:0.578,roles:[{title:"Chief Marketing Officer (CMO)",bucket:"Executive",rate:0.0},{title:"Category Development Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shopper Marketing Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Brand / Category Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Trade / Digital Marketing Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Customer Marketing Executive",bucket:"Professional",rate:0.296}]}},
 
   {id:18,name:"Trade & Digital Marketing",bp:"demand",tier:"T1",icon:"📱",collar:"Professional",
    roles:"Trade/Digital Mktg Mgr, Customer Mktg Exec",
@@ -3879,7 +3905,7 @@ const FMCG_NODES = [
    solutions:["AI trade promotion optimization — simulate ROI before committing trade spend","Generative AI for creative production — auto-generate localized ad variants at scale","AI-driven POSM allocation using outlet-level sell-through data"],
    products:[{n:"Trax",d:"AI retail shelf intelligence",u:"https://traxretail.com",y:2010,f:"$640M",inv:"SoftBank Vision Fund",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"Pricefx",d:"AI pricing & trade promotion optimization",u:"https://www.pricefx.com/software/pricingai",y:2011,f:"$184M",inv:"Apax Partners, Bain Capital Ventures",logo:"https://www.google.com/s2/favicons?domain=www.pricefx.com&sz=64",india_focus:false},{n:"Aforza",d:"AI-native CPG trade execution",u:"https://www.aforza.com",y:2019,f:"$30M",inv:"Salesforce Ventures, Insight",logo:"https://www.google.com/s2/favicons?domain=www.aforza.com&sz=64",india_focus:false},{n:"ParallelDots",d:"AI shelf image recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true}],
    opportunity:"India trade marketing AI that integrates distributor DMS data, kirana outlet intelligence, and quick-commerce promotional calendars",
-   vc:["a16z: AI Services","Accel India: India SaaS"],sources:[{"t": "Pricefx: Pricing AI", "u": "https://www.pricefx.com/"}, {"t": "Trax: Retail Execution", "u": "https://traxretail.com/"}]},
+   vc:["a16z: AI Services","Accel India: India SaaS"],sources:[{"t": "Pricefx: Pricing AI", "u": "https://www.pricefx.com/"}, {"t": "Trax: Retail Execution", "u": "https://traxretail.com/"}],role_breakdown:{addr_sum:0.834,t1_total:16.662,share_pct:5.01,is_subsplit:true,parent:"Marketing Leadership",split_share:0.422,roles:[{title:"Chief Marketing Officer (CMO)",bucket:"Executive",rate:0.0},{title:"Category Development Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Shopper Marketing Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Brand / Category Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Trade / Digital Marketing Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Customer Marketing Executive",bucket:"Professional",rate:0.296}]}},
 
   {id:19,name:"Sales Leadership",bp:"demand",tier:"T1",icon:"🎯",collar:"Management",
    roles:"CSO, National/Regional Sales Mgr, Head of E-commerce/MT, Sales Capability Mgr",
@@ -3888,7 +3914,7 @@ const FMCG_NODES = [
    solutions:["AI territory optimization using outlet census, potential mapping, and salesperson capacity modeling","ML-based target setting from outlet potential, competitive presence, and macro signals","AI route-to-market optimizer that recommends optimal channel structure per geography"],
    products:[{n:"Fractal Analytics",d:"AI decision intelligence (India)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"Xactly",d:"AI sales performance management",u:"https://xactlycorp.com",y:2005,f:"Acquired by Vista Equity ($1.3B, 2017)",inv:"Vista Equity Partners",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNkOTc3MDYiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+WDwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"People.ai",d:"AI-native revenue intelligence",u:"https://people.ai",y:2016,f:"$100M",inv:"Lightspeed, a16z, ICONIQ",logo:"https://www.google.com/s2/favicons?domain=people.ai&sz=64",india_focus:false},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true}],
    opportunity:"India sales AI that maps the 10M+ kirana universe, integrates distributor beat plans, and handles India's tiered city classification (metro/Tier-1/2/3/rural)",
-   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Accel India: India SaaS","Peak XV: India Manufacturing"]},
+   vc:["a16z: AI Services","General Catalyst: AI-native Enterprise","Accel India: India SaaS","Peak XV: India Manufacturing"],role_breakdown:{addr_sum:1.135,t1_total:16.662,share_pct:6.81,split_share:0.545,roles:[{title:"Chief Sales Officer (CSO)",bucket:"Executive",rate:0.0},{title:"Head of E-commerce / Modern Trade",bucket:"Senior Mgmt",rate:0.2},{title:"Distributor Development Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Channel Sales Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Sales Capability / Training Manager",bucket:"Middle Mgmt",rate:0.42},{title:"National / Regional Sales Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Key Account Manager (MT/E-com)",bucket:"Middle Mgmt",rate:0.42}]}},
 
   {id:20,name:"Key Accounts & Channels",bp:"demand",tier:"T1",icon:"🏬",collar:"Professional",
    roles:"Key Account Mgr (MT/E-com), Channel Sales Mgr, Distributor Dev Mgr",
@@ -3897,7 +3923,7 @@ const FMCG_NODES = [
    solutions:["AI JBP generator that analyzes shopper data, category trends, and retailer strategy to auto-create plans","AI channel profitability engine mapping true cost-to-serve across Blinkit, Zepto, BigBasket, Amazon, Flipkart","AI distributor scorecards with predictive intervention triggers"],
    products:[{n:"CommerceIQ",d:"AI-native e-commerce management",u:"https://commerceiq.ai",y:2012,f:"$175M",inv:"SoftBank, Insight Partners",logo:"https://www.google.com/s2/favicons?domain=commerceiq.ai&sz=64",india_focus:false},{n:"Bizom",d:"AI retail intelligence for FMCG (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"Botree DMS",d:"Distributor management (India)",u:"https://www.botreesoftware.com",y:2009,f:"Acquired by SugarCRM (2023)",inv:"SugarCRM",logo:"https://www.google.com/s2/favicons?domain=www.botreesoftware.com&sz=64",india_focus:true},{n:"RetailNext",d:"AI in-store analytics",u:"https://retailnext.net",y:2007,f:"$190M",inv:"Norwest, EDBI",logo:"https://www.google.com/s2/favicons?domain=retailnext.net&sz=64",india_focus:false}],
    opportunity:"India-specific channel AI that handles GT/MT/e-commerce/quick-commerce channel complexity — integrating Udaan, JioMart, and 1,000+ regional distributors",
-   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"]},
+   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],role_breakdown:{addr_sum:0.945,t1_total:16.662,share_pct:5.67,is_subsplit:true,parent:"Sales Leadership",split_share:0.455,roles:[{title:"Chief Sales Officer (CSO)",bucket:"Executive",rate:0.0},{title:"Head of E-commerce / Modern Trade",bucket:"Senior Mgmt",rate:0.2},{title:"Distributor Development Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Channel Sales Manager",bucket:"Middle Mgmt",rate:0.42},{title:"Sales Capability / Training Manager",bucket:"Middle Mgmt",rate:0.42},{title:"National / Regional Sales Manager",bucket:"Senior Mgmt",rate:0.2},{title:"Key Account Manager (MT/E-com)",bucket:"Middle Mgmt",rate:0.42}]}},
 
   {id:21,name:"Warehousing & Logistics",bp:"demand",tier:"T3",icon:"🚛",collar:"Mixed",
    roles:"Warehouse/Logistics Mgr, Depot/CFA Mgr, Cold Chain Tech, Dispatch Exec",
@@ -3906,7 +3932,7 @@ const FMCG_NODES = [
    solutions:["AI-optimized warehouse allocation and dispatch routing","IoT+AI cold chain monitoring with predictive spoilage alerts"],
    products:[{n:"FarEye",d:"Delivery management AI (India-origin)"},{n:"Locus.sh",d:"Route optimization (India-origin)"},{n:"GreyOrange",d:"Warehouse robotics (India-origin)"}],
    opportunity:"India FMCG logistics AI integrating CFA/depot network, milk-run optimization for GT distribution, and cold chain for dairy/frozen",
-   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI"]},
+   vc:["Accel India: India SaaS","Lightspeed India: Enterprise AI"],role_breakdown:{addr_sum:0,t1_total:16.662,share_pct:0.0,roles:[]}},
 
   {id:22,name:"Field Sales",bp:"demand",tier:"T1",icon:"🚶",collar:"Mixed",
    roles:"ASM, Territory Sales Exec, Van Sales Rep",
@@ -3915,7 +3941,7 @@ const FMCG_NODES = [
    solutions:["AI sales assistant that auto-generates visit reports, optimizes routes, and pre-fills orders from predicted demand","AI outlet prioritization scoring — maximizing coverage ROI per salesperson per day","ML-based order recommendation at outlet level using sell-through velocity, stock level, and local events"],
    products:[{n:"Bizom",d:"AI retail intelligence (India)",u:"https://bizom.com",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"FieldAssist",d:"AI sales force automation (India)",u:"https://www.fieldassist.com",y:2014,f:"$10M raised",inv:"Mirae Asset, Sistema Asia Fund",logo:"https://www.google.com/s2/favicons?domain=www.fieldassist.com&sz=64",india_focus:true},{n:"BeatRoute",d:"AI route intelligence (India)",u:"https://beatroute.io",y:2015,f:"$6M raised",inv:"Chiratae Ventures, IvyCap",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNlMTFkNDgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"ParallelDots",d:"AI shelf recognition (India)",u:"https://www.paralleldots.com",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true},{n:"RetailPulse",d:"AI retail analytics (India)",u:"https://retailpulse.ai",y:2020,f:"$4M raised",inv:"Arali Ventures, Pentathlon",logo:"https://www.google.com/s2/favicons?domain=retailpulse.ai&sz=64",india_focus:true}],
    opportunity:"India FMCG field sales AI — voice-first (for low-literacy sales reps), WhatsApp-native, works offline in rural areas, integrates DMS and retailer wallet",
-   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing","Kalaari: India AI"],sources:[{"t": "Bizom: Field Sales AI", "u": "https://bizom.com/"}, {"t": "FieldAssist: Sales Force AI", "u": "https://www.fieldassist.com/"}, {"t": "BeatRoute: Route Intelligence", "u": "https://beatroute.io/"}, {"t": "a16z: AI Services", "u": "https://a16z.com/ai-for-the-physical-world/"}]},
+   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing","Kalaari: India AI"],sources:[{"t": "Bizom: Field Sales AI", "u": "https://bizom.com/"}, {"t": "FieldAssist: Sales Force AI", "u": "https://www.fieldassist.com/"}, {"t": "BeatRoute: Route Intelligence", "u": "https://beatroute.io/"}, {"t": "a16z: AI Services", "u": "https://a16z.com/ai-for-the-physical-world/"}],role_breakdown:{addr_sum:0.74,t1_total:16.662,share_pct:4.44,roles:[{title:"Area Sales Manager (ASM)",bucket:"Sales",rate:0.37},{title:"Territory Sales Executive / Officer",bucket:"Sales",rate:0.37}]}},
 
   {id:23,name:"Retail Execution",bp:"demand",tier:"T1",icon:"🛒",collar:"Mixed",
    roles:"Sales Promoter, Visual Merchandiser, Retail Sales Associate",
@@ -3924,7 +3950,7 @@ const FMCG_NODES = [
    solutions:["AI image recognition for shelf share, planogram compliance, and out-of-stock detection","Computer vision for competitive shelf analytics at scale"],
    products:[{n:"Trax",d:"AI retail execution"},{n:"ParallelDots ShelfWatch",d:"AI shelf monitoring (India-origin)"},{n:"Snap2Insight",d:"Shelf image analytics"}],
    opportunity:"India retail execution AI that works with kirana/mom-and-pop store formats (not just modern trade planograms)",
-   vc:["Accel India: India SaaS"]},
+   vc:["Accel India: India SaaS"],role_breakdown:{addr_sum:0.42,t1_total:16.662,share_pct:2.52,roles:[{title:"Visual Merchandiser",bucket:"Merchandiser",rate:0.42}]}},
 
   {id:24,name:"Customer Service",bp:"demand",tier:"T1",icon:"📞",collar:"Professional",
    roles:"Customer Service Exec, DMS/Sales Ops Exec",
@@ -3933,7 +3959,7 @@ const FMCG_NODES = [
    solutions:["AI chatbots and voice agents for L1 customer service — handling 80% of queries without human intervention","AI-automated order management — auto-process routine orders, flag exceptions","NLP-based consumer insight mining from complaints, social media, and call transcripts"],
    products:[{n:"Yellow.ai",d:"Enterprise AI chatbot (India-origin)",u:"https://yellow.ai",y:2016,f:"$102M",inv:"Sapphire, Salesforce Ventures",logo:"https://www.google.com/s2/favicons?domain=yellow.ai&sz=64",india_focus:true},{n:"Freshworks",d:"AI customer service (India-origin)",u:"https://www.freshworks.com",y:2010,f:"Public (NASDAQ: FRSH, Mkt Cap ~$5B)",inv:"Sequoia, Tiger Global, Accel (IPO 2021)",logo:"https://www.google.com/s2/favicons?domain=www.freshworks.com&sz=64",india_focus:true},{n:"Haptik",d:"Conversational AI (Jio)",u:"https://www.haptik.ai",y:2013,f:"Acquired by Reliance Jio ($100M, 2019)",inv:"Reliance Jio",logo:"https://www.google.com/s2/favicons?domain=www.haptik.ai&sz=64",india_focus:true},{n:"Verloop.io",d:"AI-native CX automation (India)",u:"https://verloop.io",y:2016,f:"$7M raised",inv:"IDFC Parampara, Kalaari Capital",logo:"https://www.google.com/s2/favicons?domain=verloop.io&sz=64",india_focus:true}],
    opportunity:"Multilingual FMCG customer AI handling Hindi + 10 regional languages, WhatsApp-native, integrating complaint-to-quality feedback loop",
-   vc:["a16z: AI Services","Menlo: AI Application Layer","Accel India: India SaaS"],sources:[{"t": "Yellow.ai: CX AI", "u": "https://yellow.ai/"}, {"t": "Haptik: Conversational AI", "u": "https://www.haptik.ai/"}, {"t": "Freshdesk: AI Support", "u": "https://www.freshworks.com/freshdesk/"}]},
+   vc:["a16z: AI Services","Menlo: AI Application Layer","Accel India: India SaaS"],sources:[{"t": "Yellow.ai: CX AI", "u": "https://yellow.ai/"}, {"t": "Haptik: Conversational AI", "u": "https://www.haptik.ai/"}, {"t": "Freshdesk: AI Support", "u": "https://www.freshworks.com/freshdesk/"}],role_breakdown:{addr_sum:0.62,t1_total:16.662,share_pct:3.72,roles:[{title:"Customer Service / Order Mgmt Exec",bucket:"Customer Service",rate:0.62}]}},
 
   // SUPPORT FUNCTIONS
   {id:25,name:"Executive Leadership",bp:"support",tier:"T2",icon:"👔",collar:"Executive",
@@ -3942,7 +3968,7 @@ const FMCG_NODES = [
    problems:["Strategic intelligence from market, competitor, and consumer signals is fragmented across teams"],
    solutions:["AI executive intelligence aggregating Nielsen, Kantar, e-commerce, social, and macro signals into real-time dashboard"],
    products:[{n:"Crayon",d:"Competitive intelligence AI"},{n:"AlphaSense",d:"Market intelligence"}],
-   opportunity:"",vc:["General Catalyst: AI-native Enterprise"]},
+   opportunity:"",vc:["General Catalyst: AI-native Enterprise"],role_breakdown:{addr_sum:0.0,t1_total:16.662,share_pct:0.0,roles:[{title:"Chief Executive Officer (CEO)",bucket:"Executive",rate:0.0}]}},
 
   {id:26,name:"Finance",bp:"support",tier:"T1",icon:"💰",collar:"Management",
    roles:"CFO, Accounts/Payroll/Admin Exec",
@@ -3951,7 +3977,7 @@ const FMCG_NODES = [
    solutions:["AI-powered trade spend reconciliation with automatic distributor claims matching","AI GST compliance engine with auto-reconciliation of GSTR-1/2B/3B across all GSTINs","AI revenue management automating scheme calculations and accrual accounting"],
    products:[{n:"Highradius",d:"AI AR/AP & treasury (India-origin)",u:"https://www.highradius.com",y:2006,f:"$475M raised, valued at $3.1B (2022)",inv:"Susquehanna, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.highradius.com&sz=64",india_focus:true},{n:"ClearTax",d:"AI GST compliance (India)",u:"https://cleartax.in",y:2011,f:"$140M",inv:"Composite Capital, Y Combinator",logo:"https://www.google.com/s2/favicons?domain=cleartax.in&sz=64",india_focus:true},{n:"Ramp",d:"AI-native spend management",u:"https://ramp.com",y:2019,f:"$620M",inv:"Founders Fund, Thrive Capital",logo:"https://www.google.com/s2/favicons?domain=ramp.com&sz=64",india_focus:false},{n:"Zaggle",d:"AI spend management (India, public)",u:"https://www.zaggle.in",y:2011,f:"Public (NSE: ZAGGLE, Mkt Cap ~INR 4,500 Cr)",inv:"Public (IPO 2023)",logo:"https://www.google.com/s2/favicons?domain=www.zaggle.in&sz=64",india_focus:true}],
    opportunity:"India FMCG finance AI — handling the unique complexity of Indian trade terms (super-stockist margins, distributor ROI schemes, modern trade listing fees, and GST e-invoicing)",
-   vc:["Bessemer: AI Efficiency","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],sources:[{"t": "Highradius: Finance AI", "u": "https://www.highradius.com/"}, {"t": "ClearTax: GST AI", "u": "https://cleartax.in/"}, {"t": "Bessemer: AI Efficiency", "u": "https://www.bvp.com/atlas/the-state-of-ai-2025"}]},
+   vc:["Bessemer: AI Efficiency","Lightspeed India: Enterprise AI","Peak XV: India Manufacturing"],sources:[{"t": "Highradius: Finance AI", "u": "https://www.highradius.com/"}, {"t": "ClearTax: GST AI", "u": "https://cleartax.in/"}, {"t": "Bessemer: AI Efficiency", "u": "https://www.bvp.com/atlas/the-state-of-ai-2025"}],role_breakdown:{addr_sum:0.77,t1_total:16.662,share_pct:4.62,roles:[{title:"Chief Financial Officer (CFO)",bucket:"Executive",rate:0.0},{title:"Accounts / Payroll / Admin Exec",bucket:"Clerical",rate:0.77}]}},
 
   {id:27,name:"Human Resources",bp:"support",tier:"T1",icon:"👥",collar:"Management",
    roles:"Head of HR/IR, Factory HR & IR Mgr",
@@ -3960,7 +3986,7 @@ const FMCG_NODES = [
    solutions:["AI-powered high-volume recruitment with auto-screening, assessment, and onboarding","AI statutory compliance engine auto-tracking state-wise labor law changes and generating compliance checklists","AI performance management with continuous feedback, skill-gap identification, and career path recommendation"],
    products:[{n:"Darwinbox",d:"AI-native HRMS (India-origin)",u:"https://darwinbox.com",y:2015,f:"$110M",inv:"TCV, Salesforce Ventures, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=darwinbox.com&sz=64",india_focus:true},{n:"BetterPlace",d:"AI blue-collar workforce (India)",u:"https://www.betterplace.co.in",y:2015,f:"$40M raised",inv:"Unitus, 3one4 Capital, CX Partners",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwNTk2NjkiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"Eightfold AI",d:"AI-native talent intelligence",u:"https://eightfold.ai",y:2016,f:"$396M",inv:"SoftBank, General Catalyst",logo:"https://www.google.com/s2/favicons?domain=eightfold.ai&sz=64",india_focus:false},{n:"Phenom",d:"AI-native talent experience",u:"https://www.phenom.com",y:2010,f:"$161M",inv:"B Capital, Dragoneer",logo:"https://www.google.com/s2/favicons?domain=www.phenom.com&sz=64",india_focus:false}],
    opportunity:"India FMCG HR AI — handling the unique challenge of 40%+ field force attrition with AI-driven retention prediction and proactive intervention",
-   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Darwinbox: HR AI", "u": "https://darwinbox.com/"}, {"t": "BetterPlace: Blue-collar HR", "u": "https://www.betterplace.co.in/"}, {"t": "Eightfold: Talent AI", "u": "https://eightfold.ai/"}]},
+   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Darwinbox: HR AI", "u": "https://darwinbox.com/"}, {"t": "BetterPlace: Blue-collar HR", "u": "https://www.betterplace.co.in/"}, {"t": "Eightfold: Talent AI", "u": "https://eightfold.ai/"}],role_breakdown:{addr_sum:0.42,t1_total:16.662,share_pct:2.52,roles:[{title:"Head of Human Resources / IR",bucket:"Executive",rate:0.0},{title:"Factory HR & IR Manager",bucket:"Middle Mgmt",rate:0.42}]}},
 
   {id:28,name:"Regulatory & Compliance",bp:"support",tier:"T1",icon:"📜",collar:"Professional",
    roles:"Regulatory Affairs Mgr, Internal Auditor (FSMS)",
@@ -3969,7 +3995,7 @@ const FMCG_NODES = [
    solutions:["AI regulatory intelligence that auto-tracks FSSAI/BIS/Legal Metrology changes and maps impact to product portfolio","AI label compliance checker that validates nutrition facts, claims, and allergen declarations against FSSAI rules"],
    products:[{n:"Compliance.ai",d:"Regulatory intelligence"},{n:"FoodChain ID",d:"Regulatory compliance"},{n:"SGS Digicomply",d:"AI food regulatory intelligence"}],
    opportunity:"India-specific FSSAI compliance AI — tracks Gazette notifications, state food safety orders, and auto-updates label templates",
-   vc:["Bessemer: Vertical SaaS"]},
+   vc:["Bessemer: Vertical SaaS"],role_breakdown:{addr_sum:0.42,t1_total:16.662,share_pct:2.52,roles:[{title:"Regulatory Affairs Manager",bucket:"Middle Mgmt",rate:0.42}]}},
 
   {id:29,name:"Analytics & Revenue Mgmt",bp:"support",tier:"T1",icon:"📈",collar:"Professional",
    roles:"RGM Manager, RGM/Data/MIS Analyst",
@@ -3978,7 +4004,7 @@ const FMCG_NODES = [
    solutions:["AI data integration and automated insight generation from multi-source FMCG data","AI price-pack optimizer modeling demand elasticity, cannibalization, and competitive response","Real-time promotional ROI engine with causal inference methodology"],
    products:[{n:"Fractal Analytics",d:"AI decision science (India-origin)",u:"https://fractal.ai",y:2000,f:"$685M raised, valued at $1.5B+",inv:"TPG Capital, Apax Partners",logo:"https://www.google.com/s2/favicons?domain=fractal.ai&sz=64",india_focus:true},{n:"MathCo",d:"AI-native CPG analytics (India)",u:"https://themathcompany.com",y:2016,f:"$50M raised",inv:"Brighton Park Capital",logo:"https://www.google.com/s2/favicons?domain=themathcompany.com&sz=64",india_focus:true},{n:"Sigmoid",d:"AI data engineering for CPG (India)",u:"https://www.sigmoid.com",y:2013,f:"$12M raised",inv:"Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.sigmoid.com&sz=64",india_focus:true},{n:"Course5i",d:"AI analytics for FMCG (India)",u:"https://www.course5i.com",y:2000,f:"$50M raised",inv:"Avataar Ventures",logo:"https://www.google.com/s2/favicons?domain=www.course5i.com&sz=64",india_focus:true}],
    opportunity:"India RGM AI built natively for India's GT+MT+e-commerce multi-channel reality — integrating Nielsen, Kantar, RetailPulse, and Udaan data in one platform",
-   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Fractal: AI Analytics", "u": "https://fractal.ai/"}, {"t": "Course5i: FMCG AI", "u": "https://www.course5i.com/"}]}
+   vc:["a16z: AI Services","Accel India: India SaaS","Peak XV: India Manufacturing"],sources:[{"t": "Fractal: AI Analytics", "u": "https://fractal.ai/"}, {"t": "Course5i: FMCG AI", "u": "https://www.course5i.com/"}],role_breakdown:{addr_sum:1.012,t1_total:16.662,share_pct:6.07,roles:[{title:"Revenue Growth Management (RGM) Manager",bucket:"Middle Mgmt",rate:0.42},{title:"DMS / Sales Operations Executive",bucket:"Professional",rate:0.296},{title:"RGM / Data / MIS Analyst",bucket:"Professional",rate:0.296}]}}
 ];
 
 // VC THESIS DATA
@@ -4311,14 +4337,56 @@ function renderDetailPanel(n, ctx) {
             <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};font-size:1rem;">${isAuto ? '$0.8B' : '$0.5B'}</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;margin-top:6px;">
-            <span>&times; Node share of sector addressable role-units <span style="color:#9ca3af;font-size:0.65rem;display:block;">from 03_Workflow_Role_Mapping_Sequential.xlsx</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${(n.tam / (isAuto ? 800 : 500) * 100).toFixed(1)}%</span>
+            <span>&times; Node share of sector addressable role-units <span style="color:#9ca3af;font-size:0.65rem;display:block;">computed below from 03_Workflow_Role_Mapping_Sequential.xlsx</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${n.role_breakdown ? n.role_breakdown.share_pct.toFixed(2) : (n.tam / (isAuto ? 800 : 500) * 100).toFixed(2)}%</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
             <span style="font-weight:700;color:#1f2937;">Node Enterprise TAM</span>
             <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${n.tam}M</span>
           </div>
-        </div></div>
+        </div>
+        ${n.role_breakdown ? `
+        <!-- PER-NODE ROLE BREAKDOWN SUB-CALCULATION -->
+        <div style="margin-top:18px;padding-top:16px;border-top:1px dashed #fde68a;">
+          <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">How the ${n.role_breakdown.share_pct.toFixed(2)}% node share is computed</div>
+          <p style="font-size:0.78rem;color:#6b7280;line-height:1.55;margin:0 0 10px;">The node share is the ratio of <em>this node&rsquo;s addressable role-units</em> to the <em>sector T1 total</em>. Each white-collar role in the node is classified into one of the 9 appendix per-role buckets and assigned its sourced Step A &times; Step B rate. The sum is the node&rsquo;s addressable role-units.</p>
+          ${n.role_breakdown.is_subsplit ? '<p style="font-size:0.72rem;color:#92400e;background:rgba(217,119,6,0.06);border-left:3px solid #f59e0b;padding:8px 12px;margin:0 0 10px;border-radius:4px;"><strong>Sub-split node:</strong> this node inherits ' + (n.role_breakdown.split_share*100).toFixed(0) + '% of its parent block (<em>' + n.role_breakdown.parent + '</em>)&rsquo;s role units. The role list below is the parent block&rsquo;s roster; this child gets the indicated proportional share.</p>' : ''}
+          <table style="width:100%;border-collapse:collapse;font-size:0.78rem;color:#374151;">
+            <thead>
+              <tr style="background:rgba(217,119,6,0.06);">
+                <th style="text-align:left;padding:6px 8px;font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.04em;">Role title (from xlsx)</th>
+                <th style="text-align:left;padding:6px 8px;font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.04em;">Bucket</th>
+                <th style="text-align:right;padding:6px 8px;font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.04em;">Step A&times;B rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${n.role_breakdown.roles.map(r => '<tr style="border-bottom:1px solid #fef3c7;"><td style="padding:5px 8px;">' + r.title + '</td><td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;">' + r.bucket + '</td><td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);font-weight:600;">' + (r.rate*100).toFixed(1) + '%</td></tr>').join('')}
+              <tr style="background:rgba(217,119,6,0.04);border-top:2px solid #fbbf24;">
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">Sum of role-units for this node${n.role_breakdown.is_subsplit ? ' (after ' + (n.role_breakdown.split_share*100).toFixed(0) + '% sub-split share)' : ''}</td>
+                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#92400e;">${n.role_breakdown.addr_sum.toFixed(3)}</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&divide; Sector T1 total addressable role-units (sum across all ${isAuto ? '15' : '17'} ${sector} T1 nodes)</td>
+                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${n.role_breakdown.t1_total.toFixed(3)}</td>
+              </tr>
+              <tr style="border-top:2px solid #d97706;">
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= Node share of sector addressable</td>
+                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:0.95rem;">${n.role_breakdown.share_pct.toFixed(2)}%</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&times; ${sector} sector enterprise TAM</td>
+                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${isAuto ? '$800M' : '$500M'}</td>
+              </tr>
+              <tr style="border-top:2px solid #0d9488;background:rgba(13,148,136,0.05);">
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= Node Enterprise TAM</td>
+                <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:1.05rem;">$${n.tam}M</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.7rem;color:#9ca3af;margin:10px 0 0;font-style:italic;">Per-bucket Step A &times; Step B rates: Executive 0% &middot; Senior Mgmt 20% &middot; Middle Mgmt 42% &middot; Professional 29.6% &middot; Technician 47% &middot; Clerical 77% &middot; Sales 37% &middot; Customer Service 62% &middot; Merchandiser 42%. Sourced from WEF Future of Jobs 2025, McKinsey MGI 2023, Frey-Osborne 2013 (full per-role table in appendix 3c).</p>
+        </div>
+        ` : ''}
+        </div>
     </div>
 
     <!-- STEP 5: SOURCES & RESEARCH BACKING (5 categories) -->
