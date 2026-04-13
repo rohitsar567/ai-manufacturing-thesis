@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '6a75eec9e4fbc345a71f6c177dc8aa9067d36c40';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '6a75eec9e4fbc345a71f6c177dc8aa9067d36c40' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -7886,7 +7886,7 @@ window.NODE_DESC = {
   </details>
 
   <!-- ================== THESIS VALIDATION KNOWLEDGE GRAPH ================== -->
-  <div id="tv-kg" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;">
+  <div id="tv-kg" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:6px;">
       <div>
         <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Knowledge graph</div>
@@ -8295,7 +8295,7 @@ window.NODE_DESC = {
   </script>
 
   <!-- ================== CRM PIPELINE ================== -->
-  <details id="crm-pipeline-wrap" class="expanded-role-desc" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
+  <details id="crm-pipeline-wrap" class="expanded-role-desc" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
   <summary style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;">
     <div>
       <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Outreach CRM</div>
