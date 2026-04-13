@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'bb73d542f6ea7922a605a210c167bdd75b7ed083';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'bb73d542f6ea7922a605a210c167bdd75b7ed083' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8592,129 +8592,6 @@ window.NODE_DESC = {
       });
     }
 
-    function buildGapsTable(contacts){
-      var card = document.createElement('div'); card.className='tv-sector-card gaps';
-      var hdr = document.createElement('div'); hdr.className='tv-sector-hdr';
-      var name = document.createElement('div'); name.className='tv-sector-name';
-      var ic = document.createElement('span'); ic.textContent = '\u26a0\ufe0f'; name.appendChild(ic);
-      var lbl = document.createElement('span'); lbl.textContent = ' Validation gaps \u2014 claims our website makes that the questionnaire does NOT cover'; name.appendChild(lbl);
-      var insCount = loadIns().length;
-      var sub = document.createElement('span'); sub.className='tv-sector-sub';
-      sub.textContent = ' \u00b7 ' + GAP_CLAIMS.length + ' uncovered claims \u00b7 ' + insCount + ' inserted into questionnaire';
-      name.appendChild(sub);
-      hdr.appendChild(name);
-      var bar = makeBar(rollupGaps()); hdr.appendChild(bar);
-      var pc = document.createElement('div'); pc.className='tv-pct'; pc.textContent = rollupGaps() + '%'; hdr.appendChild(pc);
-      reg(rollupGaps, pc, bar.firstChild);
-      card.appendChild(hdr);
-      var bulkBar = document.createElement('div');
-      bulkBar.style.cssText = 'padding:10px 18px;display:flex;gap:8px;flex-wrap:wrap;background:#fff;border-bottom:1px solid #f1f5f9;';
-      var bulkBtn = document.createElement('button');
-      bulkBtn.style.cssText = 'padding:6px 12px;border:1px solid #0d9488;border-radius:6px;background:#0d9488;color:#fff;font-weight:700;font-size:0.72rem;cursor:pointer;';
-      bulkBtn.textContent = 'Insert all uninserted gaps into questionnaire (Auto + FMCG)';
-      bulkBtn.addEventListener('click', function(){
-        if (!confirm('Insert all uninserted gap questions into Auto AND FMCG modules?')) return;
-        GAP_CLAIMS.forEach(function(g){
-          if (!isInserted(g.id, 'auto') || !isInserted(g.id, 'fmcg')) {
-            insertGapAsQuestion(g, ['auto','fmcg'], g.module, g.personas, g.suggested, g.feed);
-          }
-        });
-        injectIntoQuestionnaire();
-        init();
-      });
-      var clearBtn = document.createElement('button');
-      clearBtn.style.cssText = 'padding:6px 12px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#475569;font-size:0.72rem;cursor:pointer;';
-      clearBtn.textContent = 'Remove all inserted questions';
-      clearBtn.addEventListener('click', function(){
-        if (!confirm('Remove ALL inserted questions from both Auto + FMCG?')) return;
-        saveIns([]);
-        injectIntoQuestionnaire();
-        init();
-      });
-      bulkBar.appendChild(bulkBtn); bulkBar.appendChild(clearBtn);
-      card.appendChild(bulkBar);
-
-      var body = document.createElement('div'); body.style.cssText='padding:14px 18px;background:#fff;';
-      GAP_CLAIMS.forEach(function(c){
-        var rowWrap = document.createElement('div');
-        rowWrap.style.cssText = 'border-bottom:1px dashed #e2e8f0;padding-bottom:8px;margin-bottom:8px;';
-        rowWrap.appendChild(buildClaim('gap|'+c.id, '', c.label + ' \u2014 ' + c.q, 'GAP \u00b7 not asked in current questionnaire', contacts.slice(0,40)));
-
-        // Insert-question panel
-        var ipanel = document.createElement('div');
-        ipanel.style.cssText = 'margin-top:6px;padding:10px 12px;background:#fafbfc;border:1px solid #e2e8f0;border-radius:8px;';
-        var iLabel = document.createElement('div');
-        iLabel.style.cssText = 'font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#475569;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;';
-        iLabel.textContent = 'Author candidate question to insert into questionnaire';
-        ipanel.appendChild(iLabel);
-
-        var ta = document.createElement('textarea');
-        ta.style.cssText = 'width:100%;min-height:48px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;line-height:1.45;resize:vertical;margin-bottom:6px;';
-        ta.value = c.suggested || '';
-        ipanel.appendChild(ta);
-
-        var ctrls = document.createElement('div');
-        ctrls.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:0.72rem;font-family:var(--font-display);';
-        function lbl(txt){var s=document.createElement('span'); s.style.cssText='font-size:0.62rem;color:#64748b;letter-spacing:0.04em;text-transform:uppercase;font-weight:700'; s.textContent=txt; return s;}
-        var sectorSel = document.createElement('select');
-        sectorSel.style.cssText='padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px;font-size:0.72rem;background:#fff';
-        ['both','auto','fmcg'].forEach(function(o){var op=document.createElement('option'); op.value=o; op.textContent=o.toUpperCase(); sectorSel.appendChild(op);});
-        var modSel = document.createElement('select');
-        modSel.style.cssText='padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px;font-size:0.72rem;background:#fff';
-        for (var m=1; m<=6; m++){var op=document.createElement('option'); op.value=m; op.textContent='Module '+m; if (m===c.module) op.selected=true; modSel.appendChild(op);}
-        var personasIn = document.createElement('input');
-        personasIn.type='text'; personasIn.value = c.personas || 'all';
-        personasIn.placeholder = 'space-separated: cfo cio scm cmo cso cpo chro comm all';
-        personasIn.style.cssText='padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px;font-size:0.72rem;min-width:240px';
-        var insBtn = document.createElement('button');
-        insBtn.style.cssText='padding:5px 12px;border:1px solid #0d9488;border-radius:5px;background:#0d9488;color:#fff;font-weight:700;font-size:0.7rem;cursor:pointer;';
-        insBtn.textContent = '+ Insert into questionnaire';
-        var statusSpan = document.createElement('span');
-        statusSpan.style.cssText='font-size:0.68rem;color:#0f766e;font-weight:600';
-        function refreshStatus(){
-          var existsAuto = isInserted(c.id, 'auto');
-          var existsFmcg = isInserted(c.id, 'fmcg');
-          var parts = [];
-          if (existsAuto) parts.push('AUTO');
-          if (existsFmcg) parts.push('FMCG');
-          statusSpan.textContent = parts.length ? ('\u2713 inserted in: ' + parts.join(' + ')) : 'not yet inserted';
-          statusSpan.style.color = parts.length ? '#16a34a' : '#94a3b8';
-        }
-        refreshStatus();
-        insBtn.addEventListener('click', function(){
-          var sectors = sectorSel.value === 'both' ? ['auto','fmcg'] : [sectorSel.value];
-          insertGapAsQuestion(c, sectors, parseInt(modSel.value,10), personasIn.value.trim(), ta.value.trim(), c.feed);
-          injectIntoQuestionnaire();
-          refreshStatus();
-          // Refresh tracker so the new question shows up under its sector module
-          init();
-        });
-        var rmBtn = document.createElement('button');
-        rmBtn.style.cssText='padding:5px 10px;border:1px solid #cbd5e1;border-radius:5px;background:#fff;color:#64748b;font-size:0.7rem;cursor:pointer;';
-        rmBtn.textContent = 'Remove';
-        rmBtn.addEventListener('click', function(){
-          removeInserted(c.id);
-          injectIntoQuestionnaire();
-          refreshStatus();
-          init();
-        });
-        ctrls.appendChild(lbl('sector'));
-        ctrls.appendChild(sectorSel);
-        ctrls.appendChild(lbl('module'));
-        ctrls.appendChild(modSel);
-        ctrls.appendChild(lbl('personas'));
-        ctrls.appendChild(personasIn);
-        ctrls.appendChild(insBtn);
-        ctrls.appendChild(rmBtn);
-        ctrls.appendChild(statusSpan);
-        ipanel.appendChild(ctrls);
-        rowWrap.appendChild(ipanel);
-
-        body.appendChild(rowWrap);
-      });
-      card.appendChild(body);
-      return card;
-    }
 
     function buildDiagram(){
       var dg = document.getElementById('tv-diagram');
