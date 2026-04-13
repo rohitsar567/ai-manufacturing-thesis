@@ -1,0 +1,2387 @@
+{
+  "calls": [
+    {
+      "id": "c02c8549-6a56-4690-a964-94895a3379fa",
+      "processed_at": "2026-04-13T22:48:53.247651+00:00",
+      "date": "2026-04-10",
+      "meeting_title": "Harshad <> Picus",
+      "granola_url": "https://notes.granola.ai/t/c02c8549-6a56-4690-a964-94895a3379fa-00b881l8",
+      "contact_key": "ghost-harshad-picus",
+      "contact_name": "Harshad (DEMO)",
+      "contact_company": "Time 222 (consumer health)",
+      "sector": "auto",
+      "persona_codes": [
+        "cio",
+        "cfo",
+        "comm"
+      ],
+      "transcript_chars": 35414,
+      "transcript_excerpt": "Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment along with and recent in the scribing space. We've done another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? ",
+      "transcript_file": "transcripts/c02c8549-6a56-4690-a964-94895a3379fa.txt",
+      "routed_to_questions": [
+        {
+          "sector": "auto",
+          "q_num": "Q04",
+          "q_text_snippet": "In listed Indian auto OEMs, how much of the on-payroll workforce is permanent knowledge-worker roles \u2014 engineers, planners, quality, program",
+          "q_feed": "Dim 1 \u00b7 TAM size.",
+          "hits": [
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            },
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "program",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "versus",
+              "ctx": "nd it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a resilience care obviously was very focused initially on oncol"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even ... fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q06",
+          "q_text_snippet": "How much of your company's work is outsourced? In Indian auto, IT and design services typically go out, while core manufacturing and quality",
+          "q_feed": "Dim 3 \u00b7 Outsourcing propensity.",
+          "hits": [
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "work",
+              "ctx": "the treatment and so on? You have alerts that escalate. And obviously that's a very interesting network that you not have to acquire patience for, like, from a unit economic perspective, but you acqu"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            },
+            {
+              "kw": "design",
+              "ctx": "nd what is the resource available, what is the paying capacity of the individual. So you'll have to design a research product in the research product which is in context of the geo. So this is our lon"
+            },
+            {
+              "kw": "services",
+              "ctx": "ue come on network effect RWA comes on network effect even the clinical trial product comes on that services marketplace is something that we talked about in our previous call that also comes on netwo"
+            },
+            {
+              "kw": "while",
+              "ctx": "eah, I think our us folks who speak to him is business assembly, right? He's been there for quite a while. Like, yeah. Yeah, yeah. Hey, nice to meet you. Yeah. I mean, you, you know each other from th"
+            },
+            {
+              "kw": "core",
+              "ctx": "thing we have been doing is, is focused around either going away from. Right. So I think one of our core hypotheses that we invest along is to how can we improve healthcare outcomes by not just visiti"
+            },
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform ... the treatment and so on? You have alerts that escalate. And obviously that's a very interesting network that you not have to acquire patience for, like, from a unit economic perspective, but you acqu"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q07",
+          "q_text_snippet": "M&amp;M, Tata Motors, and Maruti have publicly deployed AI in quality and predictive maintenance, and NASSCOM places Auto joint-highest on i",
+          "q_feed": "Dim 4 \u00b7 AI readiness.",
+          "hits": [
+            {
+              "kw": "tata",
+              "ctx": "10 years or so, either on the commerce side, people have tried to build really large platforms like Tata, one MG, farm easy, and then you have certain specific companies in the parenting space which h"
+            },
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "places",
+              "ctx": "t and then build the others? Because you have basically the issue as any network has with two sided places. You have an especially in healthcare is such a more complex given like all of the different"
+            },
+            {
+              "kw": "structured",
+              "ctx": "you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instance, around optimizing the digital health plans that GPs operate, for instance,"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "10 years or so, either on the commerce side, people have tried to build really large platforms like Tata, one MG, farm easy, and then you have certain specific companies in the parenting space which h ... fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q08",
+          "q_text_snippet": "When you roll out AI for knowledge-worker teams \u2014 planners, engineers, program managers \u2014 does friction come from unions, labour law, regula",
+          "q_feed": "Dim 5 \u00b7 Regulatory friction.",
+          "hits": [
+            {
+              "kw": "roll",
+              "ctx": "in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, focus on certain chronic diseases"
+            },
+            {
+              "kw": "program",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "come",
+              "ctx": ". So I think one of our core hypotheses that we invest along is to how can we improve healthcare outcomes by not just visiting a doctor once every three months, but you have a much more continuous int"
+            },
+            {
+              "kw": "icat",
+              "ctx": "rform against AstraZeneca, and then they will launch a clinical research trial because they have indications from the market that maybe their product actually has lower side effects or something like"
+            },
+            {
+              "kw": "change",
+              "ctx": "react to certain drugs? How do they react to the treatment? What are the side effects? Do I want to change the treatment and so on? You have alerts that escalate. And obviously that's a very interesti"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, focus on certain chronic diseases ... because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q09",
+          "q_text_snippet": "With the $3.5B PLI-Auto allocation and EV-transition CAPEX running in parallel, does a new $100K\u2013$500K AI line item actually clear FY26 budg",
+          "q_feed": "Dim 6 \u00b7 Financial capacity.",
+          "hits": [
+            {
+              "kw": "financial",
+              "ctx": "re going well. One of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build"
+            },
+            {
+              "kw": "capacity",
+              "ctx": "recommend it right away. You need to understand what is the resource available, what is the paying capacity of the individual. So you'll have to design a research product in the research product whic"
+            },
+            {
+              "kw": "line",
+              "ctx": "unity as a product for the user side and on the doctor side also getting like onboarding doctors offline is a very expensive course. So that cost itself is going away for us where we are getting like"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "next",
+              "ctx": "One of that is obviously giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time"
+            },
+            {
+              "kw": "cycle",
+              "ctx": "ing on the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "re going well. One of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build ... recommend it right away. You need to understand what is the resource available, what is the paying capacity of the individual. So you'll have to design a research product in the research product whic"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q10",
+          "q_text_snippet": "The EV transition is forcing parallel ICE+EV engineering programs \u2014 effectively doubling knowledge-work demand. About 12,250 Tier-2/3 SME su",
+          "q_feed": "Dim 7 \u00b7 Overall urgency.",
+          "hits": [
+            {
+              "kw": "overall",
+              "ctx": "cribing space. We've done another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there"
+            },
+            {
+              "kw": "engineering",
+              "ctx": "like UGC kind of a product. Right? Where we don't have to invest a ton at least for the MVP from an engineering point of view because there are no like deep ML expertise that is. No, I agree. I meant"
+            },
+            {
+              "kw": "programs",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "cribing space. We've done another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there ... like UGC kind of a product. Right? Where we don't have to invest a ton at least for the MVP from an engineering point of view because there are no like deep ML expertise that is. No, I agree. I meant"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q11",
+          "q_text_snippet": "Supply &amp; procurement carries some of Auto's most visible India AI references \u2014 Tata Motors + o9, Mahindra + o9 on planning, Bharat Forge",
+          "q_feed": "Bucket \u00b7 India-deployments claim.",
+          "hits": [
+            {
+              "kw": "india",
+              "ctx": "edjema and the other things that we work on. Before this, I was with Amazon health, looked at their India highest portfolio strategy. Prior to that, with Walmart Health, looked at the US Pharmacy busi"
+            },
+            {
+              "kw": "tata",
+              "ctx": "10 years or so, either on the commerce side, people have tried to build really large platforms like Tata, one MG, farm easy, and then you have certain specific companies in the parenting space which h"
+            },
+            {
+              "kw": "bharat",
+              "ctx": "ide. It is still taking time because it's a complex subject, but there's something called apdma and bharatigital health mission. And one of the things that we are using from that digital rail is basic"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "edjema and the other things that we work on. Before this, I was with Amazon health, looked at their India highest portfolio strategy. Prior to that, with Walmart Health, looked at the US Pharmacy busi ... 10 years or so, either on the commerce side, people have tried to build really large platforms like Tata, one MG, farm easy, and then you have certain specific companies in the parenting space which h"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q12",
+          "q_text_snippet": "Inside this bucket, does the AI money flow more to engineering and program (PLM, vehicle program planning) or to sourcing and supplier quali",
+          "q_feed": "Bucket \u00b7 sub-bucket weighting.",
+          "hits": [
+            {
+              "kw": "money",
+              "ctx": "ery mature in developed markets. But there is Avenue to look into that. The second aspect of making money on community will be two ads, but that will come in once the network effect comes in. Otherwis"
+            },
+            {
+              "kw": "flow",
+              "ctx": "uiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to both p"
+            },
+            {
+              "kw": "engineering",
+              "ctx": "like UGC kind of a product. Right? Where we don't have to invest a ton at least for the MVP from an engineering point of view because there are no like deep ML expertise that is. No, I agree. I meant"
+            },
+            {
+              "kw": "program",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "live",
+              "ctx": "tes, focus on certain chronic diseases and so on, where you go into much more digital health care delivery together with your patients. Or another one very recently is a company called resilience care"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ery mature in developed markets. But there is Avenue to look into that. The second aspect of making money on community will be two ads, but that will come in once the network effect comes in. Otherwis ... uiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to both p"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q13",
+          "q_text_snippet": "Buyers in this bucket are typically the CPO, Head of Supply Chain, or VP of Engineering Programs. Does the DMU actually split that way at In",
+          "q_feed": "Bucket \u00b7 DMU claim.",
+          "hits": [
+            {
+              "kw": "head",
+              "ctx": "can participate. It is a much safer space and designed for them. The second thing then. Sorry, go ahead. Sorry. Yeah. So second part is essentially for all high frequency. Basically 80% volume driver"
+            },
+            {
+              "kw": "engineering",
+              "ctx": "like UGC kind of a product. Right? Where we don't have to invest a ton at least for the MVP from an engineering point of view because there are no like deep ML expertise that is. No, I agree. I meant"
+            },
+            {
+              "kw": "programs",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "split",
+              "ctx": "transaction part, which is the future part of the roadmap, do you have a sense of how that might be split, right? Is it going to be products and consumables like pharmaceutical supplements, nutritiona"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            },
+            {
+              "kw": "else",
+              "ctx": ": I know. I want. To type. Them: But I think most questions answered from my side. Raphael anything else from you? No I think it's very helpful insightful to understand how you think about it. Perfect"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "can participate. It is a much safer space and designed for them. The second thing then. Sorry, go ahead. Sorry. Yeah. So second part is essentially for all high frequency. Basically 80% volume driver ... like UGC kind of a product. Right? Where we don't have to invest a ton at least for the MVP from an engineering point of view because there are no like deep ML expertise that is. No, I agree. I meant"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q14",
+          "q_text_snippet": "Within vehicle program leadership at your company, what are the biggest operational pain points your team faces today?",
+          "q_feed": "Pain \u00b7 operator-led, surfaces what the team names as pain.",
+          "hits": [
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "program",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q15",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Tata Technologies + Siemens PLM, KPIT, Wipro PARI. Are you using any of thos",
+          "q_feed": "Incumbents \u00b7 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            },
+            {
+              "kw": "tata",
+              "ctx": "10 years or so, either on the commerce side, people have tried to build really large platforms like Tata, one MG, farm easy, and then you have certain specific companies in the parenting space which h"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment ... okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q16",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Blockers \u00b7 tests buying friction.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "something",
+              "ctx": "e they have indications from the market that maybe their product actually has lower side effects or something like that. Right. So these are, I think it's a super fascinating model where we think abou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q17",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a different vendor? Pricing, missing ca",
+          "q_feed": "Switching \u00b7 tests competitive vulnerability of incumbents.",
+          "hits": [
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            },
+            {
+              "kw": "different",
+              "ctx": "but you have a much more continuous interaction relationship with a doctor and you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instan"
+            },
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off ... r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q18",
+          "q_text_snippet": "What new AI solutions in vehicle program leadership would you be interested in if they existed? What capabilities do you wish a vendor would",
+          "q_feed": "New AI demand \u00b7 tests greenfield opportunity.",
+          "hits": [
+            {
+              "kw": "program",
+              "ctx": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "build",
+              "ctx": "Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. So we wa ... iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q19",
+          "q_text_snippet": "Within crash, drive-cycle, thermal, and homologation testing at your company, what are the biggest operational pain points your team faces t",
+          "q_feed": "Pain \u00b7 operator-led, surfaces what the team names as pain.",
+          "hits": [
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q20",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Ansys SCADE, Mathworks MATLAB/Simulink, ARAI/iCAT for homologation. Are you ",
+          "q_feed": "Incumbents \u00b7 tests actual deployment, vendor selection, and scaling beyond pilot.",
+          "hits": [
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment ... that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q21",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Blockers \u00b7 tests buying friction.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "something",
+              "ctx": "e they have indications from the market that maybe their product actually has lower side effects or something like that. Right. So these are, I think it's a super fascinating model where we think abou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q22",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a different vendor? Pricing, missing ca",
+          "q_feed": "Switching \u00b7 tests competitive vulnerability of incumbents.",
+          "hits": [
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            },
+            {
+              "kw": "different",
+              "ctx": "but you have a much more continuous interaction relationship with a doctor and you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instan"
+            },
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off ... r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q23",
+          "q_text_snippet": "What new AI solutions in crash, drive-cycle, thermal, and homologation testing would you be interested in if they existed? What capabilities",
+          "q_feed": "New AI demand \u00b7 tests greenfield opportunity.",
+          "hits": [
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "build",
+              "ctx": "Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res ... Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q24",
+          "q_text_snippet": "Within APQP / PPAP document compilation and PFMEA updates at your company, what are the biggest operational pain points your team faces toda",
+          "q_feed": "Pain \u00b7 operator-led, surfaces what the team names as pain.",
+          "hits": [
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q25",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Qualio, ETQ Reliance, Siemens Opcenter Quality. Are you using any of those, ",
+          "q_feed": "Incumbents \u00b7 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment ... okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q26",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Blockers \u00b7 tests buying friction.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "something",
+              "ctx": "e they have indications from the market that maybe their product actually has lower side effects or something like that. Right. So these are, I think it's a super fascinating model where we think abou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q27",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a different vendor? Pricing, missing ca",
+          "q_feed": "Switching \u00b7 tests competitive vulnerability of incumbents.",
+          "hits": [
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            },
+            {
+              "kw": "different",
+              "ctx": "but you have a much more continuous interaction relationship with a doctor and you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instan"
+            },
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off ... r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q28",
+          "q_text_snippet": "What new AI solutions in APQP / PPAP document compilation and PFMEA updates would you be interested in if they existed? What capabilities do",
+          "q_feed": "New AI demand \u00b7 tests greenfield opportunity.",
+          "hits": [
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "build",
+              "ctx": "Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res ... Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q29",
+          "q_text_snippet": "Within supply chain and sourcing at your company, what are the biggest operational pain points your team faces today?",
+          "q_feed": "Supply Chain &amp; Sourcing \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q30",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Coupa, Arkestro, Jaggaer, Fictiv, and Moglix (Moglix being the India-native ",
+          "q_feed": "Supply Chain &amp; Sourcing \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in ... et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q31",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Supply Chain &amp; Sourcing \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q32",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Supply Chain &amp; Sourcing \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does ... e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q33",
+          "q_text_snippet": "What new AI solutions in supply chain and sourcing would you be interested in that aren't on your current stack or widely available in the I",
+          "q_feed": "Supply Chain &amp; Sourcing \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            },
+            {
+              "kw": "available",
+              "ctx": "you may or may not be able to recommend it right away. You need to understand what is the resource available, what is the paying capacity of the individual. So you'll have to design a research produc"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two ... h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q34",
+          "q_text_snippet": "Within supplier quality and production planning at your company, what are the biggest operational pain points your team faces today?",
+          "q_feed": "Supplier Quality &amp; Planning \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i ... or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q35",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include o9, Kinaxis, Siemens Opcenter APS, ETQ Reliance, and Zetwerk. Are you using ",
+          "q_feed": "Supplier Quality &amp; Planning \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i ... processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q36",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Supplier Quality &amp; Planning \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i ... : And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q37",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Supplier Quality &amp; Planning \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i ... ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q38",
+          "q_text_snippet": "What new AI solutions in supplier quality and production planning would you be interested in that aren't on your current stack or widely ava",
+          "q_feed": "Supplier Quality &amp; Planning \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "quality",
+              "ctx": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i"
+            },
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            },
+            {
+              "kw": "available",
+              "ctx": "you may or may not be able to recommend it right away. You need to understand what is the resource available, what is the paying capacity of the individual. So you'll have to design a research produc"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "fitbit. And with we also did in an MOU with ministry. So we do know how to do that at a really high quality, which is like significantly better than out of the box model. So the thought process here i ... sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q39",
+          "q_text_snippet": "Within plant-head operations, production scheduling, throughput tracking, shift planning at your company, what are the biggest operational p",
+          "q_feed": "Pain \u00b7 operator-led, surfaces what the team names as pain.",
+          "hits": [
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q40",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include SAP Digital Manufacturing, Rockwell FactoryTalk ProductionCentre, Plex Smart",
+          "q_feed": "Incumbents \u00b7 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            },
+            {
+              "kw": "digital",
+              "ctx": "hcare modes. So a lot of Investments that have been structured, for instance, around optimizing the digital health plans that GPs operate, for instance, we've done investment in Germany called Abhi me"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment ... okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q41",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Blockers \u00b7 tests buying friction.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "something",
+              "ctx": "e they have indications from the market that maybe their product actually has lower side effects or something like that. Right. So these are, I think it's a super fascinating model where we think abou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q42",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a different vendor? Pricing, missing ca",
+          "q_feed": "Switching \u00b7 tests competitive vulnerability of incumbents.",
+          "hits": [
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            },
+            {
+              "kw": "different",
+              "ctx": "but you have a much more continuous interaction relationship with a doctor and you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instan"
+            },
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off ... r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q43",
+          "q_text_snippet": "What new AI solutions in plant-head operations, production scheduling, throughput tracking, shift planning would you be interested in if the",
+          "q_feed": "New AI demand \u00b7 tests greenfield opportunity.",
+          "hits": [
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            }
+          ],
+          "pct_bump": 15,
+          "evidence": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q44",
+          "q_text_snippet": "The demand side of Auto \u2014 dealers, aftersales, warranty, parts \u2014 has historically lagged global peers. Tekion is the closest India-relevant ",
+          "q_feed": "Bucket \u00b7 India-deployments claim.",
+          "hits": [
+            {
+              "kw": "side",
+              "ctx": "So. Perfect. Okay, great. I think we have Raphael as well. So. Okay, we are fully briefed from our side, but I think for the agenda for this call would be great to. Maybe I'll first hand over to Raph"
+            },
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "global",
+              "ctx": "lding. And that has not worked well for whatever reason, at least in India. I don't know about like global examples if there are certain verticals which have worked well. So that was one conscious rea"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "So. Perfect. Okay, great. I think we have Raphael as well. So. Okay, we are fully briefed from our side, but I think for the agenda for this call would be great to. Maybe I'll first hand over to Raph ... eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q45",
+          "q_text_snippet": "The OEM-push versus dealer-independent buying model keeps shifting. Who actually holds the tech wallet for a dealer AI copilot in 2026 \u2014 OEM",
+          "q_feed": "Bucket \u00b7 DMU claim.",
+          "hits": [
+            {
+              "kw": "versus",
+              "ctx": "nd it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a resilience care obviously was very focused initially on oncol"
+            },
+            {
+              "kw": "model",
+              "ctx": "t for more the life sciences and the pharma partnerships. Right. So here, I think the beauty of the model is we have reimbursement approval in France and also in Germany. So you do get paid a very goo"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "tech",
+              "ctx": "d recent in the scribing space. We've done another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the"
+            },
+            {
+              "kw": "parent",
+              "ctx": "ween patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "nd it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a resilience care obviously was very focused initially on oncol ... t for more the life sciences and the pharma partnerships. Right. So here, I think the beauty of the model is we have reimbursement approval in France and also in Germany. So you do get paid a very goo"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q46",
+          "q_text_snippet": "Warranty &amp; parts is the largest operational category in the demand bucket but is often buried under the aftersales P&amp;L. Does the wal",
+          "q_feed": "Bucket \u00b7 top-TAM P&amp;L.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "under",
+              "ctx": "ally well in certain chronic conditions, which are terminal conditions because doctors also want to understand what is happening in oncology. What are patients discussing some kind of self moderation"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "move",
+              "ctx": "es for doctors so that they don't spend time on administrative tasks? It's efficient for them. We remove the clutter from them. And how do we make sure that we create a more stronger communication cha"
+            },
+            {
+              "kw": "central",
+              "ctx": "s the doctor patient messaging and context. So we are also building this PHR story. In India is a decentralized system. There will never be HMOs kind of constant where there are large organizations wi"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q47",
+          "q_text_snippet": "Within dealer network management and dealership operations at your company, what are the biggest operational pain points your team faces tod",
+          "q_feed": "Dealership Management \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "network",
+              "ctx": "nge the treatment and so on? You have alerts that escalate. And obviously that's a very interesting network that you not have to acquire patience for, like, from a unit economic perspective, but you a"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit ... or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q48",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Tekion, Salesforce Automotive Cloud, and traditional DMS incumbents. Are you",
+          "q_feed": "Dealership Management \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit ... processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q49",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Dealership Management \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit ... : And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q50",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Dealership Management \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit ... ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q51",
+          "q_text_snippet": "What new AI solutions in dealer network management and dealership operations would you be interested in that aren't on your current stack or",
+          "q_feed": "Dealership Management \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "network",
+              "ctx": "nge the treatment and so on? You have alerts that escalate. And obviously that's a very interesting network that you not have to acquire patience for, like, from a unit economic perspective, but you a"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit ... sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q52",
+          "q_text_snippet": "Within showroom sales and customer-facing dealership workflows at your company, what are the biggest operational pain points your team faces",
+          "q_feed": "Showroom Sales \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "workflows",
+              "ctx": "acquiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to bo"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q53",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Tekion, Salesforce Automotive Cloud, and dealer-specific SFA plays. Are you ",
+          "q_feed": "Showroom Sales \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in ... et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q54",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Showroom Sales \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q55",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Showroom Sales \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does ... e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q56",
+          "q_text_snippet": "What new AI solutions in showroom sales and customer-facing dealership workflows would you be interested in that aren't on your current stac",
+          "q_feed": "Showroom Sales \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "workflows",
+              "ctx": "acquiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to bo"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two ... h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q57",
+          "q_text_snippet": "Within after-sales service workflows \u2014 diagnostics, service-job scheduling, parts ordering, technician management at your company, what are ",
+          "q_feed": "Pain \u00b7 operator-led, surfaces what the team names as pain.",
+          "hits": [
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "service",
+              "ctx": "do you have a sense of how, I mean, because some of this is product and e-commerce, some of this is service and infrastructure and the other part is just purely telemedicine with the doctors. Right. S"
+            },
+            {
+              "kw": "workflows",
+              "ctx": "acquiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to bo"
+            },
+            {
+              "kw": "diagnostics",
+              "ctx": "aceutical supplements, nutritional products? Is it going to be doctor consultations, is going to be diagnostics, do you have a sense of how, I mean, because some of this is product and e-commerce, som"
+            },
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea ... At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q58",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Bosch Diagnostics, Sonatus AI Technician, Tech Mahindra Digital TAC, Sibros ",
+          "q_feed": "Incumbents \u00b7 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            },
+            {
+              "kw": "diagnostics",
+              "ctx": "aceutical supplements, nutritional products? Is it going to be doctor consultations, is going to be diagnostics, do you have a sense of how, I mean, because some of this is product and e-commerce, som"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment ... okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q59",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Blockers \u00b7 tests buying friction.",
+          "hits": [
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "something",
+              "ctx": "e they have indications from the market that maybe their product actually has lower side effects or something like that. Right. So these are, I think it's a super fascinating model where we think abou"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222 ... l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q60",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a different vendor? Pricing, missing ca",
+          "q_feed": "Switching \u00b7 tests competitive vulnerability of incumbents.",
+          "hits": [
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            },
+            {
+              "kw": "different",
+              "ctx": "but you have a much more continuous interaction relationship with a doctor and you can go into very different continuous healthcare modes. So a lot of Investments that have been structured, for instan"
+            },
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off ... r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q61",
+          "q_text_snippet": "What new AI solutions in after-sales service workflows \u2014 diagnostics, service-job scheduling, parts ordering, technician management would yo",
+          "q_feed": "New AI demand \u00b7 tests greenfield opportunity.",
+          "hits": [
+            {
+              "kw": "service",
+              "ctx": "do you have a sense of how, I mean, because some of this is product and e-commerce, some of this is service and infrastructure and the other part is just purely telemedicine with the doctors. Right. S"
+            },
+            {
+              "kw": "workflows",
+              "ctx": "acquiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to bo"
+            },
+            {
+              "kw": "diagnostics",
+              "ctx": "aceutical supplements, nutritional products? Is it going to be doctor consultations, is going to be diagnostics, do you have a sense of how, I mean, because some of this is product and e-commerce, som"
+            },
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "management",
+              "ctx": "the doctor visit consultation site. But then very quickly expanded, for instance, in revenue cycle management. We noticed something in Germany, which is more on the billing and coding side for hospit"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "do you have a sense of how, I mean, because some of this is product and e-commerce, some of this is service and infrastructure and the other part is just purely telemedicine with the doctors. Right. S ... acquiring immediately their interaction between doctor and patient and the communication and every workflows that comes around that. So we are treating community as obviously there is a benefit to bo"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q62",
+          "q_text_snippet": "Within warranty processing and parts demand forecasting at your company, what are the biggest operational pain points your team faces today?",
+          "q_feed": "Warranty &amp; Parts \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q63",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include OEM-internal warranty systems (no dominant AI-forward vendor globally), with",
+          "q_feed": "Warranty &amp; Parts \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q64",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Warranty &amp; Parts \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... : And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q65",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Warranty &amp; Parts \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q66",
+          "q_text_snippet": "What new AI solutions in warranty processing and parts demand forecasting would you be interested in that aren't on your current stack or wi",
+          "q_feed": "Warranty &amp; Parts \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "parts",
+              "ctx": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d"
+            },
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "eractions. So that's the core hypothesis and some of the products are around that. So there are two parts of the product. The first part of it is the doctor patient community where patients can join d ... sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q67",
+          "q_text_snippet": "Support functions \u2014 Finance, HR, IT/OT, Maintenance \u2014 is where horizontal AI (Microsoft Copilot, Glean, Workday AI) naturally plays. Is ther",
+          "q_feed": "Bucket \u00b7 India-deployments claim.",
+          "hits": [
+            {
+              "kw": "support",
+              "ctx": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost."
+            },
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "horizontal",
+              "ctx": "ions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does make sense. And the commerce can be an additional layer on top of it. All o"
+            },
+            {
+              "kw": "naturally",
+              "ctx": "te. Why don't you start only with the second product and the communities may build themselves later naturally. So, so like the leona model or we looked at a competitor called Conco outside of Mexico."
+            },
+            {
+              "kw": "real",
+              "ctx": "eplicated the same for Psychiatry and now for gastroenterology. So other pathologies where you have really a lot of benefit of, of remote monitoring. Right. So that's super exciting. So that, I think"
+            },
+            {
+              "kw": "case",
+              "ctx": "from that digital rail is basically verified identity and it becomes very important, especially in case of a community as a product for the user side and on the doctor side also getting like onboardi"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ital or because of the same treatment that they are taking. There is also this construct of patient support programs which are run by pharma companies because they do end up doing drugs at free cost. ... e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q68",
+          "q_text_snippet": "Across Finance &amp; HR, Digital/IIoT, and Maintenance, where does a manufacturing-specific AI actually have a moat that horizontal tools ca",
+          "q_feed": "Bucket \u00b7 node prioritization.",
+          "hits": [
+            {
+              "kw": "across",
+              "ctx": "aces where these communities do engage really well. You already called out oncology. So an oncology across oncology subcategories. A lot of these communities do exist because of multiple reasons, eith"
+            },
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "digital",
+              "ctx": "hcare modes. So a lot of Investments that have been structured, for instance, around optimizing the digital health plans that GPs operate, for instance, we've done investment in Germany called Abhi me"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "horizontal",
+              "ctx": "ions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does make sense. And the commerce can be an additional layer on top of it. All o"
+            },
+            {
+              "kw": "tools",
+              "ctx": "ning just because of AI. Obviously, there are other things also which are coming in better scribing tools and others. But that's for data. So I think timing wise, these two things like really, really"
+            },
+            {
+              "kw": "replicate",
+              "ctx": "s a big monetization platform on the data side. And what started as oncology friends, they have now replicated the same for Psychiatry and now for gastroenterology. So other pathologies where you have"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "aces where these communities do engage really well. You already called out oncology. So an oncology across oncology subcategories. A lot of these communities do exist because of multiple reasons, eith ... e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q69",
+          "q_text_snippet": "Buyers for support-function AI are typically the CIO, CFO, or CHRO. At Indian OEMs, do these decisions sit with the India entity, the global",
+          "q_feed": "Bucket \u00b7 DMU claim.",
+          "hits": [
+            {
+              "kw": "chro",
+              "ctx": "ces. But then we rolled our digital health plans, for instance, focus on diabetes, focus on certain chronic diseases and so on, where you go into much more digital health care delivery together with y"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            },
+            {
+              "kw": "india",
+              "ctx": "edjema and the other things that we work on. Before this, I was with Amazon health, looked at their India highest portfolio strategy. Prior to that, with Walmart Health, looked at the US Pharmacy busi"
+            },
+            {
+              "kw": "entity",
+              "ctx": "lth mission. And one of the things that we are using from that digital rail is basically verified identity and it becomes very important, especially in case of a community as a product for the user si"
+            },
+            {
+              "kw": "global",
+              "ctx": "lding. And that has not worked well for whatever reason, at least in India. I don't know about like global examples if there are certain verticals which have worked well. So that was one conscious rea"
+            },
+            {
+              "kw": "parent",
+              "ctx": "ween patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction"
+            },
+            {
+              "kw": "first",
+              "ctx": "fully briefed from our side, but I think for the agenda for this call would be great to. Maybe I'll first hand over to Raphael for his introduction. After that, it's just great to hear a quick downloa"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ces. But then we rolled our digital health plans, for instance, focus on diabetes, focus on certain chronic diseases and so on, where you go into much more digital health care delivery together with y ... am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q70",
+          "q_text_snippet": "Within finance and HR functions at your company, what are the biggest operational pain points your team faces today?",
+          "q_feed": "Finance &amp; HR \u00b7 problems[] (operator-led) \u2014 surfaces what the operator names as pain, without suggesting it.",
+          "hits": [
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "without",
+              "ctx": "or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+            },
+            {
+              "kw": "within",
+              "ctx": "At the self hub and the people and the patients who speak to other patients. Are very tightly knit within those, right? And then you go from oncology to a different disease and it's completely differ"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "biggest",
+              "ctx": "ialty and see how we can onboard the other lens to look at it is by default health communities, the biggest problem is discovery of these communities. Because when you say these are closed tight group"
+            },
+            {
+              "kw": "operational",
+              "ctx": "ing to take significant time. We already done like 50% development for it. So that is one lens just operationally. The second lens is our hypothesis is that for doctor site especially, there are two k"
+            },
+            {
+              "kw": "team",
+              "ctx": "another one. A couple of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yea"
+            },
+            {
+              "kw": "today",
+              "ctx": "eally focus on the doctor side. Yeah. So these are like some of my areas I would like to touch upon today. No, sounds good. Yeah, thanks. Thanks for introducing very helpful. So maybe I can start with"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio ... or not. But the in theory it should work. Therefore certain practices we can also start monetizing without the network effect. So even if you don't have let's say 100,000 doctors or 2 million patient"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q71",
+          "q_text_snippet": "Some of the top incumbent solutions in this space today include Microsoft Copilot, Glean, Workday AI, and SAP Joule on the horizontal side, ",
+          "q_feed": "Finance &amp; HR \u00b7 i_note + products[] + selection + scaling \u2014 tests actual deployment, how the vendor was chosen, and whether it scaled beyond pilot.",
+          "hits": [
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "note",
+              "ctx": "processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+            },
+            {
+              "kw": "products",
+              "ctx": "et a ton of prescription data. So I had built a product for them so that they used to see how their products are performing, just, just like small thing that I remembered. And my education also, I'm a"
+            },
+            {
+              "kw": "actual",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "whether",
+              "ctx": "okay, there is pharma company with a drug, there is a patient with this condition. They do not know whether these two exist. So that is another region business. It will be small. It won't be that big."
+            },
+            {
+              "kw": "scaled",
+              "ctx": "companies in the parenting space which have tried to build communities. Them: Yes. Me: And they've scaled users, but it's been difficult for them to get the user base to actually start transacting as"
+            },
+            {
+              "kw": "beyond",
+              "ctx": "that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's the core hypothesis and some of the products are arou"
+            },
+            {
+              "kw": "space",
+              "ctx": "a point of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done inves"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio ... processes. So we invested in a few ambient scribe models that initially started more on the patient note taking on the doctor visit consultation site. But then very quickly expanded, for instance, in"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q72",
+          "q_text_snippet": "For any of the pains you mentioned where you haven't yet deployed a solution \u2014 what's stopping you? Price, capability, vendor-fit, integrati",
+          "q_feed": "Finance &amp; HR \u00b7 gap-diagnosis \u2014 surfaces barriers to AI landing despite acknowledged pain.",
+          "hits": [
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "mentioned",
+              "ctx": ": And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+            },
+            {
+              "kw": "where",
+              "ctx": "l health plans that GPs operate, for instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio ... : And Harshad, maybe one question from my side, right? Like right at the beginning of the call, you mentioned that there isn't a great consumer held platform, which is why we set out to build time 222"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q73",
+          "q_text_snippet": "For any solution you currently have deployed in this area, what would make you consider switching to a new vendor?",
+          "q_feed": "Finance &amp; HR \u00b7 switch-triggers \u2014 validates the differentiation a new vendor needs to win displacement deals.",
+          "hits": [
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "needs",
+              "ctx": "ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+            },
+            {
+              "kw": "area",
+              "ctx": "e are like good examples for, for how we think around continuous Healthcare. And I'd say the second area is everything around digitizing processes in the healthcare industry, which are mainly back off"
+            },
+            {
+              "kw": "make",
+              "ctx": "r hospitals. Yeah. So really thinking around the whole stack of the hospital and doctor industry to make them much more efficient and focus on, on what matters. Yeah. So I would say these are like the"
+            },
+            {
+              "kw": "consider",
+              "ctx": "getting like verified doctors with all their metadata beforehand. So that's like one of the timing considerations which is working well. The other part is the data hardware. A lot of people for last"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio ... ey also have multiple conditions over the years. There could be acute conditions, etc. So all their needs are never sufficed by some of these platforms. So that's why having a horizontal platform does"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q74",
+          "q_text_snippet": "What new AI solutions in finance and HR functions would you be interested in that aren't on your current stack or widely available in the In",
+          "q_feed": "Finance &amp; HR \u00b7 greenfield \u2014 surfaces unmet need at node level, operator-voiced.",
+          "hits": [
+            {
+              "kw": "finance",
+              "ctx": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio"
+            },
+            {
+              "kw": "need",
+              "ctx": "sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+            },
+            {
+              "kw": "level",
+              "ctx": "h, thanks. Thanks for introducing very helpful. So maybe I can start with a little bit of like high level intro about myself, so. And then I can get into details of this. And how we are thinking about"
+            },
+            {
+              "kw": "interested",
+              "ctx": "iting. To, to see what you're building, how you think around it. And, yeah, obviously would be very interested also here a little bit your view on generalist versus vertical focus. Yeah. So like a res"
+            },
+            {
+              "kw": "aren",
+              "ctx": "een patients and doctors, especially on the pediatric side, where you have a lot of questions from parents who are worried. And maybe it's more efficient to do that over a quick platform interaction t"
+            },
+            {
+              "kw": "stack",
+              "ctx": "instance, we've done investment in Germany called Abhi medica, where initially we started with full stack GP practices. But then we rolled our digital health plans, for instance, focus on diabetes, fo"
+            },
+            {
+              "kw": "available",
+              "ctx": "you may or may not be able to recommend it right away. You need to understand what is the resource available, what is the paying capacity of the individual. So you'll have to design a research produc"
+            },
+            {
+              "kw": "indian",
+              "ctx": "am tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files or images. Even"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "e of the things is, I don't know if you are aware of UPI moment in India where for financial in the finance side, government created digital reels so that companies can come and build their applicatio ... sly giving visibility to the patient in terms of how they're performing, what next distraction they need to take, but also that the doctor, because the average consultation time in India is almost two"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q75",
+          "q_text_snippet": "Roughly how does your company's software and technology spend split between licences, in-house build, and outsourced work \u2014 consultants, SIs",
+          "q_feed": "Services-displacement argument \u00b7 addressable-services pool.",
+          "hits": [
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "software",
+              "ctx": "del is we have reimbursement approval in France and also in Germany. So you do get paid a very good software license fee for every patient that's being tracked every month. But look, you are suddenly"
+            },
+            {
+              "kw": "spend",
+              "ctx": "better visibility on their own health? How can we create experiences for doctors so that they don't spend time on administrative tasks? It's efficient for them. We remove the clutter from them. And ho"
+            },
+            {
+              "kw": "split",
+              "ctx": "transaction part, which is the future part of the roadmap, do you have a sense of how that might be split, right? Is it going to be products and consumables like pharmaceutical supplements, nutritiona"
+            },
+            {
+              "kw": "between",
+              "ctx": "called leona how deviationally focused very much on Pediatric side and also building like a portal between patients and doctors, especially on the pediatric side, where you have a lot of questions fr"
+            },
+            {
+              "kw": "build",
+              "ctx": "Them: Even though they're building it on top of WhatsApp from a point of view, it's very similar. Oh, nice. We've got some co-"
+            },
+            {
+              "kw": "work",
+              "ctx": "the treatment and so on? You have alerts that escalate. And obviously that's a very interesting network that you not have to acquire patience for, like, from a unit economic perspective, but you acqu"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform ... del is we have reimbursement approval in France and also in Germany. So you do get paid a very good software license fee for every patient that's being tracked every month. But look, you are suddenly"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q76",
+          "q_text_snippet": "For new AI tools, how does the decision between build-in-house, buy off-the-shelf, or have an SI implement typically go \u2014 and when you do en",
+          "q_feed": "Vertical-SaaS-wins + product-archetype \u00b7 tests make-vs-buy-vs-SI split and preferred vendor role together.",
+          "hits": [
+            {
+              "kw": "split",
+              "ctx": "transaction part, which is the future part of the roadmap, do you have a sense of how that might be split, right? Is it going to be products and consumables like pharmaceutical supplements, nutritiona"
+            },
+            {
+              "kw": "together",
+              "ctx": "cus on certain chronic diseases and so on, where you go into much more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out o"
+            },
+            {
+              "kw": "tools",
+              "ctx": "ning just because of AI. Obviously, there are other things also which are coming in better scribing tools and others. But that's for data. So I think timing wise, these two things like really, really"
+            },
+            {
+              "kw": "between",
+              "ctx": "called leona how deviationally focused very much on Pediatric side and also building like a portal between patients and doctors, especially on the pediatric side, where you have a lot of questions fr"
+            },
+            {
+              "kw": "engage",
+              "ctx": "coming there is a more secure platform compared to any other platform. So that gives confidence on engagement. So discovery part is something that we want to solve. That's why we launch it for all. N"
+            },
+            {
+              "kw": "looking",
+              "ctx": "of them others in health and in fintech as well. So overall, I think know the team quite well who's looking at this space. Who was the person over there? Sorry. Okay. Got it. Yeah, I think our us folk"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "transaction part, which is the future part of the roadmap, do you have a sense of how that might be split, right? Is it going to be products and consumables like pharmaceutical supplements, nutritiona ... cus on certain chronic diseases and so on, where you go into much more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out o"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q77",
+          "q_text_snippet": "On business model and monetisation for AI \u2014 is AI spend actually replacing services line items (consulting, BPO, agency) or sitting alongsid",
+          "q_feed": "Business-model + monetisation \u00b7 tests the spend pool AI is drawing from and the realistic commercial envelope for a new entrant.",
+          "hits": [
+            {
+              "kw": "spend",
+              "ctx": "better visibility on their own health? How can we create experiences for doctors so that they don't spend time on administrative tasks? It's efficient for them. We remove the clutter from them. And ho"
+            },
+            {
+              "kw": "business",
+              "ctx": "Who was the person over there? Sorry. Okay. Got it. Yeah, I think our us folks who speak to him is business assembly, right? He's been there for quite a while. Like, yeah. Yeah, yeah. Hey, nice to me"
+            },
+            {
+              "kw": "model",
+              "ctx": "t for more the life sciences and the pharma partnerships. Right. So here, I think the beauty of the model is we have reimbursement approval in France and also in Germany. So you do get paid a very goo"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "services",
+              "ctx": "ue come on network effect RWA comes on network effect even the clinical trial product comes on that services marketplace is something that we talked about in our previous call that also comes on netwo"
+            },
+            {
+              "kw": "line",
+              "ctx": "unity as a product for the user side and on the doctor side also getting like onboarding doctors offline is a very expensive course. So that cost itself is going away for us where we are getting like"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "better visibility on their own health? How can we create experiences for doctors so that they don't spend time on administrative tasks? It's efficient for them. We remove the clutter from them. And ho ... Who was the person over there? Sorry. Okay. Got it. Yeah, I think our us folks who speak to him is business assembly, right? He's been there for quite a while. Like, yeah. Yeah, yeah. Hey, nice to me"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q78",
+          "q_text_snippet": "Walk me through how AI procurement actually happens at your company \u2014 who triggers and signs off, does it route direct or through central pr",
+          "q_feed": "Procurement reality \u00b7 DMU walk + channel path + SI-role + differentiation-vs-empanelled, consolidated.",
+          "hits": [
+            {
+              "kw": "channel",
+              "ctx": "remove the clutter from them. And how do we make sure that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's"
+            },
+            {
+              "kw": "path",
+              "ctx": "gy friends, they have now replicated the same for Psychiatry and now for gastroenterology. So other pathologies where you have really a lot of benefit of, of remote monitoring. Right. So that's super"
+            },
+            {
+              "kw": "through",
+              "ctx": "ead gen. So that's one of the community and patients obviously have advantage whenever someone goes through life-threatening condition or even general condition. And if they want to know about what ot"
+            },
+            {
+              "kw": "actually",
+              "ctx": "t of view, it's very similar. Oh, nice. We've got some co-investments with them in the health space actually inscribing. Interesting. Yeah. So not fully announced yet, but yeah, we've done investment"
+            },
+            {
+              "kw": "happens",
+              "ctx": "stand what is happening in oncology. What are patients discussing some kind of self moderation also happens. And for a lot of junior doctors, it also sort of becomes a lead gen. So that's one of the c"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            },
+            {
+              "kw": "direct",
+              "ctx": "uilt a remote patient monitoring platform initially on the oncology side. Yeah. So you're not going direct to the patients. You actually go to the oncologist, but they onboard their patients on the pl"
+            },
+            {
+              "kw": "central",
+              "ctx": "s the doctor patient messaging and context. So we are also building this PHR story. In India is a decentralized system. There will never be HMOs kind of constant where there are large organizations wi"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "remove the clutter from them. And how do we make sure that we create a more stronger communication channel between doctors and patients, which also goes beyond their in-person interactions. So that's ... gy friends, they have now replicated the same for Psychiatry and now for gastroenterology. So other pathologies where you have really a lot of benefit of, of remote monitoring. Right. So that's super"
+        },
+        {
+          "sector": "auto",
+          "q_num": "Q79",
+          "q_text_snippet": "For AI vendors specifically \u2014 when your company brings in a new AI vendor, why and how do you select them (who drives the decision, what par",
+          "q_feed": "AI-vendor selection + scaling dynamics \u00b7 tests why new AI vendors get chosen and what separates the ones that scale from the ones that stall at pilot.",
+          "hits": [
+            {
+              "kw": "ones",
+              "ctx": "create a private effect. So that's how we will solve for the GTM problem. To leverage the existing ones and then we will think about how to solve for the long term ones. Okay. And on the monetization"
+            },
+            {
+              "kw": "scale",
+              "ctx": "ge long term driver on like big monetization. Right. So RWE can definitely become big because India scale is really, really huge. So even the number that I was talking about, right, 800 million indivi"
+            },
+            {
+              "kw": "specifically",
+              "ctx": "lot of downstream tasks on top of it. But the fundamental problem in developing countries and more specifically in Indian context is that most of the data is in paper based records or it is PDF files"
+            },
+            {
+              "kw": "company",
+              "ctx": "ch more digital health care delivery together with your patients. Or another one very recently is a company called resilience care. Out of friends. They have built a remote patient monitoring platform"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "create a private effect. So that's how we will solve for the GTM problem. To leverage the existing ones and then we will think about how to solve for the long term ones. Okay. And on the monetization ... ge long term driver on like big monetization. Right. So RWE can definitely become big because India scale is really, really huge. So even the number that I was talking about, right, 800 million indivi"
+        }
+      ],
+      "thesis_impact_summary": "Added evidence to 75 AUTO questions.",
+      "is_demo": true,
+      "demo_note": "Pipeline test only. Consumer-health call, not an Auto/FMCG thesis contact. Excluded from pending-imports so it does NOT pollute thesis state."
+    }
+  ],
+  "version": 1
+}
