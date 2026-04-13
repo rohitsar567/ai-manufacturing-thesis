@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '28a1aba703cd79b911802f56ac9014dcbe59b942';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '28a1aba703cd79b911802f56ac9014dcbe59b942' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -7933,10 +7933,10 @@ window.NODE_DESC = {
             <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Company</th>
             <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Title</th>
             <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Persona</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:140px;">Status</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:200px;">Notes</th>
-            <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Link</th>
-            <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:170px;">Granola</th>
+            <th style="text-align:left;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:130px;">Status</th>
+            <th style="text-align:left;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:180px;">Notes</th>
+            <th style="text-align:center;padding:10px 6px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:38px;">Link</th>
+            <th style="text-align:center;padding:10px 6px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:90px;">Granola</th>
           </tr>
         </thead>
         <tbody id="crm-tbody"></tbody>
@@ -8083,53 +8083,164 @@ window.NODE_DESC = {
       }
       tr.appendChild(tdLink);
 
-      // ---- Granola integration cell ----
+      // ---- Granola integration cell (Auto + Manual, stacked vertically, compact) ----
       var tdGr = makeCell();
-      tdGr.style.textAlign = 'center';
-      tdGr.style.whiteSpace = 'nowrap';
-      var fetchBtn = document.createElement('button');
-      fetchBtn.type = 'button';
-      fetchBtn.title = 'Fetch latest Granola meeting transcript with this contact via Claude + route evidence to all linked validation questions';
-      fetchBtn.style.cssText = 'padding:5px 10px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.68rem;border-radius:5px;cursor:pointer;';
-      fetchBtn.textContent = '\ud83c\udf99 Fetch Granola';
-      fetchBtn.addEventListener('click', function(){
-        var orig = fetchBtn.textContent;
-        fetchBtn.disabled = true; fetchBtn.textContent = '\u23f3 Calling proxy\u2026';
-        // Attempt zero-click via local proxy first
+      tdGr.style.cssText = 'text-align:center;padding:6px 4px;';
+      var grStack = document.createElement('div');
+      grStack.style.cssText = 'display:flex;flex-direction:column;gap:3px;align-items:stretch;min-width:72px;';
+
+      var autoBtn = document.createElement('button');
+      autoBtn.type = 'button';
+      autoBtn.title = 'Auto-fetch: proxy finds the latest Granola meeting with this contact and routes it end-to-end';
+      autoBtn.style.cssText = 'padding:4px 6px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.62rem;border-radius:4px;cursor:pointer;';
+      autoBtn.textContent = '\ud83c\udf99 Auto';
+      autoBtn.addEventListener('click', function(){
+        var orig = autoBtn.textContent;
+        autoBtn.disabled = true; autoBtn.textContent = '\u23f3 Routing\u2026';
         var codes = (c.personaCode || '').split(/\s+/).filter(Boolean).join(' ');
         fetch('http://localhost:8799/api/route-contact', {
-          method: 'POST',
-          headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({
-            contact_name: c.name,
-            contact_key: c.key,
-            contact_company: c.company,
-            sector: c.sector,
-            persona_codes: codes
-          })
+          method: 'POST', headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({contact_name:c.name, contact_key:c.key, contact_company:c.company, sector:c.sector, persona_codes:codes})
         }).then(function(r){return r.json();}).then(function(j){
           if (j && j.ok && j.parsed && j.parsed.ok) {
-            fetchBtn.textContent = '\u2713 Routed \u2014 click Sync';
-            fetchBtn.style.background = '#16a34a';
-            setTimeout(function(){fetchBtn.textContent=orig;fetchBtn.style.background='#0d9488';fetchBtn.disabled=false;}, 4000);
+            autoBtn.textContent = '\u2713 Routed'; autoBtn.style.background = '#16a34a';
           } else {
-            // fall back to manual modal
-            fetchBtn.textContent = orig; fetchBtn.style.background='#0d9488'; fetchBtn.disabled=false;
-            openGranolaImport(c, j);
+            var reason = (j && j.parsed && j.parsed.reason) || 'proxy error';
+            autoBtn.textContent = '\u26a0\ufe0f ' + reason; autoBtn.style.background = '#dc2626';
           }
-        }).catch(function(e){
-          fetchBtn.textContent = orig; fetchBtn.style.background='#0d9488'; fetchBtn.disabled=false;
-          // Proxy not running, open manual modal
-          openGranolaImport(c);
+          setTimeout(function(){autoBtn.textContent=orig; autoBtn.style.background='#0d9488'; autoBtn.disabled=false;}, 4000);
+        }).catch(function(){
+          autoBtn.textContent = '\u26a0\ufe0f Proxy offline'; autoBtn.style.background='#dc2626';
+          setTimeout(function(){autoBtn.textContent=orig; autoBtn.style.background='#0d9488'; autoBtn.disabled=false;}, 4000);
         });
       });
-      tdGr.appendChild(fetchBtn);
+      grStack.appendChild(autoBtn);
+
+      var manualBtn = document.createElement('button');
+      manualBtn.type = 'button';
+      manualBtn.title = 'Manual: paste the Granola meeting URL; proxy fetches transcript for that exact meeting and routes';
+      manualBtn.style.cssText = 'padding:4px 6px;border:1px solid #6d28d9;background:#faf5ff;color:#6d28d9;font-weight:700;font-size:0.62rem;border-radius:4px;cursor:pointer;';
+      manualBtn.textContent = '\ud83d\udd17 Manual';
+      manualBtn.addEventListener('click', function(){ openGranolaManualModal(c); });
+      grStack.appendChild(manualBtn);
+
+      tdGr.appendChild(grStack);
       tr.appendChild(tdGr);
 
       return tr;
     }
 
-    // ======== GRANOLA FETCH + ROUTING ENGINE ========
+    // ======== GRANOLA MANUAL MODAL (URL-only) ========
+    function openGranolaManualModal(c){
+      var existing = document.getElementById('granola-modal');
+      if (existing) existing.remove();
+      var m = document.createElement('div');
+      m.id = 'granola-modal';
+      m.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#fff;border-radius:14px;max-width:620px;width:100%;padding:24px 26px;box-shadow:0 8px 32px rgba(0,0,0,0.2);font-family:var(--font-display);';
+      var h = document.createElement('div');
+      h.style.cssText = 'display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;';
+      var hL = document.createElement('div');
+      var hT = document.createElement('div'); hT.style.cssText='font-size:1.05rem;font-weight:800;color:#1a2232;';
+      hT.textContent = '\ud83d\udd17 Manual Granola import \u2014 ' + c.name;
+      hL.appendChild(hT);
+      var hS = document.createElement('div'); hS.style.cssText='font-size:0.78rem;color:#64748b;margin-top:2px;';
+      hS.textContent = c.company + ' \u00b7 ' + (c.persona || '') + ' \u00b7 ' + c.sector.toUpperCase();
+      hL.appendChild(hS);
+      h.appendChild(hL);
+      var hClose = document.createElement('button');
+      hClose.style.cssText='border:0;background:none;font-size:1.3rem;cursor:pointer;color:#64748b;line-height:1;padding:2px 6px;';
+      hClose.textContent = '\u2715';
+      hClose.addEventListener('click', function(){m.remove();});
+      h.appendChild(hClose);
+      card.appendChild(h);
+
+      var how = document.createElement('div');
+      how.style.cssText = 'padding:11px 14px;background:#faf5ff;border:1px solid #c4b5fd;border-radius:10px;margin:14px 0;font-size:0.8rem;line-height:1.55;color:#5b21b6;';
+      how.textContent = 'Use this if the Auto button didn\u2019t match the meeting correctly. Paste the Granola meeting URL (from notes.granola.ai/t/\u2026). The proxy fetches that exact meeting\u2019s transcript and routes it to this contact\u2019s validation questions.';
+      card.appendChild(how);
+
+      var label = document.createElement('div');
+      label.style.cssText = 'font-size:0.68rem;font-weight:800;color:#475569;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;';
+      label.textContent = 'Granola meeting URL';
+      card.appendChild(label);
+      var urlIn = document.createElement('input');
+      urlIn.type = 'text';
+      urlIn.placeholder = 'https://notes.granola.ai/t/c02c8549-...';
+      urlIn.style.cssText = 'width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-mono);font-size:0.78rem;margin-bottom:8px;';
+      card.appendChild(urlIn);
+      var idHint = document.createElement('div');
+      idHint.style.cssText = 'font-size:0.7rem;color:#94a3b8;margin-bottom:14px;min-height:18px;';
+      idHint.textContent = 'Meeting ID will be auto-extracted from the URL.';
+      card.appendChild(idHint);
+      urlIn.addEventListener('input', function(){
+        var m = (urlIn.value || '').match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i);
+        idHint.textContent = m ? ('Meeting ID: ' + m[1]) : 'Paste a Granola URL \u2014 ID auto-extracted.';
+        idHint.style.color = m ? '#16a34a' : '#94a3b8';
+      });
+
+      var btnRow = document.createElement('div');
+      btnRow.style.cssText = 'display:flex;gap:10px;justify-content:flex-end;';
+      var cancelBtn = document.createElement('button');
+      cancelBtn.style.cssText='padding:9px 16px;border:1px solid #cbd5e1;background:#fff;color:#64748b;font-size:0.82rem;border-radius:6px;cursor:pointer;';
+      cancelBtn.textContent = 'Cancel';
+      cancelBtn.addEventListener('click', function(){m.remove();});
+      var processBtn = document.createElement('button');
+      processBtn.style.cssText='padding:9px 18px;border:1px solid #6d28d9;background:#6d28d9;color:#fff;font-weight:800;font-size:0.82rem;border-radius:6px;cursor:pointer;';
+      processBtn.textContent = '\u26a1 Fetch & route';
+      btnRow.appendChild(cancelBtn); btnRow.appendChild(processBtn);
+      card.appendChild(btnRow);
+
+      var resultBox = document.createElement('div');
+      resultBox.style.cssText = 'margin-top:14px;font-size:0.82rem;line-height:1.5;';
+      card.appendChild(resultBox);
+
+      processBtn.addEventListener('click', function(){
+        var url = (urlIn.value || '').trim();
+        var idMatch = url.match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i);
+        if (!idMatch) {
+          resultBox.textContent = 'Paste a Granola URL containing a meeting UUID.';
+          resultBox.style.color = '#dc2626'; return;
+        }
+        resultBox.style.color = '#475569';
+        resultBox.textContent = '\u23f3 Calling proxy\u2026 (may take 30-60s while Claude fetches via MCP)';
+        var codes = (c.personaCode || '').split(/\s+/).filter(Boolean).join(' ');
+        fetch('http://localhost:8799/api/route-by-id', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            meeting_id: idMatch[1], contact_name: c.name, contact_key: c.key,
+            contact_company: c.company, sector: c.sector, persona_codes: codes,
+            granola_url: url
+          })
+        }).then(function(r){return r.json();}).then(function(j){
+          while (resultBox.firstChild) resultBox.removeChild(resultBox.firstChild);
+          var box = document.createElement('div');
+          if (j && j.ok && j.parsed && j.parsed.ok){
+            box.style.cssText = 'padding:12px 14px;background:#dcfce7;border:1px solid #86efac;border-radius:8px;color:#166534;font-weight:700;';
+            box.textContent = '\u2713 Routed meeting ' + j.parsed.meeting_id + ' \u2014 ' + (j.parsed.questions_matched || 0) + ' questions matched. Click \ud83d\udd04 Sync Granola routings in the tracker toolbar to apply.';
+          } else {
+            var reason = (j && j.parsed && j.parsed.reason) || 'Unknown error';
+            box.style.cssText = 'padding:12px 14px;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;color:#991b1b;font-weight:700;';
+            box.textContent = '\u26a0\ufe0f ' + reason + ' \u2014 (proxy stdout tail below)';
+            var pre = document.createElement('pre');
+            pre.style.cssText = 'margin-top:8px;font-size:0.68rem;color:#475569;white-space:pre-wrap;max-height:150px;overflow:auto;background:#f8fafc;padding:8px;border-radius:6px;';
+            pre.textContent = (j && j.stdout_tail) || '';
+            box.appendChild(pre);
+          }
+          resultBox.appendChild(box);
+        }).catch(function(e){
+          resultBox.textContent = '\u26a0\ufe0f Proxy offline on localhost:8799. Check LaunchAgent: tail /tmp/granola-proxy.err.log';
+          resultBox.style.color = '#dc2626';
+        });
+      });
+
+      m.appendChild(card);
+      document.body.appendChild(m);
+      setTimeout(function(){urlIn.focus();}, 50);
+    }
+
+    // ======== LEGACY: transcript-paste fallback (no longer used by default) ========
     function openGranolaImport(c){
       var existing = document.getElementById('granola-modal');
       if (existing) existing.remove();
