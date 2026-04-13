@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '356086bb09c60727a12960d292f8ec57d71bc2bb';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '356086bb09c60727a12960d292f8ec57d71bc2bb' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8452,11 +8452,11 @@ window.NODE_DESC = {
         r.pctEl.textContent = pct + '%';
         r.fillEl.style.width = pct + '%';
       });
-      if (strategicRowRef) {
-        var spct = strategicRowRef.compute();
-        strategicRowRef.pctEl.textContent = spct + '%';
-        strategicRowRef.fillEl.style.width = spct + '%';
-      }
+      strategicRowRefs.forEach(function(r){
+        var p = r.compute();
+        r.pctEl.textContent = p + '%';
+        r.fillEl.style.width = p + '%';
+      });
       var overall = rollupOverall();
       document.getElementById('tv-overall-pct').textContent = overall + '%';
       document.getElementById('tv-overall-fill').style.width = overall + '%';
@@ -8593,24 +8593,30 @@ window.NODE_DESC = {
       {id:'implementation_strategy', label:'Implementation strategy', q:'How will AI actually get deployed across the portfolio? Pilot path, integration, change management, time-to-value?'}
     ];
 
-    function getStrategic(aspectId){
-      var k = '__strategic__|' + aspectId;
+    // scope = 'auto' | 'fmcg' | 'combined'
+    function getStrategic(scope, aspectId){
+      var k = '__strategic__|' + scope + '|' + aspectId;
       return state[k] || {pct:0, evidence:'', transcript:'', linked:[]};
     }
-    function setStrategic(aspectId, patch){
-      var k = '__strategic__|' + aspectId;
-      state[k] = Object.assign(getStrategic(aspectId), patch);
+    function setStrategic(scope, aspectId, patch){
+      var k = '__strategic__|' + scope + '|' + aspectId;
+      state[k] = Object.assign(getStrategic(scope, aspectId), patch);
       saveState(state);
     }
-    function rollupStrategic(){
+    function rollupStrategicScope(scope){
       if (!STRATEGIC_ASPECTS.length) return 0;
+      // Combined = average of Auto + FMCG strategic rollups
+      if (scope === 'combined') {
+        return Math.round((rollupStrategicScope('auto') + rollupStrategicScope('fmcg')) / 2);
+      }
       var sum = 0;
-      STRATEGIC_ASPECTS.forEach(function(a){ sum += getStrategic(a.id).pct; });
+      STRATEGIC_ASPECTS.forEach(function(a){ sum += getStrategic(scope, a.id).pct; });
       return Math.round(sum / STRATEGIC_ASPECTS.length);
     }
+    function rollupStrategic(){ return rollupStrategicScope('combined'); }
 
-    function buildStrategicAspect(aspect, allContacts){
-      var rec = getStrategic(aspect.id);
+    function buildStrategicAspect(scope, aspect, allContacts){
+      var rec = getStrategic(scope, aspect.id);
       var wrap = document.createElement('div'); wrap.className = 'tv-aspect';
       var top = document.createElement('div'); top.className = 'tv-aspect-top';
       var nameWrap = document.createElement('div');
@@ -8633,7 +8639,7 @@ window.NODE_DESC = {
         v = Math.max(0, Math.min(100, parseInt(v,10)||0));
         pctIn.value = v; slider.value = v;
         bar.firstChild.style.width = v + '%';
-        setStrategic(aspect.id, {pct:v}); refreshRollups();
+        setStrategic(scope, aspect.id, {pct:v}); refreshRollups();
       }
       pctIn.addEventListener('input', function(){ setPct(pctIn.value); });
       slider.addEventListener('input', function(){ setPct(slider.value); });
@@ -8644,10 +8650,10 @@ window.NODE_DESC = {
       var evArea = document.createElement('textarea'); evArea.className='tv-evidence';
       evArea.placeholder = 'e.g. McKinsey MGI 2023 confirms FMCG Knowledge Worker share \u2248 35%; HUL/ITC BRSR Section A 20(a) shows 1,300 KW per $B revenue.';
       evArea.value = rec.evidence || '';
-      evArea.addEventListener('input', function(){ setStrategic(aspect.id, {evidence: evArea.value}); });
+      evArea.addEventListener('input', function(){ setStrategic(scope, aspect.id, {evidence: evArea.value}); });
       var trLabel = document.createElement('div'); trLabel.className='tv-field-label'; trLabel.style.marginTop='8px'; trLabel.textContent='Transcript / source URL';
       var trIn = document.createElement('input'); trIn.type='text'; trIn.className='tv-link-input'; trIn.placeholder='Granola or research URL'; trIn.value=rec.transcript||'';
-      trIn.addEventListener('input', function(){ setStrategic(aspect.id, {transcript: trIn.value}); });
+      trIn.addEventListener('input', function(){ setStrategic(scope, aspect.id, {transcript: trIn.value}); });
       leftCol.appendChild(evLabel); leftCol.appendChild(evArea); leftCol.appendChild(trLabel); leftCol.appendChild(trIn);
       detail.appendChild(leftCol);
 
@@ -8667,8 +8673,8 @@ window.NODE_DESC = {
             var linked = (rec.linked || []).slice();
             var idx = linked.indexOf(c.key);
             if (idx === -1) linked.push(c.key); else linked.splice(idx, 1);
-            setStrategic(aspect.id, {linked: linked});
-            rec = getStrategic(aspect.id);
+            setStrategic(scope, aspect.id, {linked: linked});
+            rec = getStrategic(scope, aspect.id);
             chip.classList.toggle('linked');
           });
           cBox.appendChild(chip);
@@ -8680,17 +8686,23 @@ window.NODE_DESC = {
       return wrap;
     }
 
-    var strategicRowRef = null;
-    function buildStrategic(allContacts){
-      var wrap = document.createElement('div'); wrap.className='tv-sector';
-      var hdr = document.createElement('div'); hdr.className='tv-sector-hdr'; hdr.style.background='rgba(13,148,136,0.06)';
+    var strategicRowRefs = [];
+    function buildStrategic(scope, allContacts, sectorObj){
+      var wrap = document.createElement('div'); wrap.className='tv-sector tv-strategic-block';
+      var hdr = document.createElement('div'); hdr.className='tv-sector-hdr';
       var nameDiv = document.createElement('div'); nameDiv.className='tv-sector-name';
-      var ic = document.createElement('span'); ic.textContent='\ud83c\udfaf'; nameDiv.appendChild(ic);
-      var lbl = document.createElement('span'); lbl.textContent=' Strategic / thesis-level validations  '; nameDiv.appendChild(lbl);
+      var ic = document.createElement('span');
+      var label, hue;
+      if (scope === 'combined') { ic.textContent='\ud83c\udfaf'; label='Strategic validations \u2014 Combined (Auto + FMCG)'; hue='rgba(13,148,136,0.08)'; }
+      else if (scope === 'auto') { ic.textContent='\ud83d\ude97'; label='Strategic validations \u2014 Automobile'; hue='rgba(37,99,235,0.06)'; }
+      else { ic.textContent='\ud83e\uddf4'; label='Strategic validations \u2014 FMCG'; hue='rgba(217,119,6,0.06)'; }
+      hdr.style.background = hue;
+      nameDiv.appendChild(ic);
+      var lbl = document.createElement('span'); lbl.textContent = ' ' + label + '  '; nameDiv.appendChild(lbl);
       var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
-      sub.textContent = STRATEGIC_ASPECTS.length + ' aspects \u00b7 cross-sector';
+      sub.textContent = STRATEGIC_ASPECTS.length + ' aspects' + (scope === 'combined' ? ' \u00b7 auto-derived from sector rollups' : '');
       nameDiv.appendChild(sub);
-      var pct = rollupStrategic();
+      var pct = rollupStrategicScope(scope);
       var bar = makeBar(pct);
       var pctDiv = document.createElement('div'); pctDiv.className='tv-pct'; pctDiv.textContent=pct+'%';
       hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
@@ -8698,7 +8710,17 @@ window.NODE_DESC = {
 
       var box = document.createElement('div'); box.className='tv-nodes';
       box.style.padding = '12px 18px 18px';
-      STRATEGIC_ASPECTS.forEach(function(a){ box.appendChild(buildStrategicAspect(a, allContacts)); });
+      // Combined block: just shows rollup, no inputs (read-only summary)
+      if (scope === 'combined') {
+        var note = document.createElement('div');
+        note.style.cssText = 'font-size:0.78rem;color:#64748b;line-height:1.55;padding:6px 0 0;';
+        note.textContent = 'Combined strategic % = average of Auto + FMCG strategic blocks below. Edit sector-specific blocks to update this rollup.';
+        box.appendChild(note);
+        // initially collapsed
+        wrap.classList.remove('open');
+      } else {
+        STRATEGIC_ASPECTS.forEach(function(a){ box.appendChild(buildStrategicAspect(scope, a, allContacts)); });
+      }
       wrap.appendChild(box);
 
       hdr.addEventListener('click', function(e){
@@ -8706,7 +8728,7 @@ window.NODE_DESC = {
         box.style.display = (box.style.display === 'none') ? '' : 'none';
       });
 
-      strategicRowRef = {pctEl: pctDiv, fillEl: bar.firstChild, compute: rollupStrategic};
+      strategicRowRefs.push({scope: scope, pctEl: pctDiv, fillEl: bar.firstChild, compute: function(){ return rollupStrategicScope(scope); }});
       return wrap;
     }
 
@@ -8720,32 +8742,48 @@ window.NODE_DESC = {
         }
         setTimeout(init, 200); return;
       }
-      var personaMap = extractPersonaMap();
+      var personaMap = {};
+      try { personaMap = extractPersonaMap(); } catch(e){ console.warn('persona map error', e); }
       var contacts = getCRMContacts();
       var tree = document.getElementById('tv-tree');
       while (tree.firstChild) tree.removeChild(tree.firstChild);
-      nodeRowRefs = []; sectorRowRefs = []; subRowRefs = []; strategicRowRef = null;
-      tree.appendChild(buildStrategic(contacts));
-      SECTORS.forEach(function(s){ tree.appendChild(buildSector(s, personaMap, contacts)); });
+      nodeRowRefs = []; sectorRowRefs = []; subRowRefs = []; strategicRowRefs = [];
+      try { tree.appendChild(buildStrategic('combined', contacts)); }
+      catch(e){ console.error('Strategic combined build failed', e); }
+      SECTORS.forEach(function(s){
+        try {
+          tree.appendChild(buildStrategic(s.id, contacts, s));
+          tree.appendChild(buildSector(s, personaMap, contacts));
+        } catch(e){
+          console.error('Sector build failed', s.id, e);
+          var err = document.createElement('div');
+          err.style.cssText = 'padding:14px;background:#fee2e2;color:#991b1b;border-radius:8px;margin:10px 0;font-size:0.78rem;';
+          err.textContent = s.label + ' failed to render: ' + (e && e.message ? e.message : e);
+          tree.appendChild(err);
+        }
+      });
       refreshRollups();
 
-      document.getElementById('tv-expand-all').addEventListener('click', function(){
-        document.querySelectorAll('#tv-tree .tv-node').forEach(function(n){ n.classList.add('open'); });
-      });
-      document.getElementById('tv-collapse-all').addEventListener('click', function(){
-        document.querySelectorAll('#tv-tree .tv-node').forEach(function(n){ n.classList.remove('open'); });
-      });
-      document.getElementById('tv-export').addEventListener('click', function(){
+      // Wire buttons (always, even if some sector failed)
+      var ea = document.getElementById('tv-expand-all');
+      var ca = document.getElementById('tv-collapse-all');
+      var ex = document.getElementById('tv-export');
+      var rs = document.getElementById('tv-reset');
+      if (ea) ea.onclick = function(){
+        document.querySelectorAll('#tv-tree .tv-node, #tv-tree .tv-strategic-block').forEach(function(n){ n.classList.add('open'); });
+      };
+      if (ca) ca.onclick = function(){
+        document.querySelectorAll('#tv-tree .tv-node, #tv-tree .tv-strategic-block').forEach(function(n){ n.classList.remove('open'); });
+      };
+      if (ex) ex.onclick = function(){
         var blob = new Blob([JSON.stringify(state, null, 2)], {type:'application/json'});
         var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
         a.download = 'thesis-validation-' + new Date().toISOString().slice(0,10) + '.json'; a.click();
-      });
-      document.getElementById('tv-reset').addEventListener('click', function(){
+      };
+      if (rs) rs.onclick = function(){
         if (!confirm('Reset all validation %, evidence, transcripts, linked contacts?')) return;
-        state = {}; saveState(state);
-        nodeRowRefs = []; sectorRowRefs = [];
-        init();
-      });
+        state = {}; saveState(state); init();
+      };
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 600); });
     else setTimeout(init, 600);
