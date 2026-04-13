@@ -11,14 +11,14 @@
 <script>
 // Auto-reload on new deploy: poll version.txt every 60s; if SHA differs, hard-reload.
 (function(){
-  var BUILT_SHA = 'e77845f0547d17188a373bb58739386ce6acf5f0';
+  var BUILT_SHA = '__BUILD_SHA__';
   function check(){
     fetch('version.txt?ts=' + Date.now(), {cache:'no-store'})
       .then(function(r){return r.ok ? r.text() : null;})
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'e77845f0547d17188a373bb58739386ce6acf5f0' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           location.reload();
         }
       }).catch(function(){});
@@ -8273,14 +8273,19 @@ window.NODE_DESC = {
   </script>
 
   <!-- ================== CRM PIPELINE ================== -->
-  <div id="crm-pipeline" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
-      <div>
-        <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Outreach CRM</div>
-        <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:#1a2232;margin-top:2px;">Validation pipeline tracker</div>
-      </div>
-      <div id="crm-stats" style="display:flex;gap:8px;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.7rem;"></div>
+  <details id="crm-pipeline-wrap" class="expanded-role-desc" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
+  <summary style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;">
+    <div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Outreach CRM</div>
+      <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:#1a2232;margin-top:2px;">Validation pipeline tracker</div>
     </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div id="crm-stats" style="display:flex;gap:8px;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.7rem;"></div>
+      <span style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#fff;background:#0d9488;padding:5px 12px;border-radius:6px;white-space:nowrap;">Click to expand &#9660;</span>
+    </div>
+  </summary>
+  <div id="crm-pipeline" style="padding:0 24px 24px;">
+    <div style="display:none;"></div>
     <div style="font-size:0.78rem;color:#6b7890;margin-bottom:14px;line-height:1.5;">All identified candidates from the LinkedIn match. Update <strong>status</strong> and <strong>notes</strong> per row &mdash; saved locally to your browser.</div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-family:var(--font-display);font-size:0.78rem;">
       <input id="crm-search" type="text" placeholder="Search name, company, title&hellip;" style="flex:1;min-width:220px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.8rem;">
@@ -8520,6 +8525,7 @@ window.NODE_DESC = {
   </script>
 
 </div>
+</details>
 
 
 
