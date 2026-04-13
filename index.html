@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '41e3dcb1f4c645ec968c9d8302307534faf525c5';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '41e3dcb1f4c645ec968c9d8302307534faf525c5' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8171,6 +8171,10 @@ window.NODE_DESC = {
     #tv-kg .tv-bar-fill{height:100%;background:linear-gradient(90deg,#0d9488,#10b981);transition:width .25s}
     #tv-kg .tv-pct{font-family:var(--font-mono);font-weight:800;font-size:0.9rem;color:#0d9488;text-align:right}
     #tv-kg .tv-nodes{padding:0}
+    #tv-kg .tv-subseg{border-top:1px solid #f1f5f9}
+    #tv-kg .tv-subseg-hdr{display:grid;grid-template-columns:1fr 200px 80px 28px;gap:14px;align-items:center;padding:10px 18px 10px 24px;background:#f8fafc;cursor:pointer;border-bottom:1px solid #f1f5f9}
+    #tv-kg .tv-subseg-hdr:hover{background:#f1f5f9}
+    #tv-kg .tv-subseg-name{font-family:var(--font-display);font-weight:700;font-size:0.82rem;color:#0f766e;display:flex;align-items:center;gap:6px}
     #tv-kg .tv-node{border-top:1px solid #f1f5f9}
     #tv-kg .tv-node-hdr{display:grid;grid-template-columns:1fr 200px 80px 28px;gap:14px;align-items:center;padding:12px 18px 12px 36px;cursor:pointer}
     #tv-kg .tv-node-hdr:hover{background:#fafbfc}
@@ -8210,7 +8214,8 @@ window.NODE_DESC = {
       {id:'incumbents', label:'Incumbent tools / processes', q:'What tools or workflows are they using today?'},
       {id:'blockers', label:'Adoption blockers', q:'What is stopping them from adopting AI here?'},
       {id:'switching', label:'Switching triggers', q:'What would make them switch to a new AI solution?'},
-      {id:'demand', label:'New AI demand / WTP', q:'Would they buy this? At what price/structure?'}
+      {id:'demand', label:'New AI demand / WTP', q:'Would they buy this? At what price/structure?'},
+      {id:'implementation', label:'Implementation feasibility', q:'How would AI actually get deployed here? Integration paths, data, pilot scope, change management?'}
     ];
 
     // Sector definitions; nodes are pulled live from window.AUTO_NODES / FMCG_NODES if present
@@ -8304,7 +8309,10 @@ window.NODE_DESC = {
         weighted += pct * s.tam;
         totalW += s.tam;
       });
-      return totalW ? Math.round(weighted / totalW) : 0;
+      var sectorPct = totalW ? (weighted / totalW) : 0;
+      // 50/50: strategic-level half + sector-rollup half
+      var strategicPct = rollupStrategic();
+      return Math.round((sectorPct + strategicPct) / 2);
     }
 
     function makeBar(pct){
@@ -8434,11 +8442,21 @@ window.NODE_DESC = {
         r.pctEl.textContent = pct + '%';
         r.fillEl.style.width = pct + '%';
       });
+      subRowRefs.forEach(function(r){
+        var pct = r.compute();
+        r.pctEl.textContent = pct + '%';
+        r.fillEl.style.width = pct + '%';
+      });
       sectorRowRefs.forEach(function(r){
         var pct = r.compute();
         r.pctEl.textContent = pct + '%';
         r.fillEl.style.width = pct + '%';
       });
+      if (strategicRowRef) {
+        var spct = strategicRowRef.compute();
+        strategicRowRef.pctEl.textContent = spct + '%';
+        strategicRowRef.fillEl.style.width = spct + '%';
+      }
       var overall = rollupOverall();
       document.getElementById('tv-overall-pct').textContent = overall + '%';
       document.getElementById('tv-overall-fill').style.width = overall + '%';
@@ -8474,37 +8492,221 @@ window.NODE_DESC = {
       return nodeWrap;
     }
 
+    var SUBSEGMENTS = [
+      {id:'supply', label:'Supply chain & sourcing', icon:'\ud83d\udd17'},
+      {id:'mfg', label:'Manufacturing & operations', icon:'\ud83c\udfed'},
+      {id:'demand', label:'Demand & commercial', icon:'\ud83d\udcc8'},
+      {id:'support', label:'Support functions', icon:'\ud83d\udee0\ufe0f'}
+    ];
+
+    var subRowRefs = [];
+
+    function rollupSubseg(sector, nodes){
+      if (!nodes.length) return 0;
+      var sum = 0;
+      nodes.forEach(function(n){ sum += rollupNode(sector, n); });
+      return Math.round(sum / nodes.length);
+    }
+
+    function buildSubsegment(sector, sub, nodes, personaMap, allContacts){
+      var wrap = document.createElement('div'); wrap.className = 'tv-subseg';
+      var hdr = document.createElement('div'); hdr.className = 'tv-subseg-hdr';
+      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-subseg-name';
+      var ic = document.createElement('span'); ic.textContent = sub.icon; nameDiv.appendChild(ic);
+      var lbl = document.createElement('span'); lbl.textContent = ' ' + sub.label + '  '; nameDiv.appendChild(lbl);
+      var ct = document.createElement('span'); ct.style.fontWeight='500'; ct.style.color='#64748b'; ct.style.fontSize='0.72rem';
+      ct.textContent = nodes.length + ' nodes';
+      nameDiv.appendChild(ct);
+      var pct = rollupSubseg(sector, nodes);
+      var bar = makeBar(pct);
+      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = pct + '%';
+      var chev = document.createElement('div'); chev.className = 'tv-chev'; chev.textContent = '\u25BC';
+      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv); hdr.appendChild(chev);
+      wrap.appendChild(hdr);
+
+      var nodesBox = document.createElement('div'); nodesBox.className = 'tv-nodes';
+      nodes.forEach(function(n){ nodesBox.appendChild(buildNode(sector, n, personaMap, allContacts)); });
+      wrap.appendChild(nodesBox);
+
+      hdr.addEventListener('click', function(e){
+        if (e.target.closest('.tv-node-hdr')) return;
+        var hidden = nodesBox.style.display === 'none';
+        nodesBox.style.display = hidden ? '' : 'none';
+        chev.textContent = hidden ? '\u25BC' : '\u25B6';
+      });
+
+      subRowRefs.push({
+        pctEl: pctDiv, fillEl: bar.firstChild,
+        compute: function(){ return rollupSubseg(sector, nodes); }
+      });
+
+      return wrap;
+    }
+
     function buildSector(s, personaMap, allContacts){
-      var nodes = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
+      var allT1 = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
       var wrap = document.createElement('div'); wrap.className = 'tv-sector';
       var hdr = document.createElement('div'); hdr.className = 'tv-sector-hdr';
       var nameDiv = document.createElement('div'); nameDiv.className = 'tv-sector-name';
       var ic = document.createElement('span'); ic.textContent = s.icon; nameDiv.appendChild(ic);
       var lbl = document.createElement('span'); lbl.textContent = s.label + '  '; nameDiv.appendChild(lbl);
       var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
-      sub.textContent = nodes.length + ' T1 nodes \u00b7 $' + s.tam + 'B TAM';
+      sub.textContent = allT1.length + ' T1 nodes \u00b7 $' + s.tam + 'B TAM';
       nameDiv.appendChild(sub);
-      var sPct = rollupSector(s.id, nodes);
+      var sPct = rollupSector(s.id, allT1);
       var bar = makeBar(sPct);
       var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = sPct + '%';
       hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
       wrap.appendChild(hdr);
 
-      var nodesBox = document.createElement('div'); nodesBox.className = 'tv-nodes';
-      nodes.forEach(function(n){ nodesBox.appendChild(buildNode(s.id, n, personaMap, allContacts)); });
-      wrap.appendChild(nodesBox);
+      var subBox = document.createElement('div'); subBox.className = 'tv-nodes';
+      SUBSEGMENTS.forEach(function(ss){
+        var nodes = allT1.filter(function(n){return n.bp === ss.id;});
+        if (!nodes.length) return;
+        subBox.appendChild(buildSubsegment(s.id, ss, nodes, personaMap, allContacts));
+      });
+      wrap.appendChild(subBox);
 
       hdr.addEventListener('click', function(e){
-        if (e.target.closest('.tv-node-hdr')) return;
-        nodesBox.style.display = (nodesBox.style.display === 'none') ? '' : 'none';
+        if (e.target.closest('.tv-subseg-hdr') || e.target.closest('.tv-node-hdr')) return;
+        subBox.style.display = (subBox.style.display === 'none') ? '' : 'none';
       });
 
       sectorRowRefs.push({
         sector: s.id,
         pctEl: pctDiv, fillEl: bar.firstChild,
-        compute: function(){ return rollupSector(s.id, nodes); }
+        compute: function(){ return rollupSector(s.id, allT1); }
       });
 
+      return wrap;
+    }
+
+    // ============ STRATEGIC (thesis-level) validations ============
+    var STRATEGIC_ASPECTS = [
+      {id:'sector_selection', label:'Sector selection', q:'Are Automobile + FMCG the right sectors to target with this thesis? Why not pharma/IT/BFSI?'},
+      {id:'subseg_selection', label:'Sub-segment selection', q:'Are Supply / Manufacturing / Demand / Support the right sub-segments? Are we missing any?'},
+      {id:'tam_methodology', label:'TAM methodology', q:'Is the $1.2B Knowledge Worker enterprise TAM credible? Pricing? Penetration assumptions?'},
+      {id:'icp_profile', label:'ICP / buyer profile', q:'Are CIO/CFO/Comm/SCM/CMO etc. the right economic buyers? Who actually approves?'},
+      {id:'gtm_motion', label:'GTM motion', q:'Is the proposed sales motion (top-down, India-first, BRSR-anchored) realistic for this market?'},
+      {id:'incumbents_landscape', label:'Incumbent landscape', q:'Have we mapped the incumbents accurately (SAP, Salesforce, BeatRoute, FieldAssist, Zoho)?'},
+      {id:'why_now', label:'Why now', q:'Is the timing right for India enterprise AI adoption? GenAI maturity, regulatory tailwinds, talent supply?'},
+      {id:'implementation_strategy', label:'Implementation strategy', q:'How will AI actually get deployed across the portfolio? Pilot path, integration, change management, time-to-value?'}
+    ];
+
+    function getStrategic(aspectId){
+      var k = '__strategic__|' + aspectId;
+      return state[k] || {pct:0, evidence:'', transcript:'', linked:[]};
+    }
+    function setStrategic(aspectId, patch){
+      var k = '__strategic__|' + aspectId;
+      state[k] = Object.assign(getStrategic(aspectId), patch);
+      saveState(state);
+    }
+    function rollupStrategic(){
+      if (!STRATEGIC_ASPECTS.length) return 0;
+      var sum = 0;
+      STRATEGIC_ASPECTS.forEach(function(a){ sum += getStrategic(a.id).pct; });
+      return Math.round(sum / STRATEGIC_ASPECTS.length);
+    }
+
+    function buildStrategicAspect(aspect, allContacts){
+      var rec = getStrategic(aspect.id);
+      var wrap = document.createElement('div'); wrap.className = 'tv-aspect';
+      var top = document.createElement('div'); top.className = 'tv-aspect-top';
+      var nameWrap = document.createElement('div');
+      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-aspect-name'; nameDiv.textContent = aspect.label;
+      var qDiv = document.createElement('div'); qDiv.className = 'tv-aspect-q'; qDiv.textContent = aspect.q;
+      nameWrap.appendChild(nameDiv); nameWrap.appendChild(qDiv);
+      top.appendChild(nameWrap);
+      var bar = makeBar(rec.pct); top.appendChild(bar);
+      var pctWrap = document.createElement('div');
+      pctWrap.style.display = 'flex'; pctWrap.style.alignItems = 'center'; pctWrap.style.gap = '6px'; pctWrap.style.justifyContent = 'flex-end';
+      var pctIn = document.createElement('input'); pctIn.type = 'number'; pctIn.min='0'; pctIn.max='100'; pctIn.value=rec.pct; pctIn.className='tv-pct-input';
+      var pctSign = document.createElement('span'); pctSign.style.fontFamily='var(--font-mono)'; pctSign.style.fontSize='0.74rem'; pctSign.style.color='#475569'; pctSign.textContent='%';
+      pctWrap.appendChild(pctIn); pctWrap.appendChild(pctSign);
+      top.appendChild(pctWrap); wrap.appendChild(top);
+
+      var slider = document.createElement('input'); slider.type='range'; slider.min='0'; slider.max='100'; slider.value=rec.pct; slider.className='tv-slider';
+      wrap.appendChild(slider);
+
+      function setPct(v){
+        v = Math.max(0, Math.min(100, parseInt(v,10)||0));
+        pctIn.value = v; slider.value = v;
+        bar.firstChild.style.width = v + '%';
+        setStrategic(aspect.id, {pct:v}); refreshRollups();
+      }
+      pctIn.addEventListener('input', function(){ setPct(pctIn.value); });
+      slider.addEventListener('input', function(){ setPct(slider.value); });
+
+      var detail = document.createElement('div'); detail.className = 'tv-aspect-detail';
+      var leftCol = document.createElement('div');
+      var evLabel = document.createElement('div'); evLabel.className='tv-field-label'; evLabel.textContent='Evidence \u2014 sources, expert quotes, market data';
+      var evArea = document.createElement('textarea'); evArea.className='tv-evidence';
+      evArea.placeholder = 'e.g. McKinsey MGI 2023 confirms FMCG Knowledge Worker share \u2248 35%; HUL/ITC BRSR Section A 20(a) shows 1,300 KW per $B revenue.';
+      evArea.value = rec.evidence || '';
+      evArea.addEventListener('input', function(){ setStrategic(aspect.id, {evidence: evArea.value}); });
+      var trLabel = document.createElement('div'); trLabel.className='tv-field-label'; trLabel.style.marginTop='8px'; trLabel.textContent='Transcript / source URL';
+      var trIn = document.createElement('input'); trIn.type='text'; trIn.className='tv-link-input'; trIn.placeholder='Granola or research URL'; trIn.value=rec.transcript||'';
+      trIn.addEventListener('input', function(){ setStrategic(aspect.id, {transcript: trIn.value}); });
+      leftCol.appendChild(evLabel); leftCol.appendChild(evArea); leftCol.appendChild(trLabel); leftCol.appendChild(trIn);
+      detail.appendChild(leftCol);
+
+      var rightCol = document.createElement('div'); rightCol.className='tv-side';
+      var cLabel = document.createElement('div'); cLabel.className='tv-field-label'; cLabel.textContent='Linked contacts (any CRM contact \u2014 click to link)';
+      var cBox = document.createElement('div'); cBox.className='tv-contact-list';
+      if (!allContacts.length) {
+        var none = document.createElement('div'); none.style.fontSize='0.7rem'; none.style.color='#94a3b8'; none.textContent='No CRM contacts yet.';
+        cBox.appendChild(none);
+      } else {
+        allContacts.slice(0, 50).forEach(function(c){
+          var chip = document.createElement('span');
+          chip.className = 'tv-contact-chip' + ((rec.linked||[]).indexOf(c.key) !== -1 ? ' linked' : '') + (c.status === 'done' ? ' done-status' : '');
+          chip.textContent = c.name + ' \u2014 ' + (c.persona || '');
+          chip.title = c.company + ' \u00b7 status: ' + c.status;
+          chip.addEventListener('click', function(){
+            var linked = (rec.linked || []).slice();
+            var idx = linked.indexOf(c.key);
+            if (idx === -1) linked.push(c.key); else linked.splice(idx, 1);
+            setStrategic(aspect.id, {linked: linked});
+            rec = getStrategic(aspect.id);
+            chip.classList.toggle('linked');
+          });
+          cBox.appendChild(chip);
+        });
+      }
+      rightCol.appendChild(cLabel); rightCol.appendChild(cBox);
+      detail.appendChild(rightCol);
+      wrap.appendChild(detail);
+      return wrap;
+    }
+
+    var strategicRowRef = null;
+    function buildStrategic(allContacts){
+      var wrap = document.createElement('div'); wrap.className='tv-sector';
+      var hdr = document.createElement('div'); hdr.className='tv-sector-hdr'; hdr.style.background='rgba(13,148,136,0.06)';
+      var nameDiv = document.createElement('div'); nameDiv.className='tv-sector-name';
+      var ic = document.createElement('span'); ic.textContent='\ud83c\udfaf'; nameDiv.appendChild(ic);
+      var lbl = document.createElement('span'); lbl.textContent=' Strategic / thesis-level validations  '; nameDiv.appendChild(lbl);
+      var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
+      sub.textContent = STRATEGIC_ASPECTS.length + ' aspects \u00b7 cross-sector';
+      nameDiv.appendChild(sub);
+      var pct = rollupStrategic();
+      var bar = makeBar(pct);
+      var pctDiv = document.createElement('div'); pctDiv.className='tv-pct'; pctDiv.textContent=pct+'%';
+      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
+      wrap.appendChild(hdr);
+
+      var box = document.createElement('div'); box.className='tv-nodes';
+      box.style.padding = '12px 18px 18px';
+      STRATEGIC_ASPECTS.forEach(function(a){ box.appendChild(buildStrategicAspect(a, allContacts)); });
+      wrap.appendChild(box);
+
+      hdr.addEventListener('click', function(e){
+        if (e.target.closest('input,textarea,select,button')) return;
+        box.style.display = (box.style.display === 'none') ? '' : 'none';
+      });
+
+      strategicRowRef = {pctEl: pctDiv, fillEl: bar.firstChild, compute: rollupStrategic};
       return wrap;
     }
 
@@ -8522,7 +8724,8 @@ window.NODE_DESC = {
       var contacts = getCRMContacts();
       var tree = document.getElementById('tv-tree');
       while (tree.firstChild) tree.removeChild(tree.firstChild);
-      nodeRowRefs = []; sectorRowRefs = [];
+      nodeRowRefs = []; sectorRowRefs = []; subRowRefs = []; strategicRowRef = null;
+      tree.appendChild(buildStrategic(contacts));
       SECTORS.forEach(function(s){ tree.appendChild(buildSector(s, personaMap, contacts)); });
       refreshRollups();
 
