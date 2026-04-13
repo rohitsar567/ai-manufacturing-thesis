@@ -3290,7 +3290,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="display:flex; gap:24px; justify-content:center; margin-top:16px; flex-wrap:wrap;">
         <span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:50%; background:rgba(37,99,235,0.85);"></div>Automobile</span>
         <span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:50%; background:rgba(217,119,6,0.85);"></div>FMCG</span>
-        <span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:50%; background:transparent; border:2px solid var(--accent-teal);"></div>Top quartile (score 8+)</span>
+        <span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:50%; background:transparent; border:2px solid #dc2626;"></div>Top quartile (score 8+)</span>
         <span style="font-family:var(--font-display); font-size:0.78rem; color:var(--text-dim);">Dot size = enterprise TAM</span>
       </div>
     </div>
@@ -5697,7 +5697,7 @@ document.addEventListener('mouseout', function(e) {
       px = Math.max(M.left + r + 2, Math.min(M.left + plotW - r - 2, px));
       py = Math.max(M.top + r + 2, Math.min(M.top + plotH - r - 2, py));
       var color = n.sector === 'Auto' ? 'rgba(37,99,235,0.80)' : 'rgba(217,119,6,0.80)';
-      var stroke = n.score >= 8 ? '#0d9488' : 'rgba(255,255,255,0.90)';
+      var stroke = n.score >= 8 ? '#dc2626' : 'rgba(255,255,255,0.90)';
       var strokeW = n.score >= 8 ? 2.5 : 1.2;
       ctx.beginPath();
       ctx.arc(px, py, r, 0, Math.PI * 2);
