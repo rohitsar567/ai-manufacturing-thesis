@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'aefb98cd5c3b5f5a0bc934eca1174101656bef36';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'aefb98cd5c3b5f5a0bc934eca1174101656bef36' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8162,7 +8162,7 @@ window.NODE_DESC = {
       </div>
     </div>
 
-    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:12px;line-height:1.55;">Every question in our Auto + FMCG questionnaire becomes one validation row below \u2014 including the gap-derived questions automatically inserted into the relevant modules. <strong>Auto</strong> and <strong>FMCG</strong> are separate tables; <strong>Combined</strong> rolls them up TAM-weighted. <span style="color:#0d9488;font-weight:700;">Granola integration coming</span> &mdash; transcripts will auto-populate evidence + slide percentages without manual input.</div>
+    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:12px;line-height:1.55;">Every question in our Auto + FMCG questionnaire becomes one validation row below &mdash; including the gap-derived questions automatically inserted into the relevant modules. <strong>Auto</strong> and <strong>FMCG</strong> are separate tables; <strong>Combined</strong> rolls them up TAM-weighted. <span style="color:#0d9488;font-weight:700;">Granola integration coming</span> &mdash; transcripts will auto-populate evidence + slide percentages without manual input.</div>
 
     <div id="tv-diagram-wrap" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:14px;overflow-x:auto;">
       <div id="tv-diagram"></div>
