@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'cd803e33accf9f745e4828066b593acee723d120';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'cd803e33accf9f745e4828066b593acee723d120' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8201,6 +8201,16 @@ window.NODE_DESC = {
     #tv-diagram .node.module .pct{font-size:0.68rem}
     #tv-diagram .conn{height:14px;border-left:1.5px dashed #cbd5e1;width:0;margin:0 auto}
     #tv-diagram .label-row{display:flex;justify-content:center;font-size:0.55rem;font-weight:700;color:#64748b;letter-spacing:0.08em;text-transform:uppercase;margin:2px 0 0}
+    #tv-diagram .row.r3-groups{gap:24px;align-items:flex-start}
+    #tv-diagram .sec-group{flex:1;min-width:280px;padding:10px;border-radius:10px;background:#fff;border:1.5px solid;display:flex;flex-direction:column;gap:8px}
+    #tv-diagram .sec-group-auto{border-color:rgba(37,99,235,0.35);background:rgba(37,99,235,0.03)}
+    #tv-diagram .sec-group-fmcg{border-color:rgba(217,119,6,0.35);background:rgba(217,119,6,0.03)}
+    #tv-diagram .sec-group-hdr{font-size:0.62rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:4px}
+    #tv-diagram .sec-group-auto .sec-group-hdr{color:#2563eb}
+    #tv-diagram .sec-group-fmcg .sec-group-hdr{color:#b45309}
+    #tv-diagram .sec-group-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    #tv-diagram .module-auto{border-color:rgba(37,99,235,0.4)}
+    #tv-diagram .module-fmcg{border-color:rgba(217,119,6,0.4)}
 
     #tv-kg .tv-sector-card{border:2px solid;border-radius:12px;overflow:hidden;background:#fff}
     #tv-kg .tv-sector-card.auto{border-color:rgba(37,99,235,0.45)}
@@ -8687,18 +8697,28 @@ window.NODE_DESC = {
       }
       var modsA = (window.__TV_MODS||{}).auto||[], modsF = (window.__TV_MODS||{}).fmcg||[];
       var qA = sumQ(modsA), qF = sumQ(modsF);
-      var r1 = row(); r1.appendChild(nb('thesis','THESIS', rollupOverall(), 'Validation %'));
+      var r1 = row(); r1.appendChild(nb('thesis','THESIS \u00b7 Combined', rollupOverall(), 'Auto + FMCG TAM-weighted'));
       dg.appendChild(r1); dg.appendChild(conn());
-      dg.appendChild(lblRow('Validation rolls up from these 4 streams'));
+      dg.appendChild(lblRow('Auto + FMCG roll up TAM-weighted into the Thesis above'));
       var r2 = row();
       r2.appendChild(nb('sector-auto','Auto sector', rollupSector('auto', modsA), '$0.7B \u00b7 ' + qA + ' Qs'));
       r2.appendChild(nb('sector-fmcg','FMCG sector', rollupSector('fmcg', modsF), '$0.5B \u00b7 ' + qF + ' Qs'));
-      r2.appendChild(nb('thesis','Combined', Math.round((rollupSector('auto',modsA)*TAM_W.auto+rollupSector('fmcg',modsF)*TAM_W.fmcg)/(TAM_W.auto+TAM_W.fmcg)), 'TAM-weighted'));
       dg.appendChild(r2); dg.appendChild(conn());
       dg.appendChild(lblRow('Each sector = sum of its 6 questionnaire modules'));
-      var r3 = row();
-      modsA.forEach(function(m){ r3.appendChild(nb('module','A.'+m.idx, rollupModule('auto', m), m.title.replace(/^\d+\s*[\u00b7\.\:]?\s*/,'').slice(0,16))); });
-      modsF.forEach(function(m){ r3.appendChild(nb('module','F.'+m.idx, rollupModule('fmcg', m), m.title.replace(/^\d+\s*[\u00b7\.\:]?\s*/,'').slice(0,16))); });
+      var r3 = document.createElement('div'); r3.className = 'row r3-groups';
+      function buildGroup(secKey, mods, klass, label){
+        var g = document.createElement('div'); g.className = 'sec-group sec-group-' + secKey;
+        var hdr = document.createElement('div'); hdr.className = 'sec-group-hdr'; hdr.textContent = label;
+        g.appendChild(hdr);
+        var inner = document.createElement('div'); inner.className = 'sec-group-row';
+        mods.forEach(function(m){
+          inner.appendChild(nb('module ' + klass, (secKey==='auto'?'A':'F') + '.' + m.idx, rollupModule(secKey, m), m.title.replace(/^\d+\s*[\u00b7\.\:]?\s*/,'').slice(0,18)));
+        });
+        g.appendChild(inner);
+        return g;
+      }
+      r3.appendChild(buildGroup('auto', modsA, 'module-auto', '\ud83d\ude97  AUTO \u2014 6 modules'));
+      r3.appendChild(buildGroup('fmcg', modsF, 'module-fmcg', '\ud83e\uddf4  FMCG \u2014 6 modules'));
       dg.appendChild(r3);
     }
     function sumQ(mods){ var n=0; mods.forEach(function(m){m.subgroups.forEach(function(sg){n+=sg.questions.length;});}); return n; }
