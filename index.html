@@ -9089,7 +9089,9 @@ window.PERSONA_CONTEXT = {
       <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#92400e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Linked thesis nodes</div>
       <div style="margin-bottom:14px;">${nodeChips}</div>
       <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#92400e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">What this persona validates</div>
-      <div style="font-size:0.82rem;color:#374151;line-height:1.55;">${data.validates}</div>
+      <div style="font-size:0.82rem;color:#374151;line-height:1.55;margin-bottom:14px;">${data.validates}</div>
+      <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#92400e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Why these candidates are the right people to ask</div>
+      <div style="font-size:0.82rem;color:#374151;line-height:1.55;">${data.relevance || ""}</div>
     </div>`;
   }
 
