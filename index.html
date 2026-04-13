@@ -7564,5 +7564,50 @@ window.NODE_DESC = {
   "Analytics & Revenue Mgmt": "Price-pack architecture, promotion ROI analysis, customer analytics, RGM (revenue growth management) — turning data into pricing and promotional decisions."
 };
 </script>
+
+<script id="fix-orphan-modules">
+(function(){
+  function tagAndSync(){
+    const scope = document.querySelector('.evs-scope');
+    if (!scope) return;
+    const mods = scope.querySelectorAll(':scope > .module, :scope > section > .module, :scope > section > div > .module');
+    // Simple keyword-based tagging
+    const AUTO_KW = /dealer|warranty|oem|vehicle|homologation|after-?sales|jlr|tata motors|mahindra|maruti|bajaj auto|auto components|powertrain|two-?wheeler|motorcycle|kpit|auto ai/i;
+    const FMCG_KW = /fmcg|consumer goods|modern trade|general trade|shopper|trade marketing|rgm|distributor|e-?commerce|outlet|retail execution|demand sensing|co-?packer|hul|itc|nestle|britannia|dabur|marico|p&g|bizom|fieldassist/i;
+    document.querySelectorAll('.module').forEach(m => {
+      if (m.dataset.sec) return; // already tagged
+      const txt = m.textContent.toLowerCase();
+      const autoHits = (txt.match(AUTO_KW) || []).length;
+      const fmcgHits = (txt.match(FMCG_KW) || []).length;
+      if (autoHits > fmcgHits && autoHits > 0) m.dataset.sec = 'auto';
+      else if (fmcgHits > autoHits && fmcgHits > 0) m.dataset.sec = 'fmcg';
+      else m.dataset.sec = 'both'; // generic module (e.g. Role & context) shows in both
+    });
+  }
+  function syncModules(activeTab){
+    document.querySelectorAll('.module').forEach(m => {
+      const sec = m.dataset.sec || 'both';
+      m.style.display = (sec === 'both' || sec === activeTab) ? '' : 'none';
+    });
+  }
+  function init(){
+    tagAndSync();
+    // Hook into evs tab click
+    const tabs = document.querySelectorAll('.evs-scope .tab');
+    if (!tabs.length) return;
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        const active = t.dataset.tab;
+        syncModules(active);
+      });
+    });
+    // Initial sync based on current active tab
+    const activeTab = document.querySelector('.evs-scope .tab.active');
+    if (activeTab) syncModules(activeTab.dataset.tab);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
