@@ -1,6 +1,7 @@
 // Service worker: network-first for HTML, cache-first for assets.
-// Self-cleans on each install so a deploy that ships sw.js?v=NEW_SHA wipes old caches.
-const CACHE = 'thesis-v1';
+// BUILD_SHA_PLACEHOLDER is stamped per deploy so the SW byte-differs each time, forcing browser to install new.
+const BUILD_SHA = '__BUILD_SHA__';
+const CACHE = 'thesis-' + BUILD_SHA;
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
