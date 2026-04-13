@@ -9198,5 +9198,35 @@ window.PERSONA_CONTEXT = {
   else init();
 })();
 </script>
+
+<script id="orphan-module-visibility">
+(function(){
+  function tagModules(){
+    const all = document.querySelectorAll('.module');
+    const half = Math.ceil(all.length / 2);
+    all.forEach((m, i) => {
+      if (m.dataset.sec) return;
+      m.dataset.sec = (i < half) ? 'auto' : 'fmcg';
+    });
+  }
+  function syncModules(activeTab){
+    document.querySelectorAll('.module').forEach(m => {
+      const sec = m.dataset.sec || 'both';
+      // Hide all modules when KG sub-tab active
+      if (activeTab === 'kg') { m.style.display = 'none'; return; }
+      m.style.display = (sec === 'both' || sec === activeTab) ? '' : 'none';
+    });
+  }
+  function init(){
+    tagModules();
+    const tabs = document.querySelectorAll('.evs-scope .tab');
+    tabs.forEach(t => t.addEventListener('click', () => syncModules(t.dataset.tab)));
+    const active = document.querySelector('.evs-scope .tab.active');
+    if (active) syncModules(active.dataset.tab);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
