@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'bb73421027b88076975da94197fb3fc325fee271';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'bb73421027b88076975da94197fb3fc325fee271' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -4872,12 +4872,26 @@ function renderDetailPanel(n, ctx) {
         <!-- PER-NODE ROLE BREAKDOWN SUB-CALCULATION -->
         <div style="margin-top:18px;padding-top:16px;border-top:1px dashed #fde68a;">
           <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Why this node gets ${n.role_breakdown.share_pct.toFixed(1)}% of the ${isAuto ? '$650M' : '$420M'} sector TAM</div>
-          <p style="font-size:0.82rem;color:#374151;line-height:1.65;margin:0 0 12px;">The table below lists every white-collar role in this node with a <strong>task-time automation rate</strong> &mdash; the share of that role&rsquo;s working hours that today&rsquo;s AI tooling can credibly automate (from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb;text-decoration:underline;">WEF Future of Jobs 2025</a>, <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey MGI GenAI 2023</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">Frey-Osborne 2013</a>). These are <em>task-time weighted</em>, not salary-weighted &mdash; each source codes the fraction of a role&rsquo;s task portfolio that can be performed by AI.</p>
-              <div style="background:#f8fafc;border:1px solid #e4e9f0;border-radius:8px;padding:10px 14px;margin:0 0 12px;font-size:0.78rem;color:#374151;line-height:1.55;">
-                <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#64748b;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">How the % becomes $ TAM</div>
-                For the $ TAM, each role&rsquo;s automation rate is multiplied by that role&rsquo;s fully-loaded annual cost (BRSR-parsed headcount &times; median pay &times; 1.3 loading factor). Task-time automation maps linearly to labour budget displacement because at the firm level, automated tasks translate to hours saved or reallocated, which sit in the payroll line. Summing across roles in the node, then dividing by the sector-wide total, gives this node&rsquo;s share of the sector TAM.
-              </div>
-          ${n.role_breakdown.is_subsplit ? '<p style="font-size:0.78rem;color:#92400e;background:rgba(217,119,6,0.06);border-left:3px solid #f59e0b;padding:10px 14px;margin:0 0 10px;border-radius:4px;"><strong>Note &mdash; this is a sub-split node:</strong> in the source role library, the ' + n.role_breakdown.parent + ' block lumps several distinct sub-workflows together. We split it into separate cards for clarity. This node gets ' + (n.role_breakdown.split_share*100).toFixed(0) + '% of the parent block&rsquo;s total role load (the split weighting reflects the relative size of each sub-workflow). The role list below shows the parent block&rsquo;s full roster &mdash; this card represents the indicated share of those roles.</p>' : ''}
+
+          ${n.role_breakdown.is_subsplit ? '<div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:0 0 14px;">' +
+            '<div style="font-family:var(--font-display);font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;display:flex;align-items:center;gap:6px;"><span style="font-size:0.9rem;">\u26A0\uFE0F</span> Sub-split node</div>' +
+            '<p style="font-size:0.78rem;color:#78350f;line-height:1.55;margin:0;">The underlying role library lumps <strong>' + n.role_breakdown.parent + '</strong> together as one block. We split it into separate cards for clarity. <strong>This card represents ' + (n.role_breakdown.split_share*100).toFixed(0) + '% of ' + n.role_breakdown.parent + '&rsquo;s total automation-capable dollars</strong>. The role table below lists the parent block&rsquo;s full roster; the total at the bottom is already adjusted for this sub-split weighting.</p>' +
+            '</div>' : ''}
+
+          <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:14px 16px;margin:0 0 14px;font-size:0.8rem;color:#134e4a;line-height:1.6;">
+            <div style="font-family:var(--font-display);font-size:0.68rem;font-weight:800;color:#0d9488;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">The math in plain English (honest version)</div>
+            <p style="margin:0 0 8px;">BRSR gives us sector-wide headcount (${isAuto ? '163K' : '143K'} Auto/FMCG KWs) and median salary (${isAuto ? '$27K' : '$18.5K'}), but <strong>not per-role headcount within each node</strong>. To allocate the sector TAM to nodes, we use the role list in the role library and sum each role&rsquo;s task-automation rate:</p>
+            <ol style="margin:0 0 8px 22px;padding:0;">
+              <li style="margin-bottom:3px;">For each role in this node, look up its task-automation rate (right-most column in the table below &mdash; Middle Mgmt 42%, Professional 30%, Exec 0%, etc.)</li>
+              <li style="margin-bottom:3px;">Sum those rates across all roles in the node &rarr; <strong>${n.role_breakdown.addr_sum.toFixed(2)}</strong>${n.role_breakdown.is_subsplit ? ' (already adjusted for this card&rsquo;s '+(n.role_breakdown.split_share*100).toFixed(0)+'% sub-split)' : ''}. Unit: automation-weight index, not dollars.</li>
+              <li style="margin-bottom:3px;">Do the same across <strong>all ${isAuto ? '28' : '29'} ${sector} T1 nodes</strong> &rarr; <strong>${n.role_breakdown.t1_total.toFixed(2)}</strong> sector total.</li>
+              <li style="margin-bottom:3px;">This node&rsquo;s share = <strong>${n.role_breakdown.addr_sum.toFixed(2)} &divide; ${n.role_breakdown.t1_total.toFixed(2)} = ${n.role_breakdown.share_pct.toFixed(1)}%</strong></li>
+              <li style="margin-bottom:3px;">Apply to sector TAM: <strong>${n.role_breakdown.share_pct.toFixed(1)}% &times; ${isAuto ? '$650M' : '$420M'} = $${Math.round(n.role_breakdown.share_pct/100 * (isAuto ? 650 : 420))}M</strong> (shown as <strong>$${n.tam}M</strong> after rounding reconciliation).</li>
+            </ol>
+            <p style="margin:0;padding:8px 10px;background:rgba(220,38,38,0.06);border-left:3px solid #dc2626;border-radius:4px;font-size:0.75rem;color:#7f1d1d;"><strong>Honest limitation:</strong> this treats every role within a node as roughly equally-staffed, because BRSR filings don&rsquo;t report headcount per role per workflow. A node with 5 Professional roles scores the same as a node with 5 Professional roles, regardless of whether the actual company has 10 of each or 1000 of one and 5 of the other. Upgrading to BRSR-parsed per-role headcount would change the shares but not the methodology.</p>
+          </div>
+
+          <p style="font-size:0.78rem;color:#374151;line-height:1.6;margin:0 0 10px;">The table below shows each role in this node and the task-time automation rate our three research sources (<a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb;text-decoration:underline;">WEF 2025</a>, <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey MGI 2023</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">Frey-Osborne 2013</a>) assign to each role&rsquo;s career stream.</p>
           <table style="width:100%;border-collapse:collapse;font-size:0.78rem;color:#374151;">
             <thead>
               <tr style="background:rgba(217,119,6,0.06);">
@@ -4893,7 +4907,7 @@ function renderDetailPanel(n, ctx) {
                 <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#92400e;">${n.role_breakdown.addr_sum.toFixed(2)}</td>
               </tr>
               <tr>
-                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&divide; Same total across all ${isAuto ? '15' : '17'} selected ${sector} nodes</td>
+                <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&divide; Sum of role-rates across all ${isAuto ? '28' : '29'} ${sector} T1 nodes (automation-weight index, not $)</td>
                 <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${n.role_breakdown.t1_total.toFixed(2)}</td>
               </tr>
               <tr style="border-top:2px solid #d97706;">
