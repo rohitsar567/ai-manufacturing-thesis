@@ -3107,6 +3107,44 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         </div>
       </details>
 
+      <!-- ROLE ELIGIBILITY FILTER (collapsible) -->
+      <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin:14px 0; overflow:hidden;">
+        <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--accent-teal); display:flex; justify-content:space-between; align-items:center; list-style:none;">
+          <span>How "role eligibility" is defined and why the filter is 83%</span>
+          <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
+        </summary>
+        <div style="padding:0 24px 22px;">
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Definition</div>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.65; margin:0 0 14px;">Role eligibility is the <strong style="color:var(--text-primary);">share of Knowledge Worker payroll that can plausibly be automated by AI at the role level</strong>, before applying task-level automation rates. Two cohorts are carved out: (i) Executives &mdash; CXOs and direct reports whose work is decision authority, judgement under accountability, and stakeholder management &mdash; rated <strong>0% eligible</strong>, and (ii) a carve-out of <strong>20% of Professional R&amp;D</strong> (principal scientists, lead architects, patent-holders) classed as hyper-technical / tacit-knowledge work today&rsquo;s commercial AI cannot displace. Everything else &mdash; clerical, sales, operations, mid-management, technical, standard professional &mdash; is eligible.</p>
+
+          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Why 83% is the payroll-weighted eligibility</div>
+          <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin:0 0 12px;">Eligibility is payroll-weighted, not headcount-weighted, because excluded roles (CXO + hyper-tech R&amp;D) earn disproportionately more per head. Approximate structure from <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="color:var(--accent-teal);">BRSR C P5 E3</a> pay bands plus <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI</a> role taxonomy:</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; margin:0 0 12px; font-size:0.72rem;">
+            <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:8px; padding:10px;">
+              <div style="font-weight:700; color:var(--text-primary); margin-bottom:2px;">Executives / CXO / VP</div>
+              <div style="color:var(--text-dim);">~0.3% headcount &middot; ~6% payroll</div>
+              <div style="color:#be123c; font-weight:700;">0% eligible</div>
+            </div>
+            <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:8px; padding:10px;">
+              <div style="font-weight:700; color:var(--text-primary); margin-bottom:2px;">Hyper-technical R&amp;D</div>
+              <div style="color:var(--text-dim);">~3% headcount &middot; ~11% payroll</div>
+              <div style="color:#be123c; font-weight:700;">0% eligible (carve-out)</div>
+            </div>
+            <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:8px; padding:10px;">
+              <div style="font-weight:700; color:var(--text-primary); margin-bottom:2px;">Professional (rest)</div>
+              <div style="color:var(--text-dim);">~52% headcount &middot; ~54% payroll</div>
+              <div style="color:#047857; font-weight:700;">100% eligible</div>
+            </div>
+            <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:8px; padding:10px;">
+              <div style="font-weight:700; color:var(--text-primary); margin-bottom:2px;">Clerical + Sales + Mid-Mgmt + Technician + Customer Service</div>
+              <div style="color:var(--text-dim);">~45% headcount &middot; ~29% payroll</div>
+              <div style="color:#047857; font-weight:700;">100% eligible</div>
+            </div>
+          </div>
+          <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.55; margin:0 0 0;">Payroll-weighted sum of the eligible cohorts: 54% + 29% = <strong style="color:var(--text-secondary);">~83%</strong>. The 17% excluded is the Executive (6%) + hyper-technical R&amp;D (11%) payroll. This 83% is applied once at the sector level to Knowledge Worker payroll, <em>before</em> the task-level AI automation rate. Sources: <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI "Generative AI and the Future of Work"</a>, <a href="https://www.oecd-ilibrary.org/employment/the-impact-of-artificial-intelligence-on-the-labour-market_f5d8b2e1-en" target="_blank" style="color:var(--accent-teal);">OECD AI-and-labour 2023</a>, and BRSR pay-band reconciliation for the 17 companies directly parsed.</p>
+        </div>
+      </details>
+
       <!-- ROLE-BASED AI AUTOMATION RATES (collapsible) -->
       <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin-bottom:14px; overflow:hidden;">
         <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--accent-teal); display:flex; justify-content:space-between; align-items:center; list-style:none;">
@@ -8279,5 +8317,25 @@ document.addEventListener('keydown', function(e){
   else portalModals();
 })();
 </script>
+
+<style id="details-harmonize">
+  /* Harmonize ALL <details> with Research Methodology visual */
+  details:not(.expanded-role-desc){background:var(--bg-card) !important;border:2px solid var(--accent-teal) !important;border-radius:14px !important;box-shadow:0 2px 12px rgba(13,148,136,0.08) !important;margin-bottom:14px !important;overflow:hidden !important}
+  details > summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 24px !important;cursor:pointer;list-style:none;background:transparent}
+  details > summary::-webkit-details-marker{display:none}
+  details > summary > span:first-child{font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:var(--accent-teal);flex:1}
+  details > summary > span:last-child:not(.expand-cta){display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display) !important;font-size:0.78rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:8px 16px !important;border-radius:8px !important;box-shadow:0 2px 6px rgba(13,148,136,0.25) !important;letter-spacing:0.02em !important;white-space:nowrap !important}
+  details > summary > span:last-child:not(.expand-cta)::before{content:'Click to expand '}
+  details[open] > summary > span:last-child:not(.expand-cta)::before{content:'Click to collapse '}
+  details[open] > summary > span:last-child:not(.expand-cta){transform:none}
+  details[open] > summary > span:last-child:not(.expand-cta) > *{display:inline-block;transform:rotate(180deg);transition:transform .2s}
+  /* .collapsible-toggle harmonization matching methodology */
+  .collapsible-toggle{border:2px solid var(--accent-teal) !important;border-radius:14px !important;padding:18px 24px !important;background:var(--bg-card) !important;box-shadow:0 2px 12px rgba(13,148,136,0.08) !important;display:flex !important;justify-content:space-between !important;align-items:center !important;gap:16px !important;font-family:var(--font-display) !important;font-weight:700 !important;font-size:0.95rem !important;color:var(--accent-teal) !important;cursor:pointer !important;transition:all .15s !important}
+  .collapsible-toggle::before{content:none !important}
+  .collapsible-toggle::after{content:'Click to expand \25BE' !important;font-family:var(--font-display) !important;font-size:0.78rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:8px 16px !important;border-radius:8px !important;box-shadow:0 2px 6px rgba(13,148,136,0.25) !important;letter-spacing:0.02em !important;white-space:nowrap !important}
+  .collapsible-toggle.open::after{content:'Click to collapse \25B4' !important}
+  .collapsible-toggle:hover{box-shadow:0 4px 16px rgba(13,148,136,0.18) !important}
+  .collapsible-body.open{border:2px solid var(--accent-teal) !important;border-top:none !important;border-radius:0 0 14px 14px !important;margin-top:-14px !important;padding:16px 24px 24px !important}
+</style>
 </body>
 </html>
