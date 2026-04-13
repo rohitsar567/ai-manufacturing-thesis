@@ -4717,7 +4717,28 @@ function renderDetailPanel(n, ctx) {
         THE PROBLEM
       </div>
       <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px;">
-        <ul style="list-style:none;">${n.problems.map(p=>'<li style="font-size:0.9rem;color:#374151;padding:5px 0 5px 14px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#e11d48;">&bull;</span>'+p+'</li>').join('')}</ul>
+        ${(function(){
+          function classify(t){
+            const s = t.toLowerCase();
+            if (/\b(revenue|sales|lost sales|demand|forecast|customer|lead|conversion|coverage|outlet|shelf|churn|lapsed|attrition of|market share|promotion.*destroy|pricing|otif|on-time|order fulfill|fill rate|availability|stockout|out-of-stock|sku.*lost|missed|new product|launch|growth|penetration)\b/.test(s)) return 'revenue';
+            if (/\b(cost|margin|waste|inventory|working capital|efficiency|rework|scrap|defect|warranty cost|warranty claim|overtime|downtime|p&l|profitability|overhead|labour|labor|freight|logistics cost|procurement|purchase|budget|inventory holding|obsolete)\b/.test(s)) return 'cost';
+            return 'other';
+          }
+          const buckets = {revenue:[], cost:[], other:[]};
+          (n.problems||[]).forEach(p => buckets[classify(p)].push(p));
+          const labels = {revenue:'Revenue impact', cost:'Cost impact', other:'Other (efficiency · quality · compliance)'};
+          const colors = {revenue:'#be123c', cost:'#9a3412', other:'#475569'};
+          let out = '';
+          ['revenue','cost','other'].forEach(k => {
+            if (!buckets[k].length) return;
+            out += '<div style="margin-bottom:10px;">';
+            out += '<div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:'+colors[k]+';letter-spacing:0.1em;text-transform:uppercase;margin-bottom:5px;">'+labels[k]+'</div>';
+            out += '<ul style="list-style:none;margin:0;padding:0;">';
+            buckets[k].forEach(p => { out += '<li style="font-size:0.88rem;color:#374151;padding:3px 0 3px 14px;position:relative;line-height:1.55;"><span style="position:absolute;left:0;color:'+colors[k]+';">&bull;</span>'+p+'</li>'; });
+            out += '</ul></div>';
+          });
+          return out;
+        })()}
       </div>
     </div>
 
