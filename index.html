@@ -8005,5 +8005,88 @@ document.addEventListener('keydown', function(e){
   }
 });
 </script>
+
+<style id="hscroll-affordance">
+  /* Persistent scrollbar on horizontally scrollable areas */
+  [style*="overflow-x:auto"],
+  [style*="overflow-x: auto"],
+  .sources-table{
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 transparent;
+    position: relative;
+  }
+  [style*="overflow-x:auto"]::-webkit-scrollbar,
+  [style*="overflow-x: auto"]::-webkit-scrollbar,
+  .sources-table::-webkit-scrollbar{ height: 8px; }
+  [style*="overflow-x:auto"]::-webkit-scrollbar-track,
+  [style*="overflow-x: auto"]::-webkit-scrollbar-track,
+  .sources-table::-webkit-scrollbar-track{ background: #f1f5f9; border-radius: 4px; }
+  [style*="overflow-x:auto"]::-webkit-scrollbar-thumb,
+  [style*="overflow-x: auto"]::-webkit-scrollbar-thumb,
+  .sources-table::-webkit-scrollbar-thumb{ background: #94a3b8; border-radius: 4px; }
+  [style*="overflow-x:auto"]::-webkit-scrollbar-thumb:hover,
+  [style*="overflow-x: auto"]::-webkit-scrollbar-thumb:hover,
+  .sources-table::-webkit-scrollbar-thumb:hover{ background: #64748b; }
+  /* Right-edge fade hint for scrollable regions that have more content off-screen */
+  .hscroll-wrap{ position: relative; }
+  .hscroll-wrap::after{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 8px;
+    width: 48px;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity .2s;
+    z-index: 5;
+  }
+  .hscroll-wrap.at-end::after{ opacity: 0; }
+  .hscroll-wrap::before{
+    content: 'scroll \2192';
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #64748b;
+    background: rgba(255,255,255,0.95);
+    padding: 3px 8px;
+    border-radius: 10px;
+    border: 1px solid #e4e9f0;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 1;
+    transition: opacity .2s;
+    letter-spacing: 0.06em;
+  }
+  .hscroll-wrap.at-end::before{ opacity: 0; }
+</style>
+
+<script>
+(function(){
+  function initHScrollHints(){
+    const nodes = document.querySelectorAll('[style*="overflow-x:auto"], [style*="overflow-x: auto"], .sources-table');
+    nodes.forEach(el => {
+      if (el.scrollWidth <= el.clientWidth + 4) return; // not actually scrollable
+      el.classList.add('hscroll-wrap');
+      function update(){
+        const max = el.scrollWidth - el.clientWidth;
+        el.classList.toggle('at-end', el.scrollLeft >= max - 4);
+      }
+      update();
+      el.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHScrollHints);
+  } else {
+    initHScrollHints();
+  }
+  // Re-run on tab switch (GTM → Thesis content may newly become measurable)
+  document.querySelectorAll('.primary-tab').forEach(t => t.addEventListener('click', () => setTimeout(initHScrollHints, 100)));
+})();
+</script>
 </body>
 </html>
