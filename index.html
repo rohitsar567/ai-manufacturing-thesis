@@ -4751,51 +4751,61 @@ function renderDetailPanel(n, ctx) {
         MARKET SIZE DERIVATION
       </div>
       <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;">
-        <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">How the enterprise-addressable market for this node is derived (BRSR-anchored, role-mapped):</div>
+        <div style="font-size:0.8rem;color:#6b7280;margin-bottom:12px;">The node TAM uses the <strong>same bottoms-up method as the sector TAM</strong> &mdash; allocate the sector&rsquo;s Knowledge Worker headcount to this node by its role mix, then walk payroll &rarr; eligibility &rarr; automation &rarr; price discount.</div>
         <div style="font-size:0.82rem;color:#374151;line-height:1.55;">
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Brand-owner revenue base <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$200B' : '$110B'}</span>
+
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:2px solid ${isAuto ? '#bfdbfe' : '#fed7aa'};background:${isAuto ? '#eff6ff' : '#fff7ed'};margin-bottom:4px;padding-left:10px;padding-right:10px;border-radius:6px;">
+            <span style="font-weight:700;color:${isAuto ? '#1e40af' : '#9a3412'};">Premise &mdash; ${sector} sector Enterprise TAM</span>
+            <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};">${isAuto ? '$700M' : '$500M'}</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Knowledge Worker per $B revenue <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '9 BRSRs parsed (Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)' : '8 BRSRs parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '814' : '1,300'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Permanent Knowledge Worker headcount <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '$200B &times; 814/$B' : '$110B &times; 1,300/$B'}</span></span>
+            <span>Sector Knowledge Worker headcount (BRSR-parsed) <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '$200B revenue &times; 814 KW/$B' : '$110B revenue &times; 1,300 KW/$B'}</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '162,800' : '143,000'}</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Avg Knowledge Worker salary <span style="color:#9ca3af;font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span>
+            <span>&times; This node&rsquo;s role-weighted headcount share <span style="color:#9ca3af;font-size:0.65rem;display:block;">sum of this node&rsquo;s role automation weights &divide; all-node sector sum = ${n.role_breakdown ? n.role_breakdown.addr_sum.toFixed(2) : '-'} &divide; ${n.role_breakdown ? n.role_breakdown.t1_total.toFixed(2) : '-'}</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${n.role_breakdown ? n.role_breakdown.share_pct.toFixed(2) : (n.tam / (isAuto ? 700 : 500) * 100).toFixed(2)}%</span>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>= Node Knowledge Worker headcount (allocated) <span style="color:#9ca3af;font-size:0.65rem;display:block;">sector KW &times; node share</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${n.role_breakdown ? Math.round((isAuto ? 162800 : 143000) * n.role_breakdown.share_pct/100).toLocaleString() : '-'}</span>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span>&times; Avg Knowledge Worker salary <span style="color:#9ca3af;font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span>
             <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$27,000/yr' : '$18,500/yr'}</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>Knowledge Worker payroll <span style="color:#9ca3af;font-size:0.65rem;display:block;">${isAuto ? '162,800 &times; $27K' : '143,000 &times; $18.5K'}</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$4.4B' : '$2.7B'}</span>
+            <span>= Node Knowledge Worker payroll <span style="color:#9ca3af;font-size:0.65rem;display:block;">node headcount &times; avg salary</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">$${n.role_breakdown ? ((isAuto ? 162800 : 143000) * n.role_breakdown.share_pct/100 * (isAuto ? 27000 : 18500) / 1e6).toFixed(1) : '-'}M</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; Role eligibility (${isAuto ? '83%' : '85%'}) <span style="color:#9ca3af;font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical)</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$3.7B' : '$2.3B'}</span>
+            <span>&times; Role eligibility <span style="color:#9ca3af;font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical); applied per role in the breakdown below</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '83%' : '85%'}</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
-            <span>&times; AI automation rate (43%) <span style="color:#9ca3af;font-size:0.65rem;display:block;">salary-weighted per-role rates from WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$1.6B' : '$1.0B'}</span>
+            <span>&times; AI automation rate (weighted for this node&rsquo;s roles) <span style="color:#9ca3af;font-size:0.65rem;display:block;">per-role rates from WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne &mdash; see role table below</span></span>
+            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '43%' : '43%'}</span>
           </div>
+
           <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
             <span>&times; 50% AI price discount <span style="color:#9ca3af;font-size:0.65rem;display:block;">AI vendor priced below incumbent human labour cost</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${isAuto ? '$0.7B' : '$0.5B'}</span>
+            <span style="font-family:var(--font-mono);font-weight:600;">&times; 0.5</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:8px 0 4px;border-top:2px solid ${isAuto ? '#60a5fa' : '#fbbf24'};margin-top:6px;">
-            <span style="font-weight:700;color:var(--text-primary);">${sector} sector enterprise TAM</span>
-            <span style="font-family:var(--font-mono);font-weight:800;color:${isAuto ? '#2563eb' : '#d97706'};font-size:1rem;">${isAuto ? '$0.7B' : '$0.5B'}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;margin-top:6px;">
-            <span>&times; This node&rsquo;s share of AI-automatable work in the sector <span style="color:#9ca3af;font-size:0.65rem;display:block;">based on its roles and their AI automation rates (see breakdown below)</span></span>
-            <span style="font-family:var(--font-mono);font-weight:600;">${n.role_breakdown ? n.role_breakdown.share_pct.toFixed(2) : (n.tam / (isAuto ? 800 : 500) * 100).toFixed(2)}%</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #d97706;margin-top:4px;">
-            <span style="font-weight:700;color:#1f2937;">Node Enterprise TAM</span>
+
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #0d9488;margin-top:6px;background:rgba(13,148,136,0.05);padding-left:10px;padding-right:10px;border-radius:6px;">
+            <span style="font-weight:800;color:#1f2937;">= Node Enterprise TAM</span>
             <span style="font-family:var(--font-mono);font-weight:800;font-size:1.1rem;color:#0d9488;">$${n.tam}M</span>
+          </div>
+
+          <div style="padding:6px 10px;margin-top:4px;font-size:0.72rem;color:#6b7280;">
+            Sanity check: ${n.tam}M &divide; ${isAuto ? '700M' : '500M'} = ${n.role_breakdown ? (n.tam / (isAuto ? 700 : 500) * 100).toFixed(2) : '-'}% &equiv; node&rsquo;s share of the sector TAM shown above.
           </div>
         </div>
         ${n.role_breakdown ? `
