@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'f236fa4506477a7f999fadc4563e8b7366f37386';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'f236fa4506477a7f999fadc4563e8b7366f37386' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8403,21 +8403,24 @@ window.NODE_DESC = {
       lc.appendChild(el); lc.appendChild(ea); lc.appendChild(tl); lc.appendChild(ti);
       dt.appendChild(lc);
       var rc = document.createElement('div');
-      var cl = document.createElement('div'); cl.className='tv-field-label'; cl.textContent='Linked CRM contacts (click to link)';
+      var linkedCount = contacts.length - ((r.unlinked||[]).filter(function(k){return contacts.some(function(c){return c.key===k;});}).length);
+      var cl = document.createElement('div'); cl.className='tv-field-label';
+      cl.textContent = 'Linked CRM contacts \u2014 ' + linkedCount + '/' + contacts.length + ' auto-linked (click to exclude / re-include)';
       var cb = document.createElement('div'); cb.className='tv-contact-list';
       if (!contacts.length) {
-        var n = document.createElement('div'); n.style.cssText='font-size:0.7rem;color:#94a3b8'; n.textContent='No matching contacts.'; cb.appendChild(n);
+        var n = document.createElement('div'); n.style.cssText='font-size:0.7rem;color:#94a3b8'; n.textContent='No persona-matching contacts in CRM.'; cb.appendChild(n);
       } else {
         contacts.slice(0,40).forEach(function(c){
           var ch = document.createElement('span');
-          ch.className = 'tv-contact-chip' + ((r.linked||[]).indexOf(c.key)!==-1?' linked':'') + (c.status==='done'?' done':'');
+          var isUnlinked = (r.unlinked||[]).indexOf(c.key) !== -1;
+          ch.className = 'tv-contact-chip' + (isUnlinked ? '' : ' linked') + (c.status==='done'?' done':'');
           ch.textContent = c.name + ' \u00b7 ' + (c.persona||'');
-          ch.title = c.company + ' \u00b7 ' + c.status;
+          ch.title = c.company + ' \u00b7 ' + c.status + (isUnlinked ? ' \u00b7 EXCLUDED' : ' \u00b7 auto-linked (Granola will fetch transcript here)');
           ch.addEventListener('click', function(){
-            var L = (rec(stateKey).linked||[]).slice();
-            var i = L.indexOf(c.key);
-            if (i===-1) L.push(c.key); else L.splice(i,1);
-            setRec(stateKey,{linked:L}); ch.classList.toggle('linked');
+            var U = (rec(stateKey).unlinked||[]).slice();
+            var i = U.indexOf(c.key);
+            if (i===-1) U.push(c.key); else U.splice(i,1);
+            setRec(stateKey,{unlinked:U}); ch.classList.toggle('linked');
           });
           cb.appendChild(ch);
         });
