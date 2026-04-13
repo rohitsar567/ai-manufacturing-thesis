@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '487092c824b1c6e60415bc9c1fac1e2000d74e15';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '487092c824b1c6e60415bc9c1fac1e2000d74e15' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8253,8 +8253,16 @@ window.NODE_DESC = {
       return wrap;
     }
 
+    var initTries = 0;
     function init(){
-      if (!window.AUTO_NODES || !window.FMCG_NODES) { setTimeout(init, 200); return; }
+      if (!window.AUTO_NODES || !window.FMCG_NODES) {
+        if (++initTries > 50) {
+          var t = document.getElementById('tv-tree');
+          if (t) t.textContent = 'Validation tracker could not load node data. Hard-refresh once (Cmd+Shift+R).';
+          return;
+        }
+        setTimeout(init, 200); return;
+      }
       var personaMap = extractPersonaMap();
       var contacts = getCRMContacts();
       var tree = document.getElementById('tv-tree');
