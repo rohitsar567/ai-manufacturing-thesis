@@ -8995,5 +8995,143 @@ const tabs = document.querySelectorAll('.tab');
   #expert-validation .evs-scope .eyebrow{margin:0 0 6px !important;text-align:left !important}
   #expert-validation .evs-scope .sub{margin:0 0 14px !important;text-align:left !important;max-width:820px}
 </style>
+
+<script id="persona-context-panel">
+window.PERSONA_CONTEXT = {
+  auto: {
+    scm: {
+      role: "Supply chain · CPO. Owns the end-to-end material flow into the OEM plant — supplier selection, contract terms, parts inventory, supplier quality, and production planning. Reports usually to COO or directly to MD.",
+      day: "Day-to-day: tracking part availability, negotiating with Tier-1 suppliers, escalating quality NCRs, balancing inventory cost against OTIF.",
+      nodes: ["Supply Chain & Sourcing","Supplier Quality & Planning","Operations Leadership","APQP / PPAP Gate"],
+      validates: "Validates the AI tech maturity + India deployment evidence for supply-side workflows (3 of 28 Auto T1 nodes worth ~$220M of the $0.7B Auto TAM)."
+    },
+    comm: {
+      role: "Commercial · sales. Owns the dealer network, retail experience, after-sales service, warranty, and parts business. The commercial revenue and customer-relationship side.",
+      day: "Day-to-day: tracking dealer sell-through, monitoring service-bay productivity, processing warranty claims, managing parts inventory at dealers.",
+      nodes: ["Dealership Management","Showroom Sales","After-Sales Service","Warranty & Parts"],
+      validates: "Validates AI tech + India deployment for the demand side (4 of 28 nodes, ~$280M)."
+    },
+    cfo: {
+      role: "CFO · finance. Owns plant-level controllership, payroll, treasury, capital allocation, and the IT/AI software-spend approval.",
+      day: "Day-to-day: monthly close, cost-per-vehicle tracking, capex prioritization, RFP approvals for enterprise software.",
+      nodes: ["Finance & HR (finance side)"],
+      validates: "Validates the ICP buyer-behavior pillar — willingness-to-pay, deal sizes, software vs services spend split."
+    },
+    chro: {
+      role: "CHRO · HR. Owns talent acquisition, industrial relations, compensation, training, and HR systems for both white-collar and blue-collar workforce.",
+      day: "Day-to-day: union negotiations, recruitment for skilled trades, HR-tech rollouts, attrition tracking.",
+      nodes: ["Finance & HR (HR side)"],
+      validates: "Validates Knowledge Worker headcount density + permanent-vs-contract split assumed in the TAM."
+    },
+    cio: {
+      role: "CIO · digital · IIoT. Owns IT infrastructure, plant OT (PLCs, MES, IIoT), enterprise applications, cybersecurity, and the AI/data platform.",
+      day: "Day-to-day: ERP/MES uptime, OT-IT convergence projects, digital twin pilots, vendor management for SAP/Oracle/PTC/Rockwell.",
+      nodes: ["Touches every T1 node — owns the AI/data deployment stack"],
+      validates: "Validates AI tech maturity, deployment readiness, and IT-spend split (the most cross-cutting persona)."
+    }
+  },
+  fmcg: {
+    scm: {
+      role: "Supply chain · CSCO. Owns S&OP, demand & supply planning, plant operations, distribution network. The orchestrator of demand → production → store-shelf flow.",
+      day: "Day-to-day: monthly S&OP cycle, fill-rate tracking, OEE oversight at plants, distributor inventory, e-commerce fulfilment.",
+      nodes: ["S&OP / Demand Planning","Supply Planning","Process Engineering","Quality Control & Lab","Food Safety & QA"],
+      validates: "Validates the supply-side TAM and AI tech maturity for ~5 of 29 FMCG T1 nodes (~$170M)."
+    },
+    cpo: {
+      role: "Procurement · CPO. Owns raw material + packaging sourcing, supplier contracts, commodity hedging, indirect spend.",
+      day: "Day-to-day: palm oil / wheat / crude price tracking, supplier negotiations, ESG-linked supplier audits.",
+      nodes: ["Procurement"],
+      validates: "Validates procurement-AI maturity (e.g., Coupa, Arkestro, Moglix) and India deployment evidence."
+    },
+    cmo: {
+      role: "Marketing · CMO. Owns brand strategy, portfolio architecture, trade & digital marketing, innovation pipeline, agency management.",
+      day: "Day-to-day: brand plan reviews, media-mix decisions, NPI gates, shopper-marketing programs.",
+      nodes: ["Marketing Leadership","Trade & Digital Marketing","Customer Service"],
+      validates: "Validates demand-side AI maturity for marketing/brand workflows (~3 of 29 nodes, ~$110M)."
+    },
+    cso: {
+      role: "Sales · CSO / ED-CD. Owns the GTM machine — modern trade, e-commerce, general trade (field sales), distributor coverage, sales force productivity.",
+      day: "Day-to-day: customer business plans with DMart/Reliance, route-to-market for the 1M+ outlet GT base, sales-rep deployment.",
+      nodes: ["Sales Leadership","Key Accounts & Channels","Field Sales","Retail Execution"],
+      validates: "Validates demand-side AI maturity + India SFA/RGM evidence (4 nodes, ~$140M)."
+    },
+    cfo: {
+      role: "CFO · RGM. Owns commercial finance, FP&A, RGM (revenue growth management), pricing analytics, and software-spend approval.",
+      day: "Day-to-day: commercial reviews, P&L tracking, pricing & promo ROI, vendor RFP sign-offs.",
+      nodes: ["Finance","Analytics & Revenue Mgmt"],
+      validates: "Validates ICP buyer-behavior + RGM-AI specific maturity (e.g., Pricefx)."
+    },
+    chro: {
+      role: "CHRO · HR. Owns recruitment (especially the high-attrition field-sales workforce), payroll, L&D, sales incentives.",
+      day: "Day-to-day: sales incentive design, HR-tech rollouts, attrition root-cause analysis, statutory compliance.",
+      nodes: ["Human Resources"],
+      validates: "Validates Knowledge Worker headcount + sales-force attrition assumptions in TAM."
+    },
+    cio: {
+      role: "CIO · digital. Owns enterprise IT, data platform, AI strategy, cybersecurity. Often a co-buyer with CFO for AI tools.",
+      day: "Day-to-day: SAP/Salesforce/Snowflake stack, AI POCs, data-platform consolidation, vendor management.",
+      nodes: ["Touches every T1 node — owns the AI/data deployment stack"],
+      validates: "Validates AI deployment readiness across the full FMCG node universe."
+    }
+  }
+};
+
+(function(){
+  function buildPanelHTML(sector, personaId){
+    if (personaId === 'all') return ''; // no panel for All roles
+    const data = window.PERSONA_CONTEXT[sector] && window.PERSONA_CONTEXT[sector][personaId];
+    if (!data) return '';
+    const nodeChips = data.nodes.map(n => `<span style="display:inline-block;background:#fff;border:1px solid #cbd5e1;color:#1a2232;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;margin:2px;">${n}</span>`).join('');
+    return `<div class="persona-context-panel" style="background:linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border:1px solid #f59e0b; border-radius:12px; padding:18px 22px; margin:0 0 20px;">
+      <div style="font-family:var(--font-display);font-size:0.66rem;font-weight:700;color:#92400e;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">About this persona</div>
+      <div style="font-size:1rem;font-weight:700;color:#1a2232;margin-bottom:8px;">${data.role}</div>
+      <div style="font-size:0.85rem;color:#374151;line-height:1.55;margin-bottom:14px;">${data.day}</div>
+      <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#92400e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Linked thesis nodes</div>
+      <div style="margin-bottom:14px;">${nodeChips}</div>
+      <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#92400e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">What this persona validates</div>
+      <div style="font-size:0.82rem;color:#374151;line-height:1.55;">${data.validates}</div>
+    </div>`;
+  }
+
+  function refreshPanel(sec, personaId){
+    let panel = sec.querySelector('.persona-context-panel-host');
+    if (!panel){
+      panel = document.createElement('div');
+      panel.className = 'persona-context-panel-host';
+      // insert right after persona-bar, before cc-block
+      const personaBar = sec.querySelector('.persona-bar');
+      if (!personaBar) return;
+      personaBar.insertAdjacentElement('afterend', panel);
+    }
+    const sector = sec.id === 'sec-auto' ? 'auto' : (sec.id === 'sec-fmcg' ? 'fmcg' : null);
+    if (!sector){ panel.innerHTML = ''; return; }
+    panel.innerHTML = buildPanelHTML(sector, personaId);
+  }
+
+  function init(){
+    document.querySelectorAll('.evs-scope .persona-bar').forEach(bar => {
+      const sec = bar.closest('.sec');
+      if (!sec) return;
+      bar.addEventListener('click', e => {
+        const chip = e.target.closest('.persona-chip');
+        if (!chip) return;
+        // Use rAF to wait for the original handler to update active class first
+        requestAnimationFrame(() => refreshPanel(sec, chip.dataset.persona));
+      });
+    });
+    // Re-render on sub-tab switch (active persona persists)
+    document.querySelectorAll('.evs-scope .tab').forEach(t => {
+      t.addEventListener('click', () => setTimeout(() => {
+        document.querySelectorAll('.evs-scope .sec').forEach(sec => {
+          const active = sec.querySelector('.persona-chip.active');
+          if (active) refreshPanel(sec, active.dataset.persona);
+        });
+      }, 50));
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
