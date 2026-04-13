@@ -5007,7 +5007,7 @@ function renderTAMWaterfall() {
     '<div style="display:flex; gap:24px; justify-content:center; margin-top:16px; flex-wrap:wrap;">' +
     '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(37,99,235,0.85);"></div>Automobile</span>' +
     '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:rgba(217,119,6,0.85);"></div>FMCG</span>' +
-    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:transparent; border:2px solid var(--accent-teal);"></div>Top Quartile (score 8+)</span>' +
+    '<span style="font-family:var(--font-display); font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:4px; background:transparent; border:2px solid #dc2626;"></div>Top Quartile (score 8+)</span>' +
     '</div>';
 
   const wrap = document.getElementById('topProblemsWrap');
@@ -5080,7 +5080,7 @@ function renderTAMWaterfall() {
       ctx.fillRect(barX, barY, barW, barH);
 
       if (isTopQ) {
-        ctx.strokeStyle = '#0d9488';
+        ctx.strokeStyle = '#dc2626';
         ctx.lineWidth = 2;
         ctx.strokeRect(barX, barY, barW, barH);
       }
