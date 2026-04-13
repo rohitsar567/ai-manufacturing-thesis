@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '405e66c2cbd12c5120033bd222bfbef90de062de';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '405e66c2cbd12c5120033bd222bfbef90de062de' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8087,32 +8087,19 @@ window.NODE_DESC = {
       var tdGr = makeCell();
       tdGr.style.textAlign = 'center';
       tdGr.style.whiteSpace = 'nowrap';
-      var openBtn = document.createElement('button');
-      openBtn.type = 'button';
-      openBtn.title = 'Open Granola app (sets status to Contacted)';
-      openBtn.style.cssText = 'padding:4px 8px;border:1px solid #a78bfa;background:#faf5ff;color:#6d28d9;font-weight:700;font-size:0.65rem;border-radius:5px;cursor:pointer;margin-right:4px;';
-      openBtn.textContent = '\ud83c\udf99 Open';
-      openBtn.addEventListener('click', function(){
-        state[c.key] = state[c.key] || {status:'outreach', notes:''};
-        if (state[c.key].status === 'outreach') state[c.key].status = 'contacted';
-        saveState(state);
-        window.open('https://granola.so/', '_blank');
-        render();
-      });
-      tdGr.appendChild(openBtn);
-      var impBtn = document.createElement('button');
-      impBtn.type = 'button';
-      impBtn.title = 'Import transcript and route evidence to all validation questions linked to this contact';
-      impBtn.style.cssText = 'padding:4px 8px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.65rem;border-radius:5px;cursor:pointer;';
-      impBtn.textContent = '\ud83d\udce5 Import';
-      impBtn.addEventListener('click', function(){ openGranolaImport(c); });
-      tdGr.appendChild(impBtn);
+      var fetchBtn = document.createElement('button');
+      fetchBtn.type = 'button';
+      fetchBtn.title = 'Fetch latest Granola meeting transcript with this contact via Claude + route evidence to all linked validation questions';
+      fetchBtn.style.cssText = 'padding:5px 10px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.68rem;border-radius:5px;cursor:pointer;';
+      fetchBtn.textContent = '\ud83c\udf99 Fetch Granola';
+      fetchBtn.addEventListener('click', function(){ openGranolaImport(c); });
+      tdGr.appendChild(fetchBtn);
       tr.appendChild(tdGr);
 
       return tr;
     }
 
-    // ======== GRANOLA IMPORT + ROUTING ENGINE ========
+    // ======== GRANOLA FETCH + ROUTING ENGINE ========
     function openGranolaImport(c){
       var existing = document.getElementById('granola-modal');
       if (existing) existing.remove();
@@ -8120,12 +8107,12 @@ window.NODE_DESC = {
       m.id = 'granola-modal';
       m.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
       var card = document.createElement('div');
-      card.style.cssText = 'background:#fff;border-radius:14px;max-width:720px;width:100%;max-height:85vh;overflow-y:auto;padding:22px 26px;box-shadow:0 8px 32px rgba(0,0,0,0.2);font-family:var(--font-display);';
+      card.style.cssText = 'background:#fff;border-radius:14px;max-width:780px;width:100%;max-height:88vh;overflow-y:auto;padding:22px 26px;box-shadow:0 8px 32px rgba(0,0,0,0.2);font-family:var(--font-display);';
       var h = document.createElement('div');
-      h.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;';
+      h.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;';
       var hTitle = document.createElement('div');
-      hTitle.style.cssText = 'font-size:1rem;font-weight:800;color:#1a2232;';
-      hTitle.textContent = '\ud83c\udf99 Import Granola transcript \u2014 ' + c.name;
+      hTitle.style.cssText = 'font-size:1.05rem;font-weight:800;color:#1a2232;';
+      hTitle.textContent = '\ud83c\udf99 Fetch Granola transcript \u2014 ' + c.name;
       var hClose = document.createElement('button');
       hClose.style.cssText = 'border:0;background:none;font-size:1.2rem;cursor:pointer;color:#64748b;line-height:1;';
       hClose.textContent = '\u2715';
@@ -8134,57 +8121,100 @@ window.NODE_DESC = {
       card.appendChild(h);
       var sub = document.createElement('div');
       sub.style.cssText = 'font-size:0.78rem;color:#64748b;line-height:1.55;margin-bottom:14px;';
-      sub.textContent = c.company + ' \u00b7 ' + (c.persona||'') + ' \u00b7 ' + c.sector.toUpperCase() + ' \u2014 Paste the meeting transcript below. The system will scan every validation question auto-linked to this contact and route evidence + bump % where the transcript contains signal.';
+      sub.textContent = c.company + ' \u00b7 ' + (c.persona || '') + ' \u00b7 ' + c.sector.toUpperCase();
       card.appendChild(sub);
+
+      // Step 1 — the Claude prompt (auto-copied)
+      var step1 = document.createElement('div');
+      step1.style.cssText = 'padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:12px;';
+      var s1Title = document.createElement('div');
+      s1Title.style.cssText = 'font-size:0.68rem;font-weight:800;color:#0d9488;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;';
+      s1Title.textContent = 'Step 1 \u00b7 Fetch from Granola via Claude';
+      step1.appendChild(s1Title);
+      var prompt = 'Use mcp__granola__list_meetings last_30_days and find the meeting with ' + c.name +
+        ' (company: ' + c.company + ', LinkedIn: ' + (c.url || 'n/a') + '). ' +
+        'Then call mcp__granola__get_meeting_transcript with that meeting_id and paste the FULL raw transcript text back in this chat. I will copy it into the Granola import modal on the thesis site. Do not summarise.';
+      var promptBox = document.createElement('textarea');
+      promptBox.style.cssText = 'width:100%;min-height:72px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-mono);font-size:0.72rem;line-height:1.4;background:#fff;resize:vertical;';
+      promptBox.readOnly = true;
+      promptBox.value = prompt;
+      step1.appendChild(promptBox);
+      var copyRow = document.createElement('div');
+      copyRow.style.cssText = 'display:flex;gap:8px;align-items:center;margin-top:8px;';
+      var copyBtn = document.createElement('button');
+      copyBtn.style.cssText = 'padding:6px 12px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.72rem;border-radius:5px;cursor:pointer;';
+      copyBtn.textContent = '\ud83d\udccb Copy prompt';
+      copyBtn.addEventListener('click', function(){
+        try {
+          navigator.clipboard.writeText(prompt).then(function(){
+            copyBtn.textContent = '\u2713 Copied \u2014 paste into Claude';
+            copyBtn.style.background = '#16a34a';
+            setTimeout(function(){ copyBtn.textContent = '\ud83d\udccb Copy prompt'; copyBtn.style.background = '#0d9488'; }, 3000);
+          });
+        } catch(e){ promptBox.select(); document.execCommand('copy'); }
+      });
+      copyRow.appendChild(copyBtn);
+      var copyHint = document.createElement('span');
+      copyHint.style.cssText = 'font-size:0.68rem;color:#64748b;';
+      copyHint.textContent = 'Paste into your Claude Code session \u2192 Claude fetches transcript via MCP \u2192 copy result';
+      copyRow.appendChild(copyHint);
+      step1.appendChild(copyRow);
+      // Auto-copy on open
+      try { navigator.clipboard.writeText(prompt); } catch(e){}
+      card.appendChild(step1);
+
+      // Step 2 — paste transcript, route
+      var step2 = document.createElement('div');
+      step2.style.cssText = 'padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:12px;';
+      var s2Title = document.createElement('div');
+      s2Title.style.cssText = 'font-size:0.68rem;font-weight:800;color:#0d9488;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;';
+      s2Title.textContent = 'Step 2 \u00b7 Paste transcript \u2192 Route to validation tracker';
+      step2.appendChild(s2Title);
       var ta = document.createElement('textarea');
-      ta.style.cssText = 'width:100%;min-height:220px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-mono);font-size:0.78rem;line-height:1.45;resize:vertical;margin-bottom:10px;';
-      ta.placeholder = 'Paste Granola transcript text here\u2026 (or the meeting URL to fetch via MCP on next /import command to Claude)';
-      card.appendChild(ta);
+      ta.style.cssText = 'width:100%;min-height:180px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-mono);font-size:0.76rem;line-height:1.45;resize:vertical;margin-bottom:8px;';
+      ta.placeholder = 'Paste Granola transcript text here\u2026';
+      step2.appendChild(ta);
       var urlIn = document.createElement('input');
       urlIn.type = 'text';
       urlIn.placeholder = 'Optional: Granola meeting URL or ID (stored on every linked question)';
-      urlIn.style.cssText = 'width:100%;padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-display);font-size:0.78rem;margin-bottom:12px;';
-      card.appendChild(urlIn);
+      urlIn.style.cssText = 'width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;';
+      step2.appendChild(urlIn);
+      card.appendChild(step2);
+
       var btnRow = document.createElement('div');
       btnRow.style.cssText = 'display:flex;gap:10px;justify-content:flex-end;';
-      var processBtn = document.createElement('button');
-      processBtn.style.cssText = 'padding:8px 16px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.8rem;border-radius:6px;cursor:pointer;';
-      processBtn.textContent = 'Process & route evidence';
       var cancelBtn = document.createElement('button');
       cancelBtn.style.cssText = 'padding:8px 16px;border:1px solid #cbd5e1;background:#fff;color:#64748b;font-size:0.8rem;border-radius:6px;cursor:pointer;';
       cancelBtn.textContent = 'Cancel';
       cancelBtn.addEventListener('click', function(){ m.remove(); });
+      var processBtn = document.createElement('button');
+      processBtn.style.cssText = 'padding:8px 16px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.8rem;border-radius:6px;cursor:pointer;';
+      processBtn.textContent = 'Process & route evidence';
       btnRow.appendChild(cancelBtn); btnRow.appendChild(processBtn);
       card.appendChild(btnRow);
+
       var resultBox = document.createElement('div');
       resultBox.style.cssText = 'margin-top:14px;font-size:0.78rem;line-height:1.5;';
       card.appendChild(resultBox);
+
       processBtn.addEventListener('click', function(){
         var transcript = ta.value.trim();
         var urlVal = urlIn.value.trim();
         if (!transcript) { resultBox.textContent = 'Paste a transcript first.'; resultBox.style.color = '#dc2626'; return; }
         var res = routeTranscriptToValidation(c, transcript, urlVal);
-        // update CRM status + notes
         state[c.key] = state[c.key] || {status:'outreach', notes:''};
         state[c.key].status = 'done';
         var stamp = new Date().toISOString().slice(0,10);
-        var tag = '\n[Granola ' + stamp + '] ' + (urlVal || 'transcript imported');
-        state[c.key].notes = (state[c.key].notes || '') + tag;
+        state[c.key].notes = (state[c.key].notes || '') + '\n[Granola ' + stamp + '] ' + (urlVal || 'transcript imported');
         saveState(state);
         render();
-        // Result summary
         while (resultBox.firstChild) resultBox.removeChild(resultBox.firstChild);
         var ok = document.createElement('div');
-        ok.style.cssText = 'padding:10px 12px;background:#dcfce7;border:1px solid #86efac;border-radius:8px;color:#166534;font-weight:600;';
+        ok.style.cssText = 'padding:10px 12px;background:#dcfce7;border:1px solid #86efac;border-radius:8px;color:#166534;font-weight:700;';
         ok.textContent = '\u2713 Routed evidence to ' + res.matched + ' / ' + res.total + ' linked validation questions. Contact set to \u201cdone\u201d.';
         resultBox.appendChild(ok);
-        if (res.matched > 0) {
-          var det = document.createElement('div');
-          det.style.cssText = 'margin-top:8px;font-size:0.72rem;color:#475569;';
-          det.textContent = 'Scroll to the validation tracker \u2192 expand affected modules to see the evidence appended.';
-          resultBox.appendChild(det);
-        }
       });
+
       m.appendChild(card);
       document.body.appendChild(m);
     }
