@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '47c60e10a91ee31a0561ce77cf7749d3d3143939';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '47c60e10a91ee31a0561ce77cf7749d3d3143939' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -4902,7 +4902,7 @@ function renderDetailPanel(n, ctx) {
               </tr>
               <tr>
                 <td style="padding:5px 8px;color:#6b7280;font-size:0.72rem;" colspan="2">&times; ${sector} sector total (BRSR-anchored)</td>
-                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${isAuto ? '$740M' : '$420M'}</td>
+                <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${isAuto ? '$650M' : '$420M'}</td>
               </tr>
               <tr style="border-top:2px solid #0d9488;background:rgba(13,148,136,0.05);">
                 <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= This node&rsquo;s enterprise TAM in dollars</td>
