@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '36e1df4e610e462e38f114d114b690587f8aa4cc';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '36e1df4e610e462e38f114d114b690587f8aa4cc' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8209,10 +8209,10 @@ window.NODE_DESC = {
     #tv-diagram .sec-group-auto .sec-group-hdr{color:#2563eb}
     #tv-diagram .sec-group-fmcg .sec-group-hdr{color:#b45309}
     #tv-diagram .sec-group-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    #tv-diagram .sec-group .node.module{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:8px;row-gap:4px;align-items:start;min-width:0;width:auto;padding:10px 12px;background:#fff;border-radius:8px;text-align:left;border:1px solid;overflow:hidden}
-    #tv-diagram .sec-group .node.module .lbl{grid-column:1;grid-row:1;font-size:0.65rem;color:#94a3b8;font-weight:800;letter-spacing:0.06em;line-height:1}
-    #tv-diagram .sec-group .node.module .pct{grid-column:2;grid-row:1;font-size:0.95rem;font-weight:800;color:#1a2232;text-align:right;line-height:1}
-    #tv-diagram .sec-group .node.module .meta{grid-column:1 / -1;grid-row:2;font-size:0.7rem;color:#334155;letter-spacing:0;text-transform:none;font-weight:600;line-height:1.35;white-space:normal;text-align:left;word-break:break-word;hyphens:auto}
+    #tv-diagram .sec-group .node.module{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:10px;row-gap:6px;align-items:start;min-width:0;width:auto;padding:12px 14px;background:#fff;border-radius:10px;text-align:left;border:1px solid}
+    #tv-diagram .sec-group .node.module .lbl{grid-column:1;grid-row:1;font-size:0.7rem;color:#475569;font-weight:800;letter-spacing:0.06em;line-height:1}
+    #tv-diagram .sec-group .node.module .pct{grid-column:2;grid-row:1;font-size:0.9rem;font-weight:800;color:#1a2232;text-align:right;line-height:1}
+    #tv-diagram .sec-group .node.module .meta{grid-column:1 / -1;grid-row:2;font-size:0.72rem;color:#1a2232;letter-spacing:0;text-transform:none;font-weight:600;line-height:1.35;white-space:normal;text-align:left;overflow-wrap:break-word;word-break:normal;hyphens:none}
     #tv-diagram .module-auto{border-color:rgba(37,99,235,0.4);background:#fff}
     #tv-diagram .module-fmcg{border-color:rgba(217,119,6,0.4);background:#fff}
     #tv-diagram .sec-group .node.module:hover{box-shadow:0 2px 6px rgba(0,0,0,0.06)}
