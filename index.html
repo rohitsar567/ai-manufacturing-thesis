@@ -1178,29 +1178,33 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   }
 </style>
 
-<!-- Top-tab CSS (injected) -->
+
+<!-- Split-nav CSS (clean) -->
 <style>
-  .top-tabs{position:sticky;top:54px;z-index:99;background:#fff;border-bottom:1px solid #e4e9f0;padding:0;margin:0}
-  .top-tabs-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:4px}
-  .top-tab{background:none;border:none;border-bottom:3px solid transparent;padding:14px 20px;margin-bottom:-1px;font-family:var(--font-display,-apple-system);font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6b7890;cursor:pointer;transition:all .15s;line-height:1}
-  .top-tab:hover{color:#1a2232}
-  .top-tab.active{color:#1a2232;border-bottom-color:#1a2232}
-  .tab-pane{display:block}
-  .tab-pane[style*="display:none"]{display:none !important}
+  nav.mainnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e4e9f0;padding:0}
+  nav.mainnav .mn-inner{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
+  nav.mainnav .logo{flex-shrink:0}
+  .primary-tabs{display:flex;gap:2px;background:#f1f5f9;padding:3px;border-radius:8px;flex-shrink:0}
+  .primary-tab{background:transparent;border:none;padding:7px 16px;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1}
+  .primary-tab:hover{color:#1a2232}
+  .primary-tab.active{background:#1a2232;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.08)}
+  .secondary-nav{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex:1;justify-content:flex-end;align-items:center}
+  .secondary-nav li{display:inline-block}
+  .secondary-nav li a{display:inline-block;padding:6px 10px;font-size:12.5px;font-weight:600;color:#4a5568;text-decoration:none;border-radius:6px;transition:all .15s}
+  .secondary-nav li a:hover{background:#f1f5f9;color:#1a2232}
+  @media (max-width:980px){
+    nav.mainnav .mn-inner{flex-wrap:wrap;gap:14px}
+    .secondary-nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;padding:8px 0;border-top:1px solid #e4e9f0;margin-top:8px;gap:2px}
+    .secondary-nav.mobile-open{display:flex}
+    .secondary-nav li a{padding:10px 12px}
+  }
+  @media (min-width:981px){.hamburger{display:none}}
+  /* GTM intro polish */
   .gtm-intro-wrap{max-width:1100px;margin:0 auto;padding:48px 24px 8px;background:#fff}
   .gtm-intro{padding:0 0 20px;border-bottom:1px solid #e4e9f0;margin-bottom:32px}
   .gtm-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6b7890;margin-bottom:10px}
   .gtm-h1{font-size:28px;font-weight:700;line-height:1.2;color:#1a2232;margin:0 0 10px;letter-spacing:-0.01em}
   .gtm-sub{font-size:14.5px;color:#4a5568;line-height:1.55;max-width:780px;margin:0}
-  /* Hide thesis intra-nav when on GTM tab */
-  body.on-gtm nav ul li a[href^="#summary"],
-  body.on-gtm nav ul li a[href^="#macro"],
-  body.on-gtm nav ul li a[href^="#sectors"],
-  body.on-gtm nav ul li a[href^="#tam"],
-  body.on-gtm nav ul li a[href^="#auto"],
-  body.on-gtm nav ul li a[href^="#fmcg"],
-  body.on-gtm nav ul li a[href^="#priority"],
-  body.on-gtm nav ul li a[href^="#methodology"]{opacity:0.35;pointer-events:none}
   body.on-gtm .section-progress{display:none !important}
 </style>
 </head>
@@ -1210,28 +1214,29 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- NAVIGATION -->
-<nav>
-  <div class="logo">AI <span>x</span> Manufacturing</div>
-  <ul>
-    <li><a href="#summary">Summary</a></li>
-    <li><a href="#macro">The Market</a></li>
-    <li><a href="#sectors">Why These Sectors</a></li>
-    <li><a href="#tam">TAM Analysis</a></li>
-    <li><a href="#auto-analysis">Automobile</a></li>
-    <li><a href="#fmcg-analysis">FMCG</a></li>
-    <li><a href="#methodology">Methodology</a></li>
-  </ul>
-  <button class="hamburger" id="hamburgerBtn" onclick="this.classList.toggle('open');document.querySelector('nav ul').classList.toggle('mobile-open')"><span></span><span></span><span></span></button>
+<nav class="mainnav">
+  <div class="mn-inner">
+    <div class="logo">AI <span>x</span> Manufacturing</div>
+    <div class="primary-tabs" role="tablist">
+      <button class="primary-tab active" data-tab="thesis" role="tab" aria-selected="true">Thesis</button>
+      <button class="primary-tab" data-tab="gtm" role="tab" aria-selected="false">GTM</button>
+    </div>
+    <ul class="secondary-nav" data-for="thesis">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#macro">Market</a></li>
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#tam">TAM</a></li>
+      <li><a href="#auto-analysis">Auto</a></li>
+      <li><a href="#fmcg-analysis">FMCG</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+    </ul>
+    <ul class="secondary-nav" data-for="gtm" style="display:none;">
+      <li><a href="#expert-validation">Expert validation</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" onclick="this.classList.toggle('open');document.querySelector('nav .secondary-nav[data-for=\'thesis\']').classList.toggle('mobile-open');document.querySelector('nav .secondary-nav[data-for=\'gtm\']').classList.toggle('mobile-open')"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
-
-<!-- TOP-LEVEL TABS: Thesis vs GTM -->
-<div class="top-tabs" role="tablist">
-  <div class="top-tabs-inner">
-    <button class="top-tab active" data-tab="thesis" role="tab" aria-selected="true">Thesis</button>
-    <button class="top-tab" data-tab="gtm" role="tab" aria-selected="false">GTM</button>
-  </div>
-</div>
 
 <div class="tab-pane thesis-pane" id="tab-thesis" role="tabpanel" aria-labelledby="tab-thesis-btn">
 <div class="section-progress" id="sectionProgress">
@@ -7955,9 +7960,10 @@ const tabs = document.querySelectorAll('.tab');
 
 <script>
 (function(){
-  const tabs = document.querySelectorAll('.top-tab');
+  const tabs = document.querySelectorAll('.primary-tab');
   const thesisPane = document.getElementById('tab-thesis');
-  const gtmPane = document.getElementById('tab-gtm');
+  const gtmPane    = document.getElementById('tab-gtm');
+  const secNavs    = document.querySelectorAll('.secondary-nav');
   function show(tab){
     tabs.forEach(t => {
       const active = t.dataset.tab === tab;
@@ -7966,12 +7972,12 @@ const tabs = document.querySelectorAll('.tab');
     });
     thesisPane.style.display = (tab === 'thesis') ? '' : 'none';
     gtmPane.style.display    = (tab === 'gtm')    ? '' : 'none';
+    secNavs.forEach(n => { n.style.display = (n.dataset.for === tab) ? '' : 'none'; });
     document.body.classList.toggle('on-gtm', tab === 'gtm');
     try { history.replaceState(null, '', '#' + (tab === 'thesis' ? 'summary' : 'expert-validation')); } catch(_) {}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
-  // Deep-link: #expert-validation auto-switches to GTM
   const hash = (location.hash || '').replace('#','');
   if (hash === 'expert-validation' || hash === 'gtm') show('gtm');
 })();
