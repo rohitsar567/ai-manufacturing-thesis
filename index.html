@@ -4496,7 +4496,11 @@ function renderDetailPanel(n, ctx) {
       <h4>${n.icon} ${n.name} ${n.score ? '<span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:800;margin-left:8px;padding:2px 8px;border-radius:6px;vertical-align:middle;' + (n.score>=8?'background:rgba(13,148,136,0.1);color:var(--accent-teal);':'background:rgba(0,0,0,0.04);color:var(--text-dim);') + '">' + n.score + '/10</span>' : ''}</h4>
       <button class="nd-close" onclick="closeDetail('${ctx}',${n.id})">&times;</button>
     </div>
-    <p style="font-size:0.85rem;color:#6b7280;margin-bottom:14px;">${n.roles} &bull; ${n.collar} &bull; ${sectorData.name} Sector</p>
+    <p style="font-size:0.85rem;color:#6b7280;margin-bottom:10px;">${n.roles} &bull; ${n.collar} &bull; ${sectorData.name} Sector</p>
+    <div style="background:#f8fafc;border-left:3px solid var(--accent-teal);padding:12px 16px;border-radius:4px;margin-bottom:18px;">
+      <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#64748b;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;">What this node covers</div>
+      <p style="font-size:0.88rem;color:#1f2937;line-height:1.55;margin:0;">The work in this node is done by <strong>${n.roles}</strong>. Jobs-to-be-done include ${(n.problems || []).map(pr => pr.replace(/\.$$/, '').toLowerCase().charAt(0).toLowerCase() + pr.replace(/\.$$/, '').toLowerCase().slice(1)).join('; ')}.</p>
+    </div>
 
     <!-- EXECUTIVE SUMMARY -->
     <div style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:12px; padding:18px 20px; margin-bottom:20px;">
