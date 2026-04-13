@@ -2877,66 +2877,169 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">TAM derivation (BRSR-anchored)</h3>
       <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:28px; line-height:1.6;">The <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms) flows through eight steps to the enterprise-addressable market. Every input is primary-sourced: revenue from company annual reports and ACMA industry filings, Knowledge Worker share and median pay from 17 directly parsed BRSR filings, and per-role task automation rates from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, and Frey-Osborne 2013.</p>
 
-      <!-- VISUAL FLOW: 8 steps, brand-owner base. 4x2 grid. Lighter tiles for process, final TAM highlighted. -->
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; margin-bottom:4px; border-radius:14px 14px 0 0; overflow:hidden; border:1px solid var(--border-subtle); border-bottom:none;">
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center;">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 1</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Brand-owner revenue base</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$310B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $200B + FMCG $110B<br>~1,800 non-MSME firms</div>
-          <div style="margin-top:4px;"><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">Automotive Component Manufacturers Association (ACMA) FY24</a> &middot; <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">CRISIL</a></div>
+      <!-- PARALLEL TRACKS: Auto and FMCG TAMs derived independently, then merged -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="text-align:center; padding:10px 14px; background:#2563eb; color:#fff; border-radius:10px 10px 0 0; font-family:var(--font-display); font-weight:700; font-size:0.85rem; letter-spacing:0.02em;">🚗 Automobile track</div>
+          <div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 1</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">Brand-owner revenue base</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$200B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">~1,100 non-MSME Auto OEMs + T1 suppliers</div>
+            <div style="margin-top:5px;"><a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="font-size:0.55rem;color:var(--accent-teal);">ACMA FY24 + SIAM</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 2</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Knowledge Workers per $B</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">~163K</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">814 KW per $B revenue</div>
+            <div style="margin-top:5px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.55rem;color:var(--accent-teal);">BRSR Section A 20(a)</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 3</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Avg KW salary $27K</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$4.4B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Total KW payroll</div>
+            <div style="margin-top:5px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.55rem;color:var(--accent-teal);">BRSR C P5 E3</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 4</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Role eligibility ~87%</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$3.8B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Excludes CXO + hyper-tech R&amp;D</div>
+            <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">McKinsey MGI + OECD</span></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 5</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× AI automation rate ~41%</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$1.6B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Task-time weighted per role</div>
+            <div style="margin-top:5px;"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="font-size:0.55rem;color:var(--accent-teal);">WEF 2025</a> · <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="font-size:0.55rem;color:var(--accent-teal);">McKinsey MGI</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #2563eb;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 6</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× 50% price discount</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$0.8B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">AI priced below labour to drive adoption</div>
+            <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">Adoption convention</span></div>
+          </div>
+          <div style="text-align:center; padding:12px 14px; background:rgba(37,99,235,0.1); color:#2563eb; border-radius:0 0 10px 10px; border:2px solid #2563eb;">
+            <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Auto TAM</div>
+            <div style="font-family:var(--font-mono); font-size:1.6rem; font-weight:800;">$0.7B</div>
+            <div style="font-size:0.6rem; margin-top:3px; font-weight:600;">after excluding $102M physical/OT nodes</div>
+          </div>
         </div>
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 2</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Knowledge Workers per $B revenue</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">306K</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto 814 &bull; FMCG 1,300<br>= total Knowledge Workers</div>
-          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">BRSR Section A 20(a)</a></div>
-        </div>
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 3</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Avg Knowledge Worker salary</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$7.1B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $27K &bull; FMCG $18.5K<br>= total Knowledge Worker payroll</div>
-          <div style="margin-top:4px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">BRSR Section C P5 E3</a></div>
-        </div>
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 4</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; Role eligibility filter</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$6.2B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">~87% payroll eligible<br>excl. CXO + hyper-tech R&amp;D</div>
-          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">McKinsey MGI + OECD</span></div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="text-align:center; padding:10px 14px; background:#d97706; color:#fff; border-radius:10px 10px 0 0; font-family:var(--font-display); font-weight:700; font-size:0.85rem; letter-spacing:0.02em;">🛒 FMCG track</div>
+          <div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 1</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">Brand-owner revenue base</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$110B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">~700 non-MSME FMCG brand owners</div>
+            <div style="margin-top:5px;"><a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="font-size:0.55rem;color:var(--accent-amber);">CRISIL + MCA21</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 2</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Knowledge Workers per $B</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">~143K</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">1,300 KW per $B revenue</div>
+            <div style="margin-top:5px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.55rem;color:var(--accent-amber);">BRSR Section A 20(a)</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 3</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Avg KW salary $18.5K</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$2.65B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Total KW payroll</div>
+            <div style="margin-top:5px;"><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="font-size:0.55rem;color:var(--accent-amber);">BRSR C P5 E3</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 4</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× Role eligibility ~87%</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$2.3B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Excludes CXO + hyper-tech R&amp;D</div>
+            <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">McKinsey MGI + OECD</span></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 5</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× AI automation rate ~41%</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$0.95B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Task-time weighted per role</div>
+            <div style="margin-top:5px;"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="font-size:0.55rem;color:var(--accent-amber);">WEF 2025</a> · <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="font-size:0.55rem;color:var(--accent-amber);">McKinsey MGI</a></div>
+          </div>
+<div style="background:var(--bg-card); padding:14px 16px; border-radius:10px; border-left:3px solid #d97706;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 6</div>
+                <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× 50% price discount</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$0.5B</div>
+            </div>
+            <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">AI priced below labour to drive adoption</div>
+            <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">Adoption convention</span></div>
+          </div>
+          <div style="text-align:center; padding:12px 14px; background:rgba(217,119,6,0.1); color:#d97706; border-radius:0 0 10px 10px; border:2px solid #d97706;">
+            <div style="font-family:var(--font-display); font-size:0.6rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">FMCG TAM</div>
+            <div style="font-family:var(--font-mono); font-size:1.6rem; font-weight:800;">$0.5B</div>
+            <div style="font-size:0.6rem; margin-top:3px; font-weight:600;">directly from the calculation above</div>
+          </div>
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; margin-bottom:32px; border-radius:0 0 14px 14px; overflow:hidden; border:1px solid var(--border-subtle); border-top:none;">
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center;">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 5</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; AI task automation rate</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$2.5B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">~41% avg within eligible roles<br>Clerical 77%, Prof 37%, Sales 37%</div>
-          <div style="margin-top:4px;"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">WEF 2025</a> &middot; <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="font-size:0.5rem;color:var(--accent-teal);text-decoration:none;">McKinsey MGI</a></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:center; margin-top:16px; padding:24px; background:linear-gradient(135deg, rgba(13,148,136,0.1), rgba(13,148,136,0.04)); border:2px solid var(--accent-teal); border-radius:14px;">
+        <div style="text-align:right; padding-right:14px; border-right:2px dashed var(--accent-teal);">
+          <div style="font-family:var(--font-display); font-size:0.65rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.08em;">Merge the two tracks</div>
+          <div style="font-family:var(--font-mono); font-size:1rem; color:var(--text-primary); font-weight:700; margin-top:4px;">$0.7B + $0.5B</div>
         </div>
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 6</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">&times; 50% AI price discount</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$1.2B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">AI priced below human labor<br>to drive adoption</div>
-          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">Adoption convention</span></div>
-        </div>
-        <div style="background:var(--bg-surface); padding:18px 12px; text-align:center; border-left:1px solid var(--border-subtle);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 7</div>
-          <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Auto + FMCG split</div>
-          <div style="font-family:var(--font-mono); font-size:1.35rem; font-weight:800; color:var(--text-primary);">$0.7B + $0.5B</div>
-          <div style="font-size:0.56rem; color:var(--text-dim); margin-top:4px; line-height:1.4;">Auto $0.7B<br>FMCG $0.5B</div>
-          <div style="margin-top:4px;"><span style="font-size:0.5rem;color:var(--text-dim);">Sector-level sum</span></div>
-        </div>
-        <div style="background:linear-gradient(135deg,rgba(13,148,136,0.18),rgba(13,148,136,0.08)); padding:18px 12px; text-align:center; border-left:3px solid var(--accent-teal);">
-          <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">Step 8</div>
-          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-teal); margin-bottom:6px;">Enterprise TAM</div>
-          <div style="font-family:var(--font-mono); font-size:2.2rem; font-weight:800; color:var(--accent-teal); text-shadow:0 2px 8px rgba(13,148,136,0.25);">$1.2B</div>
-          <div style="font-size:0.58rem; color:var(--accent-teal); margin-top:4px; line-height:1.4; font-weight:600;">Combined selected TAM<br>BRSR-anchored, primary-sourced</div>
+        <div style="text-align:left; padding-left:14px;">
+          <div style="font-family:var(--font-display); font-size:0.65rem; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; font-weight:700;">Enterprise-Addressable TAM</div>
+          <div style="font-family:var(--font-mono); font-size:2.4rem; color:var(--accent-teal); font-weight:800; line-height:1; margin-top:4px;">$1.2B</div>
+          <div style="font-size:0.7rem; color:var(--text-secondary); margin-top:6px; font-weight:600;">Combined, BRSR-anchored, primary-sourced</div>
         </div>
       </div>
+      
 
       </div>
 
