@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'df7f20efc48279cecfde171da6c7de0b4fd71894';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'df7f20efc48279cecfde171da6c7de0b4fd71894' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -5766,11 +5766,18 @@ document.addEventListener('mouseout', function(e) {
     openChartModal(hit.n.name, hit.n.sector);
   });
 
-  draw();
+  function safeDraw(){ if (!wrap.clientWidth || wrap.clientWidth < 200) return; draw(); }
+  requestAnimationFrame(function(){ requestAnimationFrame(safeDraw); });
+  window.addEventListener('load', safeDraw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(safeDraw);
+  if (typeof ResizeObserver !== 'undefined') {
+    var roTimer;
+    new ResizeObserver(function(){ clearTimeout(roTimer); roTimer = setTimeout(safeDraw, 80); }).observe(wrap);
+  }
   var rzTimer;
   window.addEventListener('resize', function() {
     clearTimeout(rzTimer);
-    rzTimer = setTimeout(draw, 100);
+    rzTimer = setTimeout(safeDraw, 100);
   });
 })();
 
