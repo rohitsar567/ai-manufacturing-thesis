@@ -1183,24 +1183,26 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <!-- Split-nav CSS v2 -->
 <style>
   nav.mainnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e4e9f0;padding:0}
-  nav.mainnav .mn-inner{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px}
-  nav.mainnav .logo{flex-shrink:0;font-family:var(--font-display,-apple-system);font-weight:700;color:#1a2232}
-  .primary-tabs{display:flex;gap:2px;background:#f1f5f9;padding:3px;border-radius:8px;flex-shrink:0}
-  .primary-tab{background:transparent;border:none;padding:7px 16px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1}
+  nav.mainnav .mn-inner{max-width:1280px;margin:0 auto;padding:10px 24px;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto auto;column-gap:20px;row-gap:8px;align-items:center}
+  nav.mainnav .logo{grid-column:1;grid-row:1 / span 2;font-family:var(--font-display,-apple-system);font-weight:700;color:#1a2232;align-self:center}
+  .primary-tabs{grid-column:2;grid-row:1;display:flex;gap:2px;background:#f1f5f9;padding:3px;border-radius:8px;justify-self:start}
+  .primary-tab{background:transparent;border:none;padding:7px 18px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1}
   .primary-tab:hover{color:#1a2232}
   .primary-tab.active{background:#1a2232;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.08)}
-  .secondary-nav{list-style:none;margin:0;padding:0;display:flex;gap:2px;flex:1;justify-content:flex-end;align-items:center;flex-wrap:wrap}
+  .secondary-nav{list-style:none;margin:0;padding:0;grid-column:2;grid-row:2;display:flex;gap:2px;align-items:center;flex-wrap:wrap;justify-self:start}
   .secondary-nav li{display:inline-block}
-  .secondary-nav li a{display:inline-block;padding:6px 10px;font-size:12px;font-weight:600;color:#4a5568;text-decoration:none;border-radius:6px;letter-spacing:0.02em;transition:all .15s}
+  .secondary-nav li a{display:inline-block;padding:5px 10px;font-size:11px;font-weight:700;color:#6b7890;text-decoration:none;border-radius:5px;letter-spacing:0.08em;text-transform:uppercase;transition:all .15s}
   .secondary-nav li a:hover{background:#f1f5f9;color:#1a2232}
   .secondary-nav li a.sub-active{background:#1a2232;color:#fff}
   /* Pane visibility via body class */
   body:not(.on-gtm) [data-pane="gtm"]{display:none !important}
   body.on-gtm [data-pane="thesis"]{display:none !important}
   body.on-gtm .section-progress{display:none !important}
-  @media (max-width:980px){
-    nav.mainnav .mn-inner{flex-wrap:wrap}
-    .secondary-nav{flex-basis:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid #e4e9f0;margin-top:6px}
+  @media (max-width:860px){
+    nav.mainnav .mn-inner{grid-template-columns:1fr}
+    nav.mainnav .logo{grid-column:1;grid-row:1}
+    .primary-tabs{grid-column:1;grid-row:2;justify-self:start}
+    .secondary-nav{grid-column:1;grid-row:3}
   }
 </style>
 </head>
