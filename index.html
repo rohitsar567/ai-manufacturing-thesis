@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '7f38aac5102c28a37c62efbfe1bf800a8fc7df72';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '7f38aac5102c28a37c62efbfe1bf800a8fc7df72' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8142,6 +8142,8 @@ window.NODE_DESC = {
 
   <!-- ================== THESIS VALIDATION KNOWLEDGE GRAPH ================== -->
   <div id="tv-kg" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
+
+    <!-- HEADER -->
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:6px;">
       <div>
         <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Knowledge graph</div>
@@ -8150,120 +8152,186 @@ window.NODE_DESC = {
       <div id="tv-overall" style="text-align:right;min-width:200px;">
         <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#475569;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Overall thesis validation</div>
         <div id="tv-overall-pct" style="font-family:var(--font-mono);font-size:2rem;font-weight:800;color:#0d9488;line-height:1;letter-spacing:-0.02em;">0%</div>
-        <div id="tv-overall-bar" style="margin-top:6px;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden;"><div id="tv-overall-fill" style="height:100%;background:linear-gradient(90deg,#0d9488 0%,#10b981 100%);width:0%;transition:width .3s;"></div></div>
+        <div style="margin-top:6px;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden;"><div id="tv-overall-fill" style="height:100%;background:linear-gradient(90deg,#0d9488 0%,#10b981 100%);width:0%;transition:width .3s;"></div></div>
       </div>
     </div>
-    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:14px;line-height:1.55;">Granular validation per <strong>node × aspect</strong>. Each aspect rolls up into a node score, nodes roll into sector scores, sectors roll into thesis. Edit % as evidence accumulates; attach evidence text + linked contacts + transcript URL (Granola integration coming).</div>
+
+    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:12px;line-height:1.55;">Diagram below shows <strong>what we are validating</strong> and <strong>how it rolls up</strong>. Each node in the diagram opens its own block below with sliders, evidence text, transcripts, and linked CRM contacts. <span style="color:#0d9488;font-weight:700;">Granola integration coming</span> &mdash; call transcripts will auto-populate evidence and move sliders without manual input.</div>
+
+    <!-- ============ VISUAL ROLLUP DIAGRAM ============ -->
+    <div id="tv-diagram-wrap" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:14px;overflow-x:auto;">
+      <div id="tv-diagram"></div>
+    </div>
+
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-family:var(--font-display);font-size:0.78rem;">
       <button id="tv-expand-all" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#475569;font-size:0.74rem;cursor:pointer;font-weight:600;">Expand all</button>
       <button id="tv-collapse-all" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#475569;font-size:0.74rem;cursor:pointer;font-weight:600;">Collapse all</button>
       <button id="tv-export" style="padding:7px 12px;border:1px solid #0d9488;border-radius:8px;background:#0d9488;color:#fff;font-weight:700;font-size:0.74rem;cursor:pointer;">Export JSON</button>
       <button id="tv-reset" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#64748b;font-size:0.74rem;cursor:pointer;">Reset all</button>
     </div>
+
     <div id="tv-tree"></div>
   </div>
 
   <style id="tv-styles">
-    #tv-kg .tv-sector{margin-bottom:14px;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff}
-    #tv-kg .tv-sector-hdr{display:grid;grid-template-columns:1fr 200px 80px;gap:14px;align-items:center;padding:14px 18px;background:#f8fafc;border-bottom:1px solid #e2e8f0;cursor:pointer}
-    #tv-kg .tv-sector-name{font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1a2232;display:flex;align-items:center;gap:10px}
+    /* Diagram (compact pyramid) */
+    #tv-diagram{display:flex;flex-direction:column;gap:10px;align-items:stretch;font-family:var(--font-display)}
+    #tv-diagram .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    #tv-diagram .node{flex:0 0 auto;padding:8px 12px;border-radius:8px;border:1.5px solid;background:#fff;cursor:pointer;transition:transform .12s, box-shadow .12s;text-align:center;min-width:108px;display:flex;flex-direction:column;align-items:center;gap:2px}
+    #tv-diagram .node:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,0.06)}
+    #tv-diagram .node .lbl{font-size:0.7rem;font-weight:700;line-height:1.2}
+    #tv-diagram .node .pct{font-family:var(--font-mono);font-size:0.78rem;font-weight:800}
+    #tv-diagram .node .meta{font-size:0.55rem;color:#94a3b8;letter-spacing:0.04em;text-transform:uppercase;margin-top:1px}
+    #tv-diagram .node.thesis{border-color:#0d9488;background:rgba(13,148,136,0.08);min-width:160px;padding:10px 16px}
+    #tv-diagram .node.thesis .lbl{font-size:0.78rem;color:#0d9488}
+    #tv-diagram .node.strategic{border-color:#7c3aed;background:rgba(124,58,237,0.06)}
+    #tv-diagram .node.strategic .lbl{color:#6d28d9}
+    #tv-diagram .node.sector-auto{border-color:#2563eb;background:rgba(37,99,235,0.05)}
+    #tv-diagram .node.sector-auto .lbl{color:#2563eb}
+    #tv-diagram .node.sector-fmcg{border-color:#d97706;background:rgba(217,119,6,0.05)}
+    #tv-diagram .node.sector-fmcg .lbl{color:#b45309}
+    #tv-diagram .node.pillar{border-color:#cbd5e1;background:#fff;min-width:78px;padding:6px 8px}
+    #tv-diagram .node.pillar .lbl{font-size:0.62rem}
+    #tv-diagram .node.pillar .pct{font-size:0.7rem}
+    #tv-diagram .conn{height:14px;border-left:1.5px dashed #cbd5e1;width:0;margin:0 auto}
+    #tv-diagram .label-row{display:flex;justify-content:center;font-size:0.55rem;font-weight:700;color:#64748b;letter-spacing:0.08em;text-transform:uppercase;margin:2px 0 0}
+
+    /* Tree blocks */
+    #tv-kg .tv-block{margin-bottom:10px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;overflow:hidden}
+    #tv-kg .tv-block.strategic{border-color:rgba(124,58,237,0.35)}
+    #tv-kg .tv-block.sector-auto{border-color:rgba(37,99,235,0.35)}
+    #tv-kg .tv-block.sector-fmcg{border-color:rgba(217,119,6,0.35)}
+    #tv-kg .tv-block-hdr{display:grid;grid-template-columns:1fr 200px 70px 22px;gap:14px;align-items:center;padding:12px 16px;cursor:pointer;background:#fafbfc}
+    #tv-kg .tv-block-hdr:hover{background:#f1f5f9}
+    #tv-kg .tv-block-name{font-family:var(--font-display);font-weight:800;font-size:0.92rem;color:#1a2232;display:flex;align-items:center;gap:8px}
+    #tv-kg .tv-block-sub{font-size:0.7rem;color:#64748b;font-weight:500;margin-left:6px}
     #tv-kg .tv-bar{height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
     #tv-kg .tv-bar-fill{height:100%;background:linear-gradient(90deg,#0d9488,#10b981);transition:width .25s}
-    #tv-kg .tv-pct{font-family:var(--font-mono);font-weight:800;font-size:0.9rem;color:#0d9488;text-align:right}
-    #tv-kg .tv-nodes{padding:0}
-    #tv-kg .tv-subseg{border-top:1px solid #f1f5f9}
-    #tv-kg .tv-subseg-hdr{display:grid;grid-template-columns:1fr 200px 80px 28px;gap:14px;align-items:center;padding:10px 18px 10px 24px;background:#f8fafc;cursor:pointer;border-bottom:1px solid #f1f5f9}
-    #tv-kg .tv-subseg-hdr:hover{background:#f1f5f9}
-    #tv-kg .tv-subseg-name{font-family:var(--font-display);font-weight:700;font-size:0.82rem;color:#0f766e;display:flex;align-items:center;gap:6px}
-    #tv-kg .tv-node{border-top:1px solid #f1f5f9}
-    #tv-kg .tv-node-hdr{display:grid;grid-template-columns:1fr 200px 80px 28px;gap:14px;align-items:center;padding:12px 18px 12px 36px;cursor:pointer}
-    #tv-kg .tv-node-hdr:hover{background:#fafbfc}
-    #tv-kg .tv-node-name{font-family:var(--font-display);font-weight:700;font-size:0.88rem;color:#1a2232}
+    #tv-kg .tv-pct{font-family:var(--font-mono);font-weight:800;font-size:0.85rem;color:#0d9488;text-align:right}
     #tv-kg .tv-chev{font-family:var(--font-mono);font-size:0.7rem;color:#94a3b8;text-align:center;transition:transform .15s}
-    #tv-kg .tv-node.open .tv-chev{transform:rotate(90deg)}
-    #tv-kg .tv-aspects{display:none;padding:6px 18px 16px 54px;background:#fafbfc;border-top:1px solid #f1f5f9}
-    #tv-kg .tv-node.open .tv-aspects{display:block}
-    #tv-kg .tv-aspect{display:grid;grid-template-columns:1fr;gap:8px;padding:14px 0;border-bottom:1px dashed #e2e8f0}
-    #tv-kg .tv-aspect:last-child{border-bottom:none}
-    #tv-kg .tv-aspect-top{display:grid;grid-template-columns:1fr 200px 110px;gap:14px;align-items:center}
-    #tv-kg .tv-aspect-name{font-family:var(--font-display);font-weight:700;font-size:0.78rem;color:#334155}
-    #tv-kg .tv-aspect-q{font-size:0.7rem;color:#64748b;margin-top:2px;line-height:1.45}
+    #tv-kg .tv-block.open .tv-chev{transform:rotate(90deg)}
+    #tv-kg .tv-block-body{display:none;padding:14px 18px 18px;border-top:1px solid #f1f5f9;background:#fff}
+    #tv-kg .tv-block.open .tv-block-body{display:block}
+
+    /* Pillar / claim row */
+    #tv-kg .tv-claim{padding:10px 0;border-bottom:1px dashed #e2e8f0}
+    #tv-kg .tv-claim:last-child{border-bottom:none}
+    #tv-kg .tv-claim-top{display:grid;grid-template-columns:1fr 200px 95px;gap:12px;align-items:center}
+    #tv-kg .tv-claim-name{font-family:var(--font-display);font-weight:700;font-size:0.78rem;color:#334155}
+    #tv-kg .tv-claim-q{font-size:0.7rem;color:#64748b;line-height:1.45;margin-top:2px}
     #tv-kg .tv-slider{width:100%;cursor:pointer}
     #tv-kg .tv-pct-input{width:54px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-family:var(--font-mono);font-size:0.78rem;font-weight:700;text-align:center}
-    #tv-kg .tv-aspect-detail{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
-    #tv-kg .tv-field-label{font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#475569;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px}
-    #tv-kg .tv-evidence{width:100%;min-height:64px;padding:8px 10px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;resize:vertical;line-height:1.5}
-    #tv-kg .tv-side{display:flex;flex-direction:column;gap:8px}
-    #tv-kg .tv-personas{display:flex;flex-wrap:wrap;gap:4px}
-    #tv-kg .tv-pers-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border:1px solid #cbd5e1;color:#475569;background:#fff}
-    #tv-kg .tv-contacts-hint{font-size:0.7rem;color:#64748b;line-height:1.4}
+    #tv-kg .tv-detail{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+    #tv-kg .tv-field-label{font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:#475569;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px}
+    #tv-kg .tv-evidence{width:100%;min-height:54px;padding:8px 10px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;resize:vertical;line-height:1.45}
     #tv-kg .tv-link-input{width:100%;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.72rem;color:#1a2232}
     #tv-kg .tv-contact-list{display:flex;flex-wrap:wrap;gap:4px;max-height:80px;overflow-y:auto;padding:4px;background:#fff;border:1px solid #e2e8f0;border-radius:6px}
     #tv-kg .tv-contact-chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;background:#f1f5f9;color:#475569;font-size:0.66rem;font-weight:600;cursor:pointer;border:1px solid transparent}
     #tv-kg .tv-contact-chip.linked{background:#dcfce7;color:#166534;border-color:#86efac}
-    #tv-kg .tv-contact-chip.done-status{box-shadow:inset 0 0 0 1px #16a34a}
+    #tv-kg .tv-contact-chip.done{box-shadow:inset 0 0 0 1px #16a34a}
+
+    /* Per-node nested */
+    #tv-kg .tv-node-row{padding:8px 12px;border-bottom:1px dashed #e2e8f0;cursor:pointer;display:grid;grid-template-columns:1fr 200px 70px 22px;gap:12px;align-items:center}
+    #tv-kg .tv-node-row:hover{background:#fafbfc}
+    #tv-kg .tv-node-row.open + .tv-node-claims{display:block}
+    #tv-kg .tv-node-claims{display:none;padding:8px 18px 12px;background:#fafbfc;border-bottom:1px solid #e2e8f0}
+    #tv-kg .tv-node-name{font-family:var(--font-display);font-weight:700;font-size:0.78rem;color:#1a2232}
+    #tv-kg .tv-node-meta{font-size:0.6rem;color:#64748b;margin-top:2px}
   </style>
 
   <script id="tv-script">
   (function(){
-    var STORAGE_KEY = 'thesis_validation_v1';
+    var STORAGE_KEY = 'thesis_validation_v2';
     var CRM_KEY = 'thesis_crm_v1';
-
-    var ASPECTS = [
-      {id:'pain', label:'Pain validated', q:'Do they actually feel this pain in their day-to-day work?'},
-      {id:'incumbents', label:'Incumbent tools / processes', q:'What tools or workflows are they using today?'},
-      {id:'blockers', label:'Adoption blockers', q:'What is stopping them from adopting AI here?'},
-      {id:'switching', label:'Switching triggers', q:'What would make them switch to a new AI solution?'},
-      {id:'demand', label:'New AI demand / WTP', q:'Would they buy this? At what price/structure?'},
-      {id:'implementation', label:'Implementation feasibility', q:'How would AI actually get deployed here? Integration paths, data, pilot scope, change management?'}
-    ];
-
-    // Sector definitions; nodes are pulled live from window.AUTO_NODES / FMCG_NODES if present
-    var SECTORS = [
-      {id:'auto', label:'Automobile', icon:'\ud83d\ude97', tam:0.7, color:'#2563eb', source:'AUTO_NODES'},
-      {id:'fmcg', label:'FMCG', icon:'\ud83e\uddf4', tam:0.5, color:'#d97706', source:'FMCG_NODES'}
-    ];
 
     function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){return {};} }
     function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
     function loadCRM(){ try{return JSON.parse(localStorage.getItem(CRM_KEY)||'{}');}catch(e){return {};} }
     var state = loadState();
+    var TAM_WEIGHTS = {auto:0.7, fmcg:0.5};
 
-    function key(sector, nodeId, aspectId){ return sector + '|' + nodeId + '|' + aspectId; }
-    function getRec(sector, nodeId, aspectId){
-      var k = key(sector, nodeId, aspectId);
-      return state[k] || {pct:0, evidence:'', transcript:'', linked:[]};
-    }
-    function setRec(sector, nodeId, aspectId, patch){
-      var k = key(sector, nodeId, aspectId);
-      state[k] = Object.assign(getRec(sector, nodeId, aspectId), patch);
-      saveState(state);
+    function rec(key){ return state[key] || {pct:0, evidence:'', transcript:'', linked:[]}; }
+    function set(key, patch){ state[key] = Object.assign(rec(key), patch); saveState(state); }
+
+    // ========== CLAIM CATALOG ==========
+    // Strategic (cross-sector) claims
+    var STRATEGIC_CLAIMS = [
+      {id:'sector_auto_fmcg', label:'Sector pick: Auto + FMCG', q:'These two are the right sectors to attack first vs. Pharma / IT / BFSI / Retail. KW density + India ICP fit + revenue base justify it.'},
+      {id:'multi_sector_motion', label:'Multi-sector vs single-vertical', q:'Pursuing both Auto + FMCG concurrently is right vs. dominating one. GTM + capital efficiency holds.'},
+      {id:'incumbent_displacement', label:'Incumbent displacement story', q:'We can credibly displace SAP / Salesforce / Oracle / BeatRoute / FieldAssist / Zoho via India-first wedge.'},
+      {id:'india_first_advantage', label:'India-first wedge', q:'BRSR-anchored, vernacular-aware, COCO-ready stack is defensible vs. US GenAI giants entering India.'},
+      {id:'why_now', label:'Why now (timing)', q:'GenAI maturity + RBI/SEBI BRSR mandate + INR tailwind = the window is opening NOW.'},
+      {id:'thesis_implementation', label:'Thesis implementation path', q:'Fundraise \u2192 founding team \u2192 first 3 customers \u2192 ARR ramp \u2192 Series A. End-to-end credibility.'}
+    ];
+
+    // Sector-level TAM math claims (per sector)
+    function sectorClaims(sec){
+      if (sec === 'auto') return [
+        {id:'tam_auto', label:'Auto TAM = $0.7B', q:'$200B brand-owner revenue \u00d7 814 KW/$B \u00d7 $27K/yr salary \u00d7 83% role eligibility \u00d7 43% automation \u00d7 50% AI price discount.'},
+        {id:'kw_density_auto', label:'KW density 814 per $B revenue', q:'9 BRSRs (Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch). Holds for unlisted Tier-1 long tail?'},
+        {id:'salary_auto', label:'Avg KW salary $27K/yr', q:'BRSR Section C P5 median pay \u00d7 1.2 (Aon mean uplift). Representative across exec + mgmt + professional?'},
+        {id:'eligibility_auto', label:'Role eligibility 83%', q:'Excludes CXO/VP (0%) + 20% of R&D Professional (hyper-technical). Right denominator?'},
+        {id:'automation_auto', label:'Automation rate 43%', q:'Salary-weighted per-role rates (WEF 2025 + McKinsey MGI + Frey-Osborne). Defensible for India Auto?'},
+        {id:'discount_auto', label:'50% AI price discount', q:'Vendor priced 50% below human labour cost. Right level for India Auto buying behavior?'},
+        {id:'icp_auto', label:'Auto ICP set', q:'CIO + CFO + Commercial + SCM-CPO + CHRO. These are the actual signers of $500K+ AI SaaS contracts at Indian OEMs?'},
+        {id:'nodes_auto', label:'11 T1 nodes selected', q:'Vehicle Program, Testing, APQP, Supply Chain, Supplier Quality, Operations, Dealership, Showroom Sales, After-Sales, Warranty&Parts, Finance&HR. Right cut?'},
+        {id:'gtm_auto', label:'Auto GTM motion', q:'Top-down to MD/CXO at OEMs, then dealer-network play. Realistic for Indian Auto distribution structure?'}
+      ];
+      return [
+        {id:'tam_fmcg', label:'FMCG TAM = $0.5B', q:'$115B brand-owner revenue \u00d7 1,300 KW/$B \u00d7 $18.5K/yr salary \u00d7 ~80% eligibility \u00d7 ~45% automation \u00d7 50% AI price discount.'},
+        {id:'kw_density_fmcg', label:'KW density 1,300 per $B revenue', q:'8 BRSRs (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer). Holds for D2C / smaller brand owners?'},
+        {id:'salary_fmcg', label:'Avg KW salary $18.5K/yr', q:'BRSR median \u00d7 1.2. Why ~30% lower than Auto? Justified?'},
+        {id:'eligibility_fmcg', label:'Role eligibility ~80%', q:'Field sales reps, brand managers, category heads, FP&A. Accurate cut?'},
+        {id:'automation_fmcg', label:'Automation rate ~45%', q:'Per-role rates per WEF/McKinsey. Defensible for India FMCG?'},
+        {id:'discount_fmcg', label:'50% AI price discount', q:'Same 50% discount applied. Does FMCG actually pay less for SaaS?'},
+        {id:'icp_fmcg', label:'FMCG ICP set', q:'CMO + CSO + CIO + CFO + SCM + CPO + CHRO. Right buyers at HUL / ITC / Nestle India / Britannia?'},
+        {id:'nodes_fmcg', label:'17 T1 nodes selected', q:'Validate the deep-dive node set. Missing: trade promotion mgmt, retail audit, e-comm marketing?'},
+        {id:'gtm_fmcg', label:'FMCG GTM motion', q:'Land-and-expand at HUL/ITC vs. mid-cap (Marico, Dabur, Emami) where decision cycles are faster.'}
+      ];
     }
 
-    // Extract required personas per node from the existing Role × Node matrices
-    function extractPersonaMap(){
-      var map = {};
-      document.querySelectorAll('#sec-kg table tr').forEach(function(tr){
-        var tds = tr.querySelectorAll('td');
-        if (!tds.length) return;
-        var nodeName = (tds[0].textContent || '').trim();
-        if (!nodeName) return;
-        // Find header row in this table
-        var table = tr.closest('table');
-        if (!table) return;
-        var headers = Array.from(table.querySelectorAll('th')).map(function(th){return (th.textContent||'').trim();});
-        if (!headers.length) return;
-        var personas = [];
-        for (var i = 1; i < tds.length - 1; i++) {
-          var hasCheck = tds[i].querySelector('span[style*="background:"]');
-          if (hasCheck && headers[i]) personas.push(headers[i]);
-        }
-        if (personas.length) map[nodeName] = personas;
+    // Pillar claims = "validates" strings extracted from PERSONA_CONTEXT (the questionnaire)
+    function pillarClaims(){
+      var out = {};
+      try {
+        var pc = window.PERSONA_CONTEXT || {};
+        Object.keys(pc).forEach(function(sec){
+          out[sec] = [];
+          Object.keys(pc[sec]).forEach(function(p){
+            var v = pc[sec][p];
+            out[sec].push({
+              id: p,
+              persona: p,
+              label: v.role ? v.role.split('.')[0] : p.toUpperCase(),
+              validates: v.validates || '',
+              relevance: v.relevance || '',
+              nodes: v.nodes || []
+            });
+          });
+        });
+      } catch(e){}
+      return out;
+    }
+
+    // Per-node claims, derived from node data
+    function nodeClaims(node){
+      var claims = [];
+      (node.problems || []).slice(0, 3).forEach(function(p, i){
+        claims.push({id:'pain_' + i, label:'Pain ' + (i+1), q:'Confirmed: \u201c' + p + '\u201d?'});
       });
-      return map;
+      (node.products || []).slice(0, 4).forEach(function(p, i){
+        claims.push({id:'incumbent_' + i, label:'Incumbent: ' + p.n, q:'Do they actually use ' + p.n + ' (or substitute)? What does it cost?'});
+      });
+      claims.push({id:'tam_node', label:'Node TAM = $' + (node.tam||0) + 'M', q:'Does this node alone really represent $' + (node.tam||0) + 'M of enterprise-addressable AI TAM?'});
+      claims.push({id:'score_node', label:'AI Readiness Score ' + (node.score||0) + '/10', q:'Is the AI readiness score for this node accurate (mkt + demand + India deployment evidence)?'});
+      claims.push({id:'switching', label:'Switching trigger', q:'What event would actually make them switch to a new AI tool here?'});
+      claims.push({id:'demand', label:'New AI demand / WTP', q:'Would they actually buy this? At what price + structure (per-seat / per-action / outcome-based)?'});
+      claims.push({id:'implementation', label:'Implementation feasibility', q:'How would AI deploy here? Data path + integration + change management + time-to-value?'});
+      return claims;
     }
 
-    function getCRMContacts(){
+    // ========== CRM CONTACTS ==========
+    function getContacts(){
       var crm = loadCRM();
       var contacts = [];
       document.querySelectorAll('.cc-card').forEach(function(card){
@@ -8271,524 +8339,351 @@ window.NODE_DESC = {
         var nameEl = card.querySelector('.cc-name');
         var coEl = card.querySelector('.cc-co');
         var liEl = card.querySelector('a.cc-li');
+        var personaCode = card.getAttribute('data-personas') || '';
         var pillEls = card.querySelectorAll('.cc-pill');
         var personaText = pillEls.length ? pillEls[pillEls.length-1].textContent.trim() : '';
         var url = liEl ? liEl.href : '';
         var ckey = url || (nameEl ? nameEl.textContent.trim() : '');
         if (!ckey) return;
-        var rec = crm[ckey] || {status:'outreach'};
+        var rr = crm[ckey] || {status:'outreach'};
         contacts.push({
-          key: ckey,
-          name: nameEl ? nameEl.textContent.trim() : '',
-          company: coEl ? coEl.textContent.trim() : '',
-          persona: personaText,
-          sector: sec,
-          status: rec.status
+          key:ckey, name: nameEl?nameEl.textContent.trim():'', company:coEl?coEl.textContent.trim():'',
+          personaCode:personaCode, persona:personaText, sector:sec, status:rr.status
         });
       });
       return contacts;
     }
 
-    function rollupNode(sector, node){
-      var sum = 0;
-      ASPECTS.forEach(function(a){ sum += getRec(sector, node.id, a.id).pct; });
-      return Math.round(sum / ASPECTS.length);
+    // ========== ROLLUPS ==========
+    function avg(arr){ if (!arr.length) return 0; var s=0; arr.forEach(function(v){s+=v;}); return s/arr.length; }
+
+    function rollupStrategic(){ return Math.round(avg(STRATEGIC_CLAIMS.map(function(c){return rec('strategic|'+c.id).pct;}))); }
+    function rollupSectorTAM(sec){
+      return Math.round(avg(sectorClaims(sec).map(function(c){return rec('sec_tam|'+sec+'|'+c.id).pct;})));
     }
-    function rollupSector(sector, nodes){
-      if (!nodes.length) return 0;
-      var sum = 0;
-      nodes.forEach(function(n){ sum += rollupNode(sector, n); });
-      return Math.round(sum / nodes.length);
+    function rollupPillar(sec, persona){
+      return Math.round(rec('pillar|'+sec+'|'+persona).pct || 0);
+    }
+    function rollupSectorPillars(sec){
+      var pcs = (pillarClaims()[sec] || []);
+      return Math.round(avg(pcs.map(function(p){return rollupPillar(sec, p.persona);})));
+    }
+    function rollupNode(sec, node){
+      return Math.round(avg(nodeClaims(node).map(function(c){return rec('node|'+sec+'|'+node.id+'|'+c.id).pct;})));
+    }
+    function rollupSectorNodes(sec){
+      var nodes = (window[sec==='auto'?'AUTO_NODES':'FMCG_NODES']||[]).filter(function(n){return n.tier==='T1';});
+      return Math.round(avg(nodes.map(function(n){return rollupNode(sec, n);})));
+    }
+    function rollupSector(sec){
+      // Sector-level = avg of (TAM-math claims + persona-pillar rollup + node-detail rollup)
+      return Math.round(avg([rollupSectorTAM(sec), rollupSectorPillars(sec), rollupSectorNodes(sec)]));
     }
     function rollupOverall(){
-      var totalW = 0, weighted = 0;
-      SECTORS.forEach(function(s){
-        var nodes = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
-        if (!nodes.length) return;
-        var pct = rollupSector(s.id, nodes);
-        weighted += pct * s.tam;
-        totalW += s.tam;
-      });
-      var sectorPct = totalW ? (weighted / totalW) : 0;
-      // 50/50: strategic-level half + sector-rollup half
-      var strategicPct = rollupStrategic();
-      return Math.round((sectorPct + strategicPct) / 2);
+      var sa = rollupSector('auto'), sf = rollupSector('fmcg'), st = rollupStrategic();
+      var totW = TAM_WEIGHTS.auto + TAM_WEIGHTS.fmcg;
+      var sectorWeighted = (sa * TAM_WEIGHTS.auto + sf * TAM_WEIGHTS.fmcg) / totW;
+      return Math.round((sectorWeighted + st) / 2);
     }
 
+    // ========== UI BUILDERS ==========
     function makeBar(pct){
-      var bar = document.createElement('div'); bar.className = 'tv-bar';
-      var fill = document.createElement('div'); fill.className = 'tv-bar-fill';
-      fill.style.width = pct + '%';
-      bar.appendChild(fill);
-      return bar;
+      var b = document.createElement('div'); b.className='tv-bar';
+      var f = document.createElement('div'); f.className='tv-bar-fill'; f.style.width = pct+'%';
+      b.appendChild(f); return b;
     }
 
-    function buildAspect(sector, node, aspect, personasNeeded, allContacts){
-      var rec = getRec(sector, node.id, aspect.id);
-      var wrap = document.createElement('div'); wrap.className = 'tv-aspect';
-
-      var top = document.createElement('div'); top.className = 'tv-aspect-top';
-
+    function buildClaim(stateKey, claim, contacts, defaultRelevance){
+      var r = rec(stateKey);
+      var w = document.createElement('div'); w.className='tv-claim';
+      var top = document.createElement('div'); top.className='tv-claim-top';
       var nameWrap = document.createElement('div');
-      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-aspect-name'; nameDiv.textContent = aspect.label;
-      var qDiv = document.createElement('div'); qDiv.className = 'tv-aspect-q'; qDiv.textContent = aspect.q;
-      nameWrap.appendChild(nameDiv); nameWrap.appendChild(qDiv);
+      var name = document.createElement('div'); name.className='tv-claim-name'; name.textContent = claim.label;
+      var q = document.createElement('div'); q.className='tv-claim-q'; q.textContent = claim.q;
+      nameWrap.appendChild(name); nameWrap.appendChild(q);
       top.appendChild(nameWrap);
-
-      var bar = makeBar(rec.pct);
-      top.appendChild(bar);
-
+      var bar = makeBar(r.pct); top.appendChild(bar);
       var pctWrap = document.createElement('div');
-      pctWrap.style.display = 'flex'; pctWrap.style.alignItems = 'center'; pctWrap.style.gap = '6px'; pctWrap.style.justifyContent = 'flex-end';
-      var pctIn = document.createElement('input');
-      pctIn.type = 'number'; pctIn.min = '0'; pctIn.max = '100'; pctIn.value = rec.pct;
-      pctIn.className = 'tv-pct-input';
-      var pctSign = document.createElement('span');
-      pctSign.style.fontFamily = 'var(--font-mono)'; pctSign.style.fontSize = '0.74rem'; pctSign.style.color = '#475569'; pctSign.textContent = '%';
-      pctWrap.appendChild(pctIn); pctWrap.appendChild(pctSign);
+      pctWrap.style.cssText='display:flex;align-items:center;gap:6px;justify-content:flex-end';
+      var pi = document.createElement('input'); pi.type='number'; pi.min='0'; pi.max='100'; pi.value=r.pct; pi.className='tv-pct-input';
+      var sg = document.createElement('span'); sg.style.cssText='font-family:var(--font-mono);font-size:0.74rem;color:#475569'; sg.textContent='%';
+      pctWrap.appendChild(pi); pctWrap.appendChild(sg);
       top.appendChild(pctWrap);
-      wrap.appendChild(top);
-
-      var slider = document.createElement('input'); slider.type = 'range'; slider.min = '0'; slider.max = '100'; slider.value = rec.pct;
-      slider.className = 'tv-slider';
-      wrap.appendChild(slider);
-
-      function setPct(v){
-        v = Math.max(0, Math.min(100, parseInt(v,10) || 0));
-        pctIn.value = v; slider.value = v;
-        bar.firstChild.style.width = v + '%';
-        setRec(sector, node.id, aspect.id, {pct: v});
-        refreshRollups();
-      }
-      pctIn.addEventListener('input', function(){ setPct(pctIn.value); });
-      slider.addEventListener('input', function(){ setPct(slider.value); });
-
-      var detail = document.createElement('div'); detail.className = 'tv-aspect-detail';
-
-      var leftCol = document.createElement('div');
-      var evLabel = document.createElement('div'); evLabel.className = 'tv-field-label'; evLabel.textContent = 'Evidence \u2014 who said what, key insights';
-      var evArea = document.createElement('textarea'); evArea.className = 'tv-evidence'; evArea.placeholder = 'e.g. Sheetal Shetty (CIO, Simple Energy) confirmed pain on 2026-04-15: program timeline drift driven by manual SAP-PLM updates. Source: Granola transcript 2026-04-15.';
-      evArea.value = rec.evidence || '';
-      evArea.addEventListener('input', function(){ setRec(sector, node.id, aspect.id, {evidence: evArea.value}); });
-      var trLabel = document.createElement('div'); trLabel.className = 'tv-field-label'; trLabel.style.marginTop = '8px'; trLabel.textContent = 'Transcript / source URL';
-      var trIn = document.createElement('input'); trIn.type = 'text'; trIn.className = 'tv-link-input'; trIn.placeholder = 'Granola or recording URL'; trIn.value = rec.transcript || '';
-      trIn.addEventListener('input', function(){ setRec(sector, node.id, aspect.id, {transcript: trIn.value}); });
-      leftCol.appendChild(evLabel); leftCol.appendChild(evArea); leftCol.appendChild(trLabel); leftCol.appendChild(trIn);
-      detail.appendChild(leftCol);
-
-      var rightCol = document.createElement('div'); rightCol.className = 'tv-side';
-      var pLabel = document.createElement('div'); pLabel.className = 'tv-field-label'; pLabel.textContent = 'Personas needed (Role \u00d7 Node matrix)';
-      var pBox = document.createElement('div'); pBox.className = 'tv-personas';
-      if (personasNeeded.length) {
-        personasNeeded.forEach(function(p){
-          var pill = document.createElement('span'); pill.className = 'tv-pers-pill'; pill.textContent = p;
-          pBox.appendChild(pill);
-        });
+      w.appendChild(top);
+      var sl = document.createElement('input'); sl.type='range'; sl.min='0'; sl.max='100'; sl.value=r.pct; sl.className='tv-slider';
+      w.appendChild(sl);
+      function setPct(v){ v=Math.max(0,Math.min(100,parseInt(v,10)||0)); pi.value=v; sl.value=v; bar.firstChild.style.width=v+'%'; set(stateKey,{pct:v}); refresh(); }
+      pi.addEventListener('input', function(){setPct(pi.value);});
+      sl.addEventListener('input', function(){setPct(sl.value);});
+      var dt = document.createElement('div'); dt.className='tv-detail';
+      var lc = document.createElement('div');
+      var el = document.createElement('div'); el.className='tv-field-label'; el.textContent='Evidence \u2014 source / quote / insight';
+      var ea = document.createElement('textarea'); ea.className='tv-evidence'; ea.placeholder='e.g. ' + (defaultRelevance || 'who said what + key insight + where stored');
+      ea.value = r.evidence || '';
+      ea.addEventListener('input', function(){set(stateKey,{evidence:ea.value});});
+      var tl = document.createElement('div'); tl.className='tv-field-label'; tl.style.marginTop='8px'; tl.textContent='Transcript / source URL (Granola coming)';
+      var ti = document.createElement('input'); ti.type='text'; ti.className='tv-link-input'; ti.placeholder='Granola, Otter, Notion or research URL';
+      ti.value = r.transcript || '';
+      ti.addEventListener('input', function(){set(stateKey,{transcript:ti.value});});
+      lc.appendChild(el); lc.appendChild(ea); lc.appendChild(tl); lc.appendChild(ti);
+      dt.appendChild(lc);
+      var rc = document.createElement('div');
+      var cl = document.createElement('div'); cl.className='tv-field-label'; cl.textContent='Linked CRM contacts (click to link)';
+      var cb = document.createElement('div'); cb.className='tv-contact-list';
+      if (!contacts.length) {
+        var n = document.createElement('div'); n.style.cssText='font-size:0.7rem;color:#94a3b8'; n.textContent='No matching contacts.';
+        cb.appendChild(n);
       } else {
-        pBox.textContent = 'No matrix mapping found for this node';
-        pBox.style.fontSize = '0.7rem'; pBox.style.color = '#94a3b8';
-      }
-      rightCol.appendChild(pLabel); rightCol.appendChild(pBox);
-
-      var cLabel = document.createElement('div'); cLabel.className = 'tv-field-label'; cLabel.style.marginTop = '4px'; cLabel.textContent = 'Linked contacts (CRM \u2014 click to link)';
-      var cBox = document.createElement('div'); cBox.className = 'tv-contact-list';
-      var sectorContacts = allContacts.filter(function(c){ return c.sector === sector; });
-      // Filter to contacts whose persona text overlaps with personasNeeded (any token match)
-      var personaHints = personasNeeded.map(function(p){return p.toLowerCase();});
-      var relevant = sectorContacts.filter(function(c){
-        var pt = (c.persona || '').toLowerCase();
-        if (!personaHints.length) return true;
-        return personaHints.some(function(h){
-          if (!h) return false;
-          // Match by abbreviation token (first word) or substring
-          var token = h.split(/\W+/)[0];
-          return token && (pt.indexOf(token) !== -1 || (h.length > 2 && pt.indexOf(h) !== -1));
-        });
-      });
-      if (!relevant.length) {
-        var none = document.createElement('div'); none.style.fontSize='0.7rem'; none.style.color='#94a3b8'; none.textContent = 'No matching CRM contacts yet.';
-        cBox.appendChild(none);
-      } else {
-        relevant.forEach(function(c){
-          var chip = document.createElement('span');
-          chip.className = 'tv-contact-chip' + ((rec.linked||[]).indexOf(c.key) !== -1 ? ' linked' : '') + (c.status === 'done' ? ' done-status' : '');
-          chip.textContent = c.name + ' \u2014 ' + (c.persona || '');
-          chip.title = c.company + ' \u00b7 status: ' + c.status;
-          chip.addEventListener('click', function(){
-            var linked = rec.linked || [];
-            var idx = linked.indexOf(c.key);
-            if (idx === -1) linked.push(c.key); else linked.splice(idx, 1);
-            setRec(sector, node.id, aspect.id, {linked: linked});
-            rec = getRec(sector, node.id, aspect.id);
-            chip.classList.toggle('linked');
+        contacts.forEach(function(c){
+          var ch = document.createElement('span');
+          ch.className = 'tv-contact-chip' + ((r.linked||[]).indexOf(c.key)!==-1?' linked':'') + (c.status==='done'?' done':'');
+          ch.textContent = c.name + ' \u00b7 ' + (c.persona||'');
+          ch.title = c.company + ' \u00b7 ' + c.status;
+          ch.addEventListener('click', function(){
+            var L = (rec(stateKey).linked||[]).slice();
+            var i = L.indexOf(c.key);
+            if (i===-1) L.push(c.key); else L.splice(i,1);
+            set(stateKey,{linked:L}); ch.classList.toggle('linked');
           });
-          cBox.appendChild(chip);
+          cb.appendChild(ch);
         });
       }
-      rightCol.appendChild(cLabel); rightCol.appendChild(cBox);
-
-      detail.appendChild(rightCol);
-      wrap.appendChild(detail);
-
-      return wrap;
+      rc.appendChild(cl); rc.appendChild(cb);
+      dt.appendChild(rc);
+      w.appendChild(dt);
+      return w;
     }
 
-    var nodeRowRefs = []; // {sector, nodeId, pctEl, fillEl}
-    var sectorRowRefs = []; // {sector, pctEl, fillEl}
-
-    function refreshRollups(){
-      nodeRowRefs.forEach(function(r){
-        var pct = r.compute();
-        r.pctEl.textContent = pct + '%';
-        r.fillEl.style.width = pct + '%';
-      });
-      subRowRefs.forEach(function(r){
-        var pct = r.compute();
-        r.pctEl.textContent = pct + '%';
-        r.fillEl.style.width = pct + '%';
-      });
-      sectorRowRefs.forEach(function(r){
-        var pct = r.compute();
-        r.pctEl.textContent = pct + '%';
-        r.fillEl.style.width = pct + '%';
-      });
-      strategicRowRefs.forEach(function(r){
-        var p = r.compute();
-        r.pctEl.textContent = p + '%';
-        r.fillEl.style.width = p + '%';
-      });
-      var overall = rollupOverall();
-      document.getElementById('tv-overall-pct').textContent = overall + '%';
-      document.getElementById('tv-overall-fill').style.width = overall + '%';
+    function makeBlockHeader(klass, title, subtitle, pct){
+      var hdr = document.createElement('div'); hdr.className='tv-block-hdr';
+      var nm = document.createElement('div'); nm.className='tv-block-name';
+      nm.appendChild(document.createTextNode(title));
+      if (subtitle){ var s = document.createElement('span'); s.className='tv-block-sub'; s.textContent=subtitle; nm.appendChild(s); }
+      hdr.appendChild(nm);
+      var bar = makeBar(pct); hdr.appendChild(bar);
+      var pc = document.createElement('div'); pc.className='tv-pct'; pc.textContent = pct + '%';
+      hdr.appendChild(pc);
+      var ch = document.createElement('div'); ch.className='tv-chev'; ch.textContent='\u25B6';
+      hdr.appendChild(ch);
+      return {hdr:hdr, pctEl:pc, fillEl:bar.firstChild};
     }
 
-    function buildNode(sector, node, personaMap, allContacts){
-      var personasNeeded = personaMap[node.name] || [];
-      var nodeWrap = document.createElement('div'); nodeWrap.className = 'tv-node';
+    var rollRefs = []; // {compute, pctEl, fillEl}
+    function reg(compute, pctEl, fillEl){ rollRefs.push({compute:compute, pctEl:pctEl, fillEl:fillEl}); }
 
-      var hdr = document.createElement('div'); hdr.className = 'tv-node-hdr';
-      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-node-name'; nameDiv.textContent = node.name;
-      var nodePct = rollupNode(sector, node);
-      var bar = makeBar(nodePct);
-      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = nodePct + '%';
-      var chev = document.createElement('div'); chev.className = 'tv-chev'; chev.textContent = '\u25B6';
-      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv); hdr.appendChild(chev);
-      nodeWrap.appendChild(hdr);
-
-      var aspectsBox = document.createElement('div'); aspectsBox.className = 'tv-aspects';
-      ASPECTS.forEach(function(a){
-        aspectsBox.appendChild(buildAspect(sector, node, a, personasNeeded, allContacts));
+    function buildStrategicBlock(contacts){
+      var blk = document.createElement('div'); blk.className='tv-block strategic';
+      var hd = makeBlockHeader('strategic', '\ud83c\udfaf  Strategic / cross-sector validations', STRATEGIC_CLAIMS.length + ' claims', rollupStrategic());
+      blk.appendChild(hd.hdr);
+      reg(rollupStrategic, hd.pctEl, hd.fillEl);
+      var body = document.createElement('div'); body.className='tv-block-body';
+      STRATEGIC_CLAIMS.forEach(function(c){
+        body.appendChild(buildClaim('strategic|'+c.id, c, contacts.slice(0,40), 'cross-sector'));
       });
-      nodeWrap.appendChild(aspectsBox);
-
-      hdr.addEventListener('click', function(){ nodeWrap.classList.toggle('open'); });
-
-      nodeRowRefs.push({
-        sector: sector, nodeId: node.id,
-        pctEl: pctDiv, fillEl: bar.firstChild,
-        compute: function(){ return rollupNode(sector, node); }
+      blk.appendChild(body);
+      hd.hdr.addEventListener('click', function(e){
+        if (e.target.closest('input,textarea,button')) return;
+        blk.classList.toggle('open');
       });
-
-      return nodeWrap;
+      return blk;
     }
 
-    var SUBSEGMENTS = [
-      {id:'supply', label:'Supply chain & sourcing', icon:'\ud83d\udd17'},
-      {id:'mfg', label:'Manufacturing & operations', icon:'\ud83c\udfed'},
-      {id:'demand', label:'Demand & commercial', icon:'\ud83d\udcc8'},
-      {id:'support', label:'Support functions', icon:'\ud83d\udee0\ufe0f'}
-    ];
-
-    var subRowRefs = [];
-
-    function rollupSubseg(sector, nodes){
-      if (!nodes.length) return 0;
-      var sum = 0;
-      nodes.forEach(function(n){ sum += rollupNode(sector, n); });
-      return Math.round(sum / nodes.length);
-    }
-
-    function buildSubsegment(sector, sub, nodes, personaMap, allContacts){
-      var wrap = document.createElement('div'); wrap.className = 'tv-subseg';
-      var hdr = document.createElement('div'); hdr.className = 'tv-subseg-hdr';
-      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-subseg-name';
-      var ic = document.createElement('span'); ic.textContent = sub.icon; nameDiv.appendChild(ic);
-      var lbl = document.createElement('span'); lbl.textContent = ' ' + sub.label + '  '; nameDiv.appendChild(lbl);
-      var ct = document.createElement('span'); ct.style.fontWeight='500'; ct.style.color='#64748b'; ct.style.fontSize='0.72rem';
-      ct.textContent = nodes.length + ' nodes';
-      nameDiv.appendChild(ct);
-      var pct = rollupSubseg(sector, nodes);
-      var bar = makeBar(pct);
-      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = pct + '%';
-      var chev = document.createElement('div'); chev.className = 'tv-chev'; chev.textContent = '\u25BC';
-      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv); hdr.appendChild(chev);
-      wrap.appendChild(hdr);
-
-      var nodesBox = document.createElement('div'); nodesBox.className = 'tv-nodes';
-      nodes.forEach(function(n){ nodesBox.appendChild(buildNode(sector, n, personaMap, allContacts)); });
-      wrap.appendChild(nodesBox);
-
-      hdr.addEventListener('click', function(e){
-        if (e.target.closest('.tv-node-hdr')) return;
-        var hidden = nodesBox.style.display === 'none';
-        nodesBox.style.display = hidden ? '' : 'none';
-        chev.textContent = hidden ? '\u25BC' : '\u25B6';
+    function buildSectorTAMBlock(sec, contacts){
+      var sectorContacts = contacts.filter(function(c){return c.sector===sec;});
+      var blk = document.createElement('div'); blk.className='tv-block sector-' + sec;
+      var hd = makeBlockHeader('sector-'+sec,
+        (sec==='auto'?'\ud83d\ude97  Auto':'\ud83e\uddf4  FMCG') + ' \u2014 sector / TAM math claims',
+        sectorClaims(sec).length + ' claims', rollupSectorTAM(sec));
+      blk.appendChild(hd.hdr);
+      reg(function(){return rollupSectorTAM(sec);}, hd.pctEl, hd.fillEl);
+      var body = document.createElement('div'); body.className='tv-block-body';
+      sectorClaims(sec).forEach(function(c){
+        body.appendChild(buildClaim('sec_tam|'+sec+'|'+c.id, c, sectorContacts, 'TAM math evidence'));
       });
-
-      subRowRefs.push({
-        pctEl: pctDiv, fillEl: bar.firstChild,
-        compute: function(){ return rollupSubseg(sector, nodes); }
+      blk.appendChild(body);
+      hd.hdr.addEventListener('click', function(e){
+        if (e.target.closest('input,textarea,button')) return;
+        blk.classList.toggle('open');
       });
-
-      return wrap;
+      return blk;
     }
 
-    function buildSector(s, personaMap, allContacts){
-      var allT1 = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
-      var wrap = document.createElement('div'); wrap.className = 'tv-sector';
-      var hdr = document.createElement('div'); hdr.className = 'tv-sector-hdr';
-      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-sector-name';
-      var ic = document.createElement('span'); ic.textContent = s.icon; nameDiv.appendChild(ic);
-      var lbl = document.createElement('span'); lbl.textContent = s.label + '  '; nameDiv.appendChild(lbl);
-      var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
-      sub.textContent = allT1.length + ' T1 nodes \u00b7 $' + s.tam + 'B TAM';
-      nameDiv.appendChild(sub);
-      var sPct = rollupSector(s.id, allT1);
-      var bar = makeBar(sPct);
-      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = sPct + '%';
-      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
-      wrap.appendChild(hdr);
-
-      var subBox = document.createElement('div'); subBox.className = 'tv-nodes';
-      SUBSEGMENTS.forEach(function(ss){
-        var nodes = allT1.filter(function(n){return n.bp === ss.id;});
-        if (!nodes.length) return;
-        subBox.appendChild(buildSubsegment(s.id, ss, nodes, personaMap, allContacts));
+    function buildPillarBlock(sec, pillar, contacts){
+      var sectorContacts = contacts.filter(function(c){
+        if (c.sector !== sec) return false;
+        var code = (c.personaCode||'').toLowerCase();
+        return code.split(/\s+/).indexOf(pillar.persona) !== -1;
       });
-      wrap.appendChild(subBox);
-
-      hdr.addEventListener('click', function(e){
-        if (e.target.closest('.tv-subseg-hdr') || e.target.closest('.tv-node-hdr')) return;
-        subBox.style.display = (subBox.style.display === 'none') ? '' : 'none';
+      var blk = document.createElement('div'); blk.className='tv-block sector-' + sec;
+      var stateKey = 'pillar|' + sec + '|' + pillar.persona;
+      var pct = Math.round(rec(stateKey).pct || 0);
+      var nodesText = pillar.nodes && pillar.nodes.length ? pillar.nodes.slice(0,3).join(' \u00b7 ') + (pillar.nodes.length>3?' \u00b7 +'+(pillar.nodes.length-3):''): '';
+      var hd = makeBlockHeader('sector-'+sec,
+        (sec==='auto'?'\ud83d\ude97 ':'\ud83e\uddf4 ') + 'Pillar: ' + pillar.label + ' (' + pillar.persona.toUpperCase() + ')',
+        nodesText, pct);
+      blk.appendChild(hd.hdr);
+      reg(function(){return Math.round(rec(stateKey).pct||0);}, hd.pctEl, hd.fillEl);
+      var body = document.createElement('div'); body.className='tv-block-body';
+      var claim = {id:pillar.persona, label:pillar.validates || ('Validates ' + pillar.label),
+        q:(pillar.relevance || '') + ' \u2014 nodes covered: ' + (pillar.nodes||[]).join(', ')};
+      body.appendChild(buildClaim(stateKey, claim, sectorContacts, pillar.relevance));
+      blk.appendChild(body);
+      hd.hdr.addEventListener('click', function(e){
+        if (e.target.closest('input,textarea,button')) return;
+        blk.classList.toggle('open');
       });
-
-      sectorRowRefs.push({
-        sector: s.id,
-        pctEl: pctDiv, fillEl: bar.firstChild,
-        compute: function(){ return rollupSector(s.id, allT1); }
-      });
-
-      return wrap;
+      return blk;
     }
 
-    // ============ STRATEGIC (thesis-level) validations ============
-    var STRATEGIC_ASPECTS = [
-      {id:'sector_selection', label:'Sector selection', q:'Are Automobile + FMCG the right sectors to target with this thesis? Why not pharma/IT/BFSI?'},
-      {id:'subseg_selection', label:'Sub-segment selection', q:'Are Supply / Manufacturing / Demand / Support the right sub-segments? Are we missing any?'},
-      {id:'tam_methodology', label:'TAM methodology', q:'Is the $1.2B Knowledge Worker enterprise TAM credible? Pricing? Penetration assumptions?'},
-      {id:'icp_profile', label:'ICP / buyer profile', q:'Are CIO/CFO/Comm/SCM/CMO etc. the right economic buyers? Who actually approves?'},
-      {id:'gtm_motion', label:'GTM motion', q:'Is the proposed sales motion (top-down, India-first, BRSR-anchored) realistic for this market?'},
-      {id:'incumbents_landscape', label:'Incumbent landscape', q:'Have we mapped the incumbents accurately (SAP, Salesforce, BeatRoute, FieldAssist, Zoho)?'},
-      {id:'why_now', label:'Why now', q:'Is the timing right for India enterprise AI adoption? GenAI maturity, regulatory tailwinds, talent supply?'},
-      {id:'implementation_strategy', label:'Implementation strategy', q:'How will AI actually get deployed across the portfolio? Pilot path, integration, change management, time-to-value?'}
-    ];
-
-    // scope = 'auto' | 'fmcg' | 'combined'
-    function getStrategic(scope, aspectId){
-      var k = '__strategic__|' + scope + '|' + aspectId;
-      return state[k] || {pct:0, evidence:'', transcript:'', linked:[]};
-    }
-    function setStrategic(scope, aspectId, patch){
-      var k = '__strategic__|' + scope + '|' + aspectId;
-      state[k] = Object.assign(getStrategic(scope, aspectId), patch);
-      saveState(state);
-    }
-    function rollupStrategicScope(scope){
-      if (!STRATEGIC_ASPECTS.length) return 0;
-      // Combined = average of Auto + FMCG strategic rollups
-      if (scope === 'combined') {
-        return Math.round((rollupStrategicScope('auto') + rollupStrategicScope('fmcg')) / 2);
-      }
-      var sum = 0;
-      STRATEGIC_ASPECTS.forEach(function(a){ sum += getStrategic(scope, a.id).pct; });
-      return Math.round(sum / STRATEGIC_ASPECTS.length);
-    }
-    function rollupStrategic(){ return rollupStrategicScope('combined'); }
-
-    function buildStrategicAspect(scope, aspect, allContacts){
-      var rec = getStrategic(scope, aspect.id);
-      var wrap = document.createElement('div'); wrap.className = 'tv-aspect';
-      var top = document.createElement('div'); top.className = 'tv-aspect-top';
-      var nameWrap = document.createElement('div');
-      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-aspect-name'; nameDiv.textContent = aspect.label;
-      var qDiv = document.createElement('div'); qDiv.className = 'tv-aspect-q'; qDiv.textContent = aspect.q;
-      nameWrap.appendChild(nameDiv); nameWrap.appendChild(qDiv);
-      top.appendChild(nameWrap);
-      var bar = makeBar(rec.pct); top.appendChild(bar);
-      var pctWrap = document.createElement('div');
-      pctWrap.style.display = 'flex'; pctWrap.style.alignItems = 'center'; pctWrap.style.gap = '6px'; pctWrap.style.justifyContent = 'flex-end';
-      var pctIn = document.createElement('input'); pctIn.type = 'number'; pctIn.min='0'; pctIn.max='100'; pctIn.value=rec.pct; pctIn.className='tv-pct-input';
-      var pctSign = document.createElement('span'); pctSign.style.fontFamily='var(--font-mono)'; pctSign.style.fontSize='0.74rem'; pctSign.style.color='#475569'; pctSign.textContent='%';
-      pctWrap.appendChild(pctIn); pctWrap.appendChild(pctSign);
-      top.appendChild(pctWrap); wrap.appendChild(top);
-
-      var slider = document.createElement('input'); slider.type='range'; slider.min='0'; slider.max='100'; slider.value=rec.pct; slider.className='tv-slider';
-      wrap.appendChild(slider);
-
-      function setPct(v){
-        v = Math.max(0, Math.min(100, parseInt(v,10)||0));
-        pctIn.value = v; slider.value = v;
-        bar.firstChild.style.width = v + '%';
-        setStrategic(scope, aspect.id, {pct:v}); refreshRollups();
-      }
-      pctIn.addEventListener('input', function(){ setPct(pctIn.value); });
-      slider.addEventListener('input', function(){ setPct(slider.value); });
-
-      var detail = document.createElement('div'); detail.className = 'tv-aspect-detail';
-      var leftCol = document.createElement('div');
-      var evLabel = document.createElement('div'); evLabel.className='tv-field-label'; evLabel.textContent='Evidence \u2014 sources, expert quotes, market data';
-      var evArea = document.createElement('textarea'); evArea.className='tv-evidence';
-      evArea.placeholder = 'e.g. McKinsey MGI 2023 confirms FMCG Knowledge Worker share \u2248 35%; HUL/ITC BRSR Section A 20(a) shows 1,300 KW per $B revenue.';
-      evArea.value = rec.evidence || '';
-      evArea.addEventListener('input', function(){ setStrategic(scope, aspect.id, {evidence: evArea.value}); });
-      var trLabel = document.createElement('div'); trLabel.className='tv-field-label'; trLabel.style.marginTop='8px'; trLabel.textContent='Transcript / source URL';
-      var trIn = document.createElement('input'); trIn.type='text'; trIn.className='tv-link-input'; trIn.placeholder='Granola or research URL'; trIn.value=rec.transcript||'';
-      trIn.addEventListener('input', function(){ setStrategic(scope, aspect.id, {transcript: trIn.value}); });
-      leftCol.appendChild(evLabel); leftCol.appendChild(evArea); leftCol.appendChild(trLabel); leftCol.appendChild(trIn);
-      detail.appendChild(leftCol);
-
-      var rightCol = document.createElement('div'); rightCol.className='tv-side';
-      var cLabel = document.createElement('div'); cLabel.className='tv-field-label'; cLabel.textContent='Linked contacts (any CRM contact \u2014 click to link)';
-      var cBox = document.createElement('div'); cBox.className='tv-contact-list';
-      if (!allContacts.length) {
-        var none = document.createElement('div'); none.style.fontSize='0.7rem'; none.style.color='#94a3b8'; none.textContent='No CRM contacts yet.';
-        cBox.appendChild(none);
-      } else {
-        allContacts.slice(0, 50).forEach(function(c){
-          var chip = document.createElement('span');
-          chip.className = 'tv-contact-chip' + ((rec.linked||[]).indexOf(c.key) !== -1 ? ' linked' : '') + (c.status === 'done' ? ' done-status' : '');
-          chip.textContent = c.name + ' \u2014 ' + (c.persona || '');
-          chip.title = c.company + ' \u00b7 status: ' + c.status;
-          chip.addEventListener('click', function(){
-            var linked = (rec.linked || []).slice();
-            var idx = linked.indexOf(c.key);
-            if (idx === -1) linked.push(c.key); else linked.splice(idx, 1);
-            setStrategic(scope, aspect.id, {linked: linked});
-            rec = getStrategic(scope, aspect.id);
-            chip.classList.toggle('linked');
-          });
-          cBox.appendChild(chip);
+    function buildNodesBlock(sec, contacts){
+      var nodes = (window[sec==='auto'?'AUTO_NODES':'FMCG_NODES']||[]).filter(function(n){return n.tier==='T1';});
+      var sectorContacts = contacts.filter(function(c){return c.sector===sec;});
+      var blk = document.createElement('div'); blk.className='tv-block sector-' + sec;
+      var hd = makeBlockHeader('sector-'+sec,
+        (sec==='auto'?'\ud83d\ude97  Auto':'\ud83e\uddf4  FMCG') + ' \u2014 per-node claims',
+        nodes.length + ' T1 nodes', rollupSectorNodes(sec));
+      blk.appendChild(hd.hdr);
+      reg(function(){return rollupSectorNodes(sec);}, hd.pctEl, hd.fillEl);
+      var body = document.createElement('div'); body.className='tv-block-body';
+      body.style.padding = '0';
+      nodes.forEach(function(n){
+        var row = document.createElement('div'); row.className='tv-node-row';
+        var nm = document.createElement('div');
+        var nmm = document.createElement('div'); nmm.className='tv-node-name'; nmm.textContent=n.name; nm.appendChild(nmm);
+        var meta = document.createElement('div'); meta.className='tv-node-meta'; meta.textContent='$' + (n.tam||0) + 'M TAM \u00b7 score ' + (n.score||0) + '/10 \u00b7 ' + (n.bp||''); nm.appendChild(meta);
+        row.appendChild(nm);
+        var npc = rollupNode(sec, n);
+        var bar = makeBar(npc); row.appendChild(bar);
+        var pc = document.createElement('div'); pc.className='tv-pct'; pc.textContent=npc+'%'; row.appendChild(pc);
+        var ch = document.createElement('div'); ch.className='tv-chev'; ch.textContent='\u25B6'; row.appendChild(ch);
+        body.appendChild(row);
+        var claimsBox = document.createElement('div'); claimsBox.className='tv-node-claims';
+        nodeClaims(n).forEach(function(c){
+          claimsBox.appendChild(buildClaim('node|'+sec+'|'+n.id+'|'+c.id, c, sectorContacts, ''));
         });
-      }
-      rightCol.appendChild(cLabel); rightCol.appendChild(cBox);
-      detail.appendChild(rightCol);
-      wrap.appendChild(detail);
-      return wrap;
-    }
-
-    var strategicRowRefs = [];
-    function buildStrategic(scope, allContacts, sectorObj){
-      var wrap = document.createElement('div'); wrap.className='tv-sector tv-strategic-block';
-      var hdr = document.createElement('div'); hdr.className='tv-sector-hdr';
-      var nameDiv = document.createElement('div'); nameDiv.className='tv-sector-name';
-      var ic = document.createElement('span');
-      var label, hue;
-      if (scope === 'combined') { ic.textContent='\ud83c\udfaf'; label='Strategic validations \u2014 Combined (Auto + FMCG)'; hue='rgba(13,148,136,0.08)'; }
-      else if (scope === 'auto') { ic.textContent='\ud83d\ude97'; label='Strategic validations \u2014 Automobile'; hue='rgba(37,99,235,0.06)'; }
-      else { ic.textContent='\ud83e\uddf4'; label='Strategic validations \u2014 FMCG'; hue='rgba(217,119,6,0.06)'; }
-      hdr.style.background = hue;
-      nameDiv.appendChild(ic);
-      var lbl = document.createElement('span'); lbl.textContent = ' ' + label + '  '; nameDiv.appendChild(lbl);
-      var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
-      sub.textContent = STRATEGIC_ASPECTS.length + ' aspects' + (scope === 'combined' ? ' \u00b7 auto-derived from sector rollups' : '');
-      nameDiv.appendChild(sub);
-      var pct = rollupStrategicScope(scope);
-      var bar = makeBar(pct);
-      var pctDiv = document.createElement('div'); pctDiv.className='tv-pct'; pctDiv.textContent=pct+'%';
-      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
-      wrap.appendChild(hdr);
-
-      var box = document.createElement('div'); box.className='tv-nodes';
-      box.style.padding = '12px 18px 18px';
-      // Combined block: just shows rollup, no inputs (read-only summary)
-      if (scope === 'combined') {
-        var note = document.createElement('div');
-        note.style.cssText = 'font-size:0.78rem;color:#64748b;line-height:1.55;padding:6px 0 0;';
-        note.textContent = 'Combined strategic % = average of Auto + FMCG strategic blocks below. Edit sector-specific blocks to update this rollup.';
-        box.appendChild(note);
-        // initially collapsed
-        wrap.classList.remove('open');
-      } else {
-        STRATEGIC_ASPECTS.forEach(function(a){ box.appendChild(buildStrategicAspect(scope, a, allContacts)); });
-      }
-      wrap.appendChild(box);
-
-      hdr.addEventListener('click', function(e){
-        if (e.target.closest('input,textarea,select,button')) return;
-        box.style.display = (box.style.display === 'none') ? '' : 'none';
+        body.appendChild(claimsBox);
+        row.addEventListener('click', function(){
+          row.classList.toggle('open');
+          ch.style.transform = row.classList.contains('open') ? 'rotate(90deg)' : '';
+        });
+        reg(function(){return rollupNode(sec, n);}, pc, bar.firstChild);
       });
-
-      strategicRowRefs.push({scope: scope, pctEl: pctDiv, fillEl: bar.firstChild, compute: function(){ return rollupStrategicScope(scope); }});
-      return wrap;
+      blk.appendChild(body);
+      hd.hdr.addEventListener('click', function(e){
+        if (e.target.closest('input,textarea,button')) return;
+        blk.classList.toggle('open');
+      });
+      return blk;
     }
 
-    var initTries = 0;
+    // ========== DIAGRAM ==========
+    function buildDiagram(){
+      var dg = document.getElementById('tv-diagram');
+      while (dg.firstChild) dg.removeChild(dg.firstChild);
+      function row(){ var r=document.createElement('div'); r.className='row'; return r; }
+      function conn(){ var c=document.createElement('div'); c.className='conn'; return c; }
+      function lblRow(t){ var x=document.createElement('div'); x.className='label-row'; x.textContent=t; return x; }
+      function nodeBox(klass, lbl, pct, meta){
+        var n=document.createElement('div'); n.className='node ' + klass;
+        var l=document.createElement('div'); l.className='lbl'; l.textContent=lbl;
+        var p=document.createElement('div'); p.className='pct'; p.textContent=pct+'%';
+        n.appendChild(l); n.appendChild(p);
+        if (meta){ var m=document.createElement('div'); m.className='meta'; m.textContent=meta; n.appendChild(m); }
+        return n;
+      }
+      // Row 1: THESIS
+      var r1 = row(); r1.appendChild(nodeBox('thesis','THESIS', rollupOverall(), 'Validation %'));
+      dg.appendChild(r1);
+      dg.appendChild(conn());
+      // Row 2: Strategic / Auto / FMCG
+      dg.appendChild(lblRow('Top-tier rollup'));
+      var r2 = row();
+      r2.appendChild(nodeBox('strategic','Strategic', rollupStrategic(), STRATEGIC_CLAIMS.length+' claims'));
+      r2.appendChild(nodeBox('sector-auto','Auto sector', rollupSector('auto'), '$0.7B TAM'));
+      r2.appendChild(nodeBox('sector-fmcg','FMCG sector', rollupSector('fmcg'), '$0.5B TAM'));
+      dg.appendChild(r2);
+      dg.appendChild(conn());
+      // Row 3: per-sector composition (TAM / Pillars / Nodes)
+      dg.appendChild(lblRow('Each sector = TAM math + Pillars + Per-node claims'));
+      var r3 = row();
+      ['auto','fmcg'].forEach(function(sec){
+        var grp = document.createElement('div'); grp.style.cssText='display:flex;gap:6px;flex-direction:column;align-items:center';
+        var subRow = document.createElement('div'); subRow.style.cssText='display:flex;gap:4px';
+        subRow.appendChild(nodeBox(sec==='auto'?'sector-auto':'sector-fmcg', 'TAM math', rollupSectorTAM(sec), sectorClaims(sec).length+' claims'));
+        subRow.appendChild(nodeBox(sec==='auto'?'sector-auto':'sector-fmcg', 'Pillars', rollupSectorPillars(sec), (pillarClaims()[sec]||[]).length+' personas'));
+        subRow.appendChild(nodeBox(sec==='auto'?'sector-auto':'sector-fmcg', 'Per-node', rollupSectorNodes(sec), ((window[sec==='auto'?'AUTO_NODES':'FMCG_NODES']||[]).filter(function(n){return n.tier==='T1';}).length)+' nodes'));
+        grp.appendChild(subRow);
+        var lab = document.createElement('div'); lab.style.cssText='font-size:0.55rem;font-weight:700;color:'+(sec==='auto'?'#2563eb':'#b45309')+';letter-spacing:0.06em;text-transform:uppercase;margin-top:2px'; lab.textContent = sec==='auto'?'AUTO':'FMCG';
+        grp.appendChild(lab);
+        r3.appendChild(grp);
+      });
+      dg.appendChild(r3);
+      dg.appendChild(conn());
+      // Row 4: Pillars per sector (mini chips)
+      dg.appendChild(lblRow('Pillars (' + (Object.keys(pillarClaims().auto||{}).length||5) + ' Auto / ' + (Object.keys(pillarClaims().fmcg||{}).length||7) + ' FMCG \u2014 mirror questionnaire validates tags)'));
+      var r4 = row();
+      ['auto','fmcg'].forEach(function(sec){
+        (pillarClaims()[sec]||[]).forEach(function(p){
+          r4.appendChild(nodeBox('pillar', p.persona.toUpperCase(), rollupPillar(sec, p.persona), sec));
+        });
+      });
+      dg.appendChild(r4);
+    }
+
+    function refresh(){
+      rollRefs.forEach(function(r){ var p = r.compute(); r.pctEl.textContent = p+'%'; r.fillEl.style.width = p+'%'; });
+      var ov = rollupOverall();
+      document.getElementById('tv-overall-pct').textContent = ov + '%';
+      document.getElementById('tv-overall-fill').style.width = ov + '%';
+      buildDiagram();
+    }
+
     function init(){
-      if (!window.AUTO_NODES || !window.FMCG_NODES) {
-        if (++initTries > 50) {
-          var t = document.getElementById('tv-tree');
-          if (t) t.textContent = 'Validation tracker could not load node data. Hard-refresh once (Cmd+Shift+R).';
+      if (!window.AUTO_NODES || !window.FMCG_NODES || !window.PERSONA_CONTEXT) {
+        if ((init.tries=(init.tries||0)+1) > 60) {
+          var t=document.getElementById('tv-tree'); if (t) t.textContent='Validation tracker could not load data. Hard-refresh once (Cmd+Shift+R).';
           return;
         }
         setTimeout(init, 200); return;
       }
-      var personaMap = {};
-      try { personaMap = extractPersonaMap(); } catch(e){ console.warn('persona map error', e); }
-      var contacts = getCRMContacts();
+      var contacts = getContacts();
       var tree = document.getElementById('tv-tree');
       while (tree.firstChild) tree.removeChild(tree.firstChild);
-      nodeRowRefs = []; sectorRowRefs = []; subRowRefs = []; strategicRowRefs = [];
-      try { tree.appendChild(buildStrategic('combined', contacts)); }
-      catch(e){ console.error('Strategic combined build failed', e); }
-      SECTORS.forEach(function(s){
-        try {
-          tree.appendChild(buildStrategic(s.id, contacts, s));
-          tree.appendChild(buildSector(s, personaMap, contacts));
-        } catch(e){
-          console.error('Sector build failed', s.id, e);
-          var err = document.createElement('div');
-          err.style.cssText = 'padding:14px;background:#fee2e2;color:#991b1b;border-radius:8px;margin:10px 0;font-size:0.78rem;';
-          err.textContent = s.label + ' failed to render: ' + (e && e.message ? e.message : e);
-          tree.appendChild(err);
-        }
-      });
-      refreshRollups();
+      rollRefs = [];
 
-      // Wire buttons (always, even if some sector failed)
-      var ea = document.getElementById('tv-expand-all');
-      var ca = document.getElementById('tv-collapse-all');
-      var ex = document.getElementById('tv-export');
-      var rs = document.getElementById('tv-reset');
-      if (ea) ea.onclick = function(){
-        document.querySelectorAll('#tv-tree .tv-node, #tv-tree .tv-strategic-block').forEach(function(n){ n.classList.add('open'); });
+      try { tree.appendChild(buildStrategicBlock(contacts)); } catch(e){ console.error('strategic',e); }
+      ['auto','fmcg'].forEach(function(sec){
+        try { tree.appendChild(buildSectorTAMBlock(sec, contacts)); } catch(e){ console.error('sec_tam',sec,e); }
+        try {
+          (pillarClaims()[sec]||[]).forEach(function(p){
+            tree.appendChild(buildPillarBlock(sec, p, contacts));
+          });
+        } catch(e){ console.error('pillars',sec,e); }
+        try { tree.appendChild(buildNodesBlock(sec, contacts)); } catch(e){ console.error('nodes',sec,e); }
+      });
+      refresh();
+
+      var ea=document.getElementById('tv-expand-all');
+      var ca=document.getElementById('tv-collapse-all');
+      var ex=document.getElementById('tv-export');
+      var rs=document.getElementById('tv-reset');
+      if (ea) ea.onclick=function(){document.querySelectorAll('#tv-tree .tv-block, #tv-tree .tv-node-row').forEach(function(n){n.classList.add('open');});};
+      if (ca) ca.onclick=function(){document.querySelectorAll('#tv-tree .tv-block, #tv-tree .tv-node-row').forEach(function(n){n.classList.remove('open');});};
+      if (ex) ex.onclick=function(){
+        var blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+        var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+        a.download='thesis-validation-' + new Date().toISOString().slice(0,10) + '.json'; a.click();
       };
-      if (ca) ca.onclick = function(){
-        document.querySelectorAll('#tv-tree .tv-node, #tv-tree .tv-strategic-block').forEach(function(n){ n.classList.remove('open'); });
-      };
-      if (ex) ex.onclick = function(){
-        var blob = new Blob([JSON.stringify(state, null, 2)], {type:'application/json'});
-        var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-        a.download = 'thesis-validation-' + new Date().toISOString().slice(0,10) + '.json'; a.click();
-      };
-      if (rs) rs.onclick = function(){
+      if (rs) rs.onclick=function(){
         if (!confirm('Reset all validation %, evidence, transcripts, linked contacts?')) return;
-        state = {}; saveState(state); init();
+        state={}; saveState(state); init();
       };
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 600); });
+    if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(init,600);});
     else setTimeout(init, 600);
   })();
   </script>
+
 
 
 
