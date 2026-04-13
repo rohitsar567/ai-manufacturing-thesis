@@ -9,22 +9,32 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-// Auto-reload on new deploy: poll version.txt every 60s; if SHA differs, hard-reload.
+// Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '26e6048bde0e2c4f53a00bd53a84120a1b5c2916';
+  var BUILT_SHA = '__BUILD_SHA__';
+  // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
+  }
+  // 2) Version poll — if version.txt SHA changes, unregister SW + hard-reload
   function check(){
     fetch('version.txt?ts=' + Date.now(), {cache:'no-store'})
       .then(function(r){return r.ok ? r.text() : null;})
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '26e6048bde0e2c4f53a00bd53a84120a1b5c2916' && live && live !== BUILT_SHA) {
-          location.reload();
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs){
+              regs.forEach(function(r){r.unregister();});
+              location.reload();
+            });
+          } else { location.reload(); }
         }
       }).catch(function(){});
   }
-  setTimeout(check, 5000);
-  setInterval(check, 60000);
+  setTimeout(check, 3000);
+  setInterval(check, 30000);
   document.addEventListener('visibilitychange', function(){ if (!document.hidden) check(); });
 })();
 </script>
