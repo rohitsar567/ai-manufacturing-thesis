@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '37766a628e53c036555be107bbc569dcbf24d3e2';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '37766a628e53c036555be107bbc569dcbf24d3e2' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -1533,12 +1533,12 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:10px; line-height:1.5;">Knowledge work automation across <strong style="color:var(--text-primary);">~1,800 brand-owner enterprises</strong> in Automobile and FMCG</div>
       <div style="display:flex; justify-content:center; gap:28px; margin-top:16px;">
         <div>
-          <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#2563eb;">$0.65B</div>
+          <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#2563eb;">$650M</div>
           <div style="font-family:var(--font-display); font-size:0.6rem; color:var(--text-dim); text-transform:uppercase;">Auto &bull; ~1,100 firms</div>
         </div>
         <div style="width:1px; background:var(--border-subtle);"></div>
         <div>
-          <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#d97706;">$0.42B</div>
+          <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#d97706;">$420M</div>
           <div style="font-family:var(--font-display); font-size:0.6rem; color:var(--text-dim); text-transform:uppercase;">FMCG &bull; ~700 firms</div>
         </div>
       </div>
@@ -1686,7 +1686,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
             </div>
             <div>
               <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Computed enterprise TAM via: brand-owner revenue &times; KW density &times; blended salary &times; career-weighted automation rate &times; 50% enterprise AI discount. Distributed targeted totals ($0.65B Auto + $0.42B FMCG) across 28 selected nodes proportional to each node's share of AI-automatable work</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Computed enterprise TAM via: brand-owner revenue &times; KW density &times; blended salary &times; career-weighted automation rate &times; 50% enterprise AI discount. Distributed targeted totals ($650M Auto + $420M FMCG) across 28 selected nodes proportional to each node's share of AI-automatable work</div>
             </div>
             <div>
               <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
@@ -2459,11 +2459,11 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <tr style="background:rgba(37,99,235,0.04);">
             <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#2563eb;">&#x1F697; <a onclick="openSectorDetail('Automobile')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#2563eb;">Automobile</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
-              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.1);color:var(--accent-teal);">10</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$0.65B</span>
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.1);color:var(--accent-teal);">10</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$650M</span>
               <div class="cell-tip">
                 <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 10/10</div>
                 <strong>Automobile</strong>
-                <p style="margin-top:6px;">Largest TAM: <strong>$0.65B enterprise TAM</strong>. 163K permanent knowledge workers on brand-owner payrolls across ~1,100 firms (9 BRSRs directly parsed). Pooled Knowledge Worker share is 56.6% because listed OEMs outsource most factory labor to contractors, leaving a Knowledge Worker-heavy on-payroll population. Physical and plant-OT workflows (vision QC, predictive maintenance, IIoT) sit outside the knowledge-worker scope and are not part of this TAM at all.</p>
+                <p style="margin-top:6px;">Largest TAM: <strong>$650M enterprise TAM</strong>. 163K permanent knowledge workers on brand-owner payrolls across ~1,100 firms (9 BRSRs directly parsed). Pooled Knowledge Worker share is 56.6% because listed OEMs outsource most factory labor to contractors, leaving a Knowledge Worker-heavy on-payroll population. Physical and plant-OT workflows (vision QC, predictive maintenance, IIoT) sit outside the knowledge-worker scope and are not part of this TAM at all.</p>
               </div>
             </td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
@@ -2520,11 +2520,11 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <tr style="background:rgba(217,119,6,0.03);">
             <td style="padding:10px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-display); font-weight:700; color:#d97706;">&#x1F6D2; <a onclick="openSectorDetail('FMCG')" style="cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;color:#d97706;">FMCG</a></td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
-              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.08);color:var(--accent-teal);">8</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$0.42B</span>
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-weight:700;font-size:0.8rem;background:rgba(13,148,136,0.08);color:var(--accent-teal);">8</span><br><span style="font-size:0.6rem;color:var(--text-dim);">$420M</span>
               <div class="cell-tip">
                 <div class="tip-score" style="color:var(--accent-teal);">TAM Size: 8/10</div>
                 <strong>FMCG</strong>
-                <p style="margin-top:6px;">$0.42B TAM &mdash; second-largest of the six sectors. 143K permanent knowledge workers on brand-owner payrolls across ~700 firms (8 BRSRs directly parsed, incl. HUL/ITC/Nestle/Britannia/Dabur/Marico). FMCG has the highest Knowledge Worker/revenue density (1,300/$B) because the on-payroll base is sales/marketing/brand-heavy, but the smaller revenue base puts the absolute TAM behind Auto.</p>
+                <p style="margin-top:6px;">$420M TAM &mdash; second-largest of the six sectors. 143K permanent knowledge workers on brand-owner payrolls across ~700 firms (8 BRSRs directly parsed, incl. HUL/ITC/Nestle/Britannia/Dabur/Marico). FMCG has the highest Knowledge Worker/revenue density (1,300/$B) because the on-payroll base is sales/marketing/brand-heavy, but the smaller revenue base puts the absolute TAM behind Auto.</p>
               </div>
             </td>
             <td class="score-cell" style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;">
@@ -2572,7 +2572,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
               <div class="cell-tip">
                 <div class="tip-score" style="color:#a3e635;">Overall Readiness: 8/10</div>
                 <strong>FMCG</strong>
-                <p style="margin-top:6px;">Not 'Immediate' like Auto because digital infrastructure is less mature, but 'Highly Ripe' because the economic case is overwhelming: $0.42B TAM, highest attrition, highest margins, and Quick Commerce disruption forcing rapid transformation.</p>
+                <p style="margin-top:6px;">Not 'Immediate' like Auto because digital infrastructure is less mature, but 'Highly Ripe' because the economic case is overwhelming: $420M TAM, highest attrition, highest margins, and Quick Commerce disruption forcing rapid transformation.</p>
               </div>
             </td>
             <td style="padding:8px; border-bottom:1px solid var(--border-subtle); text-align:center;"><span style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--accent-teal);">8.6/10</span></td>
@@ -2842,7 +2842,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="background:rgba(37,99,235,0.04); border:1px solid rgba(59,130,246,0.2); border-radius:14px; padding:20px;">
         <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">&#x1F697; Auto: 8.0/10 &mdash; Won on Categories 1, 4 &amp; 7</h4>
         <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
-          <strong style="color:var(--text-primary);">Cat 1: TAM Size (10/10)</strong> &mdash; Largest enterprise TAM at $0.65B. 163K permanent knowledge workers across ~1,100 brand-owner firms (9 BRSRs directly parsed). Physical and plant-OT workflows fall outside the knowledge-worker scope and are not counted.<br><br>
+          <strong style="color:var(--text-primary);">Cat 1: TAM Size (10/10)</strong> &mdash; Largest enterprise TAM at $650M. 163K permanent knowledge workers across ~1,100 brand-owner firms (9 BRSRs directly parsed). Physical and plant-OT workflows fall outside the knowledge-worker scope and are not counted.<br><br>
           <strong style="color:var(--text-primary);">Cat 4: AI &amp; Digital Readiness (10/10)</strong> &mdash; Highest NASSCOM AI score. OEMs like M&amp;M and Tata Motors already deploying AI. IATF 16949 creates structured data.<br><br>
           <strong style="color:var(--text-primary);">Cat 7: Overall Readiness (10/10)</strong> &mdash; EV transition doubles engineering complexity, PLI-Auto ($3.5B), 12,250 SME supplier base creates massive distribution channel.<br><br>
           <span style="color:var(--text-dim);">Weakness: Cat 2 (Workforce Friction) at 6/10 &mdash; lower attrition than FMCG means less immediate hiring pain.</span>
@@ -2854,7 +2854,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <strong style="color:var(--text-primary);">Cat 2: Workforce Friction (10/10)</strong> &mdash; 40-60% field force attrition = continuous recruitment treadmill. Strongest pull for AI.<br><br>
           <strong style="color:var(--text-primary);">Cat 3: Outsourcing (10/10)</strong> &mdash; Already delegates extensively to BPOs. Lowest resistance to AI delegation.<br><br>
           <strong style="color:var(--text-primary);">Cat 6: Financial Capacity (10/10)</strong> &mdash; 17% net margin = highest of any manufacturing sector. Budget headroom for technology.<br><br>
-          <strong style="color:var(--text-primary);">Cat 1: TAM Size (8/10)</strong> &mdash; $0.42B enterprise TAM, second-largest of the six sectors. Highest Knowledge Worker/revenue density (1,300/$B), but smaller revenue base puts absolute TAM behind Auto.<br><br>
+          <strong style="color:var(--text-primary);">Cat 1: TAM Size (8/10)</strong> &mdash; $420M enterprise TAM, second-largest of the six sectors. Highest Knowledge Worker/revenue density (1,300/$B), but smaller revenue base puts absolute TAM behind Auto.<br><br>
           <span style="color:var(--text-dim);">Weakness: Cat 4 (AI Readiness) at 6/10 &mdash; digital maturity lower than Auto/ESDM, but Quick Commerce (70-80% CAGR) is forcing rapid digitization.</span>
         </p>
       </div>
@@ -2889,10 +2889,10 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <div class="summary-strip">
       <div class="strip-block" style="background:rgba(37,99,235,0.08); color:#2563eb;">
-        <div class="sb-num">$0.65B</div><div class="sb-label">Auto Enterprise TAM</div>
+        <div class="sb-num">$650M</div><div class="sb-label">Auto Enterprise TAM</div>
       </div>
       <div class="strip-block" style="background:rgba(217,119,6,0.08); color:#d97706;">
-        <div class="sb-num">$0.42B</div><div class="sb-label">FMCG TAM</div>
+        <div class="sb-num">$420M</div><div class="sb-label">FMCG TAM</div>
       </div>
       <div class="strip-block" style="background:rgba(13,148,136,0.15); color:var(--accent-teal); flex:1.3;">
         <div class="sb-num" style="font-size:1.8rem;">$1.1B</div><div class="sb-label" style="font-weight:700;">Combined Targeted TAM</div>
@@ -2906,6 +2906,9 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div style="margin-top:48px;">
       <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px;">TAM derivation (BRSR-anchored)</h3>
       <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:28px; line-height:1.6;">The <strong>brand-owner revenue base</strong> (~$310B across ~1,800 non-MSME brand-owning firms) flows through eight steps to the enterprise-addressable market. Every input is primary-sourced: revenue from company annual reports and ACMA industry filings, Knowledge Worker share and median pay from 17 directly parsed BRSR filings, and per-role task automation rates from WEF Future of Jobs 2025, McKinsey MGI GenAI 2023, and Frey-Osborne 2013.</p>
+      <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 12px;">The enterprise-addressable market for AI SaaS in Indian manufacturing is the set of <strong style="color:var(--text-primary);">brand owners</strong> &mdash; companies that design, manufacture, market, and distribute products under their own brand. This includes listed brand owners, large unlisted Indian brand owners (Parle, Haldiram's, Patanjali, Wipro Consumer, DS Group), foreign MNC India subsidiaries (Mondelez, PepsiCo, Reckitt, Coca-Cola, Mars, P&amp;G), cooperatives (Amul, Mother Dairy, KMF), and large B2B suppliers (ACMA Tier-1 components, lubricants, coatings). MSMEs below &#8377;250 cr turnover are excluded &mdash; they can't afford or operationalize enterprise AI.</p>
+      <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 18px;">The universe revenue base is built <strong style="color:var(--text-primary);">bottom-up from primary sources</strong>: ACMA's FY24 official auto component industry turnover (&#8377;6.14 lakh crore), SIAM OEM production data, CRISIL's 77-company FMCG tracking, MCA21 filings for unlisted MNC subsidiaries, and GCMMF/cooperative disclosures. Workforce composition (Knowledge Worker headcount and median pay) is extracted from <strong style="color:var(--text-primary);">17 directly parsed BRSR filings</strong> (Business Responsibility and Sustainability Reports) Section A 20(a) and Section C Principle 5.</p>
+
 
       <!-- PARALLEL TRACKS: Auto and FMCG TAMs derived independently, then merged -->
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
@@ -2972,7 +2975,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 6</div>
                 <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× 50% price discount</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$0.65B</div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$650M</div>
             </div>
             <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">AI priced below labour to drive adoption</div>
             <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">Adoption convention</span></div>
@@ -2983,7 +2986,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Result</div>
                 <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:#2563eb;">Auto Enterprise TAM</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.5rem; font-weight:800; color:#2563eb; white-space:nowrap;">$0.65B</div>
+              <div style="font-family:var(--font-mono); font-size:1.5rem; font-weight:800; color:#2563eb; white-space:nowrap;">$650M</div>
             </div>
             <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Knowledge-worker scope only (physical/OT workflows fall outside scope)</div>
           </div>
@@ -3051,7 +3054,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Step 6</div>
                 <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:600; color:var(--text-secondary);">× 50% price discount</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$0.42B</div>
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:800; color:var(--text-primary); white-space:nowrap;">$420M</div>
             </div>
             <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">AI priced below labour to drive adoption</div>
             <div style="margin-top:5px;"><span style="font-size:0.55rem;color:var(--text-dim);">Adoption convention</span></div>
@@ -3062,7 +3065,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Result</div>
                 <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:#d97706;">FMCG Enterprise TAM</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.5rem; font-weight:800; color:#d97706; white-space:nowrap;">$0.42B</div>
+              <div style="font-family:var(--font-mono); font-size:1.5rem; font-weight:800; color:#d97706; white-space:nowrap;">$420M</div>
             </div>
             <div style="font-size:0.6rem; color:var(--text-dim); margin-top:5px; line-height:1.45;">Directly from the calculation above</div>
           </div>
@@ -3072,7 +3075,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         <div>
           <div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Merge</div>
           <div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:var(--accent-teal);">Enterprise-Addressable TAM</div>
-          <div style="font-size:0.6rem; color:var(--text-dim); margin-top:4px;">Auto $0.65B + FMCG $0.42B &middot; BRSR-anchored, primary-sourced</div>
+          <div style="font-size:0.6rem; color:var(--text-dim); margin-top:4px;">Auto $650M + FMCG $420M &middot; BRSR-anchored, primary-sourced</div>
         </div>
         <div style="font-family:var(--font-mono); font-size:1.7rem; font-weight:800; color:var(--accent-teal); white-space:nowrap;">$1.1B</div>
       </div>
@@ -3080,48 +3083,8 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
       </div>
 
-      <!-- BRAND-OWNER METHODOLOGY EXPLAINER (collapsible) -->
-      <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin-bottom:14px; overflow:hidden;">
-        <summary style="padding:18px 24px; cursor:pointer; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--accent-teal); display:flex; justify-content:space-between; align-items:center; list-style:none;">
-          <span>Brand-owner universe &mdash; BRSR-anchored derivation</span>
-          <span style="color:var(--accent-teal); font-family:var(--font-mono); font-size:0.7rem;">&#9660;</span>
-        </summary>
-        <div style="padding:0 22px 22px;">
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:14px 0 14px;">The enterprise-addressable market for AI SaaS in Indian manufacturing is the set of <strong style="color:var(--text-primary);">brand owners</strong> &mdash; companies that design, manufacture, market, and distribute products under their own brand. This includes listed brand owners, large unlisted Indian brand owners (Parle, Haldiram's, Patanjali, Wipro Consumer, DS Group), foreign MNC India subsidiaries (Mondelez, PepsiCo, Reckitt, Coca-Cola, Mars, P&amp;G), cooperatives (Amul, Mother Dairy, KMF), and large B2B suppliers (ACMA Tier-1 components, lubricants, coatings). MSMEs below &#8377;250 cr turnover are excluded &mdash; they can't afford or operationalize enterprise AI.</p>
-        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">The universe revenue base is built <strong style="color:var(--text-primary);">bottom-up from primary sources</strong>: ACMA's FY24 official auto component industry turnover (&#8377;6.14 lakh crore), SIAM OEM production data, CRISIL's 77-company FMCG tracking, MCA21 filings for unlisted MNC subsidiaries, and GCMMF/cooperative disclosures. Workforce composition (Knowledge Worker headcount and median pay) is extracted from <strong style="color:var(--text-primary);">17 directly parsed BRSR filings</strong> (Business Responsibility and Sustainability Reports) Section A 20(a) and Section C Principle 5.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-          <div style="background:var(--bg-card); border-radius:10px; padding:16px; border:1px solid rgba(59,130,246,0.15);">
-            <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#2563eb; margin-bottom:10px;">AUTOMOBILE: ~1,100 brand owners</div>
-            <div style="font-size:0.75rem; color:var(--text-secondary); line-height:1.55;">
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <span style="color:var(--text-dim);font-size:0.65rem;display:block;">ACMA FY24 + SIAM OEM data</span></span><span style="font-family:var(--font-mono);font-weight:600;">$200B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <span style="color:var(--text-dim);font-size:0.65rem;display:block;">9 BRSRs parsed (Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)</span></span><span style="font-family:var(--font-mono);font-weight:600;">814</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Permanent Knowledge Worker headcount <span style="color:var(--text-dim);font-size:0.65rem;display:block;">$200B &times; 814/$B</span></span><span style="font-family:var(--font-mono);font-weight:600;">162,800</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary <span style="color:var(--text-dim);font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span><span style="font-family:var(--font-mono);font-weight:600;">$27,000/yr</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker payroll <span style="color:var(--text-dim);font-size:0.65rem;display:block;">162,800 &times; $27K</span></span><span style="font-family:var(--font-mono);font-weight:600;">$4.4B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Role eligibility (86%) <span style="color:var(--text-dim);font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical)</span></span><span style="font-family:var(--font-mono);font-weight:600;">$3.7B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; AI automation rate (35.0% eligible-only avg) <span style="color:var(--text-dim);font-size:0.65rem;display:block;">role-count-weighted from Auto Role Library (66 roles) &mdash; WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne</span></span><span style="font-family:var(--font-mono);font-weight:600;">$1.3B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;display:block;">AI vendor priced below incumbent human labour cost</span></span><span style="font-family:var(--font-mono);font-weight:600;">$0.65B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:8px 0 4px;border-top:2px solid #60a5fa;margin-top:6px;"><span style="font-weight:800;color:var(--text-primary);">Auto Enterprise TAM</span><span style="font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:1rem;">$0.65B</span></div>
-            </div>
-          </div>
-          <div style="background:var(--bg-card); border-radius:10px; padding:16px; border:1px solid rgba(217,119,6,0.15);">
-            <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#d97706; margin-bottom:10px;">FMCG: ~700 brand owners</div>
-            <div style="font-size:0.75rem; color:var(--text-secondary); line-height:1.55;">
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Brand-owner revenue base <span style="color:var(--text-dim);font-size:0.65rem;display:block;">CRISIL 77-co tracking + MCA21 MNC subs + cooperatives</span></span><span style="font-family:var(--font-mono);font-weight:600;">$110B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker per $B revenue <span style="color:var(--text-dim);font-size:0.65rem;display:block;">8 BRSRs parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)</span></span><span style="font-family:var(--font-mono);font-weight:600;">1,300</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Permanent Knowledge Worker headcount <span style="color:var(--text-dim);font-size:0.65rem;display:block;">$110B &times; 1,300/$B</span></span><span style="font-family:var(--font-mono);font-weight:600;">143,000</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Avg Knowledge Worker salary <span style="color:var(--text-dim);font-size:0.65rem;display:block;">BRSR Section C P5 median pay &times; 1.2 (Aon mean uplift)</span></span><span style="font-family:var(--font-mono);font-weight:600;">$18,500/yr</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker payroll <span style="color:var(--text-dim);font-size:0.65rem;display:block;">143,000 &times; $18.5K</span></span><span style="font-family:var(--font-mono);font-weight:600;">$2.7B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Role eligibility (85%) <span style="color:var(--text-dim);font-size:0.65rem;display:block;">excludes CXO/VP (0% eligible) and 20% of Professional R&amp;D (hyper-technical); FMCG has slightly fewer Executive seats than Auto</span></span><span style="font-family:var(--font-mono);font-weight:600;">$2.3B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; AI automation rate (37.6% eligible-only avg) <span style="color:var(--text-dim);font-size:0.65rem;display:block;">role-count-weighted from FMCG Role Library (110 roles) &mdash; WEF Future of Jobs 2025, McKinsey MGI, Frey-Osborne</span></span><span style="font-family:var(--font-mono);font-weight:600;">$0.85B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;display:block;">AI vendor priced below incumbent human labour cost</span></span><span style="font-family:var(--font-mono);font-weight:600;">$0.42B</span></div>
-              <div style="display:flex;justify-content:space-between;padding:8px 0 4px;border-top:2px solid #fbbf24;margin-top:6px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Enterprise TAM</span><span style="font-family:var(--font-mono);font-weight:800;color:#d97706;font-size:1rem;">$0.42B</span></div>
-            </div>
-          </div>
-        </div>
-        <p style="font-size:0.7rem; color:var(--text-dim); margin-top:12px; line-height:1.4;"><strong>Sources:</strong> <a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="color:var(--accent-teal);">ACMA FY24 presentation</a> (auto component industry), <a href="https://www.business-standard.com/industry/auto/auto-component-industry-turnover-up-10-at-rs-6-14-trn-in-fy24-acma-124072500923_1.html" target="_blank" style="color:var(--accent-teal);">Business Standard</a> (ACMA confirmation), <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="color:var(--accent-teal);">CRISIL FMCG</a>, <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="color:var(--accent-teal);">SEBI BRSR framework</a>, 17 directly parsed BRSR PDFs (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer, Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch), <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:var(--accent-teal);">WEF Future of Jobs 2025</a> and <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI</a> (per-role automation rates).</p>
-        </div>
-      </details>
+      <p style="font-size:0.72rem; color:var(--text-dim); margin-top:18px; line-height:1.5;"><strong>Primary sources:</strong> <a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="color:var(--accent-teal);">ACMA FY24 presentation</a>, <a href="https://www.business-standard.com/industry/auto/auto-component-industry-turnover-up-10-at-rs-6-14-trn-in-fy24-acma-124072500923_1.html" target="_blank" style="color:var(--accent-teal);">Business Standard</a> (ACMA confirmation), <a href="https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html" target="_blank" style="color:var(--accent-teal);">CRISIL FMCG</a>, <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" style="color:var(--accent-teal);">SEBI BRSR framework</a>, 17 directly parsed BRSR PDFs (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer, Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch), <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:var(--accent-teal);">WEF Future of Jobs 2025</a> and <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI</a> (per-role automation rates).</p>
+
 
       <!-- METHODOLOGY DISCLOSURE BOX — BRSR-anchored definition (collapsible) -->
       <details style="background:rgba(13,148,136,0.04); border:1px solid rgba(13,148,136,0.2); border-radius:14px; padding:0; margin:14px 0; overflow:hidden;">
@@ -3247,7 +3210,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <section id="auto-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">05 &mdash; Automobile Sector</div>
-    <div class="section-title">28 workflow nodes. $0.65B targeted in knowledge-worker AI.</div>
+    <div class="section-title">28 workflow nodes. $650M targeted in knowledge-worker AI.</div>
     <div class="section-desc">The complete automobile value chain &mdash; from vehicle program inception through press-weld-paint-assembly to dealer sales and after-sales service. Each node identifies a specific knowledge work problem, the AI solution, existing products, and the enterprise market size.</div>
     <div class="section-punchline">
       <div class="sp-stat"><strong>28</strong> workflow nodes</div>
@@ -3261,7 +3224,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- AUTO TAM OPPORTUNITY SUMMARY -->
     <div style="background:rgba(37,99,235,0.03); border:1px solid rgba(59,130,246,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
-      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">Automobile AI Opportunity: $0.65B targeted · 11 selected knowledge-worker nodes (of 28 total)</div>
+      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">Automobile AI Opportunity: $650M targeted · 11 selected knowledge-worker nodes (of 28 total)</div>
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. AI solutions are identified at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
     </div>
 
@@ -3270,7 +3233,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">How to read this workflow</div>
       <p style="font-size:0.82rem; color:#374151; line-height:1.6; margin:0 0 8px;">Cards flow left-to-right across 4 value chain pillars. Click any card to see the problem, AI solution, products, and full TAM derivation. Each card shows:</p>
       <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem; color:#374151; line-height:1.5; margin-bottom:8px;">
-        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $0.65B sector TAM, based on role-level automation rates)</div>
+        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $650M sector TAM, based on role-level automation rates)</div>
         <div><strong style="color:var(--accent-teal);">X/10</strong> &mdash; AI Readiness Score (average of AI Tech Maturity + Knowledge Work Density + India Deployment Evidence)</div>
         <div><strong style="color:var(--accent-teal);">TOP QUARTILE</strong> &mdash; score &ge; 8/10, highest-priority opportunity</div>
       </div>
@@ -3290,7 +3253,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <section id="fmcg-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">06 &mdash; FMCG Sector</div>
-    <div class="section-title">29 workflow nodes. $0.42B in AI-automatable knowledge work.</div>
+    <div class="section-title">29 workflow nodes. $420M in AI-automatable knowledge work.</div>
     <div class="section-desc">The complete FMCG value chain &mdash; from R&amp;D formulation and demand planning through continuous processing, packaging, and multi-tier distribution. BRSR-verified 48.6% Knowledge Worker share of permanent headcount at brand owners, with highest Knowledge Worker/revenue density of any manufacturing sector.</div>
     <div class="section-punchline">
       <div class="sp-stat"><strong>29</strong> workflow nodes</div>
@@ -3304,7 +3267,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- FMCG TAM OPPORTUNITY SUMMARY -->
     <div style="background:rgba(217,119,6,0.03); border:1px solid rgba(245,158,11,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
-      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin-bottom:12px;">FMCG AI Opportunity: $0.42B across 29 workflow nodes</div>
+      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin-bottom:12px;">FMCG AI Opportunity: $420M across 29 workflow nodes</div>
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">FMCG&rsquo;s value chain spans R&amp;D formulation through continuous processing, multi-tier distribution, and field sales execution. The largest AI opportunities are in demand planning (S&amp;OP), field sales automation, marketing optimization, and customer service &mdash; driven by the sector&rsquo;s 55% knowledge work ratio and 40-60% field force attrition.</p>
     </div>
 
@@ -3313,7 +3276,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="font-family:var(--font-display); font-size:0.65rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">How to read this workflow</div>
       <p style="font-size:0.82rem; color:#374151; line-height:1.6; margin:0 0 8px;">Cards flow left-to-right across 4 value chain pillars. Click any card to see the problem, AI solution, products, and full TAM derivation. Each card shows:</p>
       <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem; color:#374151; line-height:1.5; margin-bottom:8px;">
-        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $0.42B sector TAM, based on role-level automation rates)</div>
+        <div><strong style="color:var(--accent-teal);">$XXM</strong> &mdash; AI market size for this workflow (share of $420M sector TAM, based on role-level automation rates)</div>
         <div><strong style="color:var(--accent-teal);">X/10</strong> &mdash; AI Readiness Score (average of AI Tech Maturity + Knowledge Work Density + India Deployment Evidence)</div>
         <div><strong style="color:var(--accent-teal);">TOP QUARTILE</strong> &mdash; score &ge; 8/10, highest-priority opportunity</div>
       </div>
@@ -3439,7 +3402,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
             <div class="method-step">
               <div class="method-num">06</div>
               <h4>TAM Derivation</h4>
-              <p>Computed $1.1B enterprise TAM ($0.65B Auto + $0.42B FMCG) from BRSR workforce data, then distributed across the 28 selected knowledge-worker nodes. Physical and plant-OT workflows (vision QC, predictive maintenance, process engineering, IIoT) fall outside the knowledge-worker scope and are not part of this TAM at all.</p>
+              <p>Computed $1.1B enterprise TAM ($650M Auto + $420M FMCG) from BRSR workforce data, then distributed across the 28 selected knowledge-worker nodes. Physical and plant-OT workflows (vision QC, predictive maintenance, process engineering, IIoT) fall outside the knowledge-worker scope and are not part of this TAM at all.</p>
             </div>
             <div class="method-step">
               <div class="method-num">07</div>
@@ -3488,8 +3451,8 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 162,800 &times; $27K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$4.4B</span></div>
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Role eligibility (86%) <span style="color:var(--text-dim);font-size:0.65rem;">excludes CXO + 20% hyper-tech</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$3.7B</span></div>
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; AI automation rate (task automation, 43%) <span style="color:var(--text-dim);font-size:0.65rem;">WEF/McKinsey per-role rates</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.6B</span></div>
-                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;">AI priced below human labor</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.65B</span></div>
-                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #0d9488;margin-top:4px;"><span style="font-weight:800;color:var(--text-primary);">Auto Enterprise TAM</span><span style="font-family:var(--font-mono);color:#0d9488;font-weight:800;font-size:1rem;">$0.65B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount <span style="color:var(--text-dim);font-size:0.65rem;">AI priced below human labor</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$650M</span></div>
+                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #0d9488;margin-top:4px;"><span style="font-weight:800;color:var(--text-primary);">Auto Enterprise TAM</span><span style="font-family:var(--font-mono);color:#0d9488;font-weight:800;font-size:1rem;">$650M</span></div>
               </div>
             </div>
             <div style="background:var(--bg-card); border-radius:14px; padding:20px; border:1px solid var(--border-subtle);">
@@ -3503,8 +3466,8 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>Knowledge Worker Payroll = 143,000 &times; $18.5K</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$2.7B</span></div>
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; Role eligibility (85%) <span style="color:var(--text-dim);font-size:0.65rem;">excludes CXO + 20% hyper-tech (FMCG has slightly fewer Executive seats than Auto)</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$2.3B</span></div>
                 <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; AI automation rate (task automation, 43%) <span style="color:var(--text-dim);font-size:0.65rem;">WEF/McKinsey per-role rates</span></span><span style="font-family:var(--font-mono);color:var(--text-primary);">$1.0B</span></div>
-                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$0.42B</span></div>
-                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Enterprise TAM</span><span style="font-family:var(--font-mono);color:#d97706;font-weight:800;font-size:1rem;">$0.42B</span></div>
+                <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-subtle);"><span>&times; 50% AI price discount</span><span style="font-family:var(--font-mono);color:var(--text-primary);">$420M</span></div>
+                <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid #fbbf24;margin-top:4px;"><span style="font-weight:700;color:var(--text-primary);">FMCG Enterprise TAM</span><span style="font-family:var(--font-mono);color:#d97706;font-weight:800;font-size:1rem;">$420M</span></div>
               </div>
             </div>
           </div>
@@ -3512,7 +3475,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <div style="margin-top:16px; background:var(--bg-surface); border-radius:12px; padding:18px 22px;">
             <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 8px;">How the $1.3B TAM is calculated and distributed</h4>
             <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 10px;">
-              <strong style="color:var(--text-primary);">Sector-level TAM (the anchored calculation):</strong> brand-owner revenue ($200B Auto + $110B FMCG) &times; Knowledge Workers per $B revenue (from 17 BRSR filings) &times; average salary (BRSR median &times; 1.2 Aon uplift) &times; AI automation rate (from WEF/McKinsey per-role research) &times; 50% AI price discount, over the knowledge-worker scope only (physical/OT workflows fall outside scope and are never counted). Result: <strong>Auto $0.65B + FMCG $0.42B = $1.1B enterprise TAM</strong>.
+              <strong style="color:var(--text-primary);">Sector-level TAM (the anchored calculation):</strong> brand-owner revenue ($200B Auto + $110B FMCG) &times; Knowledge Workers per $B revenue (from 17 BRSR filings) &times; average salary (BRSR median &times; 1.2 Aon uplift) &times; AI automation rate (from WEF/McKinsey per-role research) &times; 50% AI price discount, over the knowledge-worker scope only (physical/OT workflows fall outside scope and are never counted). Result: <strong>Auto $650M + FMCG $420M = $1.1B enterprise TAM</strong>.
             </p>
             <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0;">
               <strong style="color:var(--text-primary);">Node-level distribution (derived from sector TAM):</strong> each sector&rsquo;s total is split across its selected nodes based on how much AI-automatable work sits in each node. For each node, the automation rates of its white-collar roles are summed and divided by the sector-wide total &mdash; giving the node its percentage share. This is a distribution of the sector TAM, not an independent calculation. Click any node card for the full role-by-role breakdown.
@@ -3617,7 +3580,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3e. Sector selection &mdash; 7-dimension scoring matrix</h4>
           <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Six manufacturing sectors evaluated across seven dimensions, each scored 1&ndash;10. Scores are anchored to verifiable data where possible (TAM size, attrition %, net margin, NASSCOM AI Index). Composite = average of all 7 dimension scores, out of 10.</p>
           <div style="background:var(--bg-card); border-radius:10px; padding:14px 18px; border:1px solid var(--border-subtle); font-size:0.78rem; color:var(--text-secondary); line-height:1.65;">
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 1 &mdash; TAM Size</strong> (10 = largest): Anchored to BRSR-derived enterprise TAM. Auto $0.65B = 10, FMCG $0.42B = 8, ESDM $140M = 6, Chemicals $110M = 6, Pharma $70M = 4, Metals $30M = 2. Monotonic.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 1 &mdash; TAM Size</strong> (10 = largest): Anchored to BRSR-derived enterprise TAM. Auto $650M = 10, FMCG $420M = 8, ESDM $140M = 6, Chemicals $110M = 6, Pharma $70M = 4, Metals $30M = 2. Monotonic.</p>
             <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 2 &mdash; Workforce Friction</strong> (10 = highest attrition = strongest AI demand): FMCG 40-60% = 10, ESDM 25-30% = 8, Auto 18-22% = 6, Pharma 15-20% = 6, Chemicals 12-15% = 4, Metals 8.6% = 2. Monotonic.</p>
             <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 3 &mdash; Outsourcing Propensity</strong> (10 = most outsourcing-friendly): Qualitative ranking based on extent of third-party delegation. FMCG (Very High) = 10, Auto/ESDM/Pharma (Moderate) = 6, Chemicals (Low) = 4, Metals (Low) = 2.</p>
             <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">Dimension 4 &mdash; AI &amp; Digital Readiness</strong> (10 = most digitally mature): NASSCOM AI Adoption Index. Auto/ESDM (Very High) = 10, FMCG/Pharma (Moderate) = 6, Chemicals (Low-Mod) = 4, Metals (Low) = 2.</p>
@@ -3629,7 +3592,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
           <!-- 3g. NODE TAM DERIVATION -->
           <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. How each node gets its dollar TAM</h4>
-          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">The sector-level TAM ($0.65B for Automobile, $0.42B for FMCG) is a single number for each sector. To make it actionable, each sector&rsquo;s total is split across its 28 selected workflow nodes. The split is proportional to <strong>how much AI-automatable work sits inside each node</strong>. Here is how that proportion is calculated:</p>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">The sector-level TAM ($650M for Automobile, $420M for FMCG) is a single number for each sector. To make it actionable, each sector&rsquo;s total is split across its 28 selected workflow nodes. The split is proportional to <strong>how much AI-automatable work sits inside each node</strong>. Here is how that proportion is calculated:</p>
           <div style="background:var(--bg-card); border-radius:10px; padding:18px 20px; border:1px solid var(--border-subtle); font-size:0.8rem; color:var(--text-secondary); line-height:1.7;">
 
             <p style="margin:0 0 14px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">The core idea</strong></p>
@@ -4609,7 +4572,7 @@ function renderProductList(products) {
 // Each node's `tam` field is the DERIVED enterprise TAM in $M, computed
 // from the role library role counts × per-stream
 // AI automation (sourced from appendix 3c table) × the BRSR-anchored
-// sector top-down anchor ($0.65B Auto, $0.42B FMCG). The pipeline lives in
+// sector top-down anchor ($650M Auto, $420M FMCG). The pipeline lives in
 // /tmp/claude/derive_node_tams.py and produces /tmp/claude/nodes_derived.json.
 //
 // Each node's `mult` is the share of its white-collar payroll that is
@@ -4908,7 +4871,7 @@ function renderDetailPanel(n, ctx) {
         ${n.role_breakdown ? `
         <!-- PER-NODE ROLE BREAKDOWN SUB-CALCULATION -->
         <div style="margin-top:18px;padding-top:16px;border-top:1px dashed #fde68a;">
-          <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Why this node gets ${n.role_breakdown.share_pct.toFixed(1)}% of the ${isAuto ? '$0.65B' : '$0.42B'} sector TAM</div>
+          <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Why this node gets ${n.role_breakdown.share_pct.toFixed(1)}% of the ${isAuto ? '$650M' : '$420M'} sector TAM</div>
           <p style="font-size:0.82rem;color:#374151;line-height:1.65;margin:0 0 12px;">The table below lists every white-collar role in this node with a <strong>task-time automation rate</strong> &mdash; the share of that role&rsquo;s working hours that today&rsquo;s AI tooling can credibly automate (from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb;text-decoration:underline;">WEF Future of Jobs 2025</a>, <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey MGI GenAI 2023</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">Frey-Osborne 2013</a>). These are <em>task-time weighted</em>, not salary-weighted &mdash; each source codes the fraction of a role&rsquo;s task portfolio that can be performed by AI.</p>
               <div style="background:#f8fafc;border:1px solid #e4e9f0;border-radius:8px;padding:10px 14px;margin:0 0 12px;font-size:0.78rem;color:#374151;line-height:1.55;">
                 <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#64748b;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">How the % becomes $ TAM</div>
@@ -4934,7 +4897,7 @@ function renderDetailPanel(n, ctx) {
                 <td style="padding:5px 8px;text-align:right;font-family:var(--font-mono);color:#6b7280;font-size:0.72rem;">${n.role_breakdown.t1_total.toFixed(2)}</td>
               </tr>
               <tr style="border-top:2px solid #d97706;">
-                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= This node&rsquo;s share of the ${isAuto ? '$0.65B' : '$0.42B'} ${sector} TAM</td>
+                <td style="padding:8px;font-weight:700;color:#1f2937;" colspan="2">= This node&rsquo;s share of the ${isAuto ? '$650M' : '$420M'} ${sector} TAM</td>
                 <td style="padding:8px;text-align:right;font-family:var(--font-mono);font-weight:800;color:#0d9488;font-size:0.95rem;">${n.role_breakdown.share_pct.toFixed(1)}%</td>
               </tr>
               <tr>
@@ -5460,11 +5423,11 @@ document.addEventListener('keydown', function(e) {
 
 // Sector detail data for click-to-expand (BRSR-anchored, FY24-25)
 const SECTOR_DETAILS = {
-  "Automobile": {emoji:"\u{1F697}",color:"#2563eb",revenue:"$200B brand-owner",margin:"6.5%",employees:"~1,100 firms",wcPct:"56.6% pooled",kwPayroll:"$4.4B",fwdCagr:"3.9%",aiReadiness:"Immediate",tam:"$0.65B",selected:true,
-    highlights:["Largest enterprise TAM ($0.65B) — BRSR-anchored methodology","9 BRSRs directly parsed (Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)","Pooled Knowledge Worker share 56.6% — listed OEMs outsource factory labor, leaving Knowledge Worker-heavy on-payroll","163K permanent on-payroll Knowledge Workers, $27k/yr avg salary (BRSR median × 1.2)","ACMA FY24 $74B components base + SIAM OEM production drives universe"],
+  "Automobile": {emoji:"\u{1F697}",color:"#2563eb",revenue:"$200B brand-owner",margin:"6.5%",employees:"~1,100 firms",wcPct:"56.6% pooled",kwPayroll:"$4.4B",fwdCagr:"3.9%",aiReadiness:"Immediate",tam:"$650M",selected:true,
+    highlights:["Largest enterprise TAM ($650M) — BRSR-anchored methodology","9 BRSRs directly parsed (Maruti, Tata Motors, M&M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch)","Pooled Knowledge Worker share 56.6% — listed OEMs outsource factory labor, leaving Knowledge Worker-heavy on-payroll","163K permanent on-payroll Knowledge Workers, $27k/yr avg salary (BRSR median × 1.2)","ACMA FY24 $74B components base + SIAM OEM production drives universe"],
     sources:[{t:"ACMA FY24",u:"https://acma.in/pdf/Ind%20Presentation%20FY24.pdf"},{t:"SIAM",u:"https://www.siam.in/statistics.aspx"}]},
-  "FMCG": {emoji:"\u{1F6D2}",color:"#d97706",revenue:"$110B brand-owner",margin:"17%",employees:"~700 firms",wcPct:"48.6% pooled",kwPayroll:"$2.7B",fwdCagr:"6.5%",aiReadiness:"Highly Ripe",tam:"$0.42B",selected:true,
-    highlights:["$0.42B enterprise TAM — BRSR-anchored methodology","8 BRSRs directly parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)","Highest Knowledge Worker density per revenue (1,300 Knowledge Workers per $B) — on-payroll base is sales/brand/marketing","143K permanent on-payroll Knowledge Workers, $18.5k/yr avg salary (BRSR median × 1.2)","Brand-owner universe includes listed + MNC India subs + Amul + cooperatives + unlisted large Indian brand owners"],
+  "FMCG": {emoji:"\u{1F6D2}",color:"#d97706",revenue:"$110B brand-owner",margin:"17%",employees:"~700 firms",wcPct:"48.6% pooled",kwPayroll:"$2.7B",fwdCagr:"6.5%",aiReadiness:"Highly Ripe",tam:"$420M",selected:true,
+    highlights:["$420M enterprise TAM — BRSR-anchored methodology","8 BRSRs directly parsed (HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer)","Highest Knowledge Worker density per revenue (1,300 Knowledge Workers per $B) — on-payroll base is sales/brand/marketing","143K permanent on-payroll Knowledge Workers, $18.5k/yr avg salary (BRSR median × 1.2)","Brand-owner universe includes listed + MNC India subs + Amul + cooperatives + unlisted large Indian brand owners"],
     sources:[{t:"CRISIL FMCG",u:"https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html"},{t:"IBEF FMCG",u:"https://www.ibef.org/industry/fmcg"}]},
   "ESDM": {emoji:"\u{1F4BB}",color:"#059669",revenue:"$133B",margin:"7%",employees:"2.5M",wcPct:"35%",kwPayroll:"$3.7B",fwdCagr:"18.7%",aiReadiness:"Immediate",tam:"$140M",selected:false,
     highlights:["Most aggressive growth (18.7% CAGR) but workforce still scaling","Highest AI readiness alongside Auto (NASSCOM)","10 semiconductor projects worth INR 1.6 lakh crore approved","Deferred: sector expanding too fast for stable workforce baseline"],
@@ -9009,7 +8972,7 @@ window.NODE_DESC = {
       var name = document.createElement('div'); name.className='tv-sector-name';
       var ic = document.createElement('span'); ic.textContent = '\ud83c\udfaf'; name.appendChild(ic);
       var lbl = document.createElement('span'); lbl.textContent = ' Combined (Auto + FMCG) \u2014 TAM-weighted'; name.appendChild(lbl);
-      var sub = document.createElement('span'); sub.className='tv-sector-sub'; sub.textContent = ' \u00b7 weighted by $0.65B + $0.42B = $1.1B';
+      var sub = document.createElement('span'); sub.className='tv-sector-sub'; sub.textContent = ' \u00b7 weighted by $650M + $420M = $1.1B';
       name.appendChild(sub);
       hdr.appendChild(name);
       function combinedPct(){
@@ -9022,9 +8985,9 @@ window.NODE_DESC = {
       var note = document.createElement('div'); note.className='tv-combined-note';
       note.appendChild(document.createTextNode('Auto = '));
       var sb = document.createElement('strong'); sb.textContent = rollupSector('auto', modsA) + '%'; note.appendChild(sb);
-      note.appendChild(document.createTextNode(' \u00d7 $0.65B + FMCG = '));
+      note.appendChild(document.createTextNode(' \u00d7 $650M + FMCG = '));
       var fb = document.createElement('strong'); fb.textContent = rollupSector('fmcg', modsF) + '%'; note.appendChild(fb);
-      note.appendChild(document.createTextNode(' \u00d7 $0.42B \u2192 TAM-weighted '));
+      note.appendChild(document.createTextNode(' \u00d7 $420M \u2192 TAM-weighted '));
       var cbn = document.createElement('strong'); cbn.textContent = combinedPct() + '%'; note.appendChild(cbn);
       note.appendChild(document.createTextNode('. Edit individual sector blocks to update.'));
       card.appendChild(note);
@@ -9125,8 +9088,8 @@ window.NODE_DESC = {
       dg.appendChild(r1); dg.appendChild(conn());
       dg.appendChild(lblRow('Auto + FMCG roll up TAM-weighted into the Thesis above'));
       var r2 = row();
-      r2.appendChild(nb('sector-auto','Auto sector', rollupSector('auto', modsA), '$0.65B \u00b7 ' + qA + ' Qs'));
-      r2.appendChild(nb('sector-fmcg','FMCG sector', rollupSector('fmcg', modsF), '$0.42B \u00b7 ' + qF + ' Qs'));
+      r2.appendChild(nb('sector-auto','Auto sector', rollupSector('auto', modsA), '$650M \u00b7 ' + qA + ' Qs'));
+      r2.appendChild(nb('sector-fmcg','FMCG sector', rollupSector('fmcg', modsF), '$420M \u00b7 ' + qF + ' Qs'));
       dg.appendChild(r2); dg.appendChild(conn());
       dg.appendChild(lblRow('Each sector = sum of its 6 questionnaire modules'));
       var r3 = document.createElement('div'); r3.className = 'row r3-groups';
