@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '90e5606e1c02e5abd60c44fa110af7512c679ac3';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '90e5606e1c02e5abd60c44fa110af7512c679ac3' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8162,7 +8162,7 @@ window.NODE_DESC = {
       </div>
     </div>
 
-    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:12px;line-height:1.55;">Every question in our Auto + FMCG questionnaire becomes one validation row below. <strong>Auto</strong> and <strong>FMCG</strong> are separate tables; <strong>Combined</strong> rolls them up TAM-weighted; <strong>Validation gaps</strong> flags claims our website makes that the questionnaire does NOT cover. <span style="color:#0d9488;font-weight:700;">Granola integration coming</span> &mdash; transcripts will auto-populate evidence + slide percentages without manual input.</div>
+    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:12px;line-height:1.55;">Every question in our Auto + FMCG questionnaire becomes one validation row below \u2014 including the gap-derived questions automatically inserted into the relevant modules. <strong>Auto</strong> and <strong>FMCG</strong> are separate tables; <strong>Combined</strong> rolls them up TAM-weighted. <span style="color:#0d9488;font-weight:700;">Granola integration coming</span> &mdash; transcripts will auto-populate evidence + slide percentages without manual input.</div>
 
     <div id="tv-diagram-wrap" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:14px;overflow-x:auto;">
       <div id="tv-diagram"></div>
@@ -8178,8 +8178,7 @@ window.NODE_DESC = {
     <div id="tv-tables">
       <div id="tv-table-auto" style="margin-bottom:24px;"></div>
       <div id="tv-table-fmcg" style="margin-bottom:24px;"></div>
-      <div id="tv-table-combined" style="margin-bottom:24px;"></div>
-      <div id="tv-table-gaps"></div>
+      <div id="tv-table-combined"></div>
     </div>
   </div>
 
@@ -8364,13 +8363,11 @@ window.NODE_DESC = {
     var INS_KEY = 'inserted_questions_v1';
     function loadIns(){ try{return JSON.parse(localStorage.getItem(INS_KEY)||'[]');}catch(e){return [];} }
     function saveIns(arr){ localStorage.setItem(INS_KEY, JSON.stringify(arr)); }
-    function rollupGaps(){ return Math.round(avg(GAP_CLAIMS.map(function(c){return rec('gap|'+c.id).pct;}))); }
     function rollupOverall(){
       var modsA = (window.__TV_MODS||{}).auto||[], modsF = (window.__TV_MODS||{}).fmcg||[];
-      var sa = rollupSector('auto', modsA), sf = rollupSector('fmcg', modsF), gp = rollupGaps();
+      var sa = rollupSector('auto', modsA), sf = rollupSector('fmcg', modsF);
       var w = TAM_W.auto + TAM_W.fmcg;
-      var sectorPart = (sa * TAM_W.auto + sf * TAM_W.fmcg) / w;
-      return Math.round(sectorPart * 0.7 + gp * 0.3);
+      return Math.round((sa * TAM_W.auto + sf * TAM_W.fmcg) / w);
     }
 
     function makeBar(pct){ var b=document.createElement('div'); b.className='tv-bar'; var f=document.createElement('div'); f.className='tv-bar-fill'; f.style.width=pct+'%'; b.appendChild(f); return b; }
@@ -8742,7 +8739,6 @@ window.NODE_DESC = {
       r2.appendChild(nb('sector-auto','Auto sector', rollupSector('auto', modsA), '$0.7B \u00b7 ' + qA + ' Qs'));
       r2.appendChild(nb('sector-fmcg','FMCG sector', rollupSector('fmcg', modsF), '$0.5B \u00b7 ' + qF + ' Qs'));
       r2.appendChild(nb('thesis','Combined', Math.round((rollupSector('auto',modsA)*TAM_W.auto+rollupSector('fmcg',modsF)*TAM_W.fmcg)/(TAM_W.auto+TAM_W.fmcg)), 'TAM-weighted'));
-      r2.appendChild(nb('gap','Gaps', rollupGaps(), GAP_CLAIMS.length + ' uncovered'));
       dg.appendChild(r2); dg.appendChild(conn());
       dg.appendChild(lblRow('Each sector = sum of its 6 questionnaire modules'));
       var r3 = row();
@@ -8760,7 +8756,30 @@ window.NODE_DESC = {
       buildDiagram();
     }
 
+    function ensureAllGapsInserted(){
+      // First-load auto-insert: every gap claim becomes a question in BOTH Auto + FMCG
+      // at its mapped target module + persona set. Idempotent: only inserts when missing.
+      var arr = loadIns();
+      var changed = false;
+      GAP_CLAIMS.forEach(function(g){
+        ['auto','fmcg'].forEach(function(sec){
+          var has = arr.some(function(i){return i.gapId===g.id && i.sector===sec;});
+          if (!has) {
+            arr.push({
+              id:'INS-'+g.id+'-'+sec, gapId:g.id, sector:sec,
+              module:g.module||6, personas:g.personas||'all',
+              text:g.suggested||g.q, feed:g.feed||'GAP-derived',
+              ts:new Date().toISOString()
+            });
+            changed = true;
+          }
+        });
+      });
+      if (changed) saveIns(arr);
+    }
+
     function init(){
+      ensureAllGapsInserted();
       injectIntoQuestionnaire();
       var modsA = scrapeSector('sec-auto'), modsF = scrapeSector('sec-fmcg');
       if (!modsA.length || !modsF.length) {
@@ -8774,12 +8793,10 @@ window.NODE_DESC = {
       var ta = document.getElementById('tv-table-auto'); while (ta.firstChild) ta.removeChild(ta.firstChild);
       var tf = document.getElementById('tv-table-fmcg'); while (tf.firstChild) tf.removeChild(tf.firstChild);
       var tc = document.getElementById('tv-table-combined'); while (tc.firstChild) tc.removeChild(tc.firstChild);
-      var tg = document.getElementById('tv-table-gaps'); while (tg.firstChild) tg.removeChild(tg.firstChild);
 
       ta.appendChild(buildSectorTable('auto', modsA, contacts));
       tf.appendChild(buildSectorTable('fmcg', modsF, contacts));
       tc.appendChild(buildCombinedTable(modsA, modsF));
-      tg.appendChild(buildGapsTable(contacts));
       refresh();
 
       var ea=document.getElementById('tv-expand-all');
