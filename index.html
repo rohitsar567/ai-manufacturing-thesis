@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'dba0b1051294df522c9d6b4c28a8eec787676b37';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'dba0b1051294df522c9d6b4c28a8eec787676b37' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -6653,7 +6653,7 @@ document.addEventListener('keydown', function(e){
   .collapsible-toggle{cursor:pointer;transition:all .15s;border:1px solid var(--border-subtle);border-radius:10px;padding:14px 18px;background:var(--bg-card);display:flex;justify-content:space-between;align-items:center;gap:16px}
   .collapsible-toggle:hover{border-color:var(--accent-teal);box-shadow:0 2px 8px rgba(13,148,136,0.1)}
   .collapsible-toggle::after{content:'Click to expand \25BE';font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#fff;background:var(--accent-teal);padding:6px 12px;border-radius:6px;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0}
-  .collapsible-toggle.open::after{content:'Click to collapse \25B4'}
+  .collapsible-toggle.open::after{content:'Click to expand \25BE'}
   /* Clickable rows/links: visible hover + underline-hover */
   a[onclick]:not(.source-tag),
   [onclick]:not(button):not(.primary-tab):not(.tab):not(.persona-chip):not(.sp-dot){cursor:pointer}
@@ -6692,14 +6692,14 @@ document.addEventListener('keydown', function(e){
   details > summary > span:first-child{font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--accent-teal);flex:1;line-height:1.3}
   details > summary > span:last-child:not(.expand-cta){display:inline-flex;align-items:center;gap:5px;font-family:var(--font-display) !important;font-size:0.7rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:4px 10px !important;border-radius:6px !important;box-shadow:0 1px 3px rgba(13,148,136,0.2) !important;letter-spacing:0.02em !important;white-space:nowrap !important;line-height:1.3 !important}
   details > summary > span:last-child:not(.expand-cta)::before{content:'Click to expand '}
-  details[open] > summary > span:last-child:not(.expand-cta)::before{content:'Click to collapse '}
+  details[open] > summary > span:last-child:not(.expand-cta)::before{content:'Click to expand '}
   details[open] > summary > span:last-child:not(.expand-cta){transform:none}
   details[open] > summary > span:last-child:not(.expand-cta) > *{display:inline-block;transform:rotate(180deg);transition:transform .2s}
   /* .collapsible-toggle harmonization matching methodology */
   .collapsible-toggle{border:2px solid var(--accent-teal) !important;border-radius:12px !important;padding:12px 18px !important;background:var(--bg-card) !important;box-shadow:0 1px 6px rgba(13,148,136,0.06) !important;display:flex !important;justify-content:space-between !important;align-items:center !important;gap:16px !important;font-family:var(--font-display) !important;font-weight:700 !important;font-size:0.9rem !important;color:var(--accent-teal) !important;cursor:pointer !important;transition:all .15s !important;line-height:1.3 !important}
   .collapsible-toggle::before{content:none !important}
   .collapsible-toggle::after{content:'Click to expand \25BE' !important;font-family:var(--font-display) !important;font-size:0.7rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:4px 10px !important;border-radius:6px !important;box-shadow:0 1px 3px rgba(13,148,136,0.2) !important;letter-spacing:0.02em !important;white-space:nowrap !important;line-height:1.3 !important}
-  .collapsible-toggle.open::after{content:'Click to collapse \25B4' !important}
+  .collapsible-toggle.open::after{content:'Click to expand \25BE' !important}
   .collapsible-toggle:hover{box-shadow:0 4px 16px rgba(13,148,136,0.18) !important}
   .collapsible-body.open{border:2px solid var(--accent-teal) !important;border-top:none !important;border-radius:0 0 14px 14px !important;margin-top:-14px !important;padding:16px 24px 24px !important}
 </style>
@@ -7848,13 +7848,13 @@ window.NODE_DESC = {
 </div>
 <div class="sec" id="sec-kg">
 
-  <details open style="background:#fff;border:2px solid #0d9488;border-radius:14px;padding:0;margin:24px 0;overflow:hidden;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
+  <details style="background:#fff;border:2px solid #0d9488;border-radius:14px;padding:0;margin:24px 0;overflow:hidden;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
     <summary style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
       <div>
         <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;">Audit reference</div>
         <div style="font-size:1.05rem;font-weight:700;color:#1a2232;">Role × Node matrix — actual question coverage</div>
         </div>
-      <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:#fff;background:#0d9488;padding:8px 16px;border-radius:8px;letter-spacing:0.02em;white-space:nowrap;">Click to collapse ▴</span>
+      <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:#fff;background:#0d9488;padding:8px 16px;border-radius:8px;letter-spacing:0.02em;white-space:nowrap;">Click to expand ▼</span>
     </summary>
     <div style="padding:0 24px 24px;">
       <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#2563eb;margin:14px 0 10px;">🚗 Automobile — 11 nodes × 5 personas</div>
@@ -8466,7 +8466,11 @@ window.NODE_DESC = {
         var mname = document.createElement('div');
         var mn = document.createElement('div'); mn.className='tv-module-name';
         mn.appendChild(document.createTextNode(mod.title));
-        if (mod.meta){ var meta = document.createElement('span'); meta.className='tv-module-meta'; meta.textContent = '\u00b7 ' + mod.meta; mn.appendChild(meta); }
+        var qct = 0, insCt = 0;
+        mod.subgroups.forEach(function(sg){ sg.questions.forEach(function(q){ qct++; if ((q.num||'').indexOf('INS')!==-1) insCt++; }); });
+        var meta = document.createElement('span'); meta.className='tv-module-meta';
+        meta.textContent = '\u00b7 ' + qct + ' questions' + (insCt ? ' (incl. ' + insCt + ' inserted from gaps)' : '');
+        mn.appendChild(meta);
         mname.appendChild(mn);
         mhdr.appendChild(mname);
         var mbar = makeBar(rollupModule(sec, mod)); mhdr.appendChild(mbar);
