@@ -1519,14 +1519,14 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
     <div style="margin-top:16px;border-top:1px solid #e5e7eb;padding-top:16px;">
       <div class="section-label" style="margin-bottom:8px; text-align:center;">RESEARCH METHODOLOGY</div>
 <!-- Research Flow Diagram -->
-    <div style="margin-bottom:40px; max-width:900px; margin-left:auto; margin-right:auto;">
-      <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:0; overflow:hidden;">
+    <div style="margin-bottom:40px;">
+      <details style="background:var(--bg-card); border:2px solid var(--accent-teal); border-radius:14px; padding:0; overflow:hidden; box-shadow:0 2px 12px rgba(13,148,136,0.08); transition:all .2s;">
         <summary style="padding:20px 24px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
           <div>
             <div style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--text-primary); line-height:1.2;">Research Methodology</div>
             <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:6px; line-height:1.5;">8-step research process &mdash; from sector profiling through BRSR data extraction, role classification, AI readiness scoring, and TAM derivation.</div>
           </div>
-          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-teal); margin-left:20px; white-space:nowrap;">Click to expand &#9660;</span>
+          <span class="expand-cta" style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:#fff; background:var(--accent-teal); padding:8px 16px; border-radius:8px; margin-left:20px; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(13,148,136,0.25); letter-spacing:0.02em;">Click to expand <span style="display:inline-block; transition:transform .2s;">&#9660;</span></span>
         </summary>
         <div style="padding:0 24px 24px; border-top:1px solid var(--border-subtle);">
 
@@ -3169,7 +3169,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           <div style="font-family:var(--font-display); font-size:clamp(1.2rem, 2vw, 1.6rem); font-weight:700; color:var(--text-primary); line-height:1.2;">Appendix: Research Methods, Derivations, Calculations &amp; Sources</div>
           <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:8px; line-height:1.5; max-width:900px;">Full audit trail behind the $1.3B TAM. Every number traces to primary data &mdash; BRSR filings, ACMA industry reports, CRISIL sector analyses, and peer-reviewed academic/consulting research. Organized in four parts: research methods, derivations, calculations, and sources.</div>
         </div>
-        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-teal); margin-left:20px; white-space:nowrap;">Click to expand &#9660;</span>
+        <span class="expand-cta" style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:#fff; background:var(--accent-teal); padding:8px 16px; border-radius:8px; margin-left:20px; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(13,148,136,0.25); letter-spacing:0.02em;">Click to expand <span style="display:inline-block; transition:transform .2s;">&#9660;</span></span>
       </summary>
       <div style="padding:0 28px 32px; border-top:1px solid var(--border-subtle);">
 
@@ -8088,5 +8088,48 @@ document.addEventListener('keydown', function(e){
   document.querySelectorAll('.primary-tab').forEach(t => t.addEventListener('click', () => setTimeout(initHScrollHints, 100)));
 })();
 </script>
+
+<style id="click-affordance">
+  /* Make all <details>/<summary> obviously clickable */
+  details > summary{cursor:pointer;transition:background .15s}
+  details > summary:hover{background:rgba(13,148,136,0.04)}
+  details[open] > summary .expand-cta > span:last-child{transform:rotate(180deg)}
+  details[open] > summary .expand-cta::after{content:'';}
+  details[open] > summary{background:rgba(13,148,136,0.03)}
+  details > summary::-webkit-details-marker{display:none}
+  /* Highlight collapsible-toggle elements */
+  .collapsible-toggle{cursor:pointer;transition:all .15s;border:1px solid var(--border-subtle);border-radius:10px;padding:14px 18px;background:var(--bg-card);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .collapsible-toggle:hover{border-color:var(--accent-teal);box-shadow:0 2px 8px rgba(13,148,136,0.1)}
+  .collapsible-toggle::after{content:'Click to expand \25BE';font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:#fff;background:var(--accent-teal);padding:6px 12px;border-radius:6px;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0}
+  .collapsible-toggle.open::after{content:'Click to collapse \25B4'}
+  /* Clickable rows/links: visible hover + underline-hover */
+  a[onclick]:not(.source-tag),
+  [onclick]:not(button):not(.primary-tab):not(.tab):not(.persona-chip):not(.sp-dot){cursor:pointer}
+  a[onclick]:not(.source-tag):hover{opacity:0.85}
+  /* Nodal cards — visible click cue */
+  .wf-node:not(.node-excluded){cursor:pointer;transition:all .15s}
+  .wf-node:not(.node-excluded):hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(13,148,136,0.12)}
+  .wf-node:not(.node-excluded)::after{content:'\25B8';position:absolute;top:8px;right:10px;font-size:0.7rem;color:var(--accent-teal);opacity:0.7}
+  /* Modal centering enforcement — all fixed-position modals */
+  [class*="modal-overlay"],
+  [class*="modal-backdrop"],
+  .chart-modal-overlay,
+  .tam-modal-overlay,
+  #chartNodeModal,
+  #chartEventModal,
+  #tamModal{
+    display:none;
+  }
+  .chart-modal-overlay.visible,
+  .tam-modal-overlay.open,
+  #chartNodeModal[style*="display: flex"],
+  #chartNodeModal[style*="display:flex"],
+  #chartEventModal.visible,
+  #tamModal.open{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+</style>
 </body>
 </html>
