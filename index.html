@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '2ce98bc00799ff30d3d212c1e6eaae211aded689';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '2ce98bc00799ff30d3d212c1e6eaae211aded689' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8333,32 +8333,52 @@ window.NODE_DESC = {
       return Math.round(avg(mods.map(function(m){return rollupModule(sec, m);})));
     }
 
+    // Consolidated 24 \u2192 11 gap claims (clusters of redundant questions merged).
     var GAP_CLAIMS = [
-      {id:'unit_economics', label:'Unit economics & pricing model', q:'Per-seat vs per-action vs outcome-based pricing for India enterprise AI.', suggested:'If we showed up with an AI agent priced per-action (or outcome-linked) instead of per-seat, would your procurement and IT actually accept it? What\u2019s the typical pricing model your team buys SaaS in today?', feed:'Pricing \u00b7 unit economics.', personas:'cfo cio cpo', module:6},
-      {id:'sales_cycle_length', label:'Sales cycle length & complexity', q:'Avg India enterprise AI procurement cycle in days; gates / approvals / RFP layers.', suggested:'For a $200K AI/SaaS purchase, walk me through the procurement cycle \u2014 from first vendor demo to PO signed. How many weeks? Which gates? Where does it stall most often?', feed:'GTM \u00b7 sales cycle length.', personas:'cfo cio cpo', module:6},
-      {id:'churn_renewal', label:'Churn / renewal behavior', q:'Indian FMCG/Auto ARR renewal rates for SaaS.', suggested:'Of the SaaS tools you signed 12\u201318 months ago, what fraction did you renew at the same or higher ARR? What killed the rest \u2014 product, price, internal champion change?', feed:'Retention \u00b7 churn signal.', personas:'cio cfo', module:5},
-      {id:'co_co_advantage', label:'COCO (Co-located, Co-owned) advantage', q:'Whether India-co-located product team is a real moat vs US-built tools.', suggested:'Does it materially matter to you whether the AI vendor has its product + support team co-located in India \u2014 or is a US/global vendor with a strong India PS team enough?', feed:'Moat \u00b7 India co-location preference.', personas:'cio cfo', module:6},
-      {id:'data_security', label:'Data residency / security', q:'India data residency, BFSI/SEBI compliance posture.', suggested:'For sensitive data going into AI tools, do you require India data residency? What\u2019s your stance on cross-border data flow, BFSI/SEBI compliance, BRSR audit trails?', feed:'Risk \u00b7 data residency / compliance.', personas:'cio cfo', module:6},
-      {id:'hindi_vernacular', label:'Hindi / vernacular language requirement', q:'Whether vernacular UI / multilingual NLU is a buying criterion vs nice-to-have.', suggested:'For field-facing AI tools (sales reps, dealer staff, plant supervisors), is Hindi / vernacular language interface a hard buying criterion, or is English-only acceptable?', feed:'Localization \u00b7 vernacular gating.', personas:'cmo cso comm scm', module:4},
-      {id:'channel_partner', label:'Channel partner / SI strategy', q:'Whether KPMG / Deloitte / TCS / Infosys / KPIT channel partnerships are required for distribution.', suggested:'When you buy AI/SaaS, do you go direct or through an SI partner (TCS, Infosys, KPMG, Deloitte, KPIT)? Does the SI presence change your buying confidence?', feed:'GTM \u00b7 channel partner play.', personas:'cio cfo cpo', module:6},
-      {id:'fundraise_path', label:'Fundraise path & valuation benchmarks', q:'India enterprise AI Seed/A/B benchmarks.', suggested:'(Operator-respondent variant) When evaluating a startup vendor, do you check their funding stage / investor quality? Does it sway your decision to give them an enterprise contract?', feed:'Vendor risk \u00b7 startup stage.', personas:'cio cfo', module:6},
-      {id:'founding_team', label:'Founding team profile', q:'What expertise the founding team needs.', suggested:'When you evaluate an AI startup vendor, what founding-team profile gives you confidence \u2014 ex-FAANG AI/ML, vertical domain expert (ex-OEM/CPG), India enterprise sales DNA?', feed:'Vendor risk \u00b7 founding team.', personas:'cio cfo cpo', module:6},
-      {id:'capex_opex_buyer', label:'CapEx vs OpEx buyer behavior', q:'Indian CFO preference for CapEx vs OpEx.', suggested:'Does your CFO prefer one-time CapEx (perpetual licence) or recurring OpEx (subscription)? Has this preference shifted post-IND-AS / post-cloud-adoption?', feed:'Finance \u00b7 CapEx vs OpEx.', personas:'cfo', module:5},
-      {id:'tco_substitution', label:'TCO substitution math', q:'AI saves $X by displacing Y FTEs at $Z/yr.', suggested:'If we said this AI agent replaces 3 FTEs at $20K/yr each, would your CFO accept that math? What\u2019s your real-world TCO benchmark for FTE displacement decisions?', feed:'Business case \u00b7 TCO math.', personas:'cfo cio chro', module:5},
-      {id:'india_first_export', label:'India-first \u2192 global export motion', q:'Whether India-built product expands to SE Asia / MEA / Africa via same-buyer-archetype motion.', suggested:'(For multi-geography buyers) Would you also deploy this India-built AI tool to your SE Asia / MEA / Africa operations? Does the buyer behavior translate?', feed:'Expansion \u00b7 India-first \u2192 global.', personas:'cio cfo', module:6},
-      {id:'msme_underserved', label:'MSME long-tail viability', q:'Whether \u20b9100\u2013250 cr MSMEs are economically viable.', suggested:'Below your scale (\u20b9100\u2013250 cr revenue), do MSME competitors face the same pain? Could a self-serve, low-touch version of this AI work for them, or are they too cost-sensitive?', feed:'TAM expansion \u00b7 MSME wave.', personas:'cfo cio cmo cso scm', module:2},
-      {id:'pilot_success_criteria', label:'Pilot scope & success criteria', q:'How does a 90-day AI pilot get judged? What metrics define success vs failure?', suggested:'When you run a 60\u201390-day AI pilot, what concrete metrics decide \u201csuccess\u201d vs \u201ckill\u201d? Who sets those metrics \u2014 IT, business owner, CFO?', feed:'Implementation \u00b7 pilot success bar.', personas:'cio cfo', module:6},
-      {id:'decision_rights', label:'Decision rights & approval matrix', q:'Who actually approves AI SaaS purchase \u2014 board, IT committee, business owner, procurement, CFO?', suggested:'Walk me through the actual approval chain for a $300K AI SaaS purchase \u2014 who initiates, who endorses, who signs? Is there a board / IT committee gate?', feed:'GTM \u00b7 buying-committee map.', personas:'cio cfo cpo', module:6},
-      {id:'make_vs_buy', label:'Make vs buy threshold', q:'When does the org build internally vs buy? What\u2019s the trigger?', suggested:'When does your team decide to build something in-house vs buy a vendor product? Is there a cost / capability / strategic-importance threshold?', feed:'GTM \u00b7 make-vs-buy.', personas:'cio cfo', module:6},
-      {id:'data_quality', label:'Data quality readiness', q:'Is the underlying data clean enough for AI to work? Where are the gaps?', suggested:'For the workflows you\u2019d most want to AI-automate, is your underlying data clean, structured, and accessible \u2014 or would significant data cleanup be a precondition?', feed:'Implementation \u00b7 data readiness.', personas:'cio scm cmo cso cfo', module:6},
-      {id:'ai_talent_internal', label:'Internal AI talent / change capacity', q:'Do you have the people internally to deploy and maintain AI tools?', suggested:'Do you have AI/data talent internally to own a new AI tool post-deployment, or do you rely entirely on the vendor\u2019s PS team? Does this constrain what you\u2019ll buy?', feed:'Implementation \u00b7 talent constraint.', personas:'cio chro', module:6},
-      {id:'existing_ai_pocs', label:'Existing AI experimentation', q:'What AI POCs have been run in the last 18 months? What worked / failed?', suggested:'In the last 12\u201318 months, what AI / GenAI POCs has your team run? Which graduated to production, which got killed, and why?', feed:'Maturity \u00b7 prior AI POCs.', personas:'cio cfo cmo cso scm', module:2},
-      {id:'global_geo_reach', label:'Global vs India-only deployment', q:'Does the AI tool need to scale to global ops, or India-only?', suggested:'If you adopt this AI tool, would it stay India-only or roll out to your other geographies? Does global scalability change your willingness to commit?', feed:'Expansion \u00b7 geographic scope.', personas:'cio cfo', module:6},
-      {id:'vendor_consolidation', label:'Vendor consolidation pressure', q:'Is there pressure to reduce the SaaS vendor count? Does that block adding a new vendor?', suggested:'Is your CIO under pressure to consolidate the SaaS vendor stack? Does that pressure work for or against adopting a specialized AI vendor like us?', feed:'GTM \u00b7 vendor-consolidation headwind.', personas:'cio cfo', module:6},
-      {id:'security_esg_review', label:'Security / ESG / vendor audit', q:'What review gates beyond cost: InfoSec, ESG, vendor audit?', suggested:'Beyond commercial review, what other gates does a new vendor face \u2014 InfoSec questionnaire, ESG / BRSR audit, ISO certifications, SOC 2? How long do those add to the cycle?', feed:'GTM \u00b7 non-commercial gates.', personas:'cio cfo cpo', module:6},
-      {id:'reference_customers', label:'Reference / case-study willingness', q:'Would they be a public reference customer if the pilot succeeded?', suggested:'If a 6-month pilot delivers the metrics, would you become a public reference customer (logo on website, case study, joint press)? What\u2019s your company\u2019s policy on that?', feed:'GTM \u00b7 reference-customer flywheel.', personas:'cmo cso comm cio', module:6},
-      {id:'ev_transition_impact', label:'EV transition impact on roles (Auto)', q:'How is the EV shift changing the Knowledge Worker mix \u2014 net new roles, displaced roles?', suggested:'(Auto) The EV transition \u2014 is it net adding Knowledge Worker headcount (new EV / battery / software roles) or displacing legacy ICE roles? Net effect over next 5 years?', feed:'Workforce \u00b7 EV-shift effect.', personas:'chro cio scm', module:2},
-      {id:'modern_trade_share', label:'Modern trade vs general trade share (FMCG)', q:'How is the MT/GT mix shifting and what does it mean for sales-force AI?', suggested:'(FMCG) Modern trade vs general trade vs e-comm \u2014 how is the mix shifting in your category? Does that change which AI tools (RGM vs SFA vs e-comm) become priority?', feed:'GTM \u00b7 channel-shift effect.', personas:'cmo cso', module:4}
+      {id:'commercial_model', label:'Commercial model \u2014 pricing, CapEx/OpEx, TCO',
+        q:'Pricing structure preferences + CapEx vs OpEx posture + TCO math used to justify AI SaaS spend.',
+        suggested:'How does your team prefer to pay for AI tools \u2014 per-seat, per-action, outcome-linked? Is the CFO biased toward CapEx (perpetual licence) or OpEx (subscription)? And what TCO benchmark do you use to justify FTE displacement \u2014 e.g. would \u201creplaces 3 FTEs at $20K/yr\u201d be accepted?',
+        feed:'Commercial \u00b7 pricing + CapEx/OpEx + TCO.', personas:'cfo cio cpo', module:6},
+      {id:'procurement_journey', label:'Procurement journey \u2014 cycle, decision rights, gates, consolidation',
+        q:'End-to-end procurement: cycle length, approval matrix, InfoSec/ESG/audit gates, vendor-consolidation pressure.',
+        suggested:'Walk me through procurement for a $300K AI SaaS purchase \u2014 cycle length, who initiates / endorses / signs, what InfoSec / ESG / SOC2 / BRSR gates the vendor faces, and whether CIO-led vendor consolidation pressure is for or against adding a new specialised vendor.',
+        feed:'GTM \u00b7 procurement journey + gates.', personas:'cfo cio cpo', module:6},
+      {id:'vendor_risk', label:'Vendor risk \u2014 founding team, funding, references',
+        q:'How a startup vendor is evaluated for risk: founding team profile, funding stage, reference customers.',
+        suggested:'When you evaluate a startup AI vendor, what gives you enterprise-contract confidence \u2014 founding-team background (FAANG AI/ML vs domain expert vs India sales DNA), funding stage / investor quality, and reference customers? What\u2019s the deal-breaker?',
+        feed:'Vendor risk \u00b7 startup evaluation.', personas:'cio cfo cpo', module:6},
+      {id:'implementation_reality', label:'Implementation reality \u2014 POCs, data, talent, pilot success, make-vs-buy',
+        q:'What it takes to actually deploy AI: prior POC track record, data readiness, internal talent, pilot success criteria, make-vs-buy threshold.',
+        suggested:'Walk me through the implementation reality. (a) AI POCs in last 12\u201318 months \u2014 which graduated, which got killed, why? (b) Is your underlying data clean enough or does cleanup come first? (c) Do you have internal AI/data talent post-deployment, or full vendor PS dependency? (d) What metrics define a 60\u201390-day pilot \u201csuccess\u201d? (e) What\u2019s the make-vs-buy threshold?',
+        feed:'Implementation \u00b7 POCs, data, talent, pilot, make-vs-buy.', personas:'cio cfo chro scm cmo cso', module:6},
+      {id:'india_buying_criteria', label:'India-specific buying criteria \u2014 residency, vernacular, COCO',
+        q:'India-specific gating: data residency requirements, vernacular language need, India-co-located vendor preference.',
+        suggested:'On India-specific buying criteria \u2014 do you require India data residency (BFSI/SEBI/BRSR audit posture)? Is Hindi / vernacular UI a hard gate for field-facing tools (sales reps, dealer staff, plant supervisors)? And does it materially matter that the AI vendor has its product team co-located in India vs US-based with India PS?',
+        feed:'India-first \u00b7 residency + vernacular + COCO.', personas:'cio cfo cmo cso scm comm', module:6},
+      {id:'geographic_expansion', label:'Geographic expansion \u2014 India-only vs global rollout',
+        q:'Whether India-built AI tools roll out to global ops; whether geographic scope changes commitment.',
+        suggested:'If you adopt this AI tool successfully in India, would it stay India-only or roll out to SE Asia / MEA / Africa / global ops? Does the buyer behavior translate to your other geographies, and does global scalability change your willingness to commit?',
+        feed:'Expansion \u00b7 India \u2192 global.', personas:'cio cfo', module:6},
+      {id:'channel_partner', label:'Channel partner / SI strategy',
+        q:'Whether SI partners (TCS / Infosys / KPMG / Deloitte / KPIT) are required for distribution.',
+        suggested:'When you buy AI/SaaS, do you go direct or through an SI partner (TCS, Infosys, KPMG, Deloitte, KPIT)? Does SI presence change your confidence and the contract structure (services-led vs product-led)?',
+        feed:'GTM \u00b7 channel / SI partnership.', personas:'cio cfo cpo', module:6},
+      {id:'reference_customers', label:'Reference customer / case-study willingness',
+        q:'Whether they\u2019d become a public reference customer if pilot delivered.',
+        suggested:'If a 6-month pilot delivers the metrics, would you become a public reference customer \u2014 logo on website, case study, joint press? What\u2019s your company\u2019s default policy on this?',
+        feed:'GTM \u00b7 reference flywheel.', personas:'cmo cso cio comm', module:6},
+      {id:'churn_renewal', label:'Churn / renewal signal',
+        q:'Renewal rate of AI/SaaS tools at 12\u201318 month mark; reasons for non-renewal.',
+        suggested:'Of the AI / SaaS tools you signed 12\u201318 months ago, what fraction did you renew at the same or higher ARR? What killed the rest \u2014 product underdelivered, price too high, internal champion left, vendor consolidation?',
+        feed:'Retention \u00b7 renewal signal.', personas:'cio cfo', module:5},
+      {id:'msme_long_tail', label:'MSME long-tail viability (TAM expansion)',
+        q:'Whether \u20b9100\u2013250 cr MSMEs face the same pain and could be a later TAM wave.',
+        suggested:'Below your scale (\u20b9100\u2013250 cr revenue MSMEs), do competitors face the same pain? Could a self-serve, low-touch version of this AI serve them, or are they too cost / talent / data-constrained for AI adoption today?',
+        feed:'TAM expansion \u00b7 MSME wave.', personas:'cfo cio cmo cso scm', module:2},
+      {id:'sector_macro_shift', label:'Sector macro shift (EV transition for Auto / channel-mix shift for FMCG)',
+        q:'Auto: EV transition\u2019s effect on KW headcount mix. FMCG: MT vs GT vs e-comm channel-mix shift.',
+        suggested:'(Auto) Is the EV transition net adding Knowledge Worker roles (battery / software / EV engineering) or displacing legacy ICE roles? Net effect over 5 years? \u2014 OR \u2014 (FMCG) How is the modern-trade / general-trade / e-comm mix shifting in your category, and does that change which AI tools (RGM vs SFA vs e-comm) become priority?',
+        feed:'Macro \u00b7 sector shift effect.', personas:'chro cio scm cmo cso', module:2}
     ];
     var INS_KEY = 'inserted_questions_v1';
     function loadIns(){ try{return JSON.parse(localStorage.getItem(INS_KEY)||'[]');}catch(e){return [];} }
@@ -8638,10 +8658,15 @@ window.NODE_DESC = {
     }
 
     function ensureAllGapsInserted(){
-      // First-load auto-insert: every gap claim becomes a question in BOTH Auto + FMCG
-      // at its mapped target module + persona set. Idempotent: only inserts when missing.
+      // First-load auto-insert: every gap claim becomes a question in BOTH Auto + FMCG.
+      // Also clean up any inserted entries whose gapId no longer exists in GAP_CLAIMS
+      // (e.g. after consolidation removed an old gap id).
       var arr = loadIns();
-      var changed = false;
+      var validIds = {};
+      GAP_CLAIMS.forEach(function(g){ validIds[g.id] = true; });
+      var before = arr.length;
+      arr = arr.filter(function(i){ return !i.gapId || validIds[i.gapId]; });
+      var changed = arr.length !== before;
       GAP_CLAIMS.forEach(function(g){
         ['auto','fmcg'].forEach(function(sec){
           var has = arr.some(function(i){return i.gapId===g.id && i.sector===sec;});
@@ -8659,9 +8684,42 @@ window.NODE_DESC = {
       if (changed) saveIns(arr);
     }
 
+    function renumberAndCleanQuestions(){
+      ['auto','fmcg'].forEach(function(secId){
+        var sec = document.getElementById('sec-' + secId);
+        if (!sec) return;
+        var n = 0;
+        var perModuleRange = [];
+        sec.querySelectorAll('.module').forEach(function(mod){
+          var startN = n + 1;
+          mod.querySelectorAll('.q').forEach(function(q){
+            n++;
+            var num = 'Q' + (n < 10 ? '0' : '') + n;
+            var qn = q.querySelector('.q-n');
+            if (qn) qn.textContent = num;
+            var qf = q.querySelector('.q-feed');
+            if (qf) qf.textContent = (qf.textContent || '')
+              .replace(/\s*\[INSERTED from gap\]\s*/gi, '')
+              .replace(/^GAP-derived\s*\u00b7?\s*/i, '')
+              .trim();
+          });
+          perModuleRange.push({mod:mod, start:startN, end:n});
+        });
+        perModuleRange.forEach(function(r){
+          var mm = r.mod.querySelector('.mm');
+          if (mm) {
+            var minTxt = (mm.textContent || '').match(/^([\d]+\s*min)/);
+            var minPart = minTxt ? minTxt[1] : '';
+            mm.textContent = (minPart ? minPart + ' \u00b7 ' : '') + 'Q' + (r.start<10?'0':'') + r.start + '\u2013Q' + (r.end<10?'0':'') + r.end;
+          }
+        });
+      });
+    }
+
     function init(){
       ensureAllGapsInserted();
       injectIntoQuestionnaire();
+      renumberAndCleanQuestions();
       var modsA = scrapeSector('sec-auto'), modsF = scrapeSector('sec-fmcg');
       if (!modsA.length || !modsF.length) {
         if ((init.tries=(init.tries||0)+1) > 60) { document.getElementById('tv-table-auto').textContent = 'Could not scrape questionnaire. Hard-refresh once.'; return; }
