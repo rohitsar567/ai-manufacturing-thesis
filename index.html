@@ -8059,23 +8059,28 @@ document.addEventListener('keydown', function(e){
   }
   .hscroll-wrap.at-end::after{ opacity: 0; }
   .hscroll-wrap::before{
-    content: 'scroll \2192';
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.62rem;
-    font-weight: 600;
-    color: #64748b;
-    background: rgba(255,255,255,0.95);
-    padding: 3px 8px;
-    border-radius: 10px;
-    border: 1px solid #e4e9f0;
+    content: '\2190 scroll horizontally \2192';
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-self: flex-start;
+    display: block;
+    width: fit-content;
+    font-family: var(--font-display, -apple-system, sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    background: #1a2232;
+    padding: 8px 14px;
+    border-radius: 0 0 10px 0;
     pointer-events: none;
     z-index: 6;
     opacity: 1;
     transition: opacity .2s;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    margin-bottom: -28px;
   }
   .hscroll-wrap.at-end::before{ opacity: 0; }
 </style>
