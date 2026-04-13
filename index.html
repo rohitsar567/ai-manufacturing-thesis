@@ -5141,11 +5141,27 @@ function renderTAMWaterfall() {
     openChartModal(hit.node.name, hit.node.sector);
   });
 
-  draw();
+  function safeDraw() {
+    if (!wrap.clientWidth || wrap.clientWidth < 200) return;
+    draw();
+  }
+  // Initial paint on next frame so layout/fonts settle
+  requestAnimationFrame(function(){ requestAnimationFrame(safeDraw); });
+  // Redraw after fonts + images finish loading
+  window.addEventListener('load', safeDraw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(safeDraw);
+  // Redraw whenever the wrap's size changes (tab switches, viewport changes, content reflow)
+  if (typeof ResizeObserver !== 'undefined') {
+    let roTimer;
+    new ResizeObserver(function() {
+      clearTimeout(roTimer);
+      roTimer = setTimeout(safeDraw, 80);
+    }).observe(wrap);
+  }
   let rzTimer;
   window.addEventListener('resize', function() {
     clearTimeout(rzTimer);
-    rzTimer = setTimeout(draw, 100);
+    rzTimer = setTimeout(safeDraw, 100);
   });
 }
 
