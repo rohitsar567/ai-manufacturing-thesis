@@ -6699,6 +6699,7 @@ window.NODE_DESC = {
 <div class="tabs">
   <div class="tab active" data-tab="auto">Automobile</div>
   <div class="tab" data-tab="fmcg">FMCG</div>
+  <div class="tab" data-tab="kg">Knowledge Graph</div>
   
 </div>
 
@@ -8447,6 +8448,285 @@ window.NODE_DESC = {
   </div>
 </div>
 </div>
+<div class="sec" id="sec-kg">
+  <div class="kg-intro" style="background:#fafbfd;border:1px solid #e4e9f0;border-radius:12px;padding:18px 22px;margin:0 0 24px;">
+    <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Validation traceability</div>
+    <div style="font-size:1.05rem;font-weight:700;color:#1a2232;margin-bottom:6px;">From thesis claims → question modules → personas → sample questions</div>
+    <div style="font-size:0.85rem;color:#4a5568;line-height:1.55;">Every load-bearing claim in the India Manufacturing AI thesis is validated by a specific subset of the role-filtered operator interview questions. Hover any thesis pillar to trace which modules + personas + questions validate it. Click any leaf to jump to the question.</div>
+  </div>
+
+  <!-- SECTOR TOGGLE -->
+  <div class="kg-sector-toggle" style="display:flex;gap:6px;margin:0 0 24px;background:#f1f5f9;padding:4px;border-radius:10px;width:fit-content;">
+    <button class="kg-sec-btn active" data-kg-sec="auto" style="padding:8px 18px;border:none;background:#1a2232;color:#fff;border-radius:6px;font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">🚗 Automobile</button>
+    <button class="kg-sec-btn" data-kg-sec="fmcg" style="padding:8px 18px;border:none;background:transparent;color:#6b7890;border-radius:6px;font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">🛒 FMCG</button>
+  </div>
+
+  <!-- KG CANVAS -->
+  <div id="kgGraph" style="position:relative;width:100%;background:#fff;border:1px solid #e4e9f0;border-radius:14px;padding:24px;overflow-x:auto;min-height:700px;">
+    <svg id="kgSvg" width="100%" height="900" style="display:block;font-family:var(--font-display,sans-serif);"></svg>
+    <div id="kgLegend" style="position:absolute;top:24px;right:24px;font-size:11px;color:#6b7890;line-height:1.6;background:rgba(255,255,255,0.95);padding:10px 14px;border:1px solid #e4e9f0;border-radius:8px;">
+      <div style="font-weight:700;color:#1a2232;margin-bottom:4px;">Legend</div>
+      <div><span style="display:inline-block;width:10px;height:10px;background:#0d9488;border-radius:3px;vertical-align:middle;margin-right:6px;"></span>Thesis</div>
+      <div><span style="display:inline-block;width:10px;height:10px;background:#7c3aed;border-radius:3px;vertical-align:middle;margin-right:6px;"></span>Validation pillar</div>
+      <div><span style="display:inline-block;width:10px;height:10px;background:#2563eb;border-radius:3px;vertical-align:middle;margin-right:6px;"></span>Question module</div>
+      <div><span style="display:inline-block;width:10px;height:10px;background:#d97706;border-radius:3px;vertical-align:middle;margin-right:6px;"></span>Persona owns</div>
+    </div>
+  </div>
+
+  <!-- DETAIL PANEL (shown on click) -->
+  <div id="kgDetail" style="margin-top:18px;padding:18px 22px;background:#fafbfd;border:1px solid #e4e9f0;border-radius:12px;display:none;">
+    <div id="kgDetailContent"></div>
+  </div>
+</div>
+
+<script id="kg-data-and-render">
+window.KG_DATA = {
+  auto: {
+    label: 'India Auto Enterprise AI TAM',
+    value: '$0.7B',
+    sub: '163K Knowledge Workers · 1,100 brand-owner firms',
+    pillars: [
+      { id:'p1', label:'TAM size & sector structure', why:'Brand-owner revenue base + KW headcount + payroll bottoms-up', modules:[1], personas:['all'] },
+      { id:'p2', label:'Knowledge work density per node', why:'Each workflow node has measurable Knowledge Worker share', modules:[1,2], personas:['all','scm','comm','cfo','chro','cio'] },
+      { id:'p3', label:'AI tech maturity per workflow', why:'Vendors ship production-grade products for these workflows', modules:[3,4,5], personas:['scm','comm','cfo','chro','cio'] },
+      { id:'p4', label:'India deployment evidence', why:'Indian brand-owners have public AI deployment cases', modules:[3,4,5,6], personas:['scm','comm','cfo','cio'] },
+      { id:'p5', label:'ICP buyer behavior & spend', why:'Enterprise buyers spend $X on tech, willing to pay for AI', modules:[6], personas:['cfo','cio'] },
+    ],
+    modules: [
+      { id:1, label:'Role & sector context', minutes:3, count:'Q01-Q03', validates:['p1','p2'] },
+      { id:2, label:'Validate sector-selection matrix', minutes:8, count:'Q04-Q10', validates:['p2'] },
+      { id:3, label:'Supply & procurement', minutes:11, count:'Q11-Q23', validates:['p3','p4'] },
+      { id:4, label:'Demand · dealer · aftersales · warranty', minutes:11, count:'Q24-Q33', validates:['p3','p4'] },
+      { id:5, label:'Support functions (Finance/HR/IT)', minutes:6, count:'Q34-Q40', validates:['p3','p4'] },
+      { id:6, label:'Implementation, procurement, make-vs-buy', minutes:6, count:'Q41-Q45', validates:['p4','p5'] },
+    ],
+    personas: [
+      { id:'scm', label:'Supply chain · CPO', color:'#047857' },
+      { id:'comm', label:'Commercial · sales', color:'#b45309' },
+      { id:'cfo', label:'CFO · finance', color:'#1d4ed8' },
+      { id:'chro', label:'CHRO · HR', color:'#7c3aed' },
+      { id:'cio', label:'CIO · digital · IIoT', color:'#0e7490' },
+    ],
+  },
+  fmcg: {
+    label: 'India FMCG Enterprise AI TAM',
+    value: '$0.5B',
+    sub: '143K Knowledge Workers · 700 brand-owner firms',
+    pillars: [
+      { id:'p1', label:'TAM size & sector structure', why:'Revenue + KW headcount + payroll bottoms-up', modules:[1], personas:['all'] },
+      { id:'p2', label:'Knowledge work density per node', why:'Each workflow has measurable KW share', modules:[1,2], personas:['all','scm','cpo','cmo','cso','cfo','chro','cio'] },
+      { id:'p3', label:'AI tech maturity per workflow', why:'Vendors ship production-grade for these workflows', modules:[3,4,5], personas:['scm','cpo','cmo','cso','cfo','chro','cio'] },
+      { id:'p4', label:'India deployment evidence', why:'Indian FMCG public AI cases (HUL, ITC, etc.)', modules:[3,4,5,6], personas:['scm','cpo','cmo','cso','cio'] },
+      { id:'p5', label:'ICP buyer behavior & spend', why:'CFO + CIO own the buying decision', modules:[6], personas:['cfo','cio'] },
+    ],
+    modules: [
+      { id:1, label:'Role & sector context', minutes:3, count:'Q01-Q03', validates:['p1','p2'] },
+      { id:2, label:'Validate sector-selection matrix', minutes:8, count:'Q04-Q10', validates:['p2'] },
+      { id:3, label:'Supply & procurement', minutes:11, count:'Q11-Q23', validates:['p3','p4'] },
+      { id:4, label:'Demand · marketing, sales, channels', minutes:11, count:'Q24-Q33', validates:['p3','p4'] },
+      { id:5, label:'Support functions (Finance/HR/RGM)', minutes:6, count:'Q34-Q40', validates:['p3','p4'] },
+      { id:6, label:'Implementation, procurement, make-vs-buy', minutes:6, count:'Q41-Q45', validates:['p4','p5'] },
+    ],
+    personas: [
+      { id:'scm', label:'Supply chain · CSCO', color:'#047857' },
+      { id:'cpo', label:'Procurement · CPO', color:'#0f766e' },
+      { id:'cmo', label:'Marketing · CMO', color:'#be185d' },
+      { id:'cso', label:'Sales · CSO/ED-CD', color:'#c2410c' },
+      { id:'cfo', label:'CFO · RGM', color:'#1d4ed8' },
+      { id:'chro', label:'CHRO · HR', color:'#7c3aed' },
+      { id:'cio', label:'CIO · digital', color:'#0e7490' },
+    ],
+  }
+};
+
+(function(){
+  function renderKG(secKey){
+    const data = window.KG_DATA[secKey];
+    const svg = document.getElementById('kgSvg');
+    if (!svg) return;
+    svg.innerHTML = '';
+    const W = svg.clientWidth || 1100;
+    const ROW = { thesis: 60, pillar: 220, module: 440, persona: 680 };
+    svg.setAttribute('height', 880);
+
+    // Column layout
+    const pillarN = data.pillars.length;
+    const moduleN = data.modules.length;
+    const personaN = data.personas.length;
+    const colX = (n, i) => W * (i + 0.5) / n;
+
+    // 1) Thesis node (centered)
+    const thesisX = W/2, thesisY = ROW.thesis;
+    addRect(svg, thesisX-180, thesisY-22, 360, 64, '#0d9488', `${data.label}`, `${data.value} · ${data.sub}`, 'thesis-root');
+
+    // 2) Pillars
+    const pillarPos = data.pillars.map((p, i) => ({ id:p.id, x: colX(pillarN, i), y: ROW.pillar, label:p.label, why:p.why }));
+    pillarPos.forEach(p => {
+      addLine(svg, thesisX, thesisY+42, p.x, p.y-28, '#94a3b8');
+      addRect(svg, p.x-100, p.y-28, 200, 70, '#7c3aed', p.label, p.why.length>40 ? p.why.slice(0,40)+'…' : p.why, 'pillar-'+p.id);
+    });
+
+    // 3) Modules
+    const modulePos = data.modules.map((m, i) => ({ id:m.id, x: colX(moduleN, i), y: ROW.module, label:m.label, count:m.count, validates:m.validates }));
+    modulePos.forEach(m => {
+      m.validates.forEach(pid => {
+        const p = pillarPos.find(p => p.id === pid);
+        if (p) addLine(svg, p.x, p.y+42, m.x, m.y-28, '#cbd5e1');
+      });
+      addRect(svg, m.x-95, m.y-28, 190, 64, '#2563eb', `Module ${m.id}`, m.label, 'module-'+m.id, m.count + ' · ' + (data.modules.find(x=>x.id===m.id).minutes) + ' min');
+    });
+
+    // 4) Personas (bottom)
+    const personaPos = data.personas.map((pp, i) => ({ id:pp.id, x: colX(personaN, i), y: ROW.persona, label:pp.label, color:pp.color }));
+    personaPos.forEach(per => {
+      // Connect to all modules where this persona's questions appear
+      modulePos.forEach(m => {
+        // simple heuristic: every persona connects to every module they're tagged into via per-pillar inheritance
+        // For the visual, draw light lines from each module to relevant personas (we'll color by persona)
+        addLine(svg, m.x, m.y+38, per.x, per.y-26, per.color + '33', 1);
+      });
+      addRect(svg, per.x-90, per.y-26, 180, 56, per.color, per.label, 'Owns the answer', 'persona-'+per.id);
+    });
+
+    // Hover: highlight downstream
+    enableHover(svg, data, pillarPos, modulePos, personaPos);
+  }
+
+  function addRect(svg, x, y, w, h, color, title, sub, dataId, footer){
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('data-kg-id', dataId);
+    g.style.cursor = 'pointer';
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', x); rect.setAttribute('y', y);
+    rect.setAttribute('width', w); rect.setAttribute('height', h);
+    rect.setAttribute('rx', 8);
+    rect.setAttribute('fill', color);
+    rect.setAttribute('opacity', 0.96);
+    rect.setAttribute('stroke', color);
+    rect.setAttribute('stroke-width', 1.5);
+    rect.style.transition = 'all .15s';
+    g.appendChild(rect);
+
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', x + w/2); t.setAttribute('y', y + 22);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('fill', '#fff');
+    t.setAttribute('font-size', 12.5);
+    t.setAttribute('font-weight', 700);
+    t.textContent = title.length > 30 ? title.slice(0, 30)+'…' : title;
+    g.appendChild(t);
+
+    if (sub){
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      s.setAttribute('x', x + w/2); s.setAttribute('y', y + 40);
+      s.setAttribute('text-anchor', 'middle');
+      s.setAttribute('fill', '#fff');
+      s.setAttribute('font-size', 10);
+      s.setAttribute('opacity', 0.85);
+      s.textContent = sub.length > 38 ? sub.slice(0,38)+'…' : sub;
+      g.appendChild(s);
+    }
+    if (footer){
+      const f = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      f.setAttribute('x', x + w/2); f.setAttribute('y', y + h - 10);
+      f.setAttribute('text-anchor', 'middle');
+      f.setAttribute('fill', '#fff');
+      f.setAttribute('font-size', 9);
+      f.setAttribute('opacity', 0.75);
+      f.textContent = footer;
+      g.appendChild(f);
+    }
+    svg.appendChild(g);
+    return g;
+  }
+
+  function addLine(svg, x1, y1, x2, y2, color, width){
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    const cx1 = x1, cy1 = (y1+y2)/2;
+    const cx2 = x2, cy2 = (y1+y2)/2;
+    path.setAttribute('d', `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`);
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', width || 1.5);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', 0.6);
+    svg.appendChild(path);
+  }
+
+  function enableHover(svg, data, pillars, modules, personas){
+    svg.querySelectorAll('g[data-kg-id]').forEach(g => {
+      g.addEventListener('mouseenter', () => {
+        g.querySelector('rect').style.transform = 'scale(1.04)';
+        g.querySelector('rect').style.transformOrigin = 'center';
+      });
+      g.addEventListener('mouseleave', () => {
+        g.querySelector('rect').style.transform = '';
+      });
+      g.addEventListener('click', () => {
+        const id = g.dataset.kgId;
+        showDetail(id, data);
+      });
+    });
+  }
+
+  function showDetail(kgId, data){
+    const detail = document.getElementById('kgDetail');
+    const content = document.getElementById('kgDetailContent');
+    if (!detail || !content) return;
+    let html = '';
+    if (kgId === 'thesis-root'){
+      html = `<div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Thesis</div>
+              <div style="font-size:1.1rem;font-weight:700;color:#1a2232;margin-bottom:8px;">${data.label}: ${data.value}</div>
+              <div style="font-size:0.9rem;color:#4a5568;line-height:1.55;">${data.sub}. The 5 validation pillars below each test a different load-bearing assumption — when answered together by the 5-7 named personas through the 6 question modules, the thesis holds (or breaks).</div>`;
+    } else if (kgId.startsWith('pillar-')){
+      const id = kgId.replace('pillar-','');
+      const p = data.pillars.find(x => x.id === id);
+      const mods = p.modules.map(mid => data.modules.find(m => m.id === mid));
+      html = `<div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#7c3aed;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Validation pillar</div>
+              <div style="font-size:1.05rem;font-weight:700;color:#1a2232;margin-bottom:6px;">${p.label}</div>
+              <div style="font-size:0.85rem;color:#4a5568;line-height:1.55;margin-bottom:12px;"><strong>Why this matters:</strong> ${p.why}</div>
+              <div style="font-size:0.78rem;color:#374151;"><strong>Validated by modules:</strong> ${mods.map(m => `${m.id} · ${m.label}`).join(' · ')}</div>
+              <div style="font-size:0.78rem;color:#374151;margin-top:4px;"><strong>Personas who answer:</strong> ${p.personas.join(', ')}</div>`;
+    } else if (kgId.startsWith('module-')){
+      const id = parseInt(kgId.replace('module-',''));
+      const m = data.modules.find(x => x.id === id);
+      const validates = m.validates.map(pid => data.pillars.find(p => p.id === pid));
+      html = `<div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#2563eb;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Question module ${m.id}</div>
+              <div style="font-size:1.05rem;font-weight:700;color:#1a2232;margin-bottom:6px;">${m.label}</div>
+              <div style="font-size:0.85rem;color:#4a5568;line-height:1.55;margin-bottom:12px;">${m.count} · ${m.minutes} min</div>
+              <div style="font-size:0.78rem;color:#374151;"><strong>Validates pillars:</strong> ${validates.map(p => p.label).join(' · ')}</div>`;
+    } else if (kgId.startsWith('persona-')){
+      const id = kgId.replace('persona-','');
+      const per = data.personas.find(x => x.id === id);
+      const personaPillars = data.pillars.filter(p => p.personas.includes(id));
+      html = `<div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:${per.color};letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Persona</div>
+              <div style="font-size:1.05rem;font-weight:700;color:#1a2232;margin-bottom:6px;">${per.label}</div>
+              <div style="font-size:0.85rem;color:#4a5568;line-height:1.55;margin-bottom:12px;">This persona answers questions that validate ${personaPillars.length} of 5 thesis pillars: ${personaPillars.map(p => p.label).join(' · ')}.</div>`;
+    }
+    content.innerHTML = html;
+    detail.style.display = 'block';
+  }
+
+  // Sector toggle
+  function init(){
+    const btns = document.querySelectorAll('.kg-sec-btn');
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => { x.classList.remove('active'); x.style.background = 'transparent'; x.style.color = '#6b7890'; });
+      b.classList.add('active'); b.style.background = '#1a2232'; b.style.color = '#fff';
+      renderKG(b.dataset.kgSec);
+    }));
+    renderKG('auto');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  // Re-render when KG sub-tab is clicked (since SVG sizing depends on visibility)
+  document.querySelectorAll('.evs-scope .tab[data-tab="kg"]').forEach(t => t.addEventListener('click', () => setTimeout(() => {
+    const active = document.querySelector('.kg-sec-btn.active');
+    if (active) renderKG(active.dataset.kgSec);
+  }, 50)));
+})();
+</script>
+
 
 
 </div>
