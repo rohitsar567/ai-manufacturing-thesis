@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '1be6081bba4ea6bf8233fc435121937a2ef682bb';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '1be6081bba4ea6bf8233fc435121937a2ef682bb' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -4440,6 +4440,10 @@ const FMCG_NODES = [
    score_sources:[{t:"Fractal Analytics",u:"https://fractal.ai/solutions"},{t:"MathCo",u:"https://themathcompany.com"},{t:"Sigmoid",u:"https://www.sigmoid.com/solutions"}]
   }
 ];
+
+// Expose node arrays globally for downstream features (validation tracker, CRM, etc.)
+window.AUTO_NODES = AUTO_NODES;
+window.FMCG_NODES = FMCG_NODES;
 
 // VC THESIS DATA
 const THESIS_DATA = [
