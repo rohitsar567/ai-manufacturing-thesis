@@ -1179,33 +1179,29 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </style>
 
 
-<!-- Split-nav CSS (clean) -->
+
+<!-- Split-nav CSS v2 -->
 <style>
   nav.mainnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e4e9f0;padding:0}
-  nav.mainnav .mn-inner{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
-  nav.mainnav .logo{flex-shrink:0}
+  nav.mainnav .mn-inner{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px}
+  nav.mainnav .logo{flex-shrink:0;font-family:var(--font-display,-apple-system);font-weight:700;color:#1a2232}
   .primary-tabs{display:flex;gap:2px;background:#f1f5f9;padding:3px;border-radius:8px;flex-shrink:0}
-  .primary-tab{background:transparent;border:none;padding:7px 16px;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1}
+  .primary-tab{background:transparent;border:none;padding:7px 16px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1}
   .primary-tab:hover{color:#1a2232}
   .primary-tab.active{background:#1a2232;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.08)}
-  .secondary-nav{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex:1;justify-content:flex-end;align-items:center}
+  .secondary-nav{list-style:none;margin:0;padding:0;display:flex;gap:2px;flex:1;justify-content:flex-end;align-items:center;flex-wrap:wrap}
   .secondary-nav li{display:inline-block}
-  .secondary-nav li a{display:inline-block;padding:6px 10px;font-size:12.5px;font-weight:600;color:#4a5568;text-decoration:none;border-radius:6px;transition:all .15s}
+  .secondary-nav li a{display:inline-block;padding:6px 10px;font-size:12px;font-weight:600;color:#4a5568;text-decoration:none;border-radius:6px;letter-spacing:0.02em;transition:all .15s}
   .secondary-nav li a:hover{background:#f1f5f9;color:#1a2232}
-  @media (max-width:980px){
-    nav.mainnav .mn-inner{flex-wrap:wrap;gap:14px}
-    .secondary-nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;padding:8px 0;border-top:1px solid #e4e9f0;margin-top:8px;gap:2px}
-    .secondary-nav.mobile-open{display:flex}
-    .secondary-nav li a{padding:10px 12px}
-  }
-  @media (min-width:981px){.hamburger{display:none}}
-  /* GTM intro polish */
-  .gtm-intro-wrap{max-width:1100px;margin:0 auto;padding:48px 24px 8px;background:#fff}
-  .gtm-intro{padding:0 0 20px;border-bottom:1px solid #e4e9f0;margin-bottom:32px}
-  .gtm-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6b7890;margin-bottom:10px}
-  .gtm-h1{font-size:28px;font-weight:700;line-height:1.2;color:#1a2232;margin:0 0 10px;letter-spacing:-0.01em}
-  .gtm-sub{font-size:14.5px;color:#4a5568;line-height:1.55;max-width:780px;margin:0}
+  .secondary-nav li a.sub-active{background:#1a2232;color:#fff}
+  /* Pane visibility via body class */
+  body:not(.on-gtm) [data-pane="gtm"]{display:none !important}
+  body.on-gtm [data-pane="thesis"]{display:none !important}
   body.on-gtm .section-progress{display:none !important}
+  @media (max-width:980px){
+    nav.mainnav .mn-inner{flex-wrap:wrap}
+    .secondary-nav{flex-basis:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid #e4e9f0;margin-top:6px}
+  }
 </style>
 </head>
 <body style="overflow-x:hidden;max-width:100vw;">
@@ -1228,18 +1224,18 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <li><a href="#tam">TAM</a></li>
       <li><a href="#auto-analysis">Auto</a></li>
       <li><a href="#fmcg-analysis">FMCG</a></li>
-      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#appendix">Methodology</a></li>
     </ul>
     <ul class="secondary-nav" data-for="gtm" style="display:none;">
-      <li><a href="#expert-validation">Expert validation</a></li>
+      <li><a href="#" data-sub="auto">Automobile</a></li>
+      <li><a href="#" data-sub="fmcg">FMCG</a></li>
+      <li><a href="#" data-sub="frame">Framework</a></li>
     </ul>
-    <button class="hamburger" id="hamburgerBtn" onclick="this.classList.toggle('open');document.querySelector('nav .secondary-nav[data-for=\'thesis\']').classList.toggle('mobile-open');document.querySelector('nav .secondary-nav[data-for=\'gtm\']').classList.toggle('mobile-open')"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 
-<div class="tab-pane thesis-pane" id="tab-thesis" role="tabpanel" aria-labelledby="tab-thesis-btn">
-<div class="section-progress" id="sectionProgress">
+<div data-pane="thesis" class="section-progress" id="sectionProgress">
   <div class="sp-dot" data-section="summary" onclick="document.getElementById('summary').scrollIntoView({behavior:'smooth'})"><span class="sp-label">Summary</span></div>
   <div class="sp-dot" data-section="macro" onclick="document.getElementById('macro').scrollIntoView({behavior:'smooth'})"><span class="sp-label">Market</span></div>
   <div class="sp-dot" data-section="sectors" onclick="document.getElementById('sectors').scrollIntoView({behavior:'smooth'})"><span class="sp-label">Selection</span></div>
@@ -1263,7 +1259,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </div>
 
 <!-- EXECUTIVE SUMMARY -->
-<section id="summary">
+<section id="summary" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">01 &mdash; Executive Summary</div>
     <div class="section-title">The $1.2 Billion AI opportunity hiding in India&rsquo;s manufacturing knowledge work</div>
@@ -1727,7 +1723,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
 
 <!-- MACRO MANUFACTURING CONTEXT -->
-<section id="macro">
+<section id="macro" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">02 &mdash; India Manufacturing Landscape</div>
     <div class="section-title">India's $1.2 trillion manufacturing sector: scale, growth, and structural tailwinds</div>
@@ -2355,7 +2351,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </section>
 
 <!-- SECTOR COMPARISON -->
-<section id="sectors">
+<section id="sectors" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">03 &mdash; Sector Selection</div>
     <div class="section-title">How Automobile and FMCG were selected from six sectors</div>
@@ -2839,7 +2835,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </section>
 
 <!-- TAM WATERFALL -->
-<section id="tam">
+<section id="tam" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">04 &mdash; TAM Analysis</div>
     <div class="section-title">$1.2B in AI-solvable manufacturing problems</div>
@@ -3020,7 +3016,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </div>
 
 <!-- AUTOMOBILE ANALYSIS -->
-<section id="auto-analysis">
+<section id="auto-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">05 &mdash; Automobile Sector</div>
     <div class="section-title">28 workflow nodes. $0.7B targeted in knowledge-worker AI.</div>
@@ -3063,7 +3059,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
 
 <!-- FMCG ANALYSIS -->
-<section id="fmcg-analysis">
+<section id="fmcg-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">06 &mdash; FMCG Sector</div>
     <div class="section-title">29 workflow nodes. $0.5B in AI-automatable knowledge work.</div>
@@ -3109,7 +3105,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   <div class="pd-sub">57 workflow nodes across both Automobile and FMCG, ranked by enterprise TAM and AI readiness</div>
 </div>
 
-<section id="priority-map">
+<section id="priority-map" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">Summary &mdash; Across Both Sectors</div>
     <div class="section-title">Where the $1.2B opportunity concentrates</div>
@@ -3165,7 +3161,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   </div>
 </section>
 
-<section id="appendix">
+<section id="appendix" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">07 &mdash; Appendix</div>
     <details style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:14px; padding:0; margin-top:16px; overflow:hidden;">
@@ -6049,20 +6045,11 @@ document.addEventListener('mouseout', function(e) {
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&uarr;</button>
 
-</div><!-- /tab-thesis -->
 
-<div class="tab-pane gtm-pane" id="tab-gtm" role="tabpanel" style="display:none;" aria-labelledby="tab-gtm-btn">
-  <div class="gtm-intro-wrap">
-    <div class="gtm-intro">
-      <div class="gtm-eyebrow">Go-to-market · Expert Validation</div>
-      <h2 class="gtm-h1">Role-filtered operator interviews with named India LinkedIn candidates</h2>
-      <p class="gtm-sub">This GTM track validates the thesis by testing every load-bearing hypothesis against Indian Auto &amp; FMCG operators in their own voice. Select a persona chip to narrow the question set; each sector shows matched interview candidates drawn from the author's LinkedIn network with direct profile links.</p>
-    </div>
-  </div>
-<!-- =========================================================================
+  <!-- =========================================================================
      EXPERT VALIDATION (merged from expert-dd-artifact.html, CSS scoped to .evs-scope)
      ========================================================================= -->
-<section id="expert-validation" class="sec-anchor">
+<section id="expert-validation" data-pane="gtm" class="sec-anchor">
   <div class="evs-scope">
 <div class="wrap">
 
@@ -7956,28 +7943,38 @@ const tabs = document.querySelectorAll('.tab');
 })();
 </script>
 
-</div><!-- /tab-gtm -->
+
+
 
 <script>
 (function(){
   const tabs = document.querySelectorAll('.primary-tab');
-  const thesisPane = document.getElementById('tab-thesis');
-  const gtmPane    = document.getElementById('tab-gtm');
-  const secNavs    = document.querySelectorAll('.secondary-nav');
+  const secNavs = document.querySelectorAll('.secondary-nav');
   function show(tab){
     tabs.forEach(t => {
       const active = t.dataset.tab === tab;
       t.classList.toggle('active', active);
       t.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    thesisPane.style.display = (tab === 'thesis') ? '' : 'none';
-    gtmPane.style.display    = (tab === 'gtm')    ? '' : 'none';
     secNavs.forEach(n => { n.style.display = (n.dataset.for === tab) ? '' : 'none'; });
     document.body.classList.toggle('on-gtm', tab === 'gtm');
     try { history.replaceState(null, '', '#' + (tab === 'thesis' ? 'summary' : 'expert-validation')); } catch(_) {}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
+  // GTM sub-tabs (Auto | FMCG | Framework) — click proxies to expert-dd's internal .tab buttons
+  document.querySelectorAll('.secondary-nav[data-for="gtm"] a[data-sub]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const sub = a.dataset.sub;
+      document.querySelectorAll('.secondary-nav[data-for="gtm"] a').forEach(x => x.classList.remove('sub-active'));
+      a.classList.add('sub-active');
+      const inner = document.querySelector('.evs-scope .tab[data-tab="' + sub + '"]');
+      if (inner) inner.click();
+      const ev = document.getElementById('expert-validation');
+      if (ev) ev.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
   const hash = (location.hash || '').replace('#','');
   if (hash === 'expert-validation' || hash === 'gtm') show('gtm');
 })();
