@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'ed607081389b83eca3217bc40a91074f5fdc406a';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'ed607081389b83eca3217bc40a91074f5fdc406a' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -7922,6 +7922,9 @@ window.NODE_DESC = {
         <option value="auto">Auto</option>
         <option value="fmcg">FMCG</option>
       </select>
+      <select id="crm-filter-persona" style="padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.78rem;background:#fff;">
+        <option value="">All personas</option>
+      </select>
       <button id="crm-export" style="padding:8px 14px;border:1px solid #0d9488;border-radius:8px;background:#0d9488;color:#fff;font-weight:700;font-size:0.75rem;cursor:pointer;">Export CSV</button>
       <button id="crm-reset" style="padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#64748b;font-size:0.75rem;cursor:pointer;">Reset all</button>
     </div>
@@ -8443,6 +8446,8 @@ window.NODE_DESC = {
       var search = document.getElementById('crm-search').value.toLowerCase();
       var fStatus = document.getElementById('crm-filter-status').value;
       var fSector = document.getElementById('crm-filter-sector').value;
+      var personaEl = document.getElementById('crm-filter-persona');
+      var fPersona = personaEl ? personaEl.value : '';
       var tbody = document.getElementById('crm-tbody');
       while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
       var counts = {outreach:0,contacted:0,scheduled:0,done:0,'not-reached':0};
@@ -8451,6 +8456,7 @@ window.NODE_DESC = {
         counts[rec.status] = (counts[rec.status]||0)+1;
         if (fStatus && rec.status !== fStatus) return;
         if (fSector && c.sector !== fSector) return;
+        if (fPersona && c.persona !== fPersona) return;
         if (search && !((c.name+' '+c.company+' '+c.title+' '+c.persona).toLowerCase().includes(search))) return;
         tbody.appendChild(buildRow(c));
       });
@@ -8470,6 +8476,19 @@ window.NODE_DESC = {
 
     function init(){
       candidates = gatherCandidates();
+      // Populate persona filter with unique persona values from candidates
+      var personaSel = document.getElementById('crm-filter-persona');
+      if (personaSel) {
+        // Clear existing (except placeholder)
+        while (personaSel.children.length > 1) personaSel.removeChild(personaSel.lastChild);
+        var personas = {};
+        candidates.forEach(function(c){ if (c.persona) personas[c.persona] = true; });
+        Object.keys(personas).sort().forEach(function(p){
+          var o = document.createElement('option'); o.value = p; o.textContent = p;
+          personaSel.appendChild(o);
+        });
+        personaSel.addEventListener('change', render);
+      }
       document.getElementById('crm-search').addEventListener('input', render);
       document.getElementById('crm-filter-status').addEventListener('change', render);
       document.getElementById('crm-filter-sector').addEventListener('change', render);
@@ -9247,7 +9266,23 @@ window.NODE_DESC = {
           var tv = {}; try{ tv = JSON.parse(localStorage.getItem(TV_KEY) || '{}'); }catch(e){}
           var crm = {}; try{ crm = JSON.parse(localStorage.getItem(CRM_KEY) || '{}'); }catch(e){}
           var calls = (data && data.calls) || [];
-          var appliedCalls = 0, appliedQs = 0;
+          var scheduled = (data && data.scheduled_updates) || [];
+          var appliedCalls = 0, appliedQs = 0, appliedScheduled = 0;
+          // Calendar-derived scheduled updates: bump CRM contact to 'scheduled' status
+          scheduled.forEach(function(s){
+            var ukey = 'sched|' + (s.contact_key||'') + '|' + (s.event_id||'');
+            if (consumed[ukey]) return;
+            if (!s.contact_key) return;
+            var cr = crm[s.contact_key] || {status:'outreach', notes:''};
+            // Only bump up the funnel, never down from contacted/scheduled/done
+            var order = {outreach:0, contacted:1, scheduled:2, done:3, 'not-reached':1};
+            if ((order[cr.status] || 0) < 2) cr.status = 'scheduled';
+            var tag = '\n[Calendar ' + (s.date||'') + '] ' + (s.title||'meeting scheduled');
+            if ((cr.notes || '').indexOf(tag) === -1) cr.notes = (cr.notes || '') + tag;
+            crm[s.contact_key] = cr;
+            consumed[ukey] = new Date().toISOString();
+            appliedScheduled++;
+          });
           calls.forEach(function(call){
             if (!call.id || consumed[call.id]) return;
             // CRM update: set contact status + notes
