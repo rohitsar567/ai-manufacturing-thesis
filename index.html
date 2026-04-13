@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '256ccf548ec2ccf60c91257e2295f92f3afe61b9';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '256ccf548ec2ccf60c91257e2295f92f3afe61b9' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -7936,6 +7936,7 @@ window.NODE_DESC = {
             <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:140px;">Status</th>
             <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:200px;">Notes</th>
             <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Link</th>
+            <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:170px;">Granola</th>
           </tr>
         </thead>
         <tbody id="crm-tbody"></tbody>
@@ -8082,7 +8083,168 @@ window.NODE_DESC = {
       }
       tr.appendChild(tdLink);
 
+      // ---- Granola integration cell ----
+      var tdGr = makeCell();
+      tdGr.style.textAlign = 'center';
+      tdGr.style.whiteSpace = 'nowrap';
+      var openBtn = document.createElement('button');
+      openBtn.type = 'button';
+      openBtn.title = 'Open Granola app (sets status to Contacted)';
+      openBtn.style.cssText = 'padding:4px 8px;border:1px solid #a78bfa;background:#faf5ff;color:#6d28d9;font-weight:700;font-size:0.65rem;border-radius:5px;cursor:pointer;margin-right:4px;';
+      openBtn.textContent = '\ud83c\udf99 Open';
+      openBtn.addEventListener('click', function(){
+        state[c.key] = state[c.key] || {status:'outreach', notes:''};
+        if (state[c.key].status === 'outreach') state[c.key].status = 'contacted';
+        saveState(state);
+        window.open('https://granola.so/', '_blank');
+        render();
+      });
+      tdGr.appendChild(openBtn);
+      var impBtn = document.createElement('button');
+      impBtn.type = 'button';
+      impBtn.title = 'Import transcript and route evidence to all validation questions linked to this contact';
+      impBtn.style.cssText = 'padding:4px 8px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.65rem;border-radius:5px;cursor:pointer;';
+      impBtn.textContent = '\ud83d\udce5 Import';
+      impBtn.addEventListener('click', function(){ openGranolaImport(c); });
+      tdGr.appendChild(impBtn);
+      tr.appendChild(tdGr);
+
       return tr;
+    }
+
+    // ======== GRANOLA IMPORT + ROUTING ENGINE ========
+    function openGranolaImport(c){
+      var existing = document.getElementById('granola-modal');
+      if (existing) existing.remove();
+      var m = document.createElement('div');
+      m.id = 'granola-modal';
+      m.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#fff;border-radius:14px;max-width:720px;width:100%;max-height:85vh;overflow-y:auto;padding:22px 26px;box-shadow:0 8px 32px rgba(0,0,0,0.2);font-family:var(--font-display);';
+      var h = document.createElement('div');
+      h.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;';
+      var hTitle = document.createElement('div');
+      hTitle.style.cssText = 'font-size:1rem;font-weight:800;color:#1a2232;';
+      hTitle.textContent = '\ud83c\udf99 Import Granola transcript \u2014 ' + c.name;
+      var hClose = document.createElement('button');
+      hClose.style.cssText = 'border:0;background:none;font-size:1.2rem;cursor:pointer;color:#64748b;line-height:1;';
+      hClose.textContent = '\u2715';
+      hClose.addEventListener('click', function(){ m.remove(); });
+      h.appendChild(hTitle); h.appendChild(hClose);
+      card.appendChild(h);
+      var sub = document.createElement('div');
+      sub.style.cssText = 'font-size:0.78rem;color:#64748b;line-height:1.55;margin-bottom:14px;';
+      sub.textContent = c.company + ' \u00b7 ' + (c.persona||'') + ' \u00b7 ' + c.sector.toUpperCase() + ' \u2014 Paste the meeting transcript below. The system will scan every validation question auto-linked to this contact and route evidence + bump % where the transcript contains signal.';
+      card.appendChild(sub);
+      var ta = document.createElement('textarea');
+      ta.style.cssText = 'width:100%;min-height:220px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-mono);font-size:0.78rem;line-height:1.45;resize:vertical;margin-bottom:10px;';
+      ta.placeholder = 'Paste Granola transcript text here\u2026 (or the meeting URL to fetch via MCP on next /import command to Claude)';
+      card.appendChild(ta);
+      var urlIn = document.createElement('input');
+      urlIn.type = 'text';
+      urlIn.placeholder = 'Optional: Granola meeting URL or ID (stored on every linked question)';
+      urlIn.style.cssText = 'width:100%;padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-family:var(--font-display);font-size:0.78rem;margin-bottom:12px;';
+      card.appendChild(urlIn);
+      var btnRow = document.createElement('div');
+      btnRow.style.cssText = 'display:flex;gap:10px;justify-content:flex-end;';
+      var processBtn = document.createElement('button');
+      processBtn.style.cssText = 'padding:8px 16px;border:1px solid #0d9488;background:#0d9488;color:#fff;font-weight:700;font-size:0.8rem;border-radius:6px;cursor:pointer;';
+      processBtn.textContent = 'Process & route evidence';
+      var cancelBtn = document.createElement('button');
+      cancelBtn.style.cssText = 'padding:8px 16px;border:1px solid #cbd5e1;background:#fff;color:#64748b;font-size:0.8rem;border-radius:6px;cursor:pointer;';
+      cancelBtn.textContent = 'Cancel';
+      cancelBtn.addEventListener('click', function(){ m.remove(); });
+      btnRow.appendChild(cancelBtn); btnRow.appendChild(processBtn);
+      card.appendChild(btnRow);
+      var resultBox = document.createElement('div');
+      resultBox.style.cssText = 'margin-top:14px;font-size:0.78rem;line-height:1.5;';
+      card.appendChild(resultBox);
+      processBtn.addEventListener('click', function(){
+        var transcript = ta.value.trim();
+        var urlVal = urlIn.value.trim();
+        if (!transcript) { resultBox.textContent = 'Paste a transcript first.'; resultBox.style.color = '#dc2626'; return; }
+        var res = routeTranscriptToValidation(c, transcript, urlVal);
+        // update CRM status + notes
+        state[c.key] = state[c.key] || {status:'outreach', notes:''};
+        state[c.key].status = 'done';
+        var stamp = new Date().toISOString().slice(0,10);
+        var tag = '\n[Granola ' + stamp + '] ' + (urlVal || 'transcript imported');
+        state[c.key].notes = (state[c.key].notes || '') + tag;
+        saveState(state);
+        render();
+        // Result summary
+        while (resultBox.firstChild) resultBox.removeChild(resultBox.firstChild);
+        var ok = document.createElement('div');
+        ok.style.cssText = 'padding:10px 12px;background:#dcfce7;border:1px solid #86efac;border-radius:8px;color:#166534;font-weight:600;';
+        ok.textContent = '\u2713 Routed evidence to ' + res.matched + ' / ' + res.total + ' linked validation questions. Contact set to \u201cdone\u201d.';
+        resultBox.appendChild(ok);
+        if (res.matched > 0) {
+          var det = document.createElement('div');
+          det.style.cssText = 'margin-top:8px;font-size:0.72rem;color:#475569;';
+          det.textContent = 'Scroll to the validation tracker \u2192 expand affected modules to see the evidence appended.';
+          resultBox.appendChild(det);
+        }
+      });
+      m.appendChild(card);
+      document.body.appendChild(m);
+    }
+
+    function routeTranscriptToValidation(contact, transcript, url){
+      var TV_KEY = 'thesis_validation_v3';
+      var tvState = {};
+      try { tvState = JSON.parse(localStorage.getItem(TV_KEY) || '{}'); } catch(e){}
+      var sec = contact.sector;
+      var modulesRoot = document.getElementById('sec-' + sec);
+      var total = 0, matched = 0;
+      if (!modulesRoot) return {total:0, matched:0};
+      var lowerTxt = transcript.toLowerCase();
+      // Build keyword set from contact persona codes (which questions auto-link)
+      var contactCodes = (contact.personaCode || '').toLowerCase().split(/\s+/).filter(Boolean);
+      modulesRoot.querySelectorAll('.q').forEach(function(qEl){
+        var sg = qEl.closest('.subgroup');
+        var sgCodes = (sg && sg.getAttribute('data-personas') || '').toLowerCase().split(/\s+/).filter(Boolean);
+        var hit = contactCodes.some(function(p){ return sgCodes.indexOf(p) !== -1; });
+        if (!hit) return;
+        total++;
+        var qn = (qEl.querySelector('.q-n') || {}).textContent || '';
+        var qTxt = ((qEl.querySelector('.q-text') || {}).textContent || '').toLowerCase();
+        var qFeed = ((qEl.querySelector('.q-feed') || {}).textContent || '').toLowerCase();
+        // Extract keywords: significant nouns/terms from q-feed + question text (simple heuristic)
+        var keywords = extractKeywords(qFeed + ' ' + qTxt);
+        // Count matches in transcript
+        var hits = 0; var snippets = [];
+        keywords.forEach(function(kw){
+          var idx = lowerTxt.indexOf(kw);
+          if (idx !== -1) { hits++; snippets.push(grabContext(transcript, idx, 90)); }
+        });
+        if (hits === 0) return;
+        matched++;
+        var stateKey = 'q|' + sec + '|' + qn;
+        var r = tvState[stateKey] || {pct:0, evidence:'', transcript:'', linked:[]};
+        var suggestedPct = Math.min(100, (r.pct||0) + (hits >= 3 ? 40 : hits >= 2 ? 25 : 15));
+        r.pct = Math.max(r.pct || 0, suggestedPct);
+        var newEv = '[' + new Date().toISOString().slice(0,10) + ' \u00b7 ' + contact.name + '] ' + snippets.slice(0,2).join(' ... ');
+        r.evidence = (r.evidence ? r.evidence + '\n\n' : '') + newEv;
+        if (url) r.transcript = url;
+        if ((r.linked || []).indexOf(contact.key) === -1) r.linked = (r.linked || []).concat([contact.key]);
+        tvState[stateKey] = r;
+      });
+      localStorage.setItem(TV_KEY, JSON.stringify(tvState));
+      return {total:total, matched:matched};
+    }
+
+    function extractKeywords(text){
+      var stop = {'the':1,'a':1,'an':1,'and':1,'or':1,'of':1,'for':1,'in':1,'to':1,'is':1,'are':1,'be':1,'will':1,'do':1,'you':1,'your':1,'we':1,'our':1,'this':1,'that':1,'it':1,'on':1,'with':1,'what':1,'how':1,'why':1,'when':1,'who':1,'does':1,'did':1,'would':1,'could':1,'should':1,'from':1,'by':1,'as':1,'at':1,'they':1,'them':1,'their':1,'if':1,'but':1,'so':1,'not':1,'no':1,'any':1,'all':1,'have':1,'has':1,'had':1,'me':1,'my':1,'can':1,'which':1,'than':1,'then':1,'also':1,'there':1,'here':1,'just':1,'only':1,'new':1,'other':1,'these':1,'those':1,'now':1,'yes':1,'say':1,'said':1};
+      var words = (text || '').toLowerCase().match(/[a-z][a-z\-]{3,}/g) || [];
+      var seen = {};
+      var out = [];
+      words.forEach(function(w){ if (stop[w] || seen[w]) return; seen[w] = 1; out.push(w); });
+      return out.slice(0, 18); // top 18 significant terms
+    }
+    function grabContext(text, idx, span){
+      var start = Math.max(0, idx - span);
+      var end = Math.min(text.length, idx + span);
+      return text.slice(start, end).replace(/\s+/g, ' ').trim();
     }
 
     var candidates = [];
