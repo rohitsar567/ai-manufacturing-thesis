@@ -1194,8 +1194,6 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   .secondary-nav li a{display:inline-block;padding:5px 10px;font-size:11px;font-weight:700;color:#6b7890;text-decoration:none;border-radius:5px;letter-spacing:0.08em;text-transform:uppercase;transition:all .15s}
   .secondary-nav li a:hover{background:#f1f5f9;color:#1a2232}
   .secondary-nav li a.sub-active{background:#1a2232;color:#fff}
-  /* Hide internal expert-dd tab bar — replaced by GTM secondary-nav */
-  .evs-scope .tabs{display:none !important}
 
   /* Pane visibility via body class */
   body:not(.on-gtm) [data-pane="gtm"]{display:none !important}
@@ -1231,11 +1229,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <li><a href="#fmcg-analysis">FMCG</a></li>
       <li><a href="#appendix">Methodology</a></li>
     </ul>
-    <ul class="secondary-nav" data-for="gtm" style="display:none;">
-      <li><a href="#" data-sub="auto" class="sub-active">Automobile</a></li>
-      <li><a href="#" data-sub="fmcg">FMCG</a></li>
-      <li><a href="#" data-sub="frame">Framework</a></li>
-    </ul>
+    <ul class="secondary-nav" data-for="gtm" style="display:none;"></ul>
   </div>
 </nav>
 
