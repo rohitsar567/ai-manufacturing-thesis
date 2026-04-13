@@ -11,14 +11,14 @@
 <script>
 // Auto-reload on new deploy: poll version.txt every 60s; if SHA differs, hard-reload.
 (function(){
-  var BUILT_SHA = 'f62b87e8fe585649e5df2ff1d7da455e47dad2aa';
+  var BUILT_SHA = '__BUILD_SHA__';
   function check(){
     fetch('version.txt?ts=' + Date.now(), {cache:'no-store'})
       .then(function(r){return r.ok ? r.text() : null;})
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'f62b87e8fe585649e5df2ff1d7da455e47dad2aa' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           location.reload();
         }
       }).catch(function(){});
@@ -6735,7 +6735,7 @@ window.NODE_DESC = {
 <div class="tabs">
   <div class="tab active" data-tab="auto">Automobile</div>
   <div class="tab" data-tab="fmcg">FMCG</div>
-  <div class="tab" data-tab="kg">Knowledge Graph</div>
+  <div class="tab" data-tab="kg">Validation Process</div>
   
 </div>
 
