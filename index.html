@@ -11,14 +11,14 @@
 <script>
 // Auto-reload on new deploy: poll version.txt every 60s; if SHA differs, hard-reload.
 (function(){
-  var BUILT_SHA = 'ff188c89d1dc2d775ae78a9a8682da247b901658';
+  var BUILT_SHA = '__BUILD_SHA__';
   function check(){
     fetch('version.txt?ts=' + Date.now(), {cache:'no-store'})
       .then(function(r){return r.ok ? r.text() : null;})
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'ff188c89d1dc2d775ae78a9a8682da247b901658' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           location.reload();
         }
       }).catch(function(){});
@@ -7870,6 +7870,407 @@ window.NODE_DESC = {
 <tr><td style="padding:8px 10px;font-size:12.5px;font-weight:600;color:#1a2232;border-bottom:1px solid #f1f5f9;">Analytics & Revenue Mgmt</td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="color:#cbd5e1;">&middot;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="color:#cbd5e1;">&middot;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="color:#cbd5e1;">&middot;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="display:inline-block;width:18px;height:18px;line-height:18px;border-radius:50%;background:#c2410c;color:#fff;font-size:11px;font-weight:700;">&#10003;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="display:inline-block;width:18px;height:18px;line-height:18px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:11px;font-weight:700;">&#10003;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="color:#cbd5e1;">&middot;</span></td><td style="text-align:center;padding:8px 6px;border-bottom:1px solid #f1f5f9;"><span style="display:inline-block;width:18px;height:18px;line-height:18px;border-radius:50%;background:#0e7490;color:#fff;font-size:11px;font-weight:700;">&#10003;</span></td><td style="padding:8px 10px;font-size:11.5px;color:#6b7890;border-bottom:1px solid #f1f5f9;">RGM lives between Finance/Sales/IT</td></tr></table></div>
     </div>
   </details>
+
+  <!-- ================== THESIS VALIDATION KNOWLEDGE GRAPH ================== -->
+  <div id="tv-kg" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:6px;">
+      <div>
+        <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Knowledge graph</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:#1a2232;margin-top:2px;">Thesis validation tracker</div>
+      </div>
+      <div id="tv-overall" style="text-align:right;min-width:200px;">
+        <div style="font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#475569;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Overall thesis validation</div>
+        <div id="tv-overall-pct" style="font-family:var(--font-mono);font-size:2rem;font-weight:800;color:#0d9488;line-height:1;letter-spacing:-0.02em;">0%</div>
+        <div id="tv-overall-bar" style="margin-top:6px;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden;"><div id="tv-overall-fill" style="height:100%;background:linear-gradient(90deg,#0d9488 0%,#10b981 100%);width:0%;transition:width .3s;"></div></div>
+      </div>
+    </div>
+    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:14px;line-height:1.55;">Granular validation per <strong>node × aspect</strong>. Each aspect rolls up into a node score, nodes roll into sector scores, sectors roll into thesis. Edit % as evidence accumulates; attach evidence text + linked contacts + transcript URL (Granola integration coming).</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-family:var(--font-display);font-size:0.78rem;">
+      <button id="tv-expand-all" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#475569;font-size:0.74rem;cursor:pointer;font-weight:600;">Expand all</button>
+      <button id="tv-collapse-all" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#475569;font-size:0.74rem;cursor:pointer;font-weight:600;">Collapse all</button>
+      <button id="tv-export" style="padding:7px 12px;border:1px solid #0d9488;border-radius:8px;background:#0d9488;color:#fff;font-weight:700;font-size:0.74rem;cursor:pointer;">Export JSON</button>
+      <button id="tv-reset" style="padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#64748b;font-size:0.74rem;cursor:pointer;">Reset all</button>
+    </div>
+    <div id="tv-tree"></div>
+  </div>
+
+  <style id="tv-styles">
+    #tv-kg .tv-sector{margin-bottom:14px;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff}
+    #tv-kg .tv-sector-hdr{display:grid;grid-template-columns:1fr 200px 80px;gap:14px;align-items:center;padding:14px 18px;background:#f8fafc;border-bottom:1px solid #e2e8f0;cursor:pointer}
+    #tv-kg .tv-sector-name{font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1a2232;display:flex;align-items:center;gap:10px}
+    #tv-kg .tv-bar{height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+    #tv-kg .tv-bar-fill{height:100%;background:linear-gradient(90deg,#0d9488,#10b981);transition:width .25s}
+    #tv-kg .tv-pct{font-family:var(--font-mono);font-weight:800;font-size:0.9rem;color:#0d9488;text-align:right}
+    #tv-kg .tv-nodes{padding:0}
+    #tv-kg .tv-node{border-top:1px solid #f1f5f9}
+    #tv-kg .tv-node-hdr{display:grid;grid-template-columns:1fr 200px 80px 28px;gap:14px;align-items:center;padding:12px 18px 12px 36px;cursor:pointer}
+    #tv-kg .tv-node-hdr:hover{background:#fafbfc}
+    #tv-kg .tv-node-name{font-family:var(--font-display);font-weight:700;font-size:0.88rem;color:#1a2232}
+    #tv-kg .tv-chev{font-family:var(--font-mono);font-size:0.7rem;color:#94a3b8;text-align:center;transition:transform .15s}
+    #tv-kg .tv-node.open .tv-chev{transform:rotate(90deg)}
+    #tv-kg .tv-aspects{display:none;padding:6px 18px 16px 54px;background:#fafbfc;border-top:1px solid #f1f5f9}
+    #tv-kg .tv-node.open .tv-aspects{display:block}
+    #tv-kg .tv-aspect{display:grid;grid-template-columns:1fr;gap:8px;padding:14px 0;border-bottom:1px dashed #e2e8f0}
+    #tv-kg .tv-aspect:last-child{border-bottom:none}
+    #tv-kg .tv-aspect-top{display:grid;grid-template-columns:1fr 200px 110px;gap:14px;align-items:center}
+    #tv-kg .tv-aspect-name{font-family:var(--font-display);font-weight:700;font-size:0.78rem;color:#334155}
+    #tv-kg .tv-aspect-q{font-size:0.7rem;color:#64748b;margin-top:2px;line-height:1.45}
+    #tv-kg .tv-slider{width:100%;cursor:pointer}
+    #tv-kg .tv-pct-input{width:54px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-family:var(--font-mono);font-size:0.78rem;font-weight:700;text-align:center}
+    #tv-kg .tv-aspect-detail{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+    #tv-kg .tv-field-label{font-family:var(--font-display);font-size:0.62rem;font-weight:700;color:#475569;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px}
+    #tv-kg .tv-evidence{width:100%;min-height:64px;padding:8px 10px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;resize:vertical;line-height:1.5}
+    #tv-kg .tv-side{display:flex;flex-direction:column;gap:8px}
+    #tv-kg .tv-personas{display:flex;flex-wrap:wrap;gap:4px}
+    #tv-kg .tv-pers-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border:1px solid #cbd5e1;color:#475569;background:#fff}
+    #tv-kg .tv-contacts-hint{font-size:0.7rem;color:#64748b;line-height:1.4}
+    #tv-kg .tv-link-input{width:100%;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.72rem;color:#1a2232}
+    #tv-kg .tv-contact-list{display:flex;flex-wrap:wrap;gap:4px;max-height:80px;overflow-y:auto;padding:4px;background:#fff;border:1px solid #e2e8f0;border-radius:6px}
+    #tv-kg .tv-contact-chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;background:#f1f5f9;color:#475569;font-size:0.66rem;font-weight:600;cursor:pointer;border:1px solid transparent}
+    #tv-kg .tv-contact-chip.linked{background:#dcfce7;color:#166534;border-color:#86efac}
+    #tv-kg .tv-contact-chip.done-status{box-shadow:inset 0 0 0 1px #16a34a}
+  </style>
+
+  <script id="tv-script">
+  (function(){
+    var STORAGE_KEY = 'thesis_validation_v1';
+    var CRM_KEY = 'thesis_crm_v1';
+
+    var ASPECTS = [
+      {id:'pain', label:'Pain validated', q:'Do they actually feel this pain in their day-to-day work?'},
+      {id:'incumbents', label:'Incumbent tools / processes', q:'What tools or workflows are they using today?'},
+      {id:'blockers', label:'Adoption blockers', q:'What is stopping them from adopting AI here?'},
+      {id:'switching', label:'Switching triggers', q:'What would make them switch to a new AI solution?'},
+      {id:'demand', label:'New AI demand / WTP', q:'Would they buy this? At what price/structure?'}
+    ];
+
+    // Sector definitions; nodes are pulled live from window.AUTO_NODES / FMCG_NODES if present
+    var SECTORS = [
+      {id:'auto', label:'Automobile', icon:'\ud83d\ude97', tam:0.7, color:'#2563eb', source:'AUTO_NODES'},
+      {id:'fmcg', label:'FMCG', icon:'\ud83e\uddf4', tam:0.5, color:'#d97706', source:'FMCG_NODES'}
+    ];
+
+    function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){return {};} }
+    function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+    function loadCRM(){ try{return JSON.parse(localStorage.getItem(CRM_KEY)||'{}');}catch(e){return {};} }
+    var state = loadState();
+
+    function key(sector, nodeId, aspectId){ return sector + '|' + nodeId + '|' + aspectId; }
+    function getRec(sector, nodeId, aspectId){
+      var k = key(sector, nodeId, aspectId);
+      return state[k] || {pct:0, evidence:'', transcript:'', linked:[]};
+    }
+    function setRec(sector, nodeId, aspectId, patch){
+      var k = key(sector, nodeId, aspectId);
+      state[k] = Object.assign(getRec(sector, nodeId, aspectId), patch);
+      saveState(state);
+    }
+
+    // Extract required personas per node from the existing Role × Node matrices
+    function extractPersonaMap(){
+      var map = {};
+      document.querySelectorAll('#sec-kg table tr').forEach(function(tr){
+        var tds = tr.querySelectorAll('td');
+        if (!tds.length) return;
+        var nodeName = (tds[0].textContent || '').trim();
+        if (!nodeName) return;
+        // Find header row in this table
+        var table = tr.closest('table');
+        if (!table) return;
+        var headers = Array.from(table.querySelectorAll('th')).map(function(th){return (th.textContent||'').trim();});
+        if (!headers.length) return;
+        var personas = [];
+        for (var i = 1; i < tds.length - 1; i++) {
+          var hasCheck = tds[i].querySelector('span[style*="background:"]');
+          if (hasCheck && headers[i]) personas.push(headers[i]);
+        }
+        if (personas.length) map[nodeName] = personas;
+      });
+      return map;
+    }
+
+    function getCRMContacts(){
+      var crm = loadCRM();
+      var contacts = [];
+      document.querySelectorAll('.cc-card').forEach(function(card){
+        var sec = card.closest('#sec-auto') ? 'auto' : (card.closest('#sec-fmcg') ? 'fmcg' : '');
+        var nameEl = card.querySelector('.cc-name');
+        var coEl = card.querySelector('.cc-co');
+        var liEl = card.querySelector('a.cc-li');
+        var pillEls = card.querySelectorAll('.cc-pill');
+        var personaText = pillEls.length ? pillEls[pillEls.length-1].textContent.trim() : '';
+        var url = liEl ? liEl.href : '';
+        var ckey = url || (nameEl ? nameEl.textContent.trim() : '');
+        if (!ckey) return;
+        var rec = crm[ckey] || {status:'outreach'};
+        contacts.push({
+          key: ckey,
+          name: nameEl ? nameEl.textContent.trim() : '',
+          company: coEl ? coEl.textContent.trim() : '',
+          persona: personaText,
+          sector: sec,
+          status: rec.status
+        });
+      });
+      return contacts;
+    }
+
+    function rollupNode(sector, node){
+      var sum = 0;
+      ASPECTS.forEach(function(a){ sum += getRec(sector, node.id, a.id).pct; });
+      return Math.round(sum / ASPECTS.length);
+    }
+    function rollupSector(sector, nodes){
+      if (!nodes.length) return 0;
+      var sum = 0;
+      nodes.forEach(function(n){ sum += rollupNode(sector, n); });
+      return Math.round(sum / nodes.length);
+    }
+    function rollupOverall(){
+      var totalW = 0, weighted = 0;
+      SECTORS.forEach(function(s){
+        var nodes = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
+        if (!nodes.length) return;
+        var pct = rollupSector(s.id, nodes);
+        weighted += pct * s.tam;
+        totalW += s.tam;
+      });
+      return totalW ? Math.round(weighted / totalW) : 0;
+    }
+
+    function makeBar(pct){
+      var bar = document.createElement('div'); bar.className = 'tv-bar';
+      var fill = document.createElement('div'); fill.className = 'tv-bar-fill';
+      fill.style.width = pct + '%';
+      bar.appendChild(fill);
+      return bar;
+    }
+
+    function buildAspect(sector, node, aspect, personasNeeded, allContacts){
+      var rec = getRec(sector, node.id, aspect.id);
+      var wrap = document.createElement('div'); wrap.className = 'tv-aspect';
+
+      var top = document.createElement('div'); top.className = 'tv-aspect-top';
+
+      var nameWrap = document.createElement('div');
+      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-aspect-name'; nameDiv.textContent = aspect.label;
+      var qDiv = document.createElement('div'); qDiv.className = 'tv-aspect-q'; qDiv.textContent = aspect.q;
+      nameWrap.appendChild(nameDiv); nameWrap.appendChild(qDiv);
+      top.appendChild(nameWrap);
+
+      var bar = makeBar(rec.pct);
+      top.appendChild(bar);
+
+      var pctWrap = document.createElement('div');
+      pctWrap.style.display = 'flex'; pctWrap.style.alignItems = 'center'; pctWrap.style.gap = '6px'; pctWrap.style.justifyContent = 'flex-end';
+      var pctIn = document.createElement('input');
+      pctIn.type = 'number'; pctIn.min = '0'; pctIn.max = '100'; pctIn.value = rec.pct;
+      pctIn.className = 'tv-pct-input';
+      var pctSign = document.createElement('span');
+      pctSign.style.fontFamily = 'var(--font-mono)'; pctSign.style.fontSize = '0.74rem'; pctSign.style.color = '#475569'; pctSign.textContent = '%';
+      pctWrap.appendChild(pctIn); pctWrap.appendChild(pctSign);
+      top.appendChild(pctWrap);
+      wrap.appendChild(top);
+
+      var slider = document.createElement('input'); slider.type = 'range'; slider.min = '0'; slider.max = '100'; slider.value = rec.pct;
+      slider.className = 'tv-slider';
+      wrap.appendChild(slider);
+
+      function setPct(v){
+        v = Math.max(0, Math.min(100, parseInt(v,10) || 0));
+        pctIn.value = v; slider.value = v;
+        bar.firstChild.style.width = v + '%';
+        setRec(sector, node.id, aspect.id, {pct: v});
+        refreshRollups();
+      }
+      pctIn.addEventListener('input', function(){ setPct(pctIn.value); });
+      slider.addEventListener('input', function(){ setPct(slider.value); });
+
+      var detail = document.createElement('div'); detail.className = 'tv-aspect-detail';
+
+      var leftCol = document.createElement('div');
+      var evLabel = document.createElement('div'); evLabel.className = 'tv-field-label'; evLabel.textContent = 'Evidence \u2014 who said what, key insights';
+      var evArea = document.createElement('textarea'); evArea.className = 'tv-evidence'; evArea.placeholder = 'e.g. Sheetal Shetty (CIO, Simple Energy) confirmed pain on 2026-04-15: program timeline drift driven by manual SAP-PLM updates. Source: Granola transcript 2026-04-15.';
+      evArea.value = rec.evidence || '';
+      evArea.addEventListener('input', function(){ setRec(sector, node.id, aspect.id, {evidence: evArea.value}); });
+      var trLabel = document.createElement('div'); trLabel.className = 'tv-field-label'; trLabel.style.marginTop = '8px'; trLabel.textContent = 'Transcript / source URL';
+      var trIn = document.createElement('input'); trIn.type = 'text'; trIn.className = 'tv-link-input'; trIn.placeholder = 'Granola or recording URL'; trIn.value = rec.transcript || '';
+      trIn.addEventListener('input', function(){ setRec(sector, node.id, aspect.id, {transcript: trIn.value}); });
+      leftCol.appendChild(evLabel); leftCol.appendChild(evArea); leftCol.appendChild(trLabel); leftCol.appendChild(trIn);
+      detail.appendChild(leftCol);
+
+      var rightCol = document.createElement('div'); rightCol.className = 'tv-side';
+      var pLabel = document.createElement('div'); pLabel.className = 'tv-field-label'; pLabel.textContent = 'Personas needed (Role \u00d7 Node matrix)';
+      var pBox = document.createElement('div'); pBox.className = 'tv-personas';
+      if (personasNeeded.length) {
+        personasNeeded.forEach(function(p){
+          var pill = document.createElement('span'); pill.className = 'tv-pers-pill'; pill.textContent = p;
+          pBox.appendChild(pill);
+        });
+      } else {
+        pBox.textContent = 'No matrix mapping found for this node';
+        pBox.style.fontSize = '0.7rem'; pBox.style.color = '#94a3b8';
+      }
+      rightCol.appendChild(pLabel); rightCol.appendChild(pBox);
+
+      var cLabel = document.createElement('div'); cLabel.className = 'tv-field-label'; cLabel.style.marginTop = '4px'; cLabel.textContent = 'Linked contacts (CRM \u2014 click to link)';
+      var cBox = document.createElement('div'); cBox.className = 'tv-contact-list';
+      var sectorContacts = allContacts.filter(function(c){ return c.sector === sector; });
+      // Filter to contacts whose persona text overlaps with personasNeeded (any token match)
+      var personaHints = personasNeeded.map(function(p){return p.toLowerCase();});
+      var relevant = sectorContacts.filter(function(c){
+        var pt = (c.persona || '').toLowerCase();
+        if (!personaHints.length) return true;
+        return personaHints.some(function(h){
+          if (!h) return false;
+          // Match by abbreviation token (first word) or substring
+          var token = h.split(/\W+/)[0];
+          return token && (pt.indexOf(token) !== -1 || (h.length > 2 && pt.indexOf(h) !== -1));
+        });
+      });
+      if (!relevant.length) {
+        var none = document.createElement('div'); none.style.fontSize='0.7rem'; none.style.color='#94a3b8'; none.textContent = 'No matching CRM contacts yet.';
+        cBox.appendChild(none);
+      } else {
+        relevant.forEach(function(c){
+          var chip = document.createElement('span');
+          chip.className = 'tv-contact-chip' + ((rec.linked||[]).indexOf(c.key) !== -1 ? ' linked' : '') + (c.status === 'done' ? ' done-status' : '');
+          chip.textContent = c.name + ' \u2014 ' + (c.persona || '');
+          chip.title = c.company + ' \u00b7 status: ' + c.status;
+          chip.addEventListener('click', function(){
+            var linked = rec.linked || [];
+            var idx = linked.indexOf(c.key);
+            if (idx === -1) linked.push(c.key); else linked.splice(idx, 1);
+            setRec(sector, node.id, aspect.id, {linked: linked});
+            rec = getRec(sector, node.id, aspect.id);
+            chip.classList.toggle('linked');
+          });
+          cBox.appendChild(chip);
+        });
+      }
+      rightCol.appendChild(cLabel); rightCol.appendChild(cBox);
+
+      detail.appendChild(rightCol);
+      wrap.appendChild(detail);
+
+      return wrap;
+    }
+
+    var nodeRowRefs = []; // {sector, nodeId, pctEl, fillEl}
+    var sectorRowRefs = []; // {sector, pctEl, fillEl}
+
+    function refreshRollups(){
+      nodeRowRefs.forEach(function(r){
+        var pct = r.compute();
+        r.pctEl.textContent = pct + '%';
+        r.fillEl.style.width = pct + '%';
+      });
+      sectorRowRefs.forEach(function(r){
+        var pct = r.compute();
+        r.pctEl.textContent = pct + '%';
+        r.fillEl.style.width = pct + '%';
+      });
+      var overall = rollupOverall();
+      document.getElementById('tv-overall-pct').textContent = overall + '%';
+      document.getElementById('tv-overall-fill').style.width = overall + '%';
+    }
+
+    function buildNode(sector, node, personaMap, allContacts){
+      var personasNeeded = personaMap[node.name] || [];
+      var nodeWrap = document.createElement('div'); nodeWrap.className = 'tv-node';
+
+      var hdr = document.createElement('div'); hdr.className = 'tv-node-hdr';
+      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-node-name'; nameDiv.textContent = node.name;
+      var nodePct = rollupNode(sector, node);
+      var bar = makeBar(nodePct);
+      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = nodePct + '%';
+      var chev = document.createElement('div'); chev.className = 'tv-chev'; chev.textContent = '\u25B6';
+      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv); hdr.appendChild(chev);
+      nodeWrap.appendChild(hdr);
+
+      var aspectsBox = document.createElement('div'); aspectsBox.className = 'tv-aspects';
+      ASPECTS.forEach(function(a){
+        aspectsBox.appendChild(buildAspect(sector, node, a, personasNeeded, allContacts));
+      });
+      nodeWrap.appendChild(aspectsBox);
+
+      hdr.addEventListener('click', function(){ nodeWrap.classList.toggle('open'); });
+
+      nodeRowRefs.push({
+        sector: sector, nodeId: node.id,
+        pctEl: pctDiv, fillEl: bar.firstChild,
+        compute: function(){ return rollupNode(sector, node); }
+      });
+
+      return nodeWrap;
+    }
+
+    function buildSector(s, personaMap, allContacts){
+      var nodes = (window[s.source] || []).filter(function(n){return n.tier==='T1';});
+      var wrap = document.createElement('div'); wrap.className = 'tv-sector';
+      var hdr = document.createElement('div'); hdr.className = 'tv-sector-hdr';
+      var nameDiv = document.createElement('div'); nameDiv.className = 'tv-sector-name';
+      var ic = document.createElement('span'); ic.textContent = s.icon; nameDiv.appendChild(ic);
+      var lbl = document.createElement('span'); lbl.textContent = s.label + '  '; nameDiv.appendChild(lbl);
+      var sub = document.createElement('span'); sub.style.fontWeight='500'; sub.style.color='#64748b'; sub.style.fontSize='0.78rem';
+      sub.textContent = nodes.length + ' T1 nodes \u00b7 $' + s.tam + 'B TAM';
+      nameDiv.appendChild(sub);
+      var sPct = rollupSector(s.id, nodes);
+      var bar = makeBar(sPct);
+      var pctDiv = document.createElement('div'); pctDiv.className = 'tv-pct'; pctDiv.textContent = sPct + '%';
+      hdr.appendChild(nameDiv); hdr.appendChild(bar); hdr.appendChild(pctDiv);
+      wrap.appendChild(hdr);
+
+      var nodesBox = document.createElement('div'); nodesBox.className = 'tv-nodes';
+      nodes.forEach(function(n){ nodesBox.appendChild(buildNode(s.id, n, personaMap, allContacts)); });
+      wrap.appendChild(nodesBox);
+
+      hdr.addEventListener('click', function(e){
+        if (e.target.closest('.tv-node-hdr')) return;
+        nodesBox.style.display = (nodesBox.style.display === 'none') ? '' : 'none';
+      });
+
+      sectorRowRefs.push({
+        sector: s.id,
+        pctEl: pctDiv, fillEl: bar.firstChild,
+        compute: function(){ return rollupSector(s.id, nodes); }
+      });
+
+      return wrap;
+    }
+
+    function init(){
+      if (!window.AUTO_NODES || !window.FMCG_NODES) { setTimeout(init, 200); return; }
+      var personaMap = extractPersonaMap();
+      var contacts = getCRMContacts();
+      var tree = document.getElementById('tv-tree');
+      while (tree.firstChild) tree.removeChild(tree.firstChild);
+      nodeRowRefs = []; sectorRowRefs = [];
+      SECTORS.forEach(function(s){ tree.appendChild(buildSector(s, personaMap, contacts)); });
+      refreshRollups();
+
+      document.getElementById('tv-expand-all').addEventListener('click', function(){
+        document.querySelectorAll('#tv-tree .tv-node').forEach(function(n){ n.classList.add('open'); });
+      });
+      document.getElementById('tv-collapse-all').addEventListener('click', function(){
+        document.querySelectorAll('#tv-tree .tv-node').forEach(function(n){ n.classList.remove('open'); });
+      });
+      document.getElementById('tv-export').addEventListener('click', function(){
+        var blob = new Blob([JSON.stringify(state, null, 2)], {type:'application/json'});
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'thesis-validation-' + new Date().toISOString().slice(0,10) + '.json'; a.click();
+      });
+      document.getElementById('tv-reset').addEventListener('click', function(){
+        if (!confirm('Reset all validation %, evidence, transcripts, linked contacts?')) return;
+        state = {}; saveState(state);
+        nodeRowRefs = []; sectorRowRefs = [];
+        init();
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 600); });
+    else setTimeout(init, 600);
+  })();
+  </script>
 
   <!-- ================== CRM PIPELINE ================== -->
   <div id="crm-pipeline" style="margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;">
