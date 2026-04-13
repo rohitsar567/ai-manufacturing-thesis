@@ -7568,20 +7568,12 @@ window.NODE_DESC = {
 <script id="fix-orphan-modules">
 (function(){
   function tagAndSync(){
-    const scope = document.querySelector('.evs-scope');
-    if (!scope) return;
-    const mods = scope.querySelectorAll(':scope > .module, :scope > section > .module, :scope > section > div > .module');
-    // Simple keyword-based tagging
-    const AUTO_KW = /dealer|warranty|oem|vehicle|homologation|after-?sales|jlr|tata motors|mahindra|maruti|bajaj auto|auto components|powertrain|two-?wheeler|motorcycle|kpit|auto ai/i;
-    const FMCG_KW = /fmcg|consumer goods|modern trade|general trade|shopper|trade marketing|rgm|distributor|e-?commerce|outlet|retail execution|demand sensing|co-?packer|hul|itc|nestle|britannia|dabur|marico|p&g|bizom|fieldassist/i;
-    document.querySelectorAll('.module').forEach(m => {
-      if (m.dataset.sec) return; // already tagged
-      const txt = m.textContent.toLowerCase();
-      const autoHits = (txt.match(AUTO_KW) || []).length;
-      const fmcgHits = (txt.match(FMCG_KW) || []).length;
-      if (autoHits > fmcgHits && autoHits > 0) m.dataset.sec = 'auto';
-      else if (fmcgHits > autoHits && fmcgHits > 0) m.dataset.sec = 'fmcg';
-      else m.dataset.sec = 'both'; // generic module (e.g. Role & context) shows in both
+    // Position-based: first half of modules = Auto, second half = FMCG
+    const all = document.querySelectorAll('.module');
+    const half = Math.ceil(all.length / 2);
+    all.forEach((m, i) => {
+      if (m.dataset.sec) return;
+      m.dataset.sec = (i < half) ? 'auto' : 'fmcg';
     });
   }
   function syncModules(activeTab){
