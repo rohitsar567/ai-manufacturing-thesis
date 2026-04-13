@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '165c479079ffb92c5e09f47904a8c9d886252fcd';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '165c479079ffb92c5e09f47904a8c9d886252fcd' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -7885,6 +7885,261 @@ window.NODE_DESC = {
     </div>
   </details>
 
+  <!-- ================== CRM PIPELINE ================== -->
+  <details id="crm-pipeline-wrap" class="expanded-role-desc" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
+  <summary style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;">
+    <div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Outreach CRM</div>
+      <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:#1a2232;margin-top:2px;">Validation pipeline tracker</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div id="crm-stats" style="display:flex;gap:8px;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.7rem;"></div>
+      <span style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#fff;background:#0d9488;padding:5px 12px;border-radius:6px;white-space:nowrap;">Click to expand &#9660;</span>
+    </div>
+  </summary>
+  <div id="crm-pipeline" style="padding:0 24px 24px;">
+    <div style="display:none;"></div>
+    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:14px;line-height:1.5;">All identified candidates from the LinkedIn match. Update <strong>status</strong> and <strong>notes</strong> per row &mdash; saved locally to your browser.</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-family:var(--font-display);font-size:0.78rem;">
+      <input id="crm-search" type="text" placeholder="Search name, company, title&hellip;" style="flex:1;min-width:220px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.8rem;">
+      <select id="crm-filter-status" style="padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.78rem;background:#fff;">
+        <option value="">All statuses</option>
+        <option value="outreach">Outreach</option>
+        <option value="contacted">Contacted</option>
+        <option value="scheduled">Scheduled</option>
+        <option value="done">Done</option>
+        <option value="not-reached">Not reached</option>
+      </select>
+      <select id="crm-filter-sector" style="padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.78rem;background:#fff;">
+        <option value="">All sectors</option>
+        <option value="auto">Auto</option>
+        <option value="fmcg">FMCG</option>
+      </select>
+      <button id="crm-export" style="padding:8px 14px;border:1px solid #0d9488;border-radius:8px;background:#0d9488;color:#fff;font-weight:700;font-size:0.75rem;cursor:pointer;">Export CSV</button>
+      <button id="crm-reset" style="padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#64748b;font-size:0.75rem;cursor:pointer;">Reset all</button>
+    </div>
+    <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px;">
+      <table id="crm-table" style="width:100%;border-collapse:collapse;font-size:0.78rem;font-family:var(--font-display);">
+        <thead style="background:#f8fafc;">
+          <tr>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Name</th>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Company</th>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Title</th>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Persona</th>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:140px;">Status</th>
+            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:200px;">Notes</th>
+            <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Link</th>
+          </tr>
+        </thead>
+        <tbody id="crm-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <style id="crm-styles">
+    #crm-table tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s}
+    #crm-table tbody tr:hover{background:#f8fafc}
+    #crm-table td{padding:10px 12px;vertical-align:top}
+    #crm-table .crm-name{font-weight:700;color:#1a2232;font-size:0.82rem}
+    #crm-table .crm-co{color:#475569;font-size:0.78rem}
+    #crm-table .crm-ti{color:#64748b;font-size:0.72rem;line-height:1.4}
+    #crm-table .crm-sec{font-size:0.62rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;margin-top:2px}
+    #crm-table .crm-pers{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.62rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border:1px solid;background:#fff}
+    #crm-table .crm-status{padding:6px 8px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font-family:var(--font-display);font-size:0.74rem;font-weight:600;cursor:pointer;width:100%}
+    #crm-table .crm-status.s-outreach{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+    #crm-table .crm-status.s-contacted{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+    #crm-table .crm-status.s-scheduled{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+    #crm-table .crm-status.s-done{background:#dcfce7;color:#166534;border-color:#86efac}
+    #crm-table .crm-status.s-not-reached{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+    #crm-table .crm-notes{width:100%;min-height:34px;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;resize:vertical}
+    #crm-table .crm-li{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;color:#0a66c2;background:rgba(10,102,194,0.08);text-decoration:none}
+    #crm-stats .stat-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:14px;background:#f1f5f9;color:#475569;font-weight:700;font-size:0.7rem}
+    #crm-stats .stat-pill .dot{width:8px;height:8px;border-radius:50%}
+  </style>
+
+  <script id="crm-script">
+  (function(){
+    var STORAGE_KEY = 'thesis_crm_v1';
+    var STATUSES = [
+      {v:'outreach', label:'Outreach', dot:'#94a3b8'},
+      {v:'contacted', label:'Contacted', dot:'#f59e0b'},
+      {v:'scheduled', label:'Scheduled', dot:'#3b82f6'},
+      {v:'done', label:'Done', dot:'#16a34a'},
+      {v:'not-reached', label:'Not reached', dot:'#dc2626'}
+    ];
+    function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){return {};} }
+    function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+    var state = loadState();
+
+    function gatherCandidates(){
+      var seen = {}, out = [];
+      document.querySelectorAll('.cc-card').forEach(function(card){
+        var sec = card.closest('#sec-auto') ? 'auto' : (card.closest('#sec-fmcg') ? 'fmcg' : '');
+        var nameEl = card.querySelector('.cc-name');
+        var coEl = card.querySelector('.cc-co');
+        var titleEl = card.querySelector('.cc-title');
+        var liEl = card.querySelector('a.cc-li');
+        var pillEls = card.querySelectorAll('.cc-pill');
+        var personaText = pillEls.length ? pillEls[pillEls.length-1].textContent.trim() : '';
+        var personaColor = pillEls.length ? (pillEls[pillEls.length-1].style.color || '#475569') : '#475569';
+        var url = liEl ? liEl.href : '';
+        var key = url || (nameEl ? nameEl.textContent.trim() : '');
+        if (!key || seen[key]) return;
+        seen[key] = true;
+        out.push({
+          key: key,
+          name: nameEl ? nameEl.textContent.trim() : '',
+          company: coEl ? coEl.textContent.trim() : '',
+          title: titleEl ? titleEl.textContent.trim() : '',
+          persona: personaText,
+          personaColor: personaColor,
+          sector: sec,
+          url: url
+        });
+      });
+      out.sort(function(a,b){ return (a.sector||'').localeCompare(b.sector||'') || a.name.localeCompare(b.name); });
+      return out;
+    }
+
+    function makeCell(cls){ var td = document.createElement('td'); if (cls) td.className = cls; return td; }
+    function makeDiv(cls, text){ var d = document.createElement('div'); if (cls) d.className = cls; if (text != null) d.textContent = text; return d; }
+
+    function buildRow(c){
+      var rec = state[c.key] || {status:'outreach', notes:''};
+      var tr = document.createElement('tr');
+
+      var tdName = makeCell();
+      tdName.appendChild(makeDiv('crm-name', c.name));
+      if (c.sector) tdName.appendChild(makeDiv('crm-sec', c.sector));
+      tr.appendChild(tdName);
+
+      var tdCo = makeCell();
+      tdCo.appendChild(makeDiv('crm-co', c.company));
+      tr.appendChild(tdCo);
+
+      var tdTi = makeCell();
+      tdTi.appendChild(makeDiv('crm-ti', c.title));
+      tr.appendChild(tdTi);
+
+      var tdPers = makeCell();
+      var pSpan = document.createElement('span');
+      pSpan.className = 'crm-pers';
+      pSpan.style.color = c.personaColor;
+      pSpan.style.borderColor = c.personaColor;
+      pSpan.textContent = c.persona;
+      tdPers.appendChild(pSpan);
+      tr.appendChild(tdPers);
+
+      var tdStatus = makeCell();
+      var sel = document.createElement('select');
+      sel.className = 'crm-status s-' + rec.status;
+      STATUSES.forEach(function(s){
+        var o = document.createElement('option');
+        o.value = s.v; o.textContent = s.label;
+        if (s.v === rec.status) o.selected = true;
+        sel.appendChild(o);
+      });
+      sel.addEventListener('change', function(){
+        state[c.key] = state[c.key] || {status:'outreach', notes:''};
+        state[c.key].status = sel.value;
+        saveState(state);
+        render();
+      });
+      tdStatus.appendChild(sel);
+      tr.appendChild(tdStatus);
+
+      var tdNotes = makeCell();
+      var ta = document.createElement('textarea');
+      ta.className = 'crm-notes';
+      ta.rows = 1;
+      ta.placeholder = 'meeting notes, contact channel, follow-ups\u2026';
+      ta.value = rec.notes || '';
+      ta.addEventListener('input', function(){
+        state[c.key] = state[c.key] || {status:'outreach', notes:''};
+        state[c.key].notes = ta.value;
+        saveState(state);
+      });
+      tdNotes.appendChild(ta);
+      tr.appendChild(tdNotes);
+
+      var tdLink = makeCell();
+      tdLink.style.textAlign = 'center';
+      if (c.url) {
+        var a = document.createElement('a');
+        a.className = 'crm-li';
+        a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; a.title = 'LinkedIn';
+        a.textContent = 'in';
+        a.style.fontWeight = '800';
+        a.style.fontSize = '0.7rem';
+        tdLink.appendChild(a);
+      }
+      tr.appendChild(tdLink);
+
+      return tr;
+    }
+
+    var candidates = [];
+    function render(){
+      var search = document.getElementById('crm-search').value.toLowerCase();
+      var fStatus = document.getElementById('crm-filter-status').value;
+      var fSector = document.getElementById('crm-filter-sector').value;
+      var tbody = document.getElementById('crm-tbody');
+      while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+      var counts = {outreach:0,contacted:0,scheduled:0,done:0,'not-reached':0};
+      candidates.forEach(function(c){
+        var rec = state[c.key] || {status:'outreach', notes:''};
+        counts[rec.status] = (counts[rec.status]||0)+1;
+        if (fStatus && rec.status !== fStatus) return;
+        if (fSector && c.sector !== fSector) return;
+        if (search && !((c.name+' '+c.company+' '+c.title+' '+c.persona).toLowerCase().includes(search))) return;
+        tbody.appendChild(buildRow(c));
+      });
+      var stats = document.getElementById('crm-stats');
+      while (stats.firstChild) stats.removeChild(stats.firstChild);
+      STATUSES.forEach(function(s){
+        var pill = document.createElement('span');
+        pill.className = 'stat-pill';
+        var dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.style.background = s.dot;
+        pill.appendChild(dot);
+        pill.appendChild(document.createTextNode(s.label + ': ' + (counts[s.v]||0)));
+        stats.appendChild(pill);
+      });
+    }
+
+    function init(){
+      candidates = gatherCandidates();
+      document.getElementById('crm-search').addEventListener('input', render);
+      document.getElementById('crm-filter-status').addEventListener('change', render);
+      document.getElementById('crm-filter-sector').addEventListener('change', render);
+      document.getElementById('crm-reset').addEventListener('click', function(){
+        if (!confirm('Reset all CRM status + notes for ' + candidates.length + ' candidates?')) return;
+        state = {}; saveState(state); render();
+      });
+      document.getElementById('crm-export').addEventListener('click', function(){
+        var rows = [['Name','Company','Title','Persona','Sector','Status','Notes','LinkedIn']];
+        candidates.forEach(function(c){
+          var r = state[c.key] || {status:'outreach', notes:''};
+          rows.push([c.name, c.company, c.title, c.persona, c.sector, r.status, r.notes, c.url]);
+        });
+        var csv = rows.map(function(r){return r.map(function(v){return '"' + String(v||'').replace(/"/g,'""') + '"';}).join(',');}).join('\n');
+        var blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'thesis-crm-' + new Date().toISOString().slice(0,10) + '.csv';
+        a.click();
+      });
+      render();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 200); });
+    else setTimeout(init, 200);
+  })();
+  </script>
+
+</div>
+</details>
+
   <!-- ================== THESIS VALIDATION KNOWLEDGE GRAPH ================== -->
   <div id="tv-kg" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:6px;">
@@ -8294,260 +8549,6 @@ window.NODE_DESC = {
   })();
   </script>
 
-  <!-- ================== CRM PIPELINE ================== -->
-  <details id="crm-pipeline-wrap" class="expanded-role-desc" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
-  <summary style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;">
-    <div>
-      <div style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#0d9488;letter-spacing:0.12em;text-transform:uppercase;">Outreach CRM</div>
-      <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:#1a2232;margin-top:2px;">Validation pipeline tracker</div>
-    </div>
-    <div style="display:flex;align-items:center;gap:14px;">
-      <div id="crm-stats" style="display:flex;gap:8px;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.7rem;"></div>
-      <span style="font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#fff;background:#0d9488;padding:5px 12px;border-radius:6px;white-space:nowrap;">Click to expand &#9660;</span>
-    </div>
-  </summary>
-  <div id="crm-pipeline" style="padding:0 24px 24px;">
-    <div style="display:none;"></div>
-    <div style="font-size:0.78rem;color:#6b7890;margin-bottom:14px;line-height:1.5;">All identified candidates from the LinkedIn match. Update <strong>status</strong> and <strong>notes</strong> per row &mdash; saved locally to your browser.</div>
-    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-family:var(--font-display);font-size:0.78rem;">
-      <input id="crm-search" type="text" placeholder="Search name, company, title&hellip;" style="flex:1;min-width:220px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.8rem;">
-      <select id="crm-filter-status" style="padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.78rem;background:#fff;">
-        <option value="">All statuses</option>
-        <option value="outreach">Outreach</option>
-        <option value="contacted">Contacted</option>
-        <option value="scheduled">Scheduled</option>
-        <option value="done">Done</option>
-        <option value="not-reached">Not reached</option>
-      </select>
-      <select id="crm-filter-sector" style="padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.78rem;background:#fff;">
-        <option value="">All sectors</option>
-        <option value="auto">Auto</option>
-        <option value="fmcg">FMCG</option>
-      </select>
-      <button id="crm-export" style="padding:8px 14px;border:1px solid #0d9488;border-radius:8px;background:#0d9488;color:#fff;font-weight:700;font-size:0.75rem;cursor:pointer;">Export CSV</button>
-      <button id="crm-reset" style="padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#64748b;font-size:0.75rem;cursor:pointer;">Reset all</button>
-    </div>
-    <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px;">
-      <table id="crm-table" style="width:100%;border-collapse:collapse;font-size:0.78rem;font-family:var(--font-display);">
-        <thead style="background:#f8fafc;">
-          <tr>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Name</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Company</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Title</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Persona</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;width:140px;">Status</th>
-            <th style="text-align:left;padding:10px 12px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;min-width:200px;">Notes</th>
-            <th style="text-align:center;padding:10px 8px;font-size:0.65rem;letter-spacing:0.06em;color:#475569;text-transform:uppercase;border-bottom:1px solid #e2e8f0;">Link</th>
-          </tr>
-        </thead>
-        <tbody id="crm-tbody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <style id="crm-styles">
-    #crm-table tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s}
-    #crm-table tbody tr:hover{background:#f8fafc}
-    #crm-table td{padding:10px 12px;vertical-align:top}
-    #crm-table .crm-name{font-weight:700;color:#1a2232;font-size:0.82rem}
-    #crm-table .crm-co{color:#475569;font-size:0.78rem}
-    #crm-table .crm-ti{color:#64748b;font-size:0.72rem;line-height:1.4}
-    #crm-table .crm-sec{font-size:0.62rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;margin-top:2px}
-    #crm-table .crm-pers{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.62rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border:1px solid;background:#fff}
-    #crm-table .crm-status{padding:6px 8px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font-family:var(--font-display);font-size:0.74rem;font-weight:600;cursor:pointer;width:100%}
-    #crm-table .crm-status.s-outreach{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
-    #crm-table .crm-status.s-contacted{background:#fef3c7;color:#92400e;border-color:#fcd34d}
-    #crm-table .crm-status.s-scheduled{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
-    #crm-table .crm-status.s-done{background:#dcfce7;color:#166534;border-color:#86efac}
-    #crm-table .crm-status.s-not-reached{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
-    #crm-table .crm-notes{width:100%;min-height:34px;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-family:var(--font-display);font-size:0.74rem;color:#1a2232;resize:vertical}
-    #crm-table .crm-li{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;color:#0a66c2;background:rgba(10,102,194,0.08);text-decoration:none}
-    #crm-stats .stat-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:14px;background:#f1f5f9;color:#475569;font-weight:700;font-size:0.7rem}
-    #crm-stats .stat-pill .dot{width:8px;height:8px;border-radius:50%}
-  </style>
-
-  <script id="crm-script">
-  (function(){
-    var STORAGE_KEY = 'thesis_crm_v1';
-    var STATUSES = [
-      {v:'outreach', label:'Outreach', dot:'#94a3b8'},
-      {v:'contacted', label:'Contacted', dot:'#f59e0b'},
-      {v:'scheduled', label:'Scheduled', dot:'#3b82f6'},
-      {v:'done', label:'Done', dot:'#16a34a'},
-      {v:'not-reached', label:'Not reached', dot:'#dc2626'}
-    ];
-    function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){return {};} }
-    function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
-    var state = loadState();
-
-    function gatherCandidates(){
-      var seen = {}, out = [];
-      document.querySelectorAll('.cc-card').forEach(function(card){
-        var sec = card.closest('#sec-auto') ? 'auto' : (card.closest('#sec-fmcg') ? 'fmcg' : '');
-        var nameEl = card.querySelector('.cc-name');
-        var coEl = card.querySelector('.cc-co');
-        var titleEl = card.querySelector('.cc-title');
-        var liEl = card.querySelector('a.cc-li');
-        var pillEls = card.querySelectorAll('.cc-pill');
-        var personaText = pillEls.length ? pillEls[pillEls.length-1].textContent.trim() : '';
-        var personaColor = pillEls.length ? (pillEls[pillEls.length-1].style.color || '#475569') : '#475569';
-        var url = liEl ? liEl.href : '';
-        var key = url || (nameEl ? nameEl.textContent.trim() : '');
-        if (!key || seen[key]) return;
-        seen[key] = true;
-        out.push({
-          key: key,
-          name: nameEl ? nameEl.textContent.trim() : '',
-          company: coEl ? coEl.textContent.trim() : '',
-          title: titleEl ? titleEl.textContent.trim() : '',
-          persona: personaText,
-          personaColor: personaColor,
-          sector: sec,
-          url: url
-        });
-      });
-      out.sort(function(a,b){ return (a.sector||'').localeCompare(b.sector||'') || a.name.localeCompare(b.name); });
-      return out;
-    }
-
-    function makeCell(cls){ var td = document.createElement('td'); if (cls) td.className = cls; return td; }
-    function makeDiv(cls, text){ var d = document.createElement('div'); if (cls) d.className = cls; if (text != null) d.textContent = text; return d; }
-
-    function buildRow(c){
-      var rec = state[c.key] || {status:'outreach', notes:''};
-      var tr = document.createElement('tr');
-
-      var tdName = makeCell();
-      tdName.appendChild(makeDiv('crm-name', c.name));
-      if (c.sector) tdName.appendChild(makeDiv('crm-sec', c.sector));
-      tr.appendChild(tdName);
-
-      var tdCo = makeCell();
-      tdCo.appendChild(makeDiv('crm-co', c.company));
-      tr.appendChild(tdCo);
-
-      var tdTi = makeCell();
-      tdTi.appendChild(makeDiv('crm-ti', c.title));
-      tr.appendChild(tdTi);
-
-      var tdPers = makeCell();
-      var pSpan = document.createElement('span');
-      pSpan.className = 'crm-pers';
-      pSpan.style.color = c.personaColor;
-      pSpan.style.borderColor = c.personaColor;
-      pSpan.textContent = c.persona;
-      tdPers.appendChild(pSpan);
-      tr.appendChild(tdPers);
-
-      var tdStatus = makeCell();
-      var sel = document.createElement('select');
-      sel.className = 'crm-status s-' + rec.status;
-      STATUSES.forEach(function(s){
-        var o = document.createElement('option');
-        o.value = s.v; o.textContent = s.label;
-        if (s.v === rec.status) o.selected = true;
-        sel.appendChild(o);
-      });
-      sel.addEventListener('change', function(){
-        state[c.key] = state[c.key] || {status:'outreach', notes:''};
-        state[c.key].status = sel.value;
-        saveState(state);
-        render();
-      });
-      tdStatus.appendChild(sel);
-      tr.appendChild(tdStatus);
-
-      var tdNotes = makeCell();
-      var ta = document.createElement('textarea');
-      ta.className = 'crm-notes';
-      ta.rows = 1;
-      ta.placeholder = 'meeting notes, contact channel, follow-ups\u2026';
-      ta.value = rec.notes || '';
-      ta.addEventListener('input', function(){
-        state[c.key] = state[c.key] || {status:'outreach', notes:''};
-        state[c.key].notes = ta.value;
-        saveState(state);
-      });
-      tdNotes.appendChild(ta);
-      tr.appendChild(tdNotes);
-
-      var tdLink = makeCell();
-      tdLink.style.textAlign = 'center';
-      if (c.url) {
-        var a = document.createElement('a');
-        a.className = 'crm-li';
-        a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; a.title = 'LinkedIn';
-        a.textContent = 'in';
-        a.style.fontWeight = '800';
-        a.style.fontSize = '0.7rem';
-        tdLink.appendChild(a);
-      }
-      tr.appendChild(tdLink);
-
-      return tr;
-    }
-
-    var candidates = [];
-    function render(){
-      var search = document.getElementById('crm-search').value.toLowerCase();
-      var fStatus = document.getElementById('crm-filter-status').value;
-      var fSector = document.getElementById('crm-filter-sector').value;
-      var tbody = document.getElementById('crm-tbody');
-      while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
-      var counts = {outreach:0,contacted:0,scheduled:0,done:0,'not-reached':0};
-      candidates.forEach(function(c){
-        var rec = state[c.key] || {status:'outreach', notes:''};
-        counts[rec.status] = (counts[rec.status]||0)+1;
-        if (fStatus && rec.status !== fStatus) return;
-        if (fSector && c.sector !== fSector) return;
-        if (search && !((c.name+' '+c.company+' '+c.title+' '+c.persona).toLowerCase().includes(search))) return;
-        tbody.appendChild(buildRow(c));
-      });
-      var stats = document.getElementById('crm-stats');
-      while (stats.firstChild) stats.removeChild(stats.firstChild);
-      STATUSES.forEach(function(s){
-        var pill = document.createElement('span');
-        pill.className = 'stat-pill';
-        var dot = document.createElement('span');
-        dot.className = 'dot';
-        dot.style.background = s.dot;
-        pill.appendChild(dot);
-        pill.appendChild(document.createTextNode(s.label + ': ' + (counts[s.v]||0)));
-        stats.appendChild(pill);
-      });
-    }
-
-    function init(){
-      candidates = gatherCandidates();
-      document.getElementById('crm-search').addEventListener('input', render);
-      document.getElementById('crm-filter-status').addEventListener('change', render);
-      document.getElementById('crm-filter-sector').addEventListener('change', render);
-      document.getElementById('crm-reset').addEventListener('click', function(){
-        if (!confirm('Reset all CRM status + notes for ' + candidates.length + ' candidates?')) return;
-        state = {}; saveState(state); render();
-      });
-      document.getElementById('crm-export').addEventListener('click', function(){
-        var rows = [['Name','Company','Title','Persona','Sector','Status','Notes','LinkedIn']];
-        candidates.forEach(function(c){
-          var r = state[c.key] || {status:'outreach', notes:''};
-          rows.push([c.name, c.company, c.title, c.persona, c.sector, r.status, r.notes, c.url]);
-        });
-        var csv = rows.map(function(r){return r.map(function(v){return '"' + String(v||'').replace(/"/g,'""') + '"';}).join(',');}).join('\n');
-        var blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-        var a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'thesis-crm-' + new Date().toISOString().slice(0,10) + '.csv';
-        a.click();
-      });
-      render();
-    }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 200); });
-    else setTimeout(init, 200);
-  })();
-  </script>
-
-</div>
-</details>
 
 
 
