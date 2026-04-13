@@ -1182,13 +1182,13 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
 <!-- Split-nav CSS v2 -->
 <style>
-  nav.mainnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e4e9f0;padding:0}
+  nav.mainnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e4e9f0;padding:0;overflow:visible;min-height:92px}
   nav.mainnav .mn-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto auto;column-gap:24px;row-gap:10px;align-items:center}
   nav.mainnav .logo{grid-column:1;grid-row:1 / span 2;font-family:var(--font-display,-apple-system);font-weight:700;color:#1a2232;align-self:center}
   .primary-tabs{grid-column:2;grid-row:1;display:flex;gap:2px;background:#f1f5f9;padding:4px;border-radius:9px;justify-self:start;align-self:center}
   .primary-tab{background:transparent;border:none;padding:8px 20px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6b7890;cursor:pointer;border-radius:6px;transition:all .15s;line-height:1.1}
   .primary-tab:hover{color:#1a2232}
-  .primary-tab.active{background:#1a2232;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.08)}
+  .primary-tab.active{background:#1a2232;color:#fff}
   .secondary-nav{list-style:none;margin:0;padding:4px 0 0;grid-column:2;grid-row:2;display:flex;gap:4px;align-items:center;flex-wrap:wrap;justify-self:start}
   .secondary-nav li{display:inline-block}
   .secondary-nav li a{display:inline-block;padding:5px 10px;font-size:11px;font-weight:700;color:#6b7890;text-decoration:none;border-radius:5px;letter-spacing:0.08em;text-transform:uppercase;transition:all .15s}
@@ -7989,5 +7989,21 @@ const tabs = document.querySelectorAll('.tab');
   if (hash === 'expert-validation' || hash === 'gtm') show('gtm');
 })();
 </script>
+
+<style id="final-overrides">
+  /* Final overrides — must load last */
+  #expert-validation,
+  #expert-validation .evs-scope,
+  #expert-validation .evs-scope .wrap{padding:0 !important;margin:0 !important;background:#fff !important;min-height:0 !important}
+  #expert-validation .evs-scope .wrap{padding:14px 24px 40px !important;max-width:1100px;margin:0 auto !important}
+  #expert-validation .evs-scope .hero,
+  #expert-validation .evs-scope .hero *{background:none !important;text-align:left !important}
+  #expert-validation .evs-scope .hero{padding:0 !important;margin:0 0 12px !important;min-height:0 !important;display:block !important}
+  #expert-validation .evs-scope .eyebrow{margin:0 0 4px !important;padding:0 !important;font-size:10px}
+  #expert-validation .evs-scope h1{margin:0 0 6px !important;padding:0 !important;font-size:22px !important;line-height:1.2 !important}
+  #expert-validation .evs-scope .sub{margin:0 0 14px !important;padding:0 !important;font-size:13px;line-height:1.5}
+  #expert-validation .evs-scope .tabs{margin:0 0 16px !important;padding:0 !important;display:flex !important;gap:4px;border-bottom:1px solid #e4e9f0}
+  #expert-validation .evs-scope .tab{padding:8px 14px !important;font-size:12px !important}
+</style>
 </body>
 </html>
