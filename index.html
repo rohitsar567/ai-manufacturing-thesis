@@ -8,6 +8,26 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<script>
+// Auto-reload on new deploy: poll version.txt every 60s; if SHA differs, hard-reload.
+(function(){
+  var BUILT_SHA = '__BUILD_SHA__';
+  function check(){
+    fetch('version.txt?ts=' + Date.now(), {cache:'no-store'})
+      .then(function(r){return r.ok ? r.text() : null;})
+      .then(function(t){
+        if (!t) return;
+        var live = t.trim();
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
+          location.reload();
+        }
+      }).catch(function(){});
+  }
+  setTimeout(check, 5000);
+  setInterval(check, 60000);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) check(); });
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Automation in Indian Manufacturing — Research Thesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -6646,18 +6666,18 @@ document.addEventListener('keydown', function(e){
 <style id="details-harmonize">
   /* Harmonize ALL <details> with Research Methodology visual */
   details:not(.expanded-role-desc){background:var(--bg-card) !important;border:2px solid var(--accent-teal) !important;border-radius:14px !important;box-shadow:0 2px 12px rgba(13,148,136,0.08) !important;margin-bottom:14px !important;overflow:hidden !important}
-  details > summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 24px !important;cursor:pointer;list-style:none;background:transparent}
+  details > summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 18px !important;cursor:pointer;list-style:none;background:transparent;min-height:0}
   details > summary::-webkit-details-marker{display:none}
-  details > summary > span:first-child{font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:var(--accent-teal);flex:1}
-  details > summary > span:last-child:not(.expand-cta){display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display) !important;font-size:0.78rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:8px 16px !important;border-radius:8px !important;box-shadow:0 2px 6px rgba(13,148,136,0.25) !important;letter-spacing:0.02em !important;white-space:nowrap !important}
+  details > summary > span:first-child{font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--accent-teal);flex:1;line-height:1.3}
+  details > summary > span:last-child:not(.expand-cta){display:inline-flex;align-items:center;gap:5px;font-family:var(--font-display) !important;font-size:0.7rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:4px 10px !important;border-radius:6px !important;box-shadow:0 1px 3px rgba(13,148,136,0.2) !important;letter-spacing:0.02em !important;white-space:nowrap !important;line-height:1.3 !important}
   details > summary > span:last-child:not(.expand-cta)::before{content:'Click to expand '}
   details[open] > summary > span:last-child:not(.expand-cta)::before{content:'Click to collapse '}
   details[open] > summary > span:last-child:not(.expand-cta){transform:none}
   details[open] > summary > span:last-child:not(.expand-cta) > *{display:inline-block;transform:rotate(180deg);transition:transform .2s}
   /* .collapsible-toggle harmonization matching methodology */
-  .collapsible-toggle{border:2px solid var(--accent-teal) !important;border-radius:14px !important;padding:18px 24px !important;background:var(--bg-card) !important;box-shadow:0 2px 12px rgba(13,148,136,0.08) !important;display:flex !important;justify-content:space-between !important;align-items:center !important;gap:16px !important;font-family:var(--font-display) !important;font-weight:700 !important;font-size:0.95rem !important;color:var(--accent-teal) !important;cursor:pointer !important;transition:all .15s !important}
+  .collapsible-toggle{border:2px solid var(--accent-teal) !important;border-radius:12px !important;padding:12px 18px !important;background:var(--bg-card) !important;box-shadow:0 1px 6px rgba(13,148,136,0.06) !important;display:flex !important;justify-content:space-between !important;align-items:center !important;gap:16px !important;font-family:var(--font-display) !important;font-weight:700 !important;font-size:0.9rem !important;color:var(--accent-teal) !important;cursor:pointer !important;transition:all .15s !important;line-height:1.3 !important}
   .collapsible-toggle::before{content:none !important}
-  .collapsible-toggle::after{content:'Click to expand \25BE' !important;font-family:var(--font-display) !important;font-size:0.78rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:8px 16px !important;border-radius:8px !important;box-shadow:0 2px 6px rgba(13,148,136,0.25) !important;letter-spacing:0.02em !important;white-space:nowrap !important}
+  .collapsible-toggle::after{content:'Click to expand \25BE' !important;font-family:var(--font-display) !important;font-size:0.7rem !important;font-weight:700 !important;color:#fff !important;background:var(--accent-teal) !important;padding:4px 10px !important;border-radius:6px !important;box-shadow:0 1px 3px rgba(13,148,136,0.2) !important;letter-spacing:0.02em !important;white-space:nowrap !important;line-height:1.3 !important}
   .collapsible-toggle.open::after{content:'Click to collapse \25B4' !important}
   .collapsible-toggle:hover{box-shadow:0 4px 16px rgba(13,148,136,0.18) !important}
   .collapsible-body.open{border:2px solid var(--accent-teal) !important;border-top:none !important;border-radius:0 0 14px 14px !important;margin-top:-14px !important;padding:16px 24px 24px !important}
