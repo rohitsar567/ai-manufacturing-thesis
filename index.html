@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '9e828f1e1d09aa129670f6f587faf64562d70233';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '9e828f1e1d09aa129670f6f587faf64562d70233' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8826,9 +8826,10 @@ window.NODE_DESC = {
 
     function init(){
       ensureAllGapsInserted();
-      purgePastInjections();
-      var modsA = appendGapsToScrape('auto', scrapeSector('sec-auto'));
-      var modsF = appendGapsToScrape('fmcg', scrapeSector('sec-fmcg'));
+      injectIntoQuestionnaire();   // gap claims become real <div class="q"> in sec-auto / sec-fmcg
+      renumberAndCleanQuestions();  // sequential Q01-QN per sector + strip [INSERTED] tags
+      var modsA = scrapeSector('sec-auto');
+      var modsF = scrapeSector('sec-fmcg');
       if (!modsA.length || !modsF.length) {
         if ((init.tries=(init.tries||0)+1) > 60) { document.getElementById('tv-table-auto').textContent = 'Could not scrape questionnaire. Hard-refresh once.'; return; }
         setTimeout(init, 200); return;
