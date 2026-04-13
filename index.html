@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = '1ac8c4838eb89b5e9ba3e977645263ff64adebaf';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== '1ac8c4838eb89b5e9ba3e977645263ff64adebaf' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -9128,8 +9128,7 @@ const tabs = document.querySelectorAll('.tab');
 
 <style id="evs-canonical-overrides">
 #expert-validation{padding:0 0 60px !important;background:#edf1f7 !important}
-#expert-validation .evs-scope .wrap{padding-top:64px !important}
-#expert-validation .evs-scope .wrap{padding:0 32px 80px !important;max-width:1200px;margin:0 auto !important}
+#expert-validation .evs-scope .wrap{padding:72px 32px 80px !important;max-width:1200px;margin:0 auto !important}
 #expert-validation .evs-scope .hero{margin:0 0 16px !important;padding:0 !important;min-height:0 !important;text-align:left !important}
 #expert-validation .evs-scope h1{margin:0 0 6px !important;text-align:left !important;font-size:1.6rem !important}
 #expert-validation .evs-scope .eyebrow{margin:0 0 6px !important;text-align:left !important}
