@@ -11,7 +11,7 @@
 <script>
 // Permanent cache fix: service-worker network-first for HTML + version poll auto-reload.
 (function(){
-  var BUILT_SHA = 'b396bc27c0a9b3c094f003e6a2965aa4e92f2d9f';
+  var BUILT_SHA = '__BUILD_SHA__';
   // 1) Register service worker — first visit installs, subsequent visits always get fresh HTML
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js?v=' + BUILT_SHA).catch(function(){});
@@ -23,7 +23,7 @@
       .then(function(t){
         if (!t) return;
         var live = t.trim();
-        if (BUILT_SHA && BUILT_SHA !== 'b396bc27c0a9b3c094f003e6a2965aa4e92f2d9f' && live && live !== BUILT_SHA) {
+        if (BUILT_SHA && BUILT_SHA !== '__BUILD_SHA__' && live && live !== BUILT_SHA) {
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs){
               regs.forEach(function(r){r.unregister();});
@@ -8201,16 +8201,21 @@ window.NODE_DESC = {
     #tv-diagram .node.module .pct{font-size:0.68rem}
     #tv-diagram .conn{height:14px;border-left:1.5px dashed #cbd5e1;width:0;margin:0 auto}
     #tv-diagram .label-row{display:flex;justify-content:center;font-size:0.55rem;font-weight:700;color:#64748b;letter-spacing:0.08em;text-transform:uppercase;margin:2px 0 0}
-    #tv-diagram .row.r3-groups{gap:24px;align-items:flex-start}
-    #tv-diagram .sec-group{flex:1;min-width:280px;padding:10px;border-radius:10px;background:#fff;border:1.5px solid;display:flex;flex-direction:column;gap:8px}
-    #tv-diagram .sec-group-auto{border-color:rgba(37,99,235,0.35);background:rgba(37,99,235,0.03)}
-    #tv-diagram .sec-group-fmcg{border-color:rgba(217,119,6,0.35);background:rgba(217,119,6,0.03)}
-    #tv-diagram .sec-group-hdr{font-size:0.62rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:4px}
+    #tv-diagram .row.r3-groups{gap:18px;align-items:stretch}
+    #tv-diagram .sec-group{flex:1;min-width:320px;padding:14px;border-radius:12px;background:#fff;border:1.5px solid;display:flex;flex-direction:column;gap:10px}
+    #tv-diagram .sec-group-auto{border-color:rgba(37,99,235,0.35);background:rgba(37,99,235,0.04)}
+    #tv-diagram .sec-group-fmcg{border-color:rgba(217,119,6,0.35);background:rgba(217,119,6,0.04)}
+    #tv-diagram .sec-group-hdr{font-size:0.66rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:2px 4px}
     #tv-diagram .sec-group-auto .sec-group-hdr{color:#2563eb}
     #tv-diagram .sec-group-fmcg .sec-group-hdr{color:#b45309}
-    #tv-diagram .sec-group-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-    #tv-diagram .module-auto{border-color:rgba(37,99,235,0.4)}
-    #tv-diagram .module-fmcg{border-color:rgba(217,119,6,0.4)}
+    #tv-diagram .sec-group-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    #tv-diagram .sec-group .node.module{min-width:0;width:auto;padding:8px 10px;text-align:left;align-items:flex-start;gap:3px}
+    #tv-diagram .sec-group .node.module .lbl{font-size:0.6rem;color:#94a3b8;font-weight:700;letter-spacing:0.04em}
+    #tv-diagram .sec-group .node.module .pct{font-size:0.95rem;font-weight:800;color:#1a2232}
+    #tv-diagram .sec-group .node.module .meta{font-size:0.62rem;color:#475569;letter-spacing:0;text-transform:none;font-weight:600;line-height:1.25;margin-top:2px;white-space:normal;text-align:left;word-break:break-word}
+    #tv-diagram .module-auto{border-color:rgba(37,99,235,0.4);background:#fff}
+    #tv-diagram .module-fmcg{border-color:rgba(217,119,6,0.4);background:#fff}
+    #tv-diagram .sec-group .node.module:hover{box-shadow:0 2px 6px rgba(0,0,0,0.06)}
 
     #tv-kg .tv-sector-card{border:2px solid;border-radius:12px;overflow:hidden;background:#fff}
     #tv-kg .tv-sector-card.auto{border-color:rgba(37,99,235,0.45)}
@@ -8712,7 +8717,7 @@ window.NODE_DESC = {
         g.appendChild(hdr);
         var inner = document.createElement('div'); inner.className = 'sec-group-row';
         mods.forEach(function(m){
-          inner.appendChild(nb('module ' + klass, (secKey==='auto'?'A':'F') + '.' + m.idx, rollupModule(secKey, m), m.title.replace(/^\d+\s*[\u00b7\.\:]?\s*/,'').slice(0,18)));
+          inner.appendChild(nb('module ' + klass, (secKey==='auto'?'A':'F') + '.' + m.idx, rollupModule(secKey, m), m.title.replace(/^\d+\s*[\u00b7\.\:]?\s*/,'')));
         });
         g.appendChild(inner);
         return g;
