@@ -1,6 +1,6 @@
 // Service worker: network-first for HTML, cache-first for assets.
 // BUILD_SHA_PLACEHOLDER is stamped per deploy so the SW byte-differs each time, forcing browser to install new.
-const BUILD_SHA = 'b8979785d63938aeaea67f0dd643df72761f8128';
+const BUILD_SHA = '__BUILD_SHA__';
 const CACHE = 'thesis-' + BUILD_SHA;
 
 self.addEventListener('install', (e) => {
