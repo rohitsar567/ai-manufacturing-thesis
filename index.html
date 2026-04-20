@@ -1467,7 +1467,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       <div style="font-size:0.75rem; color:var(--text-dim); line-height:1.5;">Selected from 6 manufacturing sectors via a <a href="#sectors" style="color:var(--accent-teal);">7-dimension scoring matrix</a> (TAM size, workforce friction, outsourcing propensity, AI readiness, legal friction, financial health, overall readiness). Auto and FMCG scored 1st and 2nd.</div>
     </div>
 
-                    <!-- SEGMENT 3: KNOWLEDGE WORK CHALLENGES & AI OPPORTUNITIES (4-bucket) -->
+                        <!-- SEGMENT 3: KNOWLEDGE WORK CHALLENGES & AI OPPORTUNITIES (4-bucket) -->
     <div style="margin-bottom:40px;">
       <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:var(--accent-rose); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Knowledge Work Challenges &amp; AI Opportunities</div>
       <div style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.6;"><strong style="color:var(--text-primary);">2.7 million knowledge-intensive workers</strong> across planning, finance, field sales, merchandising, quality, and compliance functions (National Classification of Occupations, NCO divisions 1&ndash;5). Their work is judgement-, coordination- and data-heavy &mdash; not shop-floor operations &mdash; and is the direct target of the AI products mapped in this thesis. Every problem and solution is classified into the <strong style="color:var(--text-primary);">four financial levers</strong> it moves: revenue, cost, cash conversion, or operating risk.</div>
@@ -4666,6 +4666,10 @@ function renderWorkflow(nodes, containerId) {
   });
   container.innerHTML = html;
 }
+
+
+
+
 
 
 
@@ -9870,11 +9874,16 @@ window.PERSONA_CONTEXT = {"auto": {"scm": {"role": "Supply chain \u00b7 CPO. Own
 /* === 4-BUCKET PROBLEM / SOLUTION STYLES === */
 /* Harmonized with the site typography scale — matches the ORIGINAL Knowledge Work Bottlenecks look */
 .bucket-group {
-  margin-bottom: 12px;
-  padding-left: 12px;
+  margin-bottom: 22px;
+  padding: 10px 0 10px 12px;
   border-left: 2px solid transparent;
 }
-.bucket-group:last-child { margin-bottom: 0; }
+.bucket-group:last-child { margin-bottom: 0; padding-bottom: 0; }
+.bucket-group + .bucket-group {
+  margin-top: 4px;
+  border-top: 1px solid rgba(71, 85, 105, 0.08);
+  padding-top: 14px;
+}
 .bucket-group-revenue { border-left-color: rgba(190,18,60,0.35); }
 .bucket-group-cost    { border-left-color: rgba(154,52,18,0.35); }
 .bucket-group-cash    { border-left-color: rgba(3,105,161,0.35); }
@@ -9904,7 +9913,7 @@ window.PERSONA_CONTEXT = {"auto": {"scm": {"role": "Supply chain \u00b7 CPO. Own
   color: var(--text-secondary);
   line-height: 1.55;
   padding: 0;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   display: block;
   position: static;
 }
