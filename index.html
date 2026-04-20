@@ -9876,30 +9876,20 @@ window.PERSONA_CONTEXT = {"auto": {"scm": {"role": "Supply chain \u00b7 CPO. Own
   #expert-validation .evs-scope #sec-fmcg .subgroup{border-left-color:#d97706 !important}
 
 /* === 4-BUCKET PROBLEM / SOLUTION STYLES === */
-/* Harmonized with the site typography scale — matches the ORIGINAL Knowledge Work Bottlenecks look */
+/* Harmonized with the site scale: 0.7rem uppercase labels · 0.78rem body · 14px bullet indent · 16px group gap. */
+/* Values mirror the "Why India" boxes (Executive Summary segment 1) exactly. No ad-hoc sizes. */
 .bucket-group {
-  margin-bottom: 22px;
-  padding: 10px 0 10px 12px;
-  border-left: 2px solid transparent;
+  margin-bottom: 16px;
 }
-.bucket-group:last-child { margin-bottom: 0; padding-bottom: 0; }
-.bucket-group + .bucket-group {
-  margin-top: 4px;
-  border-top: 1px solid rgba(71, 85, 105, 0.08);
-  padding-top: 14px;
-}
-.bucket-group-revenue { border-left-color: rgba(190,18,60,0.35); }
-.bucket-group-cost    { border-left-color: rgba(154,52,18,0.35); }
-.bucket-group-cash    { border-left-color: rgba(3,105,161,0.35); }
-.bucket-group-other   { border-left-color: rgba(71,85,105,0.35); }
+.bucket-group:last-child { margin-bottom: 0; }
 
 .bucket-label {
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
   line-height: 1.3;
 }
 .bucket-label-revenue { color: #be123c; }
@@ -9915,14 +9905,24 @@ window.PERSONA_CONTEXT = {"auto": {"scm": {"role": "Supply chain \u00b7 CPO. Own
 .bucket-item {
   font-size: 0.78rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  padding: 0;
-  margin-bottom: 10px;
+  line-height: 1.5;
+  padding: 4px 0 4px 14px;
+  margin: 0;
   display: block;
-  position: static;
+  position: relative;
 }
-.bucket-item:last-child { margin-bottom: 0; }
-.bucket-item::before { content: none; display: none; }
+.bucket-item::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.bucket-item-revenue::before { color: #be123c; }
+.bucket-item-cost::before    { color: #9a3412; }
+.bucket-item-cash::before    { color: #0369a1; }
+.bucket-item-other::before   { color: #475569; }
 
 .bucket-hl { font-weight: 700; color: var(--text-primary); }
 .bucket-desc { color: var(--text-secondary); font-weight: 400; }
