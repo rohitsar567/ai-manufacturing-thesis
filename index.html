@@ -3253,7 +3253,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <section id="auto-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">05 &mdash; Automobile Sector</div>
-    <div class="section-title">Automobile — 11 T1 nodes ($323M) + dealer network & Tier-2/3 ecosystem ($330M) = $653M</div>
+    <div class="section-title">Automobile — 11 T1 nodes · $653M total addressable (core + ecosystem reconciled per card)</div>
     <div class="section-desc">The complete automobile value chain &mdash; from vehicle program inception through press-weld-paint-assembly to dealer sales and after-sales service. Each node identifies a specific knowledge work problem, the AI solution, existing products, and the enterprise market size.</div>
     <div class="section-punchline">
       <div class="sp-stat"><strong>28</strong> workflow nodes</div>
@@ -3267,7 +3267,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- AUTO TAM OPPORTUNITY SUMMARY -->
     <div style="background:rgba(37,99,235,0.03); border:1px solid rgba(59,130,246,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
-      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">Automobile AI Opportunity: $653M · $323M across 11 selected T1 nodes + $330M ecosystem (dealer networks $130M + Tier-2/3 $200M)<strong>286M</strong> of the sector; remaining $<strong>385M</strong> sits across 17 supporting T2/T3 workflows</div>
+      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#2563eb; margin-bottom:12px;">Automobile AI Opportunity: $653M addressable · 11 T1 node cards each show Core (brand-owner on-payroll) + Ecosystem Extension (dealer $130M + Tier-2/3 $200M). Card-level totals sum to $653M.<strong>286M</strong> of the sector; remaining $<strong>385M</strong> sits across 17 supporting T2/T3 workflows</div>
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">The automobile value chain runs from vehicle program inception through manufacturing to dealership sales and after-sales. AI solutions are identified at every step &mdash; from generative design in engineering, to predictive quality in press-weld-paint-assembly, to AI dealer management systems. Below is the complete workflow with clickable nodes showing the problem, AI solution, existing products, and market size for each.</p>
     </div>
 
@@ -3296,7 +3296,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 <section id="fmcg-analysis" data-pane="thesis">
   <div class="container fade-in">
     <div class="section-label">06 &mdash; FMCG Sector</div>
-    <div class="section-title">FMCG — 17 T1 nodes ($267M) + distributor channel ecosystem ($250M) = $517M</div>
+    <div class="section-title">FMCG — 17 T1 nodes · $517M total addressable (core + ecosystem reconciled per card)</div>
     <div class="section-desc">The complete FMCG value chain &mdash; from R&amp;D formulation and demand planning through continuous processing, packaging, and multi-tier distribution. BRSR-verified 48.6% Knowledge Worker share of permanent headcount at brand owners, with highest Knowledge Worker/revenue density of any manufacturing sector.</div>
     <div class="section-punchline">
       <div class="sp-stat"><strong>29</strong> workflow nodes</div>
@@ -3310,7 +3310,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     <!-- FMCG TAM OPPORTUNITY SUMMARY -->
     <div style="background:rgba(217,119,6,0.03); border:1px solid rgba(245,158,11,0.15); border-radius:14px; padding:22px; margin-bottom:28px;">
-      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin-bottom:12px;">FMCG AI Opportunity: $517M · $267M across 17 selected T1 nodes + $250M ecosystem (distributor field + merchandisers)<strong>237.10000000000002M</strong> of the sector; remaining $<strong>93.89999999999998M</strong> sits across 12 supporting T2/T3 workflows</div>
+      <div style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:#d97706; margin-bottom:12px;">FMCG AI Opportunity: $517M addressable · 17 T1 node cards each show Core (brand-owner on-payroll) + Ecosystem Extension (distributor channel $250M for 4 sales-adjacent nodes). Card-level totals sum to $517M.<strong>237.10000000000002M</strong> of the sector; remaining $<strong>93.89999999999998M</strong> sits across 12 supporting T2/T3 workflows</div>
       <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;">FMCG&rsquo;s value chain spans R&amp;D formulation through continuous processing, multi-tier distribution, and field sales execution. The largest AI opportunities are in demand planning (S&amp;OP), field sales automation, marketing optimization, and customer service &mdash; driven by the sector&rsquo;s 55% knowledge work ratio and 40-60% field force attrition.</p>
     </div>
 
@@ -4274,12 +4274,221 @@ const NODE_TAM_CHAIN = {
 window.NODE_TAM_CHAIN = NODE_TAM_CHAIN;
 // === END NODE_TAM_CHAIN ===
 
+// === ECOSYSTEM_ALLOC — per-node core vs ecosystem breakdown (2026-04-21) ===
+// Each T1 node's displayed TAM = core (from 6-step chain) + ecosystem extension (adjacent population).
+// Ecosystem types: 'dealer' (Auto FADA-registered dealer network), 't2t3' (Auto Tier-2/3 suppliers
+// below the listed-cos survey cut), 'distributor' (FMCG off-payroll field + merchandising channel).
+const ECOSYSTEM_ALLOC = {
+  "auto": {
+    "Vehicle Program Leadership": {
+      "core": 24,
+      "ecosystem": 44,
+      "type": "t2t3",
+      "descriptor": "Tier-2/3 program-management roles at ~1,100 smaller ancillary firms outside the top-30 listed-cos survey",
+      "total": 68
+    },
+    "Testing & Validation": {
+      "core": 16,
+      "ecosystem": 29,
+      "type": "t2t3",
+      "descriptor": "Tier-2/3 validation/compliance engineers at smaller component manufacturers (regulatory + OEM-gated testing)",
+      "total": 45
+    },
+    "APQP / PPAP Gate": {
+      "core": 28,
+      "ecosystem": 51,
+      "type": "t2t3",
+      "descriptor": "Tier-2/3 APQP / PPAP quality roles at ACMA-listed smaller ancillaries outside the brand-owner survey",
+      "total": 79
+    },
+    "Supply Chain & Sourcing": {
+      "core": 24,
+      "ecosystem": 44,
+      "type": "t2t3",
+      "descriptor": "Tier-2/3 planning + sourcing roles at sub-Rs-500-Cr-revenue firms below the survey cut-off",
+      "total": 68
+    },
+    "Supplier Quality & Planning": {
+      "core": 18,
+      "ecosystem": 33,
+      "type": "t2t3",
+      "descriptor": "Tier-2/3 supplier-development + quality-assurance roles at smaller component makers",
+      "total": 51
+    },
+    "Operations Leadership": {
+      "core": 19,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 19
+    },
+    "Dealership Management": {
+      "core": 35,
+      "ecosystem": 35,
+      "type": "dealer",
+      "descriptor": "~60K dealer-employed showroom / service operations roles at ~20,000 FADA-registered dealerships",
+      "total": 70
+    },
+    "Showroom Sales": {
+      "core": 35,
+      "ecosystem": 35,
+      "type": "dealer",
+      "descriptor": "~60K dealer-employed consultants + sales admin selling Maruti / Tata / M&M / Hero / Bajaj vehicles",
+      "total": 70
+    },
+    "After-Sales Service": {
+      "core": 38,
+      "ecosystem": 38,
+      "type": "dealer",
+      "descriptor": "~80K service advisors + workshop front-office roles at authorised 4S / 3S dealerships",
+      "total": 76
+    },
+    "Warranty & Parts": {
+      "core": 22,
+      "ecosystem": 22,
+      "type": "dealer",
+      "descriptor": "~50K parts admin / warranty claims / spare counter roles at dealer-network authorised service outlets",
+      "total": 44
+    },
+    "Finance & HR": {
+      "core": 64,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 64
+    }
+  },
+  "fmcg": {
+    "S&OP / Demand Planning": {
+      "core": 21,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 21
+    },
+    "Supply Planning": {
+      "core": 18,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 18
+    },
+    "Procurement": {
+      "core": 6,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 6
+    },
+    "Process Engineering": {
+      "core": 36,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 36
+    },
+    "Quality Control & Lab": {
+      "core": 27,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 27
+    },
+    "Food Safety & QA": {
+      "core": 12,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 12
+    },
+    "Marketing Leadership": {
+      "core": 19,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 19
+    },
+    "Trade & Digital Marketing": {
+      "core": 16,
+      "ecosystem": 59,
+      "type": "distributor",
+      "descriptor": "~120K merchandisers + visibility-and-promotion agency staff on 3rd-party payroll executing brand trade programs in-store",
+      "total": 75
+    },
+    "Sales Leadership": {
+      "core": 19,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 19
+    },
+    "Key Accounts & Channels": {
+      "core": 16,
+      "ecosystem": 59,
+      "type": "distributor",
+      "descriptor": "~100K key-account reps at distributor + super-stockist level covering modern-trade and large-format stores",
+      "total": 75
+    },
+    "Field Sales": {
+      "core": 22,
+      "ecosystem": 81,
+      "type": "distributor",
+      "descriptor": "~200K distributor sales reps calling daily on kirana outlets (off brand-owner payroll; addressable via SFA tools like Bizom / FieldAssist)",
+      "total": 103
+    },
+    "Retail Execution": {
+      "core": 14,
+      "ecosystem": 51,
+      "type": "distributor",
+      "descriptor": "~80K retail-execution merchandisers on distributor / 3rd-party payroll driving shelf + planogram compliance",
+      "total": 65
+    },
+    "Customer Service": {
+      "core": 4,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 4
+    },
+    "Finance": {
+      "core": 6,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 6
+    },
+    "Human Resources": {
+      "core": 9,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 9
+    },
+    "Regulatory & Compliance": {
+      "core": 4,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 4
+    },
+    "Analytics & Revenue Mgmt": {
+      "core": 18,
+      "ecosystem": 0,
+      "type": null,
+      "descriptor": null,
+      "total": 18
+    }
+  }
+};
+window.ECOSYSTEM_ALLOC = ECOSYSTEM_ALLOC;
+// === END ECOSYSTEM_ALLOC ===
+
 
 const AUTO_NODES = [
   // SUPPLY & PROCUREMENT
   {id:1,name:"Vehicle Program Leadership",bp:"supply",tier:"T1",icon:"🎯",collar:"Executive",
    roles:"Exec Dir Vehicle Programs, CTO/R&D Head, Program Mgr",
-   tam:24,feas:"Medium",score:8.0,m_score:6,d_score:10,i_score:8,i_note:"Tata Technologies + Siemens strategic partnership for Indian OEM PLM/program planning",hc_pct:55,mult:0.24,fte:8,
+   tam:68,feas:"Medium",score:8.0,m_score:6,d_score:10,i_score:8,i_note:"Tata Technologies + Siemens strategic partnership for Indian OEM PLM/program planning",hc_pct:55,mult:0.24,fte:8,
    problems:["Program timelines managed via spreadsheets and email; 40% of vehicle programs exceed timeline by 3+ months","Cross-functional dependency tracking across 200+ suppliers is manual","Portfolio ROI analysis lacks real-time market signal integration"],
    solutions:["AI-powered program management with automated dependency graphs and critical-path optimization","LLM agents for cross-functional status aggregation and risk flagging","Predictive market analytics for portfolio prioritization using real-time demand signals"],
    products:[{n:"Celonis",d:"Process mining & AI execution management",u:"https://www.celonis.com/process-mining",y:2011,f:"$1.4B",inv:"Arena Holdings, Durable Capital",logo:"https://www.google.com/s2/favicons?domain=www.celonis.com&sz=64",india_focus:false},{n:"Aha!",d:"AI-enhanced product roadmap & program management",u:"https://www.aha.io/roadmaps/overview",y:2013,f:"Bootstrapped, profitable",inv:"Founder-owned",logo:"https://www.google.com/s2/favicons?domain=www.aha.io&sz=64",india_focus:false},{n:"Planview",d:"Portfolio & program management with AI features",u:"https://www.planview.com/products-solutions/products/planview-portfolios/",y:1989,f:"$1.6B (PE)",inv:"TPG, TA Associates",logo:"https://www.google.com/s2/favicons?domain=www.planview.com&sz=64",india_focus:false},{n:"Jira Align",d:"Enterprise agile planning for complex product programs",u:"https://www.atlassian.com/software/jira/align",y:2013,f:"Part of Atlassian (NASDAQ: TEAM, Mkt Cap ~$45B)",inv:"Atlassian",logo:"https://www.google.com/s2/favicons?domain=www.atlassian.com&sz=64",india_focus:false}],
@@ -4320,7 +4529,7 @@ const AUTO_NODES = [
 
   {id:5,name:"Testing & Validation",bp:"supply",tier:"T1",icon:"🧪",collar:"Professional",
    roles:"Testing/Validation Eng, Homologation/Regulatory Eng",
-   tam:16,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Tata Technologies and Mahindra R&D centers run Ansys/Altair simulation at scale",hc_pct:45,fte:8,mult:0.295,
+   tam:45,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Tata Technologies and Mahindra R&D centers run Ansys/Altair simulation at scale",hc_pct:45,fte:8,mult:0.295,
    problems:["DV/PV test planning is manual with redundant test coverage","Compliance tracking across CMVR/AIS/BS-VI/CAFE norms is error-prone"],
    solutions:["AI test optimization that eliminates redundant DV/PV runs using coverage analysis","NLP-based regulatory change tracking and impact assessment"],
    products:[{n:"Siemens Polarion",d:"Requirements & test management for automotive compliance (ISO 26262, CMVR)",u:"https://polarion.plm.automation.siemens.com/products/polarion-alm",y:2004,f:"Part of Siemens Digital Industries",inv:"Siemens",logo:"https://www.google.com/s2/favicons?domain=polarion.plm.automation.siemens.com&sz=64",india_focus:false},{n:"Ansys SCADE",d:"Model-based testing & verification for safety-critical automotive systems",u:"https://www.ansys.com/products/embedded-software/ansys-scade-suite",y:1970,f:"Public (NASDAQ: ANSS)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.ansys.com&sz=64",india_focus:false},{n:"dSPACE",d:"Hardware-in-the-loop testing & validation automation for automotive",u:"https://www.dspace.com/en/pub/home/products.cfm",y:1988,f:"Private (~$528M revenue)",inv:"Founder-owned",logo:"https://www.google.com/s2/favicons?domain=www.dspace.com&sz=64",india_focus:false}],
@@ -4334,7 +4543,7 @@ const AUTO_NODES = [
 
   {id:6,name:"APQP / PPAP Gate",bp:"supply",tier:"T1",icon:"📋",collar:"Professional",
    roles:"APQP/PPAP Eng, New Product Launch Eng",
-   tam:28,feas:"Medium",score:8.0,m_score:6,d_score:10,i_score:8,i_note:"Bharat Forge and Motherson run Siemens Opcenter / Plex Quality at production scale",hc_pct:50,fte:5,mult:0.291,
+   tam:79,feas:"Medium",score:8.0,m_score:6,d_score:10,i_score:8,i_note:"Bharat Forge and Motherson run Siemens Opcenter / Plex Quality at production scale",hc_pct:50,fte:5,mult:0.291,
    problems:["PPAP document packages take 4-8 weeks to compile manually","PFMEA updates across engineering changes are inconsistent"],
    solutions:["LLM agents that auto-generate PPAP documentation from engineering data","AI-driven PFMEA that learns from warranty/field failure data to suggest new failure modes"],
    products:[{n:"Qualio",d:"Cloud quality management system (eQMS) with AI document control",u:"https://www.qualio.com/solutions/quality-management-software",y:2012,f:"$68M",inv:"Initialized Capital, Polaris",logo:"https://www.google.com/s2/favicons?domain=www.qualio.com&sz=64",india_focus:false},{n:"ETQ Reliance",d:"AI-powered FMEA and CAPA for IATF 16949 automotive quality",u:"https://www.etq.com/solutions/automotive/",y:1992,f:"$100M+ (PE-backed)",inv:"Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.etq.com&sz=64",india_focus:false},{n:"Siemens Opcenter Quality",d:"Integrated APQP/PPAP quality management for automotive manufacturing",u:"https://plm.sw.siemens.com/en-US/opcenter/quality/",y:2019,f:"Part of Siemens Digital Industries ($20B division)",inv:"Siemens",logo:"https://www.google.com/s2/favicons?domain=plm.sw.siemens.com&sz=64",india_focus:false}],
@@ -4348,7 +4557,7 @@ const AUTO_NODES = [
 
   {id:7,name:"Supply Chain & Sourcing",bp:"supply",tier:"T1",icon:"🔗",collar:"Management",
    roles:"Head of Supply Chain, Procurement/Logistics Mgr, Buyer/Purchase Eng, Supplier Dev Eng",
-   tam:24,feas:"Very High",score:10.0,m_score:10,d_score:10,i_score:10,i_note:"Tata Motors + o9 public case study, Mahindra + o9 disclosed deployment, Indian OEMs are anchor references for global SCM AI",hc_pct:50,mult:0.267,fte:20,
+   tam:68,feas:"Very High",score:10.0,m_score:10,d_score:10,i_score:10,i_note:"Tata Motors + o9 public case study, Mahindra + o9 disclosed deployment, Indian OEMs are anchor references for global SCM AI",hc_pct:50,mult:0.267,fte:20,
    problems:["RFQ processes take 6-12 weeks with manual supplier evaluation","JIT disruption risk poorly modeled — single-source dependencies hidden","Should-cost models maintained in spreadsheets, rarely updated"],
    solutions:["AI procurement agents that auto-source, evaluate, and negotiate with suppliers","Supply chain digital twins with real-time disruption risk scoring","Generative AI for should-cost modeling using material price feeds and process parameters"],
    products:[{n:"Coupa",d:"Spend management & procurement with AI features",u:"https://www.coupa.com/products/ai-spend-management",y:2006,f:"Acquired by Thoma Bravo ($8B, 2023)",inv:"Thoma Bravo",logo:"https://icons.duckduckgo.com/ip3/www.coupa.com.ico",india_focus:false},{n:"Arkestro",d:"AI-native predictive procurement",u:"https://www.arkestro.com/predictive-procurement",y:2019,f:"$46M",inv:"NEA, Lightspeed",logo:"https://www.google.com/s2/favicons?domain=www.arkestro.com&sz=64",india_focus:false},{n:"Fictiv",d:"AI-powered manufacturing network",u:"https://www.fictiv.com/capabilities",y:2013,f:"$192M",inv:"Accel, Bill Gates",logo:"https://www.google.com/s2/favicons?domain=www.fictiv.com&sz=64",india_focus:false},{n:"Jaggaer",d:"AI procurement & sourcing",u:"https://www.jaggaer.com/solutions/sourcing",y:1995,f:"$530M",inv:"Cinven, Accel-KKR",logo:"https://www.google.com/s2/favicons?domain=www.jaggaer.com&sz=64",india_focus:false},{n:"Moglix",d:"AI B2B procurement for Indian manufacturing",u:"https://business.moglix.com/digital-procurement-software",y:2015,f:"$250M raised, valued at $1B+",inv:"Tiger Global, Accel, Jungle Ventures",logo:"https://www.google.com/s2/favicons?domain=www.moglix.com&sz=64",india_focus:true}],
@@ -4362,7 +4571,7 @@ const AUTO_NODES = [
 
   {id:8,name:"Supplier Quality & Planning",bp:"supply",tier:"T1",icon:"✅",collar:"Professional",
    roles:"Supplier/Customer Quality Eng, Production/Material Planner, Production Control Exec",
-   tam:18,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Bharat Forge, Sundram Fasteners cited as scaled deployments for Opcenter APS / Kinaxis",hc_pct:40,mult:0.29,fte:12,
+   tam:51,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Bharat Forge, Sundram Fasteners cited as scaled deployments for Opcenter APS / Kinaxis",hc_pct:40,mult:0.29,fte:12,
    problems:["Supplier PPAP audit findings tracked in Excel — no predictive insight","MRP/production scheduling is manual with poor demand signal integration","8D root-cause analysis relies on tribal knowledge, not data"],
    solutions:["AI supplier scorecards with predictive quality risk models","ML-optimized production scheduling integrating real-time demand and supplier lead times","LLM-powered 8D report generation with automatic root-cause suggestion from historical data"],
    products:[{n:"o9 Solutions",d:"AI-native planning & demand sensing",u:"https://o9solutions.com/platform",y:2009,f:"$295M",inv:"KKR, Tiger Global, General Atlantic",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false},{n:"Kinaxis",d:"Supply chain orchestration with AI features",u:"https://www.kinaxis.com/en/solutions/supply-planning",y:1984,f:"Public (TSX: KXS, Mkt Cap ~$4B)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.kinaxis.com&sz=64",india_focus:false},{n:"ETQ Reliance",d:"AI-powered quality management for automotive supplier PPAP/APQP",u:"https://www.etq.com/solutions/automotive/",y:1992,f:"$100M+ (PE-backed)",inv:"Thoma Bravo",logo:"https://www.google.com/s2/favicons?domain=www.etq.com&sz=64",india_focus:false},{n:"Zetwerk",d:"B2B contract manufacturing marketplace with supplier quality intelligence (India)",u:"https://www.zetwerk.com/manufacturing",y:2018,f:"$493M raised, valued at $4.2B",inv:"Greenoaks, Lightspeed India, Sequoia India",logo:"https://www.google.com/s2/favicons?domain=www.zetwerk.com&sz=64",india_focus:true}],
@@ -4477,7 +4686,7 @@ const AUTO_NODES = [
 
   {id:20,name:"Dealership Management",bp:"demand",tier:"T1",icon:"🏢",collar:"Management",
    roles:"Dealer Dev Mgr, Dealership GM, Service Mgr",
-   tam:35,feas:"High",score:8.7,m_score:8,d_score:8,i_score:10,i_note:"DaveAI deployed at Maruti dealer network, Tekion has India delivery center, Excellon and NetFlows360 sell to Indian OEM dealers",hc_pct:40,mult:0.42,fte:12,
+   tam:70,feas:"High",score:8.7,m_score:8,d_score:8,i_score:10,i_note:"DaveAI deployed at Maruti dealer network, Tekion has India delivery center, Excellon and NetFlows360 sell to Indian OEM dealers",hc_pct:40,mult:0.42,fte:12,
    problems:["Dealer performance evaluation across 2,000-4,000 dealerships per OEM is manual and lagging","Inventory allocation across dealer network based on gut feel, not demand signals","Dealer P&L optimization lacks AI-driven margin analysis"],
    solutions:["AI dealer scorecards with real-time performance prediction and intervention triggers","Demand-sensing AI for optimal inventory allocation across dealer network","LLM agents for automated dealer communication, training, and compliance monitoring"],
    products:[{n:"Tekion",d:"AI-native cloud dealer management",u:"https://tekion.com/products/automotive-retail-cloud",y:2016,f:"$360M",inv:"Alkeon, Advent, Index Ventures",logo:"https://www.google.com/s2/favicons?domain=tekion.com&sz=64",india_focus:false},{n:"Impel",d:"AI-native automotive customer engagement",u:"https://impel.ai/platform/",y:2015,f:"$114M",inv:"Silversmith Capital",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+STwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"AutoFi",d:"AI-native auto financing & digital retail",u:"https://www.autofi.com/solutions",y:2015,f:"$85M",inv:"Crosslink Capital, Ford Credit",logo:"https://www.google.com/s2/favicons?domain=www.autofi.com&sz=64",india_focus:false},{n:"Droom",d:"AI auto marketplace (India)",u:"https://droom.in/dealer",y:2014,f:"$125M raised",inv:"Lightbox, Toyota Tsusho",logo:"https://www.google.com/s2/favicons?domain=droom.in&sz=64",india_focus:true}],
@@ -4491,7 +4700,7 @@ const AUTO_NODES = [
 
   {id:21,name:"Showroom Sales",bp:"demand",tier:"T1",icon:"🤵",collar:"Mixed",
    roles:"Sales Consultant, Showroom Host/Telecaller",
-   tam:35,feas:"High",score:8.7,m_score:8,d_score:8,i_score:10,i_note:"DaveAI Maruti virtual sales avatar (18M+ customer interactions, 33% lead lift), Maruti Metaverse showroom, BYD WhatsApp chatbot via DaveAI",hc_pct:45,mult:0.37,fte:15,
+   tam:70,feas:"High",score:8.7,m_score:8,d_score:8,i_score:10,i_note:"DaveAI Maruti virtual sales avatar (18M+ customer interactions, 33% lead lift), Maruti Metaverse showroom, BYD WhatsApp chatbot via DaveAI",hc_pct:45,mult:0.37,fte:15,
    problems:["Lead qualification is manual — sales consultants spend 60% of time on unqualified walk-ins","Customer configuration and financing options explained inconsistently","Test drive scheduling, follow-up, and CRM updates are fragmented"],
    solutions:["AI lead scoring from digital + walk-in signals","AI sales copilot that provides real-time configuration, financing comparison, and objection handling","Automated CRM updates and follow-up sequencing via conversational AI"],
    products:[{n:"DaveAI",d:"AI-powered virtual sales avatar deployed at Maruti dealerships (18M+ interactions)",u:"https://www.iamdave.ai/automotive",y:2017,f:"$6M",inv:"YourNest, CIIE",logo:"https://www.google.com/s2/favicons?domain=www.iamdave.ai&sz=64",india_focus:true},{n:"Impel",d:"AI customer engagement for automotive dealerships",u:"https://impel.ai/chat-ai/",y:2014,f:"$125M",inv:"Silversmith Capital, Meritech",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+STwvdGV4dD48L3N2Zz4=",india_focus:false},{n:"Salesforce Automotive Cloud",d:"CRM with AI for dealership sales and service",u:"https://www.salesforce.com/products/automotive-cloud/overview/",y:1999,f:"Public (NYSE: CRM)",inv:"Public",logo:"https://www.google.com/s2/favicons?domain=www.salesforce.com&sz=64",india_focus:false},{n:"Tekion",d:"Cloud-native dealer management with AI (India delivery center)",u:"https://tekion.com/products/arc",y:2016,f:"$250M",inv:"Alkeon, Advent",logo:"https://www.google.com/s2/favicons?domain=tekion.com&sz=64",india_focus:true}],
@@ -4505,7 +4714,7 @@ const AUTO_NODES = [
 
   {id:22,name:"After-Sales Service",bp:"demand",tier:"T1",icon:"🔧",collar:"Mixed",
    roles:"After-Sales Area Mgr, Service Advisor, Diagnostic Tech, EV Service Tech",
-   tam:38,feas:"Medium",score:4.7,m_score:6,d_score:4,i_score:4,i_note:"Tech Mahindra Digital TAC and Bosch diagnostic AI exist but Indian dealer-network production deployments are thin; mostly global pilots",hc_pct:20,mult:0.395,fte:14,
+   tam:76,feas:"Medium",score:4.7,m_score:6,d_score:4,i_score:4,i_note:"Tech Mahindra Digital TAC and Bosch diagnostic AI exist but Indian dealer-network production deployments are thin; mostly global pilots",hc_pct:20,mult:0.395,fte:14,
    problems:["Service advisors manually create job cards — average 15 min per vehicle","Diagnostic accuracy depends on individual technician skill — inconsistent across network","Parts prediction and pre-staging for appointments is largely manual"],
    solutions:["AI-powered service reception: auto-generate job cards from customer complaint + vehicle history","AI diagnostic assistant using DTC codes + symptom-to-fault ML models","Predictive parts demand based on vehicle age, mileage, season, and regional patterns"],
    products:[{n:"UVeye",d:"AI vehicle inspection systems",u:"https://www.uveye.com/products",y:2016,f:"$200M",inv:"CarMax, GM Ventures, Volvo",logo:"https://www.google.com/s2/favicons?domain=www.uveye.com&sz=64",india_focus:false},{n:"Ravin AI",d:"AI vehicle inspection via smartphone",u:"https://www.ravin.ai/blog/digital-vehicle-inspection-app",y:2018,f:"$20M",inv:"Maniv Mobility",logo:"https://www.google.com/s2/favicons?domain=www.ravin.ai&sz=64",india_focus:false},{n:"Bosch Diagnostics",d:"AI-enhanced vehicle diagnostic systems for service workshops",u:"https://www.boschaftermarket.com/gb/en/diagnostics/",y:1886,f:"Part of Robert Bosch GmbH ($95B revenue)",inv:"Bosch Group",logo:"https://www.google.com/s2/favicons?domain=www.boschdiagnostics.com&sz=64",india_focus:true},{n:"GoMechanic",d:"AI auto service marketplace (India)",u:"https://gomechanic.in/car-services",y:2016,f:"$62M raised",inv:"Chiratae, Sequoia India, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=www.gomechanic.in&sz=64",india_focus:true}],
@@ -4527,7 +4736,7 @@ const AUTO_NODES = [
 
   {id:24,name:"Warranty & Parts",bp:"demand",tier:"T1",icon:"📄",collar:"Management",
    roles:"Warranty Mgr, Spare Parts Mgr, Warranty Claims Exec, Parts Admin",
-   tam:22,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Tata Technologies published case study on AI warranty transformation; Tata Motors integrates warranty signals + parts forecasting in production",hc_pct:45,mult:0.553,fte:10,
+   tam:44,feas:"High",score:8.0,m_score:8,d_score:8,i_score:8,i_note:"Tata Technologies published case study on AI warranty transformation; Tata Motors integrates warranty signals + parts forecasting in production",hc_pct:45,mult:0.553,fte:10,
    problems:["Warranty claims processing is manual — 30% of claims require rework due to documentation errors","Fraudulent warranty claims cost OEMs 3-5% of warranty budget","Spare parts demand forecasting based on historical averages, not predictive models"],
    solutions:["AI warranty claims automation — auto-validate, approve/flag, and process claims","ML-based warranty fraud detection using pattern analysis across dealer network","Predictive parts demand using vehicle population, age distribution, and failure mode analysis"],
    products:[{n:"Syncron",d:"Aftermarket & parts optimization with AI features",u:"https://www.syncron.com/solutions",y:1999,f:"$180M",inv:"Summit Partners, Nordic Capital",logo:"https://www.google.com/s2/favicons?domain=www.syncron.com&sz=64",india_focus:false},{n:"Tractable",d:"AI damage assessment from photos",u:"https://tractable.ai/solutions",y:2014,f:"$250M+ (Series E 2024)",inv:"Insight Partners, Georgian",logo:"https://www.google.com/s2/favicons?domain=tractable.ai&sz=64",india_focus:false},{n:"Tavant",d:"Warranty management platform with AI features (services + product)",u:"https://www.tavant.com/warranty-management",y:2000,f:"$80M+",inv:"Private",logo:"https://www.google.com/s2/favicons?domain=www.tavant.com&sz=64",india_focus:false},{n:"Servify",d:"AI device aftermarket & warranty platform (India)",u:"https://servify.com/products",y:2015,f:"$83M raised",inv:"Singularity Growth, BEENEXT",logo:"https://www.google.com/s2/favicons?domain=servify.com&sz=64",india_focus:true}],
@@ -4771,7 +4980,7 @@ const FMCG_NODES = [
 
   {id:18,name:"Trade & Digital Marketing",bp:"demand",tier:"T1",icon:"📱",collar:"Professional",
    roles:"Trade/Digital Mktg Mgr, Customer Mktg Exec",
-   tam:16,feas:"Very High",score:10.0,m_score:10,d_score:10,i_score:10,i_note:"HUL Canvas for channel teams in production; Adobe Sensei + Salesforce Einstein deployed at HUL, ITC, Dabur, Marico",hc_pct:50,mult:0.328,fte:14,
+   tam:75,feas:"Very High",score:10.0,m_score:10,d_score:10,i_score:10,i_note:"HUL Canvas for channel teams in production; Adobe Sensei + Salesforce Einstein deployed at HUL, ITC, Dabur, Marico",hc_pct:50,mult:0.328,fte:14,
    problems:["Trade promotion ROI is negative for 40% of promotions — $528M+ wasted annually across India FMCG","Digital ad creative production bottleneck — 200-500 assets per campaign across formats","POSM allocation across 500K+ retail outlets is guesswork"],
    solutions:["AI trade promotion optimization — simulate ROI before committing trade spend","Generative AI for creative production — auto-generate localized ad variants at scale","AI-driven POSM allocation using outlet-level sell-through data"],
    products:[{n:"Trax",d:"AI retail shelf intelligence",u:"https://traxretail.com/solutions",y:2010,f:"$640M",inv:"SoftBank Vision Fund",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"Pricefx",d:"AI pricing & trade promotion optimization",u:"https://www.pricefx.com/software/pricingai",y:2011,f:"$184M",inv:"Apax Partners, Bain Capital Ventures",logo:"https://www.google.com/s2/favicons?domain=www.pricefx.com&sz=64",india_focus:false},{n:"Aforza",d:"AI-native CPG trade execution",u:"https://www.aforza.com/solutions",y:2019,f:"$30M",inv:"Salesforce Ventures, Insight",logo:"https://www.google.com/s2/favicons?domain=www.aforza.com&sz=64",india_focus:false},{n:"ParallelDots",d:"AI shelf image recognition (India)",u:"https://www.paralleldots.com/shelfwatch",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true}],
@@ -4799,7 +5008,7 @@ const FMCG_NODES = [
 
   {id:20,name:"Key Accounts & Channels",bp:"demand",tier:"T1",icon:"🏬",collar:"Professional",
    roles:"Key Account Mgr (MT/E-com), Channel Sales Mgr, Distributor Dev Mgr",
-   tam:16,feas:"High",score:7.3,m_score:8,d_score:8,i_score:6,i_note:"o9 Solutions ships RGM/account planning; Salesforce Sales Cloud Einstein at HUL group; Indian KAM-specific public references are limited",hc_pct:45,mult:0.299,fte:12,
+   tam:75,feas:"High",score:7.3,m_score:8,d_score:8,i_score:6,i_note:"o9 Solutions ships RGM/account planning; Salesforce Sales Cloud Einstein at HUL group; Indian KAM-specific public references are limited",hc_pct:45,mult:0.299,fte:12,
    problems:["Joint business plans (JBPs) with modern trade partners are manually created — 4-6 weeks per retailer","E-commerce channel profitability is opaque — true cost-to-serve per platform is unknown","Distributor performance benchmarking across 2,000+ distributors is lagging and manual"],
    solutions:["AI JBP generator that analyzes shopper data, category trends, and retailer strategy to auto-create plans","AI channel profitability engine mapping true cost-to-serve across Blinkit, Zepto, BigBasket, Amazon, Flipkart","AI distributor scorecards with predictive intervention triggers"],
    products:[{n:"CommerceIQ",d:"AI-native e-commerce management",u:"https://commerceiq.ai/ecommerce",y:2012,f:"$175M",inv:"SoftBank, Insight Partners",logo:"https://www.google.com/s2/favicons?domain=commerceiq.ai&sz=64",india_focus:false},{n:"Bizom",d:"AI retail intelligence for FMCG (India)",u:"https://bizom.com/solutions",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"Botree DMS",d:"Distributor management (India)",u:"https://botreesoftware.com/distribution-management-software/",y:2009,f:"Acquired by SugarCRM (2023)",inv:"SugarCRM",logo:"https://www.google.com/s2/favicons?domain=www.botreesoftware.com&sz=64",india_focus:true},{n:"o9 Solutions",d:"AI-native revenue growth management and key account planning",u:"https://o9solutions.com/solutions/revenue-management/",y:2009,f:"$295M",inv:"KKR, Tiger Global",logo:"https://www.google.com/s2/favicons?domain=o9solutions.com&sz=64",india_focus:false}],
@@ -4822,7 +5031,7 @@ const FMCG_NODES = [
 
   {id:22,name:"Field Sales",bp:"demand",tier:"T1",icon:"🚶",collar:"Mixed",
    roles:"ASM, Territory Sales Exec, Van Sales Rep",
-   tam:22,feas:"High",score:7.3,m_score:8,d_score:4,i_score:10,i_note:"Bizom (Mobisy) is the dominant Indian SFA with 550+ enterprise customers, ~200K field users; FieldAssist, BeatRoute, Ivy Mobility additional India-focused vendors",hc_pct:20,mult:0.37,fte:25,
+   tam:103,feas:"High",score:7.3,m_score:8,d_score:4,i_score:10,i_note:"Bizom (Mobisy) is the dominant Indian SFA with 550+ enterprise customers, ~200K field users; FieldAssist, BeatRoute, Ivy Mobility additional India-focused vendors",hc_pct:20,mult:0.37,fte:25,
    problems:["India's FMCG field sales force of 500K+ people spends 40% of time on non-selling activities (reporting, travel planning, order processing)","Outlet coverage compliance averages 60-70% — salespeople skip low-value outlets","Order suggestions at each outlet are based on last order, not predicted demand"],
    solutions:["AI sales assistant that auto-generates visit reports, optimizes routes, and pre-fills orders from predicted demand","AI outlet prioritization scoring — maximizing coverage ROI per salesperson per day","ML-based order recommendation at outlet level using sell-through velocity, stock level, and local events"],
    products:[{n:"Bizom",d:"AI retail intelligence (India)",u:"https://bizom.com/solutions",y:2013,f:"$13M raised",inv:"Orios Venture Partners, IvyCap",logo:"https://www.google.com/s2/favicons?domain=bizom.com&sz=64",india_focus:true},{n:"FieldAssist",d:"AI sales force automation (India)",u:"https://www.fieldassist.com/sales-force-automation",y:2014,f:"$10M raised",inv:"Mirae Asset, Sistema Asia Fund",logo:"https://www.google.com/s2/favicons?domain=www.fieldassist.com&sz=64",india_focus:true},{n:"BeatRoute",d:"AI route intelligence (India)",u:"https://beatroute.io/platform/route-optimization/",y:2015,f:"$6M raised",inv:"Chiratae Ventures, IvyCap",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNlMTFkNDgiLz48dGV4dCB4PSIzMiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCI+QjwvdGV4dD48L3N2Zz4=",india_focus:true},{n:"ParallelDots",d:"AI shelf recognition (India)",u:"https://www.paralleldots.com/shelfwatch",y:2014,f:"$6M raised",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true},{n:"RetailPulse",d:"AI retail analytics (India)",u:"https://retailpulse.ai/about/",y:2020,f:"$4M raised",inv:"Arali Ventures, Pentathlon",logo:"https://www.google.com/s2/favicons?domain=retailpulse.ai&sz=64",india_focus:true}],
@@ -4836,7 +5045,7 @@ const FMCG_NODES = [
 
   {id:23,name:"Retail Execution",bp:"demand",tier:"T1",icon:"🛒",collar:"Mixed",
    roles:"Sales Promoter, Visual Merchandiser, Retail Sales Associate",
-   tam:14,feas:"Medium",score:5.3,m_score:6,d_score:2,i_score:8,i_note:"Bizom AI shelf vision deployed at Indian FMCG majors; Trax, ParallelDots ShelfWatch additional vendors at Indian brands",hc_pct:10,fte:6,mult:0.42,
+   tam:65,feas:"Medium",score:5.3,m_score:6,d_score:2,i_score:8,i_note:"Bizom AI shelf vision deployed at Indian FMCG majors; Trax, ParallelDots ShelfWatch additional vendors at Indian brands",hc_pct:10,fte:6,mult:0.42,
    problems:["Shelf compliance monitoring across 500K+ outlets is impossible manually","Planogram compliance in modern trade averages 40-60%"],
    solutions:["AI image recognition for shelf share, planogram compliance, and out-of-stock detection","Computer vision for competitive shelf analytics at scale"],
    products:[{n:"Trax",d:"AI-powered image recognition for shelf monitoring and retail execution",u:"https://traxretail.com/solutions/shelf-monitoring/",y:2010,f:"$640M",inv:"SoftBank Vision Fund, Boyu Capital",logo:"https://icons.duckduckgo.com/ip3/traxretail.com.ico",india_focus:false},{n:"ParallelDots ShelfWatch",d:"AI shelf compliance monitoring for Indian FMCG brands",u:"https://www.paralleldots.com/shelfwatch",y:2014,f:"$6M",inv:"Btomorrow Ventures (BAT)",logo:"https://www.google.com/s2/favicons?domain=www.paralleldots.com&sz=64",india_focus:true},{n:"Bizom ShelfWatch",d:"AI-powered image recognition for retail shelf auditing (deployed at Indian FMCG majors)",u:"https://bizom.com/smart-merchandising/",y:2012,f:"$12M",inv:"Sequoia Surge",logo:"https://www.google.com/s2/favicons?domain=www.mobisy.com&sz=64",india_focus:true}],
@@ -5485,10 +5694,30 @@ function renderDetailPanel(n, ctx) {
           out += stepHTML('6', '× 50% AI price discount', '$'+chain.tam_m.toFixed(1)+'M', 'AI priced below labour to drive adoption', '<span style="font-size:0.55rem;color:var(--text-dim);">Adoption convention</span>');
           out += '<div style="text-align:left; padding:14px 16px; background:var(--bg-card); border-radius:10px; border-left:3px solid '+accent+';">';
           out += '<div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">';
-          out += '<div><div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Result</div>';
-          out += '<div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:'+accent+';">'+n.name+' Enterprise TAM</div></div>';
+          out += '<div><div style="font-family:var(--font-mono); font-size:0.5rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Core TAM</div>';
+          out += '<div style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:'+accent+';">Brand-owner on-payroll scope</div></div>';
           out += '<div style="font-family:var(--font-mono); font-size:1.5rem; font-weight:800; color:'+accent+'; white-space:nowrap;">$'+chain.tam_m.toFixed(1)+'M</div>';
           out += '</div></div></div>';
+          // === Ecosystem Extension band (if applicable) ===
+          var eco = window.ECOSYSTEM_ALLOC && window.ECOSYSTEM_ALLOC[isAuto?'auto':'fmcg'] && window.ECOSYSTEM_ALLOC[isAuto?'auto':'fmcg'][n.name];
+          if (eco && eco.ecosystem > 0) {
+            var ecoLabel = {dealer:'Dealer-network ecosystem', t2t3:'Tier-2/3 supplier ecosystem', distributor:'Distributor-channel ecosystem'}[eco.type] || 'Ecosystem extension';
+            out += '<div style="margin-top:18px;padding:16px 18px;background:rgba(124,58,237,0.05);border:1px solid rgba(124,58,237,0.25);border-radius:12px;">';
+            out += '<div style="font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Ecosystem extension — ' + ecoLabel + '</div>';
+            out += '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;">';
+            out += '<div style="font-size:0.82rem;color:#4b5563;line-height:1.55;max-width:75%;">'+eco.descriptor+'</div>';
+            out += '<div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:800;color:#7c3aed;white-space:nowrap;">$'+eco.ecosystem+'M</div>';
+            out += '</div>';
+            out += '<div style="font-size:0.7rem;color:#6b7280;line-height:1.5;font-style:italic;">Adjacent population outside brand-owner payroll; addressable by the same AI product categories as the core T1 node. TAM allocation is proportional to core TAM across all nodes sharing this ecosystem type.</div>';
+            out += '</div>';
+            // Total
+            out += '<div style="margin-top:12px;padding:16px 18px;background:rgba(13,148,136,0.08);border:2px solid #0d9488;border-radius:12px;">';
+            out += '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;">';
+            out += '<div><div style="font-family:var(--font-mono);font-size:0.5rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Total Addressable</div>';
+            out += '<div style="font-family:var(--font-display);font-size:0.82rem;font-weight:700;color:#0d9488;">'+n.name+' — core $'+eco.core+'M + ecosystem $'+eco.ecosystem+'M</div></div>';
+            out += '<div style="font-family:var(--font-mono);font-size:1.8rem;font-weight:800;color:#0d9488;white-space:nowrap;">$'+eco.total+'M</div>';
+            out += '</div></div>';
+          }
           // Role table (career-stream only, no fabricated rates)
           out += '<p style="font-size:0.78rem;color:#374151;line-height:1.6;margin:14px 0 10px;">The career-stream mix that drives the '+(chain.addr*100).toFixed(1)+'% addressability rate comes from the Role Library mapping of roles to this node. Each role is shown with its career-stream bucket; the addressability % above is a headcount-weighted blend of the four buckets.</p>';
           out += '<table style="width:100%;border-collapse:collapse;font-size:0.78rem;color:#374151;">';
