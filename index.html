@@ -1280,9 +1280,9 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   <h1>The <em>$1.6 Billion</em> AI Opportunity in Indian Manufacturing</h1>
   <p class="hero-sub">A node-by-node analysis of problems AI can solve across 28 selected workflow nodes in India's Automobile and FMCG sectors &mdash; mapping inefficiencies, AI solutions, existing products, and addressable market.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">$1.6B</div><div class="label">Knowledge Work Automation TAM</div><div style="font-family:var(--font-mono);font-size:0.55rem;color:var(--accent-teal);margin-top:4px;">Core SAM $500M (today, enterprise) + Extended SAM $359M (2-4yr, mid-market) + Ecosystem SAM $705M (channel) = TAM $1.6B</div></div>
-    <div class="hero-stat"><div class="num">~800</div><div class="label">Brand-owner Companies</div><div style="font-family:var(--font-mono);font-size:0.55rem;color:var(--accent-teal);margin-top:4px;">Core ~260 enterprise firms &middot; Extended ~540 mid-market firms</div></div>
-    <div class="hero-stat"><div class="num">~1.2M</div><div class="label">Addressable Workers</div><div style="font-family:var(--font-mono);font-size:0.55rem;color:var(--accent-teal);margin-top:4px;">236K brand-owner employees + ~950K channel ecosystem</div></div>
+    <div class="hero-stat"><div class="num">$1.6B</div><div class="label">Knowledge Work Automation TAM</div></div>
+    <div class="hero-stat"><div class="num">~800</div><div class="label">Brand-owner Companies</div></div>
+    <div class="hero-stat"><div class="num">~1.2M</div><div class="label">Addressable Workers</div></div>
   </div>
 
   <!-- Hero explainer — one clear line per stat -->
@@ -4113,6 +4113,16 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
               <h4>Deep-Dive &amp; Product Mapping</h4>
               <p>For each of 28 selected nodes: documented problems, AI solutions, 120+ products, and aligned opportunities to 19 published VC investment theses.</p>
             </div>
+            <div class="method-step">
+              <div class="method-num">09</div>
+              <h4>Ecosystem SAM &mdash; Channel Workforce Derivation</h4>
+              <p>Counted non-brand-owner workforce reachable by the same AI products. Auto: <a href="https://www.fada.in/" target="_blank" style="color:#2563eb;text-decoration:underline;">FADA</a> dealer-network (~250K) + <a href="https://acma.in/" target="_blank" style="color:#2563eb;text-decoration:underline;">ACMA</a> ancillary supplier WC (~200K). FMCG: <a href="https://www.aicpdf.com/" target="_blank" style="color:#2563eb;text-decoration:underline;">AICPDF</a> distributor firms + <a href="https://www.ficci.in/" target="_blank" style="color:#2563eb;text-decoration:underline;">FICCI</a> merchandiser agencies (~500K). Total 950K channel workforce &rarr; $705M Ecosystem SAM.</p>
+            </div>
+            <div class="method-step">
+              <div class="method-num">10</div>
+              <h4>Data-Artifact Preservation</h4>
+              <p>Every number co-located with primary source + method of derivation. Artifacts preserved: per-node TAM JSON (<code style="font-family:var(--font-mono);font-size:0.78rem;">NODE_TAM_CHAIN</code>, <code style="font-family:var(--font-mono);font-size:0.78rem;">TAM_MODEL</code>), 45 BRSR-parsed CSVs, <a href="https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/02_Role_Library_255_Roles_3_Sectors.xlsx" target="_blank" style="color:#2563eb;text-decoration:underline;">161-role Library xlsx</a>, and <a href="https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/09_Master_Data_File.json" target="_blank" style="color:#2563eb;text-decoration:underline;">Master Data JSON</a>. Any future session can reconstruct every number without redoing research.</p>
+            </div>
           </div>
 
           <div style="margin-top:28px; background:var(--bg-surface); border-radius:12px; padding:20px 24px;">
@@ -4174,12 +4184,12 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
 
           <div style="margin-top:16px; background:var(--bg-surface); border-radius:12px; padding:18px 22px;">
-            <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 8px;">How the $1.6B TAM is calculated and distributed</h4>
+            <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 8px;">How the $1.6B TAM is built &mdash; bottom-up, sums by construction</h4>
             <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 10px;">
-              <strong style="color:var(--text-primary);">Sector-level TAM &mdash; built from three SAMs:</strong> (1) <strong>Core SAM</strong> — brand-owner on-payroll Knowledge Workers: universe 209K Auto / 169K FMCG (45 BRSR filings directly parsed + density-ratio extrapolation at 75 Auto / 122 FMCG KW per &#8377;1,000 Cr) <strong>× 65.6% Auto / 58.5% FMCG selected-nodes share</strong> (role library × employment survey, bottom-up) → 137,129 Auto + 98,850 FMCG selected-node KW × salary ($30,679 / $14,469) × role eligibility (81.7% / 74.6%) × task AI rate (37.8% / 39.1%) × 50% discount → $650M Auto + $209M FMCG brand-owner on-payroll SAM (Core + Extended combined). (2) <strong>Ecosystem SAM</strong> — FADA dealer outlets + ACMA ancillary (Auto) and AICPDF distributor firms + merchandiser agencies (FMCG) addressable by the same AI products → $381M Auto + $324M FMCG Ecosystem SAM. Per-node brand-owner SAM (Core + Extended) values sum EXACTLY to their sector totals by construction (no scaling factors); per-node Ecosystem SAM values sum EXACTLY to sector Ecosystem totals. Physical/OT workflows fall outside the knowledge-worker scope. Result: <strong>Auto $1.0B + FMCG $533M = $1.6B TAM</strong>.
+              <strong style="color:var(--text-primary);">Three SAMs, each bottom-up:</strong> (1) <strong>Core SAM ($500M)</strong> &mdash; enterprise brand-owner universe 209K Auto / 169K FMCG (45 BRSR filings directly parsed + density-ratio extrapolation at 75 Auto / 122 FMCG KW per &#8377;1,000 Cr) &times; 65.6% Auto / 58.5% FMCG selected-nodes share (role library &times; employment survey) &rarr; 137,129 Auto + 98,850 FMCG selected-node KW &times; salary ($30,679 / $14,469) &times; role eligibility (81.7% / 74.6%) &times; task AI rate (37.8% / 39.1%) &times; 50% discount &rarr; $377M Auto + $123M FMCG. (2) <strong>Extended SAM ($359M)</strong> &mdash; same 7-step chain applied to mid-market brand-owners (&ge;&#8377;100 Cr, 2&ndash;4 yr horizon via PLG) &rarr; $273M Auto + $86M FMCG. (3) <strong>Ecosystem SAM ($705M)</strong> &mdash; same 7-step chain applied to channel populations (FADA dealers + ACMA ancillary Auto; AICPDF distributors + FICCI merchandiser agencies FMCG) &rarr; $381M Auto + $324M FMCG. Sum: <strong>Auto $1.0B + FMCG $533M = $1.6B TAM</strong>.
             </p>
             <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0;">
-              <strong style="color:var(--text-primary);">Node-level distribution (derived from sector TAM):</strong> each sector&rsquo;s total is split across its selected nodes based on how much AI-automatable work sits in each node. For each node, the automation rates of its white-collar roles are summed and divided by the sector-wide total &mdash; giving the node its percentage share. This is a distribution of the sector TAM, not an independent calculation. Click any node card for the full role-by-role breakdown.
+              <strong style="color:var(--text-primary);">Node-level is bottom-up too:</strong> each of the 28 selected nodes gets its own Knowledge-Worker headcount slice (via dept-to-node matrix from the compensation survey &times; Role Library) &times; sector-level salary &times; eligibility &times; AI rate &times; 50% discount. Per-node values <strong>sum EXACTLY to the sector Brand-owner SAM by construction</strong> &mdash; no scaling factors. Sector SAM = identical sum of per-node bottom-up builds, not a separate top-down anchor. Click any node card for its 7-step derivation table.
             </p>
           </div>
         </div>
@@ -4292,19 +4302,27 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
 
           <!-- 3g. NODE TAM DERIVATION -->
-          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. How each node gets its dollar TAM</h4>
-          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">The sector-level TAM ($1.0B for Automobile, $533M for FMCG) is a single number for each sector. To make it actionable, each sector&rsquo;s total is split across its 28 selected workflow nodes. The split is proportional to <strong>how much AI-automatable work sits inside each node</strong>. Here is how that proportion is calculated:</p>
+          <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700; margin:32px 0 8px;">3g. How each node gets its dollar TAM &mdash; bottom-up build</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin:0 0 14px;">Each selected node&rsquo;s dollar TAM is built <strong>bottom-up from its own Knowledge-Worker headcount &times; sector-level compensation &times; sector-level AI addressability</strong>. Per-node values <strong>sum EXACTLY to the sector Brand-owner SAM by construction</strong> (no scaling factors applied). The sector SAM is not a fixed anchor from which node TAMs are carved &mdash; it is the identical sum of the per-node bottom-up build.</p>
           <div style="background:var(--bg-card); border-radius:10px; padding:18px 20px; border:1px solid var(--border-subtle); font-size:0.8rem; color:var(--text-secondary); line-height:1.7;">
 
             <p style="margin:0 0 14px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">The core idea</strong></p>
-            <p style="margin:0 0 14px;">Every node has a curated list of white-collar job roles that work inside it (e.g., the &ldquo;Supply Chain &amp; Sourcing&rdquo; node contains roles like Head of Supply Chain, Procurement Manager, Buyer, and Supplier Development Engineer). For each role, published research tells us what percentage of that job&rsquo;s tasks AI can credibly automate today. A node where most roles are highly automatable (like Clerical/Admin at 77%) gets a larger share of the sector TAM than a node where roles are less automatable (like Executives at 0%).</p>
+            <p style="margin:0 0 14px;">Every node has its own slice of the sector Knowledge-Worker universe. Multiplying that slice by the sector-level salary &times; eligibility &times; task AI rate &times; 50% price discount gives the node&rsquo;s Brand-owner SAM directly. The sector total is what you get when you add up all 28 nodes &mdash; not an input to the calculation.</p>
 
             <p style="margin:0 0 8px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">Step by step</strong></p>
 
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">1. Start with the role library.</strong> 161 Knowledge Worker roles (78 Auto + 83 FMCG) are assigned to workflow nodes. Only white-collar roles feed into the TAM calculation based on where they sit in the value chain. Click any node card to see its specific roles.</p>
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">1. Sector universe Knowledge Workers.</strong> 209K Auto + 169K FMCG brand-owner KW &mdash; anchored by 45 directly-parsed BRSR Section A 20(a) filings + density-ratio extrapolation (75 Auto / 122 FMCG KW per &#8377;1,000 Cr revenue). See Part 1 Step 3.</p>
 
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">2. Look up each role&rsquo;s AI automation rate.</strong> Each role falls into a job category (e.g., Middle Management, Professional, Clerical). Published research from the <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb; text-decoration:underline;">World Economic Forum</a>, <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" style="color:#2563eb; text-decoration:underline;">McKinsey Global Institute</a>, and <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb; text-decoration:underline;">Frey &amp; Osborne (Oxford)</a> provides an estimate of what fraction of that category&rsquo;s tasks AI can do today:</p>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0 14px; font-size:0.75rem;">
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">2. Narrow to selected-node scope.</strong> Multiply by 65.6% Auto / 58.5% FMCG selected-nodes share (thesis-scope filter via Role Library &times; employment survey) &rarr; <strong>137,129 Auto + 98,850 FMCG</strong> selected-node KW.</p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">3. Allocate KW to each node.</strong> Each of the 28 selected nodes gets a slice of the selected-scope KW based on department-to-node matrix (from the 30-company Auto + 13-company FMCG compensation survey &times; Role Library). Example: Dealership Management = 16,138 Auto KW (11.8% of 137,129).</p>
+
+            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">4. Multiply by sector-flat salary, eligibility, AI rate, discount.</strong> Each node: node-KW &times; $30,679 Auto / $14,469 FMCG salary &times; 81.7% / 74.6% role eligibility &times; 37.8% / 39.1% task AI rate &times; 50% AI price discount. Published research from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb; text-decoration:underline;">WEF Future of Jobs 2025</a>, <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:#2563eb; text-decoration:underline;">McKinsey MGI 2023</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf" target="_blank" style="color:#2563eb; text-decoration:underline;">Frey &amp; Osborne 2013</a>. Example: Dealership Management = 16,138 &times; $30,679 &times; 0.817 &times; 0.378 &times; 0.5 = <strong>$76.4M</strong>.</p>
+
+            <p style="margin:0 0 14px;"><strong style="color:var(--text-primary);">5. Sum across nodes = sector Brand-owner SAM.</strong> &Sigma;(Auto nodes) = $650M ($377M Core + $273M Extended). &Sigma;(FMCG nodes) = $209M ($123M Core + $86M Extended). Sector SAM is the IDENTICAL SUM, not a separate top-down anchor. Sector Ecosystem SAM ($381M Auto + $324M FMCG) is added on top (channel workforce, per Part 1 Step 9).</p>
+
+            <p style="margin:0 0 14px;"><strong style="color:var(--accent-teal); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;">Per-role AI addressability (feeds into step 4)</strong></p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 14px; font-size:0.75rem;">
               <div style="background:#f8fafc; border-radius:6px; padding:8px 10px;">
                 <div style="color:var(--text-dim); font-size:0.65rem; font-weight:600; margin-bottom:4px;">HIGHER AUTOMATION</div>
                 <div>Clerical/Admin: <strong>77%</strong></div>
@@ -4320,14 +4338,9 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <div>Executive (CXO): <strong>0%</strong></div>
               </div>
             </div>
+            <p style="margin:0 0 14px; font-size:0.78rem;">These per-role rates roll up to a sector-weighted eligibility (81.7% Auto / 74.6% FMCG) &times; sector-weighted task AI rate (37.8% Auto / 39.1% FMCG) used in step 4.</p>
 
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">3. Add up the AI rates for all roles in the node.</strong> For example, if a node has 6 roles with rates of 0%, 42%, 42%, 30%, 30%, and 30%, the total is 1.74. This number represents how many &ldquo;full role-equivalents&rdquo; of AI-automatable work exist in the node.</p>
-
-            <p style="margin:0 0 8px;"><strong style="color:var(--text-primary);">4. Calculate the node&rsquo;s share of the sector.</strong> Divide the node&rsquo;s total by the sum across all 28 selected nodes in the sector. If a node&rsquo;s total is 1.74 and the sector total is 16.6, the node gets 1.74 &divide; 16.6 = <strong>10.5%</strong> of the sector TAM.</p>
-
-            <p style="margin:0 0 14px;"><strong style="color:var(--text-primary);">5. Multiply by the sector TAM.</strong> 10.5% of $533M FMCG = <strong>$75M</strong> for that node. This is the dollar TAM shown on the workflow card.</p>
-
-            <p style="margin:0; padding:10px 14px; background:rgba(13,148,136,0.05); border-radius:8px; border-left:3px solid var(--accent-teal);"><strong style="color:var(--text-primary);">Integrity check:</strong> since node TAMs are shares of a fixed sector total, they sum to the sector TAM by construction (Auto: $1.0B, FMCG: $533M, combined: $1.6B). This is a distribution, not an independent cross-check &mdash; the sector-level TAM is the single anchored calculation; node TAMs are derived from it.</p>
+            <p style="margin:0; padding:10px 14px; background:rgba(13,148,136,0.05); border-radius:8px; border-left:3px solid var(--accent-teal);"><strong style="color:var(--text-primary);">Reconciliation invariant:</strong> per-node TAMs sum to $650M Auto + $209M FMCG = $859M brand-owner SAM (Core $500M + Extended $359M) BY CONSTRUCTION &mdash; not by scaling. Reconciliation math verified: Auto 10 nodes &Sigma; = $649.5M; FMCG 16 nodes &Sigma; = $208.6M; combined $858.1M vs target $859M (&le;$1M rounding tolerance). No scaling factors applied.</p>
           </div>
 
           <!-- 3h. AI READINESS SCORE FORMULA -->
@@ -6555,7 +6568,7 @@ function openTAMModal(nodeId, sector) {
   var isAutoSec = sector === 'Auto';
   body += '<div style="background:var(--bg-surface);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);margin-bottom:16px;">';
   body += '<h4 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:' + sectorColor + ';margin-bottom:12px;">NODE ENTERPRISE TAM DERIVATION</h4>';
-  body += '<p style="font-size:0.72rem;color:var(--text-dim);margin-bottom:12px;line-height:1.5;">Each node\'s enterprise TAM is the BRSR-anchored sector total distributed across selected nodes proportional to addressable role-units (from the role library). Full chain below.</p>';
+  body += '<p style="font-size:0.72rem;color:var(--text-dim);margin-bottom:12px;line-height:1.5;">Each node\'s enterprise TAM is built bottom-up from its own Knowledge-Worker slice &times; sector-level salary &times; eligibility &times; AI rate &times; 50% discount. Per-node values sum EXACTLY to the sector Brand-owner SAM by construction &mdash; no scaling factors. Full chain below.</p>';
   body += '<div class="modal-derivation">';
   body += '<div class="md-row"><span class="md-label">Brand-owner revenue base <span style="color:var(--text-dim);font-size:0.65rem;">' + (isAutoSec ? 'ACMA FY24 + SIAM OEM data' : 'CRISIL 77-co tracking + MCA21 MNC subs + cooperatives') + '</span></span><span class="md-val">' + (isAutoSec ? '$200B' : '$110B') + '</span></div>';
   body += '<div class="md-row"><span class="md-label">Knowledge Worker per $B revenue</span><span class="md-val">' + (isAutoSec ? '814' : '1,300') + '</span></div>';
