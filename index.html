@@ -4595,7 +4595,7 @@ const NODE_TAM_CHAIN = {
     "Vehicle Program Leadership": { "kw": 11399, "sal": 30679, "pay_m": 349.7, "addr": 0.817, "ai_rate": 0.378, "tam_m": 54.0 },
     "APQP / PPAP Gate": { "kw": 29280, "sal": 30679, "pay_m": 898.3, "addr": 0.817, "ai_rate": 0.378, "tam_m": 138.7 },
     "Operations Leadership": { "kw": 26663, "sal": 30679, "pay_m": 818.0, "addr": 0.817, "ai_rate": 0.378, "tam_m": 126.3 },
-    "Supply Chain & Sourcing": { "kw": 18758, "sal": 30679, "pay_m": 575.5, "addr": 0.817, "ai_rate": 0.378, "tam_m": 88.9 },
+    "Supply Chain & Sourcing": { "kw": 13060, "sal": 30679, "pay_m": 400.7, "addr": 0.817, "ai_rate": 0.378, "tam_m": 62.0 },
     "After-Sales Service": { "kw": 12101, "sal": 30679, "pay_m": 371.2, "addr": 0.817, "ai_rate": 0.378, "tam_m": 57.3 },
     "Supplier Quality & Planning": { "kw": 5698, "sal": 30679, "pay_m": 174.8, "addr": 0.817, "ai_rate": 0.378, "tam_m": 27.0 },
   },
@@ -6019,7 +6019,25 @@ function renderDetailPanel(n, ctx) {
           var sectorAIRate = isAuto ? 37.8 : 39.1;
           var sectorSAM = isAuto ? 650 : 209; // Core + Extended combined brand-owner SAM
           var nodeShareOfSelected = (chain.kw / selectedKW * 100);
-          var nodePayroll = chain.kw * salary / 1e6;
+
+          // === Node-specific salary via career-stream weighting ===
+          var salaryBands = isAuto ? {
+            'Executive': 180000, 'Senior Management': 72000, 'Middle Management': 36000,
+            'Management': 36000, 'Professional': 24000, 'Technician': 14000,
+            'Para-Professional': 14000, 'Clerical': 10000, 'Sales': 14000, 'Para-Pro': 14000
+          } : {
+            'Executive': 145000, 'Senior Management': 54000, 'Middle Management': 26000,
+            'Management': 26000, 'Professional': 17000, 'Technician': 10000,
+            'Para-Professional': 10000, 'Clerical': 7000, 'Sales': 10000, 'Para-Pro': 10000
+          };
+          var nRolesSal = n.role_breakdown.roles || [];
+          var streamCountsSal = {};
+          nRolesSal.forEach(function(r){ var b = r.bucket || 'Professional'; streamCountsSal[b] = (streamCountsSal[b]||0) + 1; });
+          var salSum = 0, salN = 0;
+          Object.keys(streamCountsSal).forEach(function(b){ var band = salaryBands[b] || (isAuto?24000:17000); salSum += band * streamCountsSal[b]; salN += streamCountsSal[b]; });
+          var nodeSalary = salN ? (salSum / salN) : salary;
+
+          var nodePayroll = chain.kw * nodeSalary / 1e6;
           var nodeEffRate = ((chain.tam_m * 2) / nodePayroll * 100); // back-derived node-effective rate
           var nodeSAM = chain.tam_m;
 
@@ -6087,13 +6105,15 @@ function renderDetailPanel(n, ctx) {
           out += '<td style="' + sourceStyle + '"><a href="https://www.screener.in/company/compare/00000005/" target="_blank" style="color:#2563eb;text-decoration:underline;">Screener.in compiled P&amp;L</a> &middot; BRSR Principle 5 E3 pay-band disclosures &middot; Role Library node mapping</td>';
           out += '</tr>';
 
-          // Row 4: × Avg salary
-          out += '<tr>';
-          out += '<td style="' + rowStyle + 'font-weight:700;color:'+accent+';">4</td>';
-          out += '<td style="' + labelStyle + '">&times; Avg salary<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">Sector-flat &mdash; fully-loaded comp (base + variable + benefits)</div></td>';
-          out += '<td style="' + numStyle + '">$' + salary.toLocaleString() + '<br><span style="font-size:0.68rem;font-weight:400;color:#6b7280;">&asymp; &#8377;' + (salary*83/100000).toFixed(1) + 'L</span></td>';
-          out += '<td style="' + methodStyle + '">2026 compensation survey of ' + (isAuto?'49,434':'6,007') + ' white-collar employees across ' + (isAuto?'30':'13') + ' listed ' + sector + ' brand-owners; dataset cross-referenced with BRSR Principle 5 E3 pay-band disclosures for validation</td>';
-          out += '<td style="' + sourceStyle + '"><a href="https://www.screener.in/company/compare/'+(isAuto?'00000005':'00000027')+'/" target="_blank" style="color:#2563eb;text-decoration:underline;">Screener.in ' + sector + ' P&amp;L</a> &middot; BRSR Principle 5 E3 pay-bands</td>';
+          // Row 4: × Node-specific salary (already computed above)
+          var streamMixStr = Object.keys(streamCountsSal).map(function(b){ return b+': '+streamCountsSal[b]; }).join(' · ');
+
+          out += '<tr style="background:rgba(13,148,136,0.05);">';
+          out += '<td style="' + rowStyle + 'font-weight:700;color:#0d9488;">4</td>';
+          out += '<td style="' + labelStyle + 'color:#0d9488;">&times; Avg salary (career-stream weighted)<div style="font-size:0.65rem;font-weight:400;color:#0d9488;margin-top:2px;">NODE-SPECIFIC &mdash; weighted by this node\'s career-stream mix</div></td>';
+          out += '<td style="' + numStyle + 'color:#0d9488;">$' + Math.round(nodeSalary).toLocaleString() + '<br><span style="font-size:0.68rem;font-weight:400;color:#6b7280;">&asymp; &#8377;' + (nodeSalary*83/100000).toFixed(1) + 'L<br>(sector avg: $' + salary.toLocaleString() + ')</span></td>';
+          out += '<td style="' + methodStyle + '">Node\'s role mix: <strong>' + streamMixStr + '</strong>. Each career-stream carries a public India 2026 salary band (Executive ~$180K Auto / $145K FMCG &middot; Sr Mgmt ~$72K / $54K &middot; Mgmt ~$36K / $26K &middot; Professional ~$24K / $17K &middot; Para-Pro ~$14K / $10K). Node salary = headcount-weighted avg across stream mix. Nodes heavy on Executives/Sr Mgmt earn more; nodes heavy on Para-Pro earn less.</td>';
+          out += '<td style="' + sourceStyle + '"><a href="https://www.aon.com/india/total-rewards-and-performance/total-remuneration-survey" target="_blank" style="color:#2563eb;text-decoration:underline;">Aon India Total Remuneration Survey</a> &middot; <a href="https://www.mercer.com/en-in/solutions/workforce-and-careers/total-rewards/" target="_blank" style="color:#2563eb;text-decoration:underline;">Mercer India</a> &middot; <a href="https://www.naukri.com/nlp" target="_blank" style="color:#2563eb;text-decoration:underline;">Naukri Jobspeak</a></td>';
           out += '</tr>';
 
           // Row 5: Node payroll (derived)
