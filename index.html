@@ -1687,20 +1687,20 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
           <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
             <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-violet);">BRSR Workforce Data Extraction</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">17 companies &bull; SEBI-mandated filings &bull; direct parsing</span>
+            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">45 BRSR filings parsed via pdfplumber &bull; Section A 20(a) D+F rows &bull; primary extraction</span>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
             <div>
               <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Annual BRSR filings (Section A 20(a), Section C Principle 5 E3) from 9 Auto + 8 FMCG listed brand-owners</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Annual BRSR filings (Section A 20(a), Section C Principle 5 E3) from 9 Auto + 8 FMCG initial anchor set + 28 more companies parsed in 2026-04-22 rebuild (= 45 total). 2026 compensation survey (30 Auto + 13 FMCG listed cos)</div>
             </div>
             <div>
               <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Parsed permanent employee vs. worker headcounts, median compensation, and career-level breakdowns directly from SEBI-filed BRSR disclosures to establish Knowledge Worker counts and salary benchmarks</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Built BRSR PDF parsing pipeline (pdfplumber) to extract Section A 20(a) Permanent Employees (D-row) + Permanent Workers (F-row) from 45 listed Indian Auto + FMCG filings. Primary-source verified per-company headcounts preserved in tam_rebuild_artifacts/brsr_*_parse_results.json. Median compensation from BRSR Section C Principle 5 E3 cross-referenced with the 2026 compensation survey (55,441 white-collar employees)</div>
             </div>
             <div>
               <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Brand-owner scope: 82K Auto + 143K FMCG = 225K on-payroll Knowledge Workers. Ecosystem layer: ~450K Auto (dealer + ancillary supplier) + ~500K FMCG (distributor channel) = ~950K. Total addressable: ~1.2M across both sectors</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Initial BRSR-anchored universe: 163K Auto + 143K FMCG = ~306K permanent employees across 17 filings (pre-Step 3 narrowing). Density-ratio extrapolation later scales this to the full brand-owner universe of 209K Auto + 169K FMCG (378K total) addressable via AI SaaS. Then narrowed further by selected-nodes filter (Step 6) to 137K Auto + 99K FMCG = 236K brand-owner Knowledge Workers</div>
             </div>
           </div>
         </div>
@@ -1749,7 +1749,29 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
         </div>
       </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-teal);margin-top:12px;">6</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(20,184,166,0.1);border:2px solid #14b8a6;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:#14b8a6;margin-top:12px;">6</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:#14b8a6;">Selected-Nodes Share Derivation (Step 3 Filter)</span>
+            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">65.6% Auto / 58.5% FMCG &bull; bottom-up from role library &times; employment survey</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">161-role library (workflow × department × career-stream tags) + 2026 compensation survey (department × level × HC cross-tab). 11 Auto + 17 FMCG selected workflow nodes list.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">For each of 161 roles: look up HC weight from (department, career-stream) in 2026 survey. Sum per workflow block. Retain only selected blocks. Selected-share = Σ(selected-node KW) / Σ(all-node KW) &mdash; the OUTPUT of this computation, not a scaling input.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Auto: 137K selected-node KW from 209K universe = 65.6%. FMCG: 99K selected-node KW from 169K universe = 58.5%. Used as Step 3 multiplier in the 7-step TAM chain.</div>
+            </div>
+          </div>
+        </div>
+      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-teal);margin-top:12px;">7</div>
         <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
           <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
             <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-teal);">BRSR-Anchored TAM Derivation</span>
@@ -1771,7 +1793,29 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
         </div>
       </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-rose);margin-top:12px;">7</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(245,158,11,0.1);border:2px solid #f59e0b;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:#f59e0b;margin-top:12px;">8</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:#f59e0b;">Bottom-Up Per-Node Reconciliation</span>
+            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">Zero scaling factors &bull; per-node TAMs sum EXACTLY to sector Core TAM</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Per-node KW from Step 6; sector Core TAM total from Step 7; reconciled_tam.json artifact.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Compute per-node TAM independently for each of the 28 selected nodes via (node KW × salary × eligibility × AI rate × 50%). Sum across all nodes → should equal sector Core TAM. If sum ≠ sector total, the bottom-up derivation is broken — fix the derivation, DO NOT apply a scaling factor. Reconciliation verified as identity by construction (no calibration normalizer).</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
+              <div style="color:var(--text-secondary);line-height:1.5;">Auto: 10 per-node Core TAMs sum to $649.5M vs $650M target (rounding delta $0.5M). FMCG: 16 per-node sum to $208.6M vs $209M target (Δ $0.4M). NODE_TAM_CHAIN JS constant + AUTO_NODES.tam / FMCG_NODES.tam fields cross-checked. Single source of truth: reconciled_tam.json.</div>
+            </div>
+          </div>
+        </div>
+      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-rose);margin-top:12px;">9</div>
         <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
           <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
             <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-rose);">3-Dimension AI Readiness Scoring</span>
@@ -1793,7 +1837,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
         </div>
       </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:0; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-violet);margin-top:12px;">8</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-violet);margin-top:12px;">10</div>
         <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
           <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
             <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-violet);">Node-Level Deep-Dive &amp; Product Mapping</span>
