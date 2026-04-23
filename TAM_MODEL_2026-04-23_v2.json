@@ -1,0 +1,342 @@
+{
+  "version": "2026-04-23-v2",
+  "supersedes": "2026-04-23 (v1, 65.6%/58.5% top-down selected share)",
+  "total_tam_b": 1.3,
+  "total_tam_m_exact": 1250,
+  "total_tam_headline": "$1.3B",
+  "methodology": "3-SAM framework: Core (6-tier bottom-up) + Extended (selected \u00d7 compressed factors) + Ecosystem (channel). Core SAM now uses NODE-SPECIFIC salary/elig/AI rate \u2014 no sector-flat factors. Selected share is library-grounded bottom-up (not assumed).",
+  "library_methodology": {
+    "method": "6-tier (dept \u00d7 survey legend tier) allocation with 100% library coverage",
+    "auto_library_roles": 229,
+    "fmcg_library_roles": 143,
+    "auto_library_coverage_pct": 99.97,
+    "fmcg_library_coverage_pct": 100.0,
+    "auto_selected_share": 0.5051,
+    "fmcg_selected_share": 0.6067,
+    "note": "Share = \u03a3(selected-block KW) / universe KW. Bottom-up from library + compensation survey (dept \u00d7 6-tier buckets). Survey legend tiers: Executive / Senior Mgmt / Mid Mgmt / Junior Mgmt / Individual Contributor / Para Professionals."
+  },
+  "core_sam": {
+    "total_m": 425,
+    "auto_m": 280,
+    "fmcg_m": 145,
+    "auto_selected_kw": 103542,
+    "fmcg_selected_kw": 100103,
+    "auto_core_share": 0.5902439024390244,
+    "fmcg_core_share": 0.6060606060606061,
+    "derivation": "Core universe (121K Auto / 100K FMCG) \u00d7 50.5% Auto / 60.7% FMCG selected share \u00d7 node-specific salary \u00d7 node-specific elig \u00d7 node-specific AI rate \u00d7 50% discount"
+  },
+  "extended_sam": {
+    "total_m": 166,
+    "auto_m": 109,
+    "fmcg_m": 57,
+    "auto_firms": 300,
+    "fmcg_firms": 200,
+    "auto_universe_kw": 84000,
+    "fmcg_universe_kw": 65000,
+    "auto_selected_kw": 42426,
+    "fmcg_selected_kw": 39435,
+    "salary_auto_compressed": 23930,
+    "salary_fmcg_compressed": 12299,
+    "ai_rate_auto_compressed": 0.258,
+    "ai_rate_fmcg_compressed": 0.271,
+    "derivation": "Extended universe \u00d7 same selected share \u00d7 22% salary compression \u00d7 12pp AI rate compression \u00d7 50% discount"
+  },
+  "ecosystem_sam": {
+    "total_m": 659,
+    "auto_m": 381,
+    "fmcg_m": 278,
+    "auto_kw": 450000,
+    "fmcg_kw": 500000,
+    "auto_cohorts": "250K FADA dealer staff + 200K ACMA ancillary (below BRSR threshold)",
+    "fmcg_cohorts": "325K AICPDF distributor back-office + 175K FICCI merchandiser agencies",
+    "note": "Unchanged \u2014 channel cohort not affected by brand-owner library methodology"
+  },
+  "sector_totals": {
+    "auto_m": 770,
+    "fmcg_m": 480
+  },
+  "node_tam_chain": {
+    "basis": "Core-only",
+    "formula": "kw \u00d7 sal \u00d7 elig \u00d7 ai \u00d7 0.5 \u00d7 core_share / 1e6",
+    "auto_sum_m": 279.9,
+    "fmcg_sum_m": 145.4,
+    "auto_core_share": 0.5902439024390244,
+    "fmcg_core_share": 0.6060606060606061,
+    "auto_weighted_elig": 0.831,
+    "fmcg_weighted_elig": 0.864,
+    "auto_weighted_ai": 0.342,
+    "fmcg_weighted_ai": 0.412,
+    "reconciliation": "Per-node Core TAMs sum EXACTLY to sector Core TAM by construction (no scaling factor)",
+    "auto_nodes": {
+      "Vehicle Program Leadership": {
+        "kw": 17017,
+        "sal": 36137,
+        "pay_m": 615.0,
+        "addr": 0.667,
+        "ai_rate": 0.358,
+        "tam_m": 43.3,
+        "core_share": 0.59
+      },
+      "APQP / PPAP Gate": {
+        "kw": 7285,
+        "sal": 26316,
+        "pay_m": 191.7,
+        "addr": 0.875,
+        "ai_rate": 0.331,
+        "tam_m": 16.4,
+        "core_share": 0.59
+      },
+      "Supplier Quality & Planning": {
+        "kw": 1488,
+        "sal": 39912,
+        "pay_m": 59.4,
+        "addr": 0.875,
+        "ai_rate": 0.331,
+        "tam_m": 5.1,
+        "core_share": 0.59
+      },
+      "Supply Chain & Sourcing": {
+        "kw": 13323,
+        "sal": 29589,
+        "pay_m": 394.2,
+        "addr": 0.833,
+        "ai_rate": 0.321,
+        "tam_m": 31.1,
+        "core_share": 0.59
+      },
+      "Operations Leadership": {
+        "kw": 1238,
+        "sal": 77427,
+        "pay_m": 95.8,
+        "addr": 0.8,
+        "ai_rate": 0.334,
+        "tam_m": 7.6,
+        "core_share": 0.59
+      },
+      "Finance & HR": {
+        "kw": 24712,
+        "sal": 30444,
+        "pay_m": 752.3,
+        "addr": 0.667,
+        "ai_rate": 0.296,
+        "tam_m": 43.8,
+        "core_share": 0.59
+      },
+      "Dealership Management": {
+        "kw": 10975,
+        "sal": 32911,
+        "pay_m": 361.2,
+        "addr": 1.0,
+        "ai_rate": 0.42,
+        "tam_m": 44.8,
+        "core_share": 0.59
+      },
+      "After-Sales Service": {
+        "kw": 3332,
+        "sal": 24512,
+        "pay_m": 81.7,
+        "addr": 1.0,
+        "ai_rate": 0.395,
+        "tam_m": 9.5,
+        "core_share": 0.59
+      },
+      "Warranty & Parts": {
+        "kw": 3277,
+        "sal": 29572,
+        "pay_m": 96.9,
+        "addr": 1.0,
+        "ai_rate": 0.553,
+        "tam_m": 15.8,
+        "core_share": 0.59
+      },
+      "Testing & Validation": {
+        "kw": 14487,
+        "sal": 31347,
+        "pay_m": 454.1,
+        "addr": 1.0,
+        "ai_rate": 0.296,
+        "tam_m": 39.7,
+        "core_share": 0.59
+      },
+      "Showroom Sales": {
+        "kw": 6408,
+        "sal": 32604,
+        "pay_m": 208.9,
+        "addr": 1.0,
+        "ai_rate": 0.37,
+        "tam_m": 22.8,
+        "core_share": 0.59
+      }
+    },
+    "fmcg_nodes": {
+      "S&OP / Demand Planning": {
+        "kw": 4423,
+        "sal": 10880,
+        "pay_m": 48.1,
+        "addr": 0.875,
+        "ai_rate": 0.417,
+        "tam_m": 5.3,
+        "core_share": 0.606
+      },
+      "Supply Planning": {
+        "kw": 4423,
+        "sal": 10880,
+        "pay_m": 48.1,
+        "addr": 0.875,
+        "ai_rate": 0.417,
+        "tam_m": 5.3,
+        "core_share": 0.606
+      },
+      "Procurement": {
+        "kw": 2526,
+        "sal": 29469,
+        "pay_m": 74.4,
+        "addr": 0.75,
+        "ai_rate": 0.337,
+        "tam_m": 5.7,
+        "core_share": 0.606
+      },
+      "Food Safety & QA": {
+        "kw": 3234,
+        "sal": 11438,
+        "pay_m": 37.0,
+        "addr": 0.833,
+        "ai_rate": 0.416,
+        "tam_m": 3.9,
+        "core_share": 0.606
+      },
+      "Marketing Leadership": {
+        "kw": 4930,
+        "sal": 18730,
+        "pay_m": 92.3,
+        "addr": 0.833,
+        "ai_rate": 0.395,
+        "tam_m": 9.2,
+        "core_share": 0.606
+      },
+      "Trade & Digital Marketing": {
+        "kw": 4930,
+        "sal": 18730,
+        "pay_m": 92.3,
+        "addr": 0.833,
+        "ai_rate": 0.395,
+        "tam_m": 9.2,
+        "core_share": 0.606
+      },
+      "Sales Leadership": {
+        "kw": 1391,
+        "sal": 31878,
+        "pay_m": 44.3,
+        "addr": 0.857,
+        "ai_rate": 0.347,
+        "tam_m": 4.0,
+        "core_share": 0.606
+      },
+      "Key Accounts & Channels": {
+        "kw": 1391,
+        "sal": 31878,
+        "pay_m": 44.3,
+        "addr": 0.857,
+        "ai_rate": 0.347,
+        "tam_m": 4.0,
+        "core_share": 0.606
+      },
+      "Finance": {
+        "kw": 13935,
+        "sal": 18994,
+        "pay_m": 264.7,
+        "addr": 0.5,
+        "ai_rate": 0.77,
+        "tam_m": 30.9,
+        "core_share": 0.606
+      },
+      "Human Resources": {
+        "kw": 4697,
+        "sal": 22168,
+        "pay_m": 104.1,
+        "addr": 0.5,
+        "ai_rate": 0.42,
+        "tam_m": 6.6,
+        "core_share": 0.606
+      },
+      "Process Engineering": {
+        "kw": 28709,
+        "sal": 8306,
+        "pay_m": 238.5,
+        "addr": 1.0,
+        "ai_rate": 0.296,
+        "tam_m": 21.4,
+        "core_share": 0.606
+      },
+      "Quality Control & Lab": {
+        "kw": 6733,
+        "sal": 9000,
+        "pay_m": 60.6,
+        "addr": 1.0,
+        "ai_rate": 0.321,
+        "tam_m": 5.9,
+        "core_share": 0.606
+      },
+      "Field Sales": {
+        "kw": 16611,
+        "sal": 13561,
+        "pay_m": 225.3,
+        "addr": 1.0,
+        "ai_rate": 0.37,
+        "tam_m": 25.3,
+        "core_share": 0.606
+      },
+      "Retail Execution": {
+        "kw": 55,
+        "sal": 43596,
+        "pay_m": 2.4,
+        "addr": 1.0,
+        "ai_rate": 0.42,
+        "tam_m": 0.3,
+        "core_share": 0.606
+      },
+      "Analytics & Revenue Mgmt": {
+        "kw": 467,
+        "sal": 32745,
+        "pay_m": 15.3,
+        "addr": 1.0,
+        "ai_rate": 0.337,
+        "tam_m": 1.6,
+        "core_share": 0.606
+      },
+      "Regulatory & Compliance": {
+        "kw": 879,
+        "sal": 30743,
+        "pay_m": 27.0,
+        "addr": 1.0,
+        "ai_rate": 0.42,
+        "tam_m": 3.4,
+        "core_share": 0.606
+      },
+      "Customer Service": {
+        "kw": 769,
+        "sal": 23470,
+        "pay_m": 18.1,
+        "addr": 1.0,
+        "ai_rate": 0.62,
+        "tam_m": 3.4,
+        "core_share": 0.606
+      }
+    }
+  },
+  "hardening_notes": [
+    "Library is 100% coverage vs all survey HC buckets (dept \u00d7 6-tier)",
+    "Salary is node-specific (HC-weighted avg of dept \u00d7 tier survey salary across library roles)",
+    "Elig is node-specific (share of role_breakdown roles with rate > 0)",
+    "AI rate is node-specific (mean rate across eligible roles)",
+    "Selected share derived bottom-up (50.5% Auto, 60.7% FMCG) \u2014 not a priori assumption",
+    "Reconciliation verified: \u03a3(node tam_m) = sector Core SAM"
+  ],
+  "remaining_weak_assumptions": [
+    "Equal-split allocation within (dept, tier) bucket \u2014 unknown actual role-count ratios",
+    "Per-role AI rate values are author-assigned against a16z/McKinsey taxonomies, not individually validated",
+    "50% discount is a judgment factor (not empirically sourced)",
+    "FMCG survey scale factor 27\u00d7 is large extrapolation from 6K sample to 165K universe",
+    "BRSR sample skews toward top-30 listed cos (higher salary, more formal structure than mid-market)"
+  ]
+}
