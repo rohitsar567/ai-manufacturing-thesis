@@ -2500,258 +2500,230 @@
     "chain_formula": "kw \u00d7 sal \u00d7 elig \u00d7 ai \u00d7 0.5 \u00d7 core_share / 1e6",
     "auto_t1": {
       "Vehicle Program Leadership": {
-        "kw": 17017,
+        "kw": 10057,
         "sal": 36137,
-        "pay_m": 615.0,
+        "pay_m": 363.4,
         "addr": 0.667,
         "ai_rate": 0.358,
-        "tam_m": 43.3,
-        "core_share": 0.59
+        "tam_m": 43.4
       },
       "APQP / PPAP Gate": {
-        "kw": 7285,
+        "kw": 4305,
         "sal": 26316,
-        "pay_m": 191.7,
+        "pay_m": 113.3,
         "addr": 0.875,
         "ai_rate": 0.331,
-        "tam_m": 16.4,
-        "core_share": 0.59
+        "tam_m": 16.4
       },
       "Supplier Quality & Planning": {
-        "kw": 1488,
+        "kw": 879,
         "sal": 39912,
-        "pay_m": 59.4,
+        "pay_m": 35.1,
         "addr": 0.875,
         "ai_rate": 0.331,
-        "tam_m": 5.1,
-        "core_share": 0.59
+        "tam_m": 5.1
       },
       "Supply Chain & Sourcing": {
-        "kw": 13323,
+        "kw": 7874,
         "sal": 29589,
-        "pay_m": 394.2,
+        "pay_m": 233.0,
         "addr": 0.833,
         "ai_rate": 0.321,
-        "tam_m": 31.1,
-        "core_share": 0.59
+        "tam_m": 31.1
       },
       "Operations Leadership": {
-        "kw": 1238,
+        "kw": 732,
         "sal": 77427,
-        "pay_m": 95.8,
+        "pay_m": 56.7,
         "addr": 0.8,
         "ai_rate": 0.334,
-        "tam_m": 7.6,
-        "core_share": 0.59
+        "tam_m": 7.6
       },
       "Finance & HR": {
-        "kw": 24712,
+        "kw": 14605,
         "sal": 30444,
-        "pay_m": 752.3,
+        "pay_m": 444.6,
         "addr": 0.667,
         "ai_rate": 0.296,
-        "tam_m": 43.8,
-        "core_share": 0.59
+        "tam_m": 43.9
       },
       "Dealership Management": {
-        "kw": 10975,
+        "kw": 6486,
         "sal": 32911,
-        "pay_m": 361.2,
+        "pay_m": 213.5,
         "addr": 1.0,
         "ai_rate": 0.42,
-        "tam_m": 44.8,
-        "core_share": 0.59
+        "tam_m": 44.8
       },
       "After-Sales Service": {
-        "kw": 3332,
+        "kw": 1969,
         "sal": 24512,
-        "pay_m": 81.7,
+        "pay_m": 48.3,
         "addr": 1.0,
         "ai_rate": 0.395,
-        "tam_m": 9.5,
-        "core_share": 0.59
+        "tam_m": 9.5
       },
       "Warranty & Parts": {
-        "kw": 3277,
+        "kw": 1937,
         "sal": 29572,
-        "pay_m": 96.9,
+        "pay_m": 57.3,
         "addr": 1.0,
         "ai_rate": 0.553,
-        "tam_m": 15.8,
-        "core_share": 0.59
+        "tam_m": 15.8
       },
       "Testing & Validation": {
-        "kw": 14487,
+        "kw": 8562,
         "sal": 31347,
-        "pay_m": 454.1,
+        "pay_m": 268.4,
         "addr": 1.0,
         "ai_rate": 0.296,
-        "tam_m": 39.7,
-        "core_share": 0.59
+        "tam_m": 39.7
       },
       "Showroom Sales": {
-        "kw": 6408,
+        "kw": 3787,
         "sal": 32604,
-        "pay_m": 208.9,
+        "pay_m": 123.5,
         "addr": 1.0,
         "ai_rate": 0.37,
-        "tam_m": 22.8,
-        "core_share": 0.59
+        "tam_m": 22.8
       }
     },
     "fmcg_t1": {
       "S&OP / Demand Planning": {
-        "kw": 4423,
+        "kw": 2680,
         "sal": 10880,
-        "pay_m": 48.1,
+        "pay_m": 29.2,
         "addr": 0.875,
         "ai_rate": 0.417,
-        "tam_m": 5.3,
-        "core_share": 0.606
+        "tam_m": 5.3
       },
       "Supply Planning": {
-        "kw": 4423,
+        "kw": 2680,
         "sal": 10880,
-        "pay_m": 48.1,
+        "pay_m": 29.2,
         "addr": 0.875,
         "ai_rate": 0.417,
-        "tam_m": 5.3,
-        "core_share": 0.606
+        "tam_m": 5.3
       },
       "Procurement": {
-        "kw": 2526,
+        "kw": 1531,
         "sal": 29469,
-        "pay_m": 74.4,
+        "pay_m": 45.1,
         "addr": 0.75,
         "ai_rate": 0.337,
-        "tam_m": 5.7,
-        "core_share": 0.606
+        "tam_m": 5.7
       },
       "Food Safety & QA": {
-        "kw": 3234,
+        "kw": 1960,
         "sal": 11438,
-        "pay_m": 37.0,
+        "pay_m": 22.4,
         "addr": 0.833,
         "ai_rate": 0.416,
-        "tam_m": 3.9,
-        "core_share": 0.606
+        "tam_m": 3.9
       },
       "Marketing Leadership": {
-        "kw": 4930,
+        "kw": 2988,
         "sal": 18730,
-        "pay_m": 92.3,
+        "pay_m": 56.0,
         "addr": 0.833,
         "ai_rate": 0.395,
-        "tam_m": 9.2,
-        "core_share": 0.606
+        "tam_m": 9.2
       },
       "Trade & Digital Marketing": {
-        "kw": 4930,
+        "kw": 2988,
         "sal": 18730,
-        "pay_m": 92.3,
+        "pay_m": 56.0,
         "addr": 0.833,
         "ai_rate": 0.395,
-        "tam_m": 9.2,
-        "core_share": 0.606
+        "tam_m": 9.2
       },
       "Sales Leadership": {
-        "kw": 1391,
+        "kw": 843,
         "sal": 31878,
-        "pay_m": 44.3,
+        "pay_m": 26.9,
         "addr": 0.857,
         "ai_rate": 0.347,
-        "tam_m": 4.0,
-        "core_share": 0.606
+        "tam_m": 4.0
       },
       "Key Accounts & Channels": {
-        "kw": 1391,
+        "kw": 843,
         "sal": 31878,
-        "pay_m": 44.3,
+        "pay_m": 26.9,
         "addr": 0.857,
         "ai_rate": 0.347,
-        "tam_m": 4.0,
-        "core_share": 0.606
+        "tam_m": 4.0
       },
       "Finance": {
-        "kw": 13935,
+        "kw": 8445,
         "sal": 18994,
-        "pay_m": 264.7,
+        "pay_m": 160.4,
         "addr": 0.5,
         "ai_rate": 0.77,
-        "tam_m": 30.9,
-        "core_share": 0.606
+        "tam_m": 30.9
       },
       "Human Resources": {
-        "kw": 4697,
+        "kw": 2846,
         "sal": 22168,
-        "pay_m": 104.1,
+        "pay_m": 63.1,
         "addr": 0.5,
         "ai_rate": 0.42,
-        "tam_m": 6.6,
-        "core_share": 0.606
+        "tam_m": 6.6
       },
       "Process Engineering": {
-        "kw": 28709,
+        "kw": 17398,
         "sal": 8306,
-        "pay_m": 238.5,
+        "pay_m": 144.5,
         "addr": 1.0,
         "ai_rate": 0.296,
-        "tam_m": 21.4,
-        "core_share": 0.606
+        "tam_m": 21.4
       },
       "Quality Control & Lab": {
-        "kw": 6733,
+        "kw": 4080,
         "sal": 9000,
-        "pay_m": 60.6,
+        "pay_m": 36.7,
         "addr": 1.0,
         "ai_rate": 0.321,
-        "tam_m": 5.9,
-        "core_share": 0.606
+        "tam_m": 5.9
       },
       "Field Sales": {
-        "kw": 16611,
+        "kw": 10066,
         "sal": 13561,
-        "pay_m": 225.3,
+        "pay_m": 136.5,
         "addr": 1.0,
         "ai_rate": 0.37,
-        "tam_m": 25.3,
-        "core_share": 0.606
+        "tam_m": 25.3
       },
       "Retail Execution": {
-        "kw": 55,
+        "kw": 33,
         "sal": 43596,
-        "pay_m": 2.4,
+        "pay_m": 1.4,
         "addr": 1.0,
         "ai_rate": 0.42,
-        "tam_m": 0.3,
-        "core_share": 0.606
+        "tam_m": 0.3
       },
       "Analytics & Revenue Mgmt": {
-        "kw": 467,
+        "kw": 283,
         "sal": 32745,
-        "pay_m": 15.3,
+        "pay_m": 9.3,
         "addr": 1.0,
         "ai_rate": 0.337,
-        "tam_m": 1.6,
-        "core_share": 0.606
+        "tam_m": 1.6
       },
       "Regulatory & Compliance": {
-        "kw": 879,
+        "kw": 533,
         "sal": 30743,
-        "pay_m": 27.0,
+        "pay_m": 16.4,
         "addr": 1.0,
         "ai_rate": 0.42,
-        "tam_m": 3.4,
-        "core_share": 0.606
+        "tam_m": 3.4
       },
       "Customer Service": {
-        "kw": 769,
+        "kw": 466,
         "sal": 23470,
-        "pay_m": 18.1,
+        "pay_m": 10.9,
         "addr": 1.0,
         "ai_rate": 0.62,
-        "tam_m": 3.4,
-        "core_share": 0.606
+        "tam_m": 3.4
       }
     },
     "auto_t1_sum_m": 279.9,
@@ -2761,7 +2733,8 @@
     "auto_sector_tam_m": 770,
     "fmcg_sector_tam_m": 480,
     "combined_tam_m": 1250,
-    "packages": {}
+    "packages": {},
+    "note": "KW column is Core-only (121K \u00d7 50.5% Auto, 100K \u00d7 60.7% FMCG). TAM formula: kw \u00d7 sal \u00d7 elig \u00d7 ai \u00d7 0.5. No core_share multiplier \u2014 kw is already Core-reduced."
   },
   "DEPRECATED_NOTE_NODE_SPECIFIC_REBUILD": "2026-04-23: Chain rebuilt with per-node salary/elig/AI rate. Previous Core-SAM used sector-flat factors. See TAM_MODEL_2026-04-23_v2.json for full derivation."
 }
