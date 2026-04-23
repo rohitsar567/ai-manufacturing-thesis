@@ -6064,12 +6064,16 @@ function renderDetailPanel(n, ctx) {
       </div>
       <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;">
         <div style="font-size:0.82rem;color:#374151;line-height:1.6;margin-bottom:14px;">
-          <strong>Node Brand-owner SAM</strong> is derived from the same 7-step chain as the sector SAM tables in <a href="#tam" style="color:#2563eb;text-decoration:underline;">Section 04</a>, with one node-specific pivot: the node's share of selected-scope Knowledge Workers (Step 3). The other inputs &mdash; universe KW, sector salary, role eligibility, task AI rate &mdash; are sector-flat survey averages; role-level variation within this node is shown in the role table below. Per-node values sum EXACTLY to the sector Brand-owner SAM by construction (no scaling factors).
+          <strong>Node Brand-owner SAM</strong> is derived from the same 7-step chain as the sector SAM tables in <a href="#tam" style="color:#2563eb;text-decoration:underline;">Section 04</a>, with node-specific values across ALL inputs: the node's share of selected-scope Knowledge Workers, salary (HC-weighted avg across the dept &times; tier survey buckets for this node's library roles), role eligibility (share of role_breakdown roles with automation rate &gt; 0), and task AI rate (mean rate across eligible roles). No sector-flat shortcuts &mdash; every factor varies by node. Per-node values sum EXACTLY to the sector Brand-owner SAM by construction (no scaling factors).
         </div>
         ${(function(){
           // === NODE TAM 7-ROW DERIVATION TABLE ===
-          // Mirrors Section 04 SAM tables. Node-specific pivot: Row 3 (node share of selected KW).
-          // All other inputs are sector-flat survey averages; role-level variation shown in role table below.
+          // Mirrors Section 04 SAM tables. ALL inputs are node-specific:
+          //  - KW from 6-tier bottom-up allocation (library role × survey dept × tier bucket)
+          //  - Salary is HC-weighted avg of survey (dept × tier) salaries for library roles feeding this node
+          //  - Elig = share of role_breakdown roles with rate > 0
+          //  - AI rate = mean rate across eligible roles
+          // No sector-flat shortcuts; per-node sums reconcile exactly to sector Core SAM.
           if (!n.role_breakdown || !window.NODE_TAM_CHAIN) return '';
           var key = isAuto ? 'auto' : 'fmcg';
           var chain = window.NODE_TAM_CHAIN[key] && window.NODE_TAM_CHAIN[key][n.name];
