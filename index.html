@@ -1683,266 +1683,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
     </div>
   
-    <div style="margin-top:16px;border-top:1px solid #e5e7eb;padding-top:16px;">
-      <div class="section-label" style="margin-bottom:8px; text-align:center;">RESEARCH METHODOLOGY</div>
-<!-- Research Flow Diagram -->
-    <div style="margin-bottom:40px; max-width:1100px; margin-left:auto; margin-right:auto;">
-      <details style="background:var(--bg-card); border:2px solid var(--accent-teal); border-radius:14px; padding:0; overflow:hidden; box-shadow:0 2px 12px rgba(13,148,136,0.08); transition:all .2s;">
-        <summary style="padding:20px 24px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <div style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--text-primary); line-height:1.2;">Research Methodology</div>
-            <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:6px; line-height:1.55;">
-              <div style="margin-bottom:8px;"><strong style="color:var(--text-primary);">10-step research process</strong> &mdash; each step builds on the prior, producing the $1.8B TAM by construction.</div>
-              <ol style="margin:0; padding-left:22px; font-size:0.8rem; line-height:1.6; color:var(--text-secondary);">
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">Sector landscape &amp; financial profiling</strong> &mdash; 6 manufacturing sectors profiled across revenue, margins, workforce size, Knowledge Worker ratios.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">7-dimension sector scoring</strong> &mdash; Auto (8.0/10) and FMCG (8.6/10) selected for deep-dive over ESDM, Pharma, Chemicals, Metals.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">BRSR workforce extraction</strong> &mdash; 45 BRSR Section A 20(a) filings parsed via pdfplumber yielding <strong>219K Auto + 136K FMCG = 355K brand-owner KW universe</strong>.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">Role library &amp; career-stream classification</strong> &mdash; 372 roles (229 Auto + 143 FMCG) mapped to a 6-survey-tier × 12-function-family crosswalk with externally-sourced AI automation rates.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">Workflow mapping &amp; node selection</strong> &mdash; 57 workflow nodes, 25 selected (11 Auto + 14 FMCG); <strong>selected-node KW share: 67.5% Auto / 76.9% FMCG</strong>.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">3-SAM TAM derivation</strong> &mdash; Core SAM $1,065M + Extended SAM $105M + Ecosystem SAM $659M = <strong>$1.8B TAM</strong>; each SAM follows the 7-step chain (Universe &times; KW &times; Selected-share &times; Salary &times; Eligibility &times; Task AI rate &times; 50% price discount).</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">3-dimension AI Readiness scoring</strong> &mdash; Tech Maturity + Knowledge Work Density + India Deployment Evidence; per-node scores 4.7&ndash;10.0.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">Node deep-dive &amp; product mapping</strong> &mdash; 120+ AI products mapped to 19 VC investment theses across the 25 selected nodes.</li>
-                <li style="margin-bottom:5px;"><strong style="color:var(--text-primary);">Ecosystem SAM channel workforce</strong> &mdash; FADA (Auto dealers) + ACMA (ancillary suppliers) + AICPDF (FMCG distributors) + FICCI (merchandiser agencies) primary-source counts.</li>
-                <li style="margin-bottom:0;"><strong style="color:var(--text-primary);">Data-artifact preservation</strong> &mdash; per-node TAM JSON, 45 BRSR-parsed CSVs, 372-role xlsx (v3) + CROSSWALK_TIER_FUNCTION_v1.md preserved so any future session can reconstruct every number without redoing the research.</li>
-              </ol>
-              <div style="margin-top:8px; font-size:0.72rem; color:var(--text-dim); font-style:italic;">Full methodology expand below &middot; full audit trail in Section 07 Appendix &middot; rebuild 2026-04-22.</div>
-            </div>
-          </div>
-          <span class="expand-cta" style="font-family:var(--font-display); font-size:0.78rem; font-weight:700; color:#fff; background:var(--accent-teal); padding:8px 16px; border-radius:8px; margin-left:20px; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(13,148,136,0.25); letter-spacing:0.02em;">Click to expand <span style="display:inline-block; transition:transform .2s;">&#9660;</span></span>
-        </summary>
-        <div style="padding:0 24px 24px; border-top:1px solid var(--border-subtle);">
 
-<!-- PHASES -->
-      <div style="margin-top:16px;">
-<div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-teal);margin-top:12px;">1</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-teal);">Sector Landscape &amp; Financial Profiling</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">6 sectors &bull; 48 financial metrics &bull; 25+ data sources</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;"><a href="https://www.ibef.org/" target="_blank" rel="noopener">IBEF</a> sector reports, <a href="https://www.mospi.gov.in/" target="_blank" rel="noopener">MoSPI</a> data, <a href="https://www.siam.in/members.aspx?mpgid=1&amp;pgidtrail=4" target="_blank" rel="noopener">SIAM</a> statistics, <a href="https://www.mordorintelligence.com/" target="_blank" rel="noopener">Mordor Intelligence</a>, CRISIL ratings</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Profiled 6 manufacturing sectors (Auto, FMCG, ESDM, Pharma, Chemicals, Metals) across revenue, margins, CAGR, employee counts, knowledge worker ratios, and labor cost structures</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Comparative sector profiles with financial and workforce data across all 6 sectors</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-rose);margin-top:12px;">2</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-rose);">7-Dimension Sector Scoring</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">6 sectors &times; 7 dimensions &bull; each scored 1&ndash;10</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Sector financial profiles, <a href="https://nasscom.in/" target="_blank" rel="noopener">NASSCOM</a> AI Adoption Index, labour law analysis, BRSR filings</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Scored each sector 1&ndash;10 on TAM size, workforce friction, outsourcing propensity, AI &amp; digital readiness, legal friction, financial capacity, and overall readiness. Composite = average of 7 dimensions</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">FMCG 8.6/10 (1st), Automobile 8.0/10 (2nd) &mdash; selected for deep-dive analysis</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-violet);margin-top:12px;">3</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-violet);">BRSR Workforce Data Extraction (pdfplumber pipeline)</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">45 BRSR filings directly parsed &bull; SEBI Section A 20(a) primary source &bull; density-ratio extrapolation</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Annual BRSR filings (Section A 20(a) Employees vs. Workers split, Section C Principle 5 E3 pay bands) from 45 listed brand-owners (Auto: Maruti, Tata Motors, M&amp;M, Bajaj, Hero, TVS, Eicher, Ashok Leyland, Bosch + ancillary; FMCG: HUL, ITC, Nestle, Britannia, Dabur, Marico, Colgate, Tata Consumer + others)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Built a pdfplumber parser to extract Section A 20(a) tables directly from each filing (Permanent Employees D + Permanent Workers F). Computed KW-to-revenue density ratios (75 Auto / 122 FMCG KW per &#8377;1,000 Cr) and extrapolated to the full universe (~530 Auto + ~270 FMCG brand-owners) anchored against sector revenue</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Brand-owner Knowledge Worker universe: <strong>219K Auto + 136K FMCG = 355K total</strong>. After Step 5 selected-node filter (67.5% Auto / 76.9% FMCG): <strong>147,770 Auto + 104,811 FMCG = 252,581 selected-node brand-owner KW</strong>. Channel ecosystem (Step 9): <strong>450K Auto</strong> (FADA dealers + ACMA ancillary WC) <strong>+ 500K FMCG</strong> (AICPDF distributors + merchandiser agencies) = 950K. Total addressable workforce: <strong>~1.2M</strong>. Primary-source CSVs preserved as artifacts (Step 10)</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(217,119,6,0.1);border:2px solid var(--accent-amber);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-amber);margin-top:12px;">4</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-amber);">Role Library &amp; Career-Stream Classification</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">372 roles (Auto 229 + FMCG 143) &bull; 6 survey tiers &times; 12 function families &bull; sourced AI automation rates</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;"><a href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET OnLine</a>, <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener">BLS OOH</a>, <a href="https://www.mercer.com/" target="_blank" rel="noopener">Mercer</a> &amp; <a href="https://www.aon.com/" target="_blank" rel="noopener">Aon</a> India job frameworks, LinkedIn postings, <a href="https://www.sebi.gov.in/sebi_data/attachdocs/1684467753787.pdf" target="_blank" rel="noopener">BRSR Principle 5 E3 pay-band disclosures</a></div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Catalogued 372 Knowledge-Worker role entries (229 Auto + 143 FMCG, library rebuild April 2026) and mapped each to a two-axis grid: 6 survey tiers (Executive / Senior Mgmt / Mid Mgmt / Junior Mgmt / Individual Contributor / Para Professionals) × 12 function families (Sales &amp; Field / Customer Operations / Marketing / Supply Chain / Operations &amp; Manufacturing / Quality &amp; Compliance / R&amp;D / IT &amp; Software / Finance / HR / Strategy &amp; Program / Admin). Each (tier, family) cell inherits an AI automation rate externally sourced from <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">WEF Future of Jobs 2025</a>, <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" rel="noopener">McKinsey MGI 2023</a>, <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf" target="_blank" rel="noopener">Frey-Osborne 2013</a>, <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank" rel="noopener">Goldman Sachs 2023</a></div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Per-role task-automation rates (0% Executive &rarr; ~77% Clerical); role-weighted sector composite: 40% Auto (avg, node range 27-46%), 38% FMCG (avg, node range 28-45%)</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(37,99,235,0.1);border:2px solid var(--accent-blue);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-blue);margin-top:12px;">5</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-blue);">Sequential Workflow Mapping &amp; Node Selection</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">372 roles &rarr; 57 workflow nodes &bull; 25 selected (11 Auto + 14 FMCG) &bull; 4 value-chain pillars</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Role Library with career-stream classifications, Indian brand-owner organisational structures, AI-readiness scoring (3 dimensions)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Mapped every role into end-to-end value-chain workflows across 4 pillars: Supply &amp; Procurement, Manufacturing &amp; Operations, Demand/Sales/Distribution, Support Functions. 57 total workflow nodes (28 Auto + 29 FMCG). Selected 28 for deep-dive scope (11 Auto + 14 FMCG) based on AI-readiness criteria (AI Tech Maturity + Knowledge Work Density + India Deployment Evidence)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Complete workflow map with <strong>25 selected</strong> (AI-ready, brand-owner payroll-material) + <strong>32 excluded</strong> (blue-collar plant-OT or lower AI maturity) nodes. Selected-node KW share: 67.5% Auto / 76.9% FMCG of brand-owner KW universe</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-teal);margin-top:12px;">6</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-teal);">3-SAM TAM Derivation (Core + Extended + Ecosystem)</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">$1.8B TAM = Core SAM $1,065M + Extended SAM $105M + Ecosystem SAM $659M</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">BRSR Section A 20(a) workforce data (45 filings, pdfplumber-parsed); 70-company verified brand-owner universe CSVs; 2026 compensation survey (49K Auto + 6K FMCG); Role Library AI rates; FADA/ACMA/AICPDF/FICCI channel-ecosystem surveys</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Three Serviceable Addressable Markets, each with its own 7-step chain (Universe &times; KW &times; Selected-nodes share &times; Salary &times; Role eligibility &times; Task AI rate &times; 50% discount): <strong>Core SAM</strong> &mdash; enterprise brand-owners (&ge;&#8377;1,000 Cr, closable today); <strong>Extended SAM</strong> &mdash; mid-market brand-owners (&ge;&#8377;100 Cr, 2-4 year horizon via PLG); <strong>Ecosystem SAM</strong> &mdash; channel workforce (dealers + ancillary + distributors + merchandisers)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">$1.8B TAM by sector: <strong>Auto $1,235M</strong> ($807M Core + $47M Extended + $381M Ecosystem) &bull; <strong>FMCG $595M</strong> ($259M Core + $58M Extended + $278M Ecosystem). Per-node values sum EXACTLY to sector totals by construction &mdash; no scaling factors. Full derivation in <a href="#tam" style="color:var(--accent-teal);">Section 04 TAM tables</a></div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(225,29,72,0.1);border:2px solid var(--accent-rose);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-rose);margin-top:12px;">7</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-rose);">3-Dimension AI Readiness Scoring</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">28 nodes &times; 3 dimensions &bull; research-derived 1&ndash;10 scores</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Vendor customer references, Gartner/Forrester reports, company press releases, CIO interviews, published case studies</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Scored each of the 25 selected nodes across 3 research-derived dimensions: (1) AI Tech Maturity &mdash; how many commercial vendors ship production-grade products, (2) Knowledge Work Density &mdash; share of desk/digital vs. physical roles, (3) India Deployment Evidence &mdash; whether Indian brand-owners have publicly deployed AI in this workflow. Composite = average of 3 dimensions</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Per-node AI Readiness Scores from 4.7/10 to 10.0/10, with TOP QUARTILE designation for nodes scoring &ge;8/10</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(124,58,237,0.1);border:2px solid var(--accent-violet);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-violet);margin-top:12px;">8</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-violet);">Node-Level Deep-Dive &amp; Product Mapping</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">28 nodes &bull; 120+ AI products &bull; 19 VC thesis alignments</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Industry research, vendor databases, VC investment theses (a16z, Bessemer, Accel India, Peak XV, General Catalyst)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">For each of the 25 selected nodes: identified specific operational problems, mapped targeted AI solutions, researched 120+ existing AI products with URLs/funding/India focus, aligned opportunities to 19 VC investment theses</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">This website &mdash; the complete interactive opportunity map with per-node problem/solution/evidence/TAM/scoring detail</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:16px; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,148,136,0.1);border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-teal);margin-top:12px;">9</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-teal);">Ecosystem SAM &mdash; Channel Workforce Derivation</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">950K channel workers &bull; $659M SAM &bull; primary-source counts from 4 trade associations</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;"><a href="https://fada.in/press-release-list.php" target="_blank" rel="noopener">FADA</a> dealer-network survey (Auto), <a href="https://www.acma.in/" target="_blank" rel="noopener">ACMA</a> ancillary white-collar census (Auto), <a href="https://www.aicpdf.com/" target="_blank" rel="noopener">AICPDF</a> distributor headcount (FMCG), <a href="https://www.ficci.in/" target="_blank" rel="noopener">FICCI</a> merchandiser-agency survey (FMCG)</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Counted non-brand-owner workforce reachable through the same AI product categories as selected brand-owner nodes. Auto: ~20K FADA-registered dealerships &times; avg 20&ndash;25 WC roles (showroom consultants, service advisors, parts/warranty admin) + ~1,100 smaller ancillary firms below the listed-cos survey cut. FMCG: distributor field reps + merchandiser-agency staff executing trade programs in-store</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Ecosystem SAM <strong>$659M</strong> (Auto $381M + FMCG $278M) across <strong>950K workers</strong> (Auto 450K + FMCG 500K). Allocation proportional to brand-owner node TAM across nodes sharing each ecosystem type (dealer / ancillary / distributor / merchandiser). Horizon: parallel to brand-owner sales motion</div>
-            </div>
-          </div>
-        </div>
-      </div><div style="display:grid; grid-template-columns:40px 1fr; gap:12px; margin-bottom:0; align-items:start;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(217,119,6,0.1);border:2px solid var(--accent-amber);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.75rem;color:var(--accent-amber);margin-top:12px;">10</div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:12px 16px;">
-          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--accent-amber);">Data-Artifact Preservation &mdash; Full Provenance</span>
-            <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim);">Per-node TAM JSON &bull; BRSR-parsed CSVs &bull; 372-role library xlsx + 12-family crosswalk &bull; reconstructable without redoing research</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; font-size:0.75rem;">
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Input</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Output data from every prior step &mdash; sector profiles, BRSR filings, role library, node selection, 3-SAM chain derivation, readiness scores, vendor mappings</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Analysis</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Every numeric value on this website is co-located with its primary source and method of derivation. Website JS data objects (<code style="font-family:var(--font-mono);font-size:0.7rem;">TAM_MODEL</code>, <code style="font-family:var(--font-mono);font-size:0.7rem;">NODE_TAM_CHAIN</code>, <code style="font-family:var(--font-mono);font-size:0.7rem;">AUTO_NODES</code>, <code style="font-family:var(--font-mono);font-size:0.7rem;">FMCG_NODES</code>) and offline artifacts (<a href="https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/02_Role_Library_255_Roles_3_Sectors.xlsx" target="_blank" rel="noopener">Role Library xlsx</a>, BRSR-parsed CSVs, <a href="https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/09_Master_Data_File.json" target="_blank" rel="noopener">Master Data File JSON</a>, thesis_data.json) are preserved together</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-display);font-size:0.6rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Output</div>
-              <div style="color:var(--text-secondary);line-height:1.5;">Any future analyst (or AI session) can reconstruct every number without redoing the underlying research. No bare numbers without <code style="font-family:var(--font-mono);font-size:0.7rem;">data_source</code> + <code style="font-family:var(--font-mono);font-size:0.7rem;">method_derivation</code> provenance &mdash; a prime-directive invariant. Rebuild-safe scaffold</div>
-            </div>
-          </div>
-        </div>
-      </div>
-</div><!-- end phases wrapper -->
-
-        </div><!-- end details content -->
-      </details>
-    </div>
-
-
-            </div>
   </div>
 </section>
 
@@ -3104,42 +2845,6 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
       </div>
     </div>
 
-    <!-- Explainer box — click-to-expand dropdown -->
-    <details style="background:rgba(13,148,136,0.05); border:1px solid rgba(13,148,136,0.2); border-radius:14px; margin-bottom:28px;">
-      <summary style="padding:14px 22px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none;">
-        <span style="font-family:var(--font-display); font-size:0.65rem; font-weight:800; color:#0d9488; letter-spacing:0.12em; text-transform:uppercase;">What these numbers mean &mdash; plain language</span>
-        <span class="expand-cta" style="font-family:var(--font-mono); font-size:0.62rem; color:#0d9488; background:#fff; border:1px solid #0d948833; padding:3px 10px; border-radius:10px; letter-spacing:0.08em; text-transform:uppercase;">Click to expand &#9662;</span>
-      </summary>
-      <div style="padding:6px 22px 18px;">
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;">
-        <div style="text-align:left;">
-          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#0d9488; margin-bottom:6px;">$1.8B &middot; Knowledge Work Automation TAM</div>
-          <ul style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin:0; padding-left:16px;">
-            <li style="margin-bottom:5px;"><strong>What it is:</strong> annual revenue an enterprise-AI SaaS could earn by automating Knowledge Worker tasks across Indian Auto + FMCG brand-owners + their dealer/distributor channel.</li>
-            <li style="margin-bottom:5px;"><strong>How it's built:</strong> bottom-up from payroll &times; AI-addressability &times; 50% below-labour pricing.</li>
-            <li style="margin-bottom:0;"><strong>Splits into 3 SAMs:</strong> Core $1,065M (enterprise today) + Extended $105M (mid-market 2&ndash;4 yrs) + Ecosystem $659M (channel workforce).</li>
-          </ul>
-        </div>
-        <div style="text-align:left;">
-          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#2563eb; margin-bottom:6px;">~1,150 brand-owners &middot; the actual buyers</div>
-          <ul style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin:0; padding-left:16px;">
-            <li style="margin-bottom:5px;"><strong>What is a brand-owner:</strong> an Indian firm that owns the brand sold to end consumers (Maruti owns Swift, HUL owns Surf). Not dealers, not suppliers, not distributors.</li>
-            <li style="margin-bottom:5px;"><strong>Core (~260 firms):</strong> &ge;&#8377;1,000 Cr revenue AND &ge;1,000 KW &mdash; closable today via enterprise sales.</li>
-            <li style="margin-bottom:5px;"><strong>Extended (~540 firms):</strong> &ge;&#8377;100 Cr AND &ge;200 KW &mdash; reachable over 2&ndash;4 yrs as AI pricing compresses.</li>
-            <li style="margin-bottom:0;"><strong>Split:</strong> ~530 Auto + ~270 FMCG, filtered from ~1,800 broader universe.</li>
-          </ul>
-        </div>
-        <div style="text-align:left;">
-          <div style="font-family:var(--font-display); font-size:0.7rem; font-weight:700; color:#7c3aed; margin-bottom:6px;">~1.2M workers &middot; the people whose jobs AI covers</div>
-          <ul style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin:0; padding-left:16px;">
-            <li style="margin-bottom:5px;"><strong>253K brand-owner KW (148K Auto + 105K FMCG)</strong> inside the 25 selected workflow nodes (Finance, Supply Chain, Marketing, Sales, HR, etc.).</li>
-            <li style="margin-bottom:5px;"><strong>950K channel staff</strong> &mdash; dealers + ancillary + distributors + merchandiser agencies executing the same workflows on the brand-owner's behalf.</li>
-            <li style="margin-bottom:0;"><strong>Split:</strong> 148K Auto + 105K FMCG brand-owner + 450K Auto channel + 500K FMCG channel.</li>
-          </ul>
-        </div>
-      </div>
-      </div>
-    </details>
 
         <!-- 3 SAMs × 7 STEPS each, summed to TAM -->
     <div style="margin-top:48px;">
@@ -3188,7 +2893,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
               </div>
               <div style="font-family:var(--font-mono); font-size:0.68rem; color:#0d9488; margin:4px 0 6px; font-weight:600;">× KW per firm</div>
               <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin-bottom:6px;">On-payroll white-collar headcount across the enumerated Core firms. Each firm contributes its BRSR-parsed KW (45 direct filings) or stratified-density estimate (per tier-class: OEM / Tier-1 MNC / Tier-1 local / Tier-2 ancillary / tyre / dealer / FMCG-listed / FMCG-MNC / bottler / co-op). No single sector-wide density — tier-specific calibration from ~45 BRSR anchors.</div>
-              <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin-bottom:4px;"><strong style="color:var(--text-secondary);">Method:</strong> pdfplumber parser on Section A 20(a) Column D for ~45 listed firms (BRSR-direct); for unlisted/unparsed firms, tier-class stratified density calibrated from the parsed sample. Sum across 295 enumerated Core firms.</div>
+              <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin-bottom:4px;"><strong style="color:var(--text-secondary);">Method:</strong> Python parser (pdfplumber) extracts Column D ("Permanent Employees") from the BRSR filing PDFs for 45 listed firms. For unlisted firms, revenue &times; firm-type density gives the estimate. Sum across all 295 firms = Core Knowledge Worker universe.</div>
               <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5;"><strong style="color:var(--text-secondary);">Sources:</strong> <a href="https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=60" target="_blank" style="color:#2563eb; text-decoration:underline;">SEBI BRSR Circular</a> &middot; <a href="https://www.bseindia.com/corporates/BseBrsrAllReport.html" target="_blank" style="color:#2563eb; text-decoration:underline;">BSE BRSR filings</a> &middot; <a href="https://www.hul.co.in/investor-relations/" target="_blank" style="color:#2563eb; text-decoration:underline;">HUL IR</a> &middot; <a href="https://www.nestle.in/investors" target="_blank" style="color:#2563eb; text-decoration:underline;">Nestle India IR</a></div>
             </div>
             <div style="text-align:right; padding-top:10px;">
@@ -3323,11 +3028,11 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
             </div>
             <div style="text-align:right; padding-top:10px;">
               <div style="font-family:var(--font-mono); font-weight:800; font-size:1.05rem; color:#2563eb; line-height:1.2;">~300 firms</div>
-              <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;justify-content:flex-end;max-width:200px;margin-left:auto;"><a href="https://www.motherson.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.motherson.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.motherson.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Samvardhana Motherson</a><a href="https://www.unominda.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.unominda.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.unominda.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Uno Minda</a><a href="https://www.endurancegroup.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.endurancegroup.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.endurancegroup.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Endurance</a><a href="https://www.jbm-group.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.jbm-group.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.jbm-group.com.ico';" style="width:10px;height:10px;border-radius:2px;" />JBM Auto</a><a href="https://www.fiemindustries.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.fiemindustries.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.fiemindustries.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Fiem</a><a href="https://www.sundaram-clayton.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.sundaram-clayton.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.sundaram-clayton.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Sundaram Clayton</a></div>
+              <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;justify-content:flex-end;max-width:200px;margin-left:auto;"><a href="https://www.atulauto.co.in/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.atulauto.co.in&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.atulauto.co.in.ico';" style="width:10px;height:10px;border-radius:2px;" />Atul Auto</a><a href="https://www.igarashimotors.co.in/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.igarashimotors.co.in&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.igarashimotors.co.in.ico';" style="width:10px;height:10px;border-radius:2px;" />Igarashi Motors</a><a href="https://www.setcoauto.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.setcoauto.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.setcoauto.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Setco Auto</a><a href="https://www.shivamautotech.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.shivamautotech.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.shivamautotech.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Shivam Autotech</a><a href="https://www.ucalfuel.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.ucalfuel.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.ucalfuel.com.ico';" style="width:10px;height:10px;border-radius:2px;" />UCAL</a><a href="https://www.ampere.greavescotton.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.ampere.greavescotton.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.ampere.greavescotton.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Ampere Electric</a></div>
             </div>
             <div style="text-align:right; padding-top:10px;">
               <div style="font-family:var(--font-mono); font-weight:800; font-size:1.05rem; color:#d97706; line-height:1.2;">~200 firms</div>
-              <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;justify-content:flex-end;max-width:200px;margin-left:auto;"><a href="https://www.emamiltd.in/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.emamiltd.in&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.emamiltd.in.ico';" style="width:10px;height:10px;border-radius:2px;" />Emami</a><a href="https://www.godrejcp.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.godrejcp.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.godrejcp.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Godrej Consumer</a><a href="https://www.jyothylabs.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.jyothylabs.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.jyothylabs.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Jyothy Labs</a><a href="https://bajajconsumercare.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=bajajconsumercare.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/bajajconsumercare.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Bajaj Consumer</a><a href="https://www.relaxofootwear.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.relaxofootwear.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.relaxofootwear.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Relaxo</a><a href="https://www.pageind.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.pageind.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.pageind.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Page Industries</a></div>
+              <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;justify-content:flex-end;max-width:200px;margin-left:auto;"><a href="https://www.paperboatdrinks.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.paperboatdrinks.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.paperboatdrinks.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Paper Boat</a><a href="https://www.bombayshavingcompany.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.bombayshavingcompany.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.bombayshavingcompany.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Bombay Shaving</a><a href="https://www.idfresh.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.idfresh.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.idfresh.com.ico';" style="width:10px;height:10px;border-radius:2px;" />iD Fresh</a><a href="https://www.plumgoodness.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.plumgoodness.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.plumgoodness.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Plum</a><a href="https://www.mcaffeine.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.mcaffeine.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.mcaffeine.com.ico';" style="width:10px;height:10px;border-radius:2px;" />mCaffeine</a><a href="https://www.forestessentialsindia.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;font-size:0.62rem;color:#374151;text-decoration:none;line-height:1.2;"><img src="https://www.google.com/s2/favicons?domain=www.forestessentialsindia.com&sz=16" onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/www.forestessentialsindia.com.ico';" style="width:10px;height:10px;border-radius:2px;" />Forest Essentials</a></div>
             </div>
           </div>
           <div style="display:grid; grid-template-columns:2.8fr 1fr 1fr; gap:16px; align-items:start; padding:14px 0; border-bottom:1px solid var(--border-subtle);">
@@ -3337,7 +3042,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <span style="font-family:var(--font-display); font-weight:700; font-size:0.9rem; color:var(--text-primary);">Brand-owner Knowledge Workers</span>
               </div>
               <div style="font-family:var(--font-mono); font-size:0.68rem; color:#14b8a6; margin:4px 0 6px; font-weight:600;">× KW per firm</div>
-              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin-bottom:6px;">On-payroll white-collar headcount across the Extended firms. Most are below BRSR filing thresholds, so the tier is sized bottom-up from research-anchored mid-market firm count (~300 Auto / ~200 FMCG) &times; per-firm KW averages (~280 Auto / ~325 FMCG) triangulated from ACMA member data + Screener mid-cap sample + individual Annual Report scaling (Gabriel, Emami, Jyothy Labs, Bikaji).</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin-bottom:6px;">Count of white-collar employees across the Extended tier mid-market firms.<ul style="margin:6px 0 0;padding-left:18px;font-size:0.74rem;line-height:1.55;"><li style="margin-bottom:3px;">Most mid-market firms are below the BRSR filing threshold, so direct headcount data is rare.</li><li style="margin-bottom:3px;">Firm count is industry-anchored: 425 Auto + 400 FMCG = 825 firms total, triangulated from ACMA, CRISIL, Brickwork Ratings, Kantar, and Inc42 D2C tracker.</li><li style="margin-bottom:3px;">Each firm gets a density-based headcount estimate: revenue × tier-appropriate density (Auto Tier-2 ~180, D2C FMCG ~350 KW per &#8377;1,000 Cr).</li><li style="margin-bottom:0;">Total Extended KW = 11K Auto + 30K FMCG selected-node workers.</li></ul></div>
               <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin-bottom:4px;"><strong style="color:var(--text-secondary);">Method:</strong> Where BRSR filings exist (upper half of Extended), direct parsing; otherwise density-ratio extrapolation anchored against sector revenue left after subtracting Core revenue.</div>
               <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5;"><strong style="color:var(--text-secondary);">Sources:</strong> <a href="https://www.bseindia.com/corporates/BseBrsrAllReport.html" target="_blank" style="color:#2563eb; text-decoration:underline;">BSE BRSR filings</a> &middot; <a href="https://www.mca.gov.in/content/mca/global/en/home.html" target="_blank" style="color:#2563eb; text-decoration:underline;">MCA21</a></div>
             </div>
@@ -3391,8 +3096,16 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
                 <span style="font-family:var(--font-display); font-weight:700; font-size:0.9rem; color:var(--text-primary);">Role eligibility</span>
               </div>
               <div style="font-family:var(--font-mono); font-size:0.68rem; color:#14b8a6; margin:4px 0 6px; font-weight:600;">× 85% Auto / 88% FMCG (per-node 72-98%)</div>
-              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.55; margin-bottom:6px;">Share of mid-market selected-node KW in AI-addressable roles (&ge;25% task exposure). The eligibility ratio is a structural role-mix property &mdash; each of the 372 roles in the library carries its own eligibility score from Goldman + McKinsey taxonomies. Applied at the same sector average as Core because the role mix in a mid-market Finance / Procurement / Supply Chain / HR team is materially the same as at a large-cap (same task taxonomies, same software stacks, same outputs). What differs is tech adoption rate and change-management capacity &mdash; captured in Step 6 (AI rate) and Step 7 (discount / PLG timeline), not here.</div>
-              <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin-bottom:4px;"><strong style="color:var(--text-secondary);">Method:</strong> Role-library eligibility scores &times; role HC in selected nodes, weighted by mid-market role-mix. Cross-checked against 14 mid-cap BRSR filings (e.g., Jyothy Labs, Emami, Fiem, Gabriel) where Principle 5 HR disclosures show comparable eligible-role shares.</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin-bottom:6px;">
+                <p style="margin:0 0 6px;"><strong style="color:var(--text-primary);">What it measures:</strong> share of mid-market knowledge workers in roles where AI can address at least 25% of tasks.</p>
+                <ul style="margin:0; padding-left:18px; list-style-type:disc;">
+                  <li style="margin-bottom:4px;"><strong>Per-role scoring:</strong> each of the 372 roles in the Role Library carries its own eligibility score (Goldman Sachs + McKinsey MGI taxonomies).</li>
+                  <li style="margin-bottom:4px;"><strong>Mid-market = large-cap role mix:</strong> a Finance, Procurement, Supply Chain, or HR team at a mid-market firm runs the same task taxonomies and software stacks as at an enterprise.</li>
+                  <li style="margin-bottom:4px;"><strong>What differs is adoption speed, not eligibility:</strong> tech adoption and change-management gaps are captured in Step 6 (automation rate) and Step 7 (50% PLG discount), not here.</li>
+                  <li style="margin-bottom:0;"><strong>Result:</strong> sector-average 85% Auto / 88% FMCG; per-node range 72&ndash;98%.</li>
+                </ul>
+              </div>
+              <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5; margin-bottom:4px;"><strong style="color:var(--text-secondary);">Method:</strong> <strong style="color:var(--text-secondary);">Method:</strong> Each role in our library is tagged as AI-eligible or not based on whether AI has any applicability. Node-level eligibility = share of KW in AI-eligible roles for that node. Weighted avg across nodes = 85% Auto / 88% FMCG. Primary sources: Goldman Sachs (2023), IMF SDN 2024/001, ILO WP140 (2025), Eloundou GPTs-are-GPTs (2023), OECD AI and Skills (April 2024).</div>
               <div style="font-size:0.72rem; color:var(--text-dim); line-height:1.5;"><strong style="color:var(--text-secondary);">Sources:</strong> <a href="#role-library" style="color:#2563eb; text-decoration:underline;">Role Library (372 roles)</a> &middot; <a href="https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.pdf" target="_blank" style="color:#2563eb; text-decoration:underline;">Goldman Sachs AI Report</a> &middot; <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:#2563eb; text-decoration:underline;">McKinsey MGI</a></div>
             </div>
             <div style="text-align:right; padding-top:10px;">
@@ -4135,7 +3848,15 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
         <div style="margin-top:32px;">
           <div style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Part 1</div>
           <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text-primary); margin:0 0 10px;">Research Methods</h3>
-          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 24px;">The analysis is a bottom-up build from primary sources: company annual reports, industry association filings (ACMA, CRISIL, SIAM, IBEF, MoSPI), and 45 directly parsed BRSR disclosures. Per-role task automation rates come from WEF, McKinsey MGI, Frey-Osborne, and OECD research.</p>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.65; margin:0 0 14px;">The $1.8B TAM is a bottom-up build from primary sources, reconciled by construction (no scaling factors). Each SAM (Core, Extended, Ecosystem) follows the same 7-step chain with node-specific inputs &mdash; eligibility and automation rate vary per node, not flat sector averages.</p>
+          <ul style="font-size:0.85rem; color:var(--text-secondary); line-height:1.65; margin:0 0 22px; padding-left:22px; list-style-type:disc;">
+            <li style="margin-bottom:6px;"><strong style="color:var(--text-primary);">Option B two-rate formula:</strong> <code style="font-family:var(--font-mono); font-size:0.8rem;">SAM = Universe × KW × Selected-share × Salary × Eligibility × Automation rate × 50% discount</code>. Eligibility (is the role AI-addressable?) and automation rate (what share of eligible tasks can today's AI perform?) are two distinct primary-sourced inputs, not one combined rate.</li>
+            <li style="margin-bottom:6px;"><strong style="color:var(--text-primary);">Firm enumeration:</strong> 295 Core firms (139 Auto + 113 FMCG, ≥₹1,000 Cr revenue) + 825 Extended firms (425 Auto + 400 FMCG, ₹100&ndash;999 Cr) + 30 named Ecosystem firms = 1,150 brand-owners. 43 commodity-trader / agri-input firms explicitly excluded from FMCG.</li>
+            <li style="margin-bottom:6px;"><strong style="color:var(--text-primary);">Extended universe anchoring:</strong> ACMA FY24 component-industry total + Brickwork Ratings Dec 2024 mid-cap Auto + CRISIL FMCG sector tracking + Kantar Brand Footprint + Inc42 D2C tracker. No arbitrary scale-up multipliers.</li>
+            <li style="margin-bottom:6px;"><strong style="color:var(--text-primary);">KW headcount anchoring:</strong> 45 directly parsed BRSR Section A 20(a) filings + tier-stratified density extrapolation (OEM / Tier-1 MNC / Tier-1 local / Tier-2 ancillary / tyre / dealer / FMCG-listed / FMCG-MNC / bottler / co-op).</li>
+            <li style="margin-bottom:6px;"><strong style="color:var(--text-primary);">Node-level reconciliation:</strong> per-node SAMs sum EXACTLY to the sector Brand-owner SAM. No scaling. Each of the 25 selected nodes carries its own eligibility (72&ndash;98%) and automation rate (27&ndash;46%) weighted from the Role Library.</li>
+            <li style="margin-bottom:0;"><strong style="color:var(--text-primary);">Primary-source automation rates:</strong> Goldman Sachs (Briggs-Kodnani 2023), McKinsey MGI GenAI 2023 + CPG Blueprint 2024 + Auto R&amp;D, IMF SDN 2024/001, ILO Working Paper 140 (2025), OECD Employment Outlook 2024, Eloundou et&nbsp;al. arXiv 2303.10130, BCG AI Unlocked (Dec 2024), Anthropic Economic Index (2024&ndash;25).</li>
+          </ul>
 
           <div class="method-steps" style="margin-top:16px;">
             <div class="method-step">
@@ -4192,13 +3913,23 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
           <div style="margin-top:28px; background:var(--bg-surface); border-radius:12px; padding:20px 24px;">
             <h4 style="font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--accent-teal); margin:0 0 10px;">Primary data inputs</h4>
-            <ul style="font-size:0.8rem; color:var(--text-secondary); line-height:1.65; padding-left:20px; margin:0;">
-              <li><strong style="color:var(--text-primary);">Sector revenue validation &mdash; classification matters:</strong>
-                <ul style="margin:6px 0 0 0;padding-left:18px;font-size:0.76rem;line-height:1.55;">
-                  <li style="margin-bottom:4px;"><strong style="color:#2563eb;">Auto ~$200B [brand-owner + ancillary industry aggregate]:</strong> ~$80B top-10 OEMs + $74B ACMA component industry FY24 + ~$40B mid-market brand-owners. Excludes dealer retail revenue (dealers are counted in Ecosystem SAM by workforce, not revenue). <a href="https://acma.in/pdf/Ind%20Presentation%20FY24.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">ACMA FY24</a> &middot; <a href="https://www.investindia.gov.in/sector/automobile" target="_blank" style="color:#2563eb;text-decoration:underline;">Invest India Auto ($240B total sector)</a>.</li>
-                  <li style="margin-bottom:4px;"><strong style="color:#d97706;">FMCG ~$110B [IBEF RETAIL market size, NOT manufacturer revenue]:</strong> <a href="https://www.ibef.org/industry/fmcg" target="_blank" style="color:#2563eb;text-decoration:underline;">IBEF</a> measures consumer-paid end value. Manufacturer-side revenue across our ~270 brand-owner FMCG universe is ~$72B (HUL $7.2B + ITC FMCG $2.7B + Nestle $2.8B + top-20 listed ~$35B + Amul $7B + unlisted + MNC subs + food-B2B ~$25B). The $38B gap is distributor + retailer margin + taxes.</li>
-                  <li style="margin-bottom:0;"><strong>Both figures used for KW-density extrapolation</strong> (KW per &#8377;1,000 Cr revenue) &mdash; NOT as the primary TAM anchor. Primary TAM anchor is bottom-up per-node (sums to $522M Auto + $174M FMCG brand-owner SAM by construction, no scaling factors).</li>
+            <ul style="font-size:0.82rem; color:var(--text-secondary); line-height:1.7; padding-left:20px; margin:0;">
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Brand-owner firm registry:</strong>
+                <ul style="margin:4px 0 0; padding-left:18px; list-style-type:disc;">
+                  <li><strong>Core (295 firms):</strong> enumerated from SIAM/ACMA member lists + Nifty Auto constituents + MCA21 revenue filings (Auto) and BSE FMCG index + Screener.in + company IR (FMCG). Every firm verified at ≥₹1,000 Cr revenue.</li>
+                  <li><strong>Extended (825 firms):</strong> industry-anchored via ACMA FY24 component total + Brickwork Ratings Dec 2024 + CRISIL FMCG sector + Kantar Brand Footprint + Inc42 D2C tracker.</li>
+                  <li><strong>Commodity exclusion:</strong> 43 firms (agri-input traders, grain marketers, export-B2B) removed from FMCG &mdash; they do not run knowledge-worker workflows in the thesis scope.</li>
                 </ul>
+              </li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">BRSR workforce extraction:</strong> 45 direct Section A 20(a) parses (pdfplumber) for Permanent Employees (D) and Permanent Workers (F). KW-to-revenue density ratios computed per tier-class (75&ndash;302 KW/₹1,000 Cr Auto; 122&ndash;309 KW/₹1,000 Cr FMCG) and extrapolated to the full 1,150-firm universe.</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Compensation:</strong> 2026 survey of 30 listed Auto + 13 listed FMCG brand-owners (55,441 white-collar employees, ₹13,309 Cr payroll) cross-referenced with BRSR Principle 5 E3 median pay &plus; 1.2&times; Aon India median-to-mean factor &rarr; $30,679 Auto / $14,469 FMCG fully-loaded comp. Extended salaries compressed 22% for mid-market pay bands.</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Selected-share derivation:</strong> KW-weighted (not role-counted) from the 2026 employment survey; 67.5% Auto / 76.9% FMCG of brand-owner KW sit inside the 25 selected nodes (11 Auto + 14 FMCG).</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Eligibility (per node):</strong> role-level AI-addressability carved out of CXO + hyper-technical R&amp;D roles. Sector average 85% Auto / 88% FMCG; per-node range 72&ndash;98%. Sources: <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank" style="color:var(--accent-teal);">Goldman Sachs Briggs-Kodnani 2023</a>, <a href="https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" target="_blank" style="color:var(--accent-teal);">IMF SDN 2024/001</a>, <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" target="_blank" style="color:var(--accent-teal);">ILO Working Paper 140 (2025)</a>, <a href="https://www.oecd.org/en/publications/oecd-employment-outlook-2024_ac8b3538-en.html" target="_blank" style="color:var(--accent-teal);">OECD Employment Outlook 2024</a>, <a href="https://arxiv.org/abs/2303.10130" target="_blank" style="color:var(--accent-teal);">Eloundou et al. 2023 (arXiv 2303.10130)</a>.</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Automation rate (per node):</strong> share of eligible tasks that today's AI can perform. Sector average 40% Auto / 38% FMCG; per-node range 27&ndash;46%. Sources: <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank" style="color:var(--accent-teal);">Goldman Sachs 2023</a>, <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:var(--accent-teal);">McKinsey MGI GenAI 2023</a>, <a href="https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/generative-ai-in-cpg-a-new-potential-frontier-for-growth" target="_blank" style="color:var(--accent-teal);">McKinsey CPG Blueprint 2024</a>, <a href="https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/generative-ai-the-next-productivity-frontier-for-automakers" target="_blank" style="color:var(--accent-teal);">McKinsey Auto R&amp;D</a>, <a href="https://www.bcg.com/publications/2024/ai-unlocked-value" target="_blank" style="color:var(--accent-teal);">BCG AI Unlocked Dec 2024</a>, <a href="https://www.anthropic.com/economic-index" target="_blank" style="color:var(--accent-teal);">Anthropic Economic Index 2024&ndash;25</a>.</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Role Library:</strong> 372-role master (229 Auto + 143 FMCG). Each role carries its own eligibility score and automation rate inherited from the 6-survey-tier &times; 12-function-family crosswalk.</li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Ecosystem channel surveys:</strong> <a href="https://fada.in/" target="_blank" style="color:var(--accent-teal);">FADA</a> dealer-network headcount (Auto ~250K), <a href="https://acma.in/" target="_blank" style="color:var(--accent-teal);">ACMA</a> ancillary white-collar census (Auto ~200K), <a href="https://www.aicpdf.com/" target="_blank" style="color:var(--accent-teal);">AICPDF</a> distributor firms + <a href="https://www.ficci.in/" target="_blank" style="color:var(--accent-teal);">FICCI</a> merchandiser-agency surveys (FMCG ~500K).</li>
+              <li style="margin-bottom:0;"><strong style="color:var(--text-primary);">50% discount:</strong> below-labour pricing midpoint of the 40&ndash;60% observed band for enterprise AI software. Applied uniformly to all three SAMs.</li>
+            </ul>
               </li>
               <li><strong style="color:var(--text-primary);">Non-MSME enterprise universe</strong> &mdash; MSME Ministry Annual Report + MCA21 + Tofler enumerated count of 1,150 AI-addressable brand-owner firms: 295 Core at ≥&#8377;1,000 Cr (firm-by-firm registry) + 825 Extended at ₹100-999 Cr (industry-anchored via ACMA + CRISIL + Kantar + Inc42)</li>
               <li><strong style="color:var(--text-primary);">Brand-owner workforce composition</strong> &mdash; 45 BRSR Section A 20(a) disclosures directly parsed for Employees vs Workers split; density-ratio extrapolation to full 295 enumerated Core firms (139 Auto + 113 FMCG brand-owners) + 825 industry-anchored Extended firms (425 Auto + 400 FMCG) + 30 named Ecosystem firms</li>
@@ -4255,13 +3986,34 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
           </div>
 
           <div style="margin-top:16px; background:var(--bg-surface); border-radius:12px; padding:18px 22px;">
-            <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 8px;">How the $1.8B TAM is built &mdash; bottom-up, sums by construction</h4>
-            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 10px;">
-              <strong style="color:var(--text-primary);">Three SAMs, each bottom-up:</strong> (1) <strong>Core SAM ($1,065M)</strong> &mdash; enterprise brand-owner universe 219K Auto / 136K FMCG (295 enumerated Core firms; commodity excluded; KW from ~45 BRSR-direct parses + stratified density per tier-class) &times; 67.5% Auto / 76.9% FMCG selected-nodes share (role library &times; employment survey) &rarr; 147,770 Auto + 104,811 FMCG selected-node KW &times; salary ($30,679 / $14,469) &times; role eligibility (85% Auto / 88% FMCG avg, per-node 72-98%) &times; automation rate (40% Auto / 38% FMCG avg, per-node 27-46%) &times; 50% discount &rarr; $807M Auto + $259M FMCG. (2) <strong>Extended SAM ($105M)</strong> &mdash; same 7-step chain applied to mid-market brand-owners (&ge;&#8377;100 Cr, 2&ndash;4 yr horizon via PLG) &rarr; $47M Auto + $58M FMCG. (3) <strong>Ecosystem SAM ($659M)</strong> &mdash; same 7-step chain applied to channel populations (FADA dealers + ACMA ancillary Auto; AICPDF distributors + FICCI merchandiser agencies FMCG) &rarr; $381M Auto + $278M FMCG. Sum: <strong>Auto $1,235M + FMCG $595M = $1.8B TAM</strong>.
-            </p>
-            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0;">
-              <strong style="color:var(--text-primary);">Node-level is bottom-up too:</strong> each of the 25 selected nodes gets its own Knowledge-Worker headcount slice (via dept-to-node matrix from the compensation survey &times; Role Library) &times; sector-level salary &times; eligibility &times; AI rate &times; 50% discount. Per-node values <strong>sum EXACTLY to the sector Brand-owner SAM by construction</strong> &mdash; no scaling factors. Sector SAM = identical sum of per-node bottom-up builds, not a separate top-down anchor. Click any node card for its 7-step derivation table.
-            </p>
+            <h4 style="font-family:var(--font-display); font-size:0.85rem; font-weight:700; margin:0 0 10px;">How the $1.8B TAM is built &mdash; bottom-up, sums by construction</h4>
+            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0 0 10px;"><strong style="color:var(--text-primary);">The $1.8B TAM is the sum of three Serviceable Addressable Markets (SAMs).</strong> Each SAM runs the same 7-step chain: Universe &times; KW &times; Selected-share &times; Salary &times; Eligibility &times; Automation rate &times; 50% discount.</p>
+            <ol style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65; margin:0 0 10px; padding-left:20px;">
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Core SAM &mdash; $1,065M</strong> (enterprise brand-owners, closable today):
+                <ul style="margin:4px 0 0; padding-left:18px; list-style-type:disc;">
+                  <li><strong>Universe:</strong> 295 enumerated Core firms (≥₹1,000 Cr revenue + ≥1,000 KW; commodity firms excluded).</li>
+                  <li><strong>KW headcount:</strong> 219K Auto + 136K FMCG, from 45 direct BRSR Section A 20(a) parses plus stratified density extrapolation per tier-class.</li>
+                  <li><strong>Selected-nodes share:</strong> 67.5% Auto / 76.9% FMCG (KW-weighted, derived from Role Library × 2026 employment survey of 55,441 white-collar employees).</li>
+                  <li><strong>Result:</strong> 148K Auto + 105K FMCG selected-node KW × salary ($30,679 / $14,469) × eligibility (85% / 88% avg, 72&ndash;98% per node) × automation rate (40% / 38% avg, 27&ndash;46% per node) × 50% discount = <strong>$807M Auto + $259M FMCG</strong>.</li>
+                </ul>
+              </li>
+              <li style="margin-bottom:8px;"><strong style="color:var(--text-primary);">Extended SAM &mdash; $105M</strong> (mid-market brand-owners, 2&ndash;4 year horizon via product-led growth):
+                <ul style="margin:4px 0 0; padding-left:18px; list-style-type:disc;">
+                  <li><strong>Universe:</strong> 825 firms (425 Auto + 400 FMCG) at ≥₹100 Cr AND ≥200 KW, industry-anchored via ACMA + Brickwork Ratings + CRISIL + Kantar + Inc42 tracker.</li>
+                  <li><strong>Chain:</strong> same 7-step method as Core with 22% salary compression for mid-market pay bands.</li>
+                  <li><strong>Result:</strong> <strong>$47M Auto + $58M FMCG</strong>.</li>
+                </ul>
+              </li>
+              <li style="margin-bottom:0;"><strong style="color:var(--text-primary);">Ecosystem SAM &mdash; $659M</strong> (channel workforce, addressable in parallel):
+                <ul style="margin:4px 0 0; padding-left:18px; list-style-type:disc;">
+                  <li><strong>Universe:</strong> 950K channel workers &mdash; FADA dealers (~250K) + ACMA ancillary white-collar (~200K) for Auto; AICPDF distributors + FICCI merchandiser agencies (~500K) for FMCG.</li>
+                  <li><strong>Chain:</strong> same 7-step method with channel-cohort blended comp ($8.5K Auto / $6.0K FMCG), eligibility (72% / 58%), task AI rate (28% / 32%).</li>
+                  <li><strong>Result:</strong> <strong>$381M Auto + $278M FMCG</strong>.</li>
+                </ul>
+              </li>
+            </ol>
+            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0 0 8px;"><strong style="color:var(--text-primary);">Sum:</strong> Auto $1,235M + FMCG $595M = <strong>$1.8B TAM</strong>.</p>
+            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin:0;"><strong style="color:var(--text-primary);">Reconciliation contract:</strong> per-node SAMs sum EXACTLY to the sector Brand-owner SAM by construction &mdash; no scaling factors. Click any node card to open its 7-step derivation table.</p>
           </div>
         </div>
 
