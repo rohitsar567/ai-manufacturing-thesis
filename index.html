@@ -4469,7 +4469,7 @@ window.NODE_TAM_CHAIN = NODE_TAM_CHAIN;
 // === END NODE_TAM_CHAIN ===
 
 // === ECOSYSTEM_ALLOC — per-node core vs ecosystem breakdown (2026-04-21) ===
-// Each selected node's displayed TAM = core (from 6-step chain) + ecosystem extension (adjacent population).
+// Each selected node's displayed TAM = Core + Extended SAM (per-node bottom-up). Ecosystem is sector-level only.
 // Ecosystem types: 'dealer' (Auto FADA-registered dealer network), 't2t3' (Auto ancillary suppliers
 // below the listed-cos survey cut), 'distributor' (FMCG off-payroll field + merchandising channel).
 const ECOSYSTEM_ALLOC = {
@@ -4677,63 +4677,6 @@ const ECOSYSTEM_ALLOC = {
 window.ECOSYSTEM_ALLOC = ECOSYSTEM_ALLOC;
 // === END ECOSYSTEM_ALLOC ===
 
-// === BUDGET_TAM_ALLOC — Tier 3 non-payroll budget TAM (2026-04-21) ===
-// Per-node allocation of adjacent budget lines AI cannibalizes beyond labor.
-// Auto: — (dealer marketing + procurement advisory + compliance outsourcing).
-// FMCG: — (trade-promo reclaim + digital-ad capture + compliance outsourcing).
-const BUDGET_TAM_ALLOC = {
-  "auto": {
-    "Supply Chain & Sourcing": {
-      "amount": 20,
-      "line": "Procurement consulting capture",
-      "desc": "AI-addressable share of ~$300M Auto procurement-advisory spend (Deloitte India Procurement Benchmarking 2024)"
-    },
-    "Dealership Management": {
-      "amount": 9,
-      "line": "Digital marketing capture",
-      "desc": "AI-addressable share of ~$800M Auto digital-marketing spend tied to dealer campaigns (Madison / Pitch India Advertising Report)"
-    },
-    "Showroom Sales": {
-      "amount": 9,
-      "line": "Digital marketing capture",
-      "desc": "AI-addressable share of Auto digital-marketing + lead-generation spend at showroom level"
-    },
-    "Finance & HR": {
-      "amount": 48,
-      "line": "Compliance + audit outsourcing",
-      "desc": "AI-addressable share of Auto portion of ~$1B India corporate compliance/audit outsourcing (PwC India Compliance Cost Survey 2024)"
-    }
-  },
-  "fmcg": {
-    "Trade & Digital Marketing": {
-      "amount": 120,
-      "line": "Trade-promo reclaim + digital-ad capture",
-      "desc": "$90M trade-promo reclaim (25% of $1.2B annual trade-promo waste, 40% of $3B category spend) + $30M digital-ad efficiency capture (NielsenIQ India FMCG Media ROI)"
-    },
-    "Marketing Leadership": {
-      "amount": 15,
-      "line": "Digital-ad optimisation capture",
-      "desc": "AI-addressable share of FMCG digital-ad inefficiency beyond trade-promo (15% of ~$1.2B digital-ad spend)"
-    },
-    "Procurement": {
-      "amount": 20,
-      "line": "Procurement consulting capture",
-      "desc": "AI-addressable share of FMCG portion of ~$200M India procurement-advisory spend"
-    },
-    "Regulatory & Compliance": {
-      "amount": 35,
-      "line": "Compliance + audit outsourcing",
-      "desc": "AI-addressable share of FMCG compliance outsourcing (FSSAI + Legal Metrology + BRSR Core assurance, PwC India Compliance Survey)"
-    },
-    "Finance": {
-      "amount": 5,
-      "line": "Audit outsourcing capture",
-      "desc": "AI-addressable share of FMCG finance audit + reconciliation outsourcing"
-    }
-  }
-};
-window.BUDGET_TAM_ALLOC = BUDGET_TAM_ALLOC;
-// === END BUDGET_TAM_ALLOC ===
 
 
 const AUTO_NODES = [
@@ -6004,133 +5947,6 @@ function renderDetailPanel(n, ctx) {
 
           out += '</tbody></table></div>';
 
-          // === Ecosystem Extension — 7-row derivation table ===
-          var eco = window.ECOSYSTEM_ALLOC && window.ECOSYSTEM_ALLOC[key] && window.ECOSYSTEM_ALLOC[key][n.name];
-          if (eco && eco.ecosystem > 0) {
-            var ecoMeta = {
-              dealer:      {label:'Dealer-network ecosystem',          cohortSize:250000, salary:8500, elig:0.72, aiRate:0.28, cohortUSD_M:125, sourceOrg:'FADA', sourceUrl:'https://fada.in/press-release-list.php', cohortDesc:'FADA-registered dealership staff — showroom consultants, service advisors, parts/warranty admin across ~20,000 authorised outlets'},
-              t2t3:        {label:'Ancillary supplier ecosystem',       cohortSize:200000, salary:10500, elig:0.72, aiRate:0.28, cohortUSD_M:127, sourceOrg:'ACMA', sourceUrl:'https://acma.in/', cohortDesc:'ACMA-listed ancillary suppliers white-collar workforce at smaller firms below the 30-company brand-owner compensation survey cut'},
-              distributor: {label:'Distributor-channel ecosystem',      cohortSize:325000, salary:6000, elig:0.58, aiRate:0.32, cohortUSD_M:181, sourceOrg:'AICPDF', sourceUrl:'https://www.aicpdf.com/', cohortDesc:'AICPDF distributor firms + super-stockist back-office + field sales staff covering ~13M kirana outlets'},
-              merchandiser:{label:'Merchandiser-agency ecosystem',      cohortSize:175000, salary:5200, elig:0.58, aiRate:0.32, cohortUSD_M:143, sourceOrg:'FICCI', sourceUrl:'https://www.ficci.in/', cohortDesc:'FICCI merchandiser-agency staff on 3rd-party payroll executing brand trade programs in-store'}
-            };
-            var m = ecoMeta[eco.type] || ecoMeta.t2t3;
-            // Node's share of cohort = node's ecosystem $ / cohort total $
-            var nodeEcoShare = (eco.ecosystem / m.cohortUSD_M * 100);
-            var cohortPayroll_M = m.cohortSize * m.salary / 1e6;
-
-            out += '<div style="margin-top:18px;padding:18px 20px;background:rgba(124,58,237,0.05);border:2px solid rgba(124,58,237,0.3);border-radius:14px;">';
-            // Header
-            out += '<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:4px;">';
-            out += '<div>';
-            out += '<div style="font-family:var(--font-mono);font-size:0.58rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Ecosystem Extension &mdash; ' + m.label + '</div>';
-            out += '<div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#1f2937;">' + eco.descriptor + '</div>';
-            out += '</div>';
-            out += '<div style="font-family:var(--font-mono);font-size:1.8rem;font-weight:800;color:#7c3aed;white-space:nowrap;">$' + eco.ecosystem + 'M</div>';
-            out += '</div>';
-            out += '<div style="font-size:0.72rem;color:#6b7280;line-height:1.5;margin-top:8px;margin-bottom:14px;">Node\'s share of the $' + m.cohortUSD_M + 'M total cohort Ecosystem SAM, allocated proportional to node Brand-owner SAM. Same 7-step chain as brand-owner scope but with channel-cohort values for salary / eligibility / task AI rate.</div>';
-
-            // 7-row ecosystem table
-            var ecoRowStyle = 'padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(124,58,237,0.15);font-size:0.74rem;line-height:1.5;';
-            var ecoNumStyle = 'padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(124,58,237,0.15);font-family:var(--font-mono);font-weight:700;color:#1f2937;text-align:right;white-space:nowrap;font-size:0.78rem;';
-            var ecoLabelStyle = 'padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(124,58,237,0.15);font-family:var(--font-display);font-weight:700;color:#1f2937;font-size:0.78rem;';
-            var ecoMethodStyle = 'padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(124,58,237,0.15);font-size:0.72rem;color:#4b5563;line-height:1.5;';
-            var ecoSourceStyle = 'padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(124,58,237,0.15);font-size:0.68rem;color:#6b7280;line-height:1.55;';
-
-            out += '<div style="overflow-x:auto;">';
-            out += '<table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(124,58,237,0.2);border-radius:10px;overflow:hidden;">';
-            out += '<thead><tr style="background:rgba(124,58,237,0.08);">';
-            out += '<th style="padding:10px;text-align:left;font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid rgba(124,58,237,0.2);width:32px;">#</th>';
-            out += '<th style="padding:10px;text-align:left;font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid rgba(124,58,237,0.2);min-width:180px;">Step</th>';
-            out += '<th style="padding:10px;text-align:right;font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid rgba(124,58,237,0.2);width:120px;">Value</th>';
-            out += '<th style="padding:10px;text-align:left;font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid rgba(124,58,237,0.2);">Method</th>';
-            out += '<th style="padding:10px;text-align:left;font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid rgba(124,58,237,0.2);min-width:180px;">Sources</th>';
-            out += '</tr></thead><tbody>';
-
-            // Row 1: Cohort workforce
-            out += '<tr><td style="'+ecoRowStyle+'font-weight:700;color:#7c3aed;">1</td>';
-            out += '<td style="'+ecoLabelStyle+'">Cohort workforce<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">' + m.label.replace(' ecosystem','') + ' headcount</div></td>';
-            out += '<td style="'+ecoNumStyle+'">' + m.cohortSize.toLocaleString() + '</td>';
-            out += '<td style="'+ecoMethodStyle+'">' + m.cohortDesc + '. Census from ' + m.sourceOrg + ' industry-association registry + cohort surveys. Excludes brand-owner on-payroll scope (which is counted separately in Core + Extended SAM).</td>';
-            out += '<td style="'+ecoSourceStyle+'"><a href="'+m.sourceUrl+'" target="_blank" style="color:#2563eb;text-decoration:underline;">'+m.sourceOrg+'</a> &middot; <a href="https://www.naukri.com/" target="_blank" style="color:#2563eb;text-decoration:underline;">Naukri</a> &middot; <a href="https://www.payscale.com/research/IN/" target="_blank" style="color:#2563eb;text-decoration:underline;">PayScale India</a></td>';
-            out += '</tr>';
-
-            // Row 2: × Cohort salary
-            out += '<tr><td style="'+ecoRowStyle+'font-weight:700;color:#7c3aed;">2</td>';
-            out += '<td style="'+ecoLabelStyle+'">&times; Cohort blended salary<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">Cohort-flat &mdash; lower than brand-owner (~$30,679 / $14,469)</div></td>';
-            out += '<td style="'+ecoNumStyle+'">$' + m.salary.toLocaleString() + '</td>';
-            out += '<td style="'+ecoMethodStyle+'">Channel-level blended compensation &mdash; lower than brand-owner scope since cohort is mostly field-facing / execution roles. Triangulated from ' + m.sourceOrg + ' cohort surveys + Naukri / Glassdoor / PayScale India benchmarks by role cohort (sales admin, service advisor, merchandiser, distributor field rep).</td>';
-            out += '<td style="'+ecoSourceStyle+'"><a href="https://www.naukri.com/" target="_blank" style="color:#2563eb;text-decoration:underline;">Naukri</a> &middot; <a href="https://www.glassdoor.co.in/" target="_blank" style="color:#2563eb;text-decoration:underline;">Glassdoor India</a> &middot; <a href="https://www.payscale.com/research/IN/" target="_blank" style="color:#2563eb;text-decoration:underline;">PayScale</a></td>';
-            out += '</tr>';
-
-            // Row 3: = Cohort payroll
-            out += '<tr style="background:#fafaf4;"><td style="'+ecoRowStyle+'font-weight:700;color:#6b7280;">=</td>';
-            out += '<td style="'+ecoLabelStyle+'color:#6b7280;">Cohort payroll<div style="font-size:0.65rem;font-weight:400;color:#9ca3af;margin-top:2px;">Derived: cohort workforce &times; salary</div></td>';
-            out += '<td style="'+ecoNumStyle+'color:#6b7280;">$' + cohortPayroll_M.toFixed(0) + 'M</td>';
-            out += '<td style="'+ecoMethodStyle+'color:#9ca3af;font-style:italic;">Intermediate value &mdash; total cohort labour cost addressable by AI</td>';
-            out += '<td style="'+ecoSourceStyle+'color:#9ca3af;">Derived (rows 1&ndash;2 product)</td>';
-            out += '</tr>';
-
-            // Row 4: × Cohort role eligibility
-            out += '<tr><td style="'+ecoRowStyle+'font-weight:700;color:#7c3aed;">3</td>';
-            out += '<td style="'+ecoLabelStyle+'">&times; Cohort role eligibility<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">Lower than brand-owner (85%/88% avg) &mdash; more field-facing roles</div></td>';
-            out += '<td style="'+ecoNumStyle+'">' + (m.elig*100).toFixed(0) + '%</td>';
-            out += '<td style="'+ecoMethodStyle+'">Cohort-weighted eligibility: share of cohort roles with non-zero AI addressability. Lower than brand-owner scope because channel includes more pure field / floor roles (service technicians, in-store merchandisers) with lower desk-work density. Auto 72% / FMCG 58%.</td>';
-            out += '<td style="'+ecoSourceStyle+'"><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" style="color:#2563eb;text-decoration:underline;">WEF Future of Jobs 2025</a> &middot; <a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey MGI 2023</a></td>';
-            out += '</tr>';
-
-            // Row 5: × Task AI rate
-            out += '<tr><td style="'+ecoRowStyle+'font-weight:700;color:#7c3aed;">4</td>';
-            out += '<td style="'+ecoLabelStyle+'">&times; Cohort task AI rate<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">Lower than brand-owner (40%/38% avg) &mdash; more routine tasks</div></td>';
-            out += '<td style="'+ecoNumStyle+'">' + (m.aiRate*100).toFixed(0) + '%</td>';
-            out += '<td style="'+ecoMethodStyle+'">Cohort-weighted task-level AI automation rate. Lower than brand-owner because channel roles have more standardized task profiles (order entry, retail-shelf checks, service-record updates) but less complex judgement work. Auto 28% / FMCG 32%.</td>';
-            out += '<td style="'+ecoSourceStyle+'"><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" style="color:#2563eb;text-decoration:underline;">McKinsey State of AI 2024</a> &middot; <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf" target="_blank" style="color:#2563eb;text-decoration:underline;">Frey-Osborne 2013</a></td>';
-            out += '</tr>';
-
-            // Row 6: × 50% discount = Cohort Ecosystem SAM total
-            out += '<tr style="background:rgba(124,58,237,0.04);"><td style="'+ecoRowStyle+'font-weight:700;color:#7c3aed;">5</td>';
-            out += '<td style="'+ecoLabelStyle+'">&times; 50% AI price discount = Cohort total<div style="font-size:0.65rem;font-weight:400;color:#6b7280;margin-top:2px;">Total Ecosystem SAM for this cohort across ALL nodes sharing it</div></td>';
-            out += '<td style="'+ecoNumStyle+'font-weight:800;color:#7c3aed;">$' + m.cohortUSD_M + 'M</td>';
-            out += '<td style="'+ecoMethodStyle+'">AI priced below channel labour cost. Cohort total Ecosystem SAM (across all nodes sharing this cohort) is $' + m.cohortUSD_M + 'M.</td>';
-            out += '<td style="'+ecoSourceStyle+'">AI pricing convention (same as brand-owner SAM step 7)</td>';
-            out += '</tr>';
-
-            // Row 7: × Node share of cohort = Node Ecosystem SAM
-            out += '<tr style="background:rgba(124,58,237,0.1);border-top:2px solid #7c3aed;"><td style="'+ecoRowStyle+'font-weight:800;color:#7c3aed;border-bottom:none;">6</td>';
-            out += '<td style="'+ecoLabelStyle+'color:#7c3aed;border-bottom:none;">&times; Node share of cohort = Node Ecosystem SAM<div style="font-size:0.65rem;font-weight:400;color:#7c3aed;margin-top:2px;">NODE-SPECIFIC &mdash; proportional to node Brand-owner SAM</div></td>';
-            out += '<td style="'+ecoNumStyle+'color:#7c3aed;font-size:1rem;font-weight:800;border-bottom:none;">' + nodeEcoShare.toFixed(1) + '%<br><span style="font-size:0.85rem;color:#7c3aed;font-weight:800;">= $' + eco.ecosystem + 'M</span></td>';
-            out += '<td style="'+ecoMethodStyle+'border-bottom:none;">Node\'s Ecosystem SAM is allocated proportionally to its Brand-owner SAM (Core + Extended) across all nodes sharing this cohort &mdash; nodes with larger brand-owner AI demand carry more of the channel AI demand.</td>';
-            out += '<td style="'+ecoSourceStyle+'border-bottom:none;">Per-node Brand-owner SAM from NODE_TAM_CHAIN &middot; See Section 7 Step 9 for channel-workforce derivation</td>';
-            out += '</tr>';
-
-            out += '</tbody></table></div>';
-            out += '</div>';
-          }
-          var budget = window.BUDGET_TAM_ALLOC && window.BUDGET_TAM_ALLOC[key] && window.BUDGET_TAM_ALLOC[key][n.name];
-          if (budget) {
-            out += '<div style="margin-top:14px;padding:16px 18px;background:rgba(217,119,6,0.05);border:1px solid rgba(217,119,6,0.30);border-radius:12px;">';
-            out += '<div style="font-family:var(--font-display);font-size:0.62rem;font-weight:800;color:#d97706;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Budget extension &mdash; ' + budget.line + '</div>';
-            out += '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;">';
-            out += '<div style="font-size:0.82rem;color:#4b5563;line-height:1.55;max-width:75%;">'+budget.desc+'</div>';
-            out += '<div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:800;color:#d97706;white-space:nowrap;">$'+budget.amount+'M</div>';
-            out += '</div>';
-            out += '<div style="font-size:0.7rem;color:#6b7280;line-height:1.5;font-style:italic;">Non-payroll spend line AI cannibalizes. Distinct unit economics from labour TAM &mdash; captured as a share of category spend rather than replacement of FTE cost.</div>';
-            out += '</div>';
-          }
-          var ecoOnly = (eco && eco.ecosystem) ? eco.ecosystem : 0;
-          var budgetOnly = budget ? budget.amount : 0;
-          var total = Math.round(nodeSAM + ecoOnly + budgetOnly);
-          if (ecoOnly || budgetOnly) {
-            out += '<div style="margin-top:12px;padding:16px 18px;background:rgba(13,148,136,0.08);border:2px solid #0d9488;border-radius:12px;">';
-            out += '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;">';
-            out += '<div><div style="font-family:var(--font-mono);font-size:0.5rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Total Addressable</div>';
-            var parts = ['brand-owner $'+Math.round(nodeSAM)+'M'];
-            if (ecoOnly) parts.push('ecosystem $'+ecoOnly+'M');
-            if (budgetOnly) parts.push('budget $'+budgetOnly+'M');
-            out += '<div style="font-family:var(--font-display);font-size:0.82rem;font-weight:700;color:#0d9488;">'+n.name+' &mdash; ' + parts.join(' + ') + '</div></div>';
-            out += '<div style="font-family:var(--font-mono);font-size:1.8rem;font-weight:800;color:#0d9488;white-space:nowrap;">$'+total+'M</div>';
-            out += '</div></div>';
-          }
-
           // Role table (node-specific roles + career-stream buckets)
           out += '<p style="font-size:0.78rem;color:#374151;line-height:1.6;margin:16px 0 10px;">Role-level detail for this node. Each role carries its own career-stream bucket (Executive &middot; Management &middot; Professional &middot; Para-Pro), driving the Row 5 eligibility &times; rate weight. Roles are sourced from the 372-role Role Library (Section 7 Step 4).</p>';
           out += '<table style="width:100%;border-collapse:collapse;font-size:0.78rem;color:#374151;">';
@@ -6679,7 +6495,7 @@ function openSectorDetail(name) {
   body += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;">';
   var fields;
   if (s.selected) {
-    fields = [["Brand-owner revenue base",s.revenue],["Sector net margin",s.margin],["Brand-owner firm count",s.employees],["Pooled Knowledge Worker share (BRSR)",s.wcPct],["KW payroll (brand-owner on-payroll)",s.kwPayroll],["Forward CAGR",s.fwdCagr],["AI Readiness verdict",s.aiReadiness],["Career-weighted AI addressability",(name==='Automobile'?'30.9%':'29.2%')],["Enterprise TAM (Core + ecosystem + budget)",s.tam]];
+    fields = [["Brand-owner revenue base",s.revenue],["Sector net margin",s.margin],["Brand-owner firm count",s.employees],["Pooled Knowledge Worker share (BRSR)",s.wcPct],["KW payroll (brand-owner on-payroll)",s.kwPayroll],["Forward CAGR",s.fwdCagr],["AI Readiness verdict",s.aiReadiness],["Career-weighted AI addressability",(name==='Automobile'?'30.9%':'29.2%')],["Enterprise TAM (Core + Extended + Ecosystem)",s.tam]];
   } else {
     fields = [["Sector revenue (industry pooled)",s.revenue],["Sector net margin",s.margin],["Sector employees",s.employees],["Knowledge work share (industry)",s.wcPct],["Knowledge Worker payroll (estimate)",s.kwPayroll],["Forward CAGR",s.fwdCagr],["AI Readiness verdict",s.aiReadiness],["Confidence","Pooled estimate"],["Enterprise TAM (pooled estimate)",s.tam]];
   }
