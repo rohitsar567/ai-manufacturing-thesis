@@ -10230,7 +10230,11 @@ window.NODE_DESC = {
           if (appliedCalls > 0) init();
         })
         .catch(function(e){
-          if (btn){ btn.textContent = '\u26a0\ufe0f No pending file yet'; setTimeout</script>
+          if (btn){ btn.textContent = '\u26a0\ufe0f No pending file yet'; setTimeout(function(){ btn.textContent = origText; btn.style.background = '#7c3aed'; btn.disabled = false; }, 3000); }
+        });
+    }
+  })();
+  </script>
   </div>
   </div>
 </section>
