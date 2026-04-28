@@ -1,0 +1,254 @@
+Hello.
+Roh.
+It.
+Hi hi Gaurav how are you doing?
+I'm good. How are you?
+Doing?
+Good good can't complain apologies for the back and forth confusion on scheduling we were able to find time I just wanted to make sure that we were able to do the call properly without getting into some trouble where we have to cut short or there's some chaos associated with it so I'm just glad we're able to take the time to speak fully and freely today for accommodating the change.
+Whatever.
+Maybe if it's helpful I know you you've spoken you may have spoken to poor fellow unfortunately he's ripped a ligament in his likeness like seriously out of commission I don't know how much he was able to tell you about Piccas but happy to give you a quick intro on the fund who we are what we do if that is helpful.
+Sure.
+Yeah, sure. Very helpful.
+So very quickly we are in an early stage fire and we're based out of Munich in Germany and we started about 10 years ago in 2015 or 11 years ago at this point of time in 2015 investing primarily in technology and internet companies at a global scale we started in Munich today we have teams on the ground in UK in the US in Asia with almost 200 companies in the portfolio and about a billion and a half dollars that we manage across all of these different geographies.
+We were founded by an entrepreneur ourselves this is a gentleman named Alexander Samar Alex along with his brothers back in the day co-founded the Rockit Internet group which included or built consumer and e-commerce platforms like zalando delivery hero Lazada in India you may also know them from arguably less successful attempts with companies like food panda and jama but obviously Lazada delivery hero continue to be very very large publicly listed e-commerce companies today post rockets IPO Alex stepped away started Picus and what's a little bit unique about how we invest is our first check which is typically in very early stage precede companies typically in the range of say half to one and a half million US dollars is privately financed by Alex and the other partners at the fund meaning that for the first check there is no concept of a quote unquote fund life cycle holding period any of those things and we deliberately look to invest the first check from the private balance sheet because we can commit that money for 10 plus years very very easily.
+Right and if you see portfolio companies from 2015 2016 when we had just started investing in Europe companies like npul personio we continue to be very active investors and shareholders on those companies even today right and then we can follow on meaningfully with a growth fund that we have which is a more traditional fund structure with external LPs etc etc from where we can write checks to the tune of 15 20 25 even $30 million in subsequent rounds like the series ABC and so on. So that is a little bit about our setup happy to answer any specific questions if you have them otherwise would just hand over to you would love to know more about your journey and what you are building trying to automate in the auto dealership space here in India.
+So Rohit, just picking up from where you sort of left. Do you do pre-seed sorry?
+Pre-product and pre-revenue.
+Yes a lot of the deals that we've done have been pre-product pre-revenue I think it matters a little bit in terms of what category we are investing in what is the competitive intensity of the category how well we also understand the space right so in some places we might look for some signals of revenue intent some early signs of traction etc but there are various places where we've very clearly invested in companies with nothing apart from a paper plan for the business. So there's a spectrum across which we operate.
+Excellent. When I started, when I started to do this, I started it out of not like, hey, I will raise money and then do it. That was not my start.
+Okay. I started it and I. And I knew that this is going to be a successful simply because of my background. I'll tell you a little bit of my background, but it's going to come in slide three anyways. I'll tell you a little bit. I've been here. Wait, hang on.
+Okay, so you can see. You can see the slide there.
+Yes yes yes.
+Can you see me also? Can you see my face?
+I can.
+Okay, excellent. So basically, I've done two decades in automotive. I started with Volkswagen group in 2007. I've had unrelated experience before that.
+Where I was. I mean, I had textile business, right? So I was the owner there. And in. In 2007ish, I got into Volkswagen.
+Group. So I was heading.
+For. Sorry. I was heading digital for Skoda idea. Sorry for my fumble.
+And. And I did that until 2012. There was quite in. Some of them were quite interesting projects. For example, I rolled out the DMS in 2010.
+Right now. Typically, the rollout would happen by the dealer Network team. So I. So think about me as the guy who's deciding which software the strategy and so and so forth.
+Right. And beyond that, I start. I did Volkswagen in that. In that group Zone until 12, I did Volkswagen in India and in South Korea.
+Primarily on retail processes and efficiency at the dealership and so on, so forth.
+Right. A predictive modeling at that time, mlai was not like mlai. Right. So. But we did. We were able to sort of do a whole bit of volume projection prediction, not projection, but. But artificial intelligence led prediction in terms of volumes as to what.
+Right. And from there, I, I did my own startup, which was a lead management system. Right. The. So just to give you a little bit on the automotive. So from 2003 until 2010 11 ish, everybody wanted all oems wanted a DMS.
+But in 2010, they somehow realized that this is not going to work because you've put a system at the dealership, but not given access to anybody. Right. Because the guys who are at the dealership don't have system access. The admin and the general manager have. Right. So then the, the story then turned to say, hey, can we put a lead management system in the hands of the users, which that was my company, I found it. And I got acqui had into card after doing three, four countries in that.
+In card also.
+I, again, it was a startup because they needed Enterprise grade software.
+At that time, I can safely say, carda was only consumer, so they did not know this. And I came in and delivered Enterprise grade software to Honda and then also to fort. So until 2018, I've been doing the system, system pre-sale sale sort of thing, not really sales. I mean, delivery product and so on, so for that, I got into media sales and then sort of built out Philippines, Indonesia, Malaysia and Thailand.
+Also.
+Right for card. And that's where I left.
+Because the Gap is blaring both as a buyer of lead and as a seller of lead. And this. So, so the overarching thought is workflows. But how do you enter the workflows? Right. You need a wedge.
+Right. And that wedge basically is leads. Right. So if, if you are having leads and if you go to the dealer and say, hey, I will do, I will solve a deadly problem. There is no, absolutely no resistance to entry.
+Once you have a foot in the door, then it's all about account growth. Right. So then you can grow that account to wherever you want to actually take it.
+I mean, yeah, you can also take cuts from their, you know, card commission, Finance, Insurance, everything. Right. So, so that is what we are. So now if I come back. So when I started out, right, which is roughly in my head, I started five months ago, but roughly in, in the, you know, last two months, we've been at it. Right. So my arc is like this. We started last month coding. This month pilot next month first revenues. Right. So that's how we're thinking.
+Okay.
+So why, what is the need for all of this? Right. So every dealer, end by dealer, I'm talking about a rooftop. Okay. And these numbers are real because I have taken the first pilot and put the numbers. So it's not, you know, it's not what you call assumed or tabulated. It's actual numbers from the dealership that is pilot with me right now.
+Okay.
+And and when you when you mention this 50 lakhs a year from dead leads and you say this is per rooftop is this at a outlet level or is this at a dealership level this 50 lakh.
+No, no outlet. Outlet level. So right now. So I'll give you the math. Right. So there is a problem math thing also. So, so 50 lakhs is lost by the dealer per year on the roof. So, yeah, dealer counter rooftop. Right. So.
+Any of dealer counter rooftop is going to be the same dealership is going to be the guy who holds maybe more than one counter under.
+Right.
+I'm sorry when you say outlet what does that mean just so that I'm clear on the nomination?
+It is the same thing. So Outlet, counter and rooftop are the same thing. It's one physical location.
+Okay.
+All right, so now this dealer has roughly 50 Outlets. Right. So it's. Are you. Where are you based in Singapore? Right.
+I am in Bangalore sorry.
+Now. Right now, Bangalore. But otherwise located in Singapore.
+No no in Bangalore we have an office in Singapore but there is nobody there so our entire team is based in India one person in Mumbai.
+Oh, okay.
+Understood. So.
+So great. I'm also Bangalore. So the dealer that I'm talking about is bimal Auto.
+Okay.
+Okay. So you might have seen all his boards everywhere. Right. So he has 35 dealerships in Karnataka, 15 in Kerala.
+Right. So 50 Outlets. He has 100,000 dead leads a year.
+Okay.
+Right. And just I'm going to give you context because, you know, instead of just slight, slight, slide, I'm going to give you some interesting things. Right. So I spoke with him. I told him, give me some of your leads by I met him in 11 o'clock, four o'clock. His marketing guy sent me 50,000 rings. Right. So half the leads.
+Came. So I in the meeting, I told him, he'll give me 50 bucks a lead. He said, Gaurav, if you make any of this active, I'll give you 500.
+Right. So that is the scale. My assumption from my experience, 30 of these are contactable.
+Right. So I'm saying even if you take five percent, very minimum. Right. So that's 5000 leads, right into 500 rupees. That's 25 lakhs.
+Now that is how I started.
+Right. But if you, if you multiply and say, okay, this is India, this Southeast Asia, that number is significantly large.
+Right. I'm not doing D2C math here, but it's significantly large. Okay. The time will come later. The time for any of the dealer stack is about 30 billion Globally.
+Sure.
+We move on just one thing I want to be very clear this so essentially the loss that this company auto is making is 50 lakhs a year into 50 outlets is is that how.
+That's right. That's right. So you should be thinking any. So the revenue uptick that can happen for him is anything between two and a half to five percent.
+Two and a half because I'm taking conservative numbers. It can be above five. But I'm saying, okay, between two and a half to five percent should be doable. Right. So this is roughly 250 cars annually that we can bring for it.
+Understood okay clear clear in this number maybe we move on to understanding I think I think the business case is reasonably clear would love to maybe understand one the product itself how it works what it does.
+Right what features what functionalities right you know what sort of systems does it need to and then second to also then understand how you expect it to move metrics for the dealer as well.
+Understood.
+Right.
+So, so move Matrix for the dealers. Right. And, and I'll tell you something about the pricing as well.
+Right. So three, three parts. Right. So, so basically what some of it you will not find that, okay, here is the product. This. But this is largely the product side. Right. So essentially, the first bit. So think of it like workflows. Like I said, overarching is workflows.
+Now, workflows could be from your lead entry. That is the marketing lead coming in. Right. So that's one angle of it. The other one is, hey, you know, compliance with the OEM. That is also a workflow. Somebody needs to pick up all the stocks, send it out and so on, so forth. Right. So workflow is the workflow is what I'm going after.
+All right.
+Now, just on the leads, because that is simpler to explain to you, explain to anyone essentially. And that's also where you'll start, where we will start. So dead leads is basically roughly 40 of inbound leads are dead.
+Okay. And by that I'm saying the guy is not able to make contact and so on, so forth.
+Then there are new leads. Right. So the average response time is very bad.
+Right. So if you notice a lot of the people are now speed to lead and saying, hey, I will pick up the first call on your lead.
+Actually, India, Southeast Asia slightly unique because everything runs on WhatsApp.
+Okay, so it's not so much call based. For example, somebody, a zoka. And I forget the two names. They're Baba. Baba software for us. Right. Salon software for us.
+Where they, they do appointments for barbershops. Right. And they also, somebody also said, hey, look, that one failed in India.
+So we are not that kind of economy, right? We are a WhatsApp first economy.
+So you need to go and do everything on WhatsApp. The next one is finance, right? So you need to have a system which will. So I'll tell you, hey, Rohit, you want, you know, you want to buy a car. Great. You want finance? You say, yes, I say, okay, these are the five documents sent to me today. That is very friction, right? I'm the sales guy. I'll say, sir, document. Right. So I have not received your document. Right. And then you'll say, no, no, I have sent it. But what I'm not translating to you is, you know, out of the five, you give me three, these two are still pending.
+Right. And for that, you might have to make a visit to the dealership and you're thinking this information could have just come to me, you know, on a message, something, right? I could have just sent you the document. Why do you have to waste my time?
+So all of that is friction. So we'll solve that on the finance insurance. Same thing. The dealer will bundle something. You have no idea what is given you. Right. Sadly, you make that transparent insurance becomes better.
+Service.
+There's like 30 of the cars which are sold don't come back to the service station. Right. Because the cost was not scheduled. I think they're fairly simple to understand what we are after, at least in one part of the workflow.
+Okay. And I'm saying this one part because some of them will discover later on what he wants to do in account. So what he wants to do in revenue collection, this, that we'll do later.
+Okay. So I'm not even going after that. I'm saying, let's solve this first.
+So, yeah, I, I spoke about myself. My co, my, my. Yeah. So I've done like six and a half million dollars in cardigra. Just put that in context. When that's one third of revenue for new auto in card when I was part of that team.
+India team, the 4 million in cardigan, Southeast Asia was all mine. Now coming from co-founder Arvind has been in.
+Founding teams. Right. So if you notice the brands feel low. So he was the founding team member. He was the head of engineering there. He, he was at a company which I forget that name. Right. So he then that company got acquired by Nokia. He then went over to Oracle and did something for fin for Europe where he was a founding member again. So he's, he's had a lot of founding experience.
+Right? Not as a founder, but as a founding member. So, so that is one. The second thing is that he's architected a lot of Integrations.
+Right? Because he was doing social media. So I remember one call. He told me, can I take 100 million ABI calls in a month?
+Like, what is your estimation? Right.
+And I said 100 million is too much. Maybe one millions are not. Then he was like, okay, don't worry about 1 million. One million is done. Right. So he's done a lot of integrations. Right. So those were the two characteristics that sort of pull me to him.
+Okay. Now, shall I move forward? Any question?
+And I think nothing on the on the on on this I think I would just love to understand yeah the on the product side how how all of this actually works how it will happen like what's under the hood to make this you know effective I think that'd be great.
+So if by the end of it, if I'm still unclear, then, you know, we'll revisit the question, but I'll try to.
+No I think it should be I think it should be fine maybe this slide itself actually probably answers everything.
+So what is, what is, why is, what is the need for this product? Right? What the one that we are trying to build, right? Because there is a CRM, there is a DMS, a chatbot automation, all of that is already happening. Right. But all of these are system of record. For example, Rohit, you might be using a CRM.
+Right? That'll be a system of record. You will go and record inside it if you chose to that.
+Hey, I met with Gaurav at 12 p.m. and, you know, I had a conversation. Good. Some, some maybe some attribute information there. Right. But it will never tell you what to do next with Gaurav.
+Right. So that is where navrat comes in. We own deal state. We own when what was the state budget intent history? We, we are consumer aware, context aware.
+Right. And that is when we can tell him, hey, this customer was supposed to come for a test day to, you know, today he's not come send him a message in the evening. Right. Everything okay or not.
+The sales guy will forget. He's not able to do that.
+Right. And I use perhaps an example where we are talking about test drive. Right. Think about any other example. He's going to forget he works out of his stomach.
+And he works on customers that walk through the, through the dealership.
+Door.
+Right. He's going to forget everything else.
+You know, that needs to be done. And that's primarily the break. So the negative funnel at the dealerships on the sale side of things is very high.
+Right. So think about it. You know, what is the online lead conversion that happens on average is four percent. Right. So. And the system will never record 96 fail.
+There's no system is designed to do that. Every system wants to give you a positive that, hey, you are four percent up, right? Nobody works on the underlying negative funnel, which is massive.
+Right.
+70. You know, you made 100 applications. 60 went through in finance. 40 didn't go through. Nobody knows. Nobody cares. You only know this at the end of either the monthly report or quarter report and so on, so forth. Right. On a day-to-day basis, nobody works.
+On it. We are going to work.
+Is that clear? Secondly, the orchestration, right? The orchestration today is a manual handoff.
+So we will do it automated.
+Right. For example, I don't know if you know OEM processes, but there is a 16 step process, 12-step process. Every OEM has in the sales Journey. You know, what is the last point in that Journey?
+You the sales guy need to give hand over to the service guy.
+Right? To say, hey, this is the service guy. Please meet him. Thank you. I will take care of your car. What happens? The service guy leaves after one month. Your car is due after 12 months.
+So then how does that work? Right. That handoff broke. Now you come back and say, you know, is that guy there? Or I met some service. None of that actually happened. Now it's all new.
+So how do, how do you orchestrate that handoff properly? That guy left. Okay, here is the new guy who will talk to you.
+Right. All of that.
+So plus inside the system, the handoff inside the system that, okay, this lead now from a, from a, sorry, buying Journey is now in finance. It's come back is now an insurance comeback is now in, you know, collections, all of that.
+That handoff is all manual right now.
+So you will go into any dealership that reams and dreams of paper floating around.
+Because it's all man one.
+Got it understood.
+All right.
+The wedge is deadly. Like I explained to you, this is the zero friction point. And you can get dead leads very, very fast, very, very easily. Right. So my question is, okay, give me leads between one and six months old. I will work on them.
+And, and if I go through, you pay me and its outcome based pricing. So product based plane pricing is outcome based. We are not a chatbot, so we don't charge for interaction and that sort of differentiates us because, you know, we will make your Revenue and then you pay us.
+Right. So, and then everybody is very happy. They're like, yeah, yeah. Can you also do this? So every day. So I've spoken to two one. I have reached out. He sent me the leads in 10 minutes on phone and bimal sort of went and met him. He said, as soon as he heard me, he's like, can you also do, can you also do this and so on, so forth?
+Right.
+So you can see a clear part to. Okay. I want more from you.
+All right, so what will the dealer executive? See, these are rashes. They are not really actual screens. I think I will change the deck this week. Some when this week, I'm hoping that's what Avin told me, Gaurav, this week things should move. So basically, and more than this.
+Right? Maybe I can explain to you how you use software. So think about your WhatsApp on the phone.
+That's your task.
+Wall, right? That's your prioritized queue. WhatsApp also prioritizes new goes on top and so on, so forth. Right. So we'll prioritize based on the next action to be taken. You click on it, you see a history. Now think about the center, center thing. Right. Center screen. So you'll see some dots.
+When you click on it now, think about you opened a PDF. It'll open the detail. When you click on this, you'll get the detail as to what's happening at that time.
+Right. What happened at that exact point? So what was the conversation? What was the context?
+Let me give you something very fancy.
+Actually, it happens every time in the dealership. Right. So did you. Oh, by the way, did you buy a car recently or somewhere?
+No but I my my dad did some time back so I'm familiarish with the journey at least we bought two three cars in our family over my lifetime so far so I'm I mean I was not as privy to the problems because he probably was privy to them a lot more but I've sort of seen at least the process to some extent.
+Yeah.
+So you will you. When I'm talking to you, you will not say that, you know, I'm on a tangent or something. Right. But now let me give you something on the how the AI works.
+Right. So let's say you went and bought a white ER cell toss just for the heck of it.
+Right. And you, you've been chatting with the guy saying that I want white. I want white. Yesterday, the last white cars, got sold.
+The sales guy doesn't know because he'll have to check system and he's lazy. He will not do that every day.
+Right. So.
+The AI will, the AI will go and tell him, hey, don't sell white anymore. Two months ago, Rohit had told us silver is also okay. White or silver. Right. We have silver in stock.
+That's not possible manually.
+This is just one use case where workflows start to.
+Come together and help.
+Right. So this is just not possible.
+Similarly, hey, Rohit's loan might not be approved at ici because the cutoff is this, right? This, the cbu score is, I don't know.
+1200 example. Right. And, you know, au finance can do it at 820. So your best case is au finance.
+Let me fill up the form for you.
+So what happens is AI can now go form fill it and he just the we are a human in the loop.
+Right? So he just has to say, yes, yes, yes. Or if he has some context, he can sort of add.
+So that is what this.
+Okay.
+Got it understood.
+Now, now let's say what is the.
+I'll, I'll talk about traction first because I'm super kicked about it. Right. So basically, I was in indo in February and I just, and at that time, like I said, I was just thinking, right? So I spoke with the head CEO of indomobile. Indomobile is one of the nine drag. So like, like the adani, right? The nine dragons in Indo which run the country. One of them owns the automotive vertical, which is called indom mobile. They are the largest.
+Okay.
+Distributor. Right. So because Southeast Asia is distributed economy, not OEM economy. Right. So.
+So he's the largest distributor, has about 20 access to 20 oems in the country. Even the likes of Suzuki, Nissan, Honda, they all run through them. Okay, so the CEO and Andrew said, hey, Gaurav, if this is what you're doing, I, I'll, you know, bring it to me first. Don't go to anyone else.
+Right. So this, that was the first traction. After that, I met the data detail guy, and data is running 70 dealerships on win fast. And he said he didn't talk.
+I just said, I'm building a system. He said, good. Let's have it.
+Right. And he said that I'll take you to Vietnam. And then, you know, if it is worthwhile, then, you know, you talk to all the others, like just excitement, General excitement.
+Okay, now coming to India, where actual action is happening, I called autobahn primarily because Arvind, who's not from auto, he was getting not jittery, but, you know, he said Gaurav, can we get some traction from the dealer? I'd like to talk to them.
+As well. 10 minute data came from auto part.
+Bimal called us and said, Gaurav, what are you doing?
+Again in the afternoon data game?
+Right. Similarly, I can plot in each.
+Because of my experience. I can plot in each state one large dealer. Right. My aim is that once I finish all the dealers, like the major 20, 30, 20 odd States, major 20 or six, I'll go to the OEM and say I have 20 state experience. Let's talk.
+The now. Fortunately for me, the OEM guys I know also.
+Sure sure.
+Right. So basically it'll be a message on WhatsApp to say, hey, I've done this. I want to have a meeting with you. The guy will most likely say, okay, come over.
+Right.
+Of time because I will have to jump to another call maybe one or two things that I just like to also very clearly understand so I understand you know at a at account at a counter level people are losing 50 lakhs worth of sales every year because of you know of lost leads various issues in the funnel that you mentioned where some or the other reason you know the customer is dropping off.
+And you know you you are looking at least at this point of time at a two and a half to 5% recovery of that 50 lakh per counter.
+Right what do you get paid to do this and in general how are you thinking about the pricing strategy or the model for this?
+Right? Will you always do it on a on a loss lead recovery or what will this look like in the future how does this get to a place where you are in a recurring fee from the from the dealership on an ongoing basis because because we've seen the space at least we were looking at it in the US we've looked at CDK global we've looked at tech on and we've understood how they've managed to scale their businesses but ultimately the crux of it or the juice of it that's allowed them to become very large is the tens of thousands of dollars per dealership that they're able to charge because the dealership can't run without their OS at the end of the day right so I understand this is your wedge but also curious to understand the journey to becoming the full dealership OS if that is at all.
+A focus that you have.
+And in either case.
+Today and future what does the pricing journey look like? I think that'd be super helpful.
+So, yes. So essentially, I'm thinking of pricing in two parts. Right. So SAS. So because you will have to have some form of SAS which covers the infra aws.
+And outcome based pricing. Right. So every time there's a success, whether it's finance done or insurance done or car sold, whatever trade in service, every, every outcome sort of gives us a, you know, a price, right? A revenue.
+And to that question given that this is more of a co-pilot as opposed to the replacement for the dealership employee right and he will use the software to make things happen.
+How do you solve the attribution issue?
+Because the guy will always say that the lead came because I did my work right the software is okay it's helping me.
+But something happened the customer moved forward in the funnel financing was approved X was done why was done very clear that you have those identifiable you know binary steps happening so there's no doubt that you can measure that my question is how do you handle the attribution in that case because the guy will claim that I did it the software was not the hero in this situation.
+So.
+I.
+Typically what happens is, in my experience, in any of, in any of the sales that have happened in automotive, typically you are able to say, okay, this was based and this is the uptick.
+Right? One. Right. So if, if everything you've done that, and if you show the uptick, then that guy telling that I have done it doesn't hold. Because then why were you not doing it all this while? Right. Number.
+Okay.
+One. Number one. Number two is I'm not going to challenge the DMS and CRM and some of the others, neither the DSC. Right. So what will the dealer see? The dealer will see that suddenly, yes, you know how many people B 500?
+Sales guys? Right. So suddenly you'll see I don't need 500. I may need 300.
+Right. So I'm not saying I'm here to replace people. Right. That is the story that will work in the US. Not here with 3,000, 5000. What do you want to replace?
+Right. So here what we. And it's a lot of manual also here. It's, it's broken a little bit.
+Right. So I'm saying, hey, I'll make him more efficient.
+Today. He is doing 100 leads a month. Tomorrow you'll do 300 because suddenly he does not have to do so much.
+Right. That is one.
+The second thing is today he might have a DMS or a CRM, but over time those will again, they'll just become entry. Data entry systems and you say, okay, positives done, done, done. Every other thing will be processed in my system. Right. So typically what will happen is eventually, eventually we will be able to become that system on which the OS on which the dealership will run. That's the goal, not only on the DMS, the, you know, the, the consumer side of things, but also his internal. Right. The DMS doesn't solve his internal back office. Right. So that is the one that we will solve as well.
+Because we have all the data.
+Right?
+Very quickly. So why now? Because, you know, AI sort of the, the cost cross the threshold, one and a half years ago, there was a 90 decline. Next five years, again, 90 decline. So that, that's, that's that. The India car sale boom in Indonesia. Look, I don't have to go and tell the dealer take AI.
+That's fantastic.
+Sure.
+Right.
+No I think I think I think very clear on this I can I can take a look at these numbers when you said you know in the deck itself so I think we can we can skip this maybe just last question then from my side was you know how are you thinking about fundraising what are you looking to fundraise now are you looking to fundraise after you hit you know your initial revenue metrics whatever that might look like and second how much are you potentially looking to race?
+So I.
+Ll.
+Right. So essentially, do I need a lot of money? No, I probably need very clearly three, four crores where I want to compress time. I want to put like five, six Engineers on it. Compress time, go to the dealer. And I don't need GTM money. Right. Essentially, I just need. And do I need five engines? Maybe how can I do with three? Of course I can do with three. Right. So I need very small money so that we are not hand to mouth as far as effort is concerned. Right. And then sort of go to the dealer and say, hey, here it is. See, people are waiting for me in Dubai, in, in Jakarta, in here. People are just waiting and saying, oh, we got to make this happen. People are waiting. Right. So I want to sort of compress time on that.
+Look, I will put on a deck that is normal standard, you know, two out of eight kind of, you know, to raise two million on a, on a post money, 10 million sort of thing. Right. That's a standard given today. I'll put that. Do I need this? No, you can tarn it out. You can say, hey, Gaurav, I'll commit 2 million. Let's do it at, like, large. See, I'm sass. I'm going to be cash positive all the time. Right. So what do I need the money for?
+Okay.
+Right. When I make the business plan, I'm positive. You know, I invest four, four crores. I am positive at the end of the year. Right. I mean, 12 months later, I'm, I'm more than four crores. Right. So I'm net net positive that way. That way.
+Right. So.
+Cool.
+Right.
+No I think I think I think very clear you know we've we've not invested in the auto space but I think we've seen other companies on our portfolio try to do this exact kind of thing you know in financial services companies are trying to do this in healthcare both in India us you're not at a global level so I think we understand the model we understand the space let me come back to you by the end of this week itself with next steps and feedback from our side we'll just revisit some of the work that we've done on the auto dealership space in the us trying to see what our learnings were from there and also take a little bit of a look at the India auto market ourselves and then come back to you with if that's helpful.
+Yeah.
+Right.
+Yeah. So Rohit, not all Revenue lines are discovered here. I want to give you two, three points, right? Not all Revenue lines are discount. For example, a bank called us, right? I don't even know mandua bank or something. They do 1700 crores. Okay. And they said, I would like to integrate with. I said, was my product is not. No, no, we'd like to integrate with you. You send us leads that have not got, you know, that have failed in their finance Journey. Right. So we will process them.
+They said they'll give us a referral fee. One, 1.5% something they were talking, right? I'm not, I was not so interested at this time.
+But like I said, all Revenue lines are not sort of understood right now.
+Not all. And that means whatever time, whatever number that I'm giving you is sort of half bitten because this is what is visible to me right now, right, from, from here. It is not a full-fledged revenue.
+That I can show.
+If I were to talk about gme. Sorry, I'm so sorry. Just to put in perspective, right, we are talking about 40 billion in car in volume of cars.
+Right? 60 billion in, in, in Revenue for cars in Southeast Asia. Now what we've not taken. So what, what I'm trying to tell you, Rohit, is that two wheelers are not there. Commercial vehicles are not there.
+Use cars are not there. See this, this case that I'm talking about, you guys going to be huge. That's one and a half times the normal new car Market. Right. And sometimes up to, up to two eggs. So all that is not there. So what you see is a very small scope that I have put together. Right. So, okay, this is what we can do. This is what we will do, right? At least I'm very confident of what I've put on the slide here.
+Right. But some of them are, like you said, maybe you can add to it and we can grow together perhaps.
+Sure got it understood thank you thank you very much for your time really really appreciate this and I'll be in touch rapidly just maybe latest by Friday this week how we do things internally is we sync up twice a week at a global level to discuss the companies that we've seen we have folks who apart from looking at individual geographies some of the partners also focus on say particular subjects right like someone's focusing on financial services at a global level across all markets someone's looking at enterprise software at a global level across all markets and so on and so forth.
+So we get together have that discussion get perspective also from the global team on what they've seen with these models have they worked in other markets not worked what has happened and what learnings we can take from there.
+Combine that and then come back to you with feedback and access.
+Awesome. Rohit, thank you so much. Had a wonderful call. Thanks.
+Thank you so much for your time Gaurav once again apologies for the initial rescheduling but I'm glad we were able to find the demo.
+Not at all. Please, please ignore. I don't even remember it. Please forget it.
+Thank you.
+All right.
+Take care. Bye.
+Bye.
