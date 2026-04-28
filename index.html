@@ -4469,18 +4469,18 @@ const ECOSYSTEM_ALLOC = {
       "total": 44
     },
     "Finance": {
-      "core": 36,
+      "core": 38,
       "ecosystem": 0,
       "type": null,
-      "descriptor": null,
-      "total": 36
+      "descriptor": "Auto-26 Finance core. Split from combined Auto Finance & HR core (64) using primary-sourced KW ratio: Finance 21,161 KW / (Finance 21,161 + HR 14,107) = 60.0% × 64 = 38. KW values from node_kb/auto/Auto-26.json + Auto-26HR.json (v3.1 role-count proportions from 02_Role_Library_255_Roles_3_Sectors.xlsx).",
+      "total": 38
     },
     "Human Resources": {
-      "core": 28,
+      "core": 26,
       "ecosystem": 0,
       "type": null,
-      "descriptor": null,
-      "total": 28
+      "descriptor": "Auto-26 Human Resources core. Split from combined Auto Finance & HR core (64) using primary-sourced KW ratio: HR 14,107 KW / (Finance 21,161 + HR 14,107) = 40.0% × 64 = 26. KW values from node_kb/auto/Auto-26HR.json (v3.1 role-count proportions from 02_Role_Library_255_Roles_3_Sectors.xlsx).",
+      "total": 26
     }
   },
   "fmcg": {
@@ -7441,9 +7441,10 @@ font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6b7890;font-weigh
 .evs-scope .q-body .q-text {
 font-size:14px;color:#1a2232;line-height:1.55}
 .evs-scope .q-body .q-feed {
-font-size:11px;color:#1a2232;margin-top:6px;line-height:1.5;padding:6px 11px;background:#eff4fc;border-left:3px solid #264a8a;border-radius:0 4px 4px 0;display:inline-block;max-width:100%}
-.evs-scope .q-body .q-feed:before {
-content:"VALIDATES  ";font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#264a8a;font-weight:700}
+font-size:11px;color:#1a2232;margin-top:6px;line-height:1.5;padding:0;background:transparent;border-left:none;border-radius:0;display:block;max-width:100%}
+.evs-scope .q-body .q-feed:before { content:""; }
+.evs-scope .q-feed ul {list-style:disc outside; display:block; margin:6px 0 0; padding-left:24px}
+.evs-scope .q-feed li {display:list-item; margin:4px 0; padding:0; line-height:1.55}
 .evs-scope .tnote {
 font-size:11.5px;color:#6b7890;font-style:italic;padding:7px 0 0;line-height:1.45}
 .evs-scope .callout {
