@@ -52,6 +52,49 @@
           "pct_bump": 55
         }
       ]
+    },
+    {
+      "id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3-https://in.linkedin.com/in/gauravjain108",
+      "meeting_id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "meeting_title": "Rohit-picuscap x Gaurav-Navrit",
+      "date": "2026-04-28",
+      "granola_url": "https://notes.granola.ai/t/7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "contact_key": "https://in.linkedin.com/in/gauravjain108",
+      "contact_name": "Gaurav Jain",
+      "sector": "auto",
+      "router": "llm-v1",
+      "routed_to_questions": [
+        {
+          "qid": "Q-INTRO-1",
+          "q_num": "Q01",
+          "sector": "auto",
+          "evidence": "I've done two decades in automotive. I started with Volkswagen group in 2007.",
+          "confidence": 0.9,
+          "direction": "supports",
+          "reasoning": "Contact directly describes operational depth with specific years and prior roles in the auto sector (Volkswagen, Skoda, Cardekho).",
+          "pct_bump": 90
+        },
+        {
+          "qid": "Q-SS-3-ADDRESSABLE",
+          "q_num": "Q06",
+          "sector": "auto",
+          "evidence": "AI can now go form fill it and he just the we are a human in the loop.",
+          "confidence": 0.55,
+          "direction": "supports",
+          "reasoning": "Contact identifies finance form-filling and manual handoffs as time-consuming dealership tasks that don't need full human attention.",
+          "pct_bump": 55
+        },
+        {
+          "qid": "Q-SS-4-VENDORS",
+          "q_num": "Q07",
+          "sector": "auto",
+          "evidence": "there is a CRM, there is a DMS, a chatbot automation, all of that is already happening. Right. But all of these are system of record.",
+          "confidence": 0.88,
+          "direction": "supports",
+          "reasoning": "Contact explicitly names crowded vendor categories (CRM, DMS, chatbots) and identifies workflow orchestration as the white-space.",
+          "pct_bump": 88
+        }
+      ]
     }
   ]
 }
