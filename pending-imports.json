@@ -1,1 +1,220 @@
-{"calls":[]}
+{
+  "calls": [
+    {
+      "id": "1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334",
+      "processed_at": "2026-04-28T08:32:19.397309+00:00",
+      "date": "2026-04-23",
+      "meeting_title": "Utsav and Rohit Sar",
+      "granola_url": "https://notes.granola.ai/t/1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334",
+      "contact_key": "https://www.linkedin.com/in/utsav-saboo",
+      "contact_name": "Utsav Saboo",
+      "contact_company": "Procter & Gamble",
+      "sector": "fmcg",
+      "persona_codes": [
+        "cpo"
+      ],
+      "transcript_chars": 12225,
+      "transcript_excerpt": "Let's say artworks designs banana Outsource. Okay. And over however, over the advent, with the advent of the AI and the boom and the promises it is making, at least I can talk about my company is we are actually in sourcing. Okay. There's a huge in sourcing that we are doing because we feel that agar can make at a cheaper price. And obviously that is enabled. That has to be enabled by AI. I don't want to just move in the head counts because that is the worst thing I can do. Of course. To my, to,",
+      "transcript_file": "transcripts/1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334.txt",
+      "routed_to_questions": [
+        {
+          "sector": "fmcg",
+          "q_num": "Q37",
+          "q_text_snippet": "HUL is the only widely-cited Indian FMCG production AI reference (with o9). Has anyone else moved past pilot in your network?",
+          "q_feed": "Q-F03-2",
+          "hits": [
+            {
+              "kw": "fmcg",
+              "ctx": "erstand was. There is various levels of digitization, ERP integration, various things that exist in FMCG companies in general. I think of course the major is like the PNGs and HULs of the world will s"
+            },
+            {
+              "kw": "else",
+              "ctx": "n, one, look at the website and go specifically into the FMCG deep dive section, I think everything else is okay. But this is the part which is fairly subjective. If you could look at the FMCG deep di"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "erstand was. There is various levels of digitization, ERP integration, various things that exist in FMCG companies in general. I think of course the major is like the PNGs and HULs of the world will s ... n, one, look at the website and go specifically into the FMCG deep dive section, I think everything else is okay. But this is the part which is fairly subjective. If you could look at the FMCG deep di"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q38",
+          "q_text_snippet": "For demand sensing \u2014 what&#x27;s your forecast-accuracy benchmark today, and what would 5pp improvement unlock?",
+          "q_feed": "Q-F03-2",
+          "hits": [
+            {
+              "kw": "demand",
+              "ctx": "s. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems identify solutions iden"
+            },
+            {
+              "kw": "today",
+              "ctx": "e. They go ahead. There are promises and there are skepticism. This is the both things that coexist today. In the Of course. While I'll be very excited about the idea, I'll be skeptic as well. But tha"
+            },
+            {
+              "kw": "improvement",
+              "ctx": "different. Like, per employee costs are different. Correct. But if you can get that, like whatever improvements you see, whatever benefits you see, it translates. Definitely. They have the same press"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "s. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems identify solutions iden ... e. They go ahead. There are promises and there are skepticism. This is the both things that coexist today. In the Of course. While I'll be very excited about the idea, I'll be skeptic as well. But tha"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q39",
+          "q_text_snippet": "Is your S&amp;OP cycle weekly, monthly, or quarterly \u2014 and how much of it is driven by IT systems vs. cross-functional meetings?",
+          "q_feed": "Q-F03-3",
+          "hits": [
+            {
+              "kw": "systems",
+              "ctx": "n retail as a major channel given that those companies are reasonably sophisticated. They run their systems and platforms quite well. A lot of how you sell your order management etc all of that is alr"
+            }
+          ],
+          "pct_bump": 15,
+          "evidence": "n retail as a major channel given that those companies are reasonably sophisticated. They run their systems and platforms quite well. A lot of how you sell your order management etc all of that is alr"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q40",
+          "q_text_snippet": "For an AI demand-sensing pilot, what would prove out \u2014 accuracy lift, working-capital release, or service-level improvement?",
+          "q_feed": "Q-F03-4",
+          "hits": [
+            {
+              "kw": "prove",
+              "ctx": "ifferent. Like, per employee costs are different. Correct. But if you can get that, like whatever improvements you see, whatever benefits you see, it translates. Definitely. They have the same pressur"
+            },
+            {
+              "kw": "improvement",
+              "ctx": "different. Like, per employee costs are different. Correct. But if you can get that, like whatever improvements you see, whatever benefits you see, it translates. Definitely. They have the same press"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "ifferent. Like, per employee costs are different. Correct. But if you can get that, like whatever improvements you see, whatever benefits you see, it translates. Definitely. They have the same pressur ... different. Like, per employee costs are different. Correct. But if you can get that, like whatever improvements you see, whatever benefits you see, it translates. Definitely. They have the same press"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q41",
+          "q_text_snippet": "Did Quick Commerce (70-80% CAGR) actually break your demand-planning system, or is it being absorbed into existing planning?",
+          "q_feed": "Q-F03-5",
+          "hits": [
+            {
+              "kw": "commerce",
+              "ctx": "t a sense my outside in view of the FMCG space was. Given that so much of selling is happening on e-commerce as a major channel modern retail as a major channel given that those companies are reasonab"
+            },
+            {
+              "kw": "actually",
+              "ctx": "f the AI and the boom and the promises it is making, at least I can talk about my company is we are actually in sourcing. Okay. There's a huge in sourcing that we are doing because we feel that agar c"
+            },
+            {
+              "kw": "system",
+              "ctx": "n retail as a major channel given that those companies are reasonably sophisticated. They run their systems and platforms quite well. A lot of how you sell your order management etc all of that is alr"
+            },
+            {
+              "kw": "being",
+              "ctx": "ufacturing is not actually a laggard it's actually a place where when you think about digital tools being adopted or digital capability is being adopted even if that's outsourcing to a vendor if not a"
+            },
+            {
+              "kw": "planning",
+              "ctx": "nds on. Because coffee abstract comrade. Hence excels. And I'm talking now here more from a, from a planning world. I'm not even touched manufacturing right now. It's still ad hoc. I see. While everyo"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "t a sense my outside in view of the FMCG space was. Given that so much of selling is happening on e-commerce as a major channel modern retail as a major channel given that those companies are reasonab ... f the AI and the boom and the promises it is making, at least I can talk about my company is we are actually in sourcing. Okay. There's a huge in sourcing that we are doing because we feel that agar c"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q42",
+          "q_text_snippet": "What&#x27;s the inventory-turn benchmark in your supply chain \u2014 and where is the highest-value tied-up working capital?",
+          "q_feed": "Q-F04-1",
+          "hits": [
+            {
+              "kw": "supply",
+              "ctx": "things to drive these kind of automations. One thing that I want to understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream supp"
+            },
+            {
+              "kw": "chain",
+              "ctx": "to drive these kind of automations. One thing that I want to understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream suppliers c"
+            },
+            {
+              "kw": "where",
+              "ctx": "hing which we are actually looking now. In all spheres. Got it understood. Of, of work. And that is where AI promises are somewhile, I would say we haven't, we have heard a lot of promises. We haven't"
+            },
+            {
+              "kw": "working",
+              "ctx": "are evolving. Not just in the e-commerce space in general, the agility gets attached to the way of working. But even, even otherwise, the general impatience in general, the impatience levels of every"
+            }
+          ],
+          "pct_bump": 40,
+          "evidence": "things to drive these kind of automations. One thing that I want to understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream supp ... to drive these kind of automations. One thing that I want to understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream suppliers c"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q43",
+          "q_text_snippet": "For SKU rationalisation, what tooling drives the call \u2014 analytics platform, monthly review, or gut?",
+          "q_feed": "Q-F04-2",
+          "hits": [
+            {
+              "kw": "call",
+              "ctx": "is week, next week, even, like, fifteen minutes, if you can, one, look at the website and go specifically into the FMCG deep dive section, I think everything else is okay. But this is the part which i"
+            },
+            {
+              "kw": "platform",
+              "ctx": "a major channel given that those companies are reasonably sophisticated. They run their systems and platforms quite well. A lot of how you sell your order management etc all of that is already happeni"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "is week, next week, even, like, fifteen minutes, if you can, one, look at the website and go specifically into the FMCG deep dive section, I think everything else is okay. But this is the part which i ... a major channel given that those companies are reasonably sophisticated. They run their systems and platforms quite well. A lot of how you sell your order management etc all of that is already happeni"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q44",
+          "q_text_snippet": "Have you priced an AI-driven inventory optimisation tool? What&#x27;s the credible ROI horizon?",
+          "q_feed": "Q-F04-3",
+          "hits": [
+            {
+              "kw": "tool",
+              "ctx": "ll manufacturing is not actually a laggard it's actually a place where when you think about digital tools being adopted or digital capability is being adopted even if that's outsourcing to a vendor if"
+            }
+          ],
+          "pct_bump": 15,
+          "evidence": "ll manufacturing is not actually a laggard it's actually a place where when you think about digital tools being adopted or digital capability is being adopted even if that's outsourcing to a vendor if"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q45",
+          "q_text_snippet": "For commodity inputs \u2014 palm oil, sugar, packaging \u2014 is hedging desk-managed or commodity-AI-supported? Who owns it: procurement or treasury?",
+          "q_feed": "Q-F05-1",
+          "hits": [
+            {
+              "kw": "owns",
+              "ctx": "understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream suppliers components downstream you have distributors modern retail par"
+            },
+            {
+              "kw": "procurement",
+              "ctx": "which is where you focus. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "understand when you look at the supply chain of people who work with us work with the fmcg majors downstream upstream. Upstream suppliers components downstream you have distributors modern retail par ... which is where you focus. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems"
+        },
+        {
+          "sector": "fmcg",
+          "q_num": "Q47",
+          "q_text_snippet": "Across procurement stack (Ariba, Coupa, GEP, Ivalua), which 1-2 modules feel obsolete and ripe for AI replacement?",
+          "q_feed": "Q-F05-3",
+          "hits": [
+            {
+              "kw": "procurement",
+              "ctx": "which is where you focus. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems"
+            },
+            {
+              "kw": "feel",
+              "ctx": "mpany is we are actually in sourcing. Okay. There's a huge in sourcing that we are doing because we feel that agar can make at a cheaper price. And obviously that is enabled. That has to be enabled by"
+            }
+          ],
+          "pct_bump": 25,
+          "evidence": "which is where you focus. The the three, four highlighted notes of supplier planning, of maybe the procurement part of the demand planning if you could click them, and just take a broad look problems ... mpany is we are actually in sourcing. Okay. There's a huge in sourcing that we are doing because we feel that agar can make at a cheaper price. And obviously that is enabled. That has to be enabled by"
+        }
+      ],
+      "thesis_impact_summary": "Added evidence to 10 FMCG questions."
+    }
+  ]
+}
