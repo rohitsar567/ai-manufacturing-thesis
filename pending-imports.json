@@ -43,7 +43,18 @@
       "contact_name": "Gaurav Jain",
       "sector": "auto",
       "router": "llm-v1",
-      "routed_to_questions": []
+      "routed_to_questions": [
+        {
+          "qid": "Q-INTRO-1",
+          "q_num": "Q01",
+          "sector": "auto",
+          "evidence": "So my arc is like this. We started last month coding. This month pilot next month first revenues. Right. So that's how we're thinking.",
+          "confidence": 0.5,
+          "direction": "supports",
+          "reasoning": "Contact describes his current role/stage as founder of Navrit with a clear quarterly trajectory, though he does not explicitly state team size or single most-important quarterly decision.",
+          "pct_bump": 50
+        }
+      ]
     }
   ]
 }
