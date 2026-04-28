@@ -8903,24 +8903,7 @@ window.NODE_DESC = {
     // Consolidated 24 \u2192 11 gap claims. Each carries subClaims = the granular validation atoms
     // the tracker shows (one slider/evidence/transcript per atom). Asking ONE question on a call
     // produces evidence the LLM/Granola layer can split into N atoms.
-    var GAP_CLAIMS = [
-      {id:'msme_long_tail', label:'MSME long-tail viability (TAM expansion)',
-        q:'Whether \u20b9100\u2013250 cr MSMEs face the same pain and could be a later TAM wave.',
-        suggested:'Below your scale (\u20b9100\u2013250 cr revenue MSMEs), do competitors face the same pain? Could a self-serve, low-touch version of this AI serve them, or are they too cost / talent / data-constrained for AI adoption today?',
-        feed:'TAM expansion \u00b7 MSME wave.', personas:'cfo cio cmo cso scm', module:2,
-        subClaims:[
-          {id:'msme_pain', label:'MSME pain parity', q:'Do \u20b9100\u2013250 cr MSMEs face the same workflow pain?'},
-          {id:'msme_viability', label:'Self-serve MSME viability', q:'Could low-touch self-serve AI serve them, or cost/talent/data-constrained?'}
-        ]},
-      {id:'sector_macro_shift', label:'Sector macro shift (EV transition for Auto / channel-mix shift for FMCG)',
-        q:'Auto: EV transition\u2019s effect on KW headcount mix. FMCG: MT vs GT vs e-comm channel-mix shift.',
-        suggested:'(Auto) Is the EV transition net adding Knowledge Worker roles (battery / software / EV engineering) or displacing legacy ICE roles? Net effect over 5 years? \u2014 OR \u2014 (FMCG) How is the modern-trade / general-trade / e-comm mix shifting in your category, and does that change which AI tools (RGM vs SFA vs e-comm) become priority?',
-        feed:'Macro \u00b7 sector shift effect.', personas:'chro cio scm cmo cso', module:2,
-        subClaims:[
-          {id:'macro_direction', label:'Direction of macro shift', q:'EV transition net add/displace KW (Auto). MT/GT/e-comm mix direction (FMCG).'},
-          {id:'macro_ai_priority', label:'AI priority impact from shift', q:'Which AI tool families (RGM / SFA / e-comm / EV-eng) move up the priority list?'}
-        ]}
-    ];
+    var GAP_CLAIMS = [];  // emptied 2026-04-29: all gap claims absorbed into master M4_implementation Q-IMPL-8 through Q-IMPL-13
     var GAP_BY_ID = {};
     GAP_CLAIMS.forEach(function(g){ GAP_BY_ID[g.id] = g; });
     var INS_KEY = 'inserted_questions_v1';
