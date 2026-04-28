@@ -52,6 +52,39 @@
           "pct_bump": 60
         }
       ]
+    },
+    {
+      "id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3-https://in.linkedin.com/in/gauravjain108",
+      "meeting_id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "meeting_title": "Rohit-picuscap x Gaurav-Navrit",
+      "date": "2026-04-28",
+      "granola_url": "https://notes.granola.ai/t/7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "contact_key": "https://in.linkedin.com/in/gauravjain108",
+      "contact_name": "Gaurav Jain",
+      "sector": "auto",
+      "router": "llm-v1",
+      "routed_to_questions": [
+        {
+          "qid": "Q-INTRO-1",
+          "q_num": "Q01",
+          "sector": "auto",
+          "evidence": "I've done two decades in automotive. I started with Volkswagen group in 2007. I've had unrelated experience before that. Where I was. I mean, I had textile business, right?",
+          "confidence": 0.9,
+          "direction": "supports",
+          "reasoning": "Contact directly walks through his current and prior roles, function tenure, and operational depth across Volkswagen/Skoda, his own LMS startup, and CarDekho across multiple geographies.",
+          "pct_bump": 90
+        },
+        {
+          "qid": "Q-SS-4-VENDORS",
+          "q_num": "Q07",
+          "sector": "auto",
+          "evidence": "there is a CRM, there is a DMS, a chatbot automation, all of that is already happening. Right. But all of these are system of record... it will never tell you what to do next",
+          "confidence": 0.6,
+          "direction": "mixed",
+          "reasoning": "Contact identifies vendor density in CRM/DMS/chatbot but flags clear white space in workflow orchestration / next-best-action \u2014 directly relevant to vendor clustering and unmet-demand gap.",
+          "pct_bump": 60
+        }
+      ]
     }
   ]
 }
