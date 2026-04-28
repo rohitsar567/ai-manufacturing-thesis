@@ -11,6 +11,29 @@
       "sector": "fmcg",
       "router": "llm-v1",
       "routed_to_questions": []
+    },
+    {
+      "id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3-https://in.linkedin.com/in/gauravjain108",
+      "meeting_id": "7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "meeting_title": "Rohit-picuscap x Gaurav-Navrit",
+      "date": "2026-04-28",
+      "granola_url": "https://notes.granola.ai/t/7bdd00fd-a242-41b7-98e8-e59cfd095ba3",
+      "contact_key": "https://in.linkedin.com/in/gauravjain108",
+      "contact_name": "Gaurav Jain",
+      "sector": "auto",
+      "router": "llm-v1",
+      "routed_to_questions": [
+        {
+          "qid": "Q-INTRO-1",
+          "q_num": "Q01",
+          "sector": "auto",
+          "evidence": "So basically, I've done two decades in automotive. I started with Volkswagen group in 2007.",
+          "confidence": 0.9,
+          "direction": "supports",
+          "reasoning": "Contact directly states 20 years of operational experience in automotive starting at VW Group in 2007, plus subsequent roles at Skoda, CarDekho, and his own lead-management startup \u2014 establishing functional depth well beyond title.",
+          "pct_bump": 90
+        }
+      ]
     }
   ]
 }
