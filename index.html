@@ -8215,6 +8215,19 @@ window.NODE_DESC = {
     }
 
     // ======== INSIGHTS MODAL (per-expert per-Q breakdown) ========
+    // Look up Q text from rendered DOM (pending-imports.json doesn't include q_text).
+    function lookupQTextFromDOM(sector, qid){
+      if (!sector || !qid) return null;
+      var qEl = document.querySelector('#sec-' + sector + ' .q[data-qid="' + qid + '"]');
+      if (!qEl) return null;
+      var qText = qEl.querySelector('.q-text');
+      var qNum  = qEl.querySelector('.q-n');
+      return {
+        q_text: qText ? qText.textContent.trim() : null,
+        q_num:  qNum  ? qNum.textContent.trim()  : null
+      };
+    }
+
     // Derives thesis-contribution text from qid pattern (no extra data load needed).
     function thesisContribution(qid, sector){
       qid = qid || '';
@@ -8299,9 +8312,41 @@ window.NODE_DESC = {
           loading.remove();
           var calls = (data && data.calls) || [];
           // Filter calls for this contact
-          var mine = calls.filter(function(call){
+          var mineRaw = calls.filter(function(call){
             return (call.contact_key && c.key && call.contact_key === c.key)
                 || (call.contact_name && c.name && call.contact_name.toLowerCase() === c.name.toLowerCase());
+          });
+          // Defensive dedupe at render time: if multiple call entries for the
+          // same meeting_id slipped through, merge them; per qid keep highest confidence.
+          var byMeeting = {};
+          mineRaw.forEach(function(call){
+            var mid = call.meeting_id || call.id;
+            if (!byMeeting[mid]) {
+              byMeeting[mid] = {
+                meeting_id: mid,
+                meeting_title: call.meeting_title || '',
+                date: call.date || '',
+                granola_url: call.granola_url || '',
+                contact_name: call.contact_name || c.name,
+                sector: call.sector || c.sector,
+                router: call.router || '',
+                _qids: {}
+              };
+            }
+            (call.routed_to_questions || []).forEach(function(q){
+              var qid = q.qid;
+              if (!qid) return;
+              var ex = byMeeting[mid]._qids[qid];
+              if (!ex || (q.confidence || 0) > (ex.confidence || 0)) {
+                byMeeting[mid]._qids[qid] = q;
+              }
+            });
+          });
+          var mine = Object.keys(byMeeting).map(function(mid){
+            var m = byMeeting[mid];
+            m.routed_to_questions = Object.values(m._qids);
+            delete m._qids;
+            return m;
           });
           if (!mine.length) {
             var empty = document.createElement('div');
@@ -8346,9 +8391,11 @@ window.NODE_DESC = {
               // Header line
               var rh = document.createElement('div');
               rh.style.cssText = 'display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;';
+              // Live DOM lookup — pulls Q text + current rendered Q-num
+              var live = lookupQTextFromDOM(q.sector || call.sector, q.qid) || {};
               var qnumPill = document.createElement('span');
               qnumPill.style.cssText = 'flex-shrink:0;background:#0d9488;color:#fff;padding:3px 9px;border-radius:6px;font-family:var(--font-mono);font-size:0.66rem;font-weight:800;';
-              qnumPill.textContent = (q.q_num || ('Q' + (idx+1))) + ' · ' + (q.qid || '?');
+              qnumPill.textContent = (live.q_num || q.q_num || ('Q' + (idx+1))) + ' · ' + (q.qid || '?');
               rh.appendChild(qnumPill);
               var conf = document.createElement('span');
               var pct = Math.round((q.confidence||0)*100);
@@ -8360,8 +8407,9 @@ window.NODE_DESC = {
               // Step 1 — Question
               var step1 = document.createElement('div');
               step1.style.cssText = 'margin-bottom:10px;';
+              var qText = live.q_text || q.q_text || '(question text lookup failed for ' + (q.qid||'?') + ' — ensure DOM was rendered before opening modal)';
               step1.innerHTML = '<div style="font-family:var(--font-display);font-size:0.6rem;font-weight:800;color:#6d28d9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">1 · The question</div>'
-                + '<div style="font-size:0.86rem;font-weight:700;color:#1a2232;line-height:1.45;">' + escapeHtml(q.q_text || '(question text not available)') + '</div>';
+                + '<div style="font-size:0.86rem;font-weight:700;color:#1a2232;line-height:1.45;">' + escapeHtml(qText) + '</div>';
               row.appendChild(step1);
               // Step 2 — Quote
               var step2 = document.createElement('div');
