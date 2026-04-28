@@ -8904,61 +8904,6 @@ window.NODE_DESC = {
     // the tracker shows (one slider/evidence/transcript per atom). Asking ONE question on a call
     // produces evidence the LLM/Granola layer can split into N atoms.
     var GAP_CLAIMS = [
-      {id:'commercial_model', label:'Commercial model \u2014 pricing, CapEx/OpEx, TCO',
-        q:'Pricing structure preferences + CapEx vs OpEx posture + TCO math used to justify AI SaaS spend.',
-        suggested:'How does your team prefer to pay for AI tools \u2014 per-seat, per-action, outcome-linked? Is the CFO biased toward CapEx (perpetual licence) or OpEx (subscription)? And what TCO benchmark do you use to justify FTE displacement \u2014 e.g. would \u201creplaces 3 FTEs at $20K/yr\u201d be accepted?',
-        feed:'Commercial \u00b7 pricing + CapEx/OpEx + TCO.', personas:'cfo cio cpo', module:6,
-        subClaims:[
-          {id:'pricing_model', label:'Pricing model preference', q:'Per-seat vs per-action vs outcome-linked \u2014 which does the buyer accept?'},
-          {id:'capex_opex', label:'CapEx vs OpEx posture', q:'CFO bias for perpetual licence (CapEx) vs subscription (OpEx). Has it shifted post-cloud?'},
-          {id:'tco_threshold', label:'TCO / FTE-displacement benchmark', q:'What TCO math is required to justify replacing N FTEs at $X/yr with AI?'}
-        ]},
-      {id:'procurement_journey', label:'Procurement journey \u2014 cycle, decision rights, gates, consolidation',
-        q:'End-to-end procurement: cycle length, approval matrix, InfoSec/ESG/audit gates, vendor-consolidation pressure.',
-        suggested:'Walk me through procurement for a $300K AI SaaS purchase \u2014 cycle length, who initiates / endorses / signs, what InfoSec / ESG / SOC2 / BRSR gates the vendor faces, and whether CIO-led vendor consolidation pressure is for or against adding a new specialised vendor.',
-        feed:'GTM \u00b7 procurement journey + gates.', personas:'cfo cio cpo', module:6,
-        subClaims:[
-          {id:'cycle_length', label:'Procurement cycle length', q:'Weeks from first vendor demo to PO signed for $300K purchase.'},
-          {id:'decision_rights', label:'Decision rights / approval chain', q:'Who initiates, endorses, signs. Board / IT-committee gate?'},
-          {id:'security_audit', label:'Non-commercial gates', q:'InfoSec, ESG / BRSR, SOC2, ISO certifications added to the cycle.'},
-          {id:'vendor_consolidation', label:'Vendor-consolidation pressure', q:'CIO pressure to reduce SaaS vendor count \u2014 tailwind or headwind?'}
-        ]},
-      {id:'vendor_risk', label:'Vendor risk \u2014 founding team, funding, references',
-        q:'How a startup vendor is evaluated for risk: founding team profile, funding stage, reference customers.',
-        suggested:'When you evaluate a startup AI vendor, what gives you enterprise-contract confidence \u2014 founding-team background (FAANG AI/ML vs domain expert vs India sales DNA), funding stage / investor quality, and reference customers? What\u2019s the deal-breaker?',
-        feed:'Vendor risk \u00b7 startup evaluation.', personas:'cio cfo cpo', module:6,
-        subClaims:[
-          {id:'founding_team', label:'Founding-team profile', q:'FAANG AI/ML vs domain expert (ex-OEM/CPG) vs India enterprise sales DNA \u2014 what gives confidence?'},
-          {id:'fundraise_stage', label:'Funding stage / investor quality', q:'Does VC pedigree (Peak XV / Lightspeed / Accel India) sway enterprise-contract trust?'},
-          {id:'reference_count', label:'Reference customer requirement', q:'How many named India enterprise references are required to clear procurement?'}
-        ]},
-      {id:'implementation_reality', label:'Implementation reality \u2014 POCs, data, talent, pilot success, make-vs-buy',
-        q:'What it takes to actually deploy AI: prior POC track record, data readiness, internal talent, pilot success criteria, make-vs-buy threshold.',
-        suggested:'Walk me through the implementation reality. (a) AI POCs in last 12\u201318 months \u2014 which graduated, which got killed, why? (b) Is your underlying data clean enough or does cleanup come first? (c) Do you have internal AI/data talent post-deployment, or full vendor PS dependency? (d) What metrics define a 60\u201390-day pilot \u201csuccess\u201d? (e) What\u2019s the make-vs-buy threshold?',
-        feed:'Implementation \u00b7 POCs, data, talent, pilot, make-vs-buy.', personas:'cio cfo chro scm cmo cso', module:6,
-        subClaims:[
-          {id:'prior_pocs', label:'Prior AI POC track record', q:'POCs run last 12\u201318 months \u2014 graduated vs killed vs why.'},
-          {id:'data_readiness', label:'Data readiness / cleanup precondition', q:'Is underlying data clean / structured / accessible, or is cleanup a precondition?'},
-          {id:'internal_talent', label:'Internal AI talent / change capacity', q:'Internal AI-data talent for post-deployment ownership vs full vendor PS dependency.'},
-          {id:'pilot_success_metric', label:'Pilot success criteria', q:'Concrete 60\u201390-day pilot success metrics and who sets them.'},
-          {id:'make_vs_buy', label:'Make vs buy threshold', q:'When does the team build in-house vs buy a vendor product?'}
-        ]},
-{id:'channel_partner', label:'Channel partner / SI strategy',
-        q:'Whether SI partners (TCS / Infosys / KPMG / Deloitte / KPIT) are required for distribution.',
-        suggested:'When you buy AI/SaaS, do you go direct or through an SI partner (TCS, Infosys, KPMG, Deloitte, KPIT)? Does SI presence change your confidence and the contract structure (services-led vs product-led)?',
-        feed:'GTM \u00b7 channel / SI partnership.', personas:'cio cfo cpo', module:6,
-        subClaims:[
-          {id:'si_required', label:'SI required for distribution', q:'Direct vs SI-channel preference for AI SaaS.'},
-          {id:'si_confidence', label:'SI presence \u2192 buying confidence', q:'Does SI presence change confidence + contract structure (services-led vs product-led)?'}
-        ]},
-{id:'churn_renewal', label:'Churn / renewal signal',
-        q:'Renewal rate of AI/SaaS tools at 12\u201318 month mark; reasons for non-renewal.',
-        suggested:'Of the AI / SaaS tools you signed 12\u201318 months ago, what fraction did you renew at the same or higher ARR? What killed the rest \u2014 product underdelivered, price too high, internal champion left, vendor consolidation?',
-        feed:'Retention \u00b7 renewal signal.', personas:'cio cfo', module:5,
-        subClaims:[
-          {id:'renewal_rate', label:'Renewal rate at 12\u201318 mo', q:'% of SaaS tools signed 12\u201318 months ago that renewed at same/higher ARR.'},
-          {id:'churn_reason', label:'Top reasons for non-renewal', q:'Product underdelivered / price / champion-left / vendor-consolidation \u2014 weighted.'}
-        ]},
       {id:'msme_long_tail', label:'MSME long-tail viability (TAM expansion)',
         q:'Whether \u20b9100\u2013250 cr MSMEs face the same pain and could be a later TAM wave.',
         suggested:'Below your scale (\u20b9100\u2013250 cr revenue MSMEs), do competitors face the same pain? Could a self-serve, low-touch version of this AI serve them, or are they too cost / talent / data-constrained for AI adoption today?',
@@ -9399,11 +9344,17 @@ window.NODE_DESC = {
             var num = 'Q' + (n < 10 ? '0' : '') + n;
             var qn = q.querySelector('.q-n');
             if (qn) qn.textContent = num;
+            // IMPORTANT: do NOT set qf.textContent \u2014 that wipes <ul><li> bullet HTML.
+            // Instead, surgically strip the legacy gap markers from innerHTML only if present.
             var qf = q.querySelector('.q-feed');
-            if (qf) qf.textContent = (qf.textContent || '')
-              .replace(/\s*\[INSERTED from gap\]\s*/gi, '')
-              .replace(/^GAP-derived\s*\u00b7?\s*/i, '')
-              .trim();
+            if (qf) {
+              var html = qf.innerHTML;
+              if (/\[INSERTED from gap\]/i.test(html) || /GAP-derived/i.test(html)) {
+                qf.innerHTML = html
+                  .replace(/\s*\[INSERTED from gap\]\s*/gi, '')
+                  .replace(/^GAP-derived\s*\u00b7?\s*/i, '');
+              }
+            }
           });
           perModuleRange.push({mod:mod, start:startN, end:n});
         });
