@@ -8194,11 +8194,201 @@ window.NODE_DESC = {
       manualBtn.addEventListener('click', function(){ openGranolaManualModal(c); });
       grStack.appendChild(manualBtn);
 
+      // Insights button \u2014 only enabled if this contact has routed Qs in pending-imports
+      var insightsBtn = document.createElement('button');
+      insightsBtn.type = 'button';
+      insightsBtn.dataset.contactKey = c.key || '';
+      insightsBtn.dataset.contactName = c.name || '';
+      insightsBtn.dataset.contactCompany = c.company || '';
+      insightsBtn.dataset.contactSector = c.sector || '';
+      insightsBtn.className = 'cv-insights-btn';
+      insightsBtn.style.cssText = 'padding:4px 6px;border:1px solid #d97706;background:#fef3c7;color:#92400e;font-weight:700;font-size:0.62rem;border-radius:4px;cursor:pointer;';
+      insightsBtn.textContent = '\ud83d\udca1 Insights';
+      insightsBtn.title = 'Open per-Q insights from this expert\u2019s call';
+      insightsBtn.addEventListener('click', function(){ openInsightsModal(c); });
+      grStack.appendChild(insightsBtn);
+
       tdGr.appendChild(grStack);
       tr.appendChild(tdGr);
 
       return tr;
     }
+
+    // ======== INSIGHTS MODAL (per-expert per-Q breakdown) ========
+    // Derives thesis-contribution text from qid pattern (no extra data load needed).
+    function thesisContribution(qid, sector){
+      qid = qid || '';
+      if (qid.indexOf('Q-INTRO-') === 0) return 'Validates contact credibility — operational depth, IT/AI budget envelope, and decision-making authority for AI software-spend.';
+      if (qid.indexOf('Q-SS-1-TAM') === 0) return 'Validates v5.4 Dimension 1 — sector TAM size (vs $1.83B brand-owner AI thesis).';
+      if (qid.indexOf('Q-SS-2-MATURITY') === 0) return 'Validates v5.4 Dimension 2 — AI / digital maturity in target sector (separates greenfield from legacy-stack constraint).';
+      if (qid.indexOf('Q-SS-3-ADDRESSABLE') === 0) return 'Validates v5.4 Dimension 3 — addressable knowledge-work share (workflows AI can plausibly land within 24-36 months).';
+      if (qid.indexOf('Q-SS-4-VENDORS') === 0) return 'Validates v5.4 Dimension 4 — incumbent AI-vendor density and named players already in production.';
+      if (qid.indexOf('Q-SS-5-DMU') === 0) return 'Validates v5.4 Dimension 5 — decision-making-unit shape and where the AI-spend cheque actually gets signed.';
+      if (qid.indexOf('Q-SS-6-WORKFORCE') === 0) return 'Validates v5.4 Dimension 6 — workforce-displacement friction (union, IR, headcount-sensitivity drag on AI rollouts).';
+      if (qid.indexOf('Q-SS-7-LEGAL') === 0) return 'Validates v5.4 Dimension 7 — regulatory / India-compliance gates that can disqualify a global AI vendor.';
+      if (qid.indexOf('Q-BUCKET-SUPPLY') === 0)  return 'Validates supply-bucket demand intensity (SCM / procurement / S&OP workflows are the hottest ask).';
+      if (qid.indexOf('Q-BUCKET-MFG') === 0)     return 'Validates manufacturing-bucket demand intensity (plant-floor + quality + IIoT workflows).';
+      if (qid.indexOf('Q-BUCKET-DEMAND') === 0)  return 'Validates demand-bucket intensity (marketing / sales / channel / aftersales workflows).';
+      if (qid.indexOf('Q-BUCKET-SUPPORT') === 0) return 'Validates support-functions bucket intensity (finance / HR / regulatory / compliance workflows).';
+      if (qid.indexOf('Q-NODE-') === 0) {
+        var parts = qid.replace('Q-NODE-','').split('-');
+        var suffix = parts.pop();
+        var nodeKey = parts.join('-');
+        var label = nodeKey.split('_').slice(1).join(' ').replace(/_/g,' ');
+        if (suffix === 'PROBLEMS')    return 'Validates the hypothesised problem set for <b>' + label + '</b> — does the operator surface the same top-3 we have in the node card?';
+        if (suffix === 'EXISTING_AI') return 'Validates the incumbent vendor landscape for <b>' + label + '</b> — over-rated, under-rated, missing.';
+        if (suffix === 'WISHLIST')    return 'Validates unmet AI demand wedges for <b>' + label + '</b> — the cleanest signal of what would actually win the deal.';
+        return 'Validates the <b>' + label + '</b> node thesis (problems / incumbents / unmet demand).';
+      }
+      if (qid.indexOf('Q-IMPL-') === 0) {
+        var k = qid.replace('Q-IMPL-','').replace(/^\d+-/,'');
+        if (k === 'DMU')                 return 'Validates the AI/SaaS decision-making unit + approval matrix.';
+        if (k === 'BUYBUILD')            return 'Validates the build-vs-buy split — and how Claude/Cursor/agents are shifting it.';
+        if (k === 'VENDOR-SELECT')       return 'Validates vendor-selection criteria + new-vs-empanelled odds for an AI-native challenger.';
+        if (k === 'SCOPING-IMPL-MAINTAIN') return 'Validates partner role mix (scope / implement / co-build / maintain) across AI spend.';
+        if (k === 'LLM-OFFSHELF')        return 'Validates AI-services-firm relevance vs direct off-the-shelf LLM tooling — and the GenAI insourcing trend.';
+        if (k === 'SPRAWL')              return 'Validates SaaS-sprawl pain + integration-glue opportunity (a vendor wedge in itself).';
+        if (k === 'VALUE-ADD-CHURN')     return 'Validates AI vendor LTV — what wins, what gets cancelled, what drives expand.';
+        if (k === 'COMMERCIAL')          return 'Validates AI commercial model — pricing structure, CapEx/OpEx posture, TCO benchmarks for FTE displacement.';
+        if (k === 'PROCUREMENT')         return 'Validates procurement journey — cycle length, decision rights, InfoSec/ESG/SOC2/BRSR gates.';
+        if (k === 'VENDOR-RISK')         return 'Validates startup-vendor risk filters — founding team, funding, references — what gives enterprise-contract confidence.';
+        if (k === 'CHANNEL-SI')          return 'Validates channel / SI dependency (TCS / Infosys / KPMG / Deloitte / KPIT) for AI-product distribution.';
+        if (k === 'IMPLEMENTATION')      return 'Validates implementation reality — POC graduation rates, data readiness, internal AI talent, pilot success metrics.';
+        if (k === 'RETENTION')           return 'Validates renewal / retention signal — what fraction of AI/SaaS bought 12-18 months ago renewed at same/higher ARR.';
+      }
+      return 'Validates a thesis claim — see node / module context for specifics.';
+    }
+
+    function openInsightsModal(c){
+      var existing = document.getElementById('insights-modal');
+      if (existing) existing.remove();
+      var m = document.createElement('div');
+      m.id = 'insights-modal';
+      m.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:99999;display:flex;align-items:flex-start;justify-content:center;padding:32px 16px;overflow-y:auto;';
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#fff;border-radius:14px;max-width:920px;width:100%;padding:0;box-shadow:0 8px 32px rgba(0,0,0,0.25);font-family:var(--font-display);max-height:calc(100vh - 64px);overflow-y:auto;';
+      m.appendChild(card); document.body.appendChild(m);
+      m.addEventListener('click', function(e){ if (e.target === m) m.remove(); });
+
+      var hdr = document.createElement('div');
+      hdr.style.cssText = 'padding:20px 26px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;background:linear-gradient(135deg,#faf5ff 0%, #f1f5f9 100%);border-radius:14px 14px 0 0;';
+      var hdrL = document.createElement('div');
+      hdrL.innerHTML = '<div style="font-family:var(--font-display);font-size:0.66rem;font-weight:700;color:#6d28d9;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;">💡 Call insights</div>'
+        + '<div style="font-size:1.15rem;font-weight:800;color:#1a2232;">' + (c.name || '(unknown)') + '</div>'
+        + '<div style="font-size:0.78rem;color:#475569;margin-top:2px;">' + (c.company || '') + ' · ' + (c.persona || '') + ' · sector ' + (c.sector || '?').toUpperCase() + '</div>';
+      hdr.appendChild(hdrL);
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.textContent = '✕';
+      closeBtn.style.cssText = 'background:#fff;border:1px solid #cbd5e1;border-radius:8px;width:34px;height:34px;font-size:1rem;font-weight:700;cursor:pointer;color:#475569;';
+      closeBtn.addEventListener('click', function(){ m.remove(); });
+      hdr.appendChild(closeBtn);
+      card.appendChild(hdr);
+
+      var body = document.createElement('div');
+      body.style.cssText = 'padding:20px 26px;';
+      var loading = document.createElement('div');
+      loading.style.cssText = 'font-size:0.85rem;color:#64748b;padding:24px 0;text-align:center;';
+      loading.textContent = 'Loading routed insights from Granola proxy…';
+      body.appendChild(loading);
+      card.appendChild(body);
+
+      fetch('http://localhost:8799/api/pending-imports?cb=' + Date.now(), {cache:'no-store'})
+        .then(function(r){ return r.ok ? r.json() : {calls:[]}; })
+        .then(function(data){
+          loading.remove();
+          var calls = (data && data.calls) || [];
+          // Filter calls for this contact
+          var mine = calls.filter(function(call){
+            return (call.contact_key && c.key && call.contact_key === c.key)
+                || (call.contact_name && c.name && call.contact_name.toLowerCase() === c.name.toLowerCase());
+          });
+          if (!mine.length) {
+            var empty = document.createElement('div');
+            empty.style.cssText = 'font-size:0.85rem;color:#64748b;padding:24px 0;text-align:center;line-height:1.6;';
+            empty.innerHTML = 'No routed call found for this contact yet.<br>Click <b>🎙 Auto</b> in the CRM row to fetch and route the latest Granola transcript.';
+            body.appendChild(empty);
+            return;
+          }
+          // Latest call first
+          mine.sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); });
+          mine.forEach(function(call){
+            var meta = document.createElement('div');
+            meta.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0 12px;border-bottom:1px solid #e2e8f0;margin-bottom:14px;flex-wrap:wrap;';
+            meta.innerHTML = '<div style="font-size:0.74rem;color:#475569;"><b>' + (call.meeting_title || 'meeting') + '</b> · ' + (call.date || '') + ' · router ' + (call.router || '?') + '</div>'
+              + (call.granola_url ? '<a href="' + call.granola_url + '" target="_blank" style="color:#6d28d9;font-size:0.72rem;font-weight:700;">Open Granola transcript ↗</a>' : '');
+            body.appendChild(meta);
+            var qs = call.routed_to_questions || [];
+            if (!qs.length) {
+              var none = document.createElement('div');
+              none.style.cssText = 'font-size:0.85rem;color:#64748b;padding:14px 0;line-height:1.6;';
+              none.textContent = 'No questions routed from this call. The LLM router found no substantive answers in the transcript.';
+              body.appendChild(none);
+              return;
+            }
+            var stat = document.createElement('div');
+            stat.style.cssText = 'font-family:var(--font-mono);font-size:0.74rem;color:#1a2232;margin-bottom:14px;background:#f1f5f9;padding:8px 12px;border-radius:6px;';
+            var nStrong = qs.filter(function(q){return (q.confidence||0) >= 0.8;}).length;
+            var nWeak   = qs.filter(function(q){return (q.confidence||0) < 0.6;}).length;
+            stat.innerHTML = '<b>' + qs.length + '</b> question' + (qs.length===1?'':'s') + ' answered'
+              + ' · <span style="color:#16a34a;">' + nStrong + ' strong (≥80%)</span>'
+              + ' · <span style="color:#94a3b8;">' + nWeak + ' weak (&lt;60%)</span>';
+            body.appendChild(stat);
+            // Sort by Q-num ascending so order is sequential
+            qs.sort(function(a,b){
+              var na = parseInt((a.q_num||'').replace(/[^0-9]/g,''),10) || 999;
+              var nb = parseInt((b.q_num||'').replace(/[^0-9]/g,''),10) || 999;
+              return na - nb;
+            });
+            qs.forEach(function(q, idx){
+              var row = document.createElement('div');
+              row.style.cssText = 'border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:12px;background:#fafbff;';
+              // Header line
+              var rh = document.createElement('div');
+              rh.style.cssText = 'display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;';
+              var qnumPill = document.createElement('span');
+              qnumPill.style.cssText = 'flex-shrink:0;background:#0d9488;color:#fff;padding:3px 9px;border-radius:6px;font-family:var(--font-mono);font-size:0.66rem;font-weight:800;';
+              qnumPill.textContent = (q.q_num || ('Q' + (idx+1))) + ' · ' + (q.qid || '?');
+              rh.appendChild(qnumPill);
+              var conf = document.createElement('span');
+              var pct = Math.round((q.confidence||0)*100);
+              var color = pct >= 80 ? '#16a34a' : pct >= 60 ? '#0d9488' : '#94a3b8';
+              conf.style.cssText = 'flex-shrink:0;background:'+color+';color:#fff;padding:3px 9px;border-radius:6px;font-family:var(--font-mono);font-size:0.66rem;font-weight:800;';
+              conf.textContent = pct + '% · ' + (q.direction || '?');
+              rh.appendChild(conf);
+              row.appendChild(rh);
+              // Step 1 — Question
+              var step1 = document.createElement('div');
+              step1.style.cssText = 'margin-bottom:10px;';
+              step1.innerHTML = '<div style="font-family:var(--font-display);font-size:0.6rem;font-weight:800;color:#6d28d9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">1 · The question</div>'
+                + '<div style="font-size:0.86rem;font-weight:700;color:#1a2232;line-height:1.45;">' + escapeHtml(q.q_text || '(question text not available)') + '</div>';
+              row.appendChild(step1);
+              // Step 2 — Quote
+              var step2 = document.createElement('div');
+              step2.style.cssText = 'margin-bottom:10px;';
+              step2.innerHTML = '<div style="font-family:var(--font-display);font-size:0.6rem;font-weight:800;color:#6d28d9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">2 · What the expert said</div>'
+                + '<blockquote style="margin:0;padding:10px 14px;border-left:3px solid #6d28d9;background:#faf5ff;font-size:0.84rem;font-style:italic;color:#1a2232;line-height:1.55;border-radius:0 8px 8px 0;">' + escapeHtml(q.evidence || '(no quote captured)') + '</blockquote>';
+              row.appendChild(step2);
+              // Step 3 — Takeaway
+              var step3 = document.createElement('div');
+              step3.style.cssText = 'margin-bottom:10px;';
+              step3.innerHTML = '<div style="font-family:var(--font-display);font-size:0.6rem;font-weight:800;color:#6d28d9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">3 · Takeaway / conclusion</div>'
+                + '<div style="font-size:0.82rem;color:#1a2232;line-height:1.5;">' + escapeHtml(q.reasoning || '(no reasoning captured)') + '</div>';
+              row.appendChild(step3);
+              // Step 4 — Thesis contribution
+              var step4 = document.createElement('div');
+              step4.innerHTML = '<div style="font-family:var(--font-display);font-size:0.6rem;font-weight:800;color:#0d9488;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">4 · How this contributes to the thesis</div>'
+                + '<div style="font-size:0.82rem;color:#0f766e;background:#ecfeff;border-left:3px solid #0d9488;border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;">' + thesisContribution(q.qid, q.sector || call.sector) + '</div>';
+              row.appendChild(step4);
+              body.appendChild(row);
+            });
+          });
+        })
+        .catch(function(){
+          loading.textContent = '⚠️ Could not load routings — Granola proxy not reachable at localhost:8799.';
+        });
+    }
+    function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 
     // ======== GRANOLA MANUAL MODAL (URL-only) ========
     function openGranolaManualModal(c){
@@ -8446,214 +8636,7 @@ window.NODE_DESC = {
 </details>
 
   <!-- ================== CONVERSATION DIGEST ================== -->
-  <details open id="cv-digest-details" style="margin-top:36px;background:#fff;border:2px solid #6d28d9;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 2px 12px rgba(109,40,217,0.08);">
-    <summary id="cv-digest-summary-row" style="padding:18px 24px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;"></summary>
-    <div id="cv-digest-body" style="padding:0 24px 24px;"></div>
-
-  <script id="cv-digest-script">
-  (function(){
-    var TV_KEY = 'thesis_validation_v3';
-    function loadTV(){ try{return JSON.parse(localStorage.getItem(TV_KEY)||'{}');}catch(e){return {};} }
-    function saveTV(s){ localStorage.setItem(TV_KEY, JSON.stringify(s)); }
-    function $(tag, props, parent){
-      var el = document.createElement(tag);
-      if (props) Object.keys(props).forEach(function(k){
-        if (k === 'style') el.style.cssText = props[k];
-        else if (k === 'text') el.textContent = props[k];
-        else if (k === 'title') el.title = props[k];
-        else if (k === 'href') el.href = props[k];
-        else if (k === 'target') el.target = props[k];
-        else if (k === 'type') el.type = props[k];
-        else if (k === 'disabled') el.disabled = props[k];
-        else el.setAttribute(k, props[k]);
-      });
-      if (parent) parent.appendChild(el);
-      return el;
-    }
-
-    function liHandle(u){
-      if (!u) return '';
-      var m = String(u).match(/\/in\/([a-z0-9\-]+)/i);
-      return m ? m[1].split('-')[0].toLowerCase() : String(u).toLowerCase();
-    }
-
-    function findLiveQText(sector, q_num, qid){
-      var sec = document.getElementById('sec-' + sector);
-      if (!sec) return null;
-      var node = qid ? sec.querySelector('.q[data-qid="' + qid + '"]') : null;
-      if (!node) {
-        var qns = sec.querySelectorAll('.q .q-n');
-        for (var i=0;i<qns.length;i++){
-          if (qns[i].textContent.trim() === q_num){ node = qns[i].closest('.q'); break; }
-        }
-      }
-      if (!node) return null;
-      return {
-        q_num: (node.querySelector('.q-n')||{}).textContent && node.querySelector('.q-n').textContent.trim() || '',
-        q_text: (node.querySelector('.q-text')||{}).textContent && node.querySelector('.q-text').textContent.trim() || '',
-        q_feed: (node.querySelector('.q-feed')||{}).textContent && node.querySelector('.q-feed').textContent.trim() || ''
-      };
-    }
-
-    function confidenceBadge(parent, conf){
-      conf = conf || 0;
-      var color, label;
-      if (conf >= 0.8) { color = '#16a34a'; label = 'STRONG'; }
-      else if (conf >= 0.6) { color = '#0d9488'; label = 'MODERATE'; }
-      else if (conf >= 0.4) { color = '#d97706'; label = 'WEAK'; }
-      else { color = '#94a3b8'; label = '—'; }
-      $('span', {style:'display:inline-block;padding:2px 8px;border-radius:5px;background:'+color+';color:#fff;font-family:var(--font-mono);font-size:0.62rem;font-weight:800;letter-spacing:0.05em;', text: label + ' ' + Math.round(conf * 100) + '%'}, parent);
-    }
-
-    function directionBadge(parent, dir){
-      if (!dir) return;
-      var color, label;
-      if (dir === 'supports') { color = '#16a34a'; label = '↑ supports'; }
-      else if (dir === 'refutes')  { color = '#dc2626'; label = '↓ refutes'; }
-      else if (dir === 'mixed')    { color = '#d97706'; label = '↕ mixed'; }
-      else return;
-      $('span', {style:'color:'+color+';font-weight:800;font-size:0.7rem;margin-left:6px;', text:label}, parent);
-    }
-
-    function statusBadge(parent, rec){
-      var s = $('span', {style:'display:inline-block;padding:2px 8px;border-radius:5px;font-size:0.62rem;font-weight:800;'}, parent);
-      if (!rec) { s.style.color = '#94a3b8'; s.textContent = '— not in tracker'; return; }
-      if (rec.status === 'confirmed' && (rec.pct||0) > 0) { s.style.background='#16a34a'; s.style.color='#fff'; s.textContent = '✓ CONFIRMED ' + rec.pct + '%'; return; }
-      if (rec.status === 'draft' && (rec.draft_pct||0) > 0) { s.style.background='#fef3c7'; s.style.color='#92400e'; s.style.border='1px solid #f59e0b'; s.textContent='⏳ DRAFT — review needed'; return; }
-      s.style.color='#94a3b8'; s.textContent = 'cleared';
-    }
-
-    function buildContactCard(call, tv){
-      var qs = call.routed_to_questions || [];
-      var card = $('div', {style:'border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:14px;background:#fafbff;'});
-
-      var hdr = $('div', {style:'display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #e2e8f0;'}, card);
-      var hL = $('div', {}, hdr);
-      $('div', {style:'font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#1a2232;', text: call.contact_name || '(unknown contact)'}, hL);
-      $('div', {style:'font-size:0.74rem;color:#475569;margin-top:2px;', text: (call.meeting_title||'') + ' · ' + (call.date||'') + ' · sector ' + (call.sector||'?').toUpperCase() + ' · router ' + (call.router||'?')}, hL);
-      if (call.granola_url) {
-        var lnk = $('a', {href: call.granola_url, target:'_blank', style:'color:#6d28d9;font-size:0.7rem;display:inline-block;margin-top:4px;', text: 'Open Granola transcript ↗'}, hL);
-      }
-      var hR = $('div', {style:'display:flex;flex-direction:column;align-items:flex-end;gap:6px;'}, hdr);
-
-      // Lookup live tracker state by qid (since runtime renumbering changes q_num).
-      // For each routed Q, find the rendered DOM element with matching data-qid → read its q-n →
-      // look up tv[key] under that live key. This was previously broken (used stale q.q_num).
-      var nApplied=0, nWeak=0, nStrong=0;
-      qs.forEach(function(q){
-        var liveKey = 'q|' + (q.sector||call.sector) + '|' + q.q_num;
-        if (q.qid) {
-          var live = document.querySelector('#sec-' + (q.sector||call.sector) + ' .q[data-qid="' + q.qid + '"] .q-n');
-          if (live && live.textContent) liveKey = 'q|' + (q.sector||call.sector) + '|' + live.textContent.trim();
-        }
-        var rec = tv[liveKey];
-        if (rec && (rec.pct||0) > 0) nApplied++;
-        if ((q.confidence||0) >= 0.8) nStrong++;
-        else if ((q.confidence||0) < 0.6) nWeak++;
-      });
-      var stat = $('div', {style:'font-family:var(--font-mono);font-size:0.72rem;color:#1a2232;'}, hR);
-      $('b', {text: String(qs.length)}, stat);
-      stat.appendChild(document.createTextNode(' question' + (qs.length===1?'':'s') + ' routed · '));
-      $('span', {style:'color:#16a34a;', text: nApplied + ' applied'}, stat);
-      if (nStrong) { stat.appendChild(document.createTextNode(' · ')); $('span', {style:'color:#16a34a;', text: nStrong + ' strong'}, stat); }
-      if (nWeak)   { stat.appendChild(document.createTextNode(' · ')); $('span', {style:'color:#94a3b8;', text: nWeak + ' weak'}, stat); }
-      // Confirm/Reject draft buttons removed — LLM routings now auto-apply.
-
-      if (!qs.length) {
-        $('div', {style:'font-size:0.78rem;color:#64748b;padding:8px 0;', text: 'No questions routed from this conversation. Either the LLM found no substantive answers, or the call has not been processed yet (click Auto in the CRM tracker).'}, card);
-        return card;
-      }
-
-      qs.forEach(function(q){
-        var key = 'q|' + (q.sector||call.sector) + '|' + q.q_num;
-        var rec = tv[key];
-        var qInfo = findLiveQText(q.sector || call.sector, q.q_num, q.qid) || {q_num:q.q_num, q_text:'(question text not found in DOM)', q_feed:''};
-
-        var row = $('div', {style:'padding:11px 0;border-top:1px solid #f1f5f9;'}, card);
-        var topR = $('div', {style:'display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;'}, row);
-        var leftCol = $('div', {style:'display:flex;gap:8px;align-items:flex-start;flex:1;min-width:300px;'}, topR);
-        $('span', {style:'display:inline-block;padding:2px 8px;border-radius:5px;background:#0d9488;color:#fff;font-family:var(--font-mono);font-size:0.66rem;font-weight:800;flex-shrink:0;', text: qInfo.q_num + ' · ' + (q.qid||'?')}, leftCol);
-        $('span', {style:'flex:1;font-family:var(--font-display);font-size:0.84rem;font-weight:700;color:#1a2232;line-height:1.4;', text: qInfo.q_text || q.q_text || ''}, leftCol);
-        var rightCol = $('div', {style:'display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;'}, topR);
-        var conRow = $('div', {style:'display:flex;align-items:center;gap:4px;'}, rightCol);
-        confidenceBadge(conRow, q.confidence);
-        directionBadge(conRow, q.direction);
-        statusBadge(rightCol, rec);
-
-        if (q.evidence) {
-          var quote = $('blockquote', {style:'margin:8px 0 4px 28px;padding:8px 12px;border-left:3px solid #6d28d9;background:#faf5ff;font-size:0.78rem;font-style:italic;color:#1a2232;line-height:1.5;border-radius:0 6px 6px 0;', text: '"' + q.evidence + '"'}, row);
-        }
-        if (q.reasoning) {
-          var why = $('div', {style:'margin:4px 0 0 28px;font-size:0.72rem;color:#64748b;line-height:1.4;'}, row);
-          $('b', {style:'color:#475569;', text:'Why this answers it: '}, why);
-          why.appendChild(document.createTextNode(q.reasoning));
-        }
-        if (qInfo.q_feed) {
-          $('div', {style:'margin:4px 0 0 28px;font-size:0.7rem;color:#94a3b8;font-family:var(--font-mono);', text: qInfo.q_feed.slice(0,220)}, row);
-        }
-      });
-      return card;
-    }
-
-    function rebuildDigest(){
-      var sumRow = document.getElementById('cv-digest-summary-row');
-      var body = document.getElementById('cv-digest-body');
-      if (!body || !sumRow) return;
-      // Reset summary row
-      while (sumRow.firstChild) sumRow.removeChild(sumRow.firstChild);
-      var sumL = $('div', {}, sumRow);
-      $('div', {style:'font-family:var(--font-display);font-size:0.7rem;font-weight:700;color:#6d28d9;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;', text: '📞 Conversation digest'}, sumL);
-      $('div', {style:'font-size:1.05rem;font-weight:700;color:#1a2232;', text: 'What each call contributed to thesis validation'}, sumL);
-      var sumR = $('span', {style:'font-family:var(--font-mono);font-size:0.74rem;font-weight:700;color:#475569;'}, sumRow);
-
-      // Reset body
-      while (body.firstChild) body.removeChild(body.firstChild);
-      var loadingEl = $('div', {style:'font-family:var(--font-display);font-size:0.8rem;color:#64748b;padding:20px 0;', text: 'Loading routings…'}, body);
-      var listEl = $('div', {}, body);
-
-      fetch('http://localhost:8799/api/pending-imports?cb=' + Date.now(), {cache:'no-store'})
-        .then(function(r){ return r.ok ? r.json() : {calls:[]}; })
-        .then(function(data){
-          loadingEl.style.display = 'none';
-          var calls = (data && data.calls) || [];
-          var dedup = {};
-          calls.forEach(function(c){
-            var k = (c.meeting_id||'') + '|' + liHandle(c.contact_key);
-            var existing = dedup[k];
-            if (!existing || (c.routed_to_questions||[]).length > (existing.routed_to_questions||[]).length) {
-              dedup[k] = c;
-            }
-          });
-          var unique = Object.values(dedup).sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); });
-          var totalQ = 0;
-          unique.forEach(function(c){ totalQ += (c.routed_to_questions||[]).length; });
-          var b1 = $('b', {text: String(unique.length)}, sumR);
-          sumR.appendChild(document.createTextNode(' conversation' + (unique.length===1?'':'s') + ' digested · '));
-          $('b', {text: String(totalQ)}, sumR);
-          sumR.appendChild(document.createTextNode(' question' + (totalQ===1?'':'s') + ' routed'));
-
-          if (!unique.length) {
-            $('div', {style:'font-size:0.85rem;color:#475569;padding:18px 0;line-height:1.6;', text: 'No conversations have been routed yet. Click Auto on a contact in the Outreach CRM tracker (above) to route a Granola transcript.'}, listEl);
-            return;
-          }
-          var tv = loadTV();
-          unique.forEach(function(call){ listEl.appendChild(buildContactCard(call, tv)); });
-        })
-        .catch(function(e){
-          loadingEl.style.display = 'none';
-          $('div', {style:'font-size:0.8rem;color:#dc2626;padding:14px 0;', text: '⚠️ Could not load pending-imports.json from proxy at localhost:8799. Is the Granola proxy running?'}, listEl);
-        });
-    }
-
-    window.__rebuildConversationDigest = rebuildDigest;
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', rebuildDigest);
-    } else {
-      rebuildDigest();
-    }
-  })();
-  </script>
-  </details>
+  <!-- Conversation Digest section moved into per-row 💡 Insights modal in Outreach CRM 2026-04-29 -->
 
   <!-- ================== THESIS VALIDATION KNOWLEDGE GRAPH ================== -->
   <div id="tv-kg" style="margin-top:36px;background:#fff;border:2px solid #0d9488;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,148,136,0.08);">
