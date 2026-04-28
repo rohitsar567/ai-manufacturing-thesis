@@ -8053,6 +8053,7 @@ window.NODE_DESC = {
         var pillEls = card.querySelectorAll('.cc-pill');
         var personaText = pillEls.length ? pillEls[pillEls.length-1].textContent.trim() : '';
         var personaColor = pillEls.length ? (pillEls[pillEls.length-1].style.color || '#475569') : '#475569';
+        var personaCode = card.getAttribute('data-personas') || '';
         var url = liEl ? liEl.href : '';
         var key = url || (nameEl ? nameEl.textContent.trim() : '');
         if (!key || seen[key]) return;
@@ -8063,6 +8064,7 @@ window.NODE_DESC = {
           company: coEl ? coEl.textContent.trim() : '',
           title: titleEl ? titleEl.textContent.trim() : '',
           persona: personaText,
+          personaCode: personaCode,
           personaColor: personaColor,
           sector: sec,
           url: url
