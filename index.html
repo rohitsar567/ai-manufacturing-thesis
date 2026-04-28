@@ -1250,6 +1250,77 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 </style>
 </head>
 <body style="overflow-x:hidden;max-width:100vw;">
+<!-- Validation segment password gate (private to owner). Default pw: picus2026.
+     Rotate via tools/set_validation_password.py "<new-password>". -->
+<script>
+(function(){
+  var EXPECTED_HASH = '01a11e231d2c2b07d580967a2ce569f65c3402348137dac7db6ff2e41335f46a';
+  var STORAGE_KEY = 'validation_unlock_v1';
+  function applyUnlock(){ document.body.classList.add('validation-unlocked'); }
+  try { if (localStorage.getItem(STORAGE_KEY) === EXPECTED_HASH) applyUnlock(); } catch(_) {}
+  async function sha256Hex(s){
+    var enc = new TextEncoder().encode(s);
+    var buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  }
+  function buildUnlockUI(){
+    if (document.getElementById('validation-unlock-fab')) return;
+    var fab = document.createElement('div');
+    fab.id = 'validation-unlock-fab';
+    fab.className = 'validation-unlock-fab';
+    var unlocked = document.body.classList.contains('validation-unlocked');
+    fab.title = unlocked ? 'Validation segment unlocked — click to lock again' : 'Owner-only — click to unlock validation segment';
+    fab.textContent = unlocked ? '🔓' : '🔒';
+    fab.addEventListener('click', function(){
+      if (document.body.classList.contains('validation-unlocked')) {
+        try { localStorage.removeItem(STORAGE_KEY); } catch(_) {}
+        document.body.classList.remove('validation-unlocked');
+        fab.textContent = '🔒';
+        fab.title = 'Owner-only — click to unlock validation segment';
+        return;
+      }
+      var modal = document.createElement('div');
+      modal.className = 'validation-unlock-modal show';
+      modal.innerHTML = '<div class="card">'
+        + '<h3>🔒 Validation segment</h3>'
+        + '<p>This segment is private. Enter the owner password to unlock the Validation tab on this device.</p>'
+        + '<input type="password" id="validation-unlock-input" autocomplete="off" placeholder="password">'
+        + '<div class="err" id="validation-unlock-err">Incorrect password.</div>'
+        + '<div class="actions"><button class="cancel">Cancel</button><button class="primary">Unlock</button></div>'
+        + '</div>';
+      document.body.appendChild(modal);
+      var input = modal.querySelector('input');
+      var err = modal.querySelector('.err');
+      input.focus();
+      function close(){ modal.remove(); }
+      modal.querySelector('.cancel').addEventListener('click', close);
+      modal.addEventListener('click', function(e){ if (e.target === modal) close(); });
+      async function tryUnlock(){
+        var pw = input.value;
+        if (!pw) return;
+        var h = await sha256Hex(pw);
+        if (h === EXPECTED_HASH) {
+          try { localStorage.setItem(STORAGE_KEY, EXPECTED_HASH); } catch(_) {}
+          applyUnlock();
+          fab.textContent = '🔓';
+          fab.title = 'Validation segment unlocked — click to lock again';
+          close();
+        } else {
+          err.classList.add('show');
+        }
+      }
+      modal.querySelector('.primary').addEventListener('click', tryUnlock);
+      input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+    });
+    document.body.appendChild(fab);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildUnlockUI);
+  } else {
+    buildUnlockUI();
+  }
+})();
+</script>
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -7367,6 +7438,35 @@ document.addEventListener('mouseout', function(e) {
 <style>
 /* expert-validation scoped CSS */
 #expert-validation{scroll-margin-top:64px;background:#fff}
+/* Validation segment is private — hidden from unauthenticated visitors. */
+body:not(.validation-unlocked) .primary-tab[data-tab="gtm"]{display:none !important}
+body:not(.validation-unlocked) #expert-validation{display:none !important}
+/* Tiny "unlock" lock-icon link in the bottom-right corner of every page so
+   only the owner of the password can open the gate. */
+.validation-unlock-fab{position:fixed;bottom:16px;right:16px;z-index:9990;
+  width:36px;height:36px;border-radius:50%;background:rgba(15,23,42,0.06);
+  color:#475569;border:1px solid #cbd5e1;display:flex;align-items:center;
+  justify-content:center;font-size:14px;cursor:pointer;font-family:var(--font-mono);
+  box-shadow:0 1px 2px rgba(0,0,0,0.06);user-select:none}
+.validation-unlock-fab:hover{background:#f1f5f9;color:#1a2232}
+body.validation-unlocked .validation-unlock-fab{background:#dcfce7;border-color:#16a34a;color:#166534}
+.validation-unlock-modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);
+  z-index:99998;display:none;align-items:center;justify-content:center;padding:20px}
+.validation-unlock-modal.show{display:flex}
+.validation-unlock-modal .card{background:#fff;border-radius:12px;padding:22px 24px;
+  max-width:380px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,0.2);font-family:var(--font-display)}
+.validation-unlock-modal h3{font-size:1rem;font-weight:800;color:#1a2232;margin:0 0 6px}
+.validation-unlock-modal p{font-size:0.78rem;color:#64748b;margin:0 0 14px;line-height:1.55}
+.validation-unlock-modal input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;
+  border-radius:8px;font-size:0.9rem;margin-bottom:10px;font-family:var(--font-display)}
+.validation-unlock-modal input:focus{outline:none;border-color:#0d9488}
+.validation-unlock-modal .err{color:#dc2626;font-size:0.74rem;margin-bottom:10px;display:none}
+.validation-unlock-modal .err.show{display:block}
+.validation-unlock-modal .actions{display:flex;justify-content:flex-end;gap:8px}
+.validation-unlock-modal button{padding:8px 14px;border-radius:8px;font-weight:700;
+  font-size:0.78rem;cursor:pointer;border:1px solid transparent;font-family:var(--font-display)}
+.validation-unlock-modal button.primary{background:#0d9488;color:#fff}
+.validation-unlock-modal button.cancel{background:#fff;color:#475569;border-color:#cbd5e1}
 #expert-validation .evs-scope{max-width:1100px;margin:0 auto;padding:0 24px;color:#1a2232;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif}
 .evs-scope * {
 box-sizing:border-box;margin:0;padding:0}
