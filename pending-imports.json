@@ -55,6 +55,18 @@
           "pct_bump": 50
         }
       ]
+    },
+    {
+      "id": "1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334-https://www.linkedin.com/in/utsav-saboo-95212a7",
+      "meeting_id": "1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334",
+      "meeting_title": "Utsav and Rohit Sar",
+      "date": "2026-04-23",
+      "granola_url": "https://notes.granola.ai/t/1e59b49a-f0b6-4d3e-bae1-d68b2b0a8334",
+      "contact_key": "https://www.linkedin.com/in/utsav-saboo-95212a7",
+      "contact_name": "UTSAV SABOO",
+      "sector": "fmcg",
+      "router": "llm-v1",
+      "routed_to_questions": []
     }
   ]
 }
