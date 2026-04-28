@@ -8291,17 +8291,26 @@ window.NODE_DESC = {
           var qNum = (qEl.querySelector('.q-n') || {}).textContent || '';
           var qid = qEl.getAttribute('data-qid') || '';
           var qText = (qEl.querySelector('.q-text') || {}).textContent || '';
-          var qFeed = '';
-          // Pull the q-feed compact text (interviewer notes / hypothesised problems / etc.)
+          // Use the rendered q-feed HTML AS-IS (preserves the SECTION_DIV blocks + bullets
+          // that build_validation_modules.py emits — same visual format as master list).
           var feedEl = qEl.querySelector('.q-feed');
-          if (feedEl) qFeed = feedEl.textContent.trim().slice(0, 600);
+          var qFeedHTML = feedEl ? feedEl.innerHTML : '';
           var row = document.createElement('div');
           row.style.cssText = 'border:1px solid #e2e8f0;border-radius:8px;padding:11px 14px;margin-bottom:8px;background:#fff;';
-          row.innerHTML = '<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;">'
+          // Header row: pill with Q-num + qid
+          var hdrHTML = '<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;">'
             + '<span style="flex-shrink:0;background:#0d9488;color:#fff;padding:3px 9px;border-radius:6px;font-family:var(--font-mono);font-size:0.66rem;font-weight:800;">' + escapeHtml(qNum) + ' · ' + escapeHtml(qid) + '</span>'
-            + '</div>'
-            + '<div style="font-size:0.86rem;font-weight:700;color:#1a2232;line-height:1.45;margin-bottom:6px;">' + escapeHtml(qText) + '</div>'
-            + (qFeed ? '<div style="font-size:0.72rem;color:#64748b;line-height:1.5;font-style:italic;background:#f8fafc;padding:6px 10px;border-radius:4px;border-left:2px solid #cbd5e1;">' + escapeHtml(qFeed) + '</div>' : '');
+            + '</div>';
+          // Q text
+          var qTextHTML = '<div style="font-size:0.86rem;font-weight:700;color:#1a2232;line-height:1.45;margin-bottom:6px;">' + escapeHtml(qText) + '</div>';
+          // q-feed inline as a child div with class q-feed (so the same CSS rules
+          // for ul.data-enum / li.data-enum / SECTION_DIV apply by inheritance).
+          // Wrap in evs-scope span so the master-list CSS rules (#expert-validation
+          // .evs-scope .q-feed ul) cascade correctly into the modal too.
+          var feedHTML = qFeedHTML
+            ? '<div class="q-feed data-enum" style="font-style:normal;font-size:0.74rem;line-height:1.55;color:#1a2232;margin-top:6px;">' + qFeedHTML + '</div>'
+            : '';
+          row.innerHTML = hdrHTML + qTextHTML + feedHTML;
           modBlock.appendChild(row);
           totalShown++;
         });
@@ -9778,6 +9787,10 @@ window.PERSONA_CONTEXT = {"auto": {"ceo": {"role": "CEO / MD · Executive leader
   #expert-validation .evs-scope .q-feed ul.data-enum{list-style:disc outside !important;margin:6px 0 0 !important;padding-left:24px !important;display:block !important;font-style:normal !important}
   #expert-validation .evs-scope .q-feed li,
   #expert-validation .evs-scope .q-feed li.data-enum{display:list-item !important;margin:4px 0 !important;padding:0 !important;font-style:normal !important;line-height:1.55 !important}
+  /* Apply same q-feed bullet formatting inside the Pre-Call Questions modal */
+  #precall-modal .q-feed{font-style:normal !important;color:#1a2232 !important}
+  #precall-modal .q-feed ul, #precall-modal .q-feed ul.data-enum{list-style:disc outside !important;display:block !important;margin:6px 0 0 !important;padding-left:24px !important;font-style:normal !important}
+  #precall-modal .q-feed li, #precall-modal .q-feed li.data-enum{display:list-item !important;margin:4px 0 !important;padding:0 !important;font-style:normal !important;line-height:1.55 !important}
   #expert-validation .evs-scope .q-feed .data-enum{font-style:normal !important}
   /* Auto sector accent */
   #expert-validation .evs-scope #sec-auto .subgroup{border-left-color:#2563eb !important}
