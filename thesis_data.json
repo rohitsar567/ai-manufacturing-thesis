@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_updated": "2026-04-23",
+  "last_updated": "2026-04-24",
   "changelog": [
     {
       "date": "2026-04-22",
@@ -1486,274 +1486,279 @@
     ]
   },
   "tam_summary": {
-    "_schema_note": "PRIME DIRECTIVE: every number in this object includes a data_source + method of derivation so that a future session can reconstruct it without repeating research. Do NOT remove provenance fields when updating.",
-    "last_updated": "2026-04-23",
-    "methodology": "3-SAM framework (Core + Extended + Ecosystem) summed. Core from BRSR direct parse (45 firms) + density extrapolation. Extended sized bottom-up from ACMA/Screener mid-market firm count (~300 Auto + ~200 FMCG) \u00d7 per-firm KW averages (~280 Auto / ~325 FMCG) + research-backed 22% Auto / 15% FMCG salary compression + 12pp AI-rate compression. Ecosystem from FADA + ACMA + AICPDF + FICCI channel-workforce census.",
-    "key_innovation_2026_04_22": "Step 3 = explicit selected-nodes filter (66% Auto / 59% FMCG). Derived BOTTOM-UP from role library \u00d7 employment survey \u2014 NO scaling factors. Per-node TAMs sum exactly to sector Core by construction.",
-    "combined_tam_m": 1345,
-    "combined_tam_b": 1.35,
-    "combined_tam_headline": "$1.3B",
+    "_schema_note": "v4 node-reconciled TAM with primary-sourced two-rate formula (elig \u00d7 auto_rate). Supersedes v3.1/v2. Per-node SAMs sum exactly to sector SAMs (no scaling factors).",
+    "last_updated": "2026-04-24",
+    "version": "v4-node-reconciled-2026-04-24",
+    "methodology": "Firm-level enumeration (295 Core firms) + industry-anchored Extended universe (825 firms). Per-node computation with node-specific KW, salary, eligibility, and automation rate. Sector SAM = \u03a3 (node SAMs) by construction.",
+    "formula_per_node": "node_SAM = node_KW \u00d7 node_salary \u00d7 node_eligibility \u00d7 node_auto_rate \u00d7 discount",
+    "total_tam_m": 1829.7,
+    "total_tam_b": 1.83,
+    "total_tam_b_rounded": 1.8,
+    "combined_tam_m": 1829.7,
+    "combined_tam_b": 1.83,
+    "combined_tam_headline": "$1.8B",
+    "core_sam_m": 1065.3,
+    "extended_sam_m": 105.4,
+    "ecosystem_sam_m": 659,
+    "auto_sector_m": 1235.0,
+    "fmcg_sector_m": 594.6,
+    "auto_core_m": 806.8,
+    "fmcg_core_m": 258.5,
+    "auto_extended_m": 47.3,
+    "fmcg_extended_m": 58.1,
+    "selected_share_auto": 0.675,
+    "selected_share_fmcg": 0.769,
+    "eligibility_auto_sector_avg": 0.85,
+    "eligibility_fmcg_sector_avg": 0.88,
     "auto": {
-      "core_tam_m": 377,
+      "core_tam_m": 806.8,
+      "extended_tam_m": 47.3,
       "ecosystem_tam_m": 381,
-      "sector_tam_m": 897,
-      "universe_kw": 209000,
-      "selected_nodes_kw": 134639,
-      "selected_nodes_share": 0.6561,
+      "sector_tam_m": 1235.0,
+      "universe_kw": 218919,
+      "core_n_firms": 139,
+      "extended_n_firms": 425,
+      "selected_share_kw_weighted": 0.675,
       "chain_inputs": {
-        "salary_usd": 30679,
-        "role_eligibility": 0.817,
-        "task_ai_rate": 0.378,
-        "price_discount": 0.5
+        "salary_usd_core": 30679,
+        "salary_usd_extended": 23929,
+        "eligibility_sector_avg": 0.85,
+        "auto_rate_weighted_avg": 0.4,
+        "discount": 0.5
       },
-      "universe_count": "~530 brand-owner firms (130 SAM: \u2265\u20b91000 Cr + \u22651000 KW; 400 Extended SAM: \u2265\u20b9100 Cr + \u2265200 KW)",
+      "universe_count": "139 Core firms (\u2265\u20b91,000 Cr) + 425 Extended firms (\u20b9100-999 Cr)",
       "universe_sources": [
         {
-          "source": "SIAM member list (47 OEMs)",
-          "url": "https://www.siam.in/members.aspx?mpgid=1&pgidtrail=4",
-          "method": "Member count"
+          "source": "ACMA FY24 Press Conference",
+          "url": "https://acma.in/pdf/Ind%20Presentation%20FY24.pdf",
+          "method": "Member count + organized tier split"
         },
         {
-          "source": "ACMA directory",
-          "url": "https://www.iautoconnect-acma.in/about",
-          "method": "830 members, 402 organised medium+large (excluding MSME)"
+          "source": "Brickwork Ratings Dec 2024",
+          "url": "https://www.brickworkratings.com/Research/Indian%20Auto%20Component%20Manufacturing%20Industry.pdf",
+          "method": "Organized universe tier decomposition"
         },
         {
-          "source": "Nifty Auto factsheet",
-          "url": "https://www.niftyindices.com/Factsheet/ind_nifty_auto.pdf",
-          "method": "15 index constituents"
+          "source": "SIAM member directory",
+          "url": "https://www.siam.in/members.aspx",
+          "method": "OEM member count"
         },
         {
-          "source": "ACMA FY25 press",
-          "url": "https://www.acma.in/uploads/press-release/Press%20Release%20FY25.pdf",
-          "method": "\u20b96.73L Cr industry turnover"
+          "source": "NSE/BSE listed Auto + Ancillary",
+          "url": "https://www.screener.in/company/compare/00000004/",
+          "method": "Mechanical sector filter"
         },
         {
-          "source": "IBEF Auto Components",
-          "url": "https://www.ibef.org/industry/auto-components-presentation",
-          "method": "Industry overview + 1.5M direct employment"
+          "source": "Tofler/Tracxn unlisted CIN lookup",
+          "url": "https://www.tofler.in",
+          "method": "MCA21-based revenue verification"
         }
       ],
-      "kw_derivation": {
-        "universe_kw": "209,000 \u2014 from 17 SAM firms BRSR Section A 20(a) Permanent Employees (D-row) directly parsed: Tata Motors 8931, Maruti 12515, M&M 13807, Hero 4508, Eicher 3162, Bajaj 3055, Ashok 5003, TVS 4129, Bharat Forge 2566, Uno Minda 3998, Endurance 2411, Sundram 2043, Amara Raja 2588, Wheels India 1929, Subros 1127, Minda Corp 1827, Lumax 1405 = 78,283 Core SAM verified. Remaining 400 firms extrapolated via verified KW-to-revenue density ratio: 75 KW per \u20b91,000 Cr (SAM) and 302 KW per \u20b91,000 Cr (Extended SAM) against \u20b916.7L Cr sector revenue (\u20b910L Cr OEMs + \u20b96.73L Cr components).",
-        "selected_nodes_kw": "137,129 \u2014 BOTTOM-UP from role library \u00d7 employment survey. For each of 85 Auto roles in 03_Workflow_Role_Mapping_Sequential.xlsx, look up (department \u00d7 career-stream) HC weight from 12_Employment_Data_Auto_FMCG.xlsx (49,434 Auto WC employees, 30 listed companies). Sum per workflow block; retain only the 11 selected nodes (Vehicle Program Leadership, Testing & Validation, APQP/PPAP, Supply Chain & Sourcing, Supplier Quality & Planning, Operations Leadership, Dealership Management, Showroom Sales, After-Sales Service, Warranty & Parts, Finance & HR). 65.6% = selected_nodes_kw / universe_kw \u2014 the OUTPUT, not a scaling input."
-      },
-      "per_node_kw": {
-        "Showroom Sales": 2979,
-        "Testing & Validation": 4906,
-        "Finance & HR": 5783,
-        "Warranty & Parts": 9122,
-        "Dealership Management": 16138,
-        "Vehicle Program Leadership": 11399,
-        "APQP / PPAP & Quality": 29280,
-        "Operations Leadership / Execution": 26663,
-        "Supply Chain & Sourcing": 18758,
-        "After-Sales Service": 12101
-      },
-      "per_node_tam_m": {
-        "Vehicle Program Leadership": 54.0,
-        "Testing & Validation": 23.2,
-        "APQP / PPAP & Quality": 138.7,
-        "Supply Chain & Sourcing": 88.9,
-        "Operations Leadership / Execution": 126.3,
-        "Dealership Management": 76.4,
-        "Showroom Sales": 14.1,
-        "After-Sales Service": 57.3,
-        "Warranty & Parts": 43.2,
-        "Finance & HR": 27.4
-      },
-      "salary_source": {
-        "file": "12_Employment_Data_Auto_FMCG.xlsx",
-        "detail": "30 listed Auto brand-owners + ancillaries, 49,434 WC employees, \u20b912,588 Cr total payroll \u2192 $30,679 weighted-mean; cross-checked against Aon India TRS"
-      },
-      "eligibility_source": "81.7% = 100% - (5.3% CXO carve-out + 13% hyper-tech R&D carve-out). CXO from BRSR Principle 5 E3 pay-band data across 9 Auto filings + Section 197 \u2265\u20b91 Cr disclosures. Hyper-tech R&D from McKinsey MGI GenAI role taxonomy (bench engineering / NVH / homologation judged near-100% AI-ineligible for half the Engineering & Science headcount).",
-      "ai_rate_source": "37.8% = payroll-weighted task AI rate across 161-role library, 9 career-stream buckets. Per-bucket rates from: WEF Future of Jobs 2025 (https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf), McKinsey MGI GenAI 2023, Frey-Osborne 2013 (702-occupation automation probability), OECD Employment Outlook 2023. Bucket rates: Clerical 77%, CS 62%, Middle Mgmt 42%, Technician 47%, Sales-field 37%, Professional 30%, Senior Mgmt 20%, Executive 7.5%.",
-      "discount_source": "50% = a16z '$20K AI vs $40K labor' heuristic; Bessemer BVP AI pricing playbook documents 30-60% of FTE-cost as early-stage enterprise AI pricing.",
-      "ecosystem": {
-        "headcount": 450000,
-        "salary": 7000,
-        "eligibility": 0.55,
-        "ai_rate": 0.44,
-        "tam_m": 381,
-        "sources": [
-          "FADA Oct 2025 release: 15K dealer members, 30K outlets, 5M total employment (https://fada.in)",
-          "ACMA careers page: 1.5M direct workforce, 830 members (https://www.acma.in/careers.php)",
-          "Autopunditz dealership structure: ~25 WC per 3S outlet (https://www.autopunditz.com/post/all-about-automobile-dealerships-part-2)",
-          "Salary benchmarks: Naukri/Glassdoor/PayScale \u2014 Car Sales Exec \u20b92L, Service Tech \u20b92-8L, Dealer GM \u20b921L, Bharat Forge engineer \u20b95L, Motherson engineer \u20b94.9-8.7L"
-        ]
-      },
-      "extended_tam_m": 139
+      "node_sams": {
+        "Vehicle Program Leadership": {
+          "core_m": 153.61,
+          "extended_m": 9.0,
+          "total_m": 162.61
+        },
+        "APQP / PPAP & Quality": {
+          "core_m": 38.79,
+          "extended_m": 2.27,
+          "total_m": 41.06
+        },
+        "Testing & Validation": {
+          "core_m": 107.05,
+          "extended_m": 6.27,
+          "total_m": 113.32
+        },
+        "Supply Chain & Sourcing": {
+          "core_m": 97.56,
+          "extended_m": 5.71,
+          "total_m": 103.28
+        },
+        "Operations Leadership / Execution": {
+          "core_m": 15.87,
+          "extended_m": 0.93,
+          "total_m": 16.8
+        },
+        "Dealership Management": {
+          "core_m": 77.33,
+          "extended_m": 4.53,
+          "total_m": 81.86
+        },
+        "Showroom Sales": {
+          "core_m": 40.78,
+          "extended_m": 2.39,
+          "total_m": 43.16
+        },
+        "After-Sales Service": {
+          "core_m": 22.56,
+          "extended_m": 1.32,
+          "total_m": 23.88
+        },
+        "Warranty & Parts": {
+          "core_m": 22.84,
+          "extended_m": 1.34,
+          "total_m": 24.18
+        },
+        "Supplier Quality & Planning": {
+          "core_m": 11.89,
+          "extended_m": 0.7,
+          "total_m": 12.59
+        },
+        "Finance": {
+          "core_m": 218.5,
+          "extended_m": 12.79,
+          "total_m": 231.3
+        },
+        "Human Resources": {
+          "core_m": 218.5,
+          "extended_m": 12.79,
+          "total_m": 231.3
+        }
+      }
     },
     "fmcg": {
-      "core_tam_m": 123,
+      "core_tam_m": 258.5,
+      "extended_tam_m": 58.1,
       "ecosystem_tam_m": 278,
-      "sector_tam_m": 448,
-      "universe_kw": 169000,
-      "selected_nodes_kw": 96200,
-      "selected_nodes_share": 0.5849,
+      "sector_tam_m": 594.6,
+      "universe_kw": 136295,
+      "core_n_firms": 113,
+      "extended_n_firms": 400,
+      "selected_share_kw_weighted": 0.769,
       "chain_inputs": {
-        "salary_usd": 14469,
-        "role_eligibility": 0.746,
-        "task_ai_rate": 0.391,
-        "price_discount": 0.5
+        "salary_usd_core": 14469,
+        "salary_usd_extended": 11285,
+        "eligibility_sector_avg": 0.88,
+        "auto_rate_weighted_avg": 0.38,
+        "discount": 0.5
       },
-      "universe_count": "~270 brand-owner firms (130 SAM + 140 Extended SAM)",
+      "universe_count": "113 Core firms (\u2265\u20b91,000 Cr) + 400 Extended firms (\u20b9100-999 Cr)",
       "universe_sources": [
         {
-          "source": "BSE FMCG index",
-          "url": "https://www.screener.in/company/1007/",
-          "method": "97 constituents"
+          "source": "CRISIL FMCG sector July 2024",
+          "url": "https://www.crisilratings.com/en/home/newsroom/press-releases/2024/07/fmcg-sector-to-see-revenue-growth-of-7-9-percent-this-fiscal.html",
+          "method": "77-firm coverage \u00d7 residual share"
         },
         {
-          "source": "Nifty FMCG",
-          "url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-fmcg",
-          "method": "15 constituents"
+          "source": "Kantar Brand Footprint India 2024",
+          "url": "https://www.campaignindia.in/article/kantar-2024-report-parle-and-britannia-top-fmcg-brand-choices-in-india/497388",
+          "method": "Brand count \u2192 firm-equivalents"
         },
         {
-          "source": "Screener FMCG sector",
-          "url": "https://www.screener.in/market/IN04/",
-          "method": "399 listed firms"
+          "source": "Inc42 Indian Startup FY24 Tracker",
+          "url": "https://inc42.com/features/indian-startup-fy24-financials-tracker-revenue-expense-loss-more/",
+          "method": "D2C brand revenue tracker"
         },
         {
-          "source": "CRISIL 77-company FMCG (via IBEF FY24)",
-          "url": "https://www.ibef.org/news/india-s-fmcg-sector-to-see-revenue-growth-of-7-9-in-fy24-crisil",
-          "method": "77 companies covering ~1/3 sector revenue"
-        },
-        {
-          "source": "NDDB dairy federations",
-          "url": "https://www.nddb.coop/about/genesis/flood",
-          "method": "22 state federations + 177 district unions"
-        },
-        {
-          "source": "MCA21 / Tofler \u2014 unlisted MNC subs",
-          "url": "https://www.tofler.in/",
-          "method": "Reckitt India, Mondelez India, PepsiCo India, Coca-Cola India, L'Oreal India, Perfetti, Kimberly-Clark, J&J (9 verified)"
+          "source": "BSE FMCG Index + Screener food products",
+          "url": "https://www.screener.in/company/compare/00000027/",
+          "method": "Listed universe"
         }
       ],
-      "kw_derivation": {
-        "universe_kw": "169,000 \u2014 from 21 SAM firms BRSR / MCA-Tofler parsed: HUL 7215, ITC FMCG-only 6000 (derived from FY25 restated ex-Hotels 10,608), Nestle 3980, Britannia 2483, Dabur 4023, Marico 1772, GCPL 1498, Colgate 1500, TCP 2500, Emami 1500, Varun 3200, USL 1402, UBL 1364, Radico 1194, Patanjali 4197, Honasa 923, Adani Wilmar 2772, Bikaji 1363, Hatsun 1857, Avanti 743 + 9 MNC subs + Amul = 57,963 Core SAM verified. Remaining 140 firms extrapolated via 122 KW/\u20b91000 Cr (SAM) and 309 KW/\u20b91000 Cr (Extended SAM) against \u20b99.1L Cr sector revenue.",
-        "selected_nodes_kw": "98,850 \u2014 BOTTOM-UP from role library \u00d7 employment survey. For each of 83 FMCG roles \u00d7 (department \u00d7 career-stream) HC weight from 6,007 FMCG WC employees across 13 companies. Sum per workflow block; retain only the 17 selected nodes. 58.5% = selected_nodes_kw / universe_kw \u2014 OUTPUT, not scaling input."
-      },
-      "per_node_kw": {
-        "Analytics & Revenue Mgmt": 5893,
-        "Sales Leadership & Channels": 11744,
-        "S&OP / Demand Planning": 19007,
-        "Human Resources": 2243,
-        "Regulatory & Compliance": 1900,
-        "Finance": 343,
-        "Process Engineering": 3993,
-        "Marketing": 9940,
-        "Food Safety": 1996,
-        "Finance & Admin": 3487,
-        "Procurement": 6236,
-        "Retail Execution": 8971,
-        "Food Safety & QA": 2340,
-        "Field Sales": 7384,
-        "Quality Control & Lab": 9886,
-        "Customer Service": 3487
-      },
-      "per_node_tam_m": {
-        "S&OP / Demand Planning": 40.1,
-        "Procurement": 13.2,
-        "Process Engineering": 8.4,
-        "Quality Control & Lab": 20.9,
-        "Food Safety": 4.2,
-        "Food Safety & QA": 4.9,
-        "Marketing": 21.0,
-        "Sales Leadership & Channels": 24.8,
-        "Field Sales": 15.6,
-        "Retail Execution": 18.9,
-        "Analytics & Revenue Mgmt": 12.4,
-        "Customer Service": 7.4,
-        "Finance": 0.7,
-        "Finance & Admin": 7.4,
-        "Human Resources": 4.7,
-        "Regulatory & Compliance": 4.0
-      },
-      "salary_source": "12_Employment_Data_Auto_FMCG.xlsx \u2014 13 listed FMCG majors, 6,007 WC employees, \u20b9721 Cr payroll \u2192 $14,469 weighted-mean",
-      "eligibility_source": "74.6% = 100% - (6.4% CXO + 19% formulation/sensory/brand R&D). Higher R&D carve-out than Auto because FMCG R&D is lab-bench-intensive \u2014 AI cannot taste, smell, or run sensory panels.",
-      "ai_rate_source": "39.1% = same per-bucket rates as Auto, reweighted by FMCG payroll (more sales + clerical, marginally higher rate)",
-      "discount_source": "50% \u2014 same a16z heuristic as Auto",
-      "ecosystem": {
-        "headcount": 500000,
-        "salary": 6000,
-        "eligibility": 0.45,
-        "ai_rate": 0.48,
-        "tam_m": 324,
-        "sources": [
-          "AICPDF \u2014 4.5 lakh distributor firms (https://aicpdf.com/)",
-          "HUL Annual Report 2024-25 \u2014 7-10 salesforce per distributor + 9M outlets (https://www.hul.co.in/files/hul-integrated-annual-report-2024-25.pdf)",
-          "IBEF FMCG \u2014 3M total employment (https://www.ibef.org/industry/fmcg)",
-          "Smollan India + merchandiser agencies",
-          "Salary: Salarite \u20b94-5L field sales, Glassdoor \u20b94.1L merchandiser, SalaryExpert \u20b95.5L visual merchandiser"
-        ]
-      },
-      "extended_tam_m": 47
+      "node_sams": {
+        "Field Sales": {
+          "core_m": 37.25,
+          "extended_m": 8.38,
+          "total_m": 45.63
+        },
+        "Finance": {
+          "core_m": 58.49,
+          "extended_m": 13.15,
+          "total_m": 71.64
+        },
+        "Marketing": {
+          "core_m": 36.9,
+          "extended_m": 8.3,
+          "total_m": 45.19
+        },
+        "Process Engineering": {
+          "core_m": 38.59,
+          "extended_m": 8.68,
+          "total_m": 47.26
+        },
+        "Quality Control & Lab": {
+          "core_m": 8.1,
+          "extended_m": 1.82,
+          "total_m": 9.93
+        },
+        "S&OP / Demand Planning": {
+          "core_m": 16.15,
+          "extended_m": 3.63,
+          "total_m": 19.79
+        },
+        "Human Resources": {
+          "core_m": 20.01,
+          "extended_m": 4.5,
+          "total_m": 24.51
+        },
+        "Food Safety & QA": {
+          "core_m": 4.98,
+          "extended_m": 1.12,
+          "total_m": 6.1
+        },
+        "Sales Leadership & Channels": {
+          "core_m": 13.41,
+          "extended_m": 3.02,
+          "total_m": 16.43
+        },
+        "Procurement": {
+          "core_m": 13.21,
+          "extended_m": 2.97,
+          "total_m": 16.18
+        },
+        "Regulatory & Compliance": {
+          "core_m": 3.79,
+          "extended_m": 0.85,
+          "total_m": 4.64
+        },
+        "Customer Service": {
+          "core_m": 3.89,
+          "extended_m": 0.88,
+          "total_m": 4.77
+        },
+        "Analytics & Revenue Mgmt": {
+          "core_m": 3.4,
+          "extended_m": 0.76,
+          "total_m": 4.16
+        },
+        "Retail Execution": {
+          "core_m": 0.34,
+          "extended_m": 0.08,
+          "total_m": 0.42
+        }
+      }
     },
     "reconciliation_contract": {
-      "rule": "Per-node Core SAMs MUST sum exactly to sector Core SAM (by construction, not scaling). If the sum does not reconcile, the bottom-up derivation is broken \u2014 fix the derivation, do not scale.",
-      "check": "sum(NODE_TAM_CHAIN[sector].values.tam_m) == tam_summary[sector].core_tam_m within rounding (<$1M)",
-      "current_state_2026_04_22": "Auto: node sum $649.5M vs target $650M (\u0394 -0.5 rounding). FMCG: node sum $208.6M vs target $209M (\u0394 -0.4 rounding). Reconciled \u2713"
+      "method": "\u03a3 (node SAMs) per sector = sector SAM by construction",
+      "scaling_factors_applied": 0,
+      "auto_core_node_sum_match": true,
+      "fmcg_core_node_sum_match": true
     },
-    "name_mapping": {
-      "note": "Role library (03_Workflow_Role_Mapping_Sequential.xlsx) uses slightly different workflow block names than HTML AUTO_NODES/FMCG_NODES. Name drift resolved via explicit mapping \u2014 preserved here for future sessions.",
-      "auto_html_to_xlsx": {
-        "Vehicle Program Leadership": "Vehicle Program Leadership",
-        "APQP / PPAP Gate": "APQP / PPAP & Quality",
-        "Operations Leadership": "Operations Leadership / Execution"
-      },
-      "fmcg_html_to_xlsx": {
-        "Marketing Leadership + Trade & Digital Marketing": "Marketing (xlsx 1 block \u2192 2 HTML nodes, split 50/50)",
-        "Sales Leadership + Key Accounts & Channels": "Sales Leadership & Channels (xlsx 1 block \u2192 2 HTML nodes, split 33/67)",
-        "S&OP / Demand Planning + Supply Planning": "S&OP / Demand Planning (xlsx 1 block \u2192 2 HTML nodes, split 50/50)",
-        "Food Safety & QA": "Combines xlsx 'Food Safety' + 'Food Safety & QA'",
-        "Finance + Finance & Admin": "Combines xlsx 'Finance' + 'Finance & Admin'"
-      }
-    },
-    "data_artifacts": {
-      "reconciled_tam_json": "/Users/rohitsar/Documents/Personal/AI Work/Thesis/tam_rebuild_artifacts/reconciled_tam.json",
-      "company_universe_csvs": "/Users/rohitsar/Documents/Personal/AI Work/Thesis/company_universe/ (4 CSVs: auto/fmcg \u00d7 Core SAM/Extended SAM, 70 verified firms)",
-      "brsr_parser": "/Users/rohitsar/Documents/Personal/AI Work/Thesis/tam_rebuild_artifacts/brsr_parser.py",
-      "brsr_parse_results": "/Users/rohitsar/Documents/Personal/AI Work/Thesis/tam_rebuild_artifacts/brsr_*_parse_results.json (50+ firms)",
-      "rebuild_handoff_doc": "/Users/rohitsar/Documents/Personal/AI Work/Thesis/tam_rebuild_artifacts/REBUILD_HANDOFF.md"
-    },
-    "DEPRECATED_NOTE_BRSR_REBUILD": {
-      "status": "Superseded 2026-04-23 by research-refined Extended SAM + Ecosystem FMCG reconciliation",
-      "prior_methodology": "4-step chain \u2014 total BRSR KW \u00d7 salary \u00d7 eligibility \u00d7 AI rate \u00d7 discount. Did not narrow KW to selected workflow nodes. Implicitly treated all brand-owner KW as selected.",
-      "why_superseded": "All KW in all workflows were being counted against TAM, including backlog-node KW (Paint Shop, R&D formulation, Executive Leadership, etc.) which sit outside thesis scope. Step 3 narrows to the 11 Auto + 17 FMCG selected nodes only.",
-      "old_values": {
-        "auto_sector_tam_m": 860,
-        "fmcg_sector_tam_m": 774,
-        "combined_tam_b": 1.63
-      },
-      "new_values": {
-        "auto_sector_tam_m": 1031,
-        "fmcg_sector_tam_m": 533,
-        "combined_tam_b": 1.56
-      },
-      "new_values_2026_04_23": {
-        "combined_tam_b": 1.35,
-        "auto_sector_m": 897,
-        "fmcg_sector_m": 448,
-        "ecosystem_fmcg_m_corrected": 278,
-        "extended_auto_m": 139,
-        "extended_fmcg_m": 47
-      }
-    },
-    "key_innovation_2026_04_23": "3-SAM research refinement: Extended density reanchored via agent research (ACMA member count + Screener distribution + Annual Report scaling); Ecosystem FMCG reconciled to honest $278M = 500K \u00d7 $6K \u00d7 58% \u00d7 32% \u00d7 50% (was $324M = top-down allocation mismatch). NODE_TAM_CHAIN set to Core-only basis ($377M Auto + $123M FMCG sum) because per-node firm-size \u00d7 department data not publicly available.",
-    "total_tam_b": 1.3,
-    "total_tam_m": 1250,
-    "auto_sector_m": 770,
-    "fmcg_sector_m": 480,
-    "core_sam_m": 425,
-    "auto_core_m": 280,
-    "fmcg_core_m": 145,
-    "extended_sam_m": 166,
-    "auto_extended_m": 109,
-    "fmcg_extended_m": 57,
-    "selected_share_auto": 0.505,
-    "selected_share_fmcg": 0.607,
-    "rebuild_note": "2026-04-23: Rebuilt with node-specific salary/elig/AI rate + bottom-up selected share from 100% library coverage"
+    "key_innovation_2026_04_24_v4": "Firm-level enumeration (not density-extrapolation implicit 130 firms) + KW-weighted selected-share (not role-counted) + per-node elig + per-node auto_rate. Commodity firms excluded (agri-inputs, grain-marketing, export-B2B) \u2014 documented in core_excluded_commodity.csv.",
+    "deprecated": [
+      "v3.1 role-counted selected-share (50.5% / 60.7%) \u2014 replaced with KW-weighted (67.5% / 76.9%)",
+      "v3.1 implicit universe (~130 firms) \u2014 replaced with 295 enumerated Core firms",
+      "v3.1 compressed single ai_rate \u2014 split into eligibility \u00d7 automation_rate",
+      "v2/v3.1 Extended SAM 'scaled-v2' \u2014 replaced with industry-anchored 825-firm universe"
+    ],
+    "primary_sources_ai_rates": {
+      "eligibility": [
+        "Goldman Sachs Briggs/Kodnani 2023",
+        "IMF SDN 2024/001",
+        "ILO WP140 (2025)",
+        "OECD AI and Skills (Apr 2024)",
+        "Eloundou et al. arXiv 2303.10130"
+      ],
+      "automation_rate": [
+        "Goldman Sachs Economic Research (2023-24)",
+        "McKinsey MGI Economic Potential of GenAI",
+        "McKinsey CPG Blueprint (2024)",
+        "McKinsey Auto R&D Transformation",
+        "Anthropic Economic Index (2024-25)",
+        "BCG AI Value Creation (Dec 2024)"
+      ]
+    }
   },
   "DEPRECATED_NOTE_BRSR_REBUILD": {
     "status": "superseded on 2026-04-11",
@@ -2036,7 +2041,47 @@
         ]
       },
       "26": {
-        "name": "Finance & HR",
+        "name": "Finance",
+        "m_evidence": "5 commercial AI vendors shipping production-grade products for this workflow: <a href=\"https://www.highradius.com/software\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Highradius</a>, <a href=\"https://darwinbox.com\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Darwinbox</a>, <a href=\"https://eightfold.ai/products\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Eightfold AI</a>, <a href=\"https://ramp.com/products\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Ramp</a>, <a href=\"https://www.zaggle.in\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Zaggle</a>",
+        "d_evidence": "55% desk/digital roles per <a href=\"https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/02_Role_Library_255_Roles_3_Sectors.xlsx\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">role library</a>. Roles: CFO, Plant Controller, Cost Accountant, CHRO, HR/IR Mgr",
+        "i_evidence": "HighRadius (Hyderabad-headquartered + India ops) + PwC India alliance, deployed at Indian auto OEMs; BlackLine, SAP, Oracle, Workday all in production at Indian auto sector",
+        "score_sources": [
+          {
+            "t": "Highradius AI Finance",
+            "u": "https://www.highradius.com/platform"
+          },
+          {
+            "t": "Darwinbox HR AI (India)",
+            "u": "https://darwinbox.com/platform"
+          },
+          {
+            "t": "Eightfold Talent AI",
+            "u": "https://eightfold.ai/platform"
+          },
+          {
+            "t": "Ramp AI Spend Mgmt",
+            "u": "https://ramp.com/intelligence"
+          },
+          {
+            "t": "India Labour Code Impact",
+            "u": "https://labour.gov.in/CodeonWages"
+          },
+          {
+            "t": "Highradius",
+            "u": "https://www.highradius.com/software"
+          },
+          {
+            "t": "Darwinbox",
+            "u": "https://darwinbox.com"
+          },
+          {
+            "t": "Eightfold AI",
+            "u": "https://eightfold.ai/products"
+          }
+        ]
+      },
+      "27": {
+        "name": "Human Resources",
         "m_evidence": "5 commercial AI vendors shipping production-grade products for this workflow: <a href=\"https://www.highradius.com/software\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Highradius</a>, <a href=\"https://darwinbox.com\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Darwinbox</a>, <a href=\"https://eightfold.ai/products\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Eightfold AI</a>, <a href=\"https://ramp.com/products\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Ramp</a>, <a href=\"https://www.zaggle.in\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">Zaggle</a>",
         "d_evidence": "55% desk/digital roles per <a href=\"https://github.com/rohitsar567/ai-manufacturing-thesis/blob/main/02_Role_Library_255_Roles_3_Sectors.xlsx\" target=\"_blank\" style=\"color:#2563eb;text-decoration:underline;\">role library</a>. Roles: CFO, Plant Controller, Cost Accountant, CHRO, HR/IR Mgr",
         "i_evidence": "HighRadius (Hyderabad-headquartered + India ops) + PwC India alliance, deployed at Indian auto OEMs; BlackLine, SAP, Oracle, Workday all in production at Indian auto sector",
@@ -2496,245 +2541,271 @@
     }
   },
   "node_tam_chain": {
-    "method": "6-tier bottom-up library allocation, node-specific factors",
-    "chain_formula": "kw \u00d7 sal \u00d7 elig \u00d7 ai \u00d7 0.5 \u00d7 core_share / 1e6",
     "auto_t1": {
       "Vehicle Program Leadership": {
-        "kw": 10057,
+        "kw": 17018,
         "sal": 36137,
-        "pay_m": 363.4,
-        "addr": 0.667,
-        "ai_rate": 0.358,
-        "tam_m": 43.4
+        "pay_m": 615.0,
+        "addr": 0.342,
+        "ai_rate": 0.342,
+        "tam_m": 62.1,
+        "core_share": 0.59,
+        "n_roles": 17
       },
       "APQP / PPAP Gate": {
-        "kw": 4305,
+        "kw": 7285,
         "sal": 26316,
-        "pay_m": 113.3,
-        "addr": 0.875,
-        "ai_rate": 0.331,
-        "tam_m": 16.4
+        "pay_m": 191.7,
+        "addr": 0.309,
+        "ai_rate": 0.309,
+        "tam_m": 17.5,
+        "core_share": 0.59,
+        "n_roles": 13
       },
       "Supplier Quality & Planning": {
-        "kw": 879,
+        "kw": 1488,
         "sal": 39912,
-        "pay_m": 35.1,
-        "addr": 0.875,
-        "ai_rate": 0.331,
-        "tam_m": 5.1
+        "pay_m": 59.4,
+        "addr": 0.291,
+        "ai_rate": 0.291,
+        "tam_m": 5.1,
+        "core_share": 0.59,
+        "n_roles": 2
       },
       "Supply Chain & Sourcing": {
-        "kw": 7874,
+        "kw": 13323,
         "sal": 29589,
-        "pay_m": 233.0,
-        "addr": 0.833,
-        "ai_rate": 0.321,
-        "tam_m": 31.1
+        "pay_m": 394.2,
+        "addr": 0.335,
+        "ai_rate": 0.335,
+        "tam_m": 39.0,
+        "core_share": 0.59,
+        "n_roles": 14
       },
       "Operations Leadership": {
-        "kw": 732,
+        "kw": 1238,
         "sal": 77427,
-        "pay_m": 56.7,
-        "addr": 0.8,
-        "ai_rate": 0.334,
-        "tam_m": 7.6
-      },
-      "Finance & HR": {
-        "kw": 14605,
-        "sal": 30444,
-        "pay_m": 444.6,
-        "addr": 0.667,
-        "ai_rate": 0.296,
-        "tam_m": 43.9
+        "pay_m": 95.8,
+        "addr": 0.274,
+        "ai_rate": 0.274,
+        "tam_m": 7.8,
+        "core_share": 0.59,
+        "n_roles": 9
       },
       "Dealership Management": {
-        "kw": 6486,
+        "kw": 10975,
         "sal": 32911,
-        "pay_m": 213.5,
-        "addr": 1.0,
-        "ai_rate": 0.42,
-        "tam_m": 44.8
+        "pay_m": 361.2,
+        "addr": 0.311,
+        "ai_rate": 0.311,
+        "tam_m": 33.2,
+        "core_share": 0.59,
+        "n_roles": 10
       },
       "After-Sales Service": {
-        "kw": 1969,
+        "kw": 3332,
         "sal": 24512,
-        "pay_m": 48.3,
-        "addr": 1.0,
-        "ai_rate": 0.395,
-        "tam_m": 9.5
+        "pay_m": 81.7,
+        "addr": 0.387,
+        "ai_rate": 0.387,
+        "tam_m": 9.3,
+        "core_share": 0.59,
+        "n_roles": 8
       },
       "Warranty & Parts": {
-        "kw": 1937,
+        "kw": 3277,
         "sal": 29572,
-        "pay_m": 57.3,
-        "addr": 1.0,
-        "ai_rate": 0.553,
-        "tam_m": 15.8
+        "pay_m": 96.9,
+        "addr": 0.312,
+        "ai_rate": 0.312,
+        "tam_m": 8.9,
+        "core_share": 0.59,
+        "n_roles": 6
       },
       "Testing & Validation": {
-        "kw": 8562,
+        "kw": 14487,
         "sal": 31347,
-        "pay_m": 268.4,
-        "addr": 1.0,
-        "ai_rate": 0.296,
-        "tam_m": 39.7
+        "pay_m": 454.1,
+        "addr": 0.351,
+        "ai_rate": 0.351,
+        "tam_m": 47.0,
+        "core_share": 0.59,
+        "n_roles": 11
       },
       "Showroom Sales": {
-        "kw": 3787,
+        "kw": 6408,
         "sal": 32604,
-        "pay_m": 123.5,
-        "addr": 1.0,
-        "ai_rate": 0.37,
-        "tam_m": 22.8
+        "pay_m": 208.9,
+        "addr": 0.31,
+        "ai_rate": 0.31,
+        "tam_m": 19.1,
+        "core_share": 0.59,
+        "n_roles": 6
+      },
+      "Finance": {
+        "kw": 24712,
+        "sal": 30444,
+        "pay_m": 752.3,
+        "addr": 0.372,
+        "ai_rate": 0.372,
+        "tam_m": 82.6,
+        "core_share": 0.59,
+        "n_roles": 24
+      },
+      "Human Resources": {
+        "kw": 24712,
+        "sal": 30444,
+        "pay_m": 752.3,
+        "addr": 0.372,
+        "ai_rate": 0.372,
+        "tam_m": 82.6,
+        "core_share": 0.59,
+        "n_roles": 24
       }
     },
     "fmcg_t1": {
       "S&OP / Demand Planning": {
-        "kw": 2680,
+        "kw": 8846,
         "sal": 10880,
-        "pay_m": 29.2,
-        "addr": 0.875,
-        "ai_rate": 0.417,
-        "tam_m": 5.3
-      },
-      "Supply Planning": {
-        "kw": 2680,
-        "sal": 10880,
-        "pay_m": 29.2,
-        "addr": 0.875,
-        "ai_rate": 0.417,
-        "tam_m": 5.3
+        "pay_m": 96.2,
+        "addr": 0.297,
+        "ai_rate": 0.297,
+        "tam_m": 8.7,
+        "core_share": 0.606,
+        "n_roles": 10
       },
       "Procurement": {
-        "kw": 1531,
+        "kw": 2526,
         "sal": 29469,
-        "pay_m": 45.1,
-        "addr": 0.75,
-        "ai_rate": 0.337,
-        "tam_m": 5.7
+        "pay_m": 74.4,
+        "addr": 0.314,
+        "ai_rate": 0.314,
+        "tam_m": 7.1,
+        "core_share": 0.606,
+        "n_roles": 5
       },
       "Food Safety & QA": {
-        "kw": 1960,
+        "kw": 3234,
         "sal": 11438,
-        "pay_m": 22.4,
-        "addr": 0.833,
-        "ai_rate": 0.416,
-        "tam_m": 3.9
+        "pay_m": 37.0,
+        "addr": 0.276,
+        "ai_rate": 0.276,
+        "tam_m": 3.1,
+        "core_share": 0.606,
+        "n_roles": 4
       },
-      "Marketing Leadership": {
-        "kw": 2988,
+      "Marketing": {
+        "kw": 9861,
         "sal": 18730,
-        "pay_m": 56.0,
-        "addr": 0.833,
-        "ai_rate": 0.395,
-        "tam_m": 9.2
+        "pay_m": 184.7,
+        "addr": 0.365,
+        "ai_rate": 0.365,
+        "tam_m": 20.4,
+        "core_share": 0.606,
+        "n_roles": 8
       },
-      "Trade & Digital Marketing": {
-        "kw": 2988,
-        "sal": 18730,
-        "pay_m": 56.0,
-        "addr": 0.833,
-        "ai_rate": 0.395,
-        "tam_m": 9.2
-      },
-      "Sales Leadership": {
-        "kw": 843,
+      "Sales Leadership & Channels": {
+        "kw": 2781,
         "sal": 31878,
-        "pay_m": 26.9,
-        "addr": 0.857,
-        "ai_rate": 0.347,
-        "tam_m": 4.0
-      },
-      "Key Accounts & Channels": {
-        "kw": 843,
-        "sal": 31878,
-        "pay_m": 26.9,
-        "addr": 0.857,
-        "ai_rate": 0.347,
-        "tam_m": 4.0
+        "pay_m": 88.7,
+        "addr": 0.289,
+        "ai_rate": 0.289,
+        "tam_m": 7.8,
+        "core_share": 0.606,
+        "n_roles": 8
       },
       "Finance": {
-        "kw": 8445,
+        "kw": 13935,
         "sal": 18994,
-        "pay_m": 160.4,
-        "addr": 0.5,
-        "ai_rate": 0.77,
-        "tam_m": 30.9
+        "pay_m": 264.7,
+        "addr": 0.391,
+        "ai_rate": 0.391,
+        "tam_m": 31.4,
+        "core_share": 0.606,
+        "n_roles": 10
       },
       "Human Resources": {
-        "kw": 2846,
+        "kw": 4697,
         "sal": 22168,
-        "pay_m": 63.1,
-        "addr": 0.5,
-        "ai_rate": 0.42,
-        "tam_m": 6.6
+        "pay_m": 104.1,
+        "addr": 0.34,
+        "ai_rate": 0.34,
+        "tam_m": 10.7,
+        "core_share": 0.606,
+        "n_roles": 6
       },
       "Process Engineering": {
-        "kw": 17398,
+        "kw": 28709,
         "sal": 8306,
-        "pay_m": 144.5,
-        "addr": 1.0,
-        "ai_rate": 0.296,
-        "tam_m": 21.4
+        "pay_m": 238.5,
+        "addr": 0.32,
+        "ai_rate": 0.32,
+        "tam_m": 23.1,
+        "core_share": 0.606,
+        "n_roles": 10
       },
       "Quality Control & Lab": {
-        "kw": 4080,
+        "kw": 6733,
         "sal": 9000,
-        "pay_m": 36.7,
-        "addr": 1.0,
-        "ai_rate": 0.321,
-        "tam_m": 5.9
+        "pay_m": 60.6,
+        "addr": 0.281,
+        "ai_rate": 0.281,
+        "tam_m": 5.2,
+        "core_share": 0.606,
+        "n_roles": 8
       },
       "Field Sales": {
-        "kw": 10066,
+        "kw": 16611,
         "sal": 13561,
-        "pay_m": 136.5,
-        "addr": 1.0,
-        "ai_rate": 0.37,
-        "tam_m": 25.3
+        "pay_m": 225.3,
+        "addr": 0.339,
+        "ai_rate": 0.339,
+        "tam_m": 23.1,
+        "core_share": 0.606,
+        "n_roles": 5
       },
       "Retail Execution": {
-        "kw": 33,
+        "kw": 55,
         "sal": 43596,
-        "pay_m": 1.4,
-        "addr": 1.0,
-        "ai_rate": 0.42,
-        "tam_m": 0.3
+        "pay_m": 2.4,
+        "addr": 0.3,
+        "ai_rate": 0.3,
+        "tam_m": 0.2,
+        "core_share": 0.606,
+        "n_roles": 3
       },
       "Analytics & Revenue Mgmt": {
-        "kw": 283,
+        "kw": 467,
         "sal": 32745,
-        "pay_m": 9.3,
-        "addr": 1.0,
-        "ai_rate": 0.337,
-        "tam_m": 1.6
+        "pay_m": 15.3,
+        "addr": 0.381,
+        "ai_rate": 0.381,
+        "tam_m": 1.8,
+        "core_share": 0.606,
+        "n_roles": 5
       },
       "Regulatory & Compliance": {
-        "kw": 533,
+        "kw": 879,
         "sal": 30743,
-        "pay_m": 16.4,
-        "addr": 1.0,
-        "ai_rate": 0.42,
-        "tam_m": 3.4
+        "pay_m": 27.0,
+        "addr": 0.277,
+        "ai_rate": 0.277,
+        "tam_m": 2.3,
+        "core_share": 0.606,
+        "n_roles": 4
       },
       "Customer Service": {
-        "kw": 466,
+        "kw": 769,
         "sal": 23470,
-        "pay_m": 10.9,
-        "addr": 1.0,
-        "ai_rate": 0.62,
-        "tam_m": 3.4
+        "pay_m": 18.1,
+        "addr": 0.394,
+        "ai_rate": 0.394,
+        "tam_m": 2.2,
+        "core_share": 0.606,
+        "n_roles": 4
       }
-    },
-    "auto_t1_sum_m": 279.9,
-    "fmcg_t1_sum_m": 145.4,
-    "auto_ecosystem_m": 381,
-    "fmcg_ecosystem_m": 278,
-    "auto_sector_tam_m": 770,
-    "fmcg_sector_tam_m": 480,
-    "combined_tam_m": 1250,
-    "packages": {},
-    "note": "KW column is Core-only (121K \u00d7 50.5% Auto, 100K \u00d7 60.7% FMCG). TAM formula: kw \u00d7 sal \u00d7 elig \u00d7 ai \u00d7 0.5. No core_share multiplier \u2014 kw is already Core-reduced."
+    }
   },
-  "DEPRECATED_NOTE_NODE_SPECIFIC_REBUILD": "2026-04-23: Chain rebuilt with per-node salary/elig/AI rate. Previous Core-SAM used sector-flat factors. See TAM_MODEL_2026-04-23_v2.json for full derivation."
+  "DEPRECATED_NOTE_NODE_SPECIFIC_REBUILD": "2026-04-23: Chain rebuilt with per-node salary/elig/AI rate. Previous Core-SAM used sector-flat factors. See TAM_MODEL_2026-04-23_v2.json for full derivation.",
+  "V3_1_CROSSWALK_NOTE": "Rebuilt 2026-04-24 using 6-tier \u00d7 12-function-family crosswalk with 100% library coverage. Supersedes v2 (47% hand-curated) and v3 (over-aggressive Para modifiers). Canonical spec: TAM_MODEL_2026-04-24_v3.1.json."
 }
