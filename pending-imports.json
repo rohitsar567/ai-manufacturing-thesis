@@ -380,7 +380,7 @@
     },
     {
       "id": "ff4270e3-d797-4078-bf30-f194ba3d032e",
-      "processed_at": "2026-05-11T08:01:54.016513+00:00",
+      "processed_at": "2026-05-11T18:57:51.268952+00:00",
       "date": "2026-05-09",
       "meeting_title": "Rohit <> Manu (P&G Sr. Director India PS Grooming)",
       "granola_url": "https://notes.granola.ai/t/ff4270e3-d797-4078-bf30-f194ba3d032e-00b881l8",
@@ -395,1852 +395,222 @@
         "cpo",
         "cso"
       ],
+      "router": "manual-claude-v1",
       "transcript_chars": 15097,
       "transcript_excerpt": "Oh, God. Irritating have high. Let me check. Let's to be disrupted because it's more long-term contracts. Right right. Right. So another way to look at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you",
       "transcript_file": "transcripts/ff4270e3-d797-4078-bf30-f194ba3d032e.txt",
       "routed_to_questions": [
         {
-          "sector": "fmcg",
+          "qid": "Q-BUCKET-SUPPLY",
           "q_num": "Q11",
-          "q_text_snippet": "In supply / procurement / S&amp;OP \u2014 across the FMCG companies you watch \u2014 how much AI activity is happening today versus 12 months ago? Acc",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "supply",
-              "ctx": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right."
-            },
-            {
-              "kw": "procurement",
-              "ctx": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
-            },
-            {
-              "kw": "fmcg",
-              "ctx": "ght right. Right. So another way to look at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That"
-            },
-            {
-              "kw": "companies",
-              "ctx": "the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge r"
-            },
-            {
-              "kw": "happening",
-              "ctx": "tween. Right. But then that is not part of your thesis manufacturing is not. Right. So your work is happening is the information system digitized or information system would be even more digitized for"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "months",
-              "ctx": "some info. What is the difference between Claude and chat GPT? Well, maybe chat GT shifted last two months. It doesn't ask you any questions. It just do the work and say, do I do this? The difference"
-            },
-            {
-              "kw": "back",
-              "ctx": "rying to do it. The challenge with the companies is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. ... planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
+          "sector": "fmcg",
+          "q_text": "In supply / procurement / S&OP \u2014 across the FMCG companies you watch \u2014 how much AI activity is happening today versus 12 months ago?",
+          "confidence": 0.78,
+          "direction": "supports",
+          "reasoning": "P&G actively building LLM models + bots so sales reps can query supply availability and production schedules during customer negotiation. Vision stated; not yet in production. Stack Box India named as the live supply-network vendor P&G uses extensively (incl. Indonesia ops).",
+          "evidence": "Using developing bots, developing LLM models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer, he calls up: 'Oh, there's a big incoming, can we get the supply?' Party needs to query \u2014 can it be made? An assistant can get all the data for you, RPM, errors, past production schedule. Not yet there. But that's where the vision is. ... Stack Box India is a leading company in supplier network optimization. P&G uses them extensively, including Indonesia operations.",
+          "pct_bump": 78
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-BUCKET-MFG",
           "q_num": "Q12",
-          "q_text_snippet": "For plant-floor AI \u2014 predictive maintenance, OEE, ML-vision QC, batch-process optimisation \u2014 what&#x27;s actually deployed in production tod",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "fmcg",
-              "ctx": "ght right. Right. So another way to look at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That"
-            },
-            {
-              "kw": "moved",
-              "ctx": "hallenges everybody's investing money. Nobody know how to get the return. Everybody, everything has moved to corporate data takes. But the lake data is not clean. Then we cannot use it. But to answer"
-            },
-            {
-              "kw": "last",
-              "ctx": "m or her some info. What is the difference between Claude and chat GPT? Well, maybe chat GT shifted last two months. It doesn't ask you any questions. It just do the work and say, do I do this? The di"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal ... ? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
+          "sector": "fmcg",
+          "q_text": "For plant-floor AI \u2014 predictive maintenance, OEE, ML-vision QC, batch-process optimisation \u2014 what's actually deployed in production today?",
+          "confidence": 0.82,
+          "direction": "refutes",
+          "reasoning": "At P&G, plant-floor 'process engineering' AI is not new \u2014 they've used optimization/simulation for the sequencing problem for 10 years. The 'new AI' wave is NOT showing up on the plant floor; it's manifesting in decision-support (RGM, demand) instead. Refutes the thesis claim that plant-floor AI is an active opportunity at tier-1 incumbents.",
+          "evidence": "Process engineering \u2014 no. If you are in a more current it's like production sequencing, and production planning... maybe there's no production planning, either you add it to supply and procurement. So production planning can be optimized. We have used / been using for 10 years the sequencing problem, but not with the eye, but a little bit of simulation tool demand.",
+          "pct_bump": 30
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-BUCKET-DEMAND",
           "q_num": "Q13",
-          "q_text_snippet": "For the demand side in FMCG \u2014 modern trade / general trade / quick commerce / D2C \u2014 what&#x27;s the most-used AI capability today? What&#x27",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "demand",
-              "ctx": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili"
-            },
-            {
-              "kw": "side",
-              "ctx": "building that, that the first one can take quarters. Right. And then. It needs resources from both sides. Right? Because if you want to work on that camera project, somebody like Rohit sir should be"
-            },
-            {
-              "kw": "fmcg",
-              "ctx": "ght right. Right. So another way to look at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That"
-            },
-            {
-              "kw": "trade",
-              "ctx": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "distributor",
-              "ctx": "ation is not shared. So there is a promotion planning. There is a sales data. And then I sell it to distributor. Distributor 10 plus one. Right. Then I'll create a. There was no demand. And. Okay, my"
-            },
-            {
-              "kw": "channel",
-              "ctx": "t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
-            },
-            {
-              "kw": "layer",
-              "ctx": ". Right. What you see. Yeah. Yeah. Because that was the only I was trying to coach it. Then it said layer one is metric rail to his dimension. People say it's growing. Sq cluster. You'll see it more o"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili ... building that, that the first one can take quarters. Right. And then. It needs resources from both sides. Right? Because if you want to work on that camera project, somebody like Rohit sir should be"
+          "sector": "fmcg",
+          "q_text": "For the demand side in FMCG \u2014 modern trade / general trade / quick commerce / D2C \u2014 what's the most-used AI capability today?",
+          "confidence": 0.88,
+          "direction": "supports",
+          "reasoning": "Manu's strongest signal of the call. Trade promotion / RGM (pricing + promo + channel-impact analysis) is the single largest leadership-time-sink at P&G and the most automatable demand-side area. Marketing leadership + digital marketing explicitly tagged 'definitely' as AI nodes; key accounts/channels framed as 'a big part of trade'.",
+          "evidence": "Digital marketing, definitely. Marketing leadership, definitely. ... One big part of trade and accounts and channels \u2014 planning a promotion. Pricing and promotion decision. That takes a lot of time of the leadership level. What pricing, where, what is the impact of this pricing on other channel? What does my price tier do? It's super critical. But that's another area can be automated when looking at data.",
+          "pct_bump": 88
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-03_SOP_Demand_Planning-PROBLEMS",
           "q_num": "Q15",
-          "q_text_snippet": "When you think about S&amp;OP / Demand Planning specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things a",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "demand",
-              "ctx": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili"
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili"
+          "sector": "fmcg",
+          "q_text": "When you think about S&OP / Demand Planning specifically \u2014 what 2-3 things are eating the most leadership / FTE time?",
+          "confidence": 0.85,
+          "direction": "supports",
+          "reasoning": "Manu pinpointed domain expertise as the single biggest barrier to demand-planning AI at P&G: 'people think demand planning is statistical' but the real factors are off-take, distributor behaviour, false-signal promos (10+1 schemes). This is what's eating leadership/FTE time \u2014 not data, but reconciling demand drivers.",
+          "evidence": "The biggest barrier is the domain expertise. They think demand planning is in terms of numbers \u2014 a mathematical model, statistical model, looking at data. But if I say demand planning, what are the demand planning factors? Number one, there is a demand signal. There's off-take which we are getting [from distributors]. 10+1 promotions create false demand signals.",
+          "pct_bump": 85
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-03_SOP_Demand_Planning-EXISTING_AI",
           "q_num": "Q16",
-          "q_text_snippet": "For S&amp;OP / Demand Planning \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "demand",
-              "ctx": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili"
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili ... we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
+          "sector": "fmcg",
+          "q_text": "For S&OP / Demand Planning \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.7,
+          "direction": "mixed",
+          "reasoning": "P&G is *trying* \u2014 building bots/LLM models \u2014 but explicit 'not yet there'. Statistical/mathematical models existed pre-AI. The gap between statistical demand planning (decade-old) and true AI demand planning (in build, not shipped) is what makes this a mixed signal.",
+          "evidence": "We're trying. We've been trying. Using developing bots, developing LLM models. But not yet there \u2014 that's where the vision is. Half [the systems are] in Excel, half undocumented. Need to map existing systems before AI implementation.",
+          "pct_bump": 55
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-03_SOP_Demand_Planning-WISHLIST",
           "q_num": "Q17",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for S&amp;OP / Demand Planning, what would you spend it on first? Is the",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "demand",
-              "ctx": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili"
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the abili ... we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
+          "sector": "fmcg",
+          "q_text": "If a credible vendor showed up tomorrow with $500K committed budget for S&OP / Demand Planning, what would you spend it on first?",
+          "confidence": 0.62,
+          "direction": "supports",
+          "reasoning": "Manu's wishlist is a sales-rep AI assistant that queries supply/production data during live negotiation \u2014 concrete use case named as the next investment vector. Domain-knowledge mapping is the precondition before any tool buy.",
+          "evidence": "If the salesperson has to go and negotiate with the customer, he calls up: 'Can we get the supply?' Party needs to query \u2014 can it be made? An assistant can get all the data for you. RPM, errors, past production schedule. Not yet there. But that's where the vision is.",
+          "pct_bump": 60
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q18",
-          "q_text_snippet": "When you think about Supply Planning specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating t",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "supply",
-              "ctx": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right."
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right."
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-04_Supply_Planning-EXISTING_AI",
           "q_num": "Q19",
-          "q_text_snippet": "For Supply Planning \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "supply",
-              "ctx": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right."
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. ... we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
+          "sector": "fmcg",
+          "q_text": "For Supply Planning \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.72,
+          "direction": "supports",
+          "reasoning": "Manu named Stack Box India as the live supply-network vendor in production at P&G (specifically called out Indonesia ops). Concrete vendor-attribution. P&G Indonesia claim not yet independently corroborated \u2014 testimony-grade signal, treat as confirmation by P&G insider.",
+          "evidence": "Stack Box India is a leading company in supplier network optimization. P&G uses them extensively. Indonesia operations especially.",
+          "pct_bump": 72
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q20",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Supply Planning, what would you spend it on first? Is there a specif",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "supply",
-              "ctx": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right."
-            },
-            {
-              "kw": "planning",
-              "ctx": "we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ok at it, if you are in a B2C space. Right, which is more of. Fmcg and also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. ... we're negotiating with. Our agencies, right, who build the advertisement. Are we looking at demand planning? We're trying to do it. The challenge with the companies is. It's how do we transition. And"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q21",
-          "q_text_snippet": "When you think about Procurement specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating the m",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "procurement",
-              "ctx": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q22",
-          "q_text_snippet": "For Procurement \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through what",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "procurement",
-              "ctx": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q23",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Procurement, what would you spend it on first? Is there a specific A",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "procurement",
-              "ctx": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            },
-            {
-              "kw": "make",
-              "ctx": "nd also auto ancillary, you are supplying it to. Demand. And there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT i"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "planning. Which is a part of maybe there's no production planning. Either you add it to supply and procurement. So that is what one thing can be production, planning can be enrollment optimized. We h ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-08_Process_Engineering-PROBLEMS",
           "q_num": "Q24",
-          "q_text_snippet": "When you think about Process Engineering specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eati",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "process",
-              "ctx": "n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th"
+          "sector": "fmcg",
+          "q_text": "When you think about Process Engineering specifically \u2014 what 2-3 things are eating the most leadership / FTE time?",
+          "confidence": 0.75,
+          "direction": "refutes",
+          "reasoning": "Manu walked through the FMCG node list and said process engineering is 'NO' \u2014 meaning not an active AI opportunity at tier-1 FMCG. P&G has been doing the sequencing/scheduling problem with simulation tools for 10 years. The thesis-implied 'plant-floor AI' framing doesn't fit at tier-1 incumbents. Per directive \u00a73 this needs \u22651 more contradictor before flipping the claim to 'refuted'.",
+          "evidence": "Process engineering \u2014 no. It's production sequencing and production planning... we have been using for 10 years the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand.",
+          "pct_bump": 25
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-08_Process_Engineering-EXISTING_AI",
           "q_num": "Q25",
-          "q_text_snippet": "For Process Engineering \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me thro",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "process",
-              "ctx": "n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
+          "sector": "fmcg",
+          "q_text": "For Process Engineering \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.8,
+          "direction": "refutes",
+          "reasoning": "Same as Q24 \u2014 10 years of simulation, no AI. P&G is the highest-AI-maturity FMCG in India and they don't see process engineering as the next AI frontier.",
+          "evidence": "We have been using for 10 years the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand.",
+          "pct_bump": 20
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q26",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Process Engineering, what would you spend it on first? Is there a sp",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "process",
-              "ctx": "n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "n needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. I think our biggest competitor PNG like any other big ff would be on th ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q27",
-          "q_text_snippet": "When you think about Quality Control &amp; Lab specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things ar",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q28",
-          "q_text_snippet": "For Quality Control &amp; Lab \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk m",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because ... this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q29",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Quality Control &amp; Lab, what would you spend it on first? Is ther",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v ... the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q30",
-          "q_text_snippet": "When you think about Food Safety &amp; QA specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eat",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q31",
-          "q_text_snippet": "For Food Safety &amp; QA \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me thr",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because ... this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q32",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Food Safety &amp; QA, what would you spend it on first? Is there a s",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v ... the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q33",
-          "q_text_snippet": "When you think about Marketing Leadership specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eat",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-17_Marketing_Leadership-EXISTING_AI",
           "q_num": "Q34",
-          "q_text_snippet": "For Marketing Leadership \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me thr",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca ... with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
+          "sector": "fmcg",
+          "q_text": "For Marketing Leadership \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.78,
+          "direction": "supports",
+          "reasoning": "Manu marked marketing leadership and digital marketing as 'definitely' AI-active at P&G. Concrete vendor engagement: P&G leadership visited TCS T-HUB; also engaging external AI partners directly. Adoption mode: PoC-gated.",
+          "evidence": "Digital marketing, definitely. Marketing leadership, definitely. ... It's happening both ways. We went to TCS HUB \u2014 our leadership team was there. But we are also engaging. We are learning. We are eager. So both ways it's happening.",
+          "pct_bump": 78
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q35",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Marketing Leadership, what would you spend it on first? Is there a s",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca ... with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-18_Trade_Digital_Marketing-PROBLEMS",
           "q_num": "Q36",
-          "q_text_snippet": "When you think about Trade &amp; Digital Marketing specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 thing",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "trade",
-              "ctx": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo"
-            },
-            {
-              "kw": "digital",
-              "ctx": "en it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. Which AI can leverage, which is not possible for human."
-            },
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo"
+          "sector": "fmcg",
+          "q_text": "When you think about Trade & Digital Marketing specifically \u2014 what 2-3 things are eating the most leadership / FTE time?",
+          "confidence": 0.92,
+          "direction": "supports",
+          "reasoning": "Strongest Manu signal of the call. RGM (pricing + promotion + channel-impact analysis) named as the single largest leadership-time-sink at P&G and the most-automatable decision-AI node. Validates the thesis's emphasis on RGM/trade-marketing AI.",
+          "evidence": "One big part of trade and accounts and channels \u2014 planning a promotion. Pricing and promotion decision. That takes a lot of time of the leadership level. What pricing, where, what is the impact of this pricing on other channel? What does my price tier do? It's super critical. But that's another area can be automated when looking at data.",
+          "pct_bump": 92
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-18_Trade_Digital_Marketing-EXISTING_AI",
           "q_num": "Q37",
-          "q_text_snippet": "For Trade &amp; Digital Marketing \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Wa",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "trade",
-              "ctx": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo"
-            },
-            {
-              "kw": "digital",
-              "ctx": "en it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. Which AI can leverage, which is not possible for human."
-            },
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo ... en it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. Which AI can leverage, which is not possible for human."
+          "sector": "fmcg",
+          "q_text": "For Trade & Digital Marketing \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.75,
+          "direction": "supports",
+          "reasoning": "Active build at P&G \u2014 bots + LLM models for trade/digital marketing. Engaging external AI vendors + TCS T-HUB exploration. Adoption is PoC-gated.",
+          "evidence": "We're trying. Using developing bots, developing LLM models. ... We went to TCS HUB. Our leadership team was there. But we are also engaging. We are learning. We are eager.",
+          "pct_bump": 72
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q38",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Trade &amp; Digital Marketing, what would you spend it on first? Is ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "trade",
-              "ctx": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo"
-            },
-            {
-              "kw": "digital",
-              "ctx": "en it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. Which AI can leverage, which is not possible for human."
-            },
-            {
-              "kw": "marketing",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "all it then PNP promotion. And planning so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promo ... en it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. Which AI can leverage, which is not possible for human."
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-19_Sales_Leadership-PROBLEMS",
           "q_num": "Q39",
-          "q_text_snippet": "When you think about Sales Leadership specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
+          "sector": "fmcg",
+          "q_text": "When you think about Sales Leadership specifically \u2014 what 2-3 things are eating the most leadership / FTE time?",
+          "confidence": 0.65,
+          "direction": "mixed",
+          "reasoning": "Manu carved sales leadership out of pure decision-automation: 'sales is relationship building' \u2014 AI augments but doesn't replace decision-making. Reframes the thesis claim narrowly. Needs a tiebreaker per directive \u00a73.",
+          "evidence": "Sales leadership \u2014 I have my doubt, because sales is... it can augment it, but it has more relationship building.",
+          "pct_bump": 45
         },
         {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-19_Sales_Leadership-EXISTING_AI",
           "q_num": "Q40",
-          "q_text_snippet": "For Sales Leadership \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can ... with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
+          "sector": "fmcg",
+          "q_text": "For Sales Leadership \u2014 what AI / automation is actually being used today?",
+          "confidence": 0.7,
+          "direction": "supports",
+          "reasoning": "Sales-rep AI assistant in build at P&G \u2014 LLM-based query tool so reps can pull supply/production data live during customer negotiation. Concrete use case, in development, not yet shipped.",
+          "evidence": "If the salesperson has to go and negotiate with the customer, he calls up: 'Oh there's a big incoming, can we get the supply?' Party needs to query \u2014 can it be made? An assistant can get all the data for you, RPM, errors, past production schedule. Not yet there. But that's where the vision is.",
+          "pct_bump": 68
         },
         {
-          "sector": "fmcg",
-          "q_num": "Q41",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Sales Leadership, what would you spend it on first? Is there a speci",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "leadership",
-              "ctx": "with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can ... with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but because sales is. There, it can argum"
-        },
-        {
-          "sector": "fmcg",
+          "qid": "Q-NODE-FMCG-20_Key_Accounts_Channels-PROBLEMS",
           "q_num": "Q42",
-          "q_text_snippet": "When you think about Key Accounts &amp; Channels specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "accounts",
-              "ctx": "g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes"
-            },
-            {
-              "kw": "channels",
-              "ctx": "t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes"
+          "sector": "fmcg",
+          "q_text": "When you think about Key Accounts & Channels specifically \u2014 what 2-3 things are eating the most leadership / FTE time?",
+          "confidence": 0.84,
+          "direction": "supports",
+          "reasoning": "Tightly coupled with the trade-promo signal. Manu sees pricing-decision + cross-channel impact analysis as the leadership-time-sink; channel planning + promo design are the levers.",
+          "evidence": "Sales leadership, what you call \u2014 you can call it then PNP promotion and planning so much. One big part of trade \u2014 accounts and channels. Planning a promotion. Pricing and promotion decision. That takes a lot of time of the leadership level.",
+          "pct_bump": 84
         },
         {
+          "qid": "Q-SS-3-ADDRESSABLE",
+          "q_num": "Q06",
           "sector": "fmcg",
-          "q_num": "Q43",
-          "q_text_snippet": "For Key Accounts &amp; Channels \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "accounts",
-              "ctx": "g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes"
-            },
-            {
-              "kw": "channels",
-              "ctx": "t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes ... t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
+          "q_text": "Look at the work your team did last week \u2014 across the workflow, where is AI today addressing real bottlenecks vs. where would you go next?",
+          "confidence": 0.86,
+          "direction": "supports",
+          "reasoning": "Manu independently validated the thesis B2C/FMCG vs B2B/auto-ancillary cut: variability of demand makes FMCG decision-AI the bigger value pool; auto-ancillary is stable demand, so the value is in physical automation not decision optimization. Direct restatement of the thesis weighting.",
+          "evidence": "If you are in a B2C space, which is more of FMCG and also auto-ancillary supplying B2B \u2014 you are supplying to demand, and there's variability there. That makes it easy to disrupt. ... Currently all the automated lines on a car line \u2014 you don't shut them and start them, you run at particular speed. The ancillary company is supplying to an auto company; they're truly dependent on a very, very predictable demand. ... In the FMCG sector B2C, it'll be more efficient decisions than humans because of [variability] \u2014 that's the difference between B2B and B2C.",
+          "pct_bump": 86
         },
         {
+          "qid": "Q-SS-2-MATURITY",
+          "q_num": "Q05",
           "sector": "fmcg",
-          "q_num": "Q44",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Key Accounts &amp; Channels, what would you spend it on first? Is th",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "accounts",
-              "ctx": "g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes"
-            },
-            {
-              "kw": "channels",
-              "ctx": "t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "g so much as I think what, what do you think? One big part of trade and which, which you are saying accounts and channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes ... t because sales is. There, it can argument it, but it has a more relationship building. Key account channels. I don't know what is the difference between sales leadership. But let me read through it."
+          "q_text": "Of the 5 FMCG peers you watch most closely, who's furthest ahead on actually deploying AI in operations?",
+          "confidence": 0.72,
+          "direction": "supports",
+          "reasoning": "P&G is on the leading curve among FMCG incumbents \u2014 Manu's frame is that the threat isn't peers but upstarts. Tier-1 FMCG mainly competes via change-management speed, not algorithm sophistication. Carve-out: Mamaearth-shape DTC asset-light brands are OUT of the manufacturing-AI thesis.",
+          "evidence": "I think our biggest competitor P&G \u2014 like any other big FF [fast-moving] \u2014 would be on the leading curve. The challenge would be to bring the people along; you cannot get human out of the loop as fast. The threat would be the new upstarts. If somebody can solve the ESS supplier loop, you can make a company of 10 employees with a billion dollars revenue. ... Two kinds of FMCG: one is the [Mamaearth-shape] of the world \u2014 minimal/no manufacturing, everything is contract. There's nothing automated or digitized in between. That is not part of your thesis \u2014 manufacturing is not.",
+          "pct_bump": 72
         },
         {
+          "qid": "Q-IMPL-2-BUYBUILD",
+          "q_num": "Q67",
           "sector": "fmcg",
-          "q_num": "Q45",
-          "q_text_snippet": "When you think about Field Sales specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating the m",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
+          "q_text": "What are the parameters used to determine what to outsource versus what to build in-house?",
+          "confidence": 0.7,
+          "direction": "supports",
+          "reasoning": "Concrete model: both ways. External engagement gated by PoC; internal build also active. Adoption mode: small pilots, human-refinement, gradual scale, domain-expert tied in.",
+          "evidence": "It's happening both ways. We went to TCS T-HUB. Our leadership team was there. But we are also engaging external AI companies. We are learning. We are eager. ... Startup engagement model: proof of concept required before enterprise adoption. ... Small pilot projects with human refinement, gradual scaling with domain expert involvement.",
+          "pct_bump": 70
         },
         {
+          "qid": "Q-IMPL-12-IMPLEMENTATION",
+          "q_num": "Q77",
           "sector": "fmcg",
-          "q_num": "Q46",
-          "q_text_snippet": "For Field Sales \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through what",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q47",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Field Sales, what would you spend it on first? Is there a specific A",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "sales",
-              "ctx": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "ing developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q48",
-          "q_text_snippet": "When you think about Retail Execution specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "retail",
-              "ctx": "f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there."
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there."
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q49",
-          "q_text_snippet": "For Retail Execution \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "retail",
-              "ctx": "f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there."
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q50",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Retail Execution, what would you spend it on first? Is there a speci",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "retail",
-              "ctx": "f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there."
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "f your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consumers. Right. The amount of digital unconnected infrastructure is there. ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q51",
-          "q_text_snippet": "When you think about Customer Service specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things are eating ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "customer",
-              "ctx": "create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q52",
-          "q_text_snippet": "For Customer Service \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk me through",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "customer",
-              "ctx": "create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q53",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Customer Service, what would you spend it on first? Is there a speci",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "customer",
-              "ctx": "create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He calls up, oh, there's a big incoming. Can we get the supply? Party needs to go and quer ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q60",
-          "q_text_snippet": "When you think about Regulatory &amp; Compliance specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things ",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q61",
-          "q_text_snippet": "For Regulatory &amp; Compliance \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Walk",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because ... this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q62",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Regulatory &amp; Compliance, what would you spend it on first? Is th",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            },
-            {
-              "kw": "using",
-              "ctx": "r is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if th"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v ... the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q63",
-          "q_text_snippet": "When you think about Analytics &amp; Revenue Mgmt specifically \u2014 in your own shop or customers / peers you&#x27;ve watched \u2014 what 2-3 things",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "think",
-              "ctx": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based"
-            },
-            {
-              "kw": "revenue",
-              "ctx": "t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen"
-            },
-            {
-              "kw": "things",
-              "ctx": "ut answer is yes. We've been trying. Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer. He cal"
-            },
-            {
-              "kw": "eating",
-              "ctx": "for. A company which is ESS driven. Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company. Right? Working with retailers, working with consu"
-            },
-            {
-              "kw": "time",
-              "ctx": "nd channels. Planning a promotion. Pricing and promotion decision. Right. That, that takes a lot of time. Right. Of the leadership level. What pricing, where, what is the impact of this pricing on oth"
-            },
-            {
-              "kw": "money",
-              "ctx": "he startups, right? They work with. Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer. It, it always starts up from the money of the inv"
-            },
-            {
-              "kw": "where",
-              "ctx": "there's a variability there. That also make it easy to disrupt. Right. Because the ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card."
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "e supply? Party needs to go and query? Can you query that? I want this. Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors. And I think based ... t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q64",
-          "q_text_snippet": "For Analytics &amp; Revenue Mgmt \u2014 what AI / automation is actually being used today? In your own shop, customers&#x27;, or peers&#x27;. Wal",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "revenue",
-              "ctx": "t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen"
-            },
-            {
-              "kw": "automation",
-              "ctx": "o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-            },
-            {
-              "kw": "actually",
-              "ctx": "this? The difference between clone is like do this, do this, or you have more information. So. You. Actually understand the reason I use the word domain knowledge. How a demand gets generated. And hal"
-            },
-            {
-              "kw": "used",
-              "ctx": "ability is more where the stability is high, where MLT is less. Then. Right. But. I saw that. I've used claud card. So it is called pro or you use the higher version because you run out of. Yeah, tha"
-            },
-            {
-              "kw": "today",
-              "ctx": "shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data. Today. I'm forecast based on forecasting model. This would have been automated even before AI. Right"
-            },
-            {
-              "kw": "through",
-              "ctx": "Key account channels. I don't know what is the difference between sales leadership. But let me read through it. So what you're saying sales leadership and what you call say you can call it then PNP pr"
-            },
-            {
-              "kw": "production",
-              "ctx": "? A assistant can get all the data for you or this RPM, these errors. And I think based on the past production schedule, this you can give it. Right. Not yet there. But that's where the vision is. I t"
-            },
-            {
-              "kw": "pilot",
-              "ctx": "d part of it. Where the data would be. How do I connect? Maybe some standardization? Start with the pilot. Right. Small things. Then go and do it and do that human in the model refinement. Then give t"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen ... o we create value is more not like creating efficient or better decisions? But it'll be more out of automation. In the fmcg sector B2C. It'll be more like more efficient decisions than humans because"
-        },
-        {
-          "sector": "fmcg",
-          "q_num": "Q65",
-          "q_text_snippet": "If a credible vendor showed up tomorrow with $500K committed budget for Analytics &amp; Revenue Mgmt, what would you spend it on first? Is t",
-          "q_feed": "",
-          "hits": [
-            {
-              "kw": "revenue",
-              "ctx": "t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen"
-            },
-            {
-              "kw": "first",
-              "ctx": "is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
-            },
-            {
-              "kw": "market",
-              "ctx": "the sequencing problem, but not with the eye, but a little bit of simulation. Tool demand. Digital marketing. Definitely. Marketing leadership. Definitely. Sales leadership. I have my doubt, but beca"
-            },
-            {
-              "kw": "nobody",
-              "ctx": "idea, it can be built. Absolutely. Yes, absolutely. There are people working. Definitely everybody, nobody wants to be left behind in the race. So the challenges everybody's investing money. Nobody kn"
-            },
-            {
-              "kw": "built",
-              "ctx": "tood it. Right? That's one of the leading companies which started in the, if I'm not wrong. So they built the knowledge system. The first pilot takes time. And somebody needs to have that. Patience. R"
-            }
-          ],
-          "pct_bump": 40,
-          "evidence": "t Loop. Then you have a good product. You can make a company of 10 employees with a billion dollars Revenue. That's possible, I think, in this space primarily on. Second to answer that. I've not seen ... is. It's how do we transition. And give the trust. Back to it. So. The biggest challenge right now, first the answer is yes. Right. We're trying. We'll come to challenge later. But answer is yes. We'v"
+          "q_text": "Walk me through the implementation reality. AI POCs in last 12\u201318 months \u2014 which graduated to production, which died?",
+          "confidence": 0.6,
+          "direction": "mixed",
+          "reasoning": "Most P&G internal AI work has not graduated to production \u2014 vision stated, build in progress, but 'not yet there'. Implementation barrier is two-layer: infrastructure/change-management + domain-knowledge mapping.",
+          "evidence": "We're trying. We've been trying. ... Not yet there. But that's where the vision is. ... Digitization needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed. The challenge would be to bring the people along.",
+          "pct_bump": 50
         }
       ],
-      "thesis_impact_summary": "Added evidence to 48 FMCG questions."
+      "thesis_impact_summary": "Added LLM-quality evidence to 19 FMCG questions. Key signals: RGM/trade-promo highest-leverage decision-AI (Q-NODE-FMCG-18-PROBLEMS, conf 0.92); Process Engineering refuted at tier-1 incumbents (Q-NODE-FMCG-08, conf 0.80, refutes); Stackbox vendor confirmed for FMCG supply-chain (Q-NODE-FMCG-04, conf 0.72)."
     }
   ]
 }
