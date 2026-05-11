@@ -1,0 +1,331 @@
+Oh, God.
+Irritating have high.
+Let me check.
+Let's to be disrupted because it's more long-term contracts.
+Right right.
+Right. So another way to look at it, if you are in a B2C space.
+Right, which is more of.
+Fmcg and also auto ancillary, you are supplying it to.
+Demand. And there's a variability there.
+That also make it easy to disrupt.
+Right.
+Because the ability is more where the stability is high, where MLT is less.
+Then.
+Right.
+But.
+I saw that.
+I've used claud card. So it is called pro or you use the higher version because you run out of.
+Yeah, that's only you can do it. Otherwise it's impossible to do this kind of work.
+Okay. This to launch it, put it on the GitHub.
+Yeah.
+Wow.
+So, yeah, how.
+What percentage of these jobs are shipped?
+So is it only startups or banks going this way?
+Yeah.
+Go ahead.
+Yeah, it's coming, right? Even if you go beyond, which is not part of your thesis.
+For fmcg company.
+How we're negotiating with.
+Our agencies, right, who build the advertisement.
+Are we looking at demand planning?
+We're trying to do it.
+The challenge with the companies is.
+It's how do we transition.
+And give the trust.
+Back to it.
+So.
+The biggest challenge right now, first the answer is yes.
+Right. We're trying.
+We'll come to challenge later. But answer is yes. We've been trying.
+Using developing bots, developing llm models to create certain things. For example, currently, if the salesperson has to go and negotiate with the customer.
+He calls up, oh, there's a big incoming. Can we get the supply?
+Party needs to go and query? Can you query that? I want this.
+Can it be made? What do you think, right? A assistant can get all the data for you or this RPM, these errors.
+And I think based on the past production schedule, this you can give it.
+Right.
+Not yet there. But that's where the vision is.
+I think it's very even for the big companies. Whoever Legacy.
+Right? Digitization needs an infrastructure, needs to think differently. The whole information system and the thought process needs to be changed.
+I think our biggest competitor PNG like any other big ff would be on the leading curve.
+The challenge would be to bring the people along.
+Right. And as you bring, you cannot get human out of the loop. You cannot get human as fast.
+So that's going to slow us down. The challenge would be the new upstarts.
+Right. As they say.
+For example.
+Somebody wants to start now in the fmcg company.
+Which is Amazon.
+Deliver in our online driven.
+And let's say 40 of business is online.
+If they want to design a company, they can really, really design the company very differently.
+But can PNG do that? You know, the challenge for this company would be to get the product.
+Right. Because they have to deal with ess supplier. If somebody can solve that Loop.
+Then you have a good product.
+You can make a company of 10 employees with a billion dollars Revenue.
+That's possible, I think, in this space primarily on.
+Second to answer that. I've not seen and exposed to other sectors.
+Right. Personally, for me.
+But for is it possible? Yes. But there is a cat caveat, right? The two kind of fmcg companies.
+Right. One is the ricket bank users of the world.
+Right. They have minimal or no manufacturing.
+They don't believe in that.
+Everything is contract.
+Contract is all about.
+When you contract something. There are two, three things very important.
+The, the materials they use and the process they follow.
+Right. There's nothing automated in between digitized in between.
+Right. But then that is not part of your thesis manufacturing is not.
+Right. So your work is happening is the information system digitized or information system would be even more digitized for.
+A company which is ESS driven.
+Because manufacturing is not part of your thesis. Again, I'm repeating that. So for me, given it is a B2C company.
+Right? Working with retailers, working with consumers.
+Right.
+The amount of digital unconnected infrastructure is there.
+Which AI can leverage, which is not possible for human. So I would answer that way.
+Whether you are B2B company.
+You are connected, but it is not that variable. For example, let me take a auto ancillary company. I'm just.
+Using a little bit of my imagination here.
+Right.
+It's not that they would need.
+Tons or the.
+Up and down on capacity.
+Currently all the automated lines and whatever you run on a car line, you don't try to shut them and start them.
+You run that at a particular speed, particular Pace just to make sure the shutdown in startup is not that much.
+Right. And the ancillary company is supplying to a auto company.
+They're truly dependent on a very, very predictable demand.
+Right. So there is no, even if there is.
+Diwali sales or year end bumper discount sales before the price goes up. It's very well known. And they'll know when the orders would come in.
+Right. That place, how do we create value is more not like creating efficient or better decisions?
+But it'll be more out of automation.
+In the fmcg sector B2C. It'll be more like more efficient decisions than humans because of that's, that's the difference between B2B and B2C.
+Yeah.
+Let me refer to your report.
+Let me go there.
+Right?
+Here is fmcg. Fmcd is the first one or second one?
+Okay.
+Yeah.
+So if I see the nodes, right demand planning, yes.
+Supply training. Yes.
+Recommend some part.
+Yes.
+Right.
+Not yet.
+You're right. You're thesis is right.
+Process engine.
+Ering.
+No.
+No.
+If you want, if you are in a more of a current, it's like production sequencing.
+Right. And production planning.
+Which is a part of maybe there's no production planning. Either you add it to supply and procurement.
+So that is what one thing can be production, planning can be enrollment optimized.
+We have used, have been using for 10 years the sequencing problem, but not with the eye, but a little bit of simulation.
+Tool demand.
+Digital marketing. Definitely. Marketing leadership. Definitely.
+Sales leadership. I have my doubt, but because sales is.
+There, it can argument it, but it has a more relationship building.
+Key account channels.
+I don't know what is the difference between sales leadership. But let me read through it.
+So what you're saying sales leadership and what you call say you can call it then PNP promotion.
+And planning so much as I think what, what do you think?
+One big part of trade and which, which you are saying accounts and channels.
+Planning a promotion.
+Pricing and promotion decision.
+Right.
+That, that takes a lot of time.
+Right. Of the leadership level.
+What pricing, where, what is the impact of this pricing on other channel? What does my price tier does? It's super critical.
+But that's another area can be automated.
+When looking at data.
+It's happening. It's happening both ways. It's happening, right? We went to in our leadership team was there. We went to t hu.
+B.
+Which is. But we are also engaging. We are learning. We are eager. So both ways it's happening.
+I think the barrier is the biggest barrier is.
+The domain expertise.
+Right.
+So they think demand planning is in terms of numbers.
+Right. This comes. It's a mathematical model, statistical model.
+Right. Looking at data. But if I say demand planning, what are the demand planning factors?
+Number one, there is a demand signal. There's off take which we are getting.
+There's a pricing in borrow shingarenda. There's a initiatives that come in. So the whole data is you cannot look at the data.
+Today. I'm forecast based on forecasting model. This would have been automated even before AI.
+Right.
+So the challenge today is.
+So there is actual inventory data or sales which I do is sitting somewhere.
+For example, let me say it.
+I sell a wilkinson blade.
+You have the data. Then you do a 10 plus one count.
+That becomes another G team. Though the blade is the same.
+Then you are getting out of 10 plus one.
+That's another G10 going back to that. But if this information is not shared.
+So there is a promotion planning.
+There is a sales data.
+And then I sell it to distributor. Distributor 10 plus one.
+Right.
+Then I'll create a.
+There was no demand.
+And. Okay, my price increase increase.
+Then to the play. So these kind of decisions, if I want to do demand planning, we want to automate looks like a very easy problem to solve.
+Right. Then the person who comes with a machine learning, say, RS sales credit.
+Exactly. So you have to create a system first.
+Before we talk of AI.
+Yeah, it's like. It's like. Yeah, sorry.
+It's like Lord, right? You give him or her some info.
+What is the difference between Claude and chat GPT? Well, maybe chat GT shifted last two months.
+It doesn't ask you any questions.
+It just do the work and say, do I do this?
+The difference between clone is like do this, do this, or you have more information.
+So.
+You.
+Actually understand the reason I use the word domain knowledge.
+How a demand gets generated.
+And half the system is in Excel.
+Have the system is gone. Half the system is not even documented.
+So there are two, three things which AI can do. Let's take this use case.
+So find out what systems exist. People have no knowledge. So first somebody needs to know some this knowledge exists.
+Right. Then second part of it.
+Where the data would be. How do I connect?
+Maybe some standardization? Start with the pilot.
+Right. Small things. Then go and do it and do that human in the model refinement.
+Then give them that this domain abdo. This is how we can do that. This part takes most of the time.
+But to get there, a person has to be knowledgeable enough that this is how the things work.
+Yeah.
+I think there is something called a stack box. This is a startup. Let me find out. I'm not working with them.
+Box India.
+Stack box.
+Yeah.
+You can also search for.
+Yeah, no, this is more than that. They actually, if that is the same company, product Supply, SMD, right, supplier Network design.
+Right? We use them a lot. We've used in Indonesia, but they understood it.
+Right? That's one of the leading companies which started in the, if I'm not wrong.
+So they built the knowledge system.
+The first pilot takes time.
+And somebody needs to have that.
+Patience.
+Right.
+To first choosing the right problem, get the excited, and then building that, that the first one can take quarters.
+Right.
+And then.
+It needs resources from both sides.
+Right? Because if you want to work on that camera project, somebody like Rohit sir should be there and somebody from the company should be there. It might not work, might work.
+But that's how initially somebody has to all the startups, right? They work with.
+Some, they cannot be started. No startup can work on either the money of the startup or the money of the customer.
+It, it always starts up from the money of the investor.
+Right. So if investor is there and there is a belief in that idea, it can be built.
+Absolutely. Yes, absolutely.
+There are people working.
+Definitely everybody, nobody wants to be left behind in the race.
+So the challenges everybody's investing money. Nobody know how to get the return. Everybody, everything has moved to corporate data takes.
+But the lake data is not clean.
+Then we cannot use it. But to answer your question, yes, there are departments. The key is a lot of people reach them.
+So it's not always easy to get to a big company with just an idea.
+It never goes through.
+It goes after you have proven with.
+A proof of concept and someone and you have some credentials.
+Then only it will flow to companies like PNG.
+Rarely with an idea and startup because we are risk averse.
+Yeah.
+That's a huge focus for every company.
+One line. And on the anxieties with what is happening externally, people accept it.
+At least it was white color.
+Like, except because it's in the news every day.
+Right?
+Everybody is back of the thought. Everybody's thinking.
+So it's not companies thinking employees.
+Know.
+I'll just put the last thing you are thinking in the right way. Don't start from sur. Right. Start from sales.
+From the bag. Yeah. From right. How the demand is generated, how they're selling. Because when you start to simplify and create value there.
+You cannot create value before connecting. And that is very easy to understand.
+Yeah. Follow the money.
+Yeah.
+So.
+I've done that. I'll tell you.
+I was building this training.
+I'll just see if I have give me a minute.
+I send it to Mr. Jadwal. Me and him used to.
+Make it.
+Right for any training teams. Wait a minute.
+You, you can identify with the format.
+I was training.
+Sales and commercial folks on problem definition and 6w2h.
+Now, how do you.
+Really make it? Wait a minute.
+Download it.
+And drop.
+Mac mini.
+Open.
+Please share it with you.
+I.
+Was blown away by this.
+So I use it very often for my stock research. So we use it for.
+We want to record this computer open settings.
+This Mac security.
+Wait a minute.
+Give.
+Me a minute.
+You know it, but I'm so excited to share.
+So start.
+I don't.
+Want to.
+Get the option.
+Okay.
+Finally.
+Gets there.
+What about many exactly on this range to use local models?
+And just the new thing?
+From tab window entire screen.
+Share. Can you see?
+So I gave him a prompt like say how do you 99 is done by 99.
+Right. By clod.
+So this is the presentation.
+Can you see this?
+So I said start with the problems. Give an example.
+Claude chores.
+Right. But I was doing it this for marketing. I said I need a format.
+To it gave an eight step format. I said I want to slow it down.
+Then it gives a spot sharpen problem.
+Solve. Define the problem, diagnose the cause and design the action.
+Right.
+What you see.
+Yeah. Yeah. Because that was the only I was trying to coach it.
+Then it said layer one is metric rail to his dimension. People say it's growing.
+Sq cluster. You'll see it more of the language, but that was our discussion.
+Then where sales are declining value per user decline and said, put it more in a way.
+Then say 62h, you'll relate to it.
+And then the problem is.
+What, what symptoms do you see where, which channel segment, where it is not when.
+Who, which customer segment priced here, which business going simple as that.
+Right.
+So that's where this is so beautiful.
+You can make so many changes.
+And this was done maybe in 45 minutes.
+Using. But now if I have to do this myself.
+Right?
+And this would have been so difficult. I have to first think about it.
+Created, develop the knowledge myself.
+And then first put it on paper and then put it on PPT. Then somebody has to make it.
+It's such a painful stuff.
+And it just automated.
+It.
+I use cover. Cowork. I don't use claud. Cobalt is somewhere in between.
+Right?
+So.
+Plot. I like it.
+Co-work more because then I've created for same exact new. It does. It's co-work and chat.
+Somewhere in between.
+Right.
+I just need to learn cloud code, but I have not have time to learn it.
+Go ahead.
+Yeah.
+Good.
+But the lie also that this is a link.
+Wow.
+The hundred dollars will never run out, is it?
+20 or 20 roller? It runs out every two hours.
+Can enter YouTube account and Google website.
+And run the analysis report what to do, what not to do.
+Cool. Very good.
+But it was very nice talking to you.
+I'll keep link.
+All the best and congratulations once again.
